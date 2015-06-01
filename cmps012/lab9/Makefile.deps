@@ -1,0 +1,4 @@
+inssort.o: inssort.c inssort.h
+inssort.o: inssort.h
+numsort.o: numsort.c inssort.h
+linesort.o: linesort.c inssort.h

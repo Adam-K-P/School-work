@@ -1,0 +1,448 @@
+head	1.18;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.18
+date	2015.02.01.03.08.36;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2015.01.30.05.30.37;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2015.01.30.05.30.06;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2015.01.30.04.51.07;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2015.01.30.04.49.59;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2015.01.30.04.21.12;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2015.01.30.04.20.57;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2015.01.30.04.19.58;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2015.01.30.04.10.38;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2015.01.30.04.05.47;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2015.01.30.02.53.43;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2015.01.30.02.52.52;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2015.01.30.02.26.41;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2013.10.17.00.10.32;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2013.10.12.02.24.18;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2013.01.25.03.44.02;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.01.25.03.38.50;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.01.25.03.22.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.18
+log
+@-
+@
+text
+@// Adam Pinarbasi akpinarb
+// $Id: listmap.java,v 1.5 2013-10-16 17:10:32-07 - - $
+
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.NoSuchElementException;
+import static java.lang.System.*;
+
+class listmap implements Iterable<Entry<String,intqueue>> {
+
+   private class node implements Entry<String,intqueue> {
+      String key;
+      intqueue queue = new intqueue();
+      node link;
+      public String getKey() {
+         return key;
+      }
+      public intqueue getValue() {
+         return queue;
+      }
+      public intqueue setValue (intqueue queue) {
+         throw new UnsupportedOperationException();
+      }
+   }
+   private node head = null;
+
+   public listmap() {
+      // Not needed, since head defaults to null anyway.
+   }
+
+   public void insert (String key, int linenr) {
+      node prev = null;
+      node curr = head;
+      if(curr == null){
+         node insrt = new node();
+         insrt.key = key;
+         head = insrt;
+         head.queue.insert(linenr);
+         return;
+      }
+      make_new_node(key, prev, curr, linenr);
+   }
+
+   public void make_new_node(String key, node prev,
+                              node curr, int linenr){
+      while (curr != null){
+         if(key.compareTo(curr.key) == 0){
+            curr.queue.insert(linenr);   
+            return;
+         }
+         if(key.compareTo(curr.key)<0){
+            handle_node(key, curr, prev, linenr);
+            return;
+         }
+         prev = curr;
+         curr = curr.link;
+      }
+         node insrt = new node();
+         insrt.key = key;
+         insrt.queue.insert(linenr);
+         prev.link = insrt;
+   }
+
+   public void handle_node(String key, node curr, 
+                           node prev, int linenr){
+      node insrt = new node();
+      insrt.key = key;
+      insrt.link = curr;
+      insrt.queue.insert(linenr);
+      if(prev == null) head = insrt;
+      else prev.link = insrt;
+      return;
+   }  
+
+   public Iterator<Entry<String,intqueue>> iterator() {
+      return new iterator();
+   }
+
+   private class iterator
+           implements Iterator<Entry<String,intqueue>> {
+      node curr = head;
+
+      public boolean hasNext() {
+         return curr != null;
+      }
+
+      public Entry<String,intqueue> next() {
+         if (curr == null) throw new NoSuchElementException();
+         node next = curr;
+         curr = curr.link;
+         return next;
+      }
+
+      public void remove() {
+         throw new UnsupportedOperationException();
+      }
+
+   }
+
+}
+@
+
+
+1.17
+log
+@-
+@
+text
+@d59 2
+a61 2
+         insrt.key = key;
+         curr.queue.insert(linenr);
+d69 1
+a71 1
+      curr.queue.insert(linenr);
+@
+
+
+1.16
+log
+@-
+@
+text
+@d52 1
+a52 2
+            handle_node(String key, node curr, node prev,
+                        int linenr);
+@
+
+
+1.15
+log
+@-
+@
+text
+@d52 2
+a53 6
+            node insrt = new node();
+            insrt.key = key;
+            insrt.link = curr;
+            if(prev == null) head = insrt;
+            else prev.link = insrt;
+            curr.queue.insert(linenr);
+d65 11
+@
+
+
+1.14
+log
+@-
+@
+text
+@d38 1
+a38 1
+         curr.queue.insert(linenr);
+@
+
+
+1.13
+log
+@-
+@
+text
+@a34 1
+         intqueue queue = new intqueue();
+d38 1
+a38 1
+         queue.insert(linenr);
+d47 4
+a50 1
+         if(key.compareTo(curr.key) == 0) return;
+a51 1
+            intqueue queue = new intqueue();
+d57 1
+a57 1
+            queue.insert(linenr);
+a62 1
+         intqueue queue = new intqueue();
+d66 1
+a66 1
+         queue.insert(linenr);
+@
+
+
+1.12
+log
+@-
+@
+text
+@d50 1
+a50 1
+            inqueue queue = new intqueue();
+@
+
+
+1.11
+log
+@-
+@
+text
+@d50 1
+@
+
+
+1.10
+log
+@-
+@
+text
+@d55 1
+@
+
+
+1.9
+log
+@-
+@
+text
+@d35 1
+d39 1
+a39 1
+         intqueue.insert(linenr);
+d60 1
+d64 1
+a64 1
+         intqueue.insert(linenr);
+@
+
+
+1.8
+log
+@-
+@
+text
+@d38 1
+d41 1
+a41 1
+      make_new_node(key, prev, curr);
+d44 2
+a45 1
+   public void make_new_node(String key, node prev, node curr){
+d62 1
+a64 1
+
+@
+
+
+1.7
+log
+@-
+@
+text
+@d40 1
+a40 1
+      make_new_node(String key, node prev, node curr);
+@
+
+
+1.6
+log
+@-
+@
+text
+@a31 1
+      //FIXME
+d40 6
+a45 3
+      while(curr != null){
+         if(key.compareTo(curr.key) == 0)
+            return;
+d62 1
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 2
+a2 1
+// $Id: listmap.java,v 1.4 2013-10-11 19:24:18-07 - - $
+a31 1
+      misc.trace ("insert", key, linenr);
+d33 25
+a63 1
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: listmap.java,v 1.3 2013-01-24 19:44:02-08 - - $
+d32 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: listmap.java,v 1.2 2013-01-24 19:38:50-08 - - $
+d38 3
+a40 1
+   private class iterator implements Iterator<Entry<String,intqueue>> {
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: listmap.java,v 1.1 2013-01-24 19:22:48-08 - - $
+a23 1
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: listmap.java,v 1.13 2012-01-19 19:43:07-08 - - $
+a9 1
+   private node head = null;
+d25 2
+@

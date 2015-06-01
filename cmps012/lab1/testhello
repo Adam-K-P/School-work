@@ -1,0 +1,10 @@
+#!/bin/bash
+# $Id$
+# Adam Pinarbasi
+#akpinarb
+
+./hello >test1.out 2>test1.err
+echo $? >test1.status
+./hello world >test2.out 2>test2.err
+echo $? >test2.status
+

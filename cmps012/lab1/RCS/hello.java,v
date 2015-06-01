@@ -1,0 +1,57 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2015.01.15.05.54.05;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2015.01.15.05.38.35;	author akpinarb;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@//$Id$
+//Adam Pinarbasi
+//akpinarb
+
+class hello
+{
+    public static void main(String[]args)
+    {
+        if(args.length == 0)
+            System.out.printf("Hello, World!\n");
+        else
+        {
+            System.err.printf("Usage: hello\n");
+            System.exit(1);
+        }
+    }
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a3 1
+//hello.java
+@

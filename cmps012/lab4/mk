@@ -1,0 +1,6 @@
+#Adam Pinarbas akpinarb
+#$Id: mk,v 1.1 2015-02-08 20:39:17-08 akpinarb - $
+#!/bin/bash
+
+gcc -g -O0 -Wall -Wextra -std=gnu99 -o cmatch cmatch.c
+

@@ -1,0 +1,14 @@
+Adam Pinarbasi akpinarb
+
+I was unable to get linesort.c working properly.  I tried using strdup but
+kept on getting an implicit declaration error despite having included
+both string.h and stdlib.h.  I then tried to use malloc instead, but every
+time I used malloc, the program would not break when EOF was reached 
+(this is how the program is operating for me on the timeshare currently).
+numsort.c and inssort.c are working however.  
+
+
+I still wasn't able to get linesort.c working fully.  The issue I had was
+breaking out of the for loop that starts on line 29.  There's a print loop
+that shows the memory is being stored on the heap, but for some reason it 
+won't break out of the for loop.
