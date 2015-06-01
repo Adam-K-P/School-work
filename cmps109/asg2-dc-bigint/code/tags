@@ -1,0 +1,213 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLSOURCES	Makefile	/^ALLSOURCES  = ${CPPHEADER} ${CPPSOURCE} ${OTHERS}$/;"	m
+COMPILECPP	Makefile	/^COMPILECPP  = g++ -g -O0 -Wall -Wextra -std=gnu++11$/;"	m
+CPPHEADER	Makefile	/^CPPHEADER   = bigint.h   scanner.h   debug.h   util.h   iterstack.h$/;"	m
+CPPSOURCE	Makefile	/^CPPSOURCE   = bigint.cpp scanner.cpp debug.cpp util.cpp main.cpp$/;"	m
+DEBUGF	debug.h	45;"	d
+DEBUGF	debug.h	48;"	d
+DEBUGS	debug.h	46;"	d
+DEBUGS	debug.h	54;"	d
+DEPFILE	Makefile	/^DEPFILE     = ${MKFILE}.dep$/;"	m
+EXECBIN	Makefile	/^EXECBIN     = ydc$/;"	m
+GMAKE	Makefile	/^GMAKE       = ${MAKE} --no-print-directory$/;"	m
+LISTING	Makefile	/^LISTING     = Listing.ps$/;"	m
+MAKEDEPCPP	Makefile	/^MAKEDEPCPP  = g++ -MM$/;"	m
+MKFILE	Makefile	/^MKFILE      = Makefile$/;"	m
+NEEDINCL	Makefile	/^NEEDINCL    = ${filter ${NOINCL}, ${MAKECMDGOALS}}$/;"	m
+NOINCL	Makefile	/^NOINCL      = ci clean spotless$/;"	m
+NUMBER	scanner.h	/^enum terminal_symbol {NUMBER, OPERATOR, SCANEOF};$/;"	e	enum:terminal_symbol
+OBJECTS	Makefile	/^OBJECTS     = ${CPPSOURCE:.cpp=.o}$/;"	m
+OPERATOR	scanner.h	/^enum terminal_symbol {NUMBER, OPERATOR, SCANEOF};$/;"	e	enum:terminal_symbol
+OTHERS	Makefile	/^OTHERS      = ${MKFILE} README$/;"	m
+SCANEOF	scanner.h	/^enum terminal_symbol {NUMBER, OPERATOR, SCANEOF};$/;"	e	enum:terminal_symbol
+__BIGINT_H__	bigint.h	4;"	d
+__DEBUG_H__	debug.h	4;"	d
+__ITERSTACK_H__	iterstack.h	22;"	d
+__SCANNER_H__	scanner.h	4;"	d
+__UTIL_H__	util.h	10;"	d
+abs_less	bigint.cpp	/^bool abs_less (const bigvalue_t& left, const bigvalue_t& right) {$/;"	f	signature:(const bigvalue_t& left, const bigvalue_t& right)
+advance	scanner.cpp	/^void scanner::advance() {$/;"	f	class:scanner	signature:()
+advance	scanner.h	/^      void advance();$/;"	p	class:scanner	access:private	signature:()
+begin	iterstack.h	/^      inline const_iterator begin() {return crbegin();}$/;"	f	class:iterstack	access:public	signature:()
+big_value	bigint.h	/^      bigvalue_t big_value;$/;"	m	class:bigint	access:private
+bigint	bigint.cpp	/^bigint::bigint (const string& that) {$/;"	f	class:bigint	signature:(const string& that)
+bigint	bigint.cpp	/^bigint::bigint (long that): long_value (that) {$/;"	f	class:bigint	signature:(long that)
+bigint	bigint.h	/^      bigint (bigint&&) = default;$/;"	p	class:bigint	access:public	signature:(bigint&&)
+bigint	bigint.h	/^      bigint (const bigint&) = default;$/;"	p	class:bigint	access:public	signature:(const bigint&)
+bigint	bigint.h	/^      bigint (const long);$/;"	p	class:bigint	access:public	signature:(const long)
+bigint	bigint.h	/^      bigint (const string&);$/;"	p	class:bigint	access:public	signature:(const string&)
+bigint	bigint.h	/^      bigint() = default;$/;"	p	class:bigint	access:public	signature:()
+bigint	bigint.h	/^class bigint {$/;"	c
+bigint::big_value	bigint.h	/^      bigvalue_t big_value;$/;"	m	class:bigint	access:private
+bigint::bigint	bigint.cpp	/^bigint::bigint (const string& that) {$/;"	f	class:bigint	signature:(const string& that)
+bigint::bigint	bigint.cpp	/^bigint::bigint (long that): long_value (that) {$/;"	f	class:bigint	signature:(long that)
+bigint::bigint	bigint.h	/^      bigint (bigint&&) = default;$/;"	p	class:bigint	access:public	signature:(bigint&&)
+bigint::bigint	bigint.h	/^      bigint (const bigint&) = default;$/;"	p	class:bigint	access:public	signature:(const bigint&)
+bigint::bigint	bigint.h	/^      bigint (const long);$/;"	p	class:bigint	access:public	signature:(const long)
+bigint::bigint	bigint.h	/^      bigint (const string&);$/;"	p	class:bigint	access:public	signature:(const string&)
+bigint::bigint	bigint.h	/^      bigint() = default;$/;"	p	class:bigint	access:public	signature:()
+bigint::divide_by_2	bigint.h	/^      friend void divide_by_2 (unumber&);$/;"	p	class:bigint	access:friend	signature:(unumber&)
+bigint::do_bigadd	bigint.cpp	/^bigvalue_t bigint::do_bigadd (const bigvalue_t& left, $/;"	f	class:bigint	signature:(const bigvalue_t& left, const bigvalue_t& right) const
+bigint::do_bigadd	bigint.h	/^      bigvalue_t do_bigadd  (const bigvalue_t&, const bigvalue_t&) const;$/;"	p	class:bigint	access:private	signature:(const bigvalue_t&, const bigvalue_t&) const
+bigint::do_bigless	bigint.cpp	/^bool bigint::do_bigless (const bigint& left, $/;"	f	class:bigint	signature:(const bigint& left, const bigint& right) const
+bigint::do_bigless	bigint.h	/^      bool do_bigless(const bigint&, const bigint&) const;$/;"	p	class:bigint	access:private	signature:(const bigint&, const bigint&) const
+bigint::do_bigmull	bigint.cpp	/^bigvalue_t bigint::do_bigmull (const bigvalue_t& left,$/;"	f	class:bigint	signature:(const bigvalue_t& left, const bigvalue_t& right) const
+bigint::do_bigmull	bigint.h	/^      bigvalue_t do_bigmull (const bigvalue_t&, const bigvalue_t&) const;$/;"	p	class:bigint	access:private	signature:(const bigvalue_t&, const bigvalue_t&) const
+bigint::do_bigsub	bigint.cpp	/^bigvalue_t bigint::do_bigsub (const bigvalue_t& left,$/;"	f	class:bigint	signature:(const bigvalue_t& left, const bigvalue_t& right) const
+bigint::do_bigsub	bigint.h	/^      bigvalue_t do_bigsub  (const bigvalue_t&, const bigvalue_t&) const;$/;"	p	class:bigint	access:private	signature:(const bigvalue_t&, const bigvalue_t&) const
+bigint::multiply_by_2	bigint.h	/^      friend void multiply_by_2 (unumber&);$/;"	p	class:bigint	access:friend	signature:(unumber&)
+bigint::operator %	bigint.h	/^      friend bigint operator% (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+bigint::operator *	bigint.h	/^      friend bigint operator* (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+bigint::operator +	bigint.h	/^      friend bigint operator+ (const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&)
+bigint::operator +	bigint.h	/^      friend bigint operator+ (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+bigint::operator -	bigint.h	/^      friend bigint operator- (const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&)
+bigint::operator -	bigint.h	/^      friend bigint operator- (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+bigint::operator /	bigint.h	/^      friend bigint operator\/ (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+bigint::operator <	bigint.h	/^      friend bool operator<  (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+bigint::operator <<	bigint.h	/^      friend ostream& operator<< (ostream&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(ostream&, const bigint&)
+bigint::operator =	bigint.h	/^      bigint& operator= (bigint&&) = default;$/;"	p	class:bigint	access:public	signature:(bigint&&)
+bigint::operator =	bigint.h	/^      bigint& operator= (const bigint&) = default;$/;"	p	class:bigint	access:public	signature:(const bigint&)
+bigint::operator ==	bigint.h	/^      friend bool operator== (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+bigint::to_long	bigint.cpp	/^long bigint::to_long() const {$/;"	f	class:bigint	signature:() const
+bigint::to_long	bigint.h	/^      long to_long() const;$/;"	p	class:bigint	access:public	signature:() const
+bigint::~bigint	bigint.h	/^      ~bigint() = default;$/;"	p	class:bigint	access:public	signature:()
+complain	util.cpp	/^ostream& complain() {$/;"	f	signature:()
+complain	util.h	/^ostream& complain();$/;"	p	signature:()
+debugflags	debug.h	/^class debugflags {$/;"	c
+debugflags::flags	debug.h	/^      static vector<bool> flags;$/;"	m	class:debugflags	access:private
+debugflags::getflag	debug.cpp	/^bool debugflags::getflag (char flag) {$/;"	f	class:debugflags	signature:(char flag)
+debugflags::getflag	debug.h	/^      static bool getflag (char flag);$/;"	p	class:debugflags	access:public	signature:(char flag)
+debugflags::setflags	debug.cpp	/^void debugflags::setflags (const string& initflags) {$/;"	f	class:debugflags	signature:(const string& initflags)
+debugflags::setflags	debug.h	/^      static void setflags (const string& optflags);$/;"	p	class:debugflags	access:public	signature:(const string& optflags)
+debugflags::where	debug.cpp	/^void debugflags::where (char flag, const char* file, int line,$/;"	f	class:debugflags	signature:(char flag, const char* file, int line, const char* func)
+debugflags::where	debug.h	/^      static void where (char flag, const char* file, int line,$/;"	p	class:debugflags	access:public	signature:(char flag, const char* file, int line, const char* func)
+divide	bigint.cpp	/^bigint::quot_rem divide (const bigint& left, const bigint& right) {$/;"	f	signature:(const bigint& left, const bigint& right)
+divide_by_2	bigint.cpp	/^void divide_by_2 (bigvalue_t& value) {$/;"	f	signature:(bigvalue_t& value)
+divide_by_2	bigint.h	/^      friend void divide_by_2 (unumber&);$/;"	p	class:bigint	access:friend	signature:(unumber&)
+do_arith	main.cpp	/^void do_arith (bigint_stack& stack, const char oper) {$/;"	f	signature:(bigint_stack& stack, const char oper)
+do_bigadd	bigint.cpp	/^bigvalue_t bigint::do_bigadd (const bigvalue_t& left, $/;"	f	class:bigint	signature:(const bigvalue_t& left, const bigvalue_t& right) const
+do_bigadd	bigint.h	/^      bigvalue_t do_bigadd  (const bigvalue_t&, const bigvalue_t&) const;$/;"	p	class:bigint	access:private	signature:(const bigvalue_t&, const bigvalue_t&) const
+do_bigless	bigint.cpp	/^bool bigint::do_bigless (const bigint& left, $/;"	f	class:bigint	signature:(const bigint& left, const bigint& right) const
+do_bigless	bigint.h	/^      bool do_bigless(const bigint&, const bigint&) const;$/;"	p	class:bigint	access:private	signature:(const bigint&, const bigint&) const
+do_bigmull	bigint.cpp	/^bigvalue_t bigint::do_bigmull (const bigvalue_t& left,$/;"	f	class:bigint	signature:(const bigvalue_t& left, const bigvalue_t& right) const
+do_bigmull	bigint.h	/^      bigvalue_t do_bigmull (const bigvalue_t&, const bigvalue_t&) const;$/;"	p	class:bigint	access:private	signature:(const bigvalue_t&, const bigvalue_t&) const
+do_bigsub	bigint.cpp	/^bigvalue_t bigint::do_bigsub (const bigvalue_t& left,$/;"	f	class:bigint	signature:(const bigvalue_t& left, const bigvalue_t& right) const
+do_bigsub	bigint.h	/^      bigvalue_t do_bigsub  (const bigvalue_t&, const bigvalue_t&) const;$/;"	p	class:bigint	access:private	signature:(const bigvalue_t&, const bigvalue_t&) const
+do_clear	main.cpp	/^void do_clear (bigint_stack& stack, const char) {$/;"	f	signature:(bigint_stack& stack, const char)
+do_debug	main.cpp	/^void do_debug (bigint_stack& stack, const char) {$/;"	f	signature:(bigint_stack& stack, const char)
+do_dup	main.cpp	/^void do_dup (bigint_stack& stack, const char) {$/;"	f	signature:(bigint_stack& stack, const char)
+do_print	main.cpp	/^void do_print (bigint_stack& stack, const char) {$/;"	f	signature:(bigint_stack& stack, const char)
+do_printall	main.cpp	/^void do_printall (bigint_stack& stack, const char) {$/;"	f	signature:(bigint_stack& stack, const char)
+do_quit	main.cpp	/^void do_quit (bigint_stack&, const char) {$/;"	f	signature:(bigint_stack&, const char)
+end	iterstack.h	/^      inline const_iterator end() {return crend();}$/;"	f	class:iterstack	access:public	signature:()
+execname	util.cpp	/^void sys_info::execname (const string& argv0) {$/;"	f	class:sys_info	signature:(const string& argv0)
+execname	util.h	/^      static const string& execname() {return execname_; }$/;"	f	class:sys_info	access:public	signature:()
+execname	util.h	/^      static void execname (const string& argv0);$/;"	p	class:sys_info	access:public	signature:(const string& argv0)
+execname_	util.cpp	/^string sys_info::execname_; \/\/ Must be initialized from main().$/;"	m	class:sys_info	file:
+execname_	util.h	/^      static string execname_;$/;"	m	class:sys_info	access:private
+flags	debug.h	/^      static vector<bool> flags;$/;"	m	class:debugflags	access:private
+getflag	debug.cpp	/^bool debugflags::getflag (char flag) {$/;"	f	class:debugflags	signature:(char flag)
+getflag	debug.h	/^      static bool getflag (char flag);$/;"	p	class:debugflags	access:public	signature:(char flag)
+iterstack	iterstack.h	/^class iterstack: private vector<value_type> {$/;"	c	inherits:vector
+iterstack::begin	iterstack.h	/^      inline const_iterator begin() {return crbegin();}$/;"	f	class:iterstack	access:public	signature:()
+iterstack::end	iterstack.h	/^      inline const_iterator end() {return crend();}$/;"	f	class:iterstack	access:public	signature:()
+iterstack::pop	iterstack.h	/^      inline void pop() {pop_back();}$/;"	f	class:iterstack	access:public	signature:()
+iterstack::push	iterstack.h	/^      inline void push (const value_type& value) {push_back (value);}$/;"	f	class:iterstack	access:public	signature:(const value_type& value)
+iterstack::top	iterstack.h	/^      inline const value_type& top() const {return back();}$/;"	f	class:iterstack	access:public	signature:() const
+left_h	bigint.cpp	/^bigvalue_t left_h;$/;"	v
+lexinfo	scanner.h	/^   string lexinfo;$/;"	m	struct:token_t	access:public
+lookahead	scanner.h	/^      char lookahead;$/;"	m	class:scanner	access:private
+main	main.cpp	/^int main (int argc, char** argv) {$/;"	f	signature:(int argc, char** argv)
+multiply_by_2	bigint.cpp	/^void multiply_by_2 (bigvalue_t& value) {$/;"	f	signature:(bigvalue_t& value)
+multiply_by_2	bigint.h	/^      friend void multiply_by_2 (unumber&);$/;"	p	class:bigint	access:friend	signature:(unumber&)
+octal	util.cpp	/^const string octal (long decimal) {$/;"	f	signature:(long decimal)
+octal	util.h	/^const string octal (long decimal);$/;"	p	signature:(long decimal)
+operator !=	bigint.h	/^inline bool operator!= (const bigint &left, const bigint &right) {$/;"	f	signature:(const bigint &left, const bigint &right)
+operator %	bigint.cpp	/^bigint operator% (const bigint& left, const bigint& right) {$/;"	f	signature:(const bigint& left, const bigint& right)
+operator %	bigint.h	/^      friend bigint operator% (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+operator *	bigint.cpp	/^bigint operator* (const bigint& left, const bigint& right) {$/;"	f	signature:(const bigint& left, const bigint& right)
+operator *	bigint.h	/^      friend bigint operator* (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+operator +	bigint.cpp	/^bigint operator+ (const bigint& left, const bigint& right) {$/;"	f	signature:(const bigint& left, const bigint& right)
+operator +	bigint.cpp	/^bigint operator+ (const bigint& right) {$/;"	f	signature:(const bigint& right)
+operator +	bigint.h	/^      friend bigint operator+ (const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&)
+operator +	bigint.h	/^      friend bigint operator+ (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+operator -	bigint.cpp	/^bigint operator- (const bigint& left, const bigint& right) {$/;"	f	signature:(const bigint& left, const bigint& right)
+operator -	bigint.cpp	/^bigint operator- (const bigint& right) {$/;"	f	signature:(const bigint& right)
+operator -	bigint.h	/^      friend bigint operator- (const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&)
+operator -	bigint.h	/^      friend bigint operator- (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+operator /	bigint.cpp	/^bigint operator\/ (const bigint& left, const bigint& right) {$/;"	f	signature:(const bigint& left, const bigint& right)
+operator /	bigint.h	/^      friend bigint operator\/ (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+operator <	bigint.cpp	/^bool operator< (const bigint& left, const bigint& right) {$/;"	f	signature:(const bigint& left, const bigint& right)
+operator <	bigint.h	/^      friend bool operator<  (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+operator <<	bigint.cpp	/^ostream& operator<< (ostream& out, const bigint& that) {$/;"	f	signature:(ostream& out, const bigint& that)
+operator <<	bigint.h	/^      friend ostream& operator<< (ostream&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(ostream&, const bigint&)
+operator <<	scanner.cpp	/^ostream& operator<< (ostream& out, const terminal_symbol& symbol) {$/;"	f	signature:(ostream& out, const terminal_symbol& symbol)
+operator <<	scanner.cpp	/^ostream& operator<< (ostream& out, const token_t& token) {$/;"	f	signature:(ostream& out, const token_t& token)
+operator <<	scanner.h	/^ostream& operator<< (ostream&, const terminal_symbol&);$/;"	p	signature:(ostream&, const terminal_symbol&)
+operator <<	scanner.h	/^ostream& operator<< (ostream&, const token_t&);$/;"	p	signature:(ostream&, const token_t&)
+operator <<	util.h	/^ostream& operator<< (ostream& out, const vector<item_t>& vec){$/;"	f	signature:(ostream& out, const vector<item_t>& vec)
+operator <=	bigint.h	/^inline bool operator<= (const bigint &left, const bigint &right) {$/;"	f	signature:(const bigint &left, const bigint &right)
+operator =	bigint.h	/^      bigint& operator= (bigint&&) = default;$/;"	p	class:bigint	access:public	signature:(bigint&&)
+operator =	bigint.h	/^      bigint& operator= (const bigint&) = default;$/;"	p	class:bigint	access:public	signature:(const bigint&)
+operator ==	bigint.cpp	/^bool operator== (const bigint& left, const bigint& right) {$/;"	f	signature:(const bigint& left, const bigint& right)
+operator ==	bigint.h	/^      friend bool operator== (const bigint&, const bigint&);$/;"	p	class:bigint	access:friend	signature:(const bigint&, const bigint&)
+operator >	bigint.h	/^inline bool operator>  (const bigint &left, const bigint &right) {$/;"	f	signature:(const bigint &left, const bigint &right)
+operator >=	bigint.h	/^inline bool operator>= (const bigint &left, const bigint &right) {$/;"	f	signature:(const bigint &left, const bigint &right)
+pop	iterstack.h	/^      inline void pop() {pop_back();}$/;"	f	class:iterstack	access:public	signature:()
+pow	bigint.cpp	/^bigint pow (const bigint& base, const bigint& exponent) {$/;"	f	signature:(const bigint& base, const bigint& exponent)
+pow	bigint.h	/^bigint pow (const bigint& base, const bigint& exponent);$/;"	p	signature:(const bigint& base, const bigint& exponent)
+push	iterstack.h	/^      inline void push (const value_type& value) {push_back (value);}$/;"	f	class:iterstack	access:public	signature:(const value_type& value)
+scan	scanner.cpp	/^token_t scanner::scan() {$/;"	f	class:scanner	signature:()
+scan	scanner.h	/^      token_t scan();$/;"	p	class:scanner	access:public	signature:()
+scan_options	main.cpp	/^void scan_options (int argc, char** argv) {$/;"	f	signature:(int argc, char** argv)
+scanner	scanner.cpp	/^scanner::scanner() {$/;"	f	class:scanner	signature:()
+scanner	scanner.h	/^      scanner();$/;"	p	class:scanner	access:public	signature:()
+scanner	scanner.h	/^class scanner {$/;"	c
+scanner::advance	scanner.cpp	/^void scanner::advance() {$/;"	f	class:scanner	signature:()
+scanner::advance	scanner.h	/^      void advance();$/;"	p	class:scanner	access:private	signature:()
+scanner::lookahead	scanner.h	/^      char lookahead;$/;"	m	class:scanner	access:private
+scanner::scan	scanner.cpp	/^token_t scanner::scan() {$/;"	f	class:scanner	signature:()
+scanner::scan	scanner.h	/^      token_t scan();$/;"	p	class:scanner	access:public	signature:()
+scanner::scanner	scanner.cpp	/^scanner::scanner() {$/;"	f	class:scanner	signature:()
+scanner::scanner	scanner.h	/^      scanner();$/;"	p	class:scanner	access:public	signature:()
+scanner::seen_eof	scanner.h	/^      bool seen_eof;$/;"	m	class:scanner	access:private
+seen_eof	scanner.h	/^      bool seen_eof;$/;"	m	class:scanner	access:private
+setflags	debug.cpp	/^void debugflags::setflags (const string& initflags) {$/;"	f	class:debugflags	signature:(const string& initflags)
+setflags	debug.h	/^      static void setflags (const string& optflags);$/;"	p	class:debugflags	access:public	signature:(const string& optflags)
+status	util.h	/^      static int status() {return status_; }$/;"	f	class:sys_info	access:public	signature:()
+status	util.h	/^      static void status (int status) {status_ = status; }$/;"	f	class:sys_info	access:public	signature:(int status)
+status_	util.cpp	/^int sys_info::status_ = EXIT_SUCCESS;$/;"	m	class:sys_info	file:
+status_	util.h	/^      static int status_;$/;"	m	class:sys_info	access:private
+symbol	scanner.h	/^   terminal_symbol symbol;$/;"	m	struct:token_t	access:public
+sys_info	util.h	/^class sys_info {$/;"	c
+sys_info::execname	util.cpp	/^void sys_info::execname (const string& argv0) {$/;"	f	class:sys_info	signature:(const string& argv0)
+sys_info::execname	util.h	/^      static const string& execname() {return execname_; }$/;"	f	class:sys_info	access:public	signature:()
+sys_info::execname	util.h	/^      static void execname (const string& argv0);$/;"	p	class:sys_info	access:public	signature:(const string& argv0)
+sys_info::execname_	util.cpp	/^string sys_info::execname_; \/\/ Must be initialized from main().$/;"	m	class:sys_info	file:
+sys_info::execname_	util.h	/^      static string execname_;$/;"	m	class:sys_info	access:private
+sys_info::status	util.h	/^      static int status() {return status_; }$/;"	f	class:sys_info	access:public	signature:()
+sys_info::status	util.h	/^      static void status (int status) {status_ = status; }$/;"	f	class:sys_info	access:public	signature:(int status)
+sys_info::status_	util.cpp	/^int sys_info::status_ = EXIT_SUCCESS;$/;"	m	class:sys_info	file:
+sys_info::status_	util.h	/^      static int status_;$/;"	m	class:sys_info	access:private
+terminal_symbol	scanner.h	/^enum terminal_symbol {NUMBER, OPERATOR, SCANEOF};$/;"	g
+to_long	bigint.cpp	/^long bigint::to_long() const {$/;"	f	class:bigint	signature:() const
+to_long	bigint.h	/^      long to_long() const;$/;"	p	class:bigint	access:public	signature:() const
+token_t	scanner.h	/^struct token_t {$/;"	s
+token_t::lexinfo	scanner.h	/^   string lexinfo;$/;"	m	struct:token_t	access:public
+token_t::symbol	scanner.h	/^   terminal_symbol symbol;$/;"	m	struct:token_t	access:public
+top	iterstack.h	/^      inline const value_type& top() const {return back();}$/;"	f	class:iterstack	access:public	signature:() const
+trim_zeros	bigint.cpp	/^void trim_zeros (bigvalue_t& result) {$/;"	f	signature:(bigvalue_t& result)
+where	debug.cpp	/^void debugflags::where (char flag, const char* file, int line,$/;"	f	class:debugflags	signature:(char flag, const char* file, int line, const char* func)
+where	debug.h	/^      static void where (char flag, const char* file, int line,$/;"	p	class:debugflags	access:public	signature:(char flag, const char* file, int line, const char* func)
+ydc_exn	util.cpp	/^ydc_exn::ydc_exn (const string& what): runtime_error (what) {$/;"	f	class:ydc_exn	signature:(const string& what)
+ydc_exn	util.h	/^      explicit ydc_exn (const string& what);$/;"	p	class:ydc_exn	access:public	signature:(const string& what)
+ydc_exn	util.h	/^class ydc_exn: public runtime_error {$/;"	c	inherits:runtime_error
+ydc_exn::ydc_exn	util.cpp	/^ydc_exn::ydc_exn (const string& what): runtime_error (what) {$/;"	f	class:ydc_exn	signature:(const string& what)
+ydc_exn::ydc_exn	util.h	/^      explicit ydc_exn (const string& what);$/;"	p	class:ydc_exn	access:public	signature:(const string& what)
+ydc_quit	main.cpp	/^class ydc_quit: public exception {};$/;"	c	file:	inherits:exception
+~bigint	bigint.h	/^      ~bigint() = default;$/;"	p	class:bigint	access:public	signature:()

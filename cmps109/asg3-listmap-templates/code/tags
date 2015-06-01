@@ -1,0 +1,76 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLCPPSRC	Makefile	/^ALLCPPSRC   = ${CPPHEADER} ${TEMPLATES} ${CPPSOURCE}$/;"	m
+ALLSOURCES	Makefile	/^ALLSOURCES  = ${ALLCPPSRC} ${OTHERS}$/;"	m
+COMPILECPP	Makefile	/^COMPILECPP  = g++ -g -O0 -Wall -Wextra -std=gnu++11$/;"	m
+CPPHEADER	Makefile	/^CPPHEADER   = listmap.h trace.h util.h xless.h xpair.h$/;"	m
+CPPSOURCE	Makefile	/^CPPSOURCE   = trace.cpp util.cpp main.cpp$/;"	m
+DEPFILE	Makefile	/^DEPFILE     = ${MKFILE}.dep$/;"	m
+EXECBIN	Makefile	/^EXECBIN     = keyvalue$/;"	m
+GMAKE	Makefile	/^GMAKE       = ${MAKE} --no-print-directory$/;"	m
+LISTING	Makefile	/^LISTING     = Listing.ps$/;"	m
+MAKEDEPCPP	Makefile	/^MAKEDEPCPP  = g++ -MM$/;"	m
+MKFILE	Makefile	/^MKFILE      = Makefile$/;"	m
+NEEDINCL	Makefile	/^NEEDINCL    = ${filter ${NOINCL}, ${MAKECMDGOALS}}$/;"	m
+NOINCL	Makefile	/^NOINCL      = ci clean spotless$/;"	m
+OBJECTS	Makefile	/^OBJECTS     = ${CPPSOURCE:.cpp=.o}$/;"	m
+OTHERS	Makefile	/^OTHERS      = ${MKFILE}$/;"	m
+SUBMIT	Makefile	/^SUBMIT      = submit cmps109-wm.s15 asg3 $/;"	m
+TEMPLATES	Makefile	/^TEMPLATES   = listmap.tcc util.tcc$/;"	m
+TRACE	trace.h	43;"	d
+__LISTMAP_H__	listmap.h	4;"	d
+__TRACE_H__	trace.h	4;"	d
+__UTIL_H__	util.h	10;"	d
+__XLESS_H__	xless.h	4;"	d
+__XPAIR_H__	xpair.h	4;"	d
+anchor	listmap.h	/^      node* anchor() { return static_cast<node*> (&anchor_); }$/;"	f	class:listmap
+begin	listmap.h	/^      iterator begin() { return anchor()->next; }$/;"	f	class:listmap
+complain	util.cpp	/^ostream& complain() {$/;"	f
+datestring	util.cpp	/^const string datestring () {$/;"	f
+do_all	main.cpp	/^void do_all (int argc, char** argv) {$/;"	f
+empty	listmap.h	/^      bool empty() const { return begin() == end(); }$/;"	f	class:listmap
+end	listmap.h	/^      iterator end() { return anchor(); }$/;"	f	class:listmap
+execname	util.cpp	/^string sys_info::execname; \/\/ Must be initialized from main().$/;"	m	class:sys_info	file:
+execname	util.h	/^      static string execname;$/;"	m	class:sys_info
+exit_status	util.cpp	/^int sys_info::exit_status = EXIT_SUCCESS;$/;"	m	class:sys_info	file:
+exit_status	util.h	/^      static int exit_status;$/;"	m	class:sys_info
+flags	trace.h	/^      static vector<char> flags;$/;"	m	class:traceflags
+get_execname	util.cpp	/^const string& sys_info::get_execname () {$/;"	f	class:sys_info
+get_exit_status	util.cpp	/^int sys_info::get_exit_status () {$/;"	f	class:sys_info
+getflag	trace.cpp	/^bool traceflags::getflag (char flag) {$/;"	f	class:traceflags
+handle_input	main.cpp	/^void handle_input (string& input) {$/;"	f
+insert_pair	main.cpp	/^void insert_pair (string& input, size_t eq_pos) {$/;"	f
+iterator	listmap.h	/^      iterator (node* where): where(where){};$/;"	f	class:listmap::iterator
+iterator	listmap.h	/^      iterator(){}$/;"	f	class:listmap::iterator
+iterator	listmap.h	/^class listmap<Key,Value,Less>::iterator {$/;"	c	class:listmap
+less	listmap.h	/^      Less less;$/;"	m	class:listmap
+link	listmap.h	/^         link (node* next, node* prev): next(next), prev(prev){}$/;"	f	struct:listmap::link
+link	listmap.h	/^      struct link {$/;"	s	class:listmap
+listmap	listmap.h	/^      listmap(){};$/;"	f	class:listmap
+listmap	listmap.h	/^class listmap {$/;"	c
+main	main.cpp	/^int main (int argc, char** argv) {$/;"	f
+node	listmap.h	/^      struct node: link {$/;"	s	class:listmap
+operator ()	xless.h	/^   bool operator() (const Type& left, const Type& right) const {$/;"	f	struct:xless
+operator <	xpair.h	/^bool operator< (xpair<First,Second>& pair_one, $/;"	f
+operator <<	xpair.h	/^ostream& operator<< (ostream& out, const xpair<First,Second>& pair) {$/;"	f
+operator ==	xpair.h	/^bool operator== (xpair<First,Second>& pair_one,$/;"	f
+remove	main.cpp	/^void remove (string& input) {$/;"	f
+remove_equals	main.cpp	/^void remove_equals (string& input) {$/;"	f
+scan_options	main.cpp	/^void scan_options (int argc, char** argv) {$/;"	f
+set_execname	util.cpp	/^void sys_info::set_execname (const string& argv0) {$/;"	f	class:sys_info
+set_exit_status	util.cpp	/^void sys_info::set_exit_status (int status) {$/;"	f	class:sys_info
+setflags	trace.cpp	/^void traceflags::setflags (const string& optflags) {$/;"	f	class:traceflags
+split	util.cpp	/^list<string> split (const string& line, const string& delimiters) {$/;"	f
+sys_info	util.h	/^class sys_info {$/;"	c
+sys_info_error	util.cpp	/^void sys_info_error (const string& condition) {$/;"	f
+syscall_error	util.cpp	/^void syscall_error (const string& object) {$/;"	f
+traceflags	trace.h	/^class traceflags {$/;"	c
+trim	main.cpp	/^void trim (string& input) {$/;"	f
+xless	xless.h	/^struct xless {$/;"	s
+xpair	xpair.h	/^   xpair (const First& first, const Second& second):$/;"	f	struct:xpair
+xpair	xpair.h	/^   xpair(){}$/;"	f	struct:xpair
+xpair	xpair.h	/^struct xpair {$/;"	s

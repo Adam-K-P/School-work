@@ -1,0 +1,3 @@
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c bigint.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -o ydc bigint.o scanner.o debug.o util.o main.o
+checksource bigint.h   scanner.h   debug.h   util.h   iterstack.h bigint.cpp scanner.cpp debug.cpp util.cpp main.cpp Makefile README
