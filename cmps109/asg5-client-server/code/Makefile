@@ -1,6 +1,6 @@
 # $Id: Makefile,v 1.1 2015-05-12 18:48:40-07 - - $
 
-GPP      = g++ -g -O0 -Wall -Wextra -std=gnu++11
+GPP      = g++ -g -O0 -std=gnu++11
 
 DEPFILE  = Makefile.dep
 HEADERS  = sockets.h protocol.h logstream.h

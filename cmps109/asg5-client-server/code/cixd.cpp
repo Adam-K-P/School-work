@@ -22,10 +22,25 @@ void reply_get (accepted_socket& client_sock, cix_header& header) {
 void reply_put (accepted_socket& client_sock, cix_header& header) {
 }
 
-void reply_rm (accepted_socket& client_sock, cix_header& header) {
+void reply_rm  (accepted_socket& client_sock, cix_header& header) {
+   string command = static_cast<string> ("rm ") +
+                    static_cast<string> (header.filename);
+   const char* cmd = command.c_str();
+   FILE* rm_pipe = popen(cmd, "r");
+   if (rm_pipe == NULL) {
+      log << cmd << ": popen failed: " << strerror(errno) << endl;
+      header.command = CIX_NAK;
+      header.nbytes = errno;
+      send_packet(client_sock, &header, sizeof header);
+   }
+   memset (static_cast<void *> (&header), 0, sizeof header);
+   header.command = CIX_ACK;
+   log << "sending header " << header << endl;
+   send_packet (client_sock, &header, sizeof header);
+   log << "sent CIX_ACK signal" << endl;
 }
 
-void reply_ls (accepted_socket& client_sock, cix_header& header) {
+void reply_ls  (accepted_socket& client_sock, cix_header& header) {
    FILE* ls_pipe = popen ("ls -l", "r");
    if (ls_pipe == NULL) { 
       log << "ls -l: popen failed: " << strerror (errno) << endl;

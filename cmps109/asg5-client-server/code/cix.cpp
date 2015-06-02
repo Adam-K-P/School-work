@@ -29,7 +29,7 @@ unordered_map<string,cix_command> command_map {
 void cix_get (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_GET;
-   //header.filename = filename.c_str();
+   strcpy(header.filename, filename.c_str());
    log << "sending header " << header << endl;
    send_packet (server, &header, sizeof header);
    recv_packet (server, &header, sizeof header);
@@ -44,7 +44,7 @@ void cix_get (string filename, client_socket& server) {
 void cix_put (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_PUT;
-   //header.filename = filename.c_str();
+   strcpy(header.filename, filename.c_str());
    log << "sending header " << header << endl;
    send_packet (server, &header, sizeof header);
    recv_packet (server, &header, sizeof header);
@@ -59,7 +59,7 @@ void cix_put (string filename, client_socket& server) {
 void cix_rm (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_RM;
-   //header.filename = filename.c_str();
+   strcpy(header.filename, filename.c_str());
    log << "sending header " << header << endl;
    send_packet (server, &header, sizeof header);
    recv_packet (server, &header, sizeof header);
