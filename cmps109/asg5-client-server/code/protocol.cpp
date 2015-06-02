@@ -30,7 +30,7 @@ void send_packet (base_socket& socket,
       if (nbytes < 0) throw socket_sys_error (to_string (socket));
       bufptr += nbytes;
       ntosend -= nbytes;
-   }while (ntosend > 0);
+   } while (ntosend > 0);
 }
 
 void recv_packet (base_socket& socket, void* buffer, size_t bufsize) {
@@ -43,7 +43,7 @@ void recv_packet (base_socket& socket, void* buffer, size_t bufsize) {
                                            + " is closed");
       bufptr += nbytes;
       ntorecv -= nbytes;
-   }while (ntorecv > 0);
+   } while (ntorecv > 0);
 }
 
 ostream& operator<< (ostream& out, const cix_header& header) {

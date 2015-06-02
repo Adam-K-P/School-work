@@ -21,7 +21,19 @@ unordered_map<string,cix_command> command_map {
    {"exit", CIX_EXIT},
    {"help", CIX_HELP},
    {"ls"  , CIX_LS  },
+   {"get" , CIX_GET },
+   {"put" , CIX_PUT },
+   {"rm"  , CIX_RM  },
 };
+
+void cix_get (string filename) {
+}
+
+void cix_put (string filename) {
+}
+
+void cix_rm (string filename) {
+}
 
 void cix_help() {
    static vector<string> help = {
@@ -59,6 +71,34 @@ void usage() {
    throw cix_exit();
 }
 
+void do_command (string& line, client_socket& server) {
+   size_t space = line.find(" ");
+   if (space == (size_t)-1) {
+      const auto& itor = command_map.find (line);
+      cix_command cmd = itor == command_map.end() ?
+                        CIX_ERROR : itor->second;
+      switch (cmd) {
+         case CIX_EXIT:
+            throw cix_exit();
+            return;
+         case CIX_HELP:
+            cix_help();
+            return;
+         case CIX_LS:
+            cix_ls (server);
+            return;
+         default:
+            log << line << ": invalid command" << endl;
+            return;
+      }
+   }
+   string comm = line.substr(0, space - 1);
+   string filename = line.substr(space + 1);
+   for (size_t i = 0; i < line.find_last_not_of(" \t"); ++i) 
+      line.erase(line.begin() + i);
+   
+}
+
 int main (int argc, char** argv) {
    log.execname (basename (argv[0]));
    log << "starting" << endl;
@@ -76,23 +116,11 @@ int main (int argc, char** argv) {
          getline (cin, line);
          if (cin.eof()) throw cix_exit();
          log << "command " << line << endl;
-         const auto& itor = command_map.find (line);
-         cix_command cmd = itor == command_map.end() ?
-                           CIX_ERROR : itor->second;
-         switch (cmd) {
-            case CIX_EXIT:
-               throw cix_exit();
-               break;
-            case CIX_HELP:
-               cix_help();
-               break;
-            case CIX_LS:
-               cix_ls (server);
-               break;
-            default:
-               log << line << ": invalid command" << endl;
-               break;
-         }
+         size_t t1 = line.find_first_not_of(" \t");
+         size_t t2 = line.find_last_not_of(" \t");
+         for (size_t i = 0; i < t1; ++i) line.erase(line.begin() + i);
+         for (size_t i = t2 + 1; i < line.size(); ++i) line.pop_back();
+         do_command(line, server);
       }
    }catch (socket_error& error) {
       log << error.what() << endl;
