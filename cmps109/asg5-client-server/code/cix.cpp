@@ -26,13 +26,48 @@ unordered_map<string,cix_command> command_map {
    {"rm"  , CIX_RM  },
 };
 
-void cix_get (string filename) {
+void cix_get (string filename, client_socket& server) {
+   cix_header header;
+   header.command = CIX_GET;
+   //header.filename = filename.c_str();
+   log << "sending header " << header << endl;
+   send_packet (server, &header, sizeof header);
+   recv_packet (server, &header, sizeof header);
+   log << "received header " << header << endl;
+   if (header.command != CIX_FILE) {
+      log << "sent CIX_GET, server did not return CIX_FILE" << endl;
+      log << "server returned " << header << endl;
+   }
+
 }
 
-void cix_put (string filename) {
+void cix_put (string filename, client_socket& server) {
+   cix_header header;
+   header.command = CIX_PUT;
+   //header.filename = filename.c_str();
+   log << "sending header " << header << endl;
+   send_packet (server, &header, sizeof header);
+   recv_packet (server, &header, sizeof header);
+   log << "received header " << header << endl;
+   if (header.command != CIX_ACK) {
+      log << "sent CIX_PUT, server did not return CIX_ACK" << endl;
+      log << "server returned " << header << endl;
+   }
+
 }
 
-void cix_rm (string filename) {
+void cix_rm (string filename, client_socket& server) {
+   cix_header header;
+   header.command = CIX_RM;
+   //header.filename = filename.c_str();
+   log << "sending header " << header << endl;
+   send_packet (server, &header, sizeof header);
+   recv_packet (server, &header, sizeof header);
+   log << "received header " << header << endl;
+   if (header.command != CIX_ACK) {
+      log << "sent CIX_RM, server did not return CIX_ACK" << endl;
+      log << "server returned " << header << endl;
+   }
 }
 
 void cix_help() {
@@ -71,6 +106,27 @@ void usage() {
    throw cix_exit();
 }
 
+void file_commands (string& comm, string& filename, client_socket& server) {
+   const auto& itor = command_map.find(comm);
+   cix_command cmd = itor == command_map.end() ?
+                     CIX_ERROR : itor->second;
+   switch (cmd) {
+      case CIX_GET:
+         cix_get(filename, server);
+         break;
+      case CIX_PUT:
+         cix_put(filename, server);
+         break;
+      case CIX_RM:
+         cix_rm(filename, server);
+         break;
+      default:
+         log << cmd << ": invalid command" << endl;
+         return;
+   }
+}
+   
+
 void do_command (string& line, client_socket& server) {
    size_t space = line.find(" ");
    if (space == (size_t)-1) {
@@ -92,11 +148,11 @@ void do_command (string& line, client_socket& server) {
             return;
       }
    }
-   string comm = line.substr(0, space - 1);
-   string filename = line.substr(space + 1);
-   for (size_t i = 0; i < line.find_last_not_of(" \t"); ++i) 
-      line.erase(line.begin() + i);
-   
+   string comm = line.substr(0, space);
+   string filename = line.substr(space);
+   size_t t = filename.find_first_not_of(" \t");
+   for (size_t i = 0; i < t; ++i) filename.erase(filename.begin() + i);
+   file_commands(comm, filename, server);
 }
 
 int main (int argc, char** argv) {

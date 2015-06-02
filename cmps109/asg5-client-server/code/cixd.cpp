@@ -16,6 +16,15 @@ using namespace std;
 logstream log (cout);
 struct cix_exit: public exception {};
 
+void reply_get (accepted_socket& client_sock, cix_header& header) {
+}
+
+void reply_put (accepted_socket& client_sock, cix_header& header) {
+}
+
+void reply_rm (accepted_socket& client_sock, cix_header& header) {
+}
+
 void reply_ls (accepted_socket& client_sock, cix_header& header) {
    FILE* ls_pipe = popen ("ls -l", "r");
    if (ls_pipe == NULL) { 
@@ -51,6 +60,15 @@ void run_server (accepted_socket& client_sock) {
          switch (header.command) {
             case CIX_LS: 
                reply_ls (client_sock, header);
+               break;
+            case CIX_RM:
+               reply_rm (client_sock, header);
+               break;
+            case CIX_GET:
+               reply_get(client_sock, header);
+               break;
+            case CIX_PUT:
+               reply_put(client_sock, header);
                break;
             default:
                log << "invalid header from client" << endl;
