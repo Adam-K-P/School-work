@@ -16,6 +16,14 @@ using namespace std;
 logstream log (cout);
 struct cix_exit: public exception {};
 
+void handle_error (accepted_socket& client_sock, 
+                   cix_header& header, const char* cmd) {
+   log << cmd << ": popen failed: " << strerror(errno) << endl;
+   header.command = CIX_NAK;
+   header.nbytes = errno;
+   send_packet(client_sock, &header, sizeof header);
+}
+
 void reply_get (accepted_socket& client_sock, cix_header& header) {
 }
 
@@ -27,27 +35,18 @@ void reply_rm  (accepted_socket& client_sock, cix_header& header) {
                     static_cast<string> (header.filename);
    const char* cmd = command.c_str();
    FILE* rm_pipe = popen(cmd, "r");
-   if (rm_pipe == NULL) {
-      log << cmd << ": popen failed: " << strerror(errno) << endl;
-      header.command = CIX_NAK;
-      header.nbytes = errno;
-      send_packet(client_sock, &header, sizeof header);
-   }
+   if (rm_pipe == NULL) handle_error(client_sock, header, cmd);
    memset (static_cast<void *> (&header), 0, sizeof header);
    header.command = CIX_ACK;
    log << "sending header " << header << endl;
    send_packet (client_sock, &header, sizeof header);
    log << "sent CIX_ACK signal" << endl;
+   pclose(rm_pipe);
 }
 
 void reply_ls  (accepted_socket& client_sock, cix_header& header) {
    FILE* ls_pipe = popen ("ls -l", "r");
-   if (ls_pipe == NULL) { 
-      log << "ls -l: popen failed: " << strerror (errno) << endl;
-      header.command = CIX_NAK;
-      header.nbytes = errno;
-      send_packet (client_sock, &header, sizeof header);
-   }
+   if (ls_pipe == NULL) handle_error(client_sock, header, "ls -l");
    string ls_output;
    char buffer[0x1000];
    for (;;) {
@@ -62,6 +61,7 @@ void reply_ls  (accepted_socket& client_sock, cix_header& header) {
    send_packet (client_sock, &header, sizeof header);
    send_packet (client_sock, ls_output.c_str(), ls_output.size());
    log << "sent " << ls_output.size() << " bytes" << endl;
+   pclose(ls_pipe);
 }
 
 void run_server (accepted_socket& client_sock) {

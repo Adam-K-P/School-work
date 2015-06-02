@@ -1,6 +1,7 @@
 // $Id: cix.cpp,v 1.2 2015-05-12 18:59:40-07 - - $
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -45,6 +46,19 @@ void cix_put (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_PUT;
    strcpy(header.filename, filename.c_str());
+   ifstream file (const_cast<char*> (header.filename), ifstream::in);
+
+   file.seekg(0, file.end);
+   size_t file_size = file.tellg();
+   file.seekg(0, file.beg);
+
+   char* file_stream = new char [file_size];
+   file.read(file_stream, file_size);
+   if (!file) {
+      log << "reading file failed: cix_put: " << strerror(errno) << endl;
+      return;
+   }
+   log << file_stream << endl;
    log << "sending header " << header << endl;
    send_packet (server, &header, sizeof header);
    recv_packet (server, &header, sizeof header);
@@ -53,7 +67,6 @@ void cix_put (string filename, client_socket& server) {
       log << "sent CIX_PUT, server did not return CIX_ACK" << endl;
       log << "server returned " << header << endl;
    }
-
 }
 
 void cix_rm (string filename, client_socket& server) {
