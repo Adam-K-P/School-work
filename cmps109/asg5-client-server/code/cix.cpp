@@ -27,14 +27,27 @@ unordered_map<string,cix_command> command_map {
    {"rm"  , CIX_RM  },
 };
 
-void cix_get (string filename, client_socket& server) {
-   cix_header header;
-   header.command = CIX_GET;
-   strcpy(header.filename, filename.c_str());
+void send_file_get_head (cix_header& header, ifstream& file, 
+                                    client_socket& server) {
+   log << "sending file " << endl;
+   send_packet (server, &file, sizeof file);
+   recv_packet (server, &header, sizeof header);
+   log << "received header " << header << endl;
+}
+
+
+void send_receive_header (cix_header& header, client_socket& server) {
    log << "sending header " << header << endl;
    send_packet (server, &header, sizeof header);
    recv_packet (server, &header, sizeof header);
    log << "received header " << header << endl;
+}
+
+
+void cix_get (string filename, client_socket& server) {
+   cix_header header;
+   header.command = CIX_GET;
+   strcpy(header.filename, filename.c_str());
    if (header.command != CIX_FILE) {
       log << "sent CIX_GET, server did not return CIX_FILE" << endl;
       log << "server returned " << header << endl;
@@ -52,17 +65,11 @@ void cix_put (string filename, client_socket& server) {
    size_t file_size = file.tellg();
    file.seekg(0, file.beg);
 
-   char* file_stream = new char [file_size];
-   file.read(file_stream, file_size);
    if (!file) {
-      log << "reading file failed: cix_put: " << strerror(errno) << endl;
+      log << "cix_put: reading file failed: " << strerror(errno) << endl;
       return;
    }
-   log << file_stream << endl;
-   log << "sending header " << header << endl;
-   send_packet (server, &header, sizeof header);
-   recv_packet (server, &header, sizeof header);
-   log << "received header " << header << endl;
+   send_file_get_head(header, file, server);
    if (header.command != CIX_ACK) {
       log << "sent CIX_PUT, server did not return CIX_ACK" << endl;
       log << "server returned " << header << endl;
@@ -73,10 +80,7 @@ void cix_rm (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_RM;
    strcpy(header.filename, filename.c_str());
-   log << "sending header " << header << endl;
-   send_packet (server, &header, sizeof header);
-   recv_packet (server, &header, sizeof header);
-   log << "received header " << header << endl;
+   send_receive_header(header, server);
    if (header.command != CIX_ACK) {
       log << "sent CIX_RM, server did not return CIX_ACK" << endl;
       log << "server returned " << header << endl;
@@ -98,10 +102,7 @@ void cix_help() {
 void cix_ls (client_socket& server) {
    cix_header header;
    header.command = CIX_LS;
-   log << "sending header " << header << endl;
-   send_packet (server, &header, sizeof header);
-   recv_packet (server, &header, sizeof header);
-   log << "received header " << header << endl;
+   send_receive_header(header, server);
    if (header.command != CIX_LSOUT) {
       log << "sent CIX_LS, server did not return CIX_LSOUT" << endl;
       log << "server returned " << header << endl;
