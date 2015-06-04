@@ -26,15 +26,25 @@ void handle_error (accepted_socket& client_sock,
 }
 
 void reply_get (accepted_socket& client_sock, cix_header& header) {
+   header.command = CIX_FILE;
+   ifstream file (const_cast<char*> (header.filename),
+                  ifstream::binary | ifstream::in);
+   char* buffer = get_buffer(file, header);
+
+   log << "sending header " << header << endl;
+   send_packet(client_sock, &header, sizeof header);
+   send_packet(client_sock, buffer, header.nbytes);
+   log << "sent " << header.nbytes << " bytes" << endl;
+   delete buffer;
 }
 
 void reply_put (accepted_socket& client_sock, cix_header& header) {
    ofstream out_file(header.filename, 
-                     ofstream::binary|ofstream::out);
-   char* file = new char [header.nbytes + 1];
-   recv_packet(client_sock, file, header.nbytes);
-   out_file.write(file, header.nbytes);
-   delete file;
+                     ofstream::binary | ofstream::out);
+   char* text = new char [header.nbytes + 1];
+   recv_packet(client_sock, text, header.nbytes);
+   out_file.write(text, header.nbytes);
+   delete text;
    memset(static_cast<void*> (&header), 0, sizeof header);
    header.command = CIX_ACK;
    log << "sending header " << header << endl;

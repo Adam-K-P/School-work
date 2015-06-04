@@ -1,10 +1,16 @@
 // $Id: protocol.cpp,v 1.2 2015-05-12 18:59:40-07 - - $
 
 #include <unordered_map>
+#include <fstream>
+#include <iostream>
 #include <string>
 using namespace std;
 
+#include "sockets.h"
+#include "logstream.h"
 #include "protocol.h"
+
+logstream __log__ (cout);
 
 const unordered_map<int,string> cix_command_map {
    {int (CIX_ERROR), "CIX_ERROR"},
@@ -74,5 +80,20 @@ in_port_t get_cix_server_port (const vector<string>& args,
    }
    return stoi (port);
 }
+
+char* get_buffer (ifstream& file, cix_header& header) {
+   file.seekg(0, file.end);
+   size_t stream_size = file.tellg();
+   file.seekg(0, file.beg);
+   char* buffer = new char[stream_size];
+   file.read(buffer, stream_size);
+   header.nbytes = stream_size;
+   if (!file) {
+      __log__ << "cix_put: reading file failed: " << strerror(errno) << endl;
+      buffer = nullptr;
+   }
+   return buffer;
+}
+
      
 

@@ -26,6 +26,8 @@ void send_packet (base_socket& socket,
 
 void recv_packet (base_socket& socket, void* buffer, size_t bufsize);
 
+char* get_buffer (ifstream& file, cix_header& header);
+
 ostream& operator<< (ostream& out, const cix_header& header);
 
 string get_cix_server_host (const vector<string>& args, size_t index);

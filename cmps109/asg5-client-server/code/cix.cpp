@@ -28,23 +28,33 @@ unordered_map<string,cix_command> command_map {
    {"rm"  , CIX_RM  },
 };
 
-void send_file_get_head (cix_header& header, char* buffer, 
+void send_file (cix_header& header, char* buffer, 
                                     client_socket& server) {
    log << "sending header " << header << endl;
    send_packet(server, &header, sizeof header);
-   send_packet (server, buffer, strlen(buffer));
+   send_packet(server, buffer, header.nbytes);
+   log << "sent " <<  header.nbytes << " bytes" << endl;
    delete buffer;
-   log << "sent " << strlen(buffer) << " bytes" << endl;
    recv_packet (server, &header, sizeof header);
    log << "received header " << header << endl;
 }
 
-
-void send_receive_header (cix_header& header, client_socket& server) {
+void send_header (cix_header& header, client_socket& server) {
    log << "sending header " << header << endl;
    send_packet (server, &header, sizeof header);
    recv_packet (server, &header, sizeof header);
    log << "received header " << header << endl;
+}
+
+void get_file (cix_header& header, client_socket& server) {
+   send_header(header, server);
+   ofstream out_file(header.filename,
+                     ofstream::binary | ofstream::out);
+   char* text = new char[header.nbytes + 1];
+   recv_packet(server, text, header.nbytes);
+   log << "received file: " << header.filename << endl;
+   out_file.write(text, header.nbytes);
+   delete text;
 }
 
 
@@ -52,10 +62,10 @@ void cix_get (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_GET;
    strcpy(header.filename, filename.c_str());
-   if (header.command != CIX_FILE) {
-      log << "sent CIX_GET, server did not return CIX_FILE" << endl;
-      log << "server returned " << header << endl;
-   }
+   get_file(header, server) ;
+   if (header.command != CIX_FILE) 
+      log << "sent CIX_GET, server did not return CIX_FILE" << endl
+          << "server returned " << header << endl;
 }
 
 void cix_put (string filename, client_socket& server) {
@@ -63,35 +73,22 @@ void cix_put (string filename, client_socket& server) {
    header.command = CIX_PUT;
    strcpy(header.filename, filename.c_str());
    ifstream file (const_cast<char*> (header.filename), 
-                  ifstream::binary|ifstream::in);
-
-   file.seekg(0, file.end);
-   size_t file_size = file.tellg();
-   file.seekg(0, file.beg);
-   header.nbytes = file_size;
-   char* buffer = new char [header.nbytes + 1];
-   file.read(buffer, header.nbytes);
-   header.nbytes = strlen(buffer);
-   if (!file) {
-      log << "cix_put: reading file failed: " << strerror(errno) << endl;
-      return;
-   }
-   send_file_get_head(header, buffer, server);
-   if (header.command != CIX_ACK) {
-      log << "sent CIX_PUT, server did not return CIX_ACK" << endl;
-      log << "server returned " << header << endl;
-   }
+                  ifstream::binary | ifstream::in);
+   char* buffer = get_buffer(file, header);
+   send_file(header, buffer, server);
+   if (header.command != CIX_ACK) 
+      log << "sent CIX_PUT, server did not return CIX_ACK" << endl
+          << "server returned " << header << endl;
 }
 
 void cix_rm (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_RM;
    strcpy(header.filename, filename.c_str());
-   send_receive_header(header, server);
-   if (header.command != CIX_ACK) {
-      log << "sent CIX_RM, server did not return CIX_ACK" << endl;
-      log << "server returned " << header << endl;
-   }
+   send_header(header, server);
+   if (header.command != CIX_ACK) 
+      log << "sent CIX_RM, server did not return CIX_ACK" << endl
+          << "server returned " << header << endl;
 }
 
 void cix_help() {
@@ -109,11 +106,11 @@ void cix_help() {
 void cix_ls (client_socket& server) {
    cix_header header;
    header.command = CIX_LS;
-   send_receive_header(header, server);
-   if (header.command != CIX_LSOUT) {
-      log << "sent CIX_LS, server did not return CIX_LSOUT" << endl;
-      log << "server returned " << header << endl;
-   }else {
+   send_header(header, server);
+   if (header.command != CIX_LSOUT) 
+      log << "sent CIX_LS, server did not return CIX_LSOUT" << endl
+          << "server returned " << header << endl;
+   else {
       char buffer[header.nbytes + 1];
       recv_packet (server, buffer, header.nbytes);
       log << "received " << header.nbytes << " bytes" << endl;
