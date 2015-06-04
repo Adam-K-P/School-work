@@ -8,6 +8,7 @@ using namespace std;
 #include <libgen.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <fstream>
 
 #include "protocol.h"
 #include "logstream.h"
@@ -28,6 +29,17 @@ void reply_get (accepted_socket& client_sock, cix_header& header) {
 }
 
 void reply_put (accepted_socket& client_sock, cix_header& header) {
+   ofstream out_file(header.filename, 
+                     ofstream::binary|ofstream::out);
+   char* file = new char [header.nbytes + 1];
+   recv_packet(client_sock, file, header.nbytes);
+   out_file.write(file, header.nbytes);
+   delete file;
+   memset(static_cast<void*> (&header), 0, sizeof header);
+   header.command = CIX_ACK;
+   log << "sending header " << header << endl;
+   send_packet(client_sock, &header, sizeof header);
+   log << "sent CIX_ACK signal" << endl;
 }
 
 void reply_rm  (accepted_socket& client_sock, cix_header& header) {
@@ -36,10 +48,10 @@ void reply_rm  (accepted_socket& client_sock, cix_header& header) {
    const char* cmd = command.c_str();
    FILE* rm_pipe = popen(cmd, "r");
    if (rm_pipe == NULL) handle_error(client_sock, header, cmd);
-   memset (static_cast<void *> (&header), 0, sizeof header);
+   memset(static_cast<void *> (&header), 0, sizeof header);
    header.command = CIX_ACK;
    log << "sending header " << header << endl;
-   send_packet (client_sock, &header, sizeof header);
+   send_packet(client_sock, &header, sizeof header);
    log << "sent CIX_ACK signal" << endl;
    pclose(rm_pipe);
 }

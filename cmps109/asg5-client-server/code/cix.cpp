@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <cstring>
 using namespace std;
 
 #include <libgen.h>
@@ -27,10 +28,13 @@ unordered_map<string,cix_command> command_map {
    {"rm"  , CIX_RM  },
 };
 
-void send_file_get_head (cix_header& header, ifstream& file, 
+void send_file_get_head (cix_header& header, char* buffer, 
                                     client_socket& server) {
-   log << "sending file " << endl;
-   send_packet (server, &file, sizeof file);
+   log << "sending header " << header << endl;
+   send_packet(server, &header, sizeof header);
+   send_packet (server, buffer, strlen(buffer));
+   delete buffer;
+   log << "sent " << strlen(buffer) << " bytes" << endl;
    recv_packet (server, &header, sizeof header);
    log << "received header " << header << endl;
 }
@@ -52,24 +56,27 @@ void cix_get (string filename, client_socket& server) {
       log << "sent CIX_GET, server did not return CIX_FILE" << endl;
       log << "server returned " << header << endl;
    }
-
 }
 
 void cix_put (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_PUT;
    strcpy(header.filename, filename.c_str());
-   ifstream file (const_cast<char*> (header.filename), ifstream::in);
+   ifstream file (const_cast<char*> (header.filename), 
+                  ifstream::binary|ifstream::in);
 
    file.seekg(0, file.end);
    size_t file_size = file.tellg();
    file.seekg(0, file.beg);
-
+   header.nbytes = file_size;
+   char* buffer = new char [header.nbytes + 1];
+   file.read(buffer, header.nbytes);
+   header.nbytes = strlen(buffer);
    if (!file) {
       log << "cix_put: reading file failed: " << strerror(errno) << endl;
       return;
    }
-   send_file_get_head(header, file, server);
+   send_file_get_head(header, buffer, server);
    if (header.command != CIX_ACK) {
       log << "sent CIX_PUT, server did not return CIX_ACK" << endl;
       log << "server returned " << header << endl;

@@ -38,6 +38,8 @@ void recv_packet (base_socket& socket, void* buffer, size_t bufsize) {
    ssize_t ntorecv = bufsize;
    do {
       ssize_t nbytes = socket.recv (bufptr, ntorecv);
+      cout << "ntorecv: " << ntorecv << endl 
+           << "nbytes:  " << nbytes  << endl;
       if (nbytes < 0) throw socket_sys_error (to_string (socket));
       if (nbytes == 0) throw socket_error (to_string (socket)
                                            + " is closed");
