@@ -48,6 +48,10 @@ void send_header (cix_header& header, client_socket& server) {
 
 void get_file (cix_header& header, client_socket& server) {
    send_header(header, server);
+   if (header.command == CIX_NAK) {
+      log << "Error retreiving file: " << header.filename << endl;
+      return;
+   }
    ofstream out_file(header.filename,
                      ofstream::binary | ofstream::out);
    char* text = new char[header.nbytes + 1];
@@ -62,7 +66,7 @@ void cix_get (string filename, client_socket& server) {
    cix_header header;
    header.command = CIX_GET;
    strcpy(header.filename, filename.c_str());
-   get_file(header, server) ;
+   get_file(header, server);
    if (header.command != CIX_FILE) 
       log << "sent CIX_GET, server did not return CIX_FILE" << endl
           << "server returned " << header << endl;
@@ -74,6 +78,10 @@ void cix_put (string filename, client_socket& server) {
    strcpy(header.filename, filename.c_str());
    ifstream file (const_cast<char*> (header.filename), 
                   ifstream::binary | ifstream::in);
+   if (file.fail()) {
+      log << "File: " << header.filename << "not found" << endl;
+      return;
+   }
    char* buffer = get_buffer(file, header);
    send_file(header, buffer, server);
    if (header.command != CIX_ACK) 

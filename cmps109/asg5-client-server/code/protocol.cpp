@@ -88,10 +88,6 @@ char* get_buffer (ifstream& file, cix_header& header) {
    char* buffer = new char[stream_size];
    file.read(buffer, stream_size);
    header.nbytes = stream_size;
-   if (!file) {
-      __log__ << "cix_put: reading file failed: " << strerror(errno) << endl;
-      buffer = nullptr;
-   }
    return buffer;
 }
 

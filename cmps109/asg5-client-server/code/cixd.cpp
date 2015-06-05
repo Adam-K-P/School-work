@@ -29,8 +29,14 @@ void reply_get (accepted_socket& client_sock, cix_header& header) {
    header.command = CIX_FILE;
    ifstream file (const_cast<char*> (header.filename),
                   ifstream::binary | ifstream::in);
+   if (file.fail()) {
+      log << "File: " << header.filename << "not found" << endl;
+      header.command = CIX_NAK;
+      header.nbytes = errno;
+      send_packet(client_sock, &header, sizeof header);
+      return;
+   }
    char* buffer = get_buffer(file, header);
-
    log << "sending header " << header << endl;
    send_packet(client_sock, &header, sizeof header);
    send_packet(client_sock, buffer, header.nbytes);
