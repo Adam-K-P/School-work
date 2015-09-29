@@ -1,0 +1,46 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2014.11.26.01.15.08;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id$
+
+#ifndef __SEMANTICS_H__
+#define __SEMANTICS_H__
+
+#include <cstdio>
+using namespace std;
+
+extern FILE* yyin;
+extern char* yytext;
+extern int yy_flex_debug;
+extern int yydebug;
+extern int yyleng;
+
+extern int lex_linenr;
+extern int lex_offset;
+
+int yylex (void);
+int yyparse (void);
+void yyerror (const char* message);
+
+#endif
+
+@

@@ -1,0 +1,5 @@
+#!/bin/sh
+cid + *.h *.c $0
+GCCOPT="-g -O0 -Wall -Wextra -std=gnu11"
+gcc -c $GCCOPT *.c
+gcc *.o

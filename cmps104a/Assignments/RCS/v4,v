@@ -1,0 +1,40 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2014.11.21.23.41.56;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.11.04.21.55.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@vi asg4-symbols-types.mm
+touch asg4-symbols-types.mm
+make
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 2
+@

@@ -1,0 +1,566 @@
+head	1.10;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.10
+date	2014.12.11.23.47.31;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2014.11.26.01.14.38;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2014.11.21.02.22.30;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2014.11.21.02.12.18;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2014.11.21.01.37.10;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2014.11.20.23.08.08;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2014.11.20.21.49.51;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2014.11.20.00.33.41;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2014.11.20.00.19.28;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.11.14.04.23.35;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.10
+log
+@-
+@
+text
+@%{
+// $Id: parser.y,v 1.9 2014-11-25 17:14:38-08 - - $
+
+#include "semantics.h"
+
+%}
+
+%debug
+%defines
+%error-verbose
+%token-table
+%verbose
+
+%token GOTO IF INT RETURN SIZEOF STRUCT CHAR VOID
+%token CHARCON STRINGCON INTCON IDENT PTR NE LT EQ GE
+
+%%
+
+program    : program structdef
+           | program globaldef
+           | program function
+           | program '\n'
+           |
+           ;
+
+structdef  : STRUCT IDENT '{' '\n' fields '}' ';' '\n'
+           ;
+
+fields     : fields type IDENT ';' '\n'
+           |
+           ;
+
+globaldef  : type IDENT '=' STRINGCON ';' '\n'
+           | type IDENT ';' '\n'
+           ;
+
+function   : type IDENT parameters ';' '\n'
+           | type IDENT parameters block
+           | VOID IDENT parameters ';' '\n'
+           | VOID IDENT parameters block
+           ;
+
+parameters : '(' params ')'
+           | '(' VOID ')'
+           ;
+
+params     : params ',' type IDENT
+           | type IDENT
+           ;
+
+block      : '{' '\n' statements '}' '\n'
+           ;
+
+statements : statements statement
+           |
+           ;
+
+
+statement  : IDENT ':' ';' '\n'
+           | IF '(' condition ')' GOTO IDENT ';' '\n'
+           | GOTO IDENT ';' '\n'
+           | RETURN operand ';' '\n'
+           | RETURN ';' '\n'
+           | type IDENT '=' expression ';' '\n'
+           | IDENT '=' expression ';' '\n'
+           | '*' IDENT '=' expression ';' '\n'
+           | type IDENT '=' call ';' '\n'
+           | call ';' '\n'
+           | block
+           ;
+
+call       : IDENT '(' args ')' | IDENT '(' ')'
+           ;
+
+args       : args ',' operand | operand
+           ;
+
+expression : operand binop operand
+           | unop operand
+           | selection
+           | operand
+           ;
+
+binop      : '+' | '-' | '*' | '/' | '%' | '<' | '>'
+           | NE | LT | EQ | GE
+           ;
+
+unop       : '+' | '-' | '!' | '*' | '(' INT ')' | '(' CHAR ')'
+           ;
+
+selection  : '&' IDENT '[' operand ']'
+           | '&' IDENT PTR IDENT
+           ;
+
+condition  : '!' operand | operand
+           ;
+
+operand    : IDENT | INTCON | CHARCON | SIZEOF '(' type ')'
+           ;
+
+type       : VOID '*' | CHAR | CHAR '*' | CHAR '*' '*'
+           | CHAR '*' '*' '*' | INT | INT '*' | INT '*' '*'
+           | STRUCT IDENT '*' | STRUCT IDENT '*' '*'
+           | STRUCT IDENT '*' '*' '*'
+           ;
+
+%%
+
+@
+
+
+1.9
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.8 2014-11-20 18:22:30-08 - - $
+d26 2
+a27 1
+structdef  : STRUCT IDENT '{' '\n' fields '}' ';' '\n' ;
+d51 2
+a52 1
+block      : '{' '\n' statements '}' '\n' ;
+d72 2
+a73 1
+call       : IDENT '(' args ')' | IDENT '(' ')' ;
+d75 2
+a76 1
+args       : args ',' operand | operand ;
+d88 2
+a89 1
+unop       : '+' | '-' | '!' | '*' | '(' INT ')' | '(' CHAR ')' ;
+d91 3
+a93 1
+selection  : '&' IDENT '[' operand ']' | '&' IDENT PTR IDENT ;
+d95 2
+a96 1
+condition  : '!' operand | operand ;
+d98 2
+a99 1
+operand    : IDENT | INTCON | CHARCON | SIZEOF '(' type ')' ;
+@
+
+
+1.8
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.7 2014-11-20 18:12:18-08 - - $
+d20 1
+a20 2
+           | program stringdef
+           | program vardef
+d28 1
+a28 1
+fields     : fields vardef
+d32 3
+a34 3
+stringdef  : CHAR '*' IDENT '=' STRINGCON ';' '\n' ;
+
+vardef     : type IDENT ';' '\n' ;
+d43 1
+a43 1
+           | '(' ')'
+d52 3
+a54 1
+statements : statements statement | ;
+d56 1
+d64 1
+a64 1
+           | selection '=' operand ';' '\n'
+a65 1
+           | IDENT '=' call ';' '\n'
+d84 1
+a84 1
+unop       : '+' | '-' | '!' | '(' INT ')' | '(' CHAR ')' ;
+d86 1
+a86 1
+selection  : IDENT '[' operand ']' | IDENT PTR IDENT ;
+d92 2
+a93 2
+type       : CHAR | CHAR '*' | CHAR '*' '*'
+           | INT | INT '*'
+d95 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.6 2014-11-20 17:37:10-08 - - $
+d14 1
+a14 1
+%token GOTO IF INT RETURN SIZEOF STRUCT UBYTE VOID
+d33 1
+a33 1
+stringdef  : UBYTE '*' IDENT '=' STRINGCON ';' '\n' ;
+d83 1
+a83 1
+unop       : '+' | '-' | '!' | '(' INT ')' | '(' UBYTE ')' ;
+d91 1
+a91 1
+type       : UBYTE | UBYTE '*' | UBYTE '*' '*'
+@
+
+
+1.6
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.5 2014-11-20 15:08:08-08 - - $
+d14 1
+a14 1
+%token GOTO IF RETURN STRUCT VOID UBYTE INT 
+d89 1
+a89 1
+operand    : CHARCON | STRINGCON | INTCON | IDENT ;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 4
+a5 1
+// $Id: parser.y,v 1.4 2014-11-20 13:49:51-08 - - $
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.3 2014-11-19 16:33:41-08 - - $
+d11 2
+a12 4
+%token PTR NE LT EQ GE
+%token GOTO IF RETURN STRUCT
+%token VOID UBYTE INT 
+%token CHARCON STRINGCON INTCON IDENT
+d18 1
+a18 1
+           | program variable
+d24 4
+a27 1
+structdef  : STRUCT IDENT '{' VARIABLES '}' ';'
+d30 1
+a30 2
+stringdef  : UBYTE '*' IDENT '=' STRINGCON ';'
+           ;
+d32 1
+a32 2
+variable   : type IDENT ';'
+           ;
+d34 1
+a34 1
+function   : type IDENT parameters ';'
+d36 1
+a36 1
+           | VOID IDENT parameters ';'
+d48 1
+a48 2
+block      : '{' statements '}'
+           ;
+d50 1
+a50 3
+statements : statements statement
+           |
+           ;
+d52 11
+a62 11
+statement  : IDENT ':' ';'
+           | IF '(' condition ')' GOTO IDENT ';'
+           | GOTO IDENT ';'
+           | RETURN operand ';'
+           | RETURN ';'
+           | type IDENT '=' expression ';'
+           | IDENT '=' expression ';'
+           | selection '=' operand ';'
+           | type IDENT '=' IDENT arguments ';'
+           | IDENT '=' call ';'
+           | call ';'
+d66 1
+a66 3
+call       : IDENT '(' args ')'
+           | IDENT '(' ')'
+           ;
+d68 1
+a68 3
+args       : args ',' operand
+           | operand
+           ;
+d80 1
+a80 2
+unop       : '+' | '-' | '!' | '(' INT ')' | '(' UBYTE ')'
+           ;
+d82 1
+a82 3
+selection  : IDENT '[' operand ']'
+           | IDENT PTR IDENT
+           ;
+d84 1
+a84 2
+condition  : '!' operand | operand
+           ;
+d86 1
+a86 2
+operand    : CHARCON | STRINGCON | INTCON | IDENT
+           ;
+d88 3
+a90 7
+type       : UBYTE
+           | UBYTE '*'
+           | UBYTE '*' '*'
+           | INT
+           | INT '*'
+           | STRUCT IDENT '*'
+           | STRUCT IDENT '*' '*'
+d94 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.2 2014-11-19 16:19:28-08 - - $
+d11 4
+a14 4
+%token TOK_PTR TOK_NE TOK_LT TOK_EQ TOK_GE
+%token TOK_goto TOK_if TOK_return TOK_struct TOK_void
+%token TOK_ubyte TOK_ubyte_ptr TOK_ubyte_ptrptr TOK_int TOK_int_ptr
+%token CHARCON STRINGCON INTCON IDENT IDENT_ptr IDENT_ptrptr
+d18 5
+a22 4
+program    : structdefs stringdefs variables functions newlines
+           ;
+
+newlines   : newlines '\n'
+d26 1
+a26 2
+structdefs : structdefs TOK_struct IDENT '{' variables '}' ';'
+           | newlines
+d29 1
+a29 2
+stringdefs : stringdefs TOK_ubyte '*' IDENT '=' STRINGCON ';'
+           | newlines
+d32 1
+a32 2
+variables  : variables type IDENT ';'
+           | newlines
+d35 4
+a38 3
+functions  : functions type IDENT parameters fnbody
+           | functions TOK_void IDENT parameters fnbody
+           | newlines
+d49 1
+a49 1
+fnbody     : '{' statements '}'
+d57 4
+a60 4
+           | TOK_if '(' condition ')' TOK_goto IDENT ';'
+           | TOK_goto IDENT ';'
+           | TOK_return operand ';'
+           | TOK_return ';'
+d65 3
+a67 2
+           | IDENT '=' IDENT arguments ';'
+           | IDENT arguments ';'
+d70 2
+a71 2
+arguments  : '(' args ')'
+           | '(' ')'
+d85 1
+a85 1
+           | TOK_NE | TOK_LT | TOK_EQ | TOK_GE
+d88 1
+a88 1
+unop       : '+' | '-' | '!' | '(' TOK_int ')' | '(' TOK_ubyte ')'
+d92 1
+a92 1
+           | IDENT TOK_PTR IDENT
+d101 7
+a107 7
+type       : TOK_ubyte
+           | TOK_ubyte_ptr
+           | TOK_ubyte_ptrptr
+           | TOK_int
+           | TOK_int_ptr
+           | TOK_struct IDENT_ptr
+           | TOK_struct IDENT_ptrptr
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.1 2014-11-13 20:23:35-08 - - $
+d13 2
+a14 2
+%token TOK_ubyte TOK_ubyte_p TOK_ubyte_pp TOK_int TOK_int_p
+%token CHARCON STRINGCON INTCON IDENT IDENT_p IDENT_pp
+d18 5
+a22 1
+program    : structdefs stringdefs variables functions
+d26 1
+a26 1
+           |
+d30 1
+a30 1
+           |
+d34 1
+a34 1
+           |
+d39 1
+a39 1
+           |
+d102 2
+a103 2
+           | TOK_ubyte_p
+           | TOK_ubyte_pp
+d105 3
+a107 3
+           | TOK_int_p
+           | TOK_struct IDENT_p
+           | TOK_struct IDENT_pp
+d110 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id$
+d12 3
+a14 2
+%token TOK_goto TOK_if TOK_int TOK_return TOK_struct TOK_ubyte TOK_void
+%token CHARCON STRINGCON INTCON IDENT
+d18 1
+a18 1
+program    : structdefs stringdefs typeidents functions
+d21 1
+a21 1
+structdefs : structdefs TOK_struct IDENT '{' typeidents '}' ';'
+d29 1
+a29 1
+typeidents : typeidents typeident ';'
+d33 2
+a34 1
+functions  : functions typeident parameters fnbody
+d42 2
+a43 2
+params     : params ',' typeident
+           | typeident
+d58 1
+a58 1
+           | typeident '=' expression ';'
+d61 1
+a61 1
+           | typeident '=' IDENT arguments ';'
+d97 7
+a103 8
+typeident  : TOK_void IDENT
+           | TOK_ubyte IDENT
+           | TOK_ubyte '*' IDENT
+           | TOK_ubyte '*' '*' IDENT
+           | TOK_int IDENT
+           | TOK_int '*' IDENT
+           | TOK_struct IDENT '*' IDENT
+           | TOK_struct IDENT '*' '*' IDENT
+@
