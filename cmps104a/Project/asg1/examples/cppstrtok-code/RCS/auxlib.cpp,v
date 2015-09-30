@@ -1,4 +1,31 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
 
+
+1.2
+date	2014.10.08.01.07.29;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.10.04.01.51.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@
 #include <assert.h>
 #include <errno.h>
 #include <libgen.h>
@@ -52,6 +79,7 @@ void eprint_status (const char* command, int status) {
    eprintf ("\n");
 }
 
+
 void veprintf (const char* format, va_list args) {
    assert (execname != NULL);
    assert (format != NULL);
@@ -103,9 +131,10 @@ void __stubprintf (const char* file, int line, const char* func,
    fflush (NULL);
 }     
 
+
 void set_debugflags (const char* flags) {
    debugflags = flags;
-   if (strchr (debugflags, '@') != NULL) alldebugflags = true;
+   if (strchr (debugflags, '@@') != NULL) alldebugflags = true;
    DEBUGF ('x', "Debugflags = \"%s\", all = %d\n",
            debugflags, alldebugflags);
 }
@@ -127,5 +156,23 @@ void __debugprintf (char flag, const char* file, int line,
    fflush (NULL);
 }
 
-RCSC("$Id: auxlib.cpp,v 1.2 2014-10-07 18:07:29-07 - - $")
+RCSC("$Id: auxlib.cpp,v 1.1 2014-10-03 18:51:47-07 - - $")
 
+@
+
+
+1.1
+log
+@-
+@
+text
+@a54 4
+int get_exitstatus (void) {
+   return exitstatus;
+}
+
+d87 4
+d132 1
+a132 1
+RCSC("$Id: auxlib.cc,v 1.1 2013-09-20 19:38:26-07 - - $")
+@
