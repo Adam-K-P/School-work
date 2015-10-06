@@ -1,4 +1,5 @@
-#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/racket/bin/mzscheme -qr
+#!/usr/bin/mzscheme -qr
+;#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/racket/bin/mzscheme -qr
 ;; $Id: sbi.scm,v 1.2 2015-09-23 17:11:09-07 - - $
 ;;
 ;; NAME
@@ -45,7 +46,7 @@
     (printf "~a: ~s~n" *run-file* filename)
     (printf "==================================================~n")
     (printf "(~n")
-    (map (lambda (line) (printf "~s~n" line)) program)
+    ;(map (lambda (line) (printf "~s~n" line)) program)
     (printf ")~n"))
 
 (define (main arglist)
