@@ -1,7 +1,5 @@
 #!/usr/bin/mzscheme -qr
 ;#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/racket/bin/mzscheme -qr
-;; $Id: sbi.scm,v 1.2 2015-09-23 17:11:09-07 - - $
-;;
 ;; NAME
 ;;    sbi.scm - silly basic interpreter
 ;;
@@ -33,11 +31,30 @@
     (die `("Usage: " ,*run-file* " filename"))
 )
 
+;(define (makelist inputfile)
+    ;(let* ((line (read inputfile)))
+        ;(if (eof-object? line)
+
+(define makelist 
+  (lambda (inputfile)
+    (list->string
+      (let f ()
+        (let ((c (peek-char p)))
+          (cond
+            ((eof-object? c) '())
+            ((char-alphabetic? c)
+             (read-char p)
+             (cons c (f)))
+            (else '())))))))
+
+;;FIXME: only reading the first word of a file
 (define (readlist-from-inputfile filename)
     (let ((inputfile (open-input-file filename)))
          (if (not (input-port? inputfile))
              (die `(,*run-file* ": " ,filename ": open failed"))
-             (let ((program (read inputfile)))
+             (let* ((program (read-word inputfile)))
+                  (display program)
+                  (newline)
                   (close-input-port inputfile)
                          program))))
 
