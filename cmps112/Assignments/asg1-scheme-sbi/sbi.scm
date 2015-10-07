@@ -34,41 +34,28 @@
     (die `("Usage: " ,*run-file* " filename"))
 )
 
-;(define (makelist inputfile)
-    ;(let* ((line (read inputfile)))
-        ;(if (eof-object? line)
+(define (interpret program)
+    (map (lambda (line) 
+         (cond ((string=? line "let") (display "let detected"))
+               ((string=? line "print") (display "print detected"))
+               (else (display "not a command")))
+         (newline)
+         line) program))
 
-(define (makelist inputfile)
-    (list->string
-        (let add-line ()
-            (let ((line (read inputfile))
-                (if ((eof-object? line) '()
-                    (display line)
-                    (cons line (add-line))))))))
-
-;;FIXME: only reading the first word of a file
 (define (readlist-from-inputfile filename)
     (let ((inputfile (open-input-file filename)))
-         (if (not (input-port? inputfile))
-             (die `(,*run-file* ": " ,filename ": open failed"))
-                 (let ((file-list (makelist inputfile)))
-                     
-
-                     
-             
-
-             ;(let* ((program (read inputfile)))
-                  ;(display program)
-                  ;(newline)
-                  ;(close-input-port inputfile)
-                         ;program))))
+        (if (not (input-port? inputfile))
+            (die `(,*run-file* ": " ,filename ": open failed"))
+             (let* ((program (read inputfile)))
+                  (close-input-port inputfile)
+                         program))))
 
 (define (write-program-by-line filename program)
     (printf "==================================================~n")
     (printf "~a: ~s~n" *run-file* filename)
     (printf "==================================================~n")
     (printf "(~n")
-    ;(map (lambda (line) (printf "~s~n" line)) program)
+    (map (lambda (line) (printf "~s~n" line)) program)
     (printf ")~n"))
 
 (define (main arglist)
@@ -76,7 +63,9 @@
         (usage-exit)
         (let* ((sbprogfile (car arglist))
                (program (readlist-from-inputfile sbprogfile)))
-              (write-program-by-line sbprogfile program))))
+               (write-program-by-line sbprogfile program)
+               ;(map (lambda (line) (interpret line)) program))))
+               (interpret program))))
 
 (main (vector->list (current-command-line-arguments)))
 
