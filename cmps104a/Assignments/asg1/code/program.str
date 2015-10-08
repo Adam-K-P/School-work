@@ -1,4 +1,0 @@
-stringset[   9]:    4795077891475041234: 0x22b5138->"hello, world"
-load_factor = 0.091
-bucket_count = 11
-max_bucket_size = 1

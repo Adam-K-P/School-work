@@ -1,0 +1,9 @@
+stringset[   3]:    2762169579135187400: 0x1c7c118->"hello"
+load_factor = 0.091
+bucket_count = 11
+max_bucket_size = 1
+stringset[   2]:    8751027807033337960: 0x1c80748->"world"
+stringset[   3]:    2762169579135187400: 0x1c7c118->"hello"
+load_factor = 0.182
+bucket_count = 11
+max_bucket_size = 1
