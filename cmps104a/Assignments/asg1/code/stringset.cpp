@@ -17,7 +17,6 @@ stringset set;
 
 const string* intern_stringset (const char* insert) {
    pair<stringset::const_iterator, bool> handle = set.insert(insert);
-   cout << *handle.first << endl;
    return &*handle.first;
 }
 

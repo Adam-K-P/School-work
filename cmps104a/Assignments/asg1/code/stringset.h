@@ -12,6 +12,6 @@
 
 const std::string* intern_stringset (const char*);
 
-void dump_stringset (ostream&);
+void dump_stringset (std::ostream&);
 
 #endif
