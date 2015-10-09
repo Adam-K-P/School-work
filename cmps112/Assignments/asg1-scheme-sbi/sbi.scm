@@ -36,9 +36,7 @@
 
 (define (interpret program)
     (map (lambda (line) 
-         (cond ((string=? line "let") (display "let detected"))
-               ((string=? line "print") (display "print detected"))
-               (else (display "not a command")))
+         (when (not (null? (cdr line))) (display (cdr line)))
          (newline)
          line) program))
 
@@ -64,7 +62,6 @@
         (let* ((sbprogfile (car arglist))
                (program (readlist-from-inputfile sbprogfile)))
                (write-program-by-line sbprogfile program)
-               ;(map (lambda (line) (interpret line)) program))))
                (interpret program))))
 
 (main (vector->list (current-command-line-arguments)))

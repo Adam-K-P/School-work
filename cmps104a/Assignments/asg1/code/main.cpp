@@ -29,7 +29,7 @@ static void chomp (char* string, char delim) {
    if (*nlpos == delim) *nlpos = '\0';
 }
 
-void cpplines (FILE* pipe, char* filename, ostream& out) {
+static void cpplines (FILE* pipe, char* filename, ostream& out) {
    int linenr = 1;
    char inputname[LINESIZE];
    strcpy (inputname, filename);
@@ -53,7 +53,6 @@ void cpplines (FILE* pipe, char* filename, ostream& out) {
          bufptr = NULL;
          if (token == NULL) break;
          intern_stringset(token);
-         dump_stringset(out);
          /*printf ("token %d.%d: [%s]\n",
                  linenr, tokenct, token);*/
       }
@@ -130,6 +129,7 @@ int main (int argc, char** argv) {
    ifstream infile(argv[argc - 1]);
    ofstream outfile(outfile_name);
    insert_set(infile, outfile, argv[argc - 1]);
+   dump_stringset(outfile);
    infile.close();
    outfile.close();
    return EXIT_SUCCESS;

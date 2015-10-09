@@ -1,0 +1,27 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2015.09.28.21.03.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@(define (fac n)
+   (if (<= n 0) 1
+       (* n (fac (- n 1)))))
+;; $Id$
+@
