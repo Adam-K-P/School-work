@@ -40,6 +40,10 @@
     (die `("Usage: " ,*run-file* " filename"))
 )
 
+(define (bad-input)
+    (die `("Improper input detected ",*run-file* " filename"))
+)
+
 (define (dump-hash-table hash-table)
     (hash-for-each hash-table (lambda (key value)
         (display key) (newline) (display value) (newline))))
@@ -50,7 +54,7 @@
                (hash-set! label-table (cadr line) line))
          line) program))
 
-(define (fill-function-table program)
+(define (function-table-ins program)
     (for-each
         (lambda (function) (hash-set! function-table (car function) 
                                                      (cadr function)))
@@ -63,7 +67,25 @@
            (print ,(lambda (item) (display item)))
            )))
 
-(define (interpret program) `())
+(define (interpret-line line) 
+     (when (null? line) bad-input)
+     (when (hash-ref variable-table (car line) #f) ;if the key is found
+           (hash-ref variable-table (car line)))
+     (when (hash-ref function-table (car line) #f)
+           (display "in function table")))
+
+;two special cases in beginning
+;check if num
+;check if label
+;need to check if it is in a label-table function-table or variable-table
+(define (interpret program) 
+    (map (lambda (line)
+        (when (not (number? (car line))) (bad-input))
+        (unless (null? (cdr line))
+            (display "made it here") (newline)
+            (when (hash-ref label-table (car line) #f)
+                (unless (null? (cddr line)) (interpret-line (cddr line))))) 
+     line) program))
 
 (define (readlist-from-inputfile filename)
     (let ((inputfile (open-input-file filename)))
@@ -86,9 +108,9 @@
         (usage-exit)
         (let* ((sbprogfile (car arglist))
                (program (readlist-from-inputfile sbprogfile)))
-               (write-program-by-line sbprogfile program)
+               ;(write-program-by-line sbprogfile program)
                (fill-label-table program)
-               (dump-hash-table label-table)
+               ;(dump-hash-table label-table)
                (interpret program))))
 
 (main (vector->list (current-command-line-arguments)))
