@@ -15,6 +15,8 @@
 ;;    printed.
 ;;
 
+;;remember to delete CDPATH from .bashrc !!!
+
 (define *stderr* (current-error-port))
 
 (define label-table (make-hash))
@@ -22,11 +24,19 @@
 (hash-set! variable-table "pi" 3.141592653589793238462643383279502884197169399)
 (hash-set! variable-table "e"  2.718281828459045235360287471352662497757247093)
 
+;;returns x if it is a number and the variable value if it's not
+;;program stops if neither
+(define (numb-or-var x)
+    (if (number? x) x 
+        ((when (not (symbol? x)) (bad-input))
+        (hash-ref variable-table (x) (bad-input)))))
+
 (define function-table (make-hash))
 (for-each
     (lambda (function) (hash-set! function-table (car function) 
                                                  (cadr function)))
-    `( (+ ,(lambda (x y) (+ x y)))
+    `( (+ ,(lambda (x y) (+ (if (number? x) x (interpret-line x))
+                            (if (number? y) y (interpret-line y)))))
        (- ,(lambda (x y) (- x y)))
        (/ ,(lambda (x y) (/ x (+ y 0.0))))
        (* ,(lambda (x y) (* x y)))
@@ -72,16 +82,16 @@
 
 ;have to tail recursively call interpret-line here
 (define (interpret-line line) 
-     ;(display "new line") (newline)
-     ;(display (car line)) (newline)
-     ;(display (cdr line)) (newline) 
-     (when (null? line) (bad-input))
-     (when (hash-ref variable-table (car line) #f) ;if the key is found
-           (display "reaching variable when") (newline)
-           (hash-ref variable-table (car line)))
+     (when (or (null? line) (null? (cdr line))) (bad-input))
+     (unless (list? line) (bad-input))
+     ;(when (hash-ref variable-table (car line) #f) ;if the key is found
+           ;(display "reaching variable when") (newline)
+           ;(hash-ref variable-table (car line)))
+
+     ;(apply (hash-ref function-table (car line) (bad-input)) (cdr line)) )
+
      (when (hash-ref function-table (car line) #f)
            (if (null? (cdr line)) (bad-input) 
-               ;(perform-func (car line) (cdr line))))
                (apply (hash-ref function-table (car line)) (cdr line)) )))
 
 ;two special cases in beginning
