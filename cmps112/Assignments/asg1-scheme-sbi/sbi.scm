@@ -17,11 +17,27 @@
 
 (define *stderr* (current-error-port))
 
-(define function-table (make-hash))
 (define label-table (make-hash))
 (define variable-table (make-hash))
 (hash-set! variable-table "pi" 3.141592653589793238462643383279502884197169399)
 (hash-set! variable-table "e"  2.718281828459045235360287471352662497757247093)
+
+(define function-table (make-hash))
+(for-each
+    (lambda (function) (hash-set! function-table (car function) 
+                                                 (cadr function)))
+    `( (+ ,(lambda (x y) (+ x y)))
+       (- ,(lambda (x y) (- x y)))
+       (/ ,(lambda (x y) (/ x (+ y 0.0))))
+       (* ,(lambda (x y) (* x y)))
+       ;(dim ,(lambda (item) (display item) (newline))) 
+       (goto ,(lambda (arg) (display arg) (newline))) 
+       ;(if ,(lambda (item) (display item) (newline)))
+       ;(input ,(lambda (item) (display item) (newline)))
+       (let ,(lambda (var value) (display var) (newline) 
+                                 (display value) (newline)))
+       ;(print ,(lambda (item) (display item) (newline))) ))
+       ))
 
 (define *run-file*
     (let-values
@@ -49,44 +65,37 @@
         (display key) (newline) (display value) (newline))))
 
 (define (fill-label-table program)
-    (map (lambda (line) 
+    (for-each (lambda (line) 
          (when (and (not (null? (cdr line))) (not (list? (cadr line))))
                (hash-set! label-table (cadr line) line))
          line) program))
 
-(define (function-table-ins program)
-    (for-each
-        (lambda (function) (hash-set! function-table (car function) 
-                                                     (cadr function)))
-        `( (+ ,(lambda (x y) (+ x y)))
-           (- ,(lambda (x y) (- x y)))
-           (/ ,(lambda (x y) (/ x (+ y 0.0)))) ;ensure it's a real number
-           (* ,(lambda (x y) (* x y)))
-           (% ,(lambda (x y) (% x y)))
-           (^ ,(lambda (x y) (^ x y))) 
-           (print ,(lambda (item) (display item)))
-           )))
-
+;have to tail recursively call interpret-line here
 (define (interpret-line line) 
-     (display (car line)) (newline)
+     ;(display "new line") (newline)
+     ;(display (car line)) (newline)
+     ;(display (cdr line)) (newline) 
      (when (null? line) (bad-input))
      (when (hash-ref variable-table (car line) #f) ;if the key is found
+           (display "reaching variable when") (newline)
            (hash-ref variable-table (car line)))
      (when (hash-ref function-table (car line) #f)
-           (display "in function table")))
+           (if (null? (cdr line)) (bad-input) 
+               ;(perform-func (car line) (cdr line))))
+               (apply (hash-ref function-table (car line)) (cdr line)) )))
 
 ;two special cases in beginning
 ;check if num
 ;check if label
 ;need to check if it is in a label-table function-table or variable-table
 (define (interpret program) 
-    (map (lambda (line)
+    (for-each (lambda (line)
         (when (not (number? (car line))) (bad-input))
         (unless (null? (cdr line))
-            (when (hash-ref label-table (cadr line) #f)
-                (unless (null? (cddr line)) 
-                    ((display "here") (newline) 
-                     (interpret-line (caddr line)))))) 
+            (if (not (hash-ref label-table (cadr line) #f)) ;label not found
+                (interpret-line (cadr line))
+                (when (not (null? (cddr line)))
+                    (interpret-line (caddr line))))) 
      line) program))
 
 (define (readlist-from-inputfile filename)
