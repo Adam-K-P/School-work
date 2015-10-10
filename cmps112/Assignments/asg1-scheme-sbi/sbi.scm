@@ -68,7 +68,8 @@
            )))
 
 (define (interpret-line line) 
-     (when (null? line) bad-input)
+     (display (car line)) (newline)
+     (when (null? line) (bad-input))
      (when (hash-ref variable-table (car line) #f) ;if the key is found
            (hash-ref variable-table (car line)))
      (when (hash-ref function-table (car line) #f)
@@ -82,9 +83,10 @@
     (map (lambda (line)
         (when (not (number? (car line))) (bad-input))
         (unless (null? (cdr line))
-            (display "made it here") (newline)
-            (when (hash-ref label-table (car line) #f)
-                (unless (null? (cddr line)) (interpret-line (cddr line))))) 
+            (when (hash-ref label-table (cadr line) #f)
+                (unless (null? (cddr line)) 
+                    ((display "here") (newline) 
+                     (interpret-line (caddr line)))))) 
      line) program))
 
 (define (readlist-from-inputfile filename)
