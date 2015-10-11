@@ -53,7 +53,7 @@
 (   19 letfac   (let factorial 1))
 (   20          (let itor 2))
 (   21 loop     (if (> itor x) prt))
-(   22          (let factorial (* factorial itor)))
+(   22          (let factorial (* 3 itor)))
 (   23          (let itor (+ itor 1)))
 (   24          (goto loop))
 (   25 prt      (print "factorial(" x ") = " factorial))
