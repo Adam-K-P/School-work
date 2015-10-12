@@ -20,9 +20,14 @@
 (define *stderr* (current-error-port))
 
 (define label-table (make-hash))
-(define variable-table (make-hash)) ;keep hash-eq and hash-eqv in mind
+(define variable-table (make-hash))
 (hash-set! variable-table "pi" 3.141592653589793238462643383279502884197169399)
 (hash-set! variable-table "e"  2.718281828459045235360287471352662497757247093)
+
+(define (perform-goto program label)
+    (display "hello, world!") (newline)
+)
+    
 
 ;;returns x if it is a number and the variable value if it's a variable
 (define (get-val x)
@@ -42,10 +47,6 @@
                          (hash-ref variable-table value bad-input)))
         (else (hash-set! variable-table var (interpret-line value))) )) 
 
-(define (perform-mult x y)
-    (display (* (get-val x) (get-val y))) (newline)
-    (dump-hash-table variable-table)
-)
 
 (define function-table (make-hash))
 (for-each
@@ -53,10 +54,10 @@
                                                  (cadr function)))
     `( (+ ,(lambda (x y) (+ (get-val x) (get-val y))))
        (- ,(lambda (x y) (- (get-val x) (get-val y)))) 
-       (/ ,(lambda (x y) (/ (get-val x) (get-val y))))
-       (* ,(lambda (x y) (perform-mult x y)))
+       (/ ,(lambda (x y) (/ (get-val x) (+ (get-val y) 0.0))))
+       (* ,(lambda (x y) (* (get-val x) (get-val y))))
        ;(dim ,(lambda (item) (display item) (newline))) 
-       ;(goto ,(lambda (arg) (display arg) (newline))) 
+       (goto ,(lambda (label) (perform-goto label)))
        ;(if ,(lambda (test then) (display test) (newline)))
        ;(input ,(lambda (item) (display item) (newline)))
        (let ,(lambda (var value) (let-function var value))) ;calling dreaded from 3rd level
@@ -116,7 +117,6 @@
             (if (not (hash-ref label-table (cadr line) #f)) ;label not found
                 (interpret-line (cadr line))
                 (when (not (null? (cddr line)))
-                    ;(display line) (newline)
                     (interpret-line (caddr line))))) 
      line) program))
 
@@ -144,6 +144,7 @@
                ;(write-program-by-line sbprogfile program)
                (fill-label-table program)
                ;(dump-hash-table label-table)
-               (interpret program) )))
+               (interpret program) 
+               (dump-hash-table variable-table))))
 
 (main (vector->list (current-command-line-arguments)))
