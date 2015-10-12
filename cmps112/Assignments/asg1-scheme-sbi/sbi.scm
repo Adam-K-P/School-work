@@ -20,30 +20,32 @@
 (define *stderr* (current-error-port))
 
 (define label-table (make-hash))
-(define variable-table (make-hasheqv)) ;keep hash-eq and hash-eqv in mind
+(define variable-table (make-hash)) ;keep hash-eq and hash-eqv in mind
 (hash-set! variable-table "pi" 3.141592653589793238462643383279502884197169399)
 (hash-set! variable-table "e"  2.718281828459045235360287471352662497757247093)
 
-;;returns x if it is a number and the variable value if it's not
-;;program stops if neither
+;;returns x if it is a number and the variable value if it's a variable
 (define (get-val x)
+    (display x) (newline)
     (cond
         ((number? x) x)
-        ((symbol? x) (hash-ref variable-table x ((display x) (newline) 
-                         (dump-hash-table variable-table) ((display x) (newline)
-                             (bad-input))))) ;FAILING HERE!!!
+        ((symbol? x) 
+         (hash-ref variable-table x bad-input))
         (else (interpret-line x)) )) 
 
 (define (let-function var value)
-    ;(newline) (display var) (newline) (display value) (newline) (newline)
-    (unless (symbol? var) (bad-input)) ;var is a symbol, definitely!!!
+    (unless (symbol? var) (bad-input)) 
     (cond
-        ((number? value) (hash-set! variable-table var value)) ;factorial set first here
-        ((symbol? value) (hash-set! variable-table var ;second factorial set here
-                         (hash-ref variable-table value (bad-input))))
-         (else ((hash-set! variable-table var (interpret-line value)))) )) 
-               ;called here? yes, (list? value) true on highest level
-    ;(newline) (display var) (newline) (display value) (newline) (newline))
+        ((number? value) (hash-set! variable-table var value)) 
+        ((symbol? value) 
+         (hash-set! variable-table var 
+                         (hash-ref variable-table value bad-input)))
+        (else (hash-set! variable-table var (interpret-line value))) )) 
+
+(define (perform-mult x y)
+    (display (* (get-val x) (get-val y))) (newline)
+    (dump-hash-table variable-table)
+)
 
 (define function-table (make-hash))
 (for-each
@@ -52,7 +54,7 @@
     `( (+ ,(lambda (x y) (+ (get-val x) (get-val y))))
        (- ,(lambda (x y) (- (get-val x) (get-val y)))) 
        (/ ,(lambda (x y) (/ (get-val x) (get-val y))))
-       (* ,(lambda (x y) (* (get-val x) (get-val y)))) ;this is calling dreaded func 1st lvl
+       (* ,(lambda (x y) (perform-mult x y)))
        ;(dim ,(lambda (item) (display item) (newline))) 
        ;(goto ,(lambda (arg) (display arg) (newline))) 
        ;(if ,(lambda (test then) (display test) (newline)))
@@ -84,7 +86,7 @@
 
 (define (dump-hash-table hash-table)
     (hash-for-each hash-table (lambda (key value)
-        (display key) (newline) (display value) (newline))))
+        (display key) (display ": ") (display value) (newline))))
 
 (define (fill-label-table program)
     (for-each (lambda (line) 
@@ -93,7 +95,8 @@
          line) program))
 
 ;have to tail recursively call interpret-line here
-(define (interpret-line line)  ;associated with dreaded
+(define (interpret-line line)  
+     (display line) (newline)
      (when (or (null? line) (null? (cdr line))) (bad-input))
      (unless (list? line) (bad-input))
      (when (hash-ref function-table (car line) #f)
@@ -108,7 +111,7 @@
 ;need to check if it is in a label-table function-table or variable-table
 (define (interpret program) 
     (for-each (lambda (line)
-        (when (not (number? (car line))) (bad-input))
+        (when (not (number? (car line))) bad-input)
         (unless (null? (cdr line))
             (if (not (hash-ref label-table (cadr line) #f)) ;label not found
                 (interpret-line (cadr line))
