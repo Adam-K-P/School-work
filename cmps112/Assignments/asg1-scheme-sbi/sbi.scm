@@ -24,14 +24,22 @@
 (hash-set! variable-table "pi" 3.141592653589793238462643383279502884197169399)
 (hash-set! variable-table "e"  2.718281828459045235360287471352662497757247093)
 
-(define (perform-goto program label)
-    (display "hello, world!") (newline)
-)
-    
+(define (perform-goto label)
+    (interpret (hash-ref label-table label bad-input)))
+    ;(display "goto detected") (newline))
+  ;(newline) (newline)
+  ;(for-each (lambda (line)
+      ;(display line) (newline) line)
+      ;(hash-ref label-table label bad-input)))
+
+(define (perform-if test label)
+    (let* ((test-result 
+           (apply (hash-ref function-table (car test) bad-input) (cdr test)))) ;fails here
+        (unless (boolean? test-result) bad-input)
+        (when (test-result) (perform-goto label)) ))
 
 ;;returns x if it is a number and the variable value if it's a variable
 (define (get-val x)
-    (display x) (newline)
     (cond
         ((number? x) x)
         ((symbol? x) 
@@ -39,7 +47,7 @@
         (else (interpret-line x)) )) 
 
 (define (let-function var value)
-    (unless (symbol? var) (bad-input)) 
+    (unless (symbol? var) bad-input) 
     (cond
         ((number? value) (hash-set! variable-table var value)) 
         ((symbol? value) 
@@ -47,20 +55,26 @@
                          (hash-ref variable-table value bad-input)))
         (else (hash-set! variable-table var (interpret-line value))) )) 
 
-
 (define function-table (make-hash))
 (for-each
     (lambda (function) (hash-set! function-table (car function) 
                                                  (cadr function)))
-    `( (+ ,(lambda (x y) (+ (get-val x) (get-val y))))
-       (- ,(lambda (x y) (- (get-val x) (get-val y)))) 
-       (/ ,(lambda (x y) (/ (get-val x) (+ (get-val y) 0.0))))
-       (* ,(lambda (x y) (* (get-val x) (get-val y))))
+    `( (+  ,(lambda (x y) (+ (get-val x) (get-val y))))
+       (-  ,(lambda (x y) (- (get-val x) (get-val y)))) ;awwwwwww man
+       (/  ,(lambda (x y) (/ (get-val x) (+ (get-val y) 0.0))))
+       (*  ,(lambda (x y) (* (get-val x) (get-val y))))
+       (=  ,(lambda (x y) (= (get-val x) (get-val y))))
+       (<  ,(lambda (x y) (< (get-val x) (get-val y))))
+       (>  ,(lambda (x y) (> (get-val x) (get-val y))))
+       (<> ,(lambda (x y) (not (= (get-val x) (get-val y)))))
+       (>= ,(lambda (x y) (not (< (get-val x) (get-val y)))))
+       (<= ,(lambda (x y) (not (> (get-val x) (get-val y)))))
+
        ;(dim ,(lambda (item) (display item) (newline))) 
        (goto ,(lambda (label) (perform-goto label)))
-       ;(if ,(lambda (test then) (display test) (newline)))
+       (if ,(lambda (test label) (perform-if test label))) 
        ;(input ,(lambda (item) (display item) (newline)))
-       (let ,(lambda (var value) (let-function var value))) ;calling dreaded from 3rd level
+       (let ,(lambda (var value) (let-function var value))) 
        ;(print ,(lambda out (display out) (newline))) ))
        ))
 
@@ -92,16 +106,14 @@
 (define (fill-label-table program)
     (for-each (lambda (line) 
         (when (and (not (null? (cdr line))) (not (list? (cadr line))))
-               (hash-set! label-table (cadr line) line))
+               (hash-set! label-table (cadr line) (member line program)))
          line) program))
 
-;have to tail recursively call interpret-line here
 (define (interpret-line line)  
      (display line) (newline)
      (when (or (null? line) (null? (cdr line))) (bad-input))
      (unless (list? line) (bad-input))
      (when (hash-ref function-table (car line) #f)
-           ;(display line) (newline)
            (if (null? (cdr line)) (bad-input) 
                (apply (hash-ref function-table (car line)) (cdr line)) )))
      ;(apply (hash-ref function-table (car line) (bad-input)) (cdr line)) )
