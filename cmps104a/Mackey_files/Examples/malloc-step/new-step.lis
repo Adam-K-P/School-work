@@ -1,0 +1,41 @@
+::::::::::::::
+new-step.cpp
+::::::::::::::
+// $Id: new-step.cpp,v 1.4 2015-05-07 18:15:30-07 - - $
+
+#include <iostream>
+using namespace std;
+
+int main (void) {
+   char* prev = 0;
+   for (int i = 0; i < 16; ++i) {
+      char* curr = new char;
+      cout << (void*) curr << " " << (curr - prev) << endl;
+      prev = curr;
+   }
+   return 0;
+}
+
+//TEST// new-step >new-step.out 2>&1
+//TEST// more new-step.cpp new-step.out >new-step.lis </dev/null
+//TEST// mkpspdf new-step.ps new-step.lis
+
+::::::::::::::
+new-step.out
+::::::::::::::
+0x1ba1030 28971056
+0x1ba1050 32
+0x1ba1070 32
+0x1ba1090 32
+0x1ba10b0 32
+0x1ba10d0 32
+0x1ba10f0 32
+0x1ba1110 32
+0x1ba1130 32
+0x1ba1150 32
+0x1ba1170 32
+0x1ba1190 32
+0x1ba11b0 32
+0x1ba11d0 32
+0x1ba11f0 32
+0x1ba1210 32

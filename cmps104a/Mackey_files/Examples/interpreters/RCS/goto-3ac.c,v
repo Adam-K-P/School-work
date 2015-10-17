@@ -1,0 +1,141 @@
+head	341.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+341.1
+date	2004.03.05.02.31.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+341.1
+log
+@-
+@
+text
+@/* $Id: goto-3ac.c,v 310.2 2001-01-19 20:25:14-08 - - $ */
+
+typedef unsigned char uchar;
+typedef unsigned short ushort;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+
+enum Opcode{
+   ERR = 0x00, NOP = 0x01, LOC = 0x02, SYS = 0x03,
+   CAL = 0x08, RET = 0x09,
+
+   ADD = 0x10, SUB = 0x11, MUL = 0x12, DIV = 0x13,
+   REM = 0x14, AND = 0x18, OR  = 0x19, XOR = 0x1A,
+   SLL = 0x1B, SRL = 0x1C, SRA = 0x1D,
+
+   JMP = 0x20, JEQ = 0x21, JNE = 0x22, JLT = 0x23,
+   JGE = 0x24, JGT = 0x25, JLE = 0x26,
+
+   LA1 = 0x30, LA4 = 0x32, SA1 = 0x38, SA4 = 0x3A,
+};
+
+enum { M1 = 0, M2 = 8, M3 = 16, OP = 24 };
+void interp(){
+   static void *Switch_mode1[] = {
+      [0] &&mode1_0, [1] &&mode1_1, [2] &&mode1_2, [3] &&mode1_3,
+      [4] &&mode1_4, [5] &&mode1_5, [6] &&mode1_6, [7] &&mode1_7,
+   };
+   static void *Switch_mode2[] = {
+      [0] &&mode2_0, [1] &&mode2_1, [2] &&mode2_2, [3] &&mode2_3,
+      [4] &&mode2_4, [5] &&mode2_5, [6] &&mode2_6, [7] &&mode2_7,
+   };
+   static void *Switch_mode3[] = {
+      [0] &&mode3_0, [1] &&mode3_1, [2] &&mode3_2, [3] &&mode3_3,
+      [4] &&mode3_4, [5] &&mode3_5, [6] &&mode3_6, [7] &&mode3_7,
+   };
+   static void *Switch_op[] = {
+      [SYS] &&op_SYS,
+      [ADD] &&op_ADD, [SUB] &&op_SUB, [MUL] &&op_MUL, [DIV] &&op_DIV,
+      [REM] &&op_REM,
+      [AND] &&op_AND, [OR ] &&op_OR , [XOR] &&op_XOR,
+      [SLL] &&op_SLL, [SRL] &&op_SRL, [SRA] &&op_SRA,
+      [JMP] &&op_JMP,
+      [JEQ] &&op_JEQ, [JNE] &&op_JNE, [JLT] &&op_JLT,
+      [JGE] &&op_JGE, [JGT] &&op_JGT, [JLE] &&op_JLE,
+   };
+
+   #define CAST(T,X) ((T)(X))
+   #define IMM2      (ip[0])
+   #define IMM4      (ip[0]<<16|CAST(ushort,ip[1]))
+   #define LOC2      (fp[ip[0]])
+   #define FLD4      ((CAST(int*,fp[ip[0]]))[ip[1]])
+
+   /*struct insn{ ushort op:7, m1:3, m2:3, m3:3; };*/
+   register short *ip;
+   register uint ir;
+   register int *fp;
+   register int r1, r2;
+   register void **SW_op = Switch_op;
+   register void **SW_m1 = Switch_mode1;
+   register void **SW_m2 = Switch_mode2;
+   register void **SW_m3 = Switch_mode3;
+
+   #define MODE1(N) { ip+=N+1; ir = *ip; goto *SW_m1[ir>>6 &  7]; };
+   #define MODE2(N) { ip+=N;             goto *SW_m2[ir>>3 &  7]; };
+   #define OPTOR(N) { ip+=N;             goto *SW_op[ir>>9 &127]; };
+   #define MODE3(N) { ip+=N;             goto *SW_m3[ir>>0 &  7]; };
+   Start  : MODE1(-1);
+
+   mode1_0: r1 = 0;                      MODE2(0);
+   mode1_1: r1 = IMM2;                   MODE2(1);
+   mode1_2: r1 = IMM4;                   MODE2(2);
+   mode1_3:                              MODE2(0);
+   mode1_4: r1 = LOC2;                   MODE2(1);
+   mode1_5: r1 = FLD4;                   MODE2(2);
+   mode1_6:                              MODE2(0);
+   mode1_7:                              MODE2(0);
+
+   mode2_0: r2 = 0;                      OPTOR(0);
+   mode2_1: r2 = IMM2;                   OPTOR(1);
+   mode2_2: r2 = IMM4;                   OPTOR(2);
+   mode2_3:                              OPTOR(0);
+   mode2_4: r2 = LOC2;                   OPTOR(1);
+   mode2_5: r2 = FLD4;                   OPTOR(2);
+   mode2_6:                              OPTOR(0);
+   mode2_7:                              OPTOR(0);
+
+   op_SYS : r1 = syscall( r1, r2 );      MODE3(0);
+
+   op_ADD : r1 = r1 + r2;                MODE3(0);
+   op_SUB : r1 = r1 - r2;                MODE3(0);
+   op_MUL : r1 = r1 * r2;                MODE3(0);
+   op_DIV : r1 = r1 / r2;                MODE3(0);
+   op_REM : r1 = r1 % r2;                MODE3(0);
+   op_AND : r1 = r1 & r2;                MODE3(0);
+   op_OR  : r1 = r1 | r2;                MODE3(0);
+   op_XOR : r1 = r1 ^ r2;                MODE3(0);
+   op_SLL : r1 = r1 << r2;               MODE3(0);
+   op_SRL : r1 = CAST(uint,r1) >> r2;    MODE3(0);
+   op_SRA : r1 = r1 >> r2;               MODE3(0);
+
+   op_JMP : ip += IMM2;                  MODE1(0);
+   op_JEQ : if( r1 == r2 ) goto op_JMP;  MODE1(0);
+   op_JNE : if( r1 != r2 ) goto op_JMP;  MODE1(0);
+   op_JLT : if( r1 <  r2 ) goto op_JMP;  MODE1(0);
+   op_JGE : if( r1 >= r2 ) goto op_JMP;  MODE1(0);
+   op_JGT : if( r1 >  r2 ) goto op_JMP;  MODE1(0);
+   op_JLE : if( r1 <= r2 ) goto op_JMP;  MODE1(0);
+
+   mode3_0:                              MODE1(0);
+   mode3_1:                              MODE1(0);
+   mode3_2:                              MODE1(0);
+   mode3_3:                              MODE1(0);
+   mode3_4: LOC2 = r1;                   MODE1(1);
+   mode3_5: FLD4 = r1;                   MODE1(2);
+   mode3_6:                              MODE1(0);
+   mode3_7:                              MODE1(0);
+
+}
+@

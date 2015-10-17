@@ -1,0 +1,155 @@
+head	1.7;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.7
+date	2014.10.10.01.39.25;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2014.10.10.01.38.45;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2013.08.30.21.09.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2013.08.30.21.06.33;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2012.10.09.01.42.58;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2008.10.06.21.10.52;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2007.10.12.01.33.33;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@-
+@
+text
+@// $Id: tokens.h,v 1.6 2014-10-09 18:38:45-07 - - $
+
+#ifndef __TOKENS_H__
+#define __TOKENS_H__
+
+#define YYEOF     0 
+#define IDENT   260
+#define NUMBER  261
+#define ERROR   262
+
+extern int yy_flex_debug;
+extern char* yytext;
+extern int yylex (void); 
+
+#endif
+
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: tokens.h,v 1.5 2013-08-30 14:09:53-07 - - $
+d12 1
+a12 1
+extern const char* yytext;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: tokens.h,v 1.4 2013-08-30 14:06:33-07 - - $
+d6 4
+a9 4
+#define YYEOF         0 
+#define IDENT       260
+#define NUMBER      261
+#define ERROR_TOKEN 262
+d12 1
+a12 1
+extern char *yytext;
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: tokens.h,v 1.3 2012-10-08 18:42:58-07 - - $
+d6 4
+a9 4
+#define IDENT  260
+#define NUMBER 261
+#define BAD    262
+#define YYEOF    0 
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: tokens.h,v 1.2 2008-10-06 14:10:52-07 - - $
+d9 5
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $Id: tokens.h,v 1.1 2007-10-11 18:33:33-07 - - $ */
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 4
+a4 1
+/* $Id$ */
+d10 2
+@

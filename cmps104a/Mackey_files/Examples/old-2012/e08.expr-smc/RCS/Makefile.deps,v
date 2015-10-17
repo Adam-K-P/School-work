@@ -1,0 +1,1607 @@
+head	1.59;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.59
+date	2013.09.12.03.17.48;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2013.09.12.03.17.19;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2013.08.22.20.59.59;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2013.08.22.20.58.43;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2012.10.13.00.36.45;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2012.10.13.00.33.02;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2012.10.12.02.07.58;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2012.10.12.01.22.20;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2012.10.12.01.09.04;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2012.10.12.01.06.29;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2011.10.28.22.04.05;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2011.10.14.00.27.11;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2011.10.07.04.46.27;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2011.09.22.01.55.18;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2011.09.22.01.54.07;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2011.09.22.01.28.53;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2011.09.01.00.54.03;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2010.10.22.02.21.50;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2010.10.22.02.18.52;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2010.10.22.01.18.45;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2010.10.22.01.16.58;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2010.10.09.01.06.49;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2010.10.09.01.06.06;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2010.10.08.21.56.36;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2010.10.08.21.48.06;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2010.10.08.21.43.13;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2010.10.08.21.42.55;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2010.10.08.21.41.54;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2010.10.08.20.52.02;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2010.10.07.23.53.00;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2010.10.07.23.42.32;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2010.10.02.01.04.45;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2010.10.01.22.20.33;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2010.10.01.22.13.41;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2010.09.28.21.38.34;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2010.09.10.01.18.31;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2010.09.10.01.17.20;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2010.02.27.03.48.01;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2010.02.27.03.47.33;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2010.02.27.03.31.00;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2010.02.27.03.30.15;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2010.02.27.03.26.48;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2010.02.27.03.26.37;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2010.02.27.03.25.52;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2010.02.27.03.25.23;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2010.02.27.03.02.52;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2010.02.27.03.01.01;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2010.02.27.03.00.56;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2010.02.27.03.00.29;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2010.02.27.03.00.18;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2010.02.27.02.58.35;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2010.02.27.02.57.47;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2010.02.27.02.56.08;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2010.02.27.02.49.30;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2010.02.27.02.47.26;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2010.02.27.02.46.57;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2010.02.12.23.04.56;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2009.10.09.01.08.41;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.10.09.01.08.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.59
+log
+@-
+@
+text
+@# Makefile.deps created Wed Sep 11 20:17:48 PDT 2013 by gmake
+astree.o: astree.c astree.h auxlib.h astree.rep.h lyutils.h yyparse.h
+emit.o: emit.c astree.h auxlib.h astree.rep.h emit.h lyutils.h yyparse.h
+lyutils.o: lyutils.c astree.rep.h astree.h auxlib.h lyutils.h yyparse.h
+main.o: main.c astree.h auxlib.h emit.h lyutils.h yyparse.h
+auxlib.o: auxlib.c auxlib.h
+yylex.o: yylex.c auxlib.h lyutils.h astree.h yyparse.h
+yyparse.o: yyparse.c lyutils.h astree.h auxlib.h yyparse.h astree.rep.h
+@
+
+
+1.58
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Wed Sep 11 20:17:19 PDT 2013 by gmake
+@
+
+
+1.57
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Aug 22 13:59:59 PDT 2013 by make
+@
+
+
+1.56
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct 26 14:45:04 PDT 2012 by make
+@
+
+
+1.55
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct 12 17:36:45 PDT 2012 by gmake
+@
+
+
+1.54
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct 12 17:33:01 PDT 2012 by gmake
+@
+
+
+1.53
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct 11 19:06:53 PDT 2012 by make
+@
+
+
+1.52
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct 11 18:22:20 PDT 2012 by gmake
+@
+
+
+1.51
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct 11 18:09:04 PDT 2012 by gmake
+@
+
+
+1.50
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct 11 18:06:29 PDT 2012 by gmake
+@
+
+
+1.49
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct 28 15:04:05 PDT 2011 by gmake
+@
+
+
+1.48
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct 13 17:27:11 PDT 2011 by gmake
+@
+
+
+1.47
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct  6 21:46:26 PDT 2011
+a2 1
+auxlib.o: auxlib.c auxlib.h
+d6 1
+@
+
+
+1.46
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Wed Sep 21 18:55:18 PDT 2011
+@
+
+
+1.45
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Wed Sep 21 18:54:07 PDT 2011
+@
+
+
+1.44
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Wed Sep 21 18:28:53 PDT 2011
+@
+
+
+1.43
+log
+@-
+@
+text
+@d1 8
+a8 39
+# Makefile.deps created Wed Aug 31 15:50:09 PDT 2011
+astree.o: astree.c
+astree.o: astree.h
+astree.o: astree.rep.h
+astree.o: auxlib.h
+astree.o: lyutils.h
+astree.o: yyparse.h
+auxlib.o: auxlib.c
+auxlib.o: auxlib.h
+emit.o: astree.h
+emit.o: astree.rep.h
+emit.o: auxlib.h
+emit.o: emit.c
+emit.o: emit.h
+emit.o: lyutils.h
+emit.o: yyparse.h
+lyutils.o: astree.h
+lyutils.o: astree.rep.h
+lyutils.o: auxlib.h
+lyutils.o: lyutils.c
+lyutils.o: lyutils.h
+lyutils.o: yyparse.h
+main.o: astree.h
+main.o: auxlib.h
+main.o: emit.h
+main.o: lyutils.h
+main.o: main.c
+main.o: yyparse.h
+yylex.o: astree.h
+yylex.o: auxlib.h
+yylex.o: lyutils.h
+yylex.o: yylex.c
+yylex.o: yyparse.h
+yyparse.o: astree.h
+yyparse.o: astree.rep.h
+yyparse.o: auxlib.h
+yyparse.o: lyutils.h
+yyparse.o: yyparse.c
+yyparse.o: yyparse.h
+@
+
+
+1.42
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct 21 19:21:50 PDT 2010
+@
+
+
+1.41
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct 21 18:55:16 PDT 2010
+@
+
+
+1.40
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct 21 18:18:45 PDT 2010
+@
+
+
+1.39
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Wed Oct 20 14:12:30 PDT 2010
+@
+
+
+1.38
+log
+@-
+@
+text
+@d1 1
+a1 13
+# Makefile.deps created Fri Oct  8 18:06:49 PDT 2010
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a7 12
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a9 8
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a16 9
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/ctype.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a22 13
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/unistd.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a28 12
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/unistd.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a33 12
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+@
+
+
+1.37
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  8 18:06:06 PDT 2010
+@
+
+
+1.36
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  8 14:56:36 PDT 2010
+@
+
+
+1.35
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  8 14:48:06 PDT 2010
+@
+
+
+1.34
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  8 14:43:13 PDT 2010
+@
+
+
+1.33
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  8 14:42:55 PDT 2010
+@
+
+
+1.32
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  8 14:41:54 PDT 2010
+@
+
+
+1.31
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  8 13:52:02 PDT 2010
+@
+
+
+1.30
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct  7 16:53:00 PDT 2010
+@
+
+
+1.29
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct  7 16:42:31 PDT 2010
+@
+
+
+1.28
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  1 18:04:45 PDT 2010
+@
+
+
+1.27
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  1 15:20:33 PDT 2010
+@
+
+
+1.26
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Oct  1 15:13:40 PDT 2010
+@
+
+
+1.25
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Sep  9 18:19:18 PDT 2010
+d74 1
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Sep  9 18:18:31 PDT 2010
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Sep  9 18:17:20 PDT 2010
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 13
+a13 1
+# Makefile.deps created Fri Feb 26 19:48:00 PST 2010
+d20 12
+d34 8
+d49 9
+d64 12
+d82 12
+d99 12
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Feb 26 19:47:32 PST 2010
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 13
+# Makefile.deps created Fri Feb 26 19:31:00 PST 2010
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a7 12
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a9 8
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a16 9
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/ctype.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a22 12
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a28 12
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/unistd.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a33 9
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 13
+a13 1
+# Makefile.deps created Fri Feb 26 19:30:15 PST 2010
+d20 12
+d34 8
+d49 9
+d64 12
+d82 12
+d99 9
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 13
+# Makefile.deps created Fri Feb 26 19:26:48 PST 2010
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a7 12
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a9 8
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a16 9
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/ctype.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a22 12
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a28 12
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/unistd.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a33 9
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 13
+a13 1
+# Makefile.deps created Fri Feb 26 19:26:37 PST 2010
+d20 12
+d34 8
+d49 9
+d64 12
+d82 12
+d99 9
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 13
+# Makefile.deps created Fri Feb 26 19:25:52 PST 2010
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a7 12
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a9 8
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a16 9
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/ctype.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a22 12
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a28 12
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/unistd.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a33 9
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 13
+a13 1
+# Makefile.deps created Fri Feb 26 19:25:23 PST 2010
+d20 12
+d34 8
+d49 9
+d64 12
+d82 12
+d99 9
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Feb 26 19:02:52 PST 2010
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 13
+# Makefile.deps created Fri Feb 26 19:01:01 PST 2010
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a7 12
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a9 8
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a16 9
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/ctype.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a22 12
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a28 12
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/unistd.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a33 9
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 13
+a13 1
+# Makefile.deps created Fri Feb 26 19:00:56 PST 2010
+d20 12
+d34 8
+d49 9
+d64 12
+d82 12
+d99 9
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Feb 26 19:00:29 PST 2010
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 13
+# Makefile.deps created Fri Feb 26 19:00:18 PST 2010
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a7 12
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a9 8
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a16 9
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/ctype.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a22 12
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a28 12
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/unistd.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a33 9
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Feb 26 18:58:35 PST 2010
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Feb 26 18:57:47 PST 2010
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Feb 26 18:56:08 PST 2010
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 13
+a13 1
+# Makefile.deps created Fri Feb 26 18:49:30 PST 2010
+d20 12
+d34 8
+d49 9
+d64 12
+d82 12
+d99 9
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 13
+# Makefile.deps created Fri Feb 26 18:47:26 PST 2010
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+astree.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a7 12
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+auxlib.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a9 8
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+emit.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a16 9
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/ctype.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+lyutils.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a22 12
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+main.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a28 12
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/alloca.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdlib.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/time.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/unistd.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yylex.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+a33 9
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/features.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdarg.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stddef.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/stdio.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/string.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/cdefs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/sys/isa_defs.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/va_impl.h
+yyparse.o: /usr/local/sunstudio/sunstudio12.1/prod/include/cc/wchar.h
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 13
+a13 1
+# Makefile.deps created Fri Feb 26 18:46:57 PST 2010
+d20 12
+d34 8
+d49 9
+d64 12
+d82 12
+d99 9
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Fri Feb 12 15:04:56 PST 2010
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct  8 18:08:41 PDT 2009
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+# Makefile.deps created Thu Oct  8 18:08:23 PDT 2009
+@

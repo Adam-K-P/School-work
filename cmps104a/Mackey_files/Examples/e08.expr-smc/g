@@ -1,0 +1,2 @@
+#!/bin/sh
+grep "$*" $((ls *.h; ls *.l; ls *.y; ls *.cpp) | grep -v '^yy')

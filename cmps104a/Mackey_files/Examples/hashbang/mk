@@ -1,0 +1,5 @@
+#!/bin/sh -x
+# $Id: mk,v 354.2 2005-07-01 09:31:37-07 - - $
+cid $0 hashbang.l
+flex -ohashbang.c hashbang.l
+cc -g -o hashbang hashbang.c

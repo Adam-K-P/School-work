@@ -1,0 +1,102 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.3
+date	2011.10.29.01.41.59;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2011.10.29.01.35.05;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2011.10.29.01.13.10;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: reduce-reduce.y,v 1.2 2011-10-28 18:35:05-07 - - $
+
+// Example of a reduce/reduce conflict.
+
+%verbose
+
+%token CHAR INT IDENT
+%start program
+
+%%
+
+program     : program statement
+            |
+            ;
+
+statement   : declaration ';'
+            | expression ';'
+            ;
+
+declaration : basetype '[' ']' IDENT
+            | basetype IDENT
+            ;
+
+basetype    : CHAR
+            | INT
+            | IDENT
+            ;
+
+expression  : expression '[' expression ']'
+            | IDENT
+            ;
+
+%%
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: reduce-reduce.y,v 1.1 2011/10/29 01:13:10 - - $
+d7 1
+a7 1
+%token IDENT
+d20 2
+a21 1
+declaration : type IDENT
+d24 2
+a25 1
+type        : IDENT '[' ']'
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d20 5
+a24 2
+declaration : IDENT '[' ']' IDENT
+            | IDENT IDENT
+@

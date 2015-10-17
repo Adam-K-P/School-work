@@ -1,0 +1,2574 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 38 24 574 768
+%%Title: Listing.ps
+%%For: Wesley Mackey
+%%Creator: GNU enscript 1.6.4
+%%CreationDate: Thu Nov  6 19:07:23 2014
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: Letter 612 792 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 4
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 4
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier-Bold /F-gs-font MF
+/F-gs-font 11 11 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [612 792] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-enscript-mycolor 1.6 4
+%%IncludeResource: font Times-Bold
+%%IncludeResource: font Times-Roman
+
+% Fonts.
+/Times-Bold /HeaderFont-Bold MF
+/HeaderDateF /HeaderFont-Bold findfont 12 scalefont def
+
+/Times-Roman /HeaderFont-Times MF
+/HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
+
+/HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
+/HeaderPageCountF /Helvetica-Bold findfont 18 scalefont def
+
+/do_header {	% print enscript header
+  gsave
+    d_header_x d_header_y translate
+
+    /dhw d_header_w 4 sub def
+
+    /linecolor {0 0 0 setrgbcolor} bind def  % line color
+    /txcolor   {0 0 0 setrgbcolor} bind def  % text color
+    /fncolor   {0 0 0 setrgbcolor} bind def  % filename line color
+
+    .5 setlinewidth
+
+    % line across bottom of the header area
+    linecolor
+    0 0 moveto dhw 0 lineto
+
+    % side boxes
+    /sbw d_header_h 2 mul def	% side box width
+
+    % left side box
+    0 0 sbw d_header_h Box
+    linecolor
+    stroke
+
+    % date/time in left box
+    txcolor
+    HeaderDateF setfont
+    moddatestr dup stringwidth pop sbw exch sub 2 div
+    d_header_h 2 div 2 add moveto show
+    modtimestr dup stringwidth pop sbw exch sub 2 div
+    d_header_h 5 div moveto show
+
+    % right side box
+    dhw sbw sub 0 sbw d_header_h Box
+    linecolor
+    stroke
+
+    % get width of pagecount
+    HeaderPageCountF setfont
+    pagecountstr stringwidth pop
+
+    txcolor
+    HeaderPageNumF setfont
+    pagenumstr stringwidth pop add  % add to width of pagecount
+    sbw exch sub 2 div dhw sbw sub add
+    d_header_h .2 mul moveto
+
+    pagenumstr show
+
+    HeaderPageCountF setfont
+    pagecountstr show
+
+    % filename
+    fncolor
+    HeaderHDRF setfont
+    dhw fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    fname show
+
+    % user supplied header string.
+    user_header_p {
+      /h d_header_h 8 div 5 mul def
+
+      % HACK around a bug in enscript 1.6.0:
+      % for some reason this is getting set to "(null)" and
+      %
+      user_header_center_str (\(null\)) eq {
+        /user_header_center_str () def
+      } if
+
+      % Implement strict enscript compatibility.
+      user_header_center_str () eq user_header_right_str () eq and {
+        dhw user_header_left_str stringwidth pop sub 2 div
+        h moveto user_header_left_str show
+      } {
+        sbw 5 add h moveto user_header_left_str show
+
+        dhw user_header_center_str stringwidth pop sub 2 div
+        h moveto user_header_center_str show
+
+	dhw sbw sub 5 sub user_header_right_str stringwidth pop
+	sub h moveto user_header_right_str show
+      } ifelse
+    } if
+
+  grestore
+} bind def
+%%EndResource
+/d_page_w 536 def
+/d_page_h 744 def
+/d_header_x 0 def
+/d_header_y 708 def
+/d_header_w 536 def
+/d_header_h 36 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 536 def
+/d_footer_h 0 def
+/d_output_w 536 def
+/d_output_h 708 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (etf.yy) def
+/fdir () def
+/ftail (etf.yy) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:04:42) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(%{) s
+32.4 682 M (2:) s
+52.2 682 M
+(// $Id: etf.yy,v 1.5 2014-11-06 19:04:28-08 - - $) s
+32.4 670 M (3:) s
+32.4 658 M (4:) s
+52.2 658 M
+(#include <assert.h>) s
+32.4 646 M (5:) s
+52.2 646 M
+(#include <ctype.h>) s
+32.4 634 M (6:) s
+52.2 634 M
+(#include <stdio.h>) s
+32.4 622 M (7:) s
+52.2 622 M
+(#include <stdlib.h>) s
+32.4 610 M (8:) s
+52.2 610 M
+(#include <string.h>) s
+32.4 598 M (9:) s
+25.8 586 M (10:) s
+52.2 586 M
+(#define YYDEBUG 1) s
+25.8 574 M (11:) s
+52.2 574 M
+(#define YYERROR_VERBOSE 1) s
+25.8 562 M (12:) s
+52.2 562 M
+(#define YYPRINT\(FILE,TYPE,TREE\) yyprint \(FILE, TYPE, TREE\)) s
+25.8 550 M (13:) s
+52.2 550 M
+(#define YYSTYPE tree*) s
+25.8 538 M (14:) s
+25.8 526 M (15:) s
+52.2 526 M
+(struct tree {) s
+25.8 514 M (16:) s
+52.2 514 M
+(   int nodenr;) s
+25.8 502 M (17:) s
+52.2 502 M
+(   int Vt;) s
+25.8 490 M (18:) s
+52.2 490 M
+(   char lexeme;) s
+25.8 478 M (19:) s
+52.2 478 M
+(   tree* left;) s
+25.8 466 M (20:) s
+52.2 466 M
+(   tree* right;) s
+25.8 454 M (21:) s
+52.2 454 M
+(};) s
+25.8 442 M (22:) s
+25.8 430 M (23:) s
+52.2 430 M
+(void yyprint \(FILE* file, int type, tree* tree\);) s
+25.8 418 M (24:) s
+52.2 418 M
+(tree* trace \(tree* tree\);) s
+25.8 406 M (25:) s
+52.2 406 M
+(tree* adopt2 \(tree* root, tree* left, tree* right\);) s
+25.8 394 M (26:) s
+52.2 394 M
+(int yylex \(void\);) s
+25.8 382 M (27:) s
+52.2 382 M
+(void yyerror \(const char* message\);) s
+25.8 370 M (28:) s
+25.8 358 M (29:) s
+52.2 358 M
+(tree* root = nullptr;) s
+25.8 346 M (30:) s
+25.8 334 M (31:) s
+52.2 334 M
+(%}) s
+25.8 322 M (32:) s
+25.8 310 M (33:) s
+52.2 310 M
+(%token-table) s
+25.8 298 M (34:) s
+52.2 298 M
+(%verbose) s
+25.8 286 M (35:) s
+25.8 274 M (36:) s
+52.2 274 M
+(%token IDENT ADD MUL LPAR RPAR) s
+25.8 262 M (37:) s
+52.2 262 M
+(%start start) s
+25.8 250 M (38:) s
+25.8 238 M (39:) s
+52.2 238 M
+(%%) s
+25.8 226 M (40:) s
+25.8 214 M (41:) s
+52.2 214 M
+(start  : expr                {root = $$ = trace \($1\); }) s
+25.8 202 M (42:) s
+52.2 202 M
+(       ;) s
+25.8 190 M (43:) s
+25.8 178 M (44:) s
+52.2 178 M
+(expr   : expr ADD term       {$$ = trace \(adopt2 \($2, $1, $3\)\); }) s
+25.8 166 M (45:) s
+52.2 166 M
+(       | term                {$$ = trace \($1\); }) s
+25.8 154 M (46:) s
+52.2 154 M
+(       ;) s
+25.8 142 M (47:) s
+25.8 130 M (48:) s
+52.2 130 M
+(term   : term MUL factor     {$$ = trace \(adopt2 \($2, $1, $3\)\); }) s
+25.8 118 M (49:) s
+52.2 118 M
+(       | factor              {$$ = trace \($1\); }) s
+25.8 106 M (50:) s
+52.2 106 M
+(       ;) s
+25.8 94 M (51:) s
+25.8 82 M (52:) s
+52.2 82 M
+(factor : LPAR expr RPAR      {$$ = trace \($2\); }) s
+25.8 70 M (53:) s
+52.2 70 M
+(       | IDENT               {$$ = trace \($1\); }) s
+25.8 58 M (54:) s
+52.2 58 M
+(       ;) s
+25.8 46 M (55:) s
+25.8 34 M (56:) s
+52.2 34 M
+(%%) s
+_R
+S
+%%Page: (2) 2
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (etf.yy) def
+/fdir () def
+/ftail (etf.yy) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:04:42) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (57:) s
+25.8 682 M (58:) s
+25.8 670 M (59:) s
+52.2 670 M
+(tree* adopt2 \(tree* root, tree* left, tree* right\) {) s
+25.8 658 M (60:) s
+52.2 658 M
+(   root->left = left;) s
+25.8 646 M (61:) s
+52.2 646 M
+(   root->right = right;) s
+25.8 634 M (62:) s
+52.2 634 M
+(   return root;) s
+25.8 622 M (63:) s
+52.2 622 M
+(}) s
+25.8 610 M (64:) s
+25.8 598 M (65:) s
+52.2 598 M
+(int setyylval \(int Vt, char lexeme\) {) s
+25.8 586 M (66:) s
+52.2 586 M
+(   static int static_nodenr = 0;) s
+25.8 574 M (67:) s
+52.2 574 M
+(   yylval = new tree\(\);) s
+25.8 562 M (68:) s
+52.2 562 M
+(   yylval->nodenr = ++static_nodenr;) s
+25.8 550 M (69:) s
+52.2 550 M
+(   yylval->lexeme = lexeme;) s
+25.8 538 M (70:) s
+52.2 538 M
+(   yylval->left = yylval->right = nullptr;) s
+25.8 526 M (71:) s
+52.2 526 M
+(   yylval->Vt = Vt;) s
+25.8 514 M (72:) s
+52.2 514 M
+(   return Vt;) s
+25.8 502 M (73:) s
+52.2 502 M
+(}) s
+25.8 490 M (74:) s
+25.8 478 M (75:) s
+52.2 478 M
+(void print_char \(FILE* file, char ch\) {) s
+25.8 466 M (76:) s
+52.2 466 M
+(   fprintf \(file, isgraph \(ch\) ? "'%c'" : "'\\\\x%02X'", ch\);) s
+25.8 454 M (77:) s
+52.2 454 M
+(}) s
+25.8 442 M (78:) s
+25.8 430 M (79:) s
+52.2 430 M
+(char *input_string = nullptr;) s
+25.8 418 M (80:) s
+52.2 418 M
+(char *nextchar = nullptr;) s
+25.8 406 M (81:) s
+52.2 406 M
+(int yylex \(void\) {) s
+25.8 394 M (82:) s
+52.2 394 M
+(   for \(;;\) {) s
+25.8 382 M (83:) s
+52.2 382 M
+(      int ch = *nextchar++;) s
+25.8 370 M (84:) s
+52.2 370 M
+(      if \(ch == '\\0'\) return setyylval \(0, ch\);) s
+25.8 358 M (85:) s
+52.2 358 M
+(      if \(isspace \(ch\)\) continue;) s
+25.8 346 M (86:) s
+52.2 346 M
+(      if \(isalpha \(ch\)\) return setyylval \(IDENT, ch\);) s
+25.8 334 M (87:) s
+52.2 334 M
+(      switch \(ch\) {) s
+25.8 322 M (88:) s
+52.2 322 M
+(         case '+': return setyylval \(ADD, ch\);) s
+25.8 310 M (89:) s
+52.2 310 M
+(         case '*': return setyylval \(MUL, ch\);) s
+25.8 298 M (90:) s
+52.2 298 M
+(         case '\(': return setyylval \(LPAR, ch\);) s
+25.8 286 M (91:) s
+52.2 286 M
+(         case '\)': return setyylval \(RPAR, ch\);) s
+25.8 274 M (92:) s
+52.2 274 M
+(      }) s
+25.8 262 M (93:) s
+52.2 262 M
+(      fprintf \(stderr, "Bad character "\);) s
+25.8 250 M (94:) s
+52.2 250 M
+(      print_char \(stderr, ch\);) s
+25.8 238 M (95:) s
+52.2 238 M
+(      fprintf \(stderr, "\\n"\);) s
+25.8 226 M (96:) s
+52.2 226 M
+(   }) s
+25.8 214 M (97:) s
+52.2 214 M
+(}) s
+25.8 202 M (98:) s
+_R
+S
+%%Page: (3) 3
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (etf.yy) def
+/fdir () def
+/ftail (etf.yy) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:04:42) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (99:) s
+19.2 682 M (100:) s
+52.2 682 M
+(void yyprint_child_nr \(FILE* file, tree* node\) {) s
+19.2 670 M (101:) s
+52.2 670 M
+(   if \(node == nullptr\) fprintf \(file, " nil"\);) s
+19.2 658 M (102:) s
+52.2 658 M
+(                   else fprintf \(file, " node%d", node->nodenr\);) s
+19.2 646 M (103:) s
+52.2 646 M
+(}) s
+19.2 634 M (104:) s
+52.2 634 M
+(void yyprint \(FILE* file, int type, tree* tree\){) s
+19.2 622 M (105:) s
+52.2 622 M
+(   fprintf \(file, "node%d: %s ",) s
+19.2 610 M (106:) s
+52.2 610 M
+(            tree->nodenr, yytname[YYTRANSLATE\(type\)]\);) s
+19.2 598 M (107:) s
+52.2 598 M
+(   print_char \(file, tree->lexeme\);) s
+19.2 586 M (108:) s
+52.2 586 M
+(   yyprint_child_nr \(file, tree->left\);) s
+19.2 574 M (109:) s
+52.2 574 M
+(   yyprint_child_nr \(file, tree->right\);) s
+19.2 562 M (110:) s
+52.2 562 M
+(}) s
+19.2 550 M (111:) s
+19.2 538 M (112:) s
+52.2 538 M
+(void preorder \(tree* tree, int depth\) {) s
+19.2 526 M (113:) s
+52.2 526 M
+(   if \(tree == nullptr\) return;) s
+19.2 514 M (114:) s
+52.2 514 M
+(   fprintf \(stderr, "AST: %*s", depth * 3, ""\);) s
+19.2 502 M (115:) s
+52.2 502 M
+(   yyprint \(stderr, tree->Vt, tree\);) s
+19.2 490 M (116:) s
+52.2 490 M
+(   fprintf \(stderr, "\\n"\);) s
+19.2 478 M (117:) s
+52.2 478 M
+(   preorder \(tree->left, depth + 1\);) s
+19.2 466 M (118:) s
+52.2 466 M
+(   preorder \(tree->right, depth + 1\);) s
+19.2 454 M (119:) s
+52.2 454 M
+(}) s
+19.2 442 M (120:) s
+19.2 430 M (121:) s
+52.2 430 M
+(tree* trace \(tree* tree\) {) s
+19.2 418 M (122:) s
+52.2 418 M
+(   preorder \(tree, 0\);) s
+19.2 406 M (123:) s
+52.2 406 M
+(   return tree;) s
+19.2 394 M (124:) s
+52.2 394 M
+(}) s
+19.2 382 M (125:) s
+19.2 370 M (126:) s
+52.2 370 M
+(void yyerror \(const char* message\) {) s
+19.2 358 M (127:) s
+52.2 358 M
+(   fprintf \(stderr, "%s\)\\n", message\);) s
+19.2 346 M (128:) s
+52.2 346 M
+(}) s
+19.2 334 M (129:) s
+19.2 322 M (130:) s
+52.2 322 M
+(int main \(int argc, char** argv\) {) s
+19.2 310 M (131:) s
+52.2 310 M
+(   assert \(argc == 2\);) s
+19.2 298 M (132:) s
+52.2 298 M
+(   nextchar = input_string = argv[1];) s
+19.2 286 M (133:) s
+52.2 286 M
+(   fprintf \(stderr, "Scanning input: \\"%s\\"\\n", input_string\);) s
+19.2 274 M (134:) s
+52.2 274 M
+(   yydebug = 1;) s
+19.2 262 M (135:) s
+52.2 262 M
+(   int status = yyparse \(\);) s
+19.2 250 M (136:) s
+52.2 250 M
+(   fprintf \(stderr, "Finished parse: status %d\\n", status\);) s
+19.2 238 M (137:) s
+52.2 238 M
+(   fprintf \(stderr, "Scanned input: \\"%s\\"\\n", input_string\);) s
+19.2 226 M (138:) s
+52.2 226 M
+(   fprintf \(stderr, "Root of AST:\\n"\);) s
+19.2 214 M (139:) s
+52.2 214 M
+(   trace \(root\);) s
+19.2 202 M (140:) s
+52.2 202 M
+(   return 0;) s
+19.2 190 M (141:) s
+52.2 190 M
+(}) s
+19.2 178 M (142:) s
+_R
+S
+%%Page: (1) 4
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (etf.output) def
+/fdir () def
+/ftail (etf.output) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:04:43) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(Grammar) s
+32.4 682 M (2:) s
+32.4 670 M (3:) s
+52.2 670 M
+(    0 $accept: start $end) s
+32.4 658 M (4:) s
+32.4 646 M (5:) s
+52.2 646 M
+(    1 start: expr) s
+32.4 634 M (6:) s
+32.4 622 M (7:) s
+52.2 622 M
+(    2 expr: expr ADD term) s
+32.4 610 M (8:) s
+52.2 610 M
+(    3     | term) s
+32.4 598 M (9:) s
+25.8 586 M (10:) s
+52.2 586 M
+(    4 term: term MUL factor) s
+25.8 574 M (11:) s
+52.2 574 M
+(    5     | factor) s
+25.8 562 M (12:) s
+25.8 550 M (13:) s
+52.2 550 M
+(    6 factor: LPAR expr RPAR) s
+25.8 538 M (14:) s
+52.2 538 M
+(    7       | IDENT) s
+25.8 526 M (15:) s
+25.8 514 M (16:) s
+25.8 502 M (17:) s
+52.2 502 M
+(Terminals, with rules where they appear) s
+25.8 490 M (18:) s
+25.8 478 M (19:) s
+52.2 478 M
+($end \(0\) 0) s
+25.8 466 M (20:) s
+52.2 466 M
+(error \(256\)) s
+25.8 454 M (21:) s
+52.2 454 M
+(IDENT \(258\) 7) s
+25.8 442 M (22:) s
+52.2 442 M
+(ADD \(259\) 2) s
+25.8 430 M (23:) s
+52.2 430 M
+(MUL \(260\) 4) s
+25.8 418 M (24:) s
+52.2 418 M
+(LPAR \(261\) 6) s
+25.8 406 M (25:) s
+52.2 406 M
+(RPAR \(262\) 6) s
+25.8 394 M (26:) s
+25.8 382 M (27:) s
+25.8 370 M (28:) s
+52.2 370 M
+(Nonterminals, with rules where they appear) s
+25.8 358 M (29:) s
+25.8 346 M (30:) s
+52.2 346 M
+($accept \(8\)) s
+25.8 334 M (31:) s
+52.2 334 M
+(    on left: 0) s
+25.8 322 M (32:) s
+52.2 322 M
+(start \(9\)) s
+25.8 310 M (33:) s
+52.2 310 M
+(    on left: 1, on right: 0) s
+25.8 298 M (34:) s
+52.2 298 M
+(expr \(10\)) s
+25.8 286 M (35:) s
+52.2 286 M
+(    on left: 2 3, on right: 1 2 6) s
+25.8 274 M (36:) s
+52.2 274 M
+(term \(11\)) s
+25.8 262 M (37:) s
+52.2 262 M
+(    on left: 4 5, on right: 2 3 4) s
+25.8 250 M (38:) s
+52.2 250 M
+(factor \(12\)) s
+25.8 238 M (39:) s
+52.2 238 M
+(    on left: 6 7, on right: 4 5) s
+25.8 226 M (40:) s
+25.8 214 M (41:) s
+25.8 202 M (42:) s
+52.2 202 M
+(state 0) s
+25.8 190 M (43:) s
+25.8 178 M (44:) s
+52.2 178 M
+(    0 $accept: . start $end) s
+25.8 166 M (45:) s
+25.8 154 M (46:) s
+52.2 154 M
+(    IDENT  shift, and go to state 1) s
+25.8 142 M (47:) s
+52.2 142 M
+(    LPAR   shift, and go to state 2) s
+25.8 130 M (48:) s
+25.8 118 M (49:) s
+52.2 118 M
+(    start   go to state 3) s
+25.8 106 M (50:) s
+52.2 106 M
+(    expr    go to state 4) s
+25.8 94 M (51:) s
+52.2 94 M
+(    term    go to state 5) s
+25.8 82 M (52:) s
+52.2 82 M
+(    factor  go to state 6) s
+25.8 70 M (53:) s
+25.8 58 M (54:) s
+25.8 46 M (55:) s
+52.2 46 M
+(state 1) s
+25.8 34 M (56:) s
+25.8 22 M (57:) s
+52.2 22 M
+(    7 factor: IDENT .) s
+25.8 10 M (58:) s
+_R
+S
+%%Page: (2) 5
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (etf.output) def
+/fdir () def
+/ftail (etf.output) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:04:43) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (59:) s
+52.2 694 M
+(    $default  reduce using rule 7 \(factor\)) s
+25.8 682 M (60:) s
+25.8 670 M (61:) s
+25.8 658 M (62:) s
+52.2 658 M
+(state 2) s
+25.8 646 M (63:) s
+25.8 634 M (64:) s
+52.2 634 M
+(    6 factor: LPAR . expr RPAR) s
+25.8 622 M (65:) s
+25.8 610 M (66:) s
+52.2 610 M
+(    IDENT  shift, and go to state 1) s
+25.8 598 M (67:) s
+52.2 598 M
+(    LPAR   shift, and go to state 2) s
+25.8 586 M (68:) s
+25.8 574 M (69:) s
+52.2 574 M
+(    expr    go to state 7) s
+25.8 562 M (70:) s
+52.2 562 M
+(    term    go to state 5) s
+25.8 550 M (71:) s
+52.2 550 M
+(    factor  go to state 6) s
+25.8 538 M (72:) s
+25.8 526 M (73:) s
+25.8 514 M (74:) s
+52.2 514 M
+(state 3) s
+25.8 502 M (75:) s
+25.8 490 M (76:) s
+52.2 490 M
+(    0 $accept: start . $end) s
+25.8 478 M (77:) s
+25.8 466 M (78:) s
+52.2 466 M
+(    $end  shift, and go to state 8) s
+25.8 454 M (79:) s
+25.8 442 M (80:) s
+25.8 430 M (81:) s
+52.2 430 M
+(state 4) s
+25.8 418 M (82:) s
+25.8 406 M (83:) s
+52.2 406 M
+(    1 start: expr .) s
+25.8 394 M (84:) s
+52.2 394 M
+(    2 expr: expr . ADD term) s
+25.8 382 M (85:) s
+25.8 370 M (86:) s
+52.2 370 M
+(    ADD  shift, and go to state 9) s
+25.8 358 M (87:) s
+25.8 346 M (88:) s
+52.2 346 M
+(    $default  reduce using rule 1 \(start\)) s
+25.8 334 M (89:) s
+25.8 322 M (90:) s
+25.8 310 M (91:) s
+52.2 310 M
+(state 5) s
+25.8 298 M (92:) s
+25.8 286 M (93:) s
+52.2 286 M
+(    3 expr: term .) s
+25.8 274 M (94:) s
+52.2 274 M
+(    4 term: term . MUL factor) s
+25.8 262 M (95:) s
+25.8 250 M (96:) s
+52.2 250 M
+(    MUL  shift, and go to state 10) s
+25.8 238 M (97:) s
+25.8 226 M (98:) s
+52.2 226 M
+(    $default  reduce using rule 3 \(expr\)) s
+25.8 214 M (99:) s
+19.2 202 M (100:) s
+19.2 190 M (101:) s
+52.2 190 M
+(state 6) s
+19.2 178 M (102:) s
+19.2 166 M (103:) s
+52.2 166 M
+(    5 term: factor .) s
+19.2 154 M (104:) s
+19.2 142 M (105:) s
+52.2 142 M
+(    $default  reduce using rule 5 \(term\)) s
+19.2 130 M (106:) s
+19.2 118 M (107:) s
+19.2 106 M (108:) s
+52.2 106 M
+(state 7) s
+19.2 94 M (109:) s
+19.2 82 M (110:) s
+52.2 82 M
+(    2 expr: expr . ADD term) s
+19.2 70 M (111:) s
+52.2 70 M
+(    6 factor: LPAR expr . RPAR) s
+19.2 58 M (112:) s
+19.2 46 M (113:) s
+52.2 46 M
+(    ADD   shift, and go to state 9) s
+19.2 34 M (114:) s
+52.2 34 M
+(    RPAR  shift, and go to state 11) s
+19.2 22 M (115:) s
+19.2 10 M (116:) s
+_R
+S
+%%Page: (3) 6
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (etf.output) def
+/fdir () def
+/ftail (etf.output) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:04:43) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (117:) s
+52.2 694 M
+(state 8) s
+19.2 682 M (118:) s
+19.2 670 M (119:) s
+52.2 670 M
+(    0 $accept: start $end .) s
+19.2 658 M (120:) s
+19.2 646 M (121:) s
+52.2 646 M
+(    $default  accept) s
+19.2 634 M (122:) s
+19.2 622 M (123:) s
+19.2 610 M (124:) s
+52.2 610 M
+(state 9) s
+19.2 598 M (125:) s
+19.2 586 M (126:) s
+52.2 586 M
+(    2 expr: expr ADD . term) s
+19.2 574 M (127:) s
+19.2 562 M (128:) s
+52.2 562 M
+(    IDENT  shift, and go to state 1) s
+19.2 550 M (129:) s
+52.2 550 M
+(    LPAR   shift, and go to state 2) s
+19.2 538 M (130:) s
+19.2 526 M (131:) s
+52.2 526 M
+(    term    go to state 12) s
+19.2 514 M (132:) s
+52.2 514 M
+(    factor  go to state 6) s
+19.2 502 M (133:) s
+19.2 490 M (134:) s
+19.2 478 M (135:) s
+52.2 478 M
+(state 10) s
+19.2 466 M (136:) s
+19.2 454 M (137:) s
+52.2 454 M
+(    4 term: term MUL . factor) s
+19.2 442 M (138:) s
+19.2 430 M (139:) s
+52.2 430 M
+(    IDENT  shift, and go to state 1) s
+19.2 418 M (140:) s
+52.2 418 M
+(    LPAR   shift, and go to state 2) s
+19.2 406 M (141:) s
+19.2 394 M (142:) s
+52.2 394 M
+(    factor  go to state 13) s
+19.2 382 M (143:) s
+19.2 370 M (144:) s
+19.2 358 M (145:) s
+52.2 358 M
+(state 11) s
+19.2 346 M (146:) s
+19.2 334 M (147:) s
+52.2 334 M
+(    6 factor: LPAR expr RPAR .) s
+19.2 322 M (148:) s
+19.2 310 M (149:) s
+52.2 310 M
+(    $default  reduce using rule 6 \(factor\)) s
+19.2 298 M (150:) s
+19.2 286 M (151:) s
+19.2 274 M (152:) s
+52.2 274 M
+(state 12) s
+19.2 262 M (153:) s
+19.2 250 M (154:) s
+52.2 250 M
+(    2 expr: expr ADD term .) s
+19.2 238 M (155:) s
+52.2 238 M
+(    4 term: term . MUL factor) s
+19.2 226 M (156:) s
+19.2 214 M (157:) s
+52.2 214 M
+(    MUL  shift, and go to state 10) s
+19.2 202 M (158:) s
+19.2 190 M (159:) s
+52.2 190 M
+(    $default  reduce using rule 2 \(expr\)) s
+19.2 178 M (160:) s
+19.2 166 M (161:) s
+19.2 154 M (162:) s
+52.2 154 M
+(state 13) s
+19.2 142 M (163:) s
+19.2 130 M (164:) s
+52.2 130 M
+(    4 term: term MUL factor .) s
+19.2 118 M (165:) s
+19.2 106 M (166:) s
+52.2 106 M
+(    $default  reduce using rule 4 \(term\)) s
+_R
+S
+%%Page: (1) 7
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (test1.log) def
+/fdir () def
+/ftail (test1.log) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:07:23) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(Scanning input: "a*b+c*d") s
+32.4 682 M (2:) s
+52.2 682 M
+(Starting parse) s
+32.4 670 M (3:) s
+52.2 670 M
+(Entering state 0) s
+32.4 658 M (4:) s
+52.2 658 M
+(Reading a token: Next token is token IDENT \(node1: IDENT 'a' nil nil\)) s
+32.4 646 M (5:) s
+52.2 646 M
+(Shifting token IDENT \(node1: IDENT 'a' nil nil\)) s
+32.4 634 M (6:) s
+52.2 634 M
+(Entering state 1) s
+32.4 622 M (7:) s
+52.2 622 M
+(Reducing stack by rule 7 \(line 53\):) s
+32.4 610 M (8:) s
+52.2 610 M
+(   $1 = token IDENT \(node1: IDENT 'a' nil nil\)) s
+32.4 598 M (9:) s
+52.2 598 M
+(AST: node1: IDENT 'a' nil nil) s
+25.8 586 M (10:) s
+52.2 586 M
+(-> $$ = nterm factor \(\)) s
+25.8 574 M (11:) s
+52.2 574 M
+(Stack now 0) s
+25.8 562 M (12:) s
+52.2 562 M
+(Entering state 6) s
+25.8 550 M (13:) s
+52.2 550 M
+(Reducing stack by rule 5 \(line 49\):) s
+25.8 538 M (14:) s
+52.2 538 M
+(   $1 = nterm factor \(\)) s
+25.8 526 M (15:) s
+52.2 526 M
+(AST: node1: IDENT 'a' nil nil) s
+25.8 514 M (16:) s
+52.2 514 M
+(-> $$ = nterm term \(\)) s
+25.8 502 M (17:) s
+52.2 502 M
+(Stack now 0) s
+25.8 490 M (18:) s
+52.2 490 M
+(Entering state 5) s
+25.8 478 M (19:) s
+52.2 478 M
+(Reading a token: Next token is token MUL \(node2: MUL '*' nil nil\)) s
+25.8 466 M (20:) s
+52.2 466 M
+(Shifting token MUL \(node2: MUL '*' nil nil\)) s
+25.8 454 M (21:) s
+52.2 454 M
+(Entering state 10) s
+25.8 442 M (22:) s
+52.2 442 M
+(Reading a token: Next token is token IDENT \(node3: IDENT 'b' nil nil\)) s
+25.8 430 M (23:) s
+52.2 430 M
+(Shifting token IDENT \(node3: IDENT 'b' nil nil\)) s
+25.8 418 M (24:) s
+52.2 418 M
+(Entering state 1) s
+25.8 406 M (25:) s
+52.2 406 M
+(Reducing stack by rule 7 \(line 53\):) s
+25.8 394 M (26:) s
+52.2 394 M
+(   $1 = token IDENT \(node3: IDENT 'b' nil nil\)) s
+25.8 382 M (27:) s
+52.2 382 M
+(AST: node3: IDENT 'b' nil nil) s
+25.8 370 M (28:) s
+52.2 370 M
+(-> $$ = nterm factor \(\)) s
+25.8 358 M (29:) s
+52.2 358 M
+(Stack now 0 5 10) s
+25.8 346 M (30:) s
+52.2 346 M
+(Entering state 13) s
+25.8 334 M (31:) s
+52.2 334 M
+(Reducing stack by rule 4 \(line 48\):) s
+25.8 322 M (32:) s
+52.2 322 M
+(   $1 = nterm term \(\)) s
+25.8 310 M (33:) s
+52.2 310 M
+(   $2 = token MUL \(node2: MUL '*' nil nil\)) s
+25.8 298 M (34:) s
+52.2 298 M
+(   $3 = nterm factor \(\)) s
+25.8 286 M (35:) s
+52.2 286 M
+(AST: node2: MUL '*' node1 node3) s
+25.8 274 M (36:) s
+52.2 274 M
+(AST:    node1: IDENT 'a' nil nil) s
+25.8 262 M (37:) s
+52.2 262 M
+(AST:    node3: IDENT 'b' nil nil) s
+25.8 250 M (38:) s
+52.2 250 M
+(-> $$ = nterm term \(\)) s
+25.8 238 M (39:) s
+52.2 238 M
+(Stack now 0) s
+25.8 226 M (40:) s
+52.2 226 M
+(Entering state 5) s
+25.8 214 M (41:) s
+52.2 214 M
+(Reading a token: Next token is token ADD \(node4: ADD '+' nil nil\)) s
+25.8 202 M (42:) s
+52.2 202 M
+(Reducing stack by rule 3 \(line 45\):) s
+25.8 190 M (43:) s
+52.2 190 M
+(   $1 = nterm term \(\)) s
+25.8 178 M (44:) s
+52.2 178 M
+(AST: node2: MUL '*' node1 node3) s
+25.8 166 M (45:) s
+52.2 166 M
+(AST:    node1: IDENT 'a' nil nil) s
+25.8 154 M (46:) s
+52.2 154 M
+(AST:    node3: IDENT 'b' nil nil) s
+25.8 142 M (47:) s
+52.2 142 M
+(-> $$ = nterm expr \(\)) s
+25.8 130 M (48:) s
+52.2 130 M
+(Stack now 0) s
+25.8 118 M (49:) s
+52.2 118 M
+(Entering state 4) s
+25.8 106 M (50:) s
+52.2 106 M
+(Next token is token ADD \(node4: ADD '+' nil nil\)) s
+25.8 94 M (51:) s
+52.2 94 M
+(Shifting token ADD \(node4: ADD '+' nil nil\)) s
+25.8 82 M (52:) s
+52.2 82 M
+(Entering state 9) s
+25.8 70 M (53:) s
+52.2 70 M
+(Reading a token: Next token is token IDENT \(node5: IDENT 'c' nil nil\)) s
+25.8 58 M (54:) s
+52.2 58 M
+(Shifting token IDENT \(node5: IDENT 'c' nil nil\)) s
+25.8 46 M (55:) s
+52.2 46 M
+(Entering state 1) s
+25.8 34 M (56:) s
+52.2 34 M
+(Reducing stack by rule 7 \(line 53\):) s
+25.8 22 M (57:) s
+52.2 22 M
+(   $1 = token IDENT \(node5: IDENT 'c' nil nil\)) s
+25.8 10 M (58:) s
+52.2 10 M
+(AST: node5: IDENT 'c' nil nil) s
+_R
+S
+%%Page: (2) 8
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (test1.log) def
+/fdir () def
+/ftail (test1.log) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:07:23) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (59:) s
+52.2 694 M
+(-> $$ = nterm factor \(\)) s
+25.8 682 M (60:) s
+52.2 682 M
+(Stack now 0 4 9) s
+25.8 670 M (61:) s
+52.2 670 M
+(Entering state 6) s
+25.8 658 M (62:) s
+52.2 658 M
+(Reducing stack by rule 5 \(line 49\):) s
+25.8 646 M (63:) s
+52.2 646 M
+(   $1 = nterm factor \(\)) s
+25.8 634 M (64:) s
+52.2 634 M
+(AST: node5: IDENT 'c' nil nil) s
+25.8 622 M (65:) s
+52.2 622 M
+(-> $$ = nterm term \(\)) s
+25.8 610 M (66:) s
+52.2 610 M
+(Stack now 0 4 9) s
+25.8 598 M (67:) s
+52.2 598 M
+(Entering state 12) s
+25.8 586 M (68:) s
+52.2 586 M
+(Reading a token: Next token is token MUL \(node6: MUL '*' nil nil\)) s
+25.8 574 M (69:) s
+52.2 574 M
+(Shifting token MUL \(node6: MUL '*' nil nil\)) s
+25.8 562 M (70:) s
+52.2 562 M
+(Entering state 10) s
+25.8 550 M (71:) s
+52.2 550 M
+(Reading a token: Next token is token IDENT \(node7: IDENT 'd' nil nil\)) s
+25.8 538 M (72:) s
+52.2 538 M
+(Shifting token IDENT \(node7: IDENT 'd' nil nil\)) s
+25.8 526 M (73:) s
+52.2 526 M
+(Entering state 1) s
+25.8 514 M (74:) s
+52.2 514 M
+(Reducing stack by rule 7 \(line 53\):) s
+25.8 502 M (75:) s
+52.2 502 M
+(   $1 = token IDENT \(node7: IDENT 'd' nil nil\)) s
+25.8 490 M (76:) s
+52.2 490 M
+(AST: node7: IDENT 'd' nil nil) s
+25.8 478 M (77:) s
+52.2 478 M
+(-> $$ = nterm factor \(\)) s
+25.8 466 M (78:) s
+52.2 466 M
+(Stack now 0 4 9 12 10) s
+25.8 454 M (79:) s
+52.2 454 M
+(Entering state 13) s
+25.8 442 M (80:) s
+52.2 442 M
+(Reducing stack by rule 4 \(line 48\):) s
+25.8 430 M (81:) s
+52.2 430 M
+(   $1 = nterm term \(\)) s
+25.8 418 M (82:) s
+52.2 418 M
+(   $2 = token MUL \(node6: MUL '*' nil nil\)) s
+25.8 406 M (83:) s
+52.2 406 M
+(   $3 = nterm factor \(\)) s
+25.8 394 M (84:) s
+52.2 394 M
+(AST: node6: MUL '*' node5 node7) s
+25.8 382 M (85:) s
+52.2 382 M
+(AST:    node5: IDENT 'c' nil nil) s
+25.8 370 M (86:) s
+52.2 370 M
+(AST:    node7: IDENT 'd' nil nil) s
+25.8 358 M (87:) s
+52.2 358 M
+(-> $$ = nterm term \(\)) s
+25.8 346 M (88:) s
+52.2 346 M
+(Stack now 0 4 9) s
+25.8 334 M (89:) s
+52.2 334 M
+(Entering state 12) s
+25.8 322 M (90:) s
+52.2 322 M
+(Reading a token: Now at end of input.) s
+25.8 310 M (91:) s
+52.2 310 M
+(Reducing stack by rule 2 \(line 44\):) s
+25.8 298 M (92:) s
+52.2 298 M
+(   $1 = nterm expr \(\)) s
+25.8 286 M (93:) s
+52.2 286 M
+(   $2 = token ADD \(node4: ADD '+' nil nil\)) s
+25.8 274 M (94:) s
+52.2 274 M
+(   $3 = nterm term \(\)) s
+25.8 262 M (95:) s
+52.2 262 M
+(AST: node4: ADD '+' node2 node6) s
+25.8 250 M (96:) s
+52.2 250 M
+(AST:    node2: MUL '*' node1 node3) s
+25.8 238 M (97:) s
+52.2 238 M
+(AST:       node1: IDENT 'a' nil nil) s
+25.8 226 M (98:) s
+52.2 226 M
+(AST:       node3: IDENT 'b' nil nil) s
+25.8 214 M (99:) s
+52.2 214 M
+(AST:    node6: MUL '*' node5 node7) s
+19.2 202 M (100:) s
+52.2 202 M
+(AST:       node5: IDENT 'c' nil nil) s
+19.2 190 M (101:) s
+52.2 190 M
+(AST:       node7: IDENT 'd' nil nil) s
+19.2 178 M (102:) s
+52.2 178 M
+(-> $$ = nterm expr \(\)) s
+19.2 166 M (103:) s
+52.2 166 M
+(Stack now 0) s
+19.2 154 M (104:) s
+52.2 154 M
+(Entering state 4) s
+19.2 142 M (105:) s
+52.2 142 M
+(Now at end of input.) s
+19.2 130 M (106:) s
+52.2 130 M
+(Reducing stack by rule 1 \(line 41\):) s
+19.2 118 M (107:) s
+52.2 118 M
+(   $1 = nterm expr \(\)) s
+19.2 106 M (108:) s
+52.2 106 M
+(AST: node4: ADD '+' node2 node6) s
+19.2 94 M (109:) s
+52.2 94 M
+(AST:    node2: MUL '*' node1 node3) s
+19.2 82 M (110:) s
+52.2 82 M
+(AST:       node1: IDENT 'a' nil nil) s
+19.2 70 M (111:) s
+52.2 70 M
+(AST:       node3: IDENT 'b' nil nil) s
+19.2 58 M (112:) s
+52.2 58 M
+(AST:    node6: MUL '*' node5 node7) s
+19.2 46 M (113:) s
+52.2 46 M
+(AST:       node5: IDENT 'c' nil nil) s
+19.2 34 M (114:) s
+52.2 34 M
+(AST:       node7: IDENT 'd' nil nil) s
+19.2 22 M (115:) s
+52.2 22 M
+(-> $$ = nterm start \(\)) s
+19.2 10 M (116:) s
+52.2 10 M
+(Stack now 0) s
+_R
+S
+%%Page: (3) 9
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (test1.log) def
+/fdir () def
+/ftail (test1.log) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:07:23) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (117:) s
+52.2 694 M
+(Entering state 3) s
+19.2 682 M (118:) s
+52.2 682 M
+(Now at end of input.) s
+19.2 670 M (119:) s
+52.2 670 M
+(Shifting token $end \(node8: $end '\\x00' nil nil\)) s
+19.2 658 M (120:) s
+52.2 658 M
+(Entering state 8) s
+19.2 646 M (121:) s
+52.2 646 M
+(Stack now 0 3 8) s
+19.2 634 M (122:) s
+52.2 634 M
+(Cleanup: popping token $end \(node8: $end '\\x00' nil nil\)) s
+19.2 622 M (123:) s
+52.2 622 M
+(Cleanup: popping nterm start \(\)) s
+19.2 610 M (124:) s
+52.2 610 M
+(Finished parse: status 0) s
+19.2 598 M (125:) s
+52.2 598 M
+(Scanned input: "a*b+c*d") s
+19.2 586 M (126:) s
+52.2 586 M
+(Root of AST:) s
+19.2 574 M (127:) s
+52.2 574 M
+(AST: node4: ADD '+' node2 node6) s
+19.2 562 M (128:) s
+52.2 562 M
+(AST:    node2: MUL '*' node1 node3) s
+19.2 550 M (129:) s
+52.2 550 M
+(AST:       node1: IDENT 'a' nil nil) s
+19.2 538 M (130:) s
+52.2 538 M
+(AST:       node3: IDENT 'b' nil nil) s
+19.2 526 M (131:) s
+52.2 526 M
+(AST:    node6: MUL '*' node5 node7) s
+19.2 514 M (132:) s
+52.2 514 M
+(AST:       node5: IDENT 'c' nil nil) s
+19.2 502 M (133:) s
+52.2 502 M
+(AST:       node7: IDENT 'd' nil nil) s
+_R
+S
+%%Page: (1) 10
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (test2.log) def
+/fdir () def
+/ftail (test2.log) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:07:23) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(Scanning input: "a*\(b+c\)") s
+32.4 682 M (2:) s
+52.2 682 M
+(Starting parse) s
+32.4 670 M (3:) s
+52.2 670 M
+(Entering state 0) s
+32.4 658 M (4:) s
+52.2 658 M
+(Reading a token: Next token is token IDENT \(node1: IDENT 'a' nil nil\)) s
+32.4 646 M (5:) s
+52.2 646 M
+(Shifting token IDENT \(node1: IDENT 'a' nil nil\)) s
+32.4 634 M (6:) s
+52.2 634 M
+(Entering state 1) s
+32.4 622 M (7:) s
+52.2 622 M
+(Reducing stack by rule 7 \(line 53\):) s
+32.4 610 M (8:) s
+52.2 610 M
+(   $1 = token IDENT \(node1: IDENT 'a' nil nil\)) s
+32.4 598 M (9:) s
+52.2 598 M
+(AST: node1: IDENT 'a' nil nil) s
+25.8 586 M (10:) s
+52.2 586 M
+(-> $$ = nterm factor \(\)) s
+25.8 574 M (11:) s
+52.2 574 M
+(Stack now 0) s
+25.8 562 M (12:) s
+52.2 562 M
+(Entering state 6) s
+25.8 550 M (13:) s
+52.2 550 M
+(Reducing stack by rule 5 \(line 49\):) s
+25.8 538 M (14:) s
+52.2 538 M
+(   $1 = nterm factor \(\)) s
+25.8 526 M (15:) s
+52.2 526 M
+(AST: node1: IDENT 'a' nil nil) s
+25.8 514 M (16:) s
+52.2 514 M
+(-> $$ = nterm term \(\)) s
+25.8 502 M (17:) s
+52.2 502 M
+(Stack now 0) s
+25.8 490 M (18:) s
+52.2 490 M
+(Entering state 5) s
+25.8 478 M (19:) s
+52.2 478 M
+(Reading a token: Next token is token MUL \(node2: MUL '*' nil nil\)) s
+25.8 466 M (20:) s
+52.2 466 M
+(Shifting token MUL \(node2: MUL '*' nil nil\)) s
+25.8 454 M (21:) s
+52.2 454 M
+(Entering state 10) s
+25.8 442 M (22:) s
+52.2 442 M
+(Reading a token: Next token is token LPAR \(node3: LPAR '\(' nil nil\)) s
+25.8 430 M (23:) s
+52.2 430 M
+(Shifting token LPAR \(node3: LPAR '\(' nil nil\)) s
+25.8 418 M (24:) s
+52.2 418 M
+(Entering state 2) s
+25.8 406 M (25:) s
+52.2 406 M
+(Reading a token: Next token is token IDENT \(node4: IDENT 'b' nil nil\)) s
+25.8 394 M (26:) s
+52.2 394 M
+(Shifting token IDENT \(node4: IDENT 'b' nil nil\)) s
+25.8 382 M (27:) s
+52.2 382 M
+(Entering state 1) s
+25.8 370 M (28:) s
+52.2 370 M
+(Reducing stack by rule 7 \(line 53\):) s
+25.8 358 M (29:) s
+52.2 358 M
+(   $1 = token IDENT \(node4: IDENT 'b' nil nil\)) s
+25.8 346 M (30:) s
+52.2 346 M
+(AST: node4: IDENT 'b' nil nil) s
+25.8 334 M (31:) s
+52.2 334 M
+(-> $$ = nterm factor \(\)) s
+25.8 322 M (32:) s
+52.2 322 M
+(Stack now 0 5 10 2) s
+25.8 310 M (33:) s
+52.2 310 M
+(Entering state 6) s
+25.8 298 M (34:) s
+52.2 298 M
+(Reducing stack by rule 5 \(line 49\):) s
+25.8 286 M (35:) s
+52.2 286 M
+(   $1 = nterm factor \(\)) s
+25.8 274 M (36:) s
+52.2 274 M
+(AST: node4: IDENT 'b' nil nil) s
+25.8 262 M (37:) s
+52.2 262 M
+(-> $$ = nterm term \(\)) s
+25.8 250 M (38:) s
+52.2 250 M
+(Stack now 0 5 10 2) s
+25.8 238 M (39:) s
+52.2 238 M
+(Entering state 5) s
+25.8 226 M (40:) s
+52.2 226 M
+(Reading a token: Next token is token ADD \(node5: ADD '+' nil nil\)) s
+25.8 214 M (41:) s
+52.2 214 M
+(Reducing stack by rule 3 \(line 45\):) s
+25.8 202 M (42:) s
+52.2 202 M
+(   $1 = nterm term \(\)) s
+25.8 190 M (43:) s
+52.2 190 M
+(AST: node4: IDENT 'b' nil nil) s
+25.8 178 M (44:) s
+52.2 178 M
+(-> $$ = nterm expr \(\)) s
+25.8 166 M (45:) s
+52.2 166 M
+(Stack now 0 5 10 2) s
+25.8 154 M (46:) s
+52.2 154 M
+(Entering state 7) s
+25.8 142 M (47:) s
+52.2 142 M
+(Next token is token ADD \(node5: ADD '+' nil nil\)) s
+25.8 130 M (48:) s
+52.2 130 M
+(Shifting token ADD \(node5: ADD '+' nil nil\)) s
+25.8 118 M (49:) s
+52.2 118 M
+(Entering state 9) s
+25.8 106 M (50:) s
+52.2 106 M
+(Reading a token: Next token is token IDENT \(node6: IDENT 'c' nil nil\)) s
+25.8 94 M (51:) s
+52.2 94 M
+(Shifting token IDENT \(node6: IDENT 'c' nil nil\)) s
+25.8 82 M (52:) s
+52.2 82 M
+(Entering state 1) s
+25.8 70 M (53:) s
+52.2 70 M
+(Reducing stack by rule 7 \(line 53\):) s
+25.8 58 M (54:) s
+52.2 58 M
+(   $1 = token IDENT \(node6: IDENT 'c' nil nil\)) s
+25.8 46 M (55:) s
+52.2 46 M
+(AST: node6: IDENT 'c' nil nil) s
+25.8 34 M (56:) s
+52.2 34 M
+(-> $$ = nterm factor \(\)) s
+25.8 22 M (57:) s
+52.2 22 M
+(Stack now 0 5 10 2 7 9) s
+25.8 10 M (58:) s
+52.2 10 M
+(Entering state 6) s
+_R
+S
+%%Page: (2) 11
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (test2.log) def
+/fdir () def
+/ftail (test2.log) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:07:23) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (59:) s
+52.2 694 M
+(Reducing stack by rule 5 \(line 49\):) s
+25.8 682 M (60:) s
+52.2 682 M
+(   $1 = nterm factor \(\)) s
+25.8 670 M (61:) s
+52.2 670 M
+(AST: node6: IDENT 'c' nil nil) s
+25.8 658 M (62:) s
+52.2 658 M
+(-> $$ = nterm term \(\)) s
+25.8 646 M (63:) s
+52.2 646 M
+(Stack now 0 5 10 2 7 9) s
+25.8 634 M (64:) s
+52.2 634 M
+(Entering state 12) s
+25.8 622 M (65:) s
+52.2 622 M
+(Reading a token: Next token is token RPAR \(node7: RPAR '\)' nil nil\)) s
+25.8 610 M (66:) s
+52.2 610 M
+(Reducing stack by rule 2 \(line 44\):) s
+25.8 598 M (67:) s
+52.2 598 M
+(   $1 = nterm expr \(\)) s
+25.8 586 M (68:) s
+52.2 586 M
+(   $2 = token ADD \(node5: ADD '+' nil nil\)) s
+25.8 574 M (69:) s
+52.2 574 M
+(   $3 = nterm term \(\)) s
+25.8 562 M (70:) s
+52.2 562 M
+(AST: node5: ADD '+' node4 node6) s
+25.8 550 M (71:) s
+52.2 550 M
+(AST:    node4: IDENT 'b' nil nil) s
+25.8 538 M (72:) s
+52.2 538 M
+(AST:    node6: IDENT 'c' nil nil) s
+25.8 526 M (73:) s
+52.2 526 M
+(-> $$ = nterm expr \(\)) s
+25.8 514 M (74:) s
+52.2 514 M
+(Stack now 0 5 10 2) s
+25.8 502 M (75:) s
+52.2 502 M
+(Entering state 7) s
+25.8 490 M (76:) s
+52.2 490 M
+(Next token is token RPAR \(node7: RPAR '\)' nil nil\)) s
+25.8 478 M (77:) s
+52.2 478 M
+(Shifting token RPAR \(node7: RPAR '\)' nil nil\)) s
+25.8 466 M (78:) s
+52.2 466 M
+(Entering state 11) s
+25.8 454 M (79:) s
+52.2 454 M
+(Reducing stack by rule 6 \(line 52\):) s
+25.8 442 M (80:) s
+52.2 442 M
+(   $1 = token LPAR \(node3: LPAR '\(' nil nil\)) s
+25.8 430 M (81:) s
+52.2 430 M
+(   $2 = nterm expr \(\)) s
+25.8 418 M (82:) s
+52.2 418 M
+(   $3 = token RPAR \(node7: RPAR '\)' nil nil\)) s
+25.8 406 M (83:) s
+52.2 406 M
+(AST: node5: ADD '+' node4 node6) s
+25.8 394 M (84:) s
+52.2 394 M
+(AST:    node4: IDENT 'b' nil nil) s
+25.8 382 M (85:) s
+52.2 382 M
+(AST:    node6: IDENT 'c' nil nil) s
+25.8 370 M (86:) s
+52.2 370 M
+(-> $$ = nterm factor \(\)) s
+25.8 358 M (87:) s
+52.2 358 M
+(Stack now 0 5 10) s
+25.8 346 M (88:) s
+52.2 346 M
+(Entering state 13) s
+25.8 334 M (89:) s
+52.2 334 M
+(Reducing stack by rule 4 \(line 48\):) s
+25.8 322 M (90:) s
+52.2 322 M
+(   $1 = nterm term \(\)) s
+25.8 310 M (91:) s
+52.2 310 M
+(   $2 = token MUL \(node2: MUL '*' nil nil\)) s
+25.8 298 M (92:) s
+52.2 298 M
+(   $3 = nterm factor \(\)) s
+25.8 286 M (93:) s
+52.2 286 M
+(AST: node2: MUL '*' node1 node5) s
+25.8 274 M (94:) s
+52.2 274 M
+(AST:    node1: IDENT 'a' nil nil) s
+25.8 262 M (95:) s
+52.2 262 M
+(AST:    node5: ADD '+' node4 node6) s
+25.8 250 M (96:) s
+52.2 250 M
+(AST:       node4: IDENT 'b' nil nil) s
+25.8 238 M (97:) s
+52.2 238 M
+(AST:       node6: IDENT 'c' nil nil) s
+25.8 226 M (98:) s
+52.2 226 M
+(-> $$ = nterm term \(\)) s
+25.8 214 M (99:) s
+52.2 214 M
+(Stack now 0) s
+19.2 202 M (100:) s
+52.2 202 M
+(Entering state 5) s
+19.2 190 M (101:) s
+52.2 190 M
+(Reading a token: Now at end of input.) s
+19.2 178 M (102:) s
+52.2 178 M
+(Reducing stack by rule 3 \(line 45\):) s
+19.2 166 M (103:) s
+52.2 166 M
+(   $1 = nterm term \(\)) s
+19.2 154 M (104:) s
+52.2 154 M
+(AST: node2: MUL '*' node1 node5) s
+19.2 142 M (105:) s
+52.2 142 M
+(AST:    node1: IDENT 'a' nil nil) s
+19.2 130 M (106:) s
+52.2 130 M
+(AST:    node5: ADD '+' node4 node6) s
+19.2 118 M (107:) s
+52.2 118 M
+(AST:       node4: IDENT 'b' nil nil) s
+19.2 106 M (108:) s
+52.2 106 M
+(AST:       node6: IDENT 'c' nil nil) s
+19.2 94 M (109:) s
+52.2 94 M
+(-> $$ = nterm expr \(\)) s
+19.2 82 M (110:) s
+52.2 82 M
+(Stack now 0) s
+19.2 70 M (111:) s
+52.2 70 M
+(Entering state 4) s
+19.2 58 M (112:) s
+52.2 58 M
+(Now at end of input.) s
+19.2 46 M (113:) s
+52.2 46 M
+(Reducing stack by rule 1 \(line 41\):) s
+19.2 34 M (114:) s
+52.2 34 M
+(   $1 = nterm expr \(\)) s
+19.2 22 M (115:) s
+52.2 22 M
+(AST: node2: MUL '*' node1 node5) s
+19.2 10 M (116:) s
+52.2 10 M
+(AST:    node1: IDENT 'a' nil nil) s
+_R
+S
+%%Page: (3) 12
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (test2.log) def
+/fdir () def
+/ftail (test2.log) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (11/06/14) def
+/pagecountstr (/3) def
+/modtimestr (19:07:23) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (117:) s
+52.2 694 M
+(AST:    node5: ADD '+' node4 node6) s
+19.2 682 M (118:) s
+52.2 682 M
+(AST:       node4: IDENT 'b' nil nil) s
+19.2 670 M (119:) s
+52.2 670 M
+(AST:       node6: IDENT 'c' nil nil) s
+19.2 658 M (120:) s
+52.2 658 M
+(-> $$ = nterm start \(\)) s
+19.2 646 M (121:) s
+52.2 646 M
+(Stack now 0) s
+19.2 634 M (122:) s
+52.2 634 M
+(Entering state 3) s
+19.2 622 M (123:) s
+52.2 622 M
+(Now at end of input.) s
+19.2 610 M (124:) s
+52.2 610 M
+(Shifting token $end \(node8: $end '\\x00' nil nil\)) s
+19.2 598 M (125:) s
+52.2 598 M
+(Entering state 8) s
+19.2 586 M (126:) s
+52.2 586 M
+(Stack now 0 3 8) s
+19.2 574 M (127:) s
+52.2 574 M
+(Cleanup: popping token $end \(node8: $end '\\x00' nil nil\)) s
+19.2 562 M (128:) s
+52.2 562 M
+(Cleanup: popping nterm start \(\)) s
+19.2 550 M (129:) s
+52.2 550 M
+(Finished parse: status 0) s
+19.2 538 M (130:) s
+52.2 538 M
+(Scanned input: "a*\(b+c\)") s
+19.2 526 M (131:) s
+52.2 526 M
+(Root of AST:) s
+19.2 514 M (132:) s
+52.2 514 M
+(AST: node2: MUL '*' node1 node5) s
+19.2 502 M (133:) s
+52.2 502 M
+(AST:    node1: IDENT 'a' nil nil) s
+19.2 490 M (134:) s
+52.2 490 M
+(AST:    node5: ADD '+' node4 node6) s
+19.2 478 M (135:) s
+52.2 478 M
+(AST:       node4: IDENT 'b' nil nil) s
+19.2 466 M (136:) s
+52.2 466 M
+(AST:       node6: IDENT 'c' nil nil) s
+_R
+S
+%%Page: (1) 13
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (test3.log) def
+/fdir () def
+/ftail (test3.log) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/06/14) def
+/pagecountstr (/1) def
+/modtimestr (19:07:23) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(Scanning input: "f\(c\)") s
+32.4 682 M (2:) s
+52.2 682 M
+(Starting parse) s
+32.4 670 M (3:) s
+52.2 670 M
+(Entering state 0) s
+32.4 658 M (4:) s
+52.2 658 M
+(Reading a token: Next token is token IDENT \(node1: IDENT 'f' nil nil\)) s
+32.4 646 M (5:) s
+52.2 646 M
+(Shifting token IDENT \(node1: IDENT 'f' nil nil\)) s
+32.4 634 M (6:) s
+52.2 634 M
+(Entering state 1) s
+32.4 622 M (7:) s
+52.2 622 M
+(Reducing stack by rule 7 \(line 53\):) s
+32.4 610 M (8:) s
+52.2 610 M
+(   $1 = token IDENT \(node1: IDENT 'f' nil nil\)) s
+32.4 598 M (9:) s
+52.2 598 M
+(AST: node1: IDENT 'f' nil nil) s
+25.8 586 M (10:) s
+52.2 586 M
+(-> $$ = nterm factor \(\)) s
+25.8 574 M (11:) s
+52.2 574 M
+(Stack now 0) s
+25.8 562 M (12:) s
+52.2 562 M
+(Entering state 6) s
+25.8 550 M (13:) s
+52.2 550 M
+(Reducing stack by rule 5 \(line 49\):) s
+25.8 538 M (14:) s
+52.2 538 M
+(   $1 = nterm factor \(\)) s
+25.8 526 M (15:) s
+52.2 526 M
+(AST: node1: IDENT 'f' nil nil) s
+25.8 514 M (16:) s
+52.2 514 M
+(-> $$ = nterm term \(\)) s
+25.8 502 M (17:) s
+52.2 502 M
+(Stack now 0) s
+25.8 490 M (18:) s
+52.2 490 M
+(Entering state 5) s
+25.8 478 M (19:) s
+52.2 478 M
+(Reading a token: Next token is token LPAR \(node2: LPAR '\(' nil nil\)) s
+25.8 466 M (20:) s
+52.2 466 M
+(Reducing stack by rule 3 \(line 45\):) s
+25.8 454 M (21:) s
+52.2 454 M
+(   $1 = nterm term \(\)) s
+25.8 442 M (22:) s
+52.2 442 M
+(AST: node1: IDENT 'f' nil nil) s
+25.8 430 M (23:) s
+52.2 430 M
+(-> $$ = nterm expr \(\)) s
+25.8 418 M (24:) s
+52.2 418 M
+(Stack now 0) s
+25.8 406 M (25:) s
+52.2 406 M
+(Entering state 4) s
+25.8 394 M (26:) s
+52.2 394 M
+(Next token is token LPAR \(node2: LPAR '\(' nil nil\)) s
+25.8 382 M (27:) s
+52.2 382 M
+(Reducing stack by rule 1 \(line 41\):) s
+25.8 370 M (28:) s
+52.2 370 M
+(   $1 = nterm expr \(\)) s
+25.8 358 M (29:) s
+52.2 358 M
+(AST: node1: IDENT 'f' nil nil) s
+25.8 346 M (30:) s
+52.2 346 M
+(-> $$ = nterm start \(\)) s
+25.8 334 M (31:) s
+52.2 334 M
+(Stack now 0) s
+25.8 322 M (32:) s
+52.2 322 M
+(Entering state 3) s
+25.8 310 M (33:) s
+52.2 310 M
+(Next token is token LPAR \(node2: LPAR '\(' nil nil\)) s
+25.8 298 M (34:) s
+52.2 298 M
+(syntax error, unexpected LPAR, expecting $end\)) s
+25.8 286 M (35:) s
+52.2 286 M
+(Error: popping nterm start \(\)) s
+25.8 274 M (36:) s
+52.2 274 M
+(Stack now 0) s
+25.8 262 M (37:) s
+52.2 262 M
+(Cleanup: discarding lookahead token LPAR \(node2: LPAR '\(' nil nil\)) s
+25.8 250 M (38:) s
+52.2 250 M
+(Stack now 0) s
+25.8 238 M (39:) s
+52.2 238 M
+(Finished parse: status 1) s
+25.8 226 M (40:) s
+52.2 226 M
+(Scanned input: "f\(c\)") s
+25.8 214 M (41:) s
+52.2 214 M
+(Root of AST:) s
+25.8 202 M (42:) s
+52.2 202 M
+(AST: node1: IDENT 'f' nil nil) s
+_R
+S
+%%Page: (1) 14
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (Makefile) def
+/fdir () def
+/ftail (Makefile) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/06/14) def
+/pagecountstr (/1) def
+/modtimestr (19:04:28) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e05.etf/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(# $Id: Makefile,v 1.3 2014-11-06 19:04:28-08 - - $) s
+32.4 682 M (2:) s
+32.4 670 M (3:) s
+52.2 670 M
+(GCC = g++ -g -O0 -Wall -Wextra -std=gnu++11) s
+32.4 658 M (4:) s
+32.4 646 M (5:) s
+52.2 646 M
+(all : etf) s
+32.4 634 M (6:) s
+32.4 622 M (7:) s
+52.2 622 M
+(etf : etf.tab.cc) s
+32.4 610 M (8:) s
+52.2 610 M
+(        ${GCC} etf.tab.cc -o etf) s
+32.4 598 M (9:) s
+25.8 586 M (10:) s
+52.2 586 M
+(etf.tab.cc : etf.yy) s
+25.8 574 M (11:) s
+52.2 574 M
+(        bison etf.yy) s
+25.8 562 M (12:) s
+25.8 550 M (13:) s
+52.2 550 M
+(ci :) s
+25.8 538 M (14:) s
+52.2 538 M
+(        cid + Makefile etf.yy) s
+25.8 526 M (15:) s
+25.8 514 M (16:) s
+52.2 514 M
+(spotless : clean) s
+25.8 502 M (17:) s
+52.2 502 M
+(        - rm Listing.{ps,pdf} test?.log) s
+25.8 490 M (18:) s
+25.8 478 M (19:) s
+52.2 478 M
+(clean :) s
+25.8 466 M (20:) s
+52.2 466 M
+(        - rm etf.tab.cc etf.output etf) s
+25.8 454 M (21:) s
+25.8 442 M (22:) s
+52.2 442 M
+(test : etf) s
+25.8 430 M (23:) s
+52.2 430 M
+(        ./etf "a*b+c*d" >test1.log 2>&1) s
+25.8 418 M (24:) s
+52.2 418 M
+(        ./etf "a*\(b+c\)" >test2.log 2>&1) s
+25.8 406 M (25:) s
+52.2 406 M
+(        ./etf "f\(c\)"  >test3.log 2>&1) s
+25.8 394 M (26:) s
+25.8 382 M (27:) s
+52.2 382 M
+(lis : test) s
+25.8 370 M (28:) s
+52.2 370 M
+(        mkpspdf Listing.ps etf.yy etf.output test?.log Makefile) s
+_R
+S
+%%Trailer
+%%Pages: 14
+%%DocumentNeededResources: font Times-Roman Courier-Bold Times-Bold 
+%%EOF

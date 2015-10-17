@@ -1,0 +1,4699 @@
+%PDF-1.4
+5 0 obj
+<</Length 6 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 270.805 736.5 Tm
+(yylex.output)Tj
+-108.091 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(flex version 2.5.35 usage statistics:)]TJ
+11.5 TL
+T*[(2:)-600(  scanner options: -bdpsvI8 -Cem -oyylex.c)]TJ
+T*[(3:)-600(  106/2000 NFA states)]TJ
+T*[(4:)-600(  29/1000 DFA states \(158 words\))]TJ
+T*[(5:)-600(  16 rules)]TJ
+T*[(6:)-600(  Compressed tables always back-up)]TJ
+T*[(7:)-600(  1/40 start conditions)]TJ
+T*[(8:)-600(  73 epsilon states, 39 double epsilon states)]TJ
+T*[(9:)-600(  18/100 character classes needed 197/500 words of storage, 0 reused)]TJ
+-6.3 -11.5 Td
+[(10:)-600(  92 state/nextstate pairs created)]TJ
+T*[(11:)-600(  57/35 unique/duplicate transitions)]TJ
+T*[(12:)-600(  33/1000 base-def entries created)]TJ
+T*[(13:)-600(  59/2000 \(peak 77\) nxt-chk entries created)]TJ
+T*[(14:)-600(  20/2500 \(peak 68\) template nxt-chk entries created)]TJ
+T*[(15:)-600(  0 empty table entries)]TJ
+T*[(16:)-600(  5 protos created)]TJ
+T*[(17:)-600(  4 templates created, 5 uses)]TJ
+T*[(18:)-600(  17/256 equivalence classes created)]TJ
+T*[(19:)-600(  5/256 meta-equivalence classes created)]TJ
+T*[(20:)-600(  0 \(2 saved\) hash collisions, 31 DFAs equal)]TJ
+T*[(21:)-600(  0 sets of reallocations needed)]TJ
+T*[(22:)-600(  457 total table entries needed)]TJ
+T*[(23:)-600(=================================================================)]TJ
+T*[(24:)-600(Compressed tables always back up.)]TJ
+ET
+Q
+Q
+endstream
+endobj
+6 0 obj
+1839
+endobj
+19 0 obj
+<</Length 20 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 264.589 736.5 Tm
+(yyparse.output)Tj
+-101.875 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(Terminals unused in grammar)]TJ
+11.5 TL
+(2:)'
+T*[(3:)-600(   ROOT)]TJ
+T*[(4:)-600(   "u+")]TJ
+T*[(5:)-600(   "u-")]TJ
+(6:)'
+(7:)'
+T*[(8:)-600(Grammar)]TJ
+(9:)'
+-6.3 -11.5 Td
+[(10:)-600(    0 $accept: program $end)]TJ
+(11:)'
+T*[(12:)-600(    1 program: stmtseq)]TJ
+(13:)'
+T*[(14:)-600(    2 stmtseq: stmtseq expr ';')]TJ
+T*[(15:)-600(    3        | stmtseq error ';')]TJ
+T*[(16:)-600(    4        | stmtseq ';')]TJ
+T*[(17:)-600(    5        | /* empty */)]TJ
+(18:)'
+T*[(19:)-600(    6 expr: expr '=' expr)]TJ
+T*[(20:)-600(    7     | expr '+' expr)]TJ
+T*[(21:)-600(    8     | expr '-' expr)]TJ
+T*[(22:)-600(    9     | expr '*' expr)]TJ
+T*[(23:)-600(   10     | expr '/' expr)]TJ
+T*[(24:)-600(   11     | expr '^' expr)]TJ
+T*[(25:)-600(   12     | '+' expr)]TJ
+T*[(26:)-600(   13     | '-' expr)]TJ
+T*[(27:)-600(   14     | '\(' expr '\)')]TJ
+T*[(28:)-600(   15     | IDENT)]TJ
+T*[(29:)-600(   16     | NUMBER)]TJ
+(30:)'
+(31:)'
+T*[(32:)-600(Terminals, with rules where they appear)]TJ
+(33:)'
+T*[(34:)-600($end \(0\) 0)]TJ
+T*[(35:)-600('\(' \(40\) 14)]TJ
+T*[(36:)-600('\)' \(41\) 14)]TJ
+T*[(37:)-600('*' \(42\) 9)]TJ
+T*[(38:)-600('+' \(43\) 7 12)]TJ
+T*[(39:)-600('-' \(45\) 8 13)]TJ
+T*[(40:)-600('/' \(47\) 10)]TJ
+T*[(41:)-600(';' \(59\) 2 3 4)]TJ
+T*[(42:)-600('=' \(61\) 6)]TJ
+T*[(43:)-600('^' \(94\) 11)]TJ
+T*[(44:)-600(error \(256\) 3)]TJ
+T*[(45:)-600(ROOT \(258\))]TJ
+T*[(46:)-600(IDENT \(259\) 15)]TJ
+T*[(47:)-600(NUMBER \(260\) 16)]TJ
+T*[(48:)-600("u+" \(261\))]TJ
+T*[(49:)-600("u-" \(262\))]TJ
+T*[(50:)-600(NEG \(263\))]TJ
+T*[(51:)-600(POS \(264\))]TJ
+(52:)'
+(53:)'
+T*[(54:)-600(Nonterminals, with rules where they appear)]TJ
+(55:)'
+T*[(56:)-600($accept \(19\))]TJ
+T*[(57:)-600(    on left: 0)]TJ
+T*[(58:)-600(program \(20\))]TJ
+T*[(59:)-600(    on left: 1, on right: 0)]TJ
+T*[(60:)-600(stmtseq \(21\))]TJ
+T*[(61:)-600(    on left: 2 3 4 5, on right: 1 2 3 4)]TJ
+ET
+Q
+Q
+endstream
+endobj
+20 0 obj
+2408
+endobj
+24 0 obj
+<</Length 25 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 264.589 736.5 Tm
+(yyparse.output)Tj
+-101.875 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+[(62:)-600(expr \(22\))]TJ
+11.5 TL
+T*[(63:)-600(    on left: 6 7 8 9 10 11 12 13 14 15 16, on right: 2 6 7 8 9 10 11)]TJ
+T*[(64:)-600(    12 13 14)]TJ
+(65:)'
+(66:)'
+T*[(67:)-600(state 0)]TJ
+(68:)'
+T*[(69:)-600(    0 $accept: . program $end)]TJ
+(70:)'
+T*[(71:)-600(    $default  reduce using rule 5 \(stmtseq\))]TJ
+(72:)'
+T*[(73:)-600(    program  go to state 1)]TJ
+T*[(74:)-600(    stmtseq  go to state 2)]TJ
+(75:)'
+(76:)'
+T*[(77:)-600(state 1)]TJ
+(78:)'
+T*[(79:)-600(    0 $accept: program . $end)]TJ
+(80:)'
+T*[(81:)-600(    $end  shift, and go to state 3)]TJ
+(82:)'
+(83:)'
+T*[(84:)-600(state 2)]TJ
+(85:)'
+T*[(86:)-600(    1 program: stmtseq .)]TJ
+T*[(87:)-600(    2 stmtseq: stmtseq . expr ';')]TJ
+T*[(88:)-600(    3        | stmtseq . error ';')]TJ
+T*[(89:)-600(    4        | stmtseq . ';')]TJ
+(90:)'
+T*[(91:)-600(    error   shift, and go to state 4)]TJ
+T*[(92:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(93:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(94:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(95:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(96:)-600(    ';'     shift, and go to state 9)]TJ
+T*[(97:)-600(    '\('     shift, and go to state 10)]TJ
+(98:)'
+T*[(99:)-600(    $end  reduce using rule 1 \(program\))]TJ
+-6.3 -11.5 Td
+(100:)Tj
+T*[(101:)-600(    expr  go to state 11)]TJ
+(102:)'
+(103:)'
+T*[(104:)-600(state 3)]TJ
+(105:)'
+T*[(106:)-600(    0 $accept: program $end .)]TJ
+(107:)'
+T*[(108:)-600(    $default  accept)]TJ
+(109:)'
+(110:)'
+T*[(111:)-600(state 4)]TJ
+(112:)'
+T*[(113:)-600(    3 stmtseq: stmtseq error . ';')]TJ
+(114:)'
+T*[(115:)-600(    ';'  shift, and go to state 12)]TJ
+(116:)'
+(117:)'
+T*[(118:)-600(state 5)]TJ
+(119:)'
+T*[(120:)-600(   15 expr: IDENT .)]TJ
+(121:)'
+T*[(122:)-600(    $default  reduce using rule 15 \(expr\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+25 0 obj
+2313
+endobj
+29 0 obj
+<</Length 30 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 264.589 736.5 Tm
+(yyparse.output)Tj
+-101.875 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+(123:)Tj
+11.5 TL
+(124:)'
+T*[(125:)-600(state 6)]TJ
+(126:)'
+T*[(127:)-600(   16 expr: NUMBER .)]TJ
+(128:)'
+T*[(129:)-600(    $default  reduce using rule 16 \(expr\))]TJ
+(130:)'
+(131:)'
+T*[(132:)-600(state 7)]TJ
+(133:)'
+T*[(134:)-600(   12 expr: '+' . expr)]TJ
+(135:)'
+T*[(136:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(137:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(138:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(139:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(140:)-600(    '\('     shift, and go to state 10)]TJ
+(141:)'
+T*[(142:)-600(    expr  go to state 13)]TJ
+(143:)'
+(144:)'
+T*[(145:)-600(state 8)]TJ
+(146:)'
+T*[(147:)-600(   13 expr: '-' . expr)]TJ
+(148:)'
+T*[(149:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(150:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(151:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(152:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(153:)-600(    '\('     shift, and go to state 10)]TJ
+(154:)'
+T*[(155:)-600(    expr  go to state 14)]TJ
+(156:)'
+(157:)'
+T*[(158:)-600(state 9)]TJ
+(159:)'
+T*[(160:)-600(    4 stmtseq: stmtseq ';' .)]TJ
+(161:)'
+T*[(162:)-600(    $default  reduce using rule 4 \(stmtseq\))]TJ
+(163:)'
+(164:)'
+T*[(165:)-600(state 10)]TJ
+(166:)'
+T*[(167:)-600(   14 expr: '\(' . expr '\)')]TJ
+(168:)'
+T*[(169:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(170:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(171:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(172:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(173:)-600(    '\('     shift, and go to state 10)]TJ
+(174:)'
+T*[(175:)-600(    expr  go to state 15)]TJ
+(176:)'
+(177:)'
+T*[(178:)-600(state 11)]TJ
+(179:)'
+T*[(180:)-600(    2 stmtseq: stmtseq expr . ';')]TJ
+T*[(181:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(182:)-600(    7     | expr . '+' expr)]TJ
+T*[(183:)-600(    8     | expr . '-' expr)]TJ
+ET
+Q
+Q
+endstream
+endobj
+30 0 obj
+2395
+endobj
+34 0 obj
+<</Length 35 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(4)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 264.589 736.5 Tm
+(yyparse.output)Tj
+-101.875 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(184:)-600(    9     | expr . '*' expr)]TJ
+11.5 TL
+T*[(185:)-600(   10     | expr . '/' expr)]TJ
+T*[(186:)-600(   11     | expr . '^' expr)]TJ
+(187:)'
+T*[(188:)-600(    '='  shift, and go to state 16)]TJ
+T*[(189:)-600(    '+'  shift, and go to state 17)]TJ
+T*[(190:)-600(    '-'  shift, and go to state 18)]TJ
+T*[(191:)-600(    '*'  shift, and go to state 19)]TJ
+T*[(192:)-600(    '/'  shift, and go to state 20)]TJ
+T*[(193:)-600(    '^'  shift, and go to state 21)]TJ
+T*[(194:)-600(    ';'  shift, and go to state 22)]TJ
+(195:)'
+(196:)'
+T*[(197:)-600(state 12)]TJ
+(198:)'
+T*[(199:)-600(    3 stmtseq: stmtseq error ';' .)]TJ
+(200:)'
+T*[(201:)-600(    $default  reduce using rule 3 \(stmtseq\))]TJ
+(202:)'
+(203:)'
+T*[(204:)-600(state 13)]TJ
+(205:)'
+T*[(206:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(207:)-600(    7     | expr . '+' expr)]TJ
+T*[(208:)-600(    8     | expr . '-' expr)]TJ
+T*[(209:)-600(    9     | expr . '*' expr)]TJ
+T*[(210:)-600(   10     | expr . '/' expr)]TJ
+T*[(211:)-600(   11     | expr . '^' expr)]TJ
+T*[(212:)-600(   12     | '+' expr .)]TJ
+(213:)'
+T*[(214:)-600(    $default  reduce using rule 12 \(expr\))]TJ
+(215:)'
+(216:)'
+T*[(217:)-600(state 14)]TJ
+(218:)'
+T*[(219:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(220:)-600(    7     | expr . '+' expr)]TJ
+T*[(221:)-600(    8     | expr . '-' expr)]TJ
+T*[(222:)-600(    9     | expr . '*' expr)]TJ
+T*[(223:)-600(   10     | expr . '/' expr)]TJ
+T*[(224:)-600(   11     | expr . '^' expr)]TJ
+T*[(225:)-600(   13     | '-' expr .)]TJ
+(226:)'
+T*[(227:)-600(    $default  reduce using rule 13 \(expr\))]TJ
+(228:)'
+(229:)'
+T*[(230:)-600(state 15)]TJ
+(231:)'
+T*[(232:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(233:)-600(    7     | expr . '+' expr)]TJ
+T*[(234:)-600(    8     | expr . '-' expr)]TJ
+T*[(235:)-600(    9     | expr . '*' expr)]TJ
+T*[(236:)-600(   10     | expr . '/' expr)]TJ
+T*[(237:)-600(   11     | expr . '^' expr)]TJ
+T*[(238:)-600(   14     | '\(' expr . '\)')]TJ
+(239:)'
+T*[(240:)-600(    '='  shift, and go to state 16)]TJ
+T*[(241:)-600(    '+'  shift, and go to state 17)]TJ
+T*[(242:)-600(    '-'  shift, and go to state 18)]TJ
+T*[(243:)-600(    '*'  shift, and go to state 19)]TJ
+T*[(244:)-600(    '/'  shift, and go to state 20)]TJ
+ET
+Q
+Q
+endstream
+endobj
+35 0 obj
+2751
+endobj
+39 0 obj
+<</Length 40 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(5)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 264.589 736.5 Tm
+(yyparse.output)Tj
+-101.875 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(245:)-600(    '^'  shift, and go to state 21)]TJ
+11.5 TL
+T*[(246:)-600(    '\)'  shift, and go to state 23)]TJ
+(247:)'
+(248:)'
+T*[(249:)-600(state 16)]TJ
+(250:)'
+T*[(251:)-600(    6 expr: expr '=' . expr)]TJ
+(252:)'
+T*[(253:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(254:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(255:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(256:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(257:)-600(    '\('     shift, and go to state 10)]TJ
+(258:)'
+T*[(259:)-600(    expr  go to state 24)]TJ
+(260:)'
+(261:)'
+T*[(262:)-600(state 17)]TJ
+(263:)'
+T*[(264:)-600(    7 expr: expr '+' . expr)]TJ
+(265:)'
+T*[(266:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(267:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(268:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(269:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(270:)-600(    '\('     shift, and go to state 10)]TJ
+(271:)'
+T*[(272:)-600(    expr  go to state 25)]TJ
+(273:)'
+(274:)'
+T*[(275:)-600(state 18)]TJ
+(276:)'
+T*[(277:)-600(    8 expr: expr '-' . expr)]TJ
+(278:)'
+T*[(279:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(280:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(281:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(282:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(283:)-600(    '\('     shift, and go to state 10)]TJ
+(284:)'
+T*[(285:)-600(    expr  go to state 26)]TJ
+(286:)'
+(287:)'
+T*[(288:)-600(state 19)]TJ
+(289:)'
+T*[(290:)-600(    9 expr: expr '*' . expr)]TJ
+(291:)'
+T*[(292:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(293:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(294:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(295:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(296:)-600(    '\('     shift, and go to state 10)]TJ
+(297:)'
+T*[(298:)-600(    expr  go to state 27)]TJ
+(299:)'
+(300:)'
+T*[(301:)-600(state 20)]TJ
+(302:)'
+T*[(303:)-600(   10 expr: expr '/' . expr)]TJ
+(304:)'
+T*[(305:)-600(    IDENT   shift, and go to state 5)]TJ
+ET
+Q
+Q
+endstream
+endobj
+40 0 obj
+2534
+endobj
+44 0 obj
+<</Length 45 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(6)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 264.589 736.5 Tm
+(yyparse.output)Tj
+-101.875 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(306:)-600(    NUMBER  shift, and go to state 6)]TJ
+11.5 TL
+T*[(307:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(308:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(309:)-600(    '\('     shift, and go to state 10)]TJ
+(310:)'
+T*[(311:)-600(    expr  go to state 28)]TJ
+(312:)'
+(313:)'
+T*[(314:)-600(state 21)]TJ
+(315:)'
+T*[(316:)-600(   11 expr: expr '^' . expr)]TJ
+(317:)'
+T*[(318:)-600(    IDENT   shift, and go to state 5)]TJ
+T*[(319:)-600(    NUMBER  shift, and go to state 6)]TJ
+T*[(320:)-600(    '+'     shift, and go to state 7)]TJ
+T*[(321:)-600(    '-'     shift, and go to state 8)]TJ
+T*[(322:)-600(    '\('     shift, and go to state 10)]TJ
+(323:)'
+T*[(324:)-600(    expr  go to state 29)]TJ
+(325:)'
+(326:)'
+T*[(327:)-600(state 22)]TJ
+(328:)'
+T*[(329:)-600(    2 stmtseq: stmtseq expr ';' .)]TJ
+(330:)'
+T*[(331:)-600(    $default  reduce using rule 2 \(stmtseq\))]TJ
+(332:)'
+(333:)'
+T*[(334:)-600(state 23)]TJ
+(335:)'
+T*[(336:)-600(   14 expr: '\(' expr '\)' .)]TJ
+(337:)'
+T*[(338:)-600(    $default  reduce using rule 14 \(expr\))]TJ
+(339:)'
+(340:)'
+T*[(341:)-600(state 24)]TJ
+(342:)'
+T*[(343:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(344:)-600(    6     | expr '=' expr .)]TJ
+T*[(345:)-600(    7     | expr . '+' expr)]TJ
+T*[(346:)-600(    8     | expr . '-' expr)]TJ
+T*[(347:)-600(    9     | expr . '*' expr)]TJ
+T*[(348:)-600(   10     | expr . '/' expr)]TJ
+T*[(349:)-600(   11     | expr . '^' expr)]TJ
+(350:)'
+T*[(351:)-600(    '='  shift, and go to state 16)]TJ
+T*[(352:)-600(    '+'  shift, and go to state 17)]TJ
+T*[(353:)-600(    '-'  shift, and go to state 18)]TJ
+T*[(354:)-600(    '*'  shift, and go to state 19)]TJ
+T*[(355:)-600(    '/'  shift, and go to state 20)]TJ
+T*[(356:)-600(    '^'  shift, and go to state 21)]TJ
+(357:)'
+T*[(358:)-600(    $default  reduce using rule 6 \(expr\))]TJ
+(359:)'
+(360:)'
+T*[(361:)-600(state 25)]TJ
+(362:)'
+T*[(363:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(364:)-600(    7     | expr . '+' expr)]TJ
+T*[(365:)-600(    7     | expr '+' expr .)]TJ
+T*[(366:)-600(    8     | expr . '-' expr)]TJ
+ET
+Q
+Q
+endstream
+endobj
+45 0 obj
+2587
+endobj
+49 0 obj
+<</Length 50 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(7)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 264.589 736.5 Tm
+(yyparse.output)Tj
+-101.875 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(367:)-600(    9     | expr . '*' expr)]TJ
+11.5 TL
+T*[(368:)-600(   10     | expr . '/' expr)]TJ
+T*[(369:)-600(   11     | expr . '^' expr)]TJ
+(370:)'
+T*[(371:)-600(    '*'  shift, and go to state 19)]TJ
+T*[(372:)-600(    '/'  shift, and go to state 20)]TJ
+T*[(373:)-600(    '^'  shift, and go to state 21)]TJ
+(374:)'
+T*[(375:)-600(    $default  reduce using rule 7 \(expr\))]TJ
+(376:)'
+(377:)'
+T*[(378:)-600(state 26)]TJ
+(379:)'
+T*[(380:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(381:)-600(    7     | expr . '+' expr)]TJ
+T*[(382:)-600(    8     | expr . '-' expr)]TJ
+T*[(383:)-600(    8     | expr '-' expr .)]TJ
+T*[(384:)-600(    9     | expr . '*' expr)]TJ
+T*[(385:)-600(   10     | expr . '/' expr)]TJ
+T*[(386:)-600(   11     | expr . '^' expr)]TJ
+(387:)'
+T*[(388:)-600(    '*'  shift, and go to state 19)]TJ
+T*[(389:)-600(    '/'  shift, and go to state 20)]TJ
+T*[(390:)-600(    '^'  shift, and go to state 21)]TJ
+(391:)'
+T*[(392:)-600(    $default  reduce using rule 8 \(expr\))]TJ
+(393:)'
+(394:)'
+T*[(395:)-600(state 27)]TJ
+(396:)'
+T*[(397:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(398:)-600(    7     | expr . '+' expr)]TJ
+T*[(399:)-600(    8     | expr . '-' expr)]TJ
+T*[(400:)-600(    9     | expr . '*' expr)]TJ
+T*[(401:)-600(    9     | expr '*' expr .)]TJ
+T*[(402:)-600(   10     | expr . '/' expr)]TJ
+T*[(403:)-600(   11     | expr . '^' expr)]TJ
+(404:)'
+T*[(405:)-600(    '^'  shift, and go to state 21)]TJ
+(406:)'
+T*[(407:)-600(    $default  reduce using rule 9 \(expr\))]TJ
+(408:)'
+(409:)'
+T*[(410:)-600(state 28)]TJ
+(411:)'
+T*[(412:)-600(    6 expr: expr . '=' expr)]TJ
+T*[(413:)-600(    7     | expr . '+' expr)]TJ
+T*[(414:)-600(    8     | expr . '-' expr)]TJ
+T*[(415:)-600(    9     | expr . '*' expr)]TJ
+T*[(416:)-600(   10     | expr . '/' expr)]TJ
+T*[(417:)-600(   10     | expr '/' expr .)]TJ
+T*[(418:)-600(   11     | expr . '^' expr)]TJ
+(419:)'
+T*[(420:)-600(    '^'  shift, and go to state 21)]TJ
+(421:)'
+T*[(422:)-600(    $default  reduce using rule 10 \(expr\))]TJ
+(423:)'
+(424:)'
+T*[(425:)-600(state 29)]TJ
+(426:)'
+T*[(427:)-600(    6 expr: expr . '=' expr)]TJ
+ET
+Q
+Q
+endstream
+endobj
+50 0 obj
+2622
+endobj
+54 0 obj
+<</Length 55 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(8)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 264.589 736.5 Tm
+(yyparse.output)Tj
+-101.875 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(428:)-600(    7     | expr . '+' expr)]TJ
+11.5 TL
+T*[(429:)-600(    8     | expr . '-' expr)]TJ
+T*[(430:)-600(    9     | expr . '*' expr)]TJ
+T*[(431:)-600(   10     | expr . '/' expr)]TJ
+T*[(432:)-600(   11     | expr . '^' expr)]TJ
+T*[(433:)-600(   11     | expr '^' expr .)]TJ
+(434:)'
+T*[(435:)-600(    '^'  shift, and go to state 21)]TJ
+(436:)'
+T*[(437:)-600(    $default  reduce using rule 11 \(expr\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+55 0 obj
+942
+endobj
+59 0 obj
+<</Length 60 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 272.359 736.5 Tm
+(ident.output)Tj
+-109.645 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(astree.o:)]TJ
+11.5 TL
+T*[(2:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(3:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(4:)-600(     $Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(5:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(6:)-600(     $Id: astree.c,v 1.12 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(7:)-600(     $Compiled: astree.c Sep 11 2013 20:17:49 $)]TJ
+(8:)'
+T*[(9:)-600(emit.o:)]TJ
+-6.3 -11.5 Td
+[(10:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(11:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(12:)-600(     $Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(13:)-600(     $Id: emit.h,v 1.3 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(14:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(15:)-600(     $Id: emit.c,v 1.6 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(16:)-600(     $Compiled: emit.c Sep 11 2013 20:17:49 $)]TJ
+(17:)'
+T*[(18:)-600(lyutils.o:)]TJ
+T*[(19:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(20:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(21:)-600(     $Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(22:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(23:)-600(     $Id: lyutils.c,v 1.12 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(24:)-600(     $Compiled: lyutils.c Sep 11 2013 20:17:49 $)]TJ
+(25:)'
+T*[(26:)-600(main.o:)]TJ
+T*[(27:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(28:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(29:)-600(     $Id: emit.h,v 1.3 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(30:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(31:)-600(     $Id: main.c,v 1.17 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(32:)-600(     $Compiled: main.c Sep 11 2013 20:17:49 $)]TJ
+(33:)'
+T*[(34:)-600(auxlib.o:)]TJ
+T*[(35:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(36:)-600(     $Id: auxlib.c,v 1.16 2013-08-22 13:59:59-07 - - $)]TJ
+T*[(37:)-600(     $Compiled: auxlib.c Sep 11 2013 20:17:49 $)]TJ
+(38:)'
+T*[(39:)-600(yylex.o:)]TJ
+T*[(40:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(41:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(42:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(43:)-600(     $Id: yylex.c,v 1.10 2013-09-11 20:17:45-07 - - $)]TJ
+T*[(44:)-600(     $Compiled: scanner.l Sep 11 2013 20:17:49 $)]TJ
+(45:)'
+T*[(46:)-600(yyparse.o:)]TJ
+T*[(47:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(48:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(49:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(50:)-600(     $Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(51:)-600(     $Id: yyparse.c,v 1.5 2013-08-22 14:00:02-07 - - $)]TJ
+T*[(52:)-600(     $Compiled: parser.y Sep 11 2013 20:17:49 $)]TJ
+(53:)'
+T*[(54:)-600(zexprsm:)]TJ
+T*[(55:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(56:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(57:)-600(     $Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(58:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(59:)-600(     $Id: astree.c,v 1.12 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(60:)-600(     $Compiled: astree.c Sep 11 2013 20:17:49 $)]TJ
+T*[(61:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+ET
+Q
+Q
+endstream
+endobj
+60 0 obj
+4055
+endobj
+64 0 obj
+<</Length 65 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 272.359 736.5 Tm
+(ident.output)Tj
+-109.645 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+[(62:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+11.5 TL
+T*[(63:)-600(     $Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(64:)-600(     $Id: emit.h,v 1.3 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(65:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(66:)-600(     $Id: emit.c,v 1.6 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(67:)-600(     $Compiled: emit.c Sep 11 2013 20:17:49 $)]TJ
+T*[(68:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(69:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(70:)-600(     $Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(71:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(72:)-600(     $Id: lyutils.c,v 1.12 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(73:)-600(     $Compiled: lyutils.c Sep 11 2013 20:17:49 $)]TJ
+T*[(74:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(75:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(76:)-600(     $Id: emit.h,v 1.3 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(77:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(78:)-600(     $Id: main.c,v 1.17 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(79:)-600(     $Compiled: main.c Sep 11 2013 20:17:49 $)]TJ
+T*[(80:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(81:)-600(     $Id: auxlib.c,v 1.16 2013-08-22 13:59:59-07 - - $)]TJ
+T*[(82:)-600(     $Compiled: auxlib.c Sep 11 2013 20:17:49 $)]TJ
+T*[(83:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(84:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(85:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(86:)-600(     $Id: yylex.c,v 1.10 2013-09-11 20:17:45-07 - - $)]TJ
+T*[(87:)-600(     $Compiled: scanner.l Sep 11 2013 20:17:49 $)]TJ
+T*[(88:)-600(     $Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(89:)-600(     $Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(90:)-600(     $Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(91:)-600(     $Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $)]TJ
+T*[(92:)-600(     $Id: yyparse.c,v 1.5 2013-08-22 14:00:02-07 - - $)]TJ
+T*[(93:)-600(     $Compiled: parser.y Sep 11 2013 20:17:49 $)]TJ
+ET
+Q
+Q
+endstream
+endobj
+65 0 obj
+2791
+endobj
+69 0 obj
+<</Length 70 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 285.582 736.5 Tm
+(test1.in)Tj
+-122.868 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(// $Id: test1.in,v 1.2 2011-08-31 17:54:03-07 - - $)]TJ
+11.5 TL
+T*[(2:)-600(a=b*c+d*e;)]TJ
+ET
+Q
+Q
+endstream
+endobj
+70 0 obj
+624
+endobj
+74 0 obj
+<</Length 75 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 282.082 736.5 Tm
+(test1.out)Tj
+-119.368 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(;    1: # 1 "test1.in";# 1 "test1.in")]TJ
+11.5 TL
+T*[(2:)-600(;    0: )]TJ
+T*[(3:)-600(;    1: # 1 "<built-in>";# 1 "<built-in>")]TJ
+T*[(4:)-600(;    0: )]TJ
+T*[(5:)-600(;    1: # 1 "<command-line>";# 1 "<command-line>")]TJ
+T*[(6:)-600(;    0: )]TJ
+T*[(7:)-600(;    1: # 1 "test1.in";# 1 "test1.in")]TJ
+T*[(8:)-600(;    0: )]TJ
+T*[(9:)-600(;    1: )]TJ
+-6.3 -11.5 Td
+[(10:)-600(;    2: a=b*c+d*e;)]TJ
+(11:)'
+T*[(12:)-600(          pushvar   b                   ; test1.in 2.2)]TJ
+T*[(13:)-600(          pushvar   c                   ; test1.in 2.4)]TJ
+T*[(14:)-600(          mul                           ; test1.in 2.3)]TJ
+T*[(15:)-600(          pushvar   d                   ; test1.in 2.6)]TJ
+T*[(16:)-600(          pushvar   e                   ; test1.in 2.8)]TJ
+T*[(17:)-600(          mul                           ; test1.in 2.7)]TJ
+T*[(18:)-600(          add                           ; test1.in 2.5)]TJ
+T*[(19:)-600(          popvar    a                   ; test1.in 2.0)]TJ
+ET
+Q
+Q
+endstream
+endobj
+75 0 obj
+1518
+endobj
+79 0 obj
+<</Length 80 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test1.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(DEBUGF\(x\): auxlib.c[117] set_debugflags\(\):)]TJ
+11.5 TL
+T*[(2:)-600(Debugflags = "@", all = 1)]TJ
+T*[(3:)-600(zexprsm: bad option \(d\))]TJ
+T*[(4:)-600(DEBUGF\(m\): main.c[69] scan_opts\(\):)]TJ
+T*[(5:)-600(filename = test1.in, yyin = 0x1e22030, fileno \(yyin\) = 3)]TJ
+T*[(6:)-600(Starting parse)]TJ
+T*[(7:)-600(Entering state 0)]TJ
+T*[(8:)-600(Reducing stack by rule 5 \(line 45\):)]TJ
+T*[(9:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+-6.3 -11.5 Td
+[(10:)-600(malloc \(56\) = 0x1e221f0-> 0:0.0: ROOT: 0x1e22230->"<<ROOT>>")]TJ
+T*[(11:)-600(-> $$ = nterm stmtseq \(\))]TJ
+T*[(12:)-600(Stack now 0)]TJ
+T*[(13:)-600(Entering state 2)]TJ
+T*[(14:)-600(Reading a token: --\(end of buffer or a NUL\))]TJ
+T*[(15:)-600(--accepting rule at line 36 \("# 1 "test1.in""\))]TJ
+T*[(16:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(17:)-600(filename=test1.in, scan_linenr=0)]TJ
+T*[(18:)-600(--accepting rule at line 38 \(")]TJ
+T*[(19:)-600("\))]TJ
+T*[(20:)-600(--accepting rule at line 36 \("# 1 "<built-in>""\))]TJ
+T*[(21:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(22:)-600(filename=<built-in>, scan_linenr=0)]TJ
+T*[(23:)-600(--accepting rule at line 38 \(")]TJ
+T*[(24:)-600("\))]TJ
+T*[(25:)-600(--accepting rule at line 36 \("# 1 "<command-line>""\))]TJ
+T*[(26:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(27:)-600(filename=<command-line>, scan_linenr=0)]TJ
+T*[(28:)-600(--accepting rule at line 38 \(")]TJ
+T*[(29:)-600("\))]TJ
+T*[(30:)-600(--accepting rule at line 36 \("# 1 "test1.in""\))]TJ
+T*[(31:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(32:)-600(filename=test1.in, scan_linenr=0)]TJ
+T*[(33:)-600(--accepting rule at line 38 \(")]TJ
+T*[(34:)-600("\))]TJ
+T*[(35:)-600(--accepting rule at line 38 \(")]TJ
+T*[(36:)-600("\))]TJ
+T*[(37:)-600(--accepting rule at line 41 \("a"\))]TJ
+T*[(38:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(39:)-600(malloc \(56\) = 0x1e263d0-> 4:2.0: IDENT: 0x1e26410->"a")]TJ
+T*[(40:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(41:)-600(         \(0x1e263d0-> astree {IDENT\(259\), 4:2.000, 0x1e26410->"a",)]TJ
+T*[(42:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(43:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(44:)-600(         \(0x1e263d0-> astree {IDENT\(259\), 4:2.000, 0x1e26410->"a",)]TJ
+T*[(45:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(46:)-600(Entering state 5)]TJ
+T*[(47:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(48:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(49:)-600(         \(0x1e263d0-> astree {IDENT\(259\), 4:2.000, 0x1e26410->"a",)]TJ
+T*[(50:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(51:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(52:)-600(Stack now 0 2)]TJ
+T*[(53:)-600(Entering state 11)]TJ
+T*[(54:)-600(Reading a token: --accepting rule at line 43 \("="\))]TJ
+T*[(55:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(56:)-600(malloc \(56\) = 0x1e26430-> 4:2.1: '=': 0x1e26470->"=")]TJ
+T*[(57:)-600(Next token is token '=' \(61='='\))]TJ
+T*[(58:)-600(         \(0x1e26430-> astree {'='\(61\), 4:2.001, 0x1e26470->"=",)]TJ
+T*[(59:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(60:)-600(Shifting token '=' \(61='='\))]TJ
+T*[(61:)-600(         \(0x1e26430-> astree {'='\(61\), 4:2.001, 0x1e26470->"=",)]TJ
+ET
+Q
+Q
+endstream
+endobj
+80 0 obj
+3943
+endobj
+84 0 obj
+<</Length 85 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test1.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+[(62:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+11.5 TL
+T*[(63:)-600(Entering state 16)]TJ
+T*[(64:)-600(Reading a token: --accepting rule at line 41 \("b"\))]TJ
+T*[(65:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(66:)-600(malloc \(56\) = 0x1e26490-> 4:2.2: IDENT: 0x1e264d0->"b")]TJ
+T*[(67:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(68:)-600(         \(0x1e26490-> astree {IDENT\(259\), 4:2.002, 0x1e264d0->"b",)]TJ
+T*[(69:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(70:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(71:)-600(         \(0x1e26490-> astree {IDENT\(259\), 4:2.002, 0x1e264d0->"b",)]TJ
+T*[(72:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(73:)-600(Entering state 5)]TJ
+T*[(74:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(75:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(76:)-600(         \(0x1e26490-> astree {IDENT\(259\), 4:2.002, 0x1e264d0->"b",)]TJ
+T*[(77:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(78:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(79:)-600(Stack now 0 2 11 16)]TJ
+T*[(80:)-600(Entering state 24)]TJ
+T*[(81:)-600(Reading a token: --accepting rule at line 46 \("*"\))]TJ
+T*[(82:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(83:)-600(malloc \(56\) = 0x1e264f0-> 4:2.3: '*': 0x1e26530->"*")]TJ
+T*[(84:)-600(Next token is token '*' \(42='*'\))]TJ
+T*[(85:)-600(         \(0x1e264f0-> astree {'*'\(42\), 4:2.003, 0x1e26530->"*",)]TJ
+T*[(86:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(87:)-600(Shifting token '*' \(42='*'\))]TJ
+T*[(88:)-600(         \(0x1e264f0-> astree {'*'\(42\), 4:2.003, 0x1e26530->"*",)]TJ
+T*[(89:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(90:)-600(Entering state 19)]TJ
+T*[(91:)-600(Reading a token: --accepting rule at line 41 \("c"\))]TJ
+T*[(92:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(93:)-600(malloc \(56\) = 0x1e26550-> 4:2.4: IDENT: 0x1e26590->"c")]TJ
+T*[(94:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(95:)-600(         \(0x1e26550-> astree {IDENT\(259\), 4:2.004, 0x1e26590->"c",)]TJ
+T*[(96:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(97:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(98:)-600(         \(0x1e26550-> astree {IDENT\(259\), 4:2.004, 0x1e26590->"c",)]TJ
+T*[(99:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+-6.3 -11.5 Td
+[(100:)-600(Entering state 5)]TJ
+T*[(101:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(102:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(103:)-600(         \(0x1e26550-> astree {IDENT\(259\), 4:2.004, 0x1e26590->"c",)]TJ
+T*[(104:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(105:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(106:)-600(Stack now 0 2 11 16 24 19)]TJ
+T*[(107:)-600(Entering state 27)]TJ
+T*[(108:)-600(Reading a token: --accepting rule at line 44 \("+"\))]TJ
+T*[(109:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(110:)-600(malloc \(56\) = 0x1e265b0-> 4:2.5: '+': 0x1e265f0->"+")]TJ
+T*[(111:)-600(Next token is token '+' \(43='+'\))]TJ
+T*[(112:)-600(         \(0x1e265b0-> astree {'+'\(43\), 4:2.005, 0x1e265f0->"+",)]TJ
+T*[(113:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(114:)-600(Reducing stack by rule 9 \(line 51\):)]TJ
+T*[(115:)-600(   $1 = nterm expr \(\))]TJ
+T*[(116:)-600(   $2 = token '*' \(42='*'\))]TJ
+T*[(117:)-600(         \(0x1e264f0-> astree {'*'\(42\), 4:2.003, 0x1e26530->"*",)]TJ
+T*[(118:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(119:)-600(   $3 = nterm expr \(\))]TJ
+T*[(120:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(121:)-600(0x1e264f0 \(*\) adopting 0x1e26490 \(b\))]TJ
+T*[(122:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+ET
+Q
+Q
+endstream
+endobj
+85 0 obj
+4446
+endobj
+89 0 obj
+<</Length 90 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test1.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(123:)-600(0x1e264f0 \(*\) adopting 0x1e26550 \(c\))]TJ
+11.5 TL
+T*[(124:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(125:)-600(Stack now 0 2 11 16)]TJ
+T*[(126:)-600(Entering state 24)]TJ
+T*[(127:)-600(Next token is token '+' \(43='+'\))]TJ
+T*[(128:)-600(         \(0x1e265b0-> astree {'+'\(43\), 4:2.005, 0x1e265f0->"+",)]TJ
+T*[(129:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(130:)-600(Shifting token '+' \(43='+'\))]TJ
+T*[(131:)-600(         \(0x1e265b0-> astree {'+'\(43\), 4:2.005, 0x1e265f0->"+",)]TJ
+T*[(132:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(133:)-600(Entering state 17)]TJ
+T*[(134:)-600(Reading a token: --accepting rule at line 41 \("d"\))]TJ
+T*[(135:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(136:)-600(malloc \(56\) = 0x1e26610-> 4:2.6: IDENT: 0x1e26650->"d")]TJ
+T*[(137:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(138:)-600(         \(0x1e26610-> astree {IDENT\(259\), 4:2.006, 0x1e26650->"d",)]TJ
+T*[(139:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(140:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(141:)-600(         \(0x1e26610-> astree {IDENT\(259\), 4:2.006, 0x1e26650->"d",)]TJ
+T*[(142:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(143:)-600(Entering state 5)]TJ
+T*[(144:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(145:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(146:)-600(         \(0x1e26610-> astree {IDENT\(259\), 4:2.006, 0x1e26650->"d",)]TJ
+T*[(147:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(148:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(149:)-600(Stack now 0 2 11 16 24 17)]TJ
+T*[(150:)-600(Entering state 25)]TJ
+T*[(151:)-600(Reading a token: --accepting rule at line 46 \("*"\))]TJ
+T*[(152:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(153:)-600(malloc \(56\) = 0x1e26670-> 4:2.7: '*': 0x1e266b0->"*")]TJ
+T*[(154:)-600(Next token is token '*' \(42='*'\))]TJ
+T*[(155:)-600(         \(0x1e26670-> astree {'*'\(42\), 4:2.007, 0x1e266b0->"*",)]TJ
+T*[(156:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(157:)-600(Shifting token '*' \(42='*'\))]TJ
+T*[(158:)-600(         \(0x1e26670-> astree {'*'\(42\), 4:2.007, 0x1e266b0->"*",)]TJ
+T*[(159:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(160:)-600(Entering state 19)]TJ
+T*[(161:)-600(Reading a token: --accepting rule at line 41 \("e"\))]TJ
+T*[(162:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(163:)-600(malloc \(56\) = 0x1e266d0-> 4:2.8: IDENT: 0x1e26710->"e")]TJ
+T*[(164:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(165:)-600(         \(0x1e266d0-> astree {IDENT\(259\), 4:2.008, 0x1e26710->"e",)]TJ
+T*[(166:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(167:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(168:)-600(         \(0x1e266d0-> astree {IDENT\(259\), 4:2.008, 0x1e26710->"e",)]TJ
+T*[(169:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(170:)-600(Entering state 5)]TJ
+T*[(171:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(172:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(173:)-600(         \(0x1e266d0-> astree {IDENT\(259\), 4:2.008, 0x1e26710->"e",)]TJ
+T*[(174:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(175:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(176:)-600(Stack now 0 2 11 16 24 17 25 19)]TJ
+T*[(177:)-600(Entering state 27)]TJ
+T*[(178:)-600(Reading a token: --accepting rule at line 51 \(";"\))]TJ
+T*[(179:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(180:)-600(malloc \(56\) = 0x1e26730-> 4:2.9: ';': 0x1e26770->";")]TJ
+T*[(181:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(182:)-600(         \(0x1e26730-> astree {';'\(59\), 4:2.009, 0x1e26770->";",)]TJ
+T*[(183:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+90 0 obj
+4489
+endobj
+94 0 obj
+<</Length 95 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(4)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test1.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(184:)-600(Reducing stack by rule 9 \(line 51\):)]TJ
+11.5 TL
+T*[(185:)-600(   $1 = nterm expr \(\))]TJ
+T*[(186:)-600(   $2 = token '*' \(42='*'\))]TJ
+T*[(187:)-600(         \(0x1e26670-> astree {'*'\(42\), 4:2.007, 0x1e266b0->"*",)]TJ
+T*[(188:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(189:)-600(   $3 = nterm expr \(\))]TJ
+T*[(190:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(191:)-600(0x1e26670 \(*\) adopting 0x1e26610 \(d\))]TJ
+T*[(192:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(193:)-600(0x1e26670 \(*\) adopting 0x1e266d0 \(e\))]TJ
+T*[(194:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(195:)-600(Stack now 0 2 11 16 24 17)]TJ
+T*[(196:)-600(Entering state 25)]TJ
+T*[(197:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(198:)-600(         \(0x1e26730-> astree {';'\(59\), 4:2.009, 0x1e26770->";",)]TJ
+T*[(199:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(200:)-600(Reducing stack by rule 7 \(line 49\):)]TJ
+T*[(201:)-600(   $1 = nterm expr \(\))]TJ
+T*[(202:)-600(   $2 = token '+' \(43='+'\))]TJ
+T*[(203:)-600(         \(0x1e265b0-> astree {'+'\(43\), 4:2.005, 0x1e265f0->"+",)]TJ
+T*[(204:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(205:)-600(   $3 = nterm expr \(\))]TJ
+T*[(206:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(207:)-600(0x1e265b0 \(+\) adopting 0x1e264f0 \(*\))]TJ
+T*[(208:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(209:)-600(0x1e265b0 \(+\) adopting 0x1e26670 \(*\))]TJ
+T*[(210:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(211:)-600(Stack now 0 2 11 16)]TJ
+T*[(212:)-600(Entering state 24)]TJ
+T*[(213:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(214:)-600(         \(0x1e26730-> astree {';'\(59\), 4:2.009, 0x1e26770->";",)]TJ
+T*[(215:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(216:)-600(Reducing stack by rule 6 \(line 48\):)]TJ
+T*[(217:)-600(   $1 = nterm expr \(\))]TJ
+T*[(218:)-600(   $2 = token '=' \(61='='\))]TJ
+T*[(219:)-600(         \(0x1e26430-> astree {'='\(61\), 4:2.001, 0x1e26470->"=",)]TJ
+T*[(220:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(221:)-600(   $3 = nterm expr \(\))]TJ
+T*[(222:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(223:)-600(0x1e26430 \(=\) adopting 0x1e263d0 \(a\))]TJ
+T*[(224:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(225:)-600(0x1e26430 \(=\) adopting 0x1e265b0 \(+\))]TJ
+T*[(226:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(227:)-600(Stack now 0 2)]TJ
+T*[(228:)-600(Entering state 11)]TJ
+T*[(229:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(230:)-600(         \(0x1e26730-> astree {';'\(59\), 4:2.009, 0x1e26770->";",)]TJ
+T*[(231:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(232:)-600(Shifting token ';' \(59=';'\))]TJ
+T*[(233:)-600(         \(0x1e26730-> astree {';'\(59\), 4:2.009, 0x1e26770->";",)]TJ
+T*[(234:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(235:)-600(Entering state 22)]TJ
+T*[(236:)-600(Reducing stack by rule 2 \(line 42\):)]TJ
+T*[(237:)-600(   $1 = nterm stmtseq \(\))]TJ
+T*[(238:)-600(   $2 = nterm expr \(\))]TJ
+T*[(239:)-600(   $3 = token ';' \(59=';'\))]TJ
+T*[(240:)-600(         \(0x1e26730-> astree {';'\(59\), 4:2.009, 0x1e26770->";",)]TJ
+T*[(241:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(242:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(243:)-600(free [1E26730]-> 4:2.9: ';': 0x1e26770->";"\))]TJ
+T*[(244:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+ET
+Q
+Q
+endstream
+endobj
+95 0 obj
+4085
+endobj
+99 0 obj
+<</Length 100 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(5)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test1.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(245:)-600(0x1e221f0 \(<<ROOT>>\) adopting 0x1e26430 \(=\))]TJ
+11.5 TL
+T*[(246:)-600(-> $$ = nterm stmtseq \(\))]TJ
+T*[(247:)-600(Stack now 0)]TJ
+T*[(248:)-600(Entering state 2)]TJ
+T*[(249:)-600(Reading a token: --accepting rule at line 38 \(")]TJ
+T*[(250:)-600("\))]TJ
+T*[(251:)-600(--\(end of buffer or a NUL\))]TJ
+T*[(252:)-600(--EOF \(start condition 0\))]TJ
+T*[(253:)-600(Now at end of input.)]TJ
+T*[(254:)-600(Reducing stack by rule 1 \(line 39\):)]TJ
+T*[(255:)-600(   $1 = nterm stmtseq \(\))]TJ
+T*[(256:)-600(-> $$ = nterm program \(\))]TJ
+T*[(257:)-600(Stack now 0)]TJ
+T*[(258:)-600(Entering state 1)]TJ
+T*[(259:)-600(Now at end of input.)]TJ
+T*[(260:)-600(Shifting token $end \(0=$end\))]TJ
+T*[(261:)-600(         \(yyvaluep = 0x1e26730\))]TJ
+T*[(262:)-600(Entering state 3)]TJ
+T*[(263:)-600(Stack now 0 1 3)]TJ
+T*[(264:)-600(Cleanup: popping token $end \(0=$end\))]TJ
+T*[(265:)-600(         \(yyvaluep = 0x1e26730\))]TJ
+T*[(266:)-600(Cleanup: popping nterm program \(\))]TJ
+T*[(267:)-600(DEBUGF\(a\): main.c[88] main\(\):)]TJ
+(268:)'
+T*[(269:)-600(<<ROOT>> 0x1e221f0-> astree {ROOT\(258\), 0:0.000, 0x1e22230->"<<ROOT>>",)]TJ
+T*[(270:)-600(            first=0x1e26430, last=0x1e26430, next=\(nil\)})]TJ
+T*[(271:)-600(   = 0x1e26430-> astree {'='\(61\), 4:2.001, 0x1e26470->"=",)]TJ
+T*[(272:)-600(               first=0x1e263d0, last=0x1e265b0, next=\(nil\)})]TJ
+T*[(273:)-600(      a 0x1e263d0-> astree {IDENT\(259\), 4:2.000, 0x1e26410->"a",)]TJ
+T*[(274:)-600(                  first=\(nil\), last=\(nil\), next=0x1e265b0})]TJ
+T*[(275:)-600(      + 0x1e265b0-> astree {'+'\(43\), 4:2.005, 0x1e265f0->"+",)]TJ
+T*[(276:)-600(                  first=0x1e264f0, last=0x1e26670, next=\(nil\)})]TJ
+T*[(277:)-600(         * 0x1e264f0-> astree {'*'\(42\), 4:2.003, 0x1e26530->"*",)]TJ
+T*[(278:)-600(                     first=0x1e26490, last=0x1e26550, next=0x1e26670})]TJ
+T*[(279:)-600(            b 0x1e26490-> astree {IDENT\(259\), 4:2.002, 0x1e264d0->"b",)]TJ
+T*[(280:)-600(                        first=\(nil\), last=\(nil\), next=0x1e26550})]TJ
+T*[(281:)-600(            c 0x1e26550-> astree {IDENT\(259\), 4:2.004, 0x1e26590->"c",)]TJ
+T*[(282:)-600(                        first=\(nil\), last=\(nil\), next=\(nil\)})]TJ
+T*[(283:)-600(         * 0x1e26670-> astree {'*'\(42\), 4:2.007, 0x1e266b0->"*",)]TJ
+T*[(284:)-600(                     first=0x1e26610, last=0x1e266d0, next=\(nil\)})]TJ
+T*[(285:)-600(            d 0x1e26610-> astree {IDENT\(259\), 4:2.006, 0x1e26650->"d",)]TJ
+T*[(286:)-600(                        first=\(nil\), last=\(nil\), next=0x1e266d0})]TJ
+T*[(287:)-600(            e 0x1e266d0-> astree {IDENT\(259\), 4:2.008, 0x1e26710->"e",)]TJ
+T*[(288:)-600(                        first=\(nil\), last=\(nil\), next=\(nil\)})]TJ
+T*[(289:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(290:)-600(free [1E263D0]-> 4:2.0: IDENT: 0x1e26410->"a"\))]TJ
+T*[(291:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(292:)-600(free [1E26490]-> 4:2.2: IDENT: 0x1e264d0->"b"\))]TJ
+T*[(293:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(294:)-600(free [1E26550]-> 4:2.4: IDENT: 0x1e26590->"c"\))]TJ
+T*[(295:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(296:)-600(free [1E264F0]-> 4:2.3: '*': 0x1e26530->"*"\))]TJ
+T*[(297:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(298:)-600(free [1E26610]-> 4:2.6: IDENT: 0x1e26650->"d"\))]TJ
+T*[(299:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(300:)-600(free [1E266D0]-> 4:2.8: IDENT: 0x1e26710->"e"\))]TJ
+T*[(301:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(302:)-600(free [1E26670]-> 4:2.7: '*': 0x1e266b0->"*"\))]TJ
+T*[(303:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(304:)-600(free [1E265B0]-> 4:2.5: '+': 0x1e265f0->"+"\))]TJ
+T*[(305:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+ET
+Q
+Q
+endstream
+endobj
+100 0 obj
+4325
+endobj
+104 0 obj
+<</Length 105 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(6)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test1.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(306:)-600(free [1E26430]-> 4:2.1: '=': 0x1e26470->"="\))]TJ
+11.5 TL
+T*[(307:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(308:)-600(free [1E221F0]-> 0:0.0: ROOT: 0x1e22230->"<<ROOT>>"\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+105 0 obj
+724
+endobj
+109 0 obj
+<</Length 110 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 282.082 736.5 Tm
+(test1.log)Tj
+-119.368 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(Script  : /afs/cats.ucsc.edu/courses/cmps012b-wm/bin/runprog)]TJ
+11.5 TL
+T*[(2:)-600(limit c :    0 max core file size \(KB\))]TJ
+T*[(3:)-600(limit f : 4194303 max output file size \(KB\))]TJ
+T*[(4:)-600(limit t : 4294967295 max CPU time \(sec\))]TJ
+T*[(5:)-600(stdin   : test1.in)]TJ
+T*[(6:)-600(stdout  : test1.out)]TJ
+T*[(7:)-600(stderr  : test1.err)]TJ
+T*[(8:)-600(log     : test1.log)]TJ
+T*[(9:)-600(base    : test1)]TJ
+-6.3 -11.5 Td
+[(10:)-600(Command : zexprsm -@@ -ly -de test1.in)]TJ
+T*[(11:)-600(starting: pid 17436: 20:17:49.00)]TJ
+T*[(12:)-600(finished: pid 17436: 20:17:49.00, real 0.00, user 0.00, sys 0.01)]TJ
+T*[(13:)-600(pstatus: 0x0100 EXIT STATUS = 1)]TJ
+ET
+Q
+Q
+endstream
+endobj
+110 0 obj
+1208
+endobj
+114 0 obj
+<</Length 115 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 285.582 736.5 Tm
+(test4.in)Tj
+-122.868 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600( t// $Id: test4.in,v 1.4 2012-10-11 19:07:58-07 - - $)]TJ
+11.5 TL
+T*[(2:)-600(#include "test4a.inh")]TJ
+T*[(3:)-600(#include "test4b.inh")]TJ
+T*[(4:)-600(3*4;)]TJ
+ET
+Q
+Q
+endstream
+endobj
+115 0 obj
+696
+endobj
+119 0 obj
+<</Length 120 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 282.082 736.5 Tm
+(test4.out)Tj
+-119.368 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(;    1: # 1 "test4.in";# 1 "test4.in")]TJ
+11.5 TL
+T*[(2:)-600(;    0: )]TJ
+T*[(3:)-600(;    1: # 1 "<built-in>";# 1 "<built-in>")]TJ
+T*[(4:)-600(;    0: )]TJ
+T*[(5:)-600(;    1: # 1 "<command-line>";# 1 "<command-line>")]TJ
+T*[(6:)-600(;    0: )]TJ
+T*[(7:)-600(;    1: # 1 "test4.in";# 1 "test4.in")]TJ
+T*[(8:)-600(;    0: )]TJ
+T*[(9:)-600(;    1:  t)]TJ
+-6.3 -11.5 Td
+[(10:)-600(;    2: # 1 "test4a.inh" 1;# 1 "test4a.inh")]TJ
+T*[(11:)-600(;    0: )]TJ
+T*[(12:)-600(;    1: )]TJ
+T*[(13:)-600(;    2: )]TJ
+T*[(14:)-600(;    3: pi=3.141592653589793238462643383280;)]TJ
+T*[(15:)-600(;    4: pi;)]TJ
+T*[(16:)-600(;    5: # 3 "test4.in" 2;# 3 "test4.in")]TJ
+T*[(17:)-600(;    2: )]TJ
+T*[(18:)-600(;    3: # 1 "test4b.inh" 1;# 1 "test4b.inh")]TJ
+T*[(19:)-600(;    0: )]TJ
+T*[(20:)-600(;    1: )]TJ
+T*[(21:)-600(;    2: a=pi*r^2;)]TJ
+T*[(22:)-600(;    3: 3.141592653589793238462643383280;)]TJ
+T*[(23:)-600(;    4: # 4 "test4.in" 2;# 4 "test4.in")]TJ
+T*[(24:)-600(;    3: )]TJ
+T*[(25:)-600(;    4: 3*4;)]TJ
+(26:)'
+T*[(27:)-600(          pushvar   pi                  ; test4a.inh 4.0)]TJ
+T*[(28:)-600(          pushvar   pi                  ; test4b.inh 2.2)]TJ
+T*[(29:)-600(          pushvar   r                   ; test4b.inh 2.5)]TJ
+T*[(30:)-600(          pushnum   2                   ; test4b.inh 2.7)]TJ
+T*[(31:)-600(          pow                           ; test4b.inh 2.6)]TJ
+T*[(32:)-600(          mul                           ; test4b.inh 2.4)]TJ
+T*[(33:)-600(          popvar    a                   ; test4b.inh 2.0)]TJ
+T*[(34:)-600(          pushnum   3.141592653589793238462643383280; test4b.inh 3.0)]TJ
+T*[(35:)-600(          pushnum   3                   ; test4.in 4.0)]TJ
+T*[(36:)-600(          pushnum   4                   ; test4.in 4.2)]TJ
+T*[(37:)-600(          mul                           ; test4.in 4.1)]TJ
+ET
+Q
+Q
+endstream
+endobj
+120 0 obj
+2361
+endobj
+124 0 obj
+<</Length 125 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(DEBUGF\(x\): auxlib.c[117] set_debugflags\(\):)]TJ
+11.5 TL
+T*[(2:)-600(Debugflags = "@", all = 1)]TJ
+T*[(3:)-600(zexprsm: bad option \(d\))]TJ
+T*[(4:)-600(DEBUGF\(m\): main.c[69] scan_opts\(\):)]TJ
+T*[(5:)-600(filename = test4.in, yyin = 0x661030, fileno \(yyin\) = 3)]TJ
+T*[(6:)-600(Starting parse)]TJ
+T*[(7:)-600(Entering state 0)]TJ
+T*[(8:)-600(Reducing stack by rule 5 \(line 45\):)]TJ
+T*[(9:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+-6.3 -11.5 Td
+[(10:)-600(malloc \(56\) = 0x6611f0-> 0:0.0: ROOT: 0x661230->"<<ROOT>>")]TJ
+T*[(11:)-600(-> $$ = nterm stmtseq \(\))]TJ
+T*[(12:)-600(Stack now 0)]TJ
+T*[(13:)-600(Entering state 2)]TJ
+T*[(14:)-600(Reading a token: --\(end of buffer or a NUL\))]TJ
+T*[(15:)-600(--accepting rule at line 36 \("# 1 "test4.in""\))]TJ
+T*[(16:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(17:)-600(filename=test4.in, scan_linenr=0)]TJ
+T*[(18:)-600(--accepting rule at line 38 \(")]TJ
+T*[(19:)-600("\))]TJ
+T*[(20:)-600(--accepting rule at line 36 \("# 1 "<built-in>""\))]TJ
+T*[(21:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(22:)-600(filename=<built-in>, scan_linenr=0)]TJ
+T*[(23:)-600(--accepting rule at line 38 \(")]TJ
+T*[(24:)-600("\))]TJ
+T*[(25:)-600(--accepting rule at line 36 \("# 1 "<command-line>""\))]TJ
+T*[(26:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(27:)-600(filename=<command-line>, scan_linenr=0)]TJ
+T*[(28:)-600(--accepting rule at line 38 \(")]TJ
+T*[(29:)-600("\))]TJ
+T*[(30:)-600(--accepting rule at line 36 \("# 1 "test4.in""\))]TJ
+T*[(31:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(32:)-600(filename=test4.in, scan_linenr=0)]TJ
+T*[(33:)-600(--accepting rule at line 38 \(")]TJ
+T*[(34:)-600("\))]TJ
+T*[(35:)-600(--accepting rule at line 37 \(" "\))]TJ
+T*[(36:)-600(--accepting rule at line 41 \("t"\))]TJ
+T*[(37:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(38:)-600(malloc \(56\) = 0x6653d0-> 4:1.1: IDENT: 0x665410->"t")]TJ
+T*[(39:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(40:)-600(         \(0x6653d0-> astree {IDENT\(259\), 4:1.001, 0x665410->"t",)]TJ
+T*[(41:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(42:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(43:)-600(         \(0x6653d0-> astree {IDENT\(259\), 4:1.001, 0x665410->"t",)]TJ
+T*[(44:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(45:)-600(Entering state 5)]TJ
+T*[(46:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(47:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(48:)-600(         \(0x6653d0-> astree {IDENT\(259\), 4:1.001, 0x665410->"t",)]TJ
+T*[(49:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(50:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(51:)-600(Stack now 0 2)]TJ
+T*[(52:)-600(Entering state 11)]TJ
+T*[(53:)-600(Reading a token: --accepting rule at line 38 \(")]TJ
+T*[(54:)-600("\))]TJ
+T*[(55:)-600(--accepting rule at line 36 \("# 1 "test4a.inh" 1"\))]TJ
+T*[(56:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(57:)-600(filename=test4a.inh, scan_linenr=0)]TJ
+T*[(58:)-600(--accepting rule at line 38 \(")]TJ
+T*[(59:)-600("\))]TJ
+T*[(60:)-600(--accepting rule at line 38 \(")]TJ
+T*[(61:)-600("\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+125 0 obj
+3779
+endobj
+129 0 obj
+<</Length 130 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+[(62:)-600(--accepting rule at line 38 \(")]TJ
+11.5 TL
+T*[(63:)-600("\))]TJ
+T*[(64:)-600(--accepting rule at line 41 \("pi"\))]TJ
+T*[(65:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(66:)-600(malloc \(56\) = 0x665470-> 5:3.0: IDENT: 0x6654b0->"pi")]TJ
+T*[(67:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(68:)-600(         \(0x665470-> astree {IDENT\(259\), 5:3.000, 0x6654b0->"pi",)]TJ
+T*[(69:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(70:)-600(zexprsm: test4a.inh: 3: syntax error, unexpected IDENT)]TJ
+T*[(71:)-600(Error: popping nterm expr \(\))]TJ
+T*[(72:)-600(Stack now 0 2)]TJ
+T*[(73:)-600(Shifting token error \(256=error\))]TJ
+T*[(74:)-600(         \(0x665470-> astree {IDENT\(259\), 5:3.000, 0x6654b0->"pi",)]TJ
+T*[(75:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(76:)-600(Entering state 4)]TJ
+T*[(77:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(78:)-600(         \(0x665470-> astree {IDENT\(259\), 5:3.000, 0x6654b0->"pi",)]TJ
+T*[(79:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(80:)-600(Error: discarding token IDENT \(259=IDENT\))]TJ
+T*[(81:)-600(         \(0x665470-> astree {IDENT\(259\), 5:3.000, 0x6654b0->"pi",)]TJ
+T*[(82:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(83:)-600(Error: popping token error \(256=error\))]TJ
+T*[(84:)-600(         \(0x665470-> astree {IDENT\(259\), 5:3.000, 0x6654b0->"pi",)]TJ
+T*[(85:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(86:)-600(Stack now 0 2)]TJ
+T*[(87:)-600(Shifting token error \(256=error\))]TJ
+T*[(88:)-600(         \(0x665470-> astree {IDENT\(259\), 5:3.000, 0x6654b0->"pi",)]TJ
+T*[(89:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(90:)-600(Entering state 4)]TJ
+T*[(91:)-600(Reading a token: --accepting rule at line 43 \("="\))]TJ
+T*[(92:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(93:)-600(malloc \(56\) = 0x6654d0-> 5:3.2: '=': 0x665510->"=")]TJ
+T*[(94:)-600(Next token is token '=' \(61='='\))]TJ
+T*[(95:)-600(         \(0x6654d0-> astree {'='\(61\), 5:3.002, 0x665510->"=",)]TJ
+T*[(96:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(97:)-600(Error: discarding token '=' \(61='='\))]TJ
+T*[(98:)-600(         \(0x6654d0-> astree {'='\(61\), 5:3.002, 0x665510->"=",)]TJ
+T*[(99:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+-6.3 -11.5 Td
+[(100:)-600(Error: popping token error \(256=error\))]TJ
+T*[(101:)-600(         \(0x665470-> astree {IDENT\(259\), 5:3.000, 0x6654b0->"pi",)]TJ
+T*[(102:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(103:)-600(Stack now 0 2)]TJ
+T*[(104:)-600(Shifting token error \(256=error\))]TJ
+T*[(105:)-600(         \(0x6654d0-> astree {'='\(61\), 5:3.002, 0x665510->"=",)]TJ
+T*[(106:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(107:)-600(Entering state 4)]TJ
+T*[(108:)-600(Reading a token: --accepting rule at line 40 \("3.141592653589793238462643383)]TJ
+-13.6 -11.5 Td
+(280"\))Tj
+13.6 -11.5 Td
+[(109:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(110:)-600(malloc \(56\) = 0x665530-> 5:3.3: NUMBER: 0x665570->"3.14159265358979323846264)]TJ
+-13.6 -11.5 Td
+(3383280")Tj
+13.6 -11.5 Td
+[(111:)-600(Next token is token NUMBER \(260=NUMBER\))]TJ
+T*[(112:)-600(         \(0x665530-> astree {NUMBER\(260\), 5:3.003, 0x665570->"3.141592653589)]TJ
+-13.6 -11.5 Td
+(793238462643383280",)Tj
+13.6 -11.5 Td
+[(113:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(114:)-600(Error: discarding token NUMBER \(260=NUMBER\))]TJ
+T*[(115:)-600(         \(0x665530-> astree {NUMBER\(260\), 5:3.003, 0x665570->"3.141592653589)]TJ
+-13.6 -11.5 Td
+(793238462643383280",)Tj
+13.6 -11.5 Td
+[(116:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(117:)-600(Error: popping token error \(256=error\))]TJ
+T*[(118:)-600(         \(0x6654d0-> astree {'='\(61\), 5:3.002, 0x665510->"=",)]TJ
+ET
+Q
+Q
+endstream
+endobj
+130 0 obj
+4618
+endobj
+134 0 obj
+<</Length 135 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(119:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+11.5 TL
+T*[(120:)-600(Stack now 0 2)]TJ
+T*[(121:)-600(Shifting token error \(256=error\))]TJ
+T*[(122:)-600(         \(0x665530-> astree {NUMBER\(260\), 5:3.003, 0x665570->"3.141592653589)]TJ
+-13.6 -11.5 Td
+(793238462643383280",)Tj
+13.6 -11.5 Td
+[(123:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(124:)-600(Entering state 4)]TJ
+T*[(125:)-600(Reading a token: --accepting rule at line 51 \(";"\))]TJ
+T*[(126:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(127:)-600(malloc \(56\) = 0x6655a0-> 5:3.35: ';': 0x6655e0->";")]TJ
+T*[(128:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(129:)-600(         \(0x6655a0-> astree {';'\(59\), 5:3.035, 0x6655e0->";",)]TJ
+T*[(130:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(131:)-600(Shifting token ';' \(59=';'\))]TJ
+T*[(132:)-600(         \(0x6655a0-> astree {';'\(59\), 5:3.035, 0x6655e0->";",)]TJ
+T*[(133:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(134:)-600(Entering state 12)]TJ
+T*[(135:)-600(Reducing stack by rule 3 \(line 43\):)]TJ
+T*[(136:)-600(   $1 = nterm stmtseq \(\))]TJ
+T*[(137:)-600(   $2 = token error \(256=error\))]TJ
+T*[(138:)-600(         \(0x665530-> astree {NUMBER\(260\), 5:3.003, 0x665570->"3.141592653589)]TJ
+-13.6 -11.5 Td
+(793238462643383280",)Tj
+13.6 -11.5 Td
+[(139:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(140:)-600(   $3 = token ';' \(59=';'\))]TJ
+T*[(141:)-600(         \(0x6655a0-> astree {';'\(59\), 5:3.035, 0x6655e0->";",)]TJ
+T*[(142:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(143:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(144:)-600(free [6655A0]-> 5:3.35: ';': 0x6655e0->";"\))]TJ
+T*[(145:)-600(-> $$ = nterm stmtseq \(\))]TJ
+T*[(146:)-600(Stack now 0)]TJ
+T*[(147:)-600(Entering state 2)]TJ
+T*[(148:)-600(Reading a token: --accepting rule at line 38 \(")]TJ
+T*[(149:)-600("\))]TJ
+T*[(150:)-600(--accepting rule at line 41 \("pi"\))]TJ
+T*[(151:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(152:)-600(malloc \(56\) = 0x6655a0-> 5:4.0: IDENT: 0x6655e0->"pi")]TJ
+T*[(153:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(154:)-600(         \(0x6655a0-> astree {IDENT\(259\), 5:4.000, 0x6655e0->"pi",)]TJ
+T*[(155:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(156:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(157:)-600(         \(0x6655a0-> astree {IDENT\(259\), 5:4.000, 0x6655e0->"pi",)]TJ
+T*[(158:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(159:)-600(Entering state 5)]TJ
+T*[(160:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(161:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(162:)-600(         \(0x6655a0-> astree {IDENT\(259\), 5:4.000, 0x6655e0->"pi",)]TJ
+T*[(163:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(164:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(165:)-600(Stack now 0 2)]TJ
+T*[(166:)-600(Entering state 11)]TJ
+T*[(167:)-600(Reading a token: --accepting rule at line 51 \(";"\))]TJ
+T*[(168:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(169:)-600(malloc \(56\) = 0x665600-> 5:4.2: ';': 0x665640->";")]TJ
+T*[(170:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(171:)-600(         \(0x665600-> astree {';'\(59\), 5:4.002, 0x665640->";",)]TJ
+T*[(172:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(173:)-600(Shifting token ';' \(59=';'\))]TJ
+T*[(174:)-600(         \(0x665600-> astree {';'\(59\), 5:4.002, 0x665640->";",)]TJ
+T*[(175:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(176:)-600(Entering state 22)]TJ
+T*[(177:)-600(Reducing stack by rule 2 \(line 42\):)]TJ
+ET
+Q
+Q
+endstream
+endobj
+135 0 obj
+4359
+endobj
+139 0 obj
+<</Length 140 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(4)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(178:)-600(   $1 = nterm stmtseq \(\))]TJ
+11.5 TL
+T*[(179:)-600(   $2 = nterm expr \(\))]TJ
+T*[(180:)-600(   $3 = token ';' \(59=';'\))]TJ
+T*[(181:)-600(         \(0x665600-> astree {';'\(59\), 5:4.002, 0x665640->";",)]TJ
+T*[(182:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(183:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(184:)-600(free [665600]-> 5:4.2: ';': 0x665640->";"\))]TJ
+T*[(185:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(186:)-600(0x6611f0 \(<<ROOT>>\) adopting 0x6655a0 \(pi\))]TJ
+T*[(187:)-600(-> $$ = nterm stmtseq \(\))]TJ
+T*[(188:)-600(Stack now 0)]TJ
+T*[(189:)-600(Entering state 2)]TJ
+T*[(190:)-600(Reading a token: --accepting rule at line 38 \(")]TJ
+T*[(191:)-600("\))]TJ
+T*[(192:)-600(--accepting rule at line 36 \("# 3 "test4.in" 2"\))]TJ
+T*[(193:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(194:)-600(filename=test4.in, scan_linenr=2)]TJ
+T*[(195:)-600(--accepting rule at line 38 \(")]TJ
+T*[(196:)-600("\))]TJ
+T*[(197:)-600(--accepting rule at line 36 \("# 1 "test4b.inh" 1"\))]TJ
+T*[(198:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+T*[(199:)-600(filename=test4b.inh, scan_linenr=0)]TJ
+T*[(200:)-600(--accepting rule at line 38 \(")]TJ
+T*[(201:)-600("\))]TJ
+T*[(202:)-600(--accepting rule at line 38 \(")]TJ
+T*[(203:)-600("\))]TJ
+T*[(204:)-600(--accepting rule at line 41 \("a"\))]TJ
+T*[(205:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(206:)-600(malloc \(56\) = 0x665600-> 7:2.0: IDENT: 0x6656c0->"a")]TJ
+T*[(207:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(208:)-600(         \(0x665600-> astree {IDENT\(259\), 7:2.000, 0x6656c0->"a",)]TJ
+T*[(209:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(210:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(211:)-600(         \(0x665600-> astree {IDENT\(259\), 7:2.000, 0x6656c0->"a",)]TJ
+T*[(212:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(213:)-600(Entering state 5)]TJ
+T*[(214:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(215:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(216:)-600(         \(0x665600-> astree {IDENT\(259\), 7:2.000, 0x6656c0->"a",)]TJ
+T*[(217:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(218:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(219:)-600(Stack now 0 2)]TJ
+T*[(220:)-600(Entering state 11)]TJ
+T*[(221:)-600(Reading a token: --accepting rule at line 43 \("="\))]TJ
+T*[(222:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(223:)-600(malloc \(56\) = 0x6656e0-> 7:2.1: '=': 0x665720->"=")]TJ
+T*[(224:)-600(Next token is token '=' \(61='='\))]TJ
+T*[(225:)-600(         \(0x6656e0-> astree {'='\(61\), 7:2.001, 0x665720->"=",)]TJ
+T*[(226:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(227:)-600(Shifting token '=' \(61='='\))]TJ
+T*[(228:)-600(         \(0x6656e0-> astree {'='\(61\), 7:2.001, 0x665720->"=",)]TJ
+T*[(229:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(230:)-600(Entering state 16)]TJ
+T*[(231:)-600(Reading a token: --accepting rule at line 41 \("pi"\))]TJ
+T*[(232:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(233:)-600(malloc \(56\) = 0x665740-> 7:2.2: IDENT: 0x665780->"pi")]TJ
+T*[(234:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(235:)-600(         \(0x665740-> astree {IDENT\(259\), 7:2.002, 0x665780->"pi",)]TJ
+T*[(236:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(237:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(238:)-600(         \(0x665740-> astree {IDENT\(259\), 7:2.002, 0x665780->"pi",)]TJ
+ET
+Q
+Q
+endstream
+endobj
+140 0 obj
+4174
+endobj
+144 0 obj
+<</Length 145 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(5)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(239:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+11.5 TL
+T*[(240:)-600(Entering state 5)]TJ
+T*[(241:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(242:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(243:)-600(         \(0x665740-> astree {IDENT\(259\), 7:2.002, 0x665780->"pi",)]TJ
+T*[(244:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(245:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(246:)-600(Stack now 0 2 11 16)]TJ
+T*[(247:)-600(Entering state 24)]TJ
+T*[(248:)-600(Reading a token: --accepting rule at line 46 \("*"\))]TJ
+T*[(249:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(250:)-600(malloc \(56\) = 0x6657a0-> 7:2.4: '*': 0x6657e0->"*")]TJ
+T*[(251:)-600(Next token is token '*' \(42='*'\))]TJ
+T*[(252:)-600(         \(0x6657a0-> astree {'*'\(42\), 7:2.004, 0x6657e0->"*",)]TJ
+T*[(253:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(254:)-600(Shifting token '*' \(42='*'\))]TJ
+T*[(255:)-600(         \(0x6657a0-> astree {'*'\(42\), 7:2.004, 0x6657e0->"*",)]TJ
+T*[(256:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(257:)-600(Entering state 19)]TJ
+T*[(258:)-600(Reading a token: --accepting rule at line 41 \("r"\))]TJ
+T*[(259:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(260:)-600(malloc \(56\) = 0x665800-> 7:2.5: IDENT: 0x665840->"r")]TJ
+T*[(261:)-600(Next token is token IDENT \(259=IDENT\))]TJ
+T*[(262:)-600(         \(0x665800-> astree {IDENT\(259\), 7:2.005, 0x665840->"r",)]TJ
+T*[(263:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(264:)-600(Shifting token IDENT \(259=IDENT\))]TJ
+T*[(265:)-600(         \(0x665800-> astree {IDENT\(259\), 7:2.005, 0x665840->"r",)]TJ
+T*[(266:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(267:)-600(Entering state 5)]TJ
+T*[(268:)-600(Reducing stack by rule 15 \(line 57\):)]TJ
+T*[(269:)-600(   $1 = token IDENT \(259=IDENT\))]TJ
+T*[(270:)-600(         \(0x665800-> astree {IDENT\(259\), 7:2.005, 0x665840->"r",)]TJ
+T*[(271:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(272:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(273:)-600(Stack now 0 2 11 16 24 19)]TJ
+T*[(274:)-600(Entering state 27)]TJ
+T*[(275:)-600(Reading a token: --accepting rule at line 48 \("^"\))]TJ
+T*[(276:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(277:)-600(malloc \(56\) = 0x665860-> 7:2.6: '^': 0x6658a0->"^")]TJ
+T*[(278:)-600(Next token is token '^' \(94='^'\))]TJ
+T*[(279:)-600(         \(0x665860-> astree {'^'\(94\), 7:2.006, 0x6658a0->"^",)]TJ
+T*[(280:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(281:)-600(Shifting token '^' \(94='^'\))]TJ
+T*[(282:)-600(         \(0x665860-> astree {'^'\(94\), 7:2.006, 0x6658a0->"^",)]TJ
+T*[(283:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(284:)-600(Entering state 21)]TJ
+T*[(285:)-600(Reading a token: --accepting rule at line 40 \("2"\))]TJ
+T*[(286:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(287:)-600(malloc \(56\) = 0x6658c0-> 7:2.7: NUMBER: 0x665900->"2")]TJ
+T*[(288:)-600(Next token is token NUMBER \(260=NUMBER\))]TJ
+T*[(289:)-600(         \(0x6658c0-> astree {NUMBER\(260\), 7:2.007, 0x665900->"2",)]TJ
+T*[(290:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(291:)-600(Shifting token NUMBER \(260=NUMBER\))]TJ
+T*[(292:)-600(         \(0x6658c0-> astree {NUMBER\(260\), 7:2.007, 0x665900->"2",)]TJ
+T*[(293:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(294:)-600(Entering state 6)]TJ
+T*[(295:)-600(Reducing stack by rule 16 \(line 58\):)]TJ
+T*[(296:)-600(   $1 = token NUMBER \(260=NUMBER\))]TJ
+T*[(297:)-600(         \(0x6658c0-> astree {NUMBER\(260\), 7:2.007, 0x665900->"2",)]TJ
+T*[(298:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(299:)-600(-> $$ = nterm expr \(\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+145 0 obj
+4503
+endobj
+149 0 obj
+<</Length 150 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(6)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(300:)-600(Stack now 0 2 11 16 24 19 27 21)]TJ
+11.5 TL
+T*[(301:)-600(Entering state 29)]TJ
+T*[(302:)-600(Reading a token: --accepting rule at line 51 \(";"\))]TJ
+T*[(303:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(304:)-600(malloc \(56\) = 0x665920-> 7:2.8: ';': 0x665960->";")]TJ
+T*[(305:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(306:)-600(         \(0x665920-> astree {';'\(59\), 7:2.008, 0x665960->";",)]TJ
+T*[(307:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(308:)-600(Reducing stack by rule 11 \(line 53\):)]TJ
+T*[(309:)-600(   $1 = nterm expr \(\))]TJ
+T*[(310:)-600(   $2 = token '^' \(94='^'\))]TJ
+T*[(311:)-600(         \(0x665860-> astree {'^'\(94\), 7:2.006, 0x6658a0->"^",)]TJ
+T*[(312:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(313:)-600(   $3 = nterm expr \(\))]TJ
+T*[(314:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(315:)-600(0x665860 \(^\) adopting 0x665800 \(r\))]TJ
+T*[(316:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(317:)-600(0x665860 \(^\) adopting 0x6658c0 \(2\))]TJ
+T*[(318:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(319:)-600(Stack now 0 2 11 16 24 19)]TJ
+T*[(320:)-600(Entering state 27)]TJ
+T*[(321:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(322:)-600(         \(0x665920-> astree {';'\(59\), 7:2.008, 0x665960->";",)]TJ
+T*[(323:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(324:)-600(Reducing stack by rule 9 \(line 51\):)]TJ
+T*[(325:)-600(   $1 = nterm expr \(\))]TJ
+T*[(326:)-600(   $2 = token '*' \(42='*'\))]TJ
+T*[(327:)-600(         \(0x6657a0-> astree {'*'\(42\), 7:2.004, 0x6657e0->"*",)]TJ
+T*[(328:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(329:)-600(   $3 = nterm expr \(\))]TJ
+T*[(330:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(331:)-600(0x6657a0 \(*\) adopting 0x665740 \(pi\))]TJ
+T*[(332:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(333:)-600(0x6657a0 \(*\) adopting 0x665860 \(^\))]TJ
+T*[(334:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(335:)-600(Stack now 0 2 11 16)]TJ
+T*[(336:)-600(Entering state 24)]TJ
+T*[(337:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(338:)-600(         \(0x665920-> astree {';'\(59\), 7:2.008, 0x665960->";",)]TJ
+T*[(339:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(340:)-600(Reducing stack by rule 6 \(line 48\):)]TJ
+T*[(341:)-600(   $1 = nterm expr \(\))]TJ
+T*[(342:)-600(   $2 = token '=' \(61='='\))]TJ
+T*[(343:)-600(         \(0x6656e0-> astree {'='\(61\), 7:2.001, 0x665720->"=",)]TJ
+T*[(344:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(345:)-600(   $3 = nterm expr \(\))]TJ
+T*[(346:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(347:)-600(0x6656e0 \(=\) adopting 0x665600 \(a\))]TJ
+T*[(348:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(349:)-600(0x6656e0 \(=\) adopting 0x6657a0 \(*\))]TJ
+T*[(350:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(351:)-600(Stack now 0 2)]TJ
+T*[(352:)-600(Entering state 11)]TJ
+T*[(353:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(354:)-600(         \(0x665920-> astree {';'\(59\), 7:2.008, 0x665960->";",)]TJ
+T*[(355:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(356:)-600(Shifting token ';' \(59=';'\))]TJ
+T*[(357:)-600(         \(0x665920-> astree {';'\(59\), 7:2.008, 0x665960->";",)]TJ
+T*[(358:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(359:)-600(Entering state 22)]TJ
+T*[(360:)-600(Reducing stack by rule 2 \(line 42\):)]TJ
+ET
+Q
+Q
+endstream
+endobj
+150 0 obj
+4089
+endobj
+154 0 obj
+<</Length 155 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(7)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(361:)-600(   $1 = nterm stmtseq \(\))]TJ
+11.5 TL
+T*[(362:)-600(   $2 = nterm expr \(\))]TJ
+T*[(363:)-600(   $3 = token ';' \(59=';'\))]TJ
+T*[(364:)-600(         \(0x665920-> astree {';'\(59\), 7:2.008, 0x665960->";",)]TJ
+T*[(365:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(366:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(367:)-600(free [665920]-> 7:2.8: ';': 0x665960->";"\))]TJ
+T*[(368:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(369:)-600(0x6611f0 \(<<ROOT>>\) adopting 0x6656e0 \(=\))]TJ
+T*[(370:)-600(-> $$ = nterm stmtseq \(\))]TJ
+T*[(371:)-600(Stack now 0)]TJ
+T*[(372:)-600(Entering state 2)]TJ
+T*[(373:)-600(Reading a token: --accepting rule at line 38 \(")]TJ
+T*[(374:)-600("\))]TJ
+T*[(375:)-600(--accepting rule at line 40 \("3.141592653589793238462643383280"\))]TJ
+T*[(376:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(377:)-600(malloc \(56\) = 0x665920-> 7:3.0: NUMBER: 0x665980->"3.14159265358979323846264)]TJ
+-13.6 -11.5 Td
+(3383280")Tj
+13.6 -11.5 Td
+[(378:)-600(Next token is token NUMBER \(260=NUMBER\))]TJ
+T*[(379:)-600(         \(0x665920-> astree {NUMBER\(260\), 7:3.000, 0x665980->"3.141592653589)]TJ
+-13.6 -11.5 Td
+(793238462643383280",)Tj
+13.6 -11.5 Td
+[(380:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(381:)-600(Shifting token NUMBER \(260=NUMBER\))]TJ
+T*[(382:)-600(         \(0x665920-> astree {NUMBER\(260\), 7:3.000, 0x665980->"3.141592653589)]TJ
+-13.6 -11.5 Td
+(793238462643383280",)Tj
+13.6 -11.5 Td
+[(383:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(384:)-600(Entering state 6)]TJ
+T*[(385:)-600(Reducing stack by rule 16 \(line 58\):)]TJ
+T*[(386:)-600(   $1 = token NUMBER \(260=NUMBER\))]TJ
+T*[(387:)-600(         \(0x665920-> astree {NUMBER\(260\), 7:3.000, 0x665980->"3.141592653589)]TJ
+-13.6 -11.5 Td
+(793238462643383280",)Tj
+13.6 -11.5 Td
+[(388:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(389:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(390:)-600(Stack now 0 2)]TJ
+T*[(391:)-600(Entering state 11)]TJ
+T*[(392:)-600(Reading a token: --accepting rule at line 51 \(";"\))]TJ
+T*[(393:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(394:)-600(malloc \(56\) = 0x6659b0-> 7:3.32: ';': 0x665960->";")]TJ
+T*[(395:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(396:)-600(         \(0x6659b0-> astree {';'\(59\), 7:3.032, 0x665960->";",)]TJ
+T*[(397:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(398:)-600(Shifting token ';' \(59=';'\))]TJ
+T*[(399:)-600(         \(0x6659b0-> astree {';'\(59\), 7:3.032, 0x665960->";",)]TJ
+T*[(400:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(401:)-600(Entering state 22)]TJ
+T*[(402:)-600(Reducing stack by rule 2 \(line 42\):)]TJ
+T*[(403:)-600(   $1 = nterm stmtseq \(\))]TJ
+T*[(404:)-600(   $2 = nterm expr \(\))]TJ
+T*[(405:)-600(   $3 = token ';' \(59=';'\))]TJ
+T*[(406:)-600(         \(0x6659b0-> astree {';'\(59\), 7:3.032, 0x665960->";",)]TJ
+T*[(407:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(408:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(409:)-600(free [6659B0]-> 7:3.32: ';': 0x665960->";"\))]TJ
+T*[(410:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(411:)-600(0x6611f0 \(<<ROOT>>\) adopting 0x665920 \(3.141592653589793238462643383280\))]TJ
+T*[(412:)-600(-> $$ = nterm stmtseq \(\))]TJ
+T*[(413:)-600(Stack now 0)]TJ
+T*[(414:)-600(Entering state 2)]TJ
+T*[(415:)-600(Reading a token: --accepting rule at line 38 \(")]TJ
+T*[(416:)-600("\))]TJ
+T*[(417:)-600(--accepting rule at line 36 \("# 4 "test4.in" 2"\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+155 0 obj
+4194
+endobj
+159 0 obj
+<</Length 160 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(8)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(418:)-600(DEBUGF\(m\): lyutils.c[118] scanner_include\(\):)]TJ
+11.5 TL
+T*[(419:)-600(filename=test4.in, scan_linenr=3)]TJ
+T*[(420:)-600(--accepting rule at line 38 \(")]TJ
+T*[(421:)-600("\))]TJ
+T*[(422:)-600(--accepting rule at line 40 \("3"\))]TJ
+T*[(423:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(424:)-600(malloc \(56\) = 0x6659b0-> 8:4.0: NUMBER: 0x665a10->"3")]TJ
+T*[(425:)-600(Next token is token NUMBER \(260=NUMBER\))]TJ
+T*[(426:)-600(         \(0x6659b0-> astree {NUMBER\(260\), 8:4.000, 0x665a10->"3",)]TJ
+T*[(427:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(428:)-600(Shifting token NUMBER \(260=NUMBER\))]TJ
+T*[(429:)-600(         \(0x6659b0-> astree {NUMBER\(260\), 8:4.000, 0x665a10->"3",)]TJ
+T*[(430:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(431:)-600(Entering state 6)]TJ
+T*[(432:)-600(Reducing stack by rule 16 \(line 58\):)]TJ
+T*[(433:)-600(   $1 = token NUMBER \(260=NUMBER\))]TJ
+T*[(434:)-600(         \(0x6659b0-> astree {NUMBER\(260\), 8:4.000, 0x665a10->"3",)]TJ
+T*[(435:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(436:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(437:)-600(Stack now 0 2)]TJ
+T*[(438:)-600(Entering state 11)]TJ
+T*[(439:)-600(Reading a token: --accepting rule at line 46 \("*"\))]TJ
+T*[(440:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(441:)-600(malloc \(56\) = 0x665a30-> 8:4.1: '*': 0x665a70->"*")]TJ
+T*[(442:)-600(Next token is token '*' \(42='*'\))]TJ
+T*[(443:)-600(         \(0x665a30-> astree {'*'\(42\), 8:4.001, 0x665a70->"*",)]TJ
+T*[(444:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(445:)-600(Shifting token '*' \(42='*'\))]TJ
+T*[(446:)-600(         \(0x665a30-> astree {'*'\(42\), 8:4.001, 0x665a70->"*",)]TJ
+T*[(447:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(448:)-600(Entering state 19)]TJ
+T*[(449:)-600(Reading a token: --accepting rule at line 40 \("4"\))]TJ
+T*[(450:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(451:)-600(malloc \(56\) = 0x665a90-> 8:4.2: NUMBER: 0x665ad0->"4")]TJ
+T*[(452:)-600(Next token is token NUMBER \(260=NUMBER\))]TJ
+T*[(453:)-600(         \(0x665a90-> astree {NUMBER\(260\), 8:4.002, 0x665ad0->"4",)]TJ
+T*[(454:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(455:)-600(Shifting token NUMBER \(260=NUMBER\))]TJ
+T*[(456:)-600(         \(0x665a90-> astree {NUMBER\(260\), 8:4.002, 0x665ad0->"4",)]TJ
+T*[(457:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(458:)-600(Entering state 6)]TJ
+T*[(459:)-600(Reducing stack by rule 16 \(line 58\):)]TJ
+T*[(460:)-600(   $1 = token NUMBER \(260=NUMBER\))]TJ
+T*[(461:)-600(         \(0x665a90-> astree {NUMBER\(260\), 8:4.002, 0x665ad0->"4",)]TJ
+T*[(462:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(463:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(464:)-600(Stack now 0 2 11 19)]TJ
+T*[(465:)-600(Entering state 27)]TJ
+T*[(466:)-600(Reading a token: --accepting rule at line 51 \(";"\))]TJ
+T*[(467:)-600(DEBUGF\(f\): astree.c[37] new_astree\(\):)]TJ
+T*[(468:)-600(malloc \(56\) = 0x665af0-> 8:4.3: ';': 0x665b30->";")]TJ
+T*[(469:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(470:)-600(         \(0x665af0-> astree {';'\(59\), 8:4.003, 0x665b30->";",)]TJ
+T*[(471:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(472:)-600(Reducing stack by rule 9 \(line 51\):)]TJ
+T*[(473:)-600(   $1 = nterm expr \(\))]TJ
+T*[(474:)-600(   $2 = token '*' \(42='*'\))]TJ
+T*[(475:)-600(         \(0x665a30-> astree {'*'\(42\), 8:4.001, 0x665a70->"*",)]TJ
+T*[(476:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(477:)-600(   $3 = nterm expr \(\))]TJ
+T*[(478:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+ET
+Q
+Q
+endstream
+endobj
+160 0 obj
+4391
+endobj
+164 0 obj
+<</Length 165 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(9)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(479:)-600(0x665a30 \(*\) adopting 0x6659b0 \(3\))]TJ
+11.5 TL
+T*[(480:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(481:)-600(0x665a30 \(*\) adopting 0x665a90 \(4\))]TJ
+T*[(482:)-600(-> $$ = nterm expr \(\))]TJ
+T*[(483:)-600(Stack now 0 2)]TJ
+T*[(484:)-600(Entering state 11)]TJ
+T*[(485:)-600(Next token is token ';' \(59=';'\))]TJ
+T*[(486:)-600(         \(0x665af0-> astree {';'\(59\), 8:4.003, 0x665b30->";",)]TJ
+T*[(487:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(488:)-600(Shifting token ';' \(59=';'\))]TJ
+T*[(489:)-600(         \(0x665af0-> astree {';'\(59\), 8:4.003, 0x665b30->";",)]TJ
+T*[(490:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(491:)-600(Entering state 22)]TJ
+T*[(492:)-600(Reducing stack by rule 2 \(line 42\):)]TJ
+T*[(493:)-600(   $1 = nterm stmtseq \(\))]TJ
+T*[(494:)-600(   $2 = nterm expr \(\))]TJ
+T*[(495:)-600(   $3 = token ';' \(59=';'\))]TJ
+T*[(496:)-600(         \(0x665af0-> astree {';'\(59\), 8:4.003, 0x665b30->";",)]TJ
+T*[(497:)-600(                     first=\(nil\), last=\(nil\), next=\(nil\)}\))]TJ
+T*[(498:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(499:)-600(free [665AF0]-> 8:4.3: ';': 0x665b30->";"\))]TJ
+T*[(500:)-600(DEBUGF\(a\): astree.c[55] adopt\(\):)]TJ
+T*[(501:)-600(0x6611f0 \(<<ROOT>>\) adopting 0x665a30 \(*\))]TJ
+T*[(502:)-600(-> $$ = nterm stmtseq \(\))]TJ
+T*[(503:)-600(Stack now 0)]TJ
+T*[(504:)-600(Entering state 2)]TJ
+T*[(505:)-600(Reading a token: --accepting rule at line 38 \(")]TJ
+T*[(506:)-600("\))]TJ
+T*[(507:)-600(--\(end of buffer or a NUL\))]TJ
+T*[(508:)-600(--EOF \(start condition 0\))]TJ
+T*[(509:)-600(Now at end of input.)]TJ
+T*[(510:)-600(Reducing stack by rule 1 \(line 39\):)]TJ
+T*[(511:)-600(   $1 = nterm stmtseq \(\))]TJ
+T*[(512:)-600(-> $$ = nterm program \(\))]TJ
+T*[(513:)-600(Stack now 0)]TJ
+T*[(514:)-600(Entering state 1)]TJ
+T*[(515:)-600(Now at end of input.)]TJ
+T*[(516:)-600(Shifting token $end \(0=$end\))]TJ
+T*[(517:)-600(         \(yyvaluep = 0x665af0\))]TJ
+T*[(518:)-600(Entering state 3)]TJ
+T*[(519:)-600(Stack now 0 1 3)]TJ
+T*[(520:)-600(Cleanup: popping token $end \(0=$end\))]TJ
+T*[(521:)-600(         \(yyvaluep = 0x665af0\))]TJ
+T*[(522:)-600(Cleanup: popping nterm program \(\))]TJ
+T*[(523:)-600(DEBUGF\(a\): main.c[88] main\(\):)]TJ
+(524:)'
+T*[(525:)-600(<<ROOT>> 0x6611f0-> astree {ROOT\(258\), 0:0.000, 0x661230->"<<ROOT>>",)]TJ
+T*[(526:)-600(            first=0x6655a0, last=0x665a30, next=\(nil\)})]TJ
+T*[(527:)-600(   pi 0x6655a0-> astree {IDENT\(259\), 5:4.000, 0x6655e0->"pi",)]TJ
+T*[(528:)-600(               first=\(nil\), last=\(nil\), next=0x6656e0})]TJ
+T*[(529:)-600(   = 0x6656e0-> astree {'='\(61\), 7:2.001, 0x665720->"=",)]TJ
+T*[(530:)-600(               first=0x665600, last=0x6657a0, next=0x665920})]TJ
+T*[(531:)-600(      a 0x665600-> astree {IDENT\(259\), 7:2.000, 0x6656c0->"a",)]TJ
+T*[(532:)-600(                  first=\(nil\), last=\(nil\), next=0x6657a0})]TJ
+T*[(533:)-600(      * 0x6657a0-> astree {'*'\(42\), 7:2.004, 0x6657e0->"*",)]TJ
+T*[(534:)-600(                  first=0x665740, last=0x665860, next=\(nil\)})]TJ
+T*[(535:)-600(         pi 0x665740-> astree {IDENT\(259\), 7:2.002, 0x665780->"pi",)]TJ
+T*[(536:)-600(                     first=\(nil\), last=\(nil\), next=0x665860})]TJ
+T*[(537:)-600(         ^ 0x665860-> astree {'^'\(94\), 7:2.006, 0x6658a0->"^",)]TJ
+T*[(538:)-600(                     first=0x665800, last=0x6658c0, next=\(nil\)})]TJ
+T*[(539:)-600(            r 0x665800-> astree {IDENT\(259\), 7:2.005, 0x665840->"r",)]TJ
+ET
+Q
+Q
+endstream
+endobj
+165 0 obj
+4079
+endobj
+169 0 obj
+<</Length 170 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 521.988 739.2 Tm
+(10)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.258 736.5 Tm
+(test4.err)Tj
+-120.545 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+[(540:)-600(                        first=\(nil\), last=\(nil\), next=0x6658c0})]TJ
+11.5 TL
+T*[(541:)-600(            2 0x6658c0-> astree {NUMBER\(260\), 7:2.007, 0x665900->"2",)]TJ
+T*[(542:)-600(                        first=\(nil\), last=\(nil\), next=\(nil\)})]TJ
+T*[(543:)-600(   3.141592653589793238462643383280 0x665920-> astree {NUMBER\(260\), 7:3.000,)]TJ
+-13.6 -11.5 Td
+( 0x665980->"3.141592653589793238462643383280",)Tj
+13.6 -11.5 Td
+[(544:)-600(               first=\(nil\), last=\(nil\), next=0x665a30})]TJ
+T*[(545:)-600(   * 0x665a30-> astree {'*'\(42\), 8:4.001, 0x665a70->"*",)]TJ
+T*[(546:)-600(               first=0x6659b0, last=0x665a90, next=\(nil\)})]TJ
+T*[(547:)-600(      3 0x6659b0-> astree {NUMBER\(260\), 8:4.000, 0x665a10->"3",)]TJ
+T*[(548:)-600(                  first=\(nil\), last=\(nil\), next=0x665a90})]TJ
+T*[(549:)-600(      4 0x665a90-> astree {NUMBER\(260\), 8:4.002, 0x665ad0->"4",)]TJ
+T*[(550:)-600(                  first=\(nil\), last=\(nil\), next=\(nil\)})]TJ
+T*[(551:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(552:)-600(free [6655A0]-> 5:4.0: IDENT: 0x6655e0->"pi"\))]TJ
+T*[(553:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(554:)-600(free [665600]-> 7:2.0: IDENT: 0x6656c0->"a"\))]TJ
+T*[(555:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(556:)-600(free [665740]-> 7:2.2: IDENT: 0x665780->"pi"\))]TJ
+T*[(557:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(558:)-600(free [665800]-> 7:2.5: IDENT: 0x665840->"r"\))]TJ
+T*[(559:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(560:)-600(free [6658C0]-> 7:2.7: NUMBER: 0x665900->"2"\))]TJ
+T*[(561:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(562:)-600(free [665860]-> 7:2.6: '^': 0x6658a0->"^"\))]TJ
+T*[(563:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(564:)-600(free [6657A0]-> 7:2.4: '*': 0x6657e0->"*"\))]TJ
+T*[(565:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(566:)-600(free [6656E0]-> 7:2.1: '=': 0x665720->"="\))]TJ
+T*[(567:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(568:)-600(free [665920]-> 7:3.0: NUMBER: 0x665980->"3.141592653589793238462643383280"\))]TJ
+T*[(569:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(570:)-600(free [6659B0]-> 8:4.0: NUMBER: 0x665a10->"3"\))]TJ
+T*[(571:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(572:)-600(free [665A90]-> 8:4.2: NUMBER: 0x665ad0->"4"\))]TJ
+T*[(573:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(574:)-600(free [665A30]-> 8:4.1: '*': 0x665a70->"*"\))]TJ
+T*[(575:)-600(DEBUGF\(f\): astree.c[127] freeast\(\):)]TJ
+T*[(576:)-600(free [6611F0]-> 0:0.0: ROOT: 0x661230->"<<ROOT>>"\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+170 0 obj
+3147
+endobj
+174 0 obj
+<</Length 175 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 282.082 736.5 Tm
+(test4.log)Tj
+-119.368 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(Script  : /afs/cats.ucsc.edu/courses/cmps012b-wm/bin/runprog)]TJ
+11.5 TL
+T*[(2:)-600(limit c :    0 max core file size \(KB\))]TJ
+T*[(3:)-600(limit f : 4194303 max output file size \(KB\))]TJ
+T*[(4:)-600(limit t : 4294967295 max CPU time \(sec\))]TJ
+T*[(5:)-600(stdin   : test4.in)]TJ
+T*[(6:)-600(stdout  : test4.out)]TJ
+T*[(7:)-600(stderr  : test4.err)]TJ
+T*[(8:)-600(log     : test4.log)]TJ
+T*[(9:)-600(base    : test4)]TJ
+-6.3 -11.5 Td
+[(10:)-600(Command : zexprsm -@@ -ly -de test4.in)]TJ
+T*[(11:)-600(starting: pid 17441: 20:17:49.00)]TJ
+T*[(12:)-600(finished: pid 17441: 20:17:49.00, real 0.00, user 0.00, sys 0.01)]TJ
+T*[(13:)-600(pstatus: 0x0100 EXIT STATUS = 1)]TJ
+ET
+Q
+Q
+endstream
+endobj
+175 0 obj
+1208
+endobj
+4 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 16 0 R
+/Font 17 0 R
+>>
+/Contents 5 0 R
+>>
+endobj
+18 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 21 0 R
+/Font 22 0 R
+>>
+/Contents 19 0 R
+>>
+endobj
+23 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 26 0 R
+/Font 27 0 R
+>>
+/Contents 24 0 R
+>>
+endobj
+28 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 31 0 R
+/Font 32 0 R
+>>
+/Contents 29 0 R
+>>
+endobj
+33 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 36 0 R
+/Font 37 0 R
+>>
+/Contents 34 0 R
+>>
+endobj
+38 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 41 0 R
+/Font 42 0 R
+>>
+/Contents 39 0 R
+>>
+endobj
+43 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 46 0 R
+/Font 47 0 R
+>>
+/Contents 44 0 R
+>>
+endobj
+48 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 51 0 R
+/Font 52 0 R
+>>
+/Contents 49 0 R
+>>
+endobj
+53 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 56 0 R
+/Font 57 0 R
+>>
+/Contents 54 0 R
+>>
+endobj
+58 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 61 0 R
+/Font 62 0 R
+>>
+/Contents 59 0 R
+>>
+endobj
+63 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 66 0 R
+/Font 67 0 R
+>>
+/Contents 64 0 R
+>>
+endobj
+68 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 71 0 R
+/Font 72 0 R
+>>
+/Contents 69 0 R
+>>
+endobj
+73 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 76 0 R
+/Font 77 0 R
+>>
+/Contents 74 0 R
+>>
+endobj
+78 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 81 0 R
+/Font 82 0 R
+>>
+/Contents 79 0 R
+>>
+endobj
+83 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 86 0 R
+/Font 87 0 R
+>>
+/Contents 84 0 R
+>>
+endobj
+88 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 91 0 R
+/Font 92 0 R
+>>
+/Contents 89 0 R
+>>
+endobj
+93 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 96 0 R
+/Font 97 0 R
+>>
+/Contents 94 0 R
+>>
+endobj
+98 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 101 0 R
+/Font 102 0 R
+>>
+/Contents 99 0 R
+>>
+endobj
+103 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 106 0 R
+/Font 107 0 R
+>>
+/Contents 104 0 R
+>>
+endobj
+108 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 111 0 R
+/Font 112 0 R
+>>
+/Contents 109 0 R
+>>
+endobj
+113 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 116 0 R
+/Font 117 0 R
+>>
+/Contents 114 0 R
+>>
+endobj
+118 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 121 0 R
+/Font 122 0 R
+>>
+/Contents 119 0 R
+>>
+endobj
+123 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 126 0 R
+/Font 127 0 R
+>>
+/Contents 124 0 R
+>>
+endobj
+128 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 131 0 R
+/Font 132 0 R
+>>
+/Contents 129 0 R
+>>
+endobj
+133 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 136 0 R
+/Font 137 0 R
+>>
+/Contents 134 0 R
+>>
+endobj
+138 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 141 0 R
+/Font 142 0 R
+>>
+/Contents 139 0 R
+>>
+endobj
+143 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 146 0 R
+/Font 147 0 R
+>>
+/Contents 144 0 R
+>>
+endobj
+148 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 151 0 R
+/Font 152 0 R
+>>
+/Contents 149 0 R
+>>
+endobj
+153 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 156 0 R
+/Font 157 0 R
+>>
+/Contents 154 0 R
+>>
+endobj
+158 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 161 0 R
+/Font 162 0 R
+>>
+/Contents 159 0 R
+>>
+endobj
+163 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 166 0 R
+/Font 167 0 R
+>>
+/Contents 164 0 R
+>>
+endobj
+168 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 171 0 R
+/Font 172 0 R
+>>
+/Contents 169 0 R
+>>
+endobj
+173 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 176 0 R
+/Font 177 0 R
+>>
+/Contents 174 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [
+4 0 R
+18 0 R
+23 0 R
+28 0 R
+33 0 R
+38 0 R
+43 0 R
+48 0 R
+53 0 R
+58 0 R
+63 0 R
+68 0 R
+73 0 R
+78 0 R
+83 0 R
+88 0 R
+93 0 R
+98 0 R
+103 0 R
+108 0 R
+113 0 R
+118 0 R
+123 0 R
+128 0 R
+133 0 R
+138 0 R
+143 0 R
+148 0 R
+153 0 R
+158 0 R
+163 0 R
+168 0 R
+173 0 R
+] /Count 33
+>>
+endobj
+1 0 obj
+<</Type /Catalog /Pages 3 0 R
+/Metadata 183 0 R
+>>
+endobj
+7 0 obj
+<</Type/ExtGState
+/OPM 1>>endobj
+16 0 obj
+<</R7
+7 0 R>>
+endobj
+17 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+21 0 obj
+<</R7
+7 0 R>>
+endobj
+22 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+26 0 obj
+<</R7
+7 0 R>>
+endobj
+27 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+31 0 obj
+<</R7
+7 0 R>>
+endobj
+32 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+36 0 obj
+<</R7
+7 0 R>>
+endobj
+37 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+41 0 obj
+<</R7
+7 0 R>>
+endobj
+42 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+46 0 obj
+<</R7
+7 0 R>>
+endobj
+47 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+51 0 obj
+<</R7
+7 0 R>>
+endobj
+52 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+56 0 obj
+<</R7
+7 0 R>>
+endobj
+57 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+61 0 obj
+<</R7
+7 0 R>>
+endobj
+62 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+66 0 obj
+<</R7
+7 0 R>>
+endobj
+67 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+71 0 obj
+<</R7
+7 0 R>>
+endobj
+72 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+76 0 obj
+<</R7
+7 0 R>>
+endobj
+77 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+81 0 obj
+<</R7
+7 0 R>>
+endobj
+82 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+86 0 obj
+<</R7
+7 0 R>>
+endobj
+87 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+91 0 obj
+<</R7
+7 0 R>>
+endobj
+92 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+96 0 obj
+<</R7
+7 0 R>>
+endobj
+97 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+101 0 obj
+<</R7
+7 0 R>>
+endobj
+102 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+106 0 obj
+<</R7
+7 0 R>>
+endobj
+107 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+111 0 obj
+<</R7
+7 0 R>>
+endobj
+112 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+116 0 obj
+<</R7
+7 0 R>>
+endobj
+117 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+121 0 obj
+<</R7
+7 0 R>>
+endobj
+122 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+126 0 obj
+<</R7
+7 0 R>>
+endobj
+127 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+131 0 obj
+<</R7
+7 0 R>>
+endobj
+132 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+136 0 obj
+<</R7
+7 0 R>>
+endobj
+137 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+141 0 obj
+<</R7
+7 0 R>>
+endobj
+142 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+146 0 obj
+<</R7
+7 0 R>>
+endobj
+147 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+151 0 obj
+<</R7
+7 0 R>>
+endobj
+152 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+156 0 obj
+<</R7
+7 0 R>>
+endobj
+157 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+161 0 obj
+<</R7
+7 0 R>>
+endobj
+162 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+166 0 obj
+<</R7
+7 0 R>>
+endobj
+167 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+171 0 obj
+<</R7
+7 0 R>>
+endobj
+172 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+176 0 obj
+<</R7
+7 0 R>>
+endobj
+177 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+12 0 obj
+<</BaseFont/CQEVWK+Times-Roman/FontDescriptor 13 0 R/Type/Font
+/FirstChar 36/LastChar 121/Widths[ 500 0 0 0 0 0 0 0 0 333 250 278
+500 500 500 0 500 0 0 0 500 0 0 0 0 0 0 0
+0 0 0 0 0 611 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 444 0 444 500 444 0 500 0 278 0 0 278 778 500 500
+500 0 333 389 278 500 0 722 500 500]
+/Encoding/WinAnsiEncoding/Subtype/Type1>>
+endobj
+14 0 obj
+<</BaseFont/LFSJCT+Courier-Bold/FontDescriptor 15 0 R/Type/Font
+/FirstChar 32/LastChar 125/Widths[
+600 0 600 600 600 0 0 600 600 600 600 600 600 600 600 600
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 0
+600 600 600 600 600 600 600 600 0 600 0 600 600 600 600 600
+600 0 600 600 600 600 0 0 600 0 0 600 0 600 600 600
+0 600 600 600 600 600 600 600 600 600 0 600 600 600 600 600
+600 600 600 600 600 600 600 600 600 600 600 600 600 600]
+/Encoding 182 0 R/Subtype/Type1>>
+endobj
+182 0 obj
+<</Type/Encoding/BaseEncoding/WinAnsiEncoding/Differences[
+39/quoteright]>>
+endobj
+10 0 obj
+<</BaseFont/ZVTVKO+Helvetica-Bold/FontDescriptor 11 0 R/Type/Font
+/FirstChar 48/LastChar 57/Widths[
+556 556 556 556 556 556 556 556 556 556]
+/Encoding/WinAnsiEncoding/Subtype/Type1>>
+endobj
+8 0 obj
+<</BaseFont/FIPNJN+Times-Bold/FontDescriptor 9 0 R/Type/Font
+/FirstChar 47/LastChar 58/Widths[ 278
+500 500 500 500 500 0 0 500 500 500 333]
+/Encoding/WinAnsiEncoding/Subtype/Type1>>
+endobj
+13 0 obj
+<</Type/FontDescriptor/FontName/CQEVWK+Times-Roman/FontBBox[-9 -218 775 727]/Flags 32
+/Ascent 727
+/CapHeight 662
+/Descent -218
+/ItalicAngle 0
+/StemV 116
+/MissingWidth 500
+/XHeight 460
+/CharSet(/E/a/c/d/dollar/e/eight/four/g/hyphen/i/l/m/n/o/one/p/period/r/s/slash/t/two/u/w/x/y/zero)/FontFile3 178 0 R>>
+endobj
+178 0 obj
+<</Filter[/ASCII85Decode
+/FlateDecode]
+/Subtype/Type1C/Length 4067>>stream
+Gar>GHW3pV[QcJnhksK/P,8em$+CH2[#1gLW3,bJ4LCAW6!c%`6NRAm$."]p5QXN%Cn?2C#`m%_
+]MT70JYaT!I8&t%US?$JS^hnbFun*_^%XUkcb%akl)\%^O1WtGB:X,;5'ua:s1WFOIQV64,)4.u
+/IPXUag9QRWRBeT4n%^h<BTuO7I4c<&P[c'r8aea2&"E\?Ok9SY\`j7Q^1-eOaGE<Nb=4E3JPl?
+jk73H<,-9I+upt(GAT`Me8O2kF5?kEfsknR2W"Z)^Fd0Nngm4M]'gR*+]kgGWRKqmg$ebAE8F3`
+ieVNY;QER7nr6F=PUCd+Mi:`[O89&2PR=g%Q0Z%?i&AB>r;ARWkAG5,;5>N!AGQ4.\aLTi2W#)'
+0R7]!1-Y=0>8W*?.:&b[b08#RdDY3^O!Ml3(!<oVIN/2DDL-*aWsnSKZ^1u0ehHugE$g0nA>5LL
+1&I@@9HY"e">dZWO-re24j48q=lqa,H,baS0k*Vh#aj.I(R`69/p!U#aLf%)Dp]PS/\c#iL;haJ
+#6jjTRt[X$H1VXQj5MASQg@t?YXH+amaB^QjtE9QB)=ACf[:LN.6-"GkBZe;8DjQaR=/4C>@k!O
+!:6l?+-=kW"CXbeF:$N^'ISd@ei1GO-:@"`WV4=t^f-fHO(;4M+J_93hrBsb6jIH6)ds'e/c$W6
+k/0PYh<pi^]?"6&5cZSnk=`=D-9&QYc0P=g1k!Cl<G\1m^?GSDQ-rYCf+9Upp%Z:XP^%+k6sl#j
+W5K&[hP@3Oi:,#&&sGAsEb298r9J;(5<<lML6RTbdopjq>*<J9?rqa7F_cQh4Ra+hle0hJq?e1k
+"!4b9@Ur85&4@CqHS&@,7RsONFLW'6:f5R>QSI0LL/U0.j+,8"^QQRs2=b#![r:Vkc&@IDbp,km
+6uGU_\5#BIpd!Un1NN?SeGBqYrdbR]@_tV2\-`MKjW,]^-V=8n]JcscIeFOgZTjNl@[1msA`C#Z
+.tH0e!t\gL[TTZR)P@6I+F`P#i%/h``>q@=/Mni>k`(;uSZ4XR0_HZY6?d9`O-H^Y&coB*>;kIn
+@4?IjnC0$(<TKjC(5DpBnC,&VJdhM5=g9A/O$/M(O9Zbi4']GQ$[`o*;VY5O?dT.hX$/aK7]R*e
+2k,"-EY+Y0BP3UU$+$#[TRhr@4gjr`;hMI1csUhnmW>nI#BO1.q"3pg"1#ZcCLq$OEl$Tp%QB6D
+^!Oap\I.'(5.a4k?2#,:,?MugiY(gF^aL`a.l*HXQ[m!UVFk>-(:DZRjA]cng)_"MY]&I@rI_Dd
+e6u'E(+:K67odqDV5$1LRbLil;)!q"WP:f6ZWC4Konl*$TrG,G6`S,bmO;jU21K3*qRN]D:Ier[
+\Y<iiG<q:#XP\GP[SO0-6b7mAS#4kM"'uIHV4T;`Mscci2Gu*;[YA1`]tDK32&BDQbU.U[gqin$
+/@oaV>KkZ`:g-^s<JEro5,Z.3DX!(k0Qj+2H;IelOIN4*ja\UJhfDpi7Zlp65D5UK3u@$ghe=f%
+H/2RF_-E9A2X?mc.Qh6X3%ZA9kp@Yoe=fO3N@*;=Bd!PCeR1)2F-MAmJ.mtRNQX^Aj=X_J5\E`Z
+oPb)b)RTHZoH0-T2YZi7-RJt#OXR$:m$qjeiNjlQMC1t"(VAMBA$9oGdA%kkh$c?k>I'4QNAT*s
+$d$tj"osD]g)Fj@CtM<hp#pWlUX9fbbHp<\CAmB_T=(Jo`*R$\]*+-OedYW#?G#j.UTDbj*_f\_
+7m;oHFbX(uJN?;22n/>%52T:K;c:$"(*kf:WG`j<No<btXlED=/hR<2_<s2*L<ZteSR+,0OL9T/
+(7eq/Hn!Va$E\Wig#f/')2U[6D=,ktk)@6dm010%_ZM(8/knk!0ir^EGtkhD<`WR6#<(?ncosA<
+P9(n'K;dZT]&G\pNlI`B<%Nn:R>eg=H1KV[7B+??<R[C`En(_&s6p??6oTK<#,S^U[kQ!u.`qpb
+U)KJ^<?o"mEeH!9`1CE"@Q-AoV#Nl(a=1)?VHGoN?Qd`[hiMDd4akQW'bVnMUdoiEFpf.[YV7G'
+BseXi$T&'SO(qo]":f*cf_R)-Af]:NUHW?Dk`>Oj^?S(>FB_q#adcNad?E1P86&dPW3nW+0%jP$
+m.]#=g/;VcMZgELP126_,rC%$]uWL<iZP%toYQ1AUAU0p9;u(f#487Ce68;5*7,gZ<i9f/P092"
+5i!_<`]>+PdW1t[@V;-VIrdC/-(rQodA7^9Eq0WHJYGb89qG'\XlF`1d:B'`A<).^G)![+HPu?`
+f/X$Rm%%,h%p!&DJmMd84J.%ipkoXe-"ho4p>::ZTRWQJnYZtS1!)&Kc)FXLC6*qA]=k=V-Kr[>
+"4<Ru"PNcVeP=bWl&0ca#liCVF8q''VitoR"jabRe'Q;kFn9o#&Bt9Kr+H_,f;Aes86]C)V1=bf
+\J)eciTA-G?&E@*:6L\'.VbXenF:g'JrKONq1-'8#WLq.*u3.hkmOuW,)^&.\BYN)FsFk.$taRS
+af*a#RaM4T%DPE)-%`+c[m-LBM3N:OFcE1-&2_76f9*2pKC?jWmtNNPlV4#%ShL\@?,YfuYkSa+
+hTUPXO[I0`?pDSCjbfE.FWbM<<;Q:B"?j>=JM?+^HAAR82r#93IM"2!VonP\^JLCGRpEtEMklBa
+\9[N.,_*PKc"BsX+7\QA8-A]<N@h'R7r;>ZA,u?#0YfoK8,d)"/5N=s=feUe"WG`QDI_Ws9jj2H
+'p<OsS_-HAmW=Lc92G2h%)<1Z'Jo_s'c#?s6rmpN6Sl4VLO8=ObAH?@crT9WYD)!jk3VOSF?>9:
+*;!Dr$j2lcT<8k=RdXCV!.R48O<"+G+r+o(m@EUJ3QBCeC</d4"o%NNrbc"FZa;TdnIQu*IH`29
+5)oT[A']tlLuB67Y_t(4g$?r0^ZFV00-n?N],STjH4HRe8k2<58326s$9`t@P;1_-jsDJPW2A2W
+?XlEaLlEal@Wck&9%BO#md4]VF_>oobC5GrqqD1em0R-).r;.tXPgl8YT#RQbs2hK-j[(uTo;_\
+;I*sko9fIWPuL6;jJH<*2sK&+dT008*\<Bacc'h_'SrNacD*Y9lgkY0BWWY:IU>)O,L_Jn/+j?*
+MTIQ(au[/Zf$uM&1(8E54XEWgdh(k%)T+\&B0/smKt[^C@8_aS-3d[M".j@0DjA^\:=0alLRL4N
+PnR_.VH"D=_Pi,5+L3ioMt]Q51I<=^g0$j?"N5o7YVcR@il"K3*[b:d&rpHnjCR0r.Hca)]/YJ.
+?flUBb37iIkPm/0bKNe[G@gLAGB``RB6:%sH=LnWO`K$X-X4R%KN.h5_1J^/68<RHn`o7Z4sl<1
+Ht),pi=N1c8dX<$V[2K!TY*S%jNP?uZ(GUP_.PIL1,:t9rWL&&Q=CQr:]>um91q(Z$`CKj,cC38
+hm_L'rGRii;GIi'"51Fgh<.Kk\BKg8HnreiTY(+*#1Qc(:gIA[C29fW"$Tbh5:V#k+$jX]G(,Rf
+aA<fDBlgHkD6M$i_cb4_LchAKZQ1uMjSK10<^g&I$YkjA$Ao=GKGFs;FqXT;_pR4X8+QCuk$JFU
+auPV14fZjNeHI##qMbAiADeBaL"W[^3tD('fd*?/1fR;mY5C/WMnFLmP:Ku#e=H?r]gWH7--6t<
+`eMJ?kuUYJ"hVkfI2@b>0i-[)=\*aB&Q?#tR)rihVgIhZ/)4Ge[tAQ2e[=o$hP,9N_'8DFT+@"#
+<W)$104(QhGBWe3gm7r_#-$fjb&#6umTfS-h46r!QHapT:T8"KjqUg:q0,s<Wq_WPS]S)HIsh%\
+a6uOErT-ZKptQbOe@^%T>k2Tr_/lML?G8H4)]Y_9*%%"U9*%XW4elK_k'mjQiE\XZK.RfO5#SoN
+S6P@TZ6BF*QrQSS)%*e6#fK#&F37T_YGtlXis;O"BRN>1RB0c"T"ZWN,&,iB:l=-Kq?smff\\[:
+46UQD$"m\FGbi]OGuF%(bHGDRNYY<di`gkiksp3^XYZCu3">&+L9<Dm@JZbo@H]F'HibB9-gf:@
+'cIl-kp#(=@GfN1ch,a>>B[c(flDiC?h!#V%f~>
+endstream
+endobj
+15 0 obj
+<</Type/FontDescriptor/FontName/LFSJCT+Courier-Bold/FontBBox[-21 -205 623 695]/Flags 35
+/Ascent 695
+/CapHeight 597
+/Descent -205
+/ItalicAngle 0
+/StemV 150
+/AvgWidth 600
+/MaxWidth 600
+/MissingWidth 600
+/XHeight 451
+/CharSet(/A/B/C/D/E/F/G/I/K/L/M/N/O/P/R/S/T/U/X/a/asciicircum/asterisk/at/b/bar/braceleft/braceright/bracketleft/bracketright/c/colon/comma/d/dollar/e/eight/equal/f/five/four/g/greater/h/hyphen/i/k/l/less/m/n/nine/numbersign/o/one/p/parenleft/parenright/period/plus/q/quotedbl/quoteright/r/s/semicolon/seven/six/slash/space/t/three/two/u/underscore/v/w/x/y/z/zero)/FontFile3 179 0 R>>
+endobj
+179 0 obj
+<</Filter[/ASCII85Decode
+/FlateDecode]
+/Subtype/Type1C/Length 9203>>stream
+Gatm^$!:-Xf(MDNaf2]%&s!3O"LQGfC@,Y<>:5;N_H@#[MMMh@KUIoUA-0Up#UCRH!+?4#!C:]l
+79df9mB*e)[9i7f=)[8.A$t\frAX\iDkD\:M"]]gJ,VqZ_!H.9Yh"-Xorb]B,<U\mDJj@<XUq<U
+#pYXG0,MUp@6^.&N,rLK%q?rrVkNTEh#CKoR6[jUp3a#VKGtce%Rt]mNM#`*SkR!/nAA+"qE3a)
+k*AkX>Tj_QP(Z][.6c4hD@2grF69S':Zf@elDm+\-*@h%s2\_Z<.`F1r(C4(S4FVAR?7!NcO0Sl
+>b!Lb-Rqk8N_]9Shm4\N&,Y(hn@6PAT)`;i:b3BYq+P!Ih.OHohn7Y;gVQ3ar9i'FT66k2Oj@2Q
+p'?:7+UDPpZ@qVg74Z=UM/O[D,d0m5?'U]s^*[@a>"QZDbWUN>lh>:QMV]W6]Hq`:>^YbZ=^eX\
+c?X'*T6-Z@Ib'+;(V\o#?]-8F3pF&=?=3WMe2O:"?TNf^-5,X$=,BMe#3$q<,;GV=6qea^'2s`>
+`&(pRZ&P,:";0CFjhr\oQrlYu-:.uf@L`uB]LC$j!XM#",r(I*Roi*1+BB./'+9Z)`%/be,*5o#
+N$+]:hBYQ'98HH`;W;u]"_%_q8V@[<@OEn!TSYDAMhE&.7<fL6`)sm/(e8P$n\bQ^:Jc^pG_R&1
+p_(mc)mNoCi)-u>_d47)cCO:Xkcr+e)Fm@'OUUt(Q2]"nceKGQF84XbNI)G$."*^jjK+IcNs^6*
+o=XLFckkCu6TtJ1"n?E(GDpuA/'"`:On5<i/&:I,n+*^k``gB!*nN)pk4l@Ec/\7dn=8Dq@G(e2
+K^8P;pdY67_&>UpO2'"ihs%ia^.l?!:>A";@ZonI]U.2EhE#r>jL\>WVF[UiRHcYPmkjcQ3R#eo
+R@f'/U)bko[+a?'Qf3>'INp4o9E_@^Kj(?MA:dJte]B9THBkb.!DlTXeq+72Y,"t!Y6%_>XK9Xs
+bB4/o#bY!@h$_2a@ct@DKs^S[\NsfR=98'qM<=O$P(3TEHTUDf@d5_0o:bp*8Ib5GV,e#''XI]^
+#6rps1lo9Y[rBt/>MtkA(lRR<Fr5"EO`pj20rsNkU_7?+XsThb;Zal[[P%/j+beulDA#c\'R@A^
+Om/Z2Kq\5h*j/KPHLkXIWo7]UGO*JpQE%*-=)9</!YiH+P:DF.gH?_TkFgX//ZI9Ipi&),>fo#E
+Ys5*oGK!=]"UJ\5@?b9.9W,jh+^d5<kJ=rd7<R/=J2]0_.^NB<bp-/<Zp:V5<[ae0##Yo`[]DL1
+c"e):CGtE-5b3-!hF)nb,?:BJjL@r'?RtBf_"hZ7(O?OEE;$/@`&Wc/d&W_XF<>>SrTVj!m4WF3
+f)miR>*CQ>n_R"g4SIQ][-G^V`sM*OU)j*a4b']RD#5PqnR$dMdkW]3iQ-Jc<[`&>;aEQQnIu:b
+hnJs9#K!VYm/e>M]WJ'=C[@+?5"6MU.d_X;9-JMm-eGEA23!-d,ji[>L;)$(qn\ueLp2uN'`u<>
+Gr2#sa)R/l(0.,gir*VW<[B)RN=niao'u.DG$&6u4)0Q&mI'I+Z].H'&8)@@6=V/6&nM$)&)e?r
+,OuH;'bjE>^V7Ejg!YD1oB-?`r9X%@(VUXB8[@^,>eAABfnp='a)#??e%G"t/^_/&EG,h#N^fb0
+"fo.H(4716_`'gUW4M(M^TF3L$L4UfP^7=m:0qfj?Ru7$=.LUp;!nH#)Y)rI]AP15f2$>`dakR_
+2=[04L?t)aIE>ZX:8q0\e.ob-.WpK'1;1+91fFA3K#U-J>#4\d.MYjpA6^J&;.iO(qkJ*ljP$<M
+me3V#G2lLRs,]D`EEmgH7H;:(i@%5mqAK+1$^ZU'#YlM"M[eG`nMh;C/c_>e!i:P*`f;MW8r*6$
+Ej?/l#N.o0LcN"(&PsE<31UAPO+:8b28)#PAhSt6hHC`.E'[n+NL$#nk$#LLd],M=SFOJc*.)P2
+]74Rn,?#kmNp%&<<>COEgdQZ$0%Z^ZgNBOT$FiZujMH2`"$VL;n56QN4e1jM>:2GT\+fB*L'NKR
+hZ\e2qkKX7k'+TN.Z=bDB1Im>iaQD<eq:e^C:1r8G'@Q;7!^(AY$@ag1IbL_Atu7D=':rDO/lY#
+.:iS*A3D=_6qMg%LtYFT*"=j1`P;7CRYf%W;%NVui6hpQk?.hS!B]Lp^)u\`Rh:pI.S.\nb/6M)
+&/p^H''_7+5q?WNBlC/\f!H?UoU6._]&*ar2fJmTE#[$!^J^1:=fWrJk[dbO.T#Ae('Cd=OM_6J
+:gBsF[n3U=Qnr8FH+$>J;#i>IH3GNA4.(q5QBs!.1,FBi2q/7>*O&C[7aG-'&;'?Q@1TOPgAM`R
+Ji<(!-5OlN6)-oAVjCIWolq=p<:VTQ\.XUr+Je0]cQotQY^>5Y@8l]IY/:@/U!YhT'4_fU=_IBO
+X*6UWp\mH(h`*U_34N/L9.A\aS19H?p-"uj0HVJ>S4`AM^A.4p6d%G&0]Z5Gj2!hkTUP03D:L+G
+>*U5U)Jb99+WrQ3p%8EHmY6_(a,k<Z4@P`t%A$QGmk_I>Ws;?/K/XR3W=93dR9>.m1q=aNBlO#o
+Y2a*T&;0#0BD0:CB*NheQc>2S`t$rBLJu;Yrqd08K<]B_4#7g^UQ)6""h#1#lO67q"ZBaL\6Uj_
+XA#>1;"F?[n(*2s'X_o/l\dDb5TcEP4`tUjQ)[kfOTi%iP\oZ#[Y@jc'DRI`;H"dr&GC"-dMZ=F
+>\?kOUh40qVuXEgEd_T?)>OHK<VhJDGInKK^!e*[YDO`8C0764(M/k&9BCJmVlENmSN5E(8@S+0
+I#IA5mf;Xn(oSh@gU'[fWWJ0_]]d;e$5+`Ta*!1o@-do)AEFqE-s-k/.tu5feuZdI,'B.Y\h2a?
+XTo?+0V8S/6$K=P=r.E/WCj)PVd,ddW!q_E$SH,.P\X)U>ab]Sb+.P^g5tm-i)R!BBj8rmD/mb7
+'$?gShJ-;@ACp)(Y7gg<^&Vdrs*9cJ)SX]2a'.7@M$#.1IRD"Q/k-`:X'B:t8#u'?^ks@-YGf\3
+N?CY"2Q@`B;@B506R0@4V@K>&ns(0K+F3[(<W-Y2TdjOUBV90Up#95A7ZkgMR1bt#%7C7p=\a[^
+9VVj#m,kV@Yh8C+&4l4_R1js8@nc>p@Po%1,q1nm;!URCVZlPi:*P<AT?rt2?X$jtA]@Mt%5kaY
+j'.\-AtK(d5`;W=,Sg/#GG(+>.\aXNJ9Tu_+#<*QK?#B_J-84%L.Y2W5T]ReV@6mfIR/:?4C2+>
+lBk8l451It.D1&5F3_Ua1ie5RS<>64\g+g10CnY'fsePLKWh.h303P>p^QE.=i!,?\>N,3(pK_.
+i%"R->/g;tr!3/.<EiB2RX=^u_E$!`12W[(lohEpJX;K2BQbMgcWNN98+ZJjfo87PGN3Pg%npDl
+=ls0Vbc4'n;^Ebm,]0!Rd'm=GoTFsLG?=.&7t6/k#:r4uN7SpA%-CZU[d6R7:C;</h_.'H7KkHg
+c4&g4@mU00<'kH%9lJJJX5\=@4%`ZWFgY@!'Vo\lQc0][K)$N3EG'6r=;DA*W+C/SmpEY:C-9Ju
+rE9=ekUjZrR9K^"/#K?7d$95*[<:Q23X'pTo7M[YpX#8Q]Us1d`^r#/)\*h(K7.2lQ4/E$F^G?]
+5^tcJlUWUf#'T<a5+5IEl=HptLd6h@X&b&Yctk?pr?1iSGHtOoP0])b8*%FYlkrUVC34qJ0[IOV
+)LB5.D8cTdT\"O>"2-&`R:Y&/fn$tGJZ#QknXS.dTG!k.f3M0oFcE3)!05&&"Ib9=$O9=PN0UgU
+H%j<f\G?,:JOq=o#"\:(o<Z"6"0-?+=_,r"qW\7,6/&QS?\A@:5pL-CR-^0.MkrengF1[SSJ%#F
+8=kh+be=3D"m9[5Nd%%-\,`[_&!JZ$*=k6G\TTE(%sCKf#q7hsQp([WEgfE+8X2UR",'goUa2()
+R(WSu$NeZ1DDeg[2@=9/<o`EFiY2/KQk/I:lWb8.ffj>IR&BiV64\"`'?]6>+#@nU$W]QIHM-;J
+LeX%R;(U<J8=:BTpq1'^$R.Q/L[p(UJT7!*Oqr1b2iiW[9OOnO86DH^oL$:+jJ?>O,tI`D"A2-/
+9KlETl`;lIbVThHNWVma;75IM51M#(hSYbUK,IBnTb*ERX%61\pK0`kS$8/i:7R1g"kISWN"DKh
+]or(F:97NV7k@/Fl`F8mfPh"YUW?Ldpk`^1q&/I.jmKber73YCNncd.C:@@M[cS(K)/pS&/$'R6
+V2B\aP#SPeVq*:I#F7ZW:2tS6_NJ?t`$O56bY5M(7)k^N_pLZn[j6'Nq`*g'cudqO^+h80%7inr
+O6a11?l;1f7,q*&ikoXDE[,iWM@'`BAm>g:bKh]Sg6Zqs4GtMcLZ^)b*?OOI@d$)c3NK"3JLG.g
+YT#-te$'JM3Hod],<&XJb$BmRO@Ia;l!.acAXl1_^ch*NV%=._)4Kc<!;70e2CAJ0(d^8#JEV9!
+=5+5VHE[Ng:()Crm%*3s?o;':Yc2DNf/r0E4p..eiJMj6WG"g3@DREL-W)VR7s@$;fU-3,!Dsuj
+"i4"H$A9.gVBfqX.qf$eVRFK6(5\pn+Ru<LQ=D$iA,%l;p@(*:R<5a@[^sEY6W^ukA"J^uKBNGp
+b*hc>`;N=q-N>k4oq!\fR0E'8qo8&Yjl]P<0Gj<-YQni&RY!XK,;1kp]$5nLDu<LM3PfV^0/in>
+(0u&l7?45fLHd^X.6e4l!8D<=Q`8tkFQIk9g2CG&>`:RZTj7O![otlk5PXU61-a-!%XJ.M5`=#/
+&H@E)i%2s%'B#UWibkm3/D/Oe]'4(%W''MJI1G82@B[tE1&\NK+U<>Kq>O_&="O;/Ni#W8hcWup
+c5].frN%o`K5>B[?T<!S:Yj#LC(,fmJ?mbW2:p$O`+=O&rS"Prr7&'r2U*!'%HE>$[ec4X%CY09
+IohaA[dHCk$(M""gYj&@M'_tWc0%1PJ!&W@m],<F>7O]+"C2^`TD&NKnPRk6H1rDXg6ee9g1_hM
+o74a#lUR^/D%;U:&>8!XPE`h)iFkHqd2ZaR]r*`p$B#KQG4JVnNP'_.$HJ`$<nZ%MfYS*O)mbB^
+g#35Hd9c,3+JIQGgV4'Q+6KK]#U:&j(=HR&^L?Aa[2YD_=a0,ZRo_4j/oYqh=fEHpI2g\&<X8@M
+#Gb?Wq05CC)b]#Ed54!0.R\)CEt*ER>b1C12um^aWj8Y1p>l8tKpJq`;TEMS)Rce*m4kCigNOi!
+>YEfL5P,E=RD(c".JD^k4'_"=GETl$8b>g>;;$/,=SE6hp>_/gA,0#gX%`Xp2AuM']j3^[h!@.J
+$@G,;3q"C6_ahiK+6?R!5O;gA#@%Nt\6$:OG6P1.qQE))h>,S7-G\RJEQ\(u="Cdi$G\_?>(%=B
+*ING!B]RXm!W73K2Ytf]P2ndI@Os>S4qTh"dRb3u+2O[AmYm"-d?slTC;&'6Z@=o3.-4%JFmkQ5
+a6u2VB??B4#I^0p&@=u3jO\E:at`)2k18X]d]j_J[4u:HWjU+=Ek\gc!*,FRT3[WA'IIX7Li$.n
+ipJY$*Aj,MZW-Hj-bc)K*o?49mll2B2WI=rM]f/Wde'hjW@:W4DFc@Ge`0Qu=Ej'9=&+Sso_c!s
+!6Q:P92g=UKP`+0;>jAhmrmoLKD67a\tIdtZ8^Gs\g`7]Dn*3Q!c<@31Aq.G*o?00jER!C=n>7X
+Nqub(WRnHkY')^q@c8NBg@W`F-TbZFZ?iA:E(lp#CAq_A`/s1okR31G`3Hk[j.Hh?Lg&kj6SOjD
+/NRm8[815TU3L#s?H[oW31I-J<lVf<"10e3JUJebXCG1RY>fF.ptFPA3)V,6`R]-A9QkDAmU'R"
+`rZKC-Q0EK`8?()l1b"XF(gPsA'!3"MF<J-#"eI>g<@i/$6A%+J(s,W]8jk#P.l]er0-8QXV[!T
+SHh*"S\<ZUe?`s+5UO%%.KpG-/X)V!@+)CVEL7/$l<hG>^eN,e4*5,M?K@Z3^)3>\qNYt'8-EpT
+P!eSI%lZ9:Z!R#bEbJqaL3%Wag@j-_2iVT0jGF*(l48O%(C*iR,2&mJg<Fq[:TIfni-:(F1Z0,p
+"]3/9D"IJ!]45Eh3.?6jN-Pq7C$CLgOeW@Kc-C^bfC`gM00[r$)P@bkr'/GF_:(49L0bhcF\N)s
+C$:IbdeJKAL@qGt>kE9-8YsL+.ND_@Zj9Ce%V_m#W,Z?p3"[_dT8H1P%k*$>kl@M.aMk#XHco+9
+<CWb/XQ*fhe8cTlG]>.FO\E_Ol%%>H?E7>-dkp$kk5SjZ$XD_E/d`WZQe6@H$'o26:dP[M?Z/*V
+1YNSX"&kOB8$EYsAJ?tK(("`>oQ`=0];`NYWA7g.W>2)n0FM_b=d$.>-'3D1lVj6'AL5ng2N>gt
+_0/7:G;M7&F<i^3'hHEEq"UedrUK8kW^&4Z].qN-qG3115<RS(10Wgag0i<oJo[k'=$e@hEhSGQ
+55k(1KqpsDjPEH;.Fs4\6X-BsE]XqNGPdP?oOFnVL^)aomKB-s[YNFM!h2GgL+k):8G!hiULnLs
+TC'&STXLdt)&L'lE2oe;^&+nu%eu>V?iNGWlMB_aNNSP1YVb<6$<uc`+84),Fob]uNW4Nkd%Et.
+[hUc9/[^sapSV2J!UJA7o?ea7&?D(Q"gMkMQiQ-H10a=O"f3[kU<kZus5inq\(4^UgX9jN[!\!:
+l0)I"j+=U_<QWMY[aHXEbXhgfr-Qj?H:roR3sR$U-Wj9JL>nqj)ZJ@]S=\D4rh;qFpN5=TH?['\
+H'\^ElpX9kb>b(.Eje[AI.>>WFouFE-)oESI&>n;,4+s8cS'H#2;\A1i=NMR7Ao%0B]OnBktr%?
+@9d7ILntaM;k%N;N)_2%ns1K%_,t>5=P4"ZCYa?G$St_Zq?_?5cB)N*/taOH+h0QPYc0T)PnZVH
+_Q<qo<[+;i=K)iH->:iVYYjHHdbCp3^3kPDZ/qHIFk5Q<i[VAJh4Igb].^Ekm7<#U\2VuGIOca&
+4^MYjCY%ul)P%KWoE\YbW$J\m+[r3P"M6'`!-p=U*VVtR@5Gfrj&=D>`&3sb)Sn.&Kr.mj18?iJ
+lieiK8XWIrnm6SA=9IPU'<@p`Hu0@d7&d/[m<=8'eCX/X>)s'&g26#h7<!BfpQ?#VN3420G+9KZ
+N_#2N*f)ou<3lp.51?rW'\B0<R4:i%H9o_?>PU9E>sFXZ,<U?lLf6JX_XV$S&\\"$@5N:m7-^Ac
+S40Y:16VNVQ0.2>cl'XCLU`mD[8im=q7in=cjUQ4J9`-T_4f<V0>,T:G"d\Z:rLl1E9@lQQ7co8
+LH<N/g>ljoWOB0cJ#r(JYn^)b3t\c7ETl7NX5e>^nH,+U<La4@ED!6Uo67h)L`\6Q:)t.X+0IU3
+/lHZ\]H>LA#srcPPS:S]dLL[I\hP`*l?hG@\fQn.mbVkI%n[2Po?D$&7LpnOID,%;%dR>??O_MX
+D8Gp'M+bX3YbLt'CZqIWmgHl5IflTag,n%MWm?2'']cpth8J]C);@OS#/m@-:3X/h"4V\<_D\QW
+N**\QWoIk4CL6p=BOLl[c1oLr7aJZY9T9Z5]Fu5^S#d>>m1k#YJ.ZehpUmna47L8Z!&.Ij[l^>h
+#!@FZm@I\=rTl3JIs[=P1U@@96=9/f*<YIQqj]aXm\K!Z2L1d/fB!9%n)9^kR%SS3II8\BUZ%Se
+2h1#^IKik_cE?E-cj2%oY9&`3$JlZ.G4!TK1M;`W?PW&O,+HW.B-ObhL[8<W18Nr(pUcttg$LT)
+0qjV?maH#D=.H(Q@j8>]SRJ/`!%da<AB^6$AU"%`qQ^l\_b&aV=Ui^*.;75d"hm5&nqqJ^8PA/K
+"ch]/'[`M9M'%4kpZUGJ$-le`h?*Ge%E[K@:I]dIfX;'u%72hE,(t:hgVG3DEP@n=>PFh[1T1"g
+aJHj!_,7fE[<5R&`G:5i5If:YpZ5"j^JJnL2f.g)bQbWu0%AHdlOt3NJ[^T'dHl:@\knWD(45k@
+GdOE\aHkPAco7Do;&(F`UPXW+Z(3b@6)A48>7IS&jhqSlgGo4("t)#RR>VgrWdkH;HcOa82Rc`;
+*T7sr@a6@fJ0mXIfT=Sc]Wh_q1DibWbNb!8bMcp6-EIO_>!35sF+5QAc9`\,eG[C$+WGsg3Bj5H
+l8=jHHWn6Lk"(#]hpZXS2%CPuo0[qun*S;XUEG(mQA]^Wg[C2`gqWF$*Bms30C@14dXDPDZ5M+q
+,'T_s_]&"KGjX=hpX;?lH(E8ua8jW;Y0`Qd>IHC1:cdnZSO/ZCRdI\,FZ*>(\KK"6$]3!?)OQ&(
+T@q_W<MDLRTJ4\='e)`[h4!B0K<8+ej?BkS\H]bPa(0tE9o7FLo=Bh0-Elfkj;OQO3Y")T515je
+;9U[.f>sE5PYu*Ip%B\9f_bAjKt;l5N+t'W6DZ"f0>ApMW3@\N`(Nt/f&d\r[<WnHd3rWC@f-,#
+>$;9ZdlZU/HQr0A:Rp'Um6$P>%<D[051i1h'D/FdlA_IV)jG*[$;(]6?>>\24:<Qg]HB`#ZQ)D\
+1!<FA\[oF=a+f2V][ToVodVTCQ@TZFUG/P^*>s]Prs)")_7W6%koS@uqj>bumO\5:ULuDequ?Ae
+6SAAsrg.X;rW6pn1*Q+N*(:@!GQX43?*#O(Ga2m/F%r;9PSY93RH6-VX(OGOcRmBn<W__@OI;<!
+?)[9C:h`lo%4(e?qHV']<RBQm=nTf@)QQJ!9%7nB[L8'!4oc%-8),&>e%DG"([nrGY-,mF.@$A+
+!RN(b-h%LgE8[XTTngIC-(L*49!(a*kbq0;*F+Q$91Vblk@iBMWSfi.BUK/RK.1drha/B)WC@>;
+-uiO-F.H0XYb$=X%QakbKAQ\L('V8JOHXW=]0+dBQRT8T3,Q3KL[htCpA+(dDSonlh3j[i09&)Y
+DnZD;:lB5dJ#1a5Be/u_-b18J't,Sl\[5$1gUPW/c+bJ)NL>K,5YLq:%5(ah[:90eUW^s%g]c2g
+G7U=IQW0mFj:u3:#r9pREo$icJ@Nb_K>Nh?=2<u5o]*g9+8kbl/'#M-nPPK?Q6m+U$PaS&i5k0C
+m2qW$>Zse=:iqf6//@L0Co8=4PhI\dZ_*an;(L(oCRsb$,%!"('a3@fDd.S!W=i=HXXO]NMLn0;
+)LnH:o2"cc[H@<!M>>q\[^=J7,!#-f8kfnU/$_3V"XDJJbUO"mZrem?KAd?4rE_El`.JZJ&]F\N
+kFf"8~>
+endstream
+endobj
+11 0 obj
+<</Type/FontDescriptor/FontName/ZVTVKO+Helvetica-Bold/FontBBox[0 -24 528 724]/Flags 65568
+/Ascent 724
+/CapHeight 724
+/Descent -24
+/ItalicAngle 0
+/StemV 79
+/MissingWidth 500
+/CharSet(/eight/five/four/nine/one/seven/six/three/two/zero)/FontFile3 180 0 R>>
+endobj
+180 0 obj
+<</Filter[/ASCII85Decode
+/FlateDecode]
+/Subtype/Type1C/Length 1523>>stream
+Gaqc4HV@@>(r*P@b8hA&YR=R,]c'bP6?pSH!cn\M.M,sCO$Qu`.<cP#Ub[io2j&n;k;%>(PXd-R
++ELAA!o)^"QRM&E:;q'9gu=h`9pX_mGKJg)h)Z@YJ'L(McM)bMp\54i843SPP$VilF/dR0jm,98
+>Kd:Q8BoI.q#D!K-q5N\fpP0@+HbM7jagrO,a5S?8>a&YZlCR/^c%MjPN9GfViiUM[QU.[d)lQ*
+D9<>cX-^MV6teCq2UD*S%@_/biCpl:`PS=uBXSTk)0]<Ffd%`qD!(:kPM&uA=Mj>4#,B"7[T.6(
+mUB*S1KRgt.:n-q6J0BKn;'nLM9b1>o(JBRS+XBdfQ>[Js*kW4+PajZ,,:Goa2Gu3#XV:2'0a@h
+"@MqsIY9p?O&-C/";(nG;+[9&7:ZStQ,la#,J#5Y._a20H1F='OR[H9,s-V\"0c6JRjhlKU34(i
+)tLH($V*/f@<k6$k?34IA&_+4,8r`&J$!q)q$@+P"MXaTEEDeA;L7=6NMVeUeF>gl_.Q3eM.e>1
+W/1JpZ<psLbsqrYdT"e'hH;RnSta?lM;!tGcHb!I6jiuk1C8hA%j0fSRFuUgB=<T+m>YDR_k)Yo
+F)toCS@8Mf?A/-9,@p@&+D:0Te`^[\IW6IB*d8-iB/BaG5/JIf8b@&9Zk?@Ys%j"/48![@i/J>(
+/idp4)2D_,'$E*8l%cMcc'M=HfR(M/@.@I:qY?(9&_q!47Q&4i/&+3nR>8*4$uKnE>*J"7&L@p[
+NoPglOV!1Z:d=shP`r!'pkpVo?bX/%5&aF$mSW"(E(-cQ4'u\N4KoKqdg*_@mC;1Ee&fW+o3G(W
+&:LsEgQ7q<MGkOk?Eo8NTLlZ]ime0KbUPdcCFFRF2FWMZTa+'n^-pat_s[]Pi!]rJi2ZEVi6Vhj
+^HbQb*j45fRI/5"(R71bP(GW8qMVL'-_c*0DMsP(DHi=HSc?,jKpC0.Gja$_:^ZEQ]m'RO&/=X^
+p3X"4TK,eZLL;P>^(pn;5m3+!Z0268QslSRs+DJ%%M'VdgY)ueYNpQ@7A1uZ/m4fEQ@LZAYik89
+h4$%!]k;R<oNq%R-%nQLlr38]d86.(<LjsskgRiR)nh94BE5Ho)KY-S]U?=`[k2T2cBaF^g7e&/
+qM0!h?4"JUGEFrPic>7Gi?b>DM8>,sA&k<,@Jd94BM[02oe*lb$)",%j":951'Jb("<2(E!Y]ea
+]3sfC5*YeQ>3kKLf%"rN2`T2-%:\u5p;?mp'j-WF:3V=hqFk\3>ZRp-/#L3,"G3PL5b[gqNZN5Y
+RXQ/*?nX=q1iCF`)DX+U(U"6/*MY*Vl(e"T1ZlnaQ)`)':"9^.^=,=A]o,15!660pBG*f.S04@)
+1s?8"5)BM?oK*t4o\JaLD>>+OKr3$7ll+$[^SWqZpcT"O#2rt&pt$hMh0l!j9T,pbVRje(7cX<a
+["KH)HXE'/0u&j]e[ICg;4G7JIK&>b#JK#RW'%2*^8Dh]Rs3R8E-I'@F25IY-A)K01(T!3#Jca&0)~>
+endstream
+endobj
+9 0 obj
+<</Type/FontDescriptor/FontName/FIPNJN+Times-Bold/FontBBox[-24 -19 476 691]/Flags 65568
+/Ascent 691
+/CapHeight 691
+/Descent -19
+/ItalicAngle 0
+/StemV 71
+/MissingWidth 500
+/CharSet(/colon/eight/four/nine/one/seven/slash/three/two/zero)/FontFile3 181 0 R>>
+endobj
+181 0 obj
+<</Filter[/ASCII85Decode
+/FlateDecode]
+/Subtype/Type1C/Length 1399>>stream
+Gar?-HV@Xd'Z][=o_&Ir"3Qmo7sj9@'EMn[*<hjI^_d7m+lMEETU/R?$X02G_s-;or.Ia`T\H,3
+Gtc"rJ=-m*AWW$k,\&0Z_ab+kW9Bu'Is,`$6Xq8oro$'hkBtT9T9F=+8U,Om,Y<:ul3s1/mXRm4
+fa_Ne&<[Rsi55[5)fKn2$,_Rh6(nf%$]s"^37QCs!5nf_ZO:+2,6T9+HeX[#1:K.*ZuoDM;,hK[
+3[Q3I5=MDLX4cdHIktmFB@1FQCo#g"iUeJ'JMUJ.fQ;>F?E^D<[JDe&SV=2oBK47[gIkOmY(8a7
+e*G4i;[]WsO(K&i8l_D94I`6)<&\%6!gB>#aQAo?C^urXBlqUSs!J)(n;:;I&tV\MS"re+#X?1u
+#TtB\+MeW$#q6H[KFm#.@h>5LVi=e$,KM&!-]_OS(BbAe+hl,9->[j,Jt7Q`<u.R*nF=7cKKiAK
+HroL@90,g/+9=eP5leU$%-C!C?!3`T:tQbCP%\,!$]Y9;0TR=pb+\/NLr#$dFfUfoq'T'I2]jum
+Em0F)@bWXdjNo6*R%^#@fBg%-9'2uq#<t8\i?"Hn$3>P=L>t(W'K1j*mHs6,m27uIo$2T<*pISq
+PA`0"Ui($NFOM#^gEBJg[%B^$1k/T6N<(K#$PWmT&1ZV-5g*7XA,<6E6m*Dg;",GerQSE1m\0s7
+a86ocU:@R1>:7m5>'6]!HCUG6I<k_pq@lZW51C(LoU1dU<S@d!8mY8pX2:!$8R)#/m30NQo;gaP
+J.j-UJ-qI@hrO1KoW>+O0+`PEVC!\&XtJ9JD\mh?S8*95BZ[poj'Y;iE&q'LfOF0=XI!X5%-J(U
+k0+THd4Ob3O93%FK#ju5=,`L,/WTOURR(,_^+qKdEB3f&hWGK.[,USlSKlh(%g9Pf*WUA>^jBHb
+OQ6pY$%35SR3Kf2LBDNgG5U<$.2Kd)3*[`^KEqju!s/g25Ckg%34LTriUH"RN8tp`8^(3Z<Jd2u
+,Lk(tj+Bcg6Oeam[[b3AGCDa?$G730%R/MI(f5i)9>N^2NBIP_9S(IBg"9glF`=:BN`aU/$-5'?
+"n<*nDmQK"ao+^Oc[N/4]^`iOp;S6^R8:sNRj`-^nFq;K`4n$RYEU]7-$ml$S6MG`81co3XfmsX
+A"!GhJ>3/4V[q<Z(Zf?I2AZ0;As^!9n$E2n%/q:m7j/Z/TG1(A1;MUF8%r=/F7$tW";2XHa+Fr0
+fO(Jj@G'mp$BW`3BAO_o*Q>;*cf8sh%25tgFE_o#l8j@aPjQ^*7-@a?5m?nr8(U3_*4PXbc^E'j
+U'tQrh9].fqng6G8;/H_,p=.j9KB#M.!=+dbth]\3lfL0al/h(3QG-a3,@^?VPi8(FICpne]q7L
+iJ=%nncIBhC.^#]G$+)u&H;_K%/]G~>
+endstream
+endobj
+183 0 obj
+<</Type/Metadata
+/Subtype/XML/Length 1400>>stream
+<?xpacket begin='﻿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<?adobe-xap-filters esc="CRLF"?>
+<x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='XMP toolkit 2.9.1-13, framework 1.6'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+<rdf:Description rdf:about='74142c76-5376-11ee-0000-f5fbc5cd3d09' xmlns:pdf='http://ns.adobe.com/pdf/1.3/' pdf:Producer='GPL Ghostscript 8.70'/>
+<rdf:Description rdf:about='74142c76-5376-11ee-0000-f5fbc5cd3d09' xmlns:xmp='http://ns.adobe.com/xap/1.0/'><xmp:ModifyDate>2013-09-11T20:17:50-07:00</xmp:ModifyDate>
+<xmp:CreateDate>2013-09-11T20:17:50-07:00</xmp:CreateDate>
+<xmp:CreatorTool>GNU enscript 1.6.4</xmp:CreatorTool></rdf:Description>
+<rdf:Description rdf:about='74142c76-5376-11ee-0000-f5fbc5cd3d09' xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/' xapMM:DocumentID='74142c76-5376-11ee-0000-f5fbc5cd3d09'/>
+<rdf:Description rdf:about='74142c76-5376-11ee-0000-f5fbc5cd3d09' xmlns:dc='http://purl.org/dc/elements/1.1/' dc:format='application/pdf'><dc:title><rdf:Alt><rdf:li xml:lang='x-default'>Enscript Output</rdf:li></rdf:Alt></dc:title><dc:creator><rdf:Seq><rdf:li>Wesley Mackey</rdf:li></rdf:Seq></dc:creator></rdf:Description>
+</rdf:RDF>
+</x:xmpmeta>
+                                                                        
+                                                                        
+<?xpacket end='w'?>
+endstream
+endobj
+2 0 obj
+<</Producer(GPL Ghostscript 8.70)
+/CreationDate(D:20130911201750-07'00')
+/ModDate(D:20130911201750-07'00')
+/Title(Enscript Output)
+/Author(Wesley Mackey)
+/Creator(GNU enscript 1.6.4)>>endobj
+xref
+0 184
+0000000000 65535 f 
+0000106063 00000 n 
+0000130200 00000 n 
+0000105764 00000 n 
+0000100655 00000 n 
+0000000009 00000 n 
+0000001898 00000 n 
+0000106129 00000 n 
+0000110446 00000 n 
+0000126950 00000 n 
+0000110247 00000 n 
+0000125054 00000 n 
+0000109271 00000 n 
+0000110643 00000 n 
+0000109656 00000 n 
+0000115133 00000 n 
+0000106170 00000 n 
+0000106200 00000 n 
+0000100806 00000 n 
+0000001918 00000 n 
+0000004378 00000 n 
+0000106263 00000 n 
+0000106293 00000 n 
+0000100959 00000 n 
+0000004399 00000 n 
+0000006764 00000 n 
+0000106356 00000 n 
+0000106386 00000 n 
+0000101112 00000 n 
+0000006785 00000 n 
+0000009232 00000 n 
+0000106449 00000 n 
+0000106479 00000 n 
+0000101265 00000 n 
+0000009253 00000 n 
+0000012056 00000 n 
+0000106542 00000 n 
+0000106572 00000 n 
+0000101418 00000 n 
+0000012077 00000 n 
+0000014663 00000 n 
+0000106635 00000 n 
+0000106665 00000 n 
+0000101571 00000 n 
+0000014684 00000 n 
+0000017323 00000 n 
+0000106728 00000 n 
+0000106758 00000 n 
+0000101724 00000 n 
+0000017344 00000 n 
+0000020018 00000 n 
+0000106821 00000 n 
+0000106851 00000 n 
+0000101877 00000 n 
+0000020039 00000 n 
+0000021033 00000 n 
+0000106914 00000 n 
+0000106944 00000 n 
+0000102030 00000 n 
+0000021053 00000 n 
+0000025160 00000 n 
+0000107007 00000 n 
+0000107037 00000 n 
+0000102183 00000 n 
+0000025181 00000 n 
+0000028024 00000 n 
+0000107100 00000 n 
+0000107130 00000 n 
+0000102336 00000 n 
+0000028045 00000 n 
+0000028721 00000 n 
+0000107193 00000 n 
+0000107223 00000 n 
+0000102489 00000 n 
+0000028741 00000 n 
+0000030311 00000 n 
+0000107286 00000 n 
+0000107316 00000 n 
+0000102642 00000 n 
+0000030332 00000 n 
+0000034327 00000 n 
+0000107379 00000 n 
+0000107409 00000 n 
+0000102795 00000 n 
+0000034348 00000 n 
+0000038846 00000 n 
+0000107472 00000 n 
+0000107502 00000 n 
+0000102948 00000 n 
+0000038867 00000 n 
+0000043408 00000 n 
+0000107565 00000 n 
+0000107595 00000 n 
+0000103101 00000 n 
+0000043429 00000 n 
+0000047566 00000 n 
+0000107658 00000 n 
+0000107688 00000 n 
+0000103254 00000 n 
+0000047587 00000 n 
+0000051965 00000 n 
+0000107751 00000 n 
+0000107782 00000 n 
+0000103409 00000 n 
+0000051987 00000 n 
+0000052765 00000 n 
+0000107846 00000 n 
+0000107877 00000 n 
+0000103566 00000 n 
+0000052786 00000 n 
+0000054048 00000 n 
+0000107941 00000 n 
+0000107972 00000 n 
+0000103723 00000 n 
+0000054070 00000 n 
+0000054820 00000 n 
+0000108036 00000 n 
+0000108067 00000 n 
+0000103880 00000 n 
+0000054841 00000 n 
+0000057256 00000 n 
+0000108131 00000 n 
+0000108162 00000 n 
+0000104037 00000 n 
+0000057278 00000 n 
+0000061111 00000 n 
+0000108226 00000 n 
+0000108257 00000 n 
+0000104194 00000 n 
+0000061133 00000 n 
+0000065805 00000 n 
+0000108321 00000 n 
+0000108352 00000 n 
+0000104351 00000 n 
+0000065827 00000 n 
+0000070240 00000 n 
+0000108416 00000 n 
+0000108447 00000 n 
+0000104508 00000 n 
+0000070262 00000 n 
+0000074490 00000 n 
+0000108511 00000 n 
+0000108542 00000 n 
+0000104665 00000 n 
+0000074512 00000 n 
+0000079069 00000 n 
+0000108606 00000 n 
+0000108637 00000 n 
+0000104822 00000 n 
+0000079091 00000 n 
+0000083234 00000 n 
+0000108701 00000 n 
+0000108732 00000 n 
+0000104979 00000 n 
+0000083256 00000 n 
+0000087504 00000 n 
+0000108796 00000 n 
+0000108827 00000 n 
+0000105136 00000 n 
+0000087526 00000 n 
+0000091971 00000 n 
+0000108891 00000 n 
+0000108922 00000 n 
+0000105293 00000 n 
+0000091993 00000 n 
+0000096126 00000 n 
+0000108986 00000 n 
+0000109017 00000 n 
+0000105450 00000 n 
+0000096148 00000 n 
+0000099349 00000 n 
+0000109081 00000 n 
+0000109112 00000 n 
+0000105607 00000 n 
+0000099371 00000 n 
+0000100633 00000 n 
+0000109176 00000 n 
+0000109207 00000 n 
+0000110963 00000 n 
+0000115748 00000 n 
+0000125324 00000 n 
+0000127220 00000 n 
+0000110154 00000 n 
+0000128722 00000 n 
+trailer
+<< /Size 184 /Root 1 0 R /Info 2 0 R
+/ID [<D3CC4B2773FBAA573C50EAEA08BF1290><D3CC4B2773FBAA573C50EAEA08BF1290>]
+>>
+startxref
+130399
+%%EOF

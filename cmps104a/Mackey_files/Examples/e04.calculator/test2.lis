@@ -1,0 +1,219 @@
+::::::::::::::::
+test2.in
+::::::::::::::::
+     1	# $Id: test2.in,v 1.1 2013-09-05 19:21:46-07 - - $
+     2	a=3+4*5-6
+     3	b=a/3
+::::::::::::::::
+test2.out
+::::::::::::::::
+     1	# $Id: test2.in,v 1.1 2013-09-05 19:21:46-07 - - $
+     2	
+     3	a=3+4*5-6
+     4	****EXPR==17
+     5	b=a/3
+     6	****EXPR==5.666666667
+     7	symtab[a] = 17
+     8	symtab[b] = 5.666666667
+::::::::::::::::
+test2.err
+::::::::::::::::
+     1	Starting parse
+     2	Entering state 0
+     3	Reducing stack by rule 2 (line 27):
+     4	-> $$ = nterm stmts ()
+     5	Stack now 0
+     6	Entering state 1
+     7	Reading a token: --(end of buffer or a NUL)
+     8	--accepting rule at line 42 ("# $Id: test2.in,v 1.1 2013-09-05 19:21:46-07 - - $")
+     9	--accepting rule at line 40 ("
+    10	")
+    11	Next token is token '\n' ()
+    12	Shifting token '\n' ()
+    13	Entering state 8
+    14	Reducing stack by rule 5 (line 32):
+    15	   $1 = token '\n' ()
+    16	-> $$ = nterm stmt ()
+    17	Stack now 0 1
+    18	Entering state 10
+    19	Reducing stack by rule 1 (line 26):
+    20	   $1 = nterm stmts ()
+    21	   $2 = nterm stmt ()
+    22	-> $$ = nterm stmts ()
+    23	Stack now 0
+    24	Entering state 1
+    25	Reading a token: --accepting rule at line 31 ("a")
+    26	Next token is token IDENT ()
+    27	Shifting token IDENT ()
+    28	Entering state 4
+    29	Reading a token: --accepting rule at line 39 ("=")
+    30	Next token is token '=' ()
+    31	Shifting token '=' ()
+    32	Entering state 13
+    33	Reading a token: --accepting rule at line 32 ("3")
+    34	Next token is token NUMBER ()
+    35	Shifting token NUMBER ()
+    36	Entering state 5
+    37	Reducing stack by rule 14 (line 43):
+    38	   $1 = token NUMBER ()
+    39	-> $$ = nterm expr ()
+    40	Stack now 0 1 4 13
+    41	Entering state 22
+    42	Reading a token: --accepting rule at line 35 ("+")
+    43	Next token is token '+' ()
+    44	Shifting token '+' ()
+    45	Entering state 17
+    46	Reading a token: --accepting rule at line 32 ("4")
+    47	Next token is token NUMBER ()
+    48	Shifting token NUMBER ()
+    49	Entering state 5
+    50	Reducing stack by rule 14 (line 43):
+    51	   $1 = token NUMBER ()
+    52	-> $$ = nterm expr ()
+    53	Stack now 0 1 4 13 22 17
+    54	Entering state 24
+    55	Reading a token: --accepting rule at line 38 ("*")
+    56	Next token is token '*' ()
+    57	Shifting token '*' ()
+    58	Entering state 19
+    59	Reading a token: --accepting rule at line 32 ("5")
+    60	Next token is token NUMBER ()
+    61	Shifting token NUMBER ()
+    62	Entering state 5
+    63	Reducing stack by rule 14 (line 43):
+    64	   $1 = token NUMBER ()
+    65	-> $$ = nterm expr ()
+    66	Stack now 0 1 4 13 22 17 24 19
+    67	Entering state 26
+    68	Reducing stack by rule 9 (line 38):
+    69	   $1 = nterm expr ()
+    70	   $2 = token '*' ()
+    71	   $3 = nterm expr ()
+    72	-> $$ = nterm expr ()
+    73	Stack now 0 1 4 13 22 17
+    74	Entering state 24
+    75	Reading a token: --accepting rule at line 36 ("-")
+    76	Next token is token '-' ()
+    77	Reducing stack by rule 7 (line 36):
+    78	   $1 = nterm expr ()
+    79	   $2 = token '+' ()
+    80	   $3 = nterm expr ()
+    81	-> $$ = nterm expr ()
+    82	Stack now 0 1 4 13
+    83	Entering state 22
+    84	Next token is token '-' ()
+    85	Shifting token '-' ()
+    86	Entering state 18
+    87	Reading a token: --accepting rule at line 32 ("6")
+    88	Next token is token NUMBER ()
+    89	Shifting token NUMBER ()
+    90	Entering state 5
+    91	Reducing stack by rule 14 (line 43):
+    92	   $1 = token NUMBER ()
+    93	-> $$ = nterm expr ()
+    94	Stack now 0 1 4 13 22 18
+    95	Entering state 25
+    96	Reading a token: --accepting rule at line 40 ("
+    97	")
+    98	Next token is token '\n' ()
+    99	Reducing stack by rule 8 (line 37):
+   100	   $1 = nterm expr ()
+   101	   $2 = token '-' ()
+   102	   $3 = nterm expr ()
+   103	-> $$ = nterm expr ()
+   104	Stack now 0 1 4 13
+   105	Entering state 22
+   106	Next token is token '\n' ()
+   107	Reducing stack by rule 6 (line 35):
+   108	   $1 = token IDENT ()
+   109	   $2 = token '=' ()
+   110	   $3 = nterm expr ()
+   111	-> $$ = nterm expr ()
+   112	Stack now 0 1
+   113	Entering state 11
+   114	Next token is token '\n' ()
+   115	Shifting token '\n' ()
+   116	Entering state 21
+   117	Reducing stack by rule 3 (line 30):
+   118	   $1 = nterm expr ()
+   119	   $2 = token '\n' ()
+   120	-> $$ = nterm stmt ()
+   121	Stack now 0 1
+   122	Entering state 10
+   123	Reducing stack by rule 1 (line 26):
+   124	   $1 = nterm stmts ()
+   125	   $2 = nterm stmt ()
+   126	-> $$ = nterm stmts ()
+   127	Stack now 0
+   128	Entering state 1
+   129	Reading a token: --accepting rule at line 31 ("b")
+   130	Next token is token IDENT ()
+   131	Shifting token IDENT ()
+   132	Entering state 4
+   133	Reading a token: --accepting rule at line 39 ("=")
+   134	Next token is token '=' ()
+   135	Shifting token '=' ()
+   136	Entering state 13
+   137	Reading a token: --accepting rule at line 31 ("a")
+   138	Next token is token IDENT ()
+   139	Shifting token IDENT ()
+   140	Entering state 4
+   141	Reading a token: --accepting rule at line 37 ("/")
+   142	Next token is token '/' ()
+   143	Reducing stack by rule 15 (line 44):
+   144	   $1 = token IDENT ()
+   145	-> $$ = nterm expr ()
+   146	Stack now 0 1 4 13
+   147	Entering state 22
+   148	Next token is token '/' ()
+   149	Shifting token '/' ()
+   150	Entering state 20
+   151	Reading a token: --accepting rule at line 32 ("3")
+   152	Next token is token NUMBER ()
+   153	Shifting token NUMBER ()
+   154	Entering state 5
+   155	Reducing stack by rule 14 (line 43):
+   156	   $1 = token NUMBER ()
+   157	-> $$ = nterm expr ()
+   158	Stack now 0 1 4 13 22 20
+   159	Entering state 27
+   160	Reducing stack by rule 10 (line 39):
+   161	   $1 = nterm expr ()
+   162	   $2 = token '/' ()
+   163	   $3 = nterm expr ()
+   164	-> $$ = nterm expr ()
+   165	Stack now 0 1 4 13
+   166	Entering state 22
+   167	Reading a token: --accepting rule at line 40 ("
+   168	")
+   169	Next token is token '\n' ()
+   170	Reducing stack by rule 6 (line 35):
+   171	   $1 = token IDENT ()
+   172	   $2 = token '=' ()
+   173	   $3 = nterm expr ()
+   174	-> $$ = nterm expr ()
+   175	Stack now 0 1
+   176	Entering state 11
+   177	Next token is token '\n' ()
+   178	Shifting token '\n' ()
+   179	Entering state 21
+   180	Reducing stack by rule 3 (line 30):
+   181	   $1 = nterm expr ()
+   182	   $2 = token '\n' ()
+   183	-> $$ = nterm stmt ()
+   184	Stack now 0 1
+   185	Entering state 10
+   186	Reducing stack by rule 1 (line 26):
+   187	   $1 = nterm stmts ()
+   188	   $2 = nterm stmt ()
+   189	-> $$ = nterm stmts ()
+   190	Stack now 0
+   191	Entering state 1
+   192	Reading a token: --(end of buffer or a NUL)
+   193	--EOF (start condition 0)
+   194	Now at end of input.
+   195	Shifting token $end ()
+   196	Entering state 2
+   197	Stack now 0 1 2
+   198	Cleanup: popping token $end ()
+   199	Cleanup: popping nterm stmts ()

@@ -1,0 +1,47 @@
+::::::::::::::::
+test1.in
+::::::::::::::::
+     1	# $Id: test1.in,v 1.2 2013-09-05 20:24:24-07 - - $
+     2	alpha=3+4*5-6
+     3	crap out
+     4	beta=alpha/3
+     5	gamma=beta*10-alpha*33
+     6	64e *98
+     7	infinity=1e1000*1e1000
+     8	nan=infinity/infinity
+     9	foo*bar
+::::::::::::::::
+test1.out
+::::::::::::::::
+     1	# $Id: test1.in,v 1.2 2013-09-05 20:24:24-07 - - $
+     2	
+     3	alpha=3+4*5-6
+     4	****EXPR==17
+     5	crap out ... [[variable is uninitialized (crap)]]
+     6	 ... [[syntax error, unexpected IDENT]]
+     7	
+     8	****ERROR #1
+     9	beta=alpha/3
+    10	****EXPR==5.666666667
+    11	gamma=beta*10-alpha*33
+    12	****EXPR==-504.3333333
+    13	64e ... [[invalid numeric value (64e)]]
+    14	 * ... [[syntax error, unexpected '*']]
+    15	98
+    16	****ERROR #2
+    17	infinity=1e1000*1e1000
+    18	****EXPR==inf
+    19	nan=infinity/infinity
+    20	****EXPR==-nan
+    21	foo* ... [[variable is uninitialized (foo)]]
+    22	bar
+    23	 ... [[variable is uninitialized (bar)]]
+    24	****EXPR==-nan
+    25	symtab[alpha] = 17
+    26	symtab[beta] = 5.666666667
+    27	symtab[gamma] = -504.3333333
+    28	symtab[infinity] = inf
+    29	symtab[nan] = -nan
+::::::::::::::::
+test1.err
+::::::::::::::::

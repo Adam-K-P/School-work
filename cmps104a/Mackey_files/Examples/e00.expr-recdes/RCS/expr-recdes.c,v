@@ -1,0 +1,3120 @@
+head	1.104;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.104
+date	2013.09.04.01.53.55;	author -;	state -;
+branches;
+next	1.103;
+
+1.103
+date	2013.09.04.01.49.59;	author -;	state -;
+branches;
+next	1.102;
+
+1.102
+date	2013.08.30.20.33.20;	author -;	state -;
+branches;
+next	1.101;
+
+1.101
+date	2013.08.30.20.26.48;	author -;	state -;
+branches;
+next	1.100;
+
+1.100
+date	2013.08.30.20.25.55;	author -;	state -;
+branches;
+next	1.99;
+
+1.99
+date	2010.10.06.21.15.23;	author -;	state -;
+branches;
+next	1.98;
+
+1.98
+date	2010.10.06.21.13.46;	author -;	state -;
+branches;
+next	1.97;
+
+1.97
+date	2010.10.06.21.13.07;	author -;	state -;
+branches;
+next	1.96;
+
+1.96
+date	2010.09.16.22.59.51;	author -;	state -;
+branches;
+next	1.95;
+
+1.95
+date	2010.09.16.22.59.40;	author -;	state -;
+branches;
+next	1.94;
+
+1.94
+date	2010.09.16.22.59.26;	author -;	state -;
+branches;
+next	1.93;
+
+1.93
+date	2010.09.16.22.52.14;	author -;	state -;
+branches;
+next	1.92;
+
+1.92
+date	2010.09.16.22.51.48;	author -;	state -;
+branches;
+next	1.91;
+
+1.91
+date	2010.09.16.22.51.10;	author -;	state -;
+branches;
+next	1.90;
+
+1.90
+date	2010.09.16.22.50.31;	author -;	state -;
+branches;
+next	1.89;
+
+1.89
+date	2010.09.16.22.48.36;	author -;	state -;
+branches;
+next	1.88;
+
+1.88
+date	2009.10.02.19.57.36;	author -;	state -;
+branches;
+next	1.87;
+
+1.87
+date	2009.10.02.01.18.02;	author -;	state -;
+branches;
+next	1.86;
+
+1.86
+date	2009.10.02.01.17.37;	author -;	state -;
+branches;
+next	1.85;
+
+1.85
+date	2009.10.02.01.03.39;	author -;	state -;
+branches;
+next	1.84;
+
+1.84
+date	2009.10.02.01.03.13;	author -;	state -;
+branches;
+next	1.83;
+
+1.83
+date	2009.10.02.01.00.38;	author -;	state -;
+branches;
+next	1.82;
+
+1.82
+date	2009.10.02.00.42.12;	author -;	state -;
+branches;
+next	1.81;
+
+1.81
+date	2009.10.02.00.38.15;	author -;	state -;
+branches;
+next	1.80;
+
+1.80
+date	2009.10.02.00.37.00;	author -;	state -;
+branches;
+next	1.79;
+
+1.79
+date	2009.10.02.00.36.42;	author -;	state -;
+branches;
+next	1.78;
+
+1.78
+date	2009.10.02.00.27.48;	author -;	state -;
+branches;
+next	1.77;
+
+1.77
+date	2009.10.02.00.27.15;	author -;	state -;
+branches;
+next	1.76;
+
+1.76
+date	2009.10.02.00.18.54;	author -;	state -;
+branches;
+next	1.75;
+
+1.75
+date	2009.10.02.00.18.11;	author -;	state -;
+branches;
+next	1.74;
+
+1.74
+date	2009.10.02.00.12.40;	author -;	state -;
+branches;
+next	1.73;
+
+1.73
+date	2009.10.02.00.08.51;	author -;	state -;
+branches;
+next	1.72;
+
+1.72
+date	2009.10.01.23.59.32;	author -;	state -;
+branches;
+next	1.71;
+
+1.71
+date	2009.10.01.23.59.18;	author -;	state -;
+branches;
+next	1.70;
+
+1.70
+date	2009.10.01.23.55.28;	author -;	state -;
+branches;
+next	1.69;
+
+1.69
+date	2009.10.01.23.52.53;	author -;	state -;
+branches;
+next	1.68;
+
+1.68
+date	2009.10.01.23.48.05;	author -;	state -;
+branches;
+next	1.67;
+
+1.67
+date	2009.10.01.23.43.11;	author -;	state -;
+branches;
+next	1.66;
+
+1.66
+date	2009.10.01.23.42.25;	author -;	state -;
+branches;
+next	1.65;
+
+1.65
+date	2009.10.01.23.41.44;	author -;	state -;
+branches;
+next	1.64;
+
+1.64
+date	2009.10.01.23.41.09;	author -;	state -;
+branches;
+next	1.63;
+
+1.63
+date	2009.10.01.23.40.19;	author -;	state -;
+branches;
+next	1.62;
+
+1.62
+date	2009.10.01.23.38.30;	author -;	state -;
+branches;
+next	1.61;
+
+1.61
+date	2009.10.01.23.30.47;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2009.10.01.23.29.09;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2009.10.01.23.28.46;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2009.10.01.23.16.18;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2009.10.01.23.10.24;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2009.10.01.23.07.30;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2009.10.01.23.06.26;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2009.10.01.23.06.14;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2009.10.01.22.32.11;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2009.10.01.22.11.14;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2009.10.01.22.04.24;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2009.10.01.22.03.30;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2009.10.01.22.01.26;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2009.10.01.21.49.12;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2009.10.01.21.49.01;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2009.10.01.21.48.41;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2009.10.01.21.48.25;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2009.10.01.21.48.06;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2009.10.01.21.25.45;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2009.10.01.21.25.28;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2009.10.01.21.21.55;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2009.10.01.21.15.34;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2009.10.01.21.07.50;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2009.10.01.21.05.28;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2009.10.01.20.57.36;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2009.10.01.20.52.25;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2009.10.01.20.51.05;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2009.10.01.20.50.16;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2009.10.01.20.44.39;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2009.10.01.20.43.57;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2009.10.01.20.43.28;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2009.10.01.20.43.05;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2009.10.01.20.36.10;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2009.09.30.04.03.25;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2009.09.30.04.02.57;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2009.09.30.04.02.40;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2009.09.30.04.01.07;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2009.09.30.03.58.34;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2009.09.30.03.58.21;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2009.09.30.03.58.08;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2009.09.30.03.56.21;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2009.09.30.03.51.14;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2009.09.30.03.50.57;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2009.09.30.03.43.01;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2009.09.30.03.42.27;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2009.09.30.03.41.56;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2009.09.30.03.41.30;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2009.09.30.03.39.06;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2009.09.30.03.37.46;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2009.09.30.03.34.17;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2009.09.30.03.33.58;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2009.09.30.03.29.35;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2009.09.30.03.28.13;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2009.09.30.03.27.06;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2009.09.30.03.26.03;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2009.09.30.03.25.56;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2009.09.30.03.24.17;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2009.09.30.03.22.48;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2009.09.30.03.19.26;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2009.09.30.03.19.17;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.09.30.03.13.21;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.104
+log
+@-
+@
+text
+@// $Id: expr-recdes.c,v 1.103 2013-09-03 18:49:59-07 - - $
+
+//
+// A trivial hand-coded top-down recursive descent compiler for
+// a simple language.
+//
+// Context-free syntax.
+//
+// program -> { expr ; }...
+// expr    -> term { +|- term }...
+// term    -> factor { *|/ factor }...
+// factor  -> ( expr ) | IDENT | NUMBER
+//
+// Lexical syntax.
+//
+// IDENT   -> [A-Za-z][A-Za-z0-9]*
+// NUMBER  -> [0-9]+
+// COMMENT -> #.*
+// WHITE   -> [ \n]+
+//
+
+#include <assert.h>
+#include <ctype.h>
+#include <libgen.h>
+#include <stdarg.h>
+#include <stdio.h> 
+#include <stdlib.h>
+#include <string.h>
+
+char *exec_name = NULL;
+
+void verify (int condition, char *format, ...) {
+   if (condition) return;
+   va_list args;
+   fflush (NULL);
+   fprintf (stderr, "%s: ", exec_name);
+   va_start (args, format);
+   vfprintf (stderr, format, args);
+   va_end (args);
+   fflush (NULL);
+   exit (EXIT_FAILURE);
+}
+#define VERIFY_SYNTAX(SYMBOL) \
+        verify (lookahead_token->symbol == SYMBOL, \
+                "syntax error: %s\n", __func__);
+
+void *xmalloc (size_t size) {
+   void *result = malloc (size);
+   assert (result != NULL);
+   return result;
+}
+
+char *xstrdup (const char *string) {
+   char *result = strdup (string);
+   assert (result != NULL);
+   return result;
+}
+
+
+typedef struct astree astree;
+struct astree {
+   int symbol;
+   char *lexeme;
+   astree *left;
+   astree *right;
+};
+
+astree *new_astree (int symbol, char *lexeme) {
+   astree *tree = xmalloc (sizeof (astree));
+   tree->symbol = symbol;
+   tree->lexeme = xstrdup (lexeme);
+   tree->left = NULL;
+   tree->right = NULL;
+   return tree;
+}
+
+void preorder_astree (int depth, astree *tree) {
+   printf ("%*c\"%s\" %d\n", depth * 3, ' ',
+            tree->lexeme, tree->symbol);
+   if (tree->left) preorder_astree (depth + 1, tree->left);
+   if (tree->right) preorder_astree (depth + 1, tree->right);
+}
+
+void print_astree (const char *label, astree *tree) {
+   printf ("%s:\n", label);
+   preorder_astree (1, tree);
+}
+#define PRINT_ASTREE(TREE) print_astree (__func__, TREE)
+
+astree *adopt (astree *root, astree *left, astree *right) {
+   root->left = left;
+   root->right = right;
+   return root;
+}
+
+void free_astree (astree *tree) {
+   if (tree == NULL) return;
+   free (tree->left);
+   free (tree->right);
+   free (tree);
+}
+
+
+enum {ENDFILE = 256, IDENT = 257, NUMBER = 258, NOSYMBOL = -1};
+int peekchar = 0;
+char lexeme_buffer[1<<10];
+char *lexeme_end = lexeme_buffer;
+astree *lookahead_token = NULL;
+
+int isnt_nl (int achar) { return achar != '\n' && achar != EOF; }
+
+void scan_chars (int (*ischar) (int)) {
+   do {
+      verify (peekchar != EOF, "read past EOF\n");
+      *lexeme_end++ = peekchar;
+      *lexeme_end = '\0';
+      peekchar = getchar ();
+   }while (ischar && ischar (peekchar));
+}
+
+void scan_new_token (int symbol, int (*ischar) (int)) {
+   if (symbol != ENDFILE) scan_chars (ischar);
+   lookahead_token = new_astree (symbol, lexeme_buffer);
+   PRINT_ASTREE (lookahead_token);
+}
+
+void scan_lookahead_token (void) {
+   for (;;) {
+      *(lexeme_end = lexeme_buffer) = '\0';
+      if (isalpha (peekchar)) {
+         scan_new_token (IDENT, isalnum);
+         return;
+      }else if (isdigit (peekchar)) {
+         scan_new_token (NUMBER, isdigit);
+         return;
+      }else {
+         switch (peekchar) {
+            case ' ':
+            case '\n':
+               scan_chars (isspace);
+               continue;
+            case '#':
+               scan_chars (isnt_nl);
+               continue;
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+            case '(':
+            case ')':
+            case ';':
+               scan_new_token (peekchar, NULL);
+               return;
+            case EOF:
+               scan_new_token (ENDFILE, NULL);
+               return;
+         }
+      }
+      verify (0, "bad input char \'%c\'\n", peekchar);
+   }
+}
+
+
+astree *parse_expr (void);
+
+astree *parse_factor (void) {
+   astree *tree = NULL;
+   switch (lookahead_token->symbol) {
+      case '(':
+         scan_lookahead_token ();
+         tree = parse_expr ();
+         VERIFY_SYNTAX (')');
+         scan_lookahead_token ();
+         break;
+      case IDENT:
+      case NUMBER:
+         tree = lookahead_token;
+         scan_lookahead_token ();
+         break;
+      default:
+         VERIFY_SYNTAX (NOSYMBOL);
+   }
+   PRINT_ASTREE (tree);
+   return tree;
+}
+
+astree *parse_term (void) {
+   astree *root = parse_factor ();
+   for (;;) {
+      switch (lookahead_token->symbol) {
+         case '*':
+         case '/': {
+            astree *operator = lookahead_token;
+            scan_lookahead_token ();
+            root = adopt (operator, root, parse_factor ());
+            break;
+         }
+         default:
+            PRINT_ASTREE (root);
+            return root;
+      }
+   }
+}
+
+astree *parse_expr (void) {
+   astree *root = parse_term ();
+   for (;;) {
+      switch (lookahead_token->symbol) {
+         case '+':
+         case '-': {
+            astree *operator = lookahead_token;
+            scan_lookahead_token ();
+            root = adopt (operator, root, parse_term ());
+            break;
+         }
+         default:
+            PRINT_ASTREE (root);
+            return root;
+      }
+   }
+}
+
+
+void parse_program (void) {
+   while (lookahead_token->symbol != ENDFILE) {
+      astree *tree = parse_expr ();
+      VERIFY_SYNTAX (';');
+      scan_lookahead_token ();
+      PRINT_ASTREE (tree);
+      if (lookahead_token->symbol != ENDFILE) printf ("\f\n");
+      free_astree (tree);
+   }
+}
+
+int main (int argc, char **argv) {
+   exec_name = basename (argv[0]);
+   peekchar = getchar ();
+   scan_lookahead_token ();
+   parse_program ();
+   VERIFY_SYNTAX (ENDFILE);
+   return EXIT_SUCCESS;
+}
+
+@
+
+
+1.103
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.102 2013-08-30 13:33:20-07 - - $
+d47 12
+d69 1
+a69 2
+   astree *tree = malloc (sizeof (astree));
+   assert (tree != NULL);
+d71 1
+a71 2
+   tree->lexeme = strdup (lexeme);
+   assert (tree->lexeme != NULL);
+@
+
+
+1.102
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.101 2013-08-30 13:26:48-07 - - $
+d86 7
+d221 1
+@
+
+
+1.101
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.100 2013-08-30 13:25:55-07 - - $
+d30 1
+a30 1
+char *execbin_name = NULL;
+d33 1
+a34 1
+   if (condition) return;
+d36 1
+a36 1
+   fprintf (stderr, "%s: ", execbin_name);
+d78 1
+a78 1
+#define PRINT_ABSYN_TREE(TREE) print_astree (__func__, TREE)
+a92 1
+int iswhite (int achar) { return achar == ' ' || achar == '\n'; }
+d107 1
+a107 1
+   PRINT_ABSYN_TREE (lookahead_token);
+d123 1
+a123 1
+               scan_chars (iswhite);
+d166 1
+a166 1
+   PRINT_ABSYN_TREE (tree);
+d182 1
+a182 1
+            PRINT_ABSYN_TREE (root);
+d200 1
+a200 1
+            PRINT_ABSYN_TREE (root);
+d212 1
+a212 1
+      PRINT_ABSYN_TREE (tree);
+d218 1
+a218 1
+   execbin_name = basename (argv[0]);
+@
+
+
+1.100
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.99 2010-10-06 14:15:23-07 - - $
+d48 2
+a49 2
+typedef struct absyn_tree absyn_tree;
+struct absyn_tree {
+d52 2
+a53 2
+   absyn_tree *left;
+   absyn_tree *right;
+d56 2
+a57 2
+absyn_tree *new_absyn_tree (int symbol, char *lexeme) {
+   absyn_tree *tree = malloc (sizeof (absyn_tree));
+d67 1
+a67 1
+void preorder_absyn_tree (int depth, absyn_tree *tree) {
+d70 2
+a71 2
+   if (tree->left) preorder_absyn_tree (depth + 1, tree->left);
+   if (tree->right) preorder_absyn_tree (depth + 1, tree->right);
+d74 1
+a74 1
+void print_absyn_tree (const char *label, absyn_tree *tree) {
+d76 1
+a76 1
+   preorder_absyn_tree (1, tree);
+d78 1
+a78 1
+#define PRINT_ABSYN_TREE(TREE) print_absyn_tree (__func__, TREE)
+d80 1
+a80 1
+absyn_tree *adopt (absyn_tree *root, absyn_tree *left, absyn_tree *right) {
+d91 1
+a91 1
+absyn_tree *lookahead_token = NULL;
+d107 1
+a107 1
+   lookahead_token = new_absyn_tree (symbol, lexeme_buffer);
+d148 1
+a148 1
+absyn_tree *parse_expr (void);
+d150 2
+a151 2
+absyn_tree *parse_factor (void) {
+   absyn_tree *tree = NULL;
+d171 2
+a172 2
+absyn_tree *parse_term (void) {
+   absyn_tree *root = parse_factor ();
+d177 1
+a177 1
+            absyn_tree *operator = lookahead_token;
+d189 2
+a190 2
+absyn_tree *parse_expr (void) {
+   absyn_tree *root = parse_term ();
+d195 1
+a195 1
+            absyn_tree *operator = lookahead_token;
+d210 1
+a210 1
+      absyn_tree *tree = parse_expr ();
+@
+
+
+1.99
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.98 2010-10-06 14:13:46-07 - - $
+a21 2
+#define __USE_BSD
+
+d30 1
+a30 12
+#define xfflush   (void) fflush
+#define xfprintf  (void) fprintf
+#define xprintf   (void) printf
+#define xstrcpy   (void) strcpy
+#define xvfprintf (void) vfprintf
+
+char *strdup (const char *string) {
+   assert (string != NULL);
+   char *dup = malloc (strlen (string) + 1);
+   if (dup != NULL) xstrcpy (dup, string);
+   return dup;
+}
+a31 1
+char *execbin_name = NULL;
+d35 2
+a36 2
+   xfflush (NULL);
+   xfprintf (stderr, "%s: ", execbin_name);
+d38 1
+a38 1
+   xvfprintf (stderr, format, args);
+d40 1
+a40 1
+   xfflush (NULL);
+d48 1
+a48 1
+typedef struct absyn_tree *absyn_tree;
+d52 2
+a53 2
+   absyn_tree left;
+   absyn_tree right;
+d56 2
+a57 2
+absyn_tree new_absyn_tree (int symbol, char *lexeme) {
+   absyn_tree tree = malloc (sizeof (struct absyn_tree));
+d67 2
+a68 2
+void preorder_absyn_tree (int depth, absyn_tree tree) {
+   xprintf ("%*c\"%s\" %d\n", depth * 3, ' ',
+d74 2
+a75 2
+void print_absyn_tree (const char *label, absyn_tree tree) {
+   xprintf ("%s:\n", label);
+d80 1
+a80 1
+absyn_tree adopt (absyn_tree root, absyn_tree left, absyn_tree right) {
+d91 1
+a91 1
+absyn_tree lookahead_token = NULL;
+a98 1
+      // LINTED (assignment of 32-bit integer to 8-bit integer)
+d148 1
+a148 1
+absyn_tree parse_expr (void);
+d150 2
+a151 2
+absyn_tree parse_factor (void) {
+   absyn_tree tree = NULL;
+d171 2
+a172 2
+absyn_tree parse_term (void) {
+   absyn_tree root = parse_factor ();
+d177 1
+a177 1
+            absyn_tree operator = lookahead_token;
+d189 2
+a190 2
+absyn_tree parse_expr (void) {
+   absyn_tree root = parse_term ();
+d195 1
+a195 1
+            absyn_tree operator = lookahead_token;
+d210 1
+a210 1
+      absyn_tree tree = parse_expr ();
+d214 1
+a214 1
+      if (lookahead_token->symbol != ENDFILE) xprintf ("\f\n");
+a217 1
+// LINTED (argument unused in function)
+@
+
+
+1.98
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.97 2010-10-06 14:13:07-07 - - $
+a35 1
+#define xstrcpy   (void) strcpy
+d39 1
+@
+
+
+1.97
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.96 2010-09-16 15:59:51-07 - - $
+d33 1
+d36 1
+a36 1
+#define xfprintf  (void) fprintf
+d41 1
+a41 1
+   if (dup != NULL) strcpy (dup, string);
+@
+
+
+1.96
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.95 2010-09-16 15:59:40-07 - - $
+d38 6
+@
+
+
+1.95
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.94 2010-09-16 15:59:26-07 - - $
+d30 1
+a30 1
+#include <strings.h>
+@
+
+
+1.94
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.93 2010-09-16 15:52:14-07 - - $
+d30 1
+a30 1
+#include <string.h>
+@
+
+
+1.93
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.92 2010-09-16 15:51:48-07 - - $
+a22 1
+#define __USE_SVID
+@
+
+
+1.92
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.91 2010-09-16 15:51:10-07 - - $
+d22 2
+a23 1
+#define __USE_BSD 1
+@
+
+
+1.91
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.90 2010-09-16 15:50:31-07 - - $
+d22 1
+a22 1
+#define __USE_BSD
+@
+
+
+1.90
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.89 2010-09-16 15:48:36-07 - - $
+d30 1
+a30 1
+#include <strings.h>
+@
+
+
+1.89
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.88 2009-10-02 12:57:36-07 - - $
+d22 2
+d30 1
+a30 1
+#include <string.h>
+@
+
+
+1.88
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.87 2009-10-01 18:18:02-07 - - $
+d28 1
+a28 1
+#include <strings.h>
+@
+
+
+1.87
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.86 2009-10-01 18:17:37-07 - - $
+d10 3
+a12 7
+// expr    -> term { + term }...
+// expr    -> term { - term }...
+// term    -> factor { * factor }...
+// term    -> factor { / factor }...
+// factor  -> ( expr )
+// factor  -> IDENT
+// factor  -> NUMBER
+@
+
+
+1.86
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.85 2009-10-01 18:03:39-07 - - $
+d53 2
+a54 2
+   verify (lookahead_token->symbol == SYMBOL,
+           "syntax error: %s\n", __func__);
+@
+
+
+1.85
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.84 2009-10-01 18:03:13-07 - - $
+d52 3
+a82 1
+#define PRINT_ABSYN_TREE(TREE) print_absyn_tree (__func__, TREE)
+d87 1
+a157 4
+void syntax_error_unless (int symbol) {
+   verify (lookahead_token->symbol == symbol, "syntax error");
+}
+
+d166 1
+a166 1
+         syntax_error_unless (')');
+d175 1
+a175 1
+         syntax_error_unless (NOSYMBOL);
+d221 1
+a221 1
+      syntax_error_unless (';');
+d234 1
+a234 1
+   syntax_error_unless (ENDFILE);
+@
+
+
+1.84
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.83 2009-10-01 18:00:38-07 - - $
+d52 1
+a53 1
+
+d91 1
+a92 1
+
+d153 1
+a154 1
+
+d217 1
+a218 1
+
+@
+
+
+1.83
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.82 2009-10-01 17:42:12-07 - - $
+d52 1
+a53 1
+
+d91 1
+a92 1
+
+d153 1
+a154 1
+
+d217 1
+@
+
+
+1.82
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.81 2009-10-01 17:38:15-07 - - $
+a92 8
+char trace_buffer[1<<12];
+char *trace_end = trace_buffer;
+
+int trace_getchar (void) {
+   return (*trace_end++ = getchar ());
+}
+
+
+d108 1
+a108 1
+      peekchar = trace_getchar ();
+d231 1
+a231 1
+   peekchar = trace_getchar ();
+@
+
+
+1.81
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.80 2009-10-01 17:37:00-07 - - $
+d93 8
+d116 1
+a116 1
+      peekchar = getchar ();
+d239 1
+a239 1
+   peekchar = getchar ();
+@
+
+
+1.80
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.79 2009-10-01 17:36:42-07 - - $
+d224 1
+a224 1
+      xprintf ("\f\n");
+@
+
+
+1.79
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.78 2009-10-01 17:27:48-07 - - $
+d224 1
+a224 1
+      xprintf ("\f");
+@
+
+
+1.78
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.77 2009-10-01 17:27:15-07 - - $
+d224 1
+a224 1
+      xprintf ("\n");
+@
+
+
+1.77
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.76 2009-10-01 17:18:54-07 - - $
+d81 1
+a81 1
+void print_absyn_tree (char *label, absyn_tree tree) {
+@
+
+
+1.76
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.75 2009-10-01 17:18:11-07 - - $
+d80 1
+d115 1
+a115 1
+   print_absyn_tree ("scan_lookahead_token", lookahead_token);
+d178 1
+a178 1
+   print_absyn_tree ("parse_factor", tree);
+d194 1
+a194 1
+            print_absyn_tree ("parse_term", root);
+d212 1
+a212 1
+            print_absyn_tree ("parse_expr", root);
+d223 1
+a223 1
+      print_absyn_tree ("parse_program", tree);
+@
+
+
+1.75
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.74 2009-10-01 17:12:40-07 - - $
+d74 2
+a75 1
+   xprintf ("%*c\"%s\" %d\n", depth * 3, tree->lexeme, tree->symbol);
+@
+
+
+1.74
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.73 2009-10-01 17:08:51-07 - - $
+d73 4
+a76 10
+void print_symbol (int symbol, char *lexeme) {
+   xprintf ("%d\"%s\"", symbol, lexeme);
+}
+
+void inorder_absyn_tree (absyn_tree tree) {
+   xprintf ("(");
+   if (tree->left) inorder_absyn_tree (tree->left);
+   print_symbol (tree->symbol, tree->lexeme);
+   if (tree->right) inorder_absyn_tree (tree->right);
+   xprintf (")");
+d80 2
+a81 3
+   xprintf ("%s: ", label);
+   inorder_absyn_tree (tree);
+   xprintf ("\n");
+@
+
+
+1.73
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.72 2009-10-01 16:59:32-07 - - $
+d128 1
+d131 1
+@
+
+
+1.72
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.71 2009-10-01 16:59:18-07 - - $
+d91 6
+d150 1
+d186 1
+a186 1
+   absyn_tree left_operand = parse_factor ();
+d193 1
+a193 4
+            absyn_tree right_operand = parse_factor ();
+            operator->left = left_operand;
+            operator->right = right_operand;
+            left_operand = operator;
+d197 2
+a198 2
+            print_absyn_tree ("parse_term", left_operand);
+            return left_operand;
+d204 1
+a204 1
+   absyn_tree left_operand = parse_term ();
+d211 1
+a211 4
+            absyn_tree right_operand = parse_term ();
+            operator->left = left_operand;
+            operator->right = right_operand;
+            left_operand = operator;
+d215 2
+a216 2
+            print_absyn_tree ("parse_expr", left_operand);
+            return left_operand;
+@
+
+
+1.71
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.69 2009-10-01 16:52:53-07 - - $
+d143 1
+a143 1
+               scan_new_token (ENDFILE);
+@
+
+
+1.70
+log
+@-
+@
+text
+@a110 6
+absyn_tree new_token (int symbol) {
+   absyn_tree token = new_absyn_tree (symbol, lexeme_buffer);
+   print_absyn_tree ("scan_lookahead_token", token);
+   return token;
+}
+
+d112 3
+a114 2
+   scan_chars (ischar);
+   lookahead_token = new_token (symbol);
+d143 1
+a143 1
+               return new_token (ENDFILE);
+@
+
+
+1.69
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.68 2009-10-01 16:48:05-07 - - $
+d125 25
+a149 18
+      switch (peekchar) {
+         case ' ':
+         case '\n':
+            scan_chars (iswhite);
+            continue;
+         case '#':
+            scan_chars (isnt_nl);
+            continue;
+         case '+':
+         case '-':
+         case '*':
+         case '/':
+         case '(':
+         case ')':
+         case ';':
+            return scan_new_token (peekchar, NULL);
+         case EOF:
+            return new_token (ENDFILE);
+a150 2
+      if (isalpha (peekchar)) return scan_new_token (IDENT, isalnum);
+      if (isdigit (peekchar)) return scan_new_token (NUMBER, isdigit);
+@
+
+
+1.68
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.67 2009-10-01 16:43:11-07 - - $
+d113 1
+a113 1
+   print_absyn_tree ("scan", token);
+d117 1
+a117 1
+absyn_tree scan_new_token (int symbol, int (*ischar) (int)) {
+d119 1
+a119 1
+   return new_token (symbol);
+d122 1
+a122 1
+absyn_tree scan_token (void) {
+d161 1
+a161 1
+         lookahead_token = scan_token ();
+d164 1
+a164 1
+         lookahead_token = scan_token ();
+d169 1
+a169 1
+         lookahead_token = scan_token ();
+d185 1
+a185 1
+            lookahead_token = scan_token ();
+d206 1
+a206 1
+            lookahead_token = scan_token ();
+d224 1
+a224 1
+      lookahead_token = scan_token ();
+d234 1
+a234 1
+   lookahead_token = scan_token ();
+@
+
+
+1.67
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.66 2009-10-01 16:42:25-07 - - $
+d40 1
+a40 1
+char *program_name = NULL;
+d45 1
+a45 1
+   xfprintf (stderr, "%s: ", program_name);
+d155 1
+a155 1
+absyn_tree expr (void);
+d157 1
+a157 1
+absyn_tree factor (void) {
+d162 1
+a162 1
+         tree = expr ();
+d174 1
+a174 1
+   print_absyn_tree ("factor", tree);
+d178 2
+a179 2
+absyn_tree term (void) {
+   absyn_tree left_operand = factor ();
+d186 1
+a186 1
+            absyn_tree right_operand = factor ();
+d193 1
+a193 1
+            print_absyn_tree ("term", left_operand);
+d199 2
+a200 2
+absyn_tree expr (void) {
+   absyn_tree left_operand = term ();
+d207 1
+a207 1
+            absyn_tree right_operand = term ();
+d214 1
+a214 1
+            print_absyn_tree ("expr", left_operand);
+d220 1
+a220 1
+void program (void) {
+d222 1
+a222 1
+      absyn_tree tree = expr ();
+d225 1
+a225 1
+      print_absyn_tree ("program", tree);
+d232 1
+a232 1
+   program_name = basename (argv[0]);
+d235 1
+a235 1
+   program ();
+@
+
+
+1.66
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.65 2009-10-01 16:41:44-07 - - $
+d98 3
+a121 3
+int iswhite (int achar) { return achar == ' ' || achar == '\n'; }
+int isnt_nl (int achar) { return achar != '\n' && achar != EOF; }
+
+d150 1
+@
+
+
+1.65
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.64 2009-10-01 16:41:09-07 - - $
+d119 2
+a120 7
+int iswhite (int achar) {
+   return achar == ' ' || achar == '\n';
+}
+
+int isnt_nl (int achar) {
+   return achar != '\n' && achar != EOF;
+}
+@
+
+
+1.64
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.63 2009-10-01 16:40:19-07 - - $
+d91 1
+@
+
+
+1.63
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.62 2009-10-01 16:38:30-07 - - $
+d41 1
+a41 1
+void verify (bool condition, char *format, ...) {
+d150 1
+a150 1
+      verify (NULL, "bad input char \'%c\'\n", peekchar);
+@
+
+
+1.62
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.61 2009-10-01 16:30:47-07 - - $
+d9 5
+a13 5
+// program -> { expr ; }
+// expr    -> term { + term }
+// expr    -> term { - term }
+// term    -> factor { * factor }
+// term    -> factor { / factor }
+a38 1
+typedef enum {FALSE = 0, TRUE = 1} bool;
+d53 1
+d150 1
+a150 1
+      verify (FALSE, "bad input char \'%c\'\n", peekchar);
+@
+
+
+1.61
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.59 2009-10-01 16:28:46-07 - - $
+d91 1
+a91 1
+enum {ENDFILE = 256, IDENT = 257, NUMBER = 258};
+d97 8
+a104 6
+void read_char (void) {
+   verify (peekchar != EOF, "read past EOF\n");
+   // LINTED (assignment of 32-bit integer to 8-bit integer)
+   *lexeme_end++ = peekchar;
+   *lexeme_end = '\0';
+   peekchar = getchar ();
+a112 4
+void scan_chars (int (*ischar) (int)) {
+   do read_char (); while (ischar && ischar (peekchar));
+}
+
+d126 1
+a126 1
+absyn_tree scan (void) {
+a153 1
+enum {NOSYMBOL = -1};
+d164 1
+a164 1
+         lookahead_token = scan ();
+d167 1
+a167 1
+         lookahead_token = scan ();
+d172 1
+a172 1
+         lookahead_token = scan ();
+d188 1
+a188 1
+            lookahead_token = scan ();
+d209 1
+a209 1
+            lookahead_token = scan ();
+d227 1
+a227 1
+      lookahead_token = scan ();
+d237 1
+a237 1
+   lookahead_token = scan ();
+@
+
+
+1.60
+log
+@-
+@
+text
+@d217 1
+@
+
+
+1.59
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.58 2009-10-01 16:16:18-07 - - $
+d112 1
+a112 1
+   do readchar (); while (ischar && ischar (peekchar));
+@
+
+
+1.58
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.54 2009-10-01 16:06:14-07 - - $
+d97 1
+a97 1
+void readchar (void) {
+d120 8
+d134 1
+a134 1
+            readchar ();
+d137 1
+a137 1
+            while (peekchar != '\n' && peekchar != EOF) readchar ();
+@
+
+
+1.57
+log
+@-
+@
+text
+@d177 1
+a177 1
+   absyn_tree left = factor ();
+d184 4
+a187 4
+            absyn_tree right = factor ();
+            operator->left = left;
+            operator->right = right;
+            left = operator;
+d191 2
+a192 2
+            print_absyn_tree ("term", left);
+            return left;
+d198 16
+a213 9
+   absyn_tree left = term ();
+   while (lookahead_token->symbol == '+' ||
+          lookahead_token->symbol == '-') {
+      absyn_tree operator = lookahead_token;
+      lookahead_token = scan ();
+      absyn_tree right = term ();
+      operator->left = left;
+      operator->right = right;
+      left = operator;
+a214 2
+   print_absyn_tree ("expr", left);
+   return left;
+@
+
+
+1.56
+log
+@-
+@
+text
+@d181 1
+a181 1
+         case '/':
+d189 1
+@
+
+
+1.55
+log
+@-
+@
+text
+@d192 1
+@
+
+
+1.54
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.53 2009-10-01 15:32:11-07 - - $
+d94 1
+a94 1
+char *lexeme_end = lexeme_buffer;;
+@
+
+
+1.53
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.52 2009-10-01 15:11:14-07 - - $
+d28 1
+d34 4
+a37 4
+#define xfflush (void) fflush
+#define xprintf (void) printf
+#define xstrcpy (void) strcpy
+#define xfprintf (void) fprintf
+d39 1
+a39 1
+enum {FALSE = 0, TRUE = 1};
+d41 2
+a42 2
+char *argv0 = NULL;
+void verify (int condition, char *format, ...) {
+d46 1
+a46 1
+   xfprintf (stderr, "%s: ", argv0);
+d92 4
+a95 4
+int peekchar = 0;   // next char in input string
+char lexbuf[1<<10]; // lexeme buffer
+char *lexpos;       // next free position in buffer
+absyn_tree lookahead;      // lookahead symbol
+d100 2
+a101 2
+   *lexpos++ = peekchar;
+   *lexpos = '\0';
+d105 2
+a106 2
+absyn_tree scantrace (int symbol) {
+   absyn_tree token = new_absyn_tree (symbol, lexbuf);
+d111 2
+a112 3
+absyn_tree scanchars (int symbol, int (*ischar) (int)) {
+   do readchar (); while (ischar (peekchar));
+   return scantrace (symbol);
+d115 4
+a118 2
+// LINTED (argument unused in function)
+int isfalse (int none) { return FALSE; }
+d122 1
+a122 1
+      *(lexpos = lexbuf) = '\0';
+d138 1
+a138 1
+            return scanchars (peekchar, isfalse);
+d140 1
+a140 1
+            return scantrace (ENDFILE);
+d142 2
+a143 2
+      if (isalpha (peekchar)) return scanchars (IDENT, isalnum);
+      if (isdigit (peekchar)) return scanchars (NUMBER, isdigit);
+d150 1
+a150 1
+   verify (lookahead->symbol == symbol, "syntax error");
+d157 1
+a157 1
+   switch (lookahead->symbol) {
+d159 1
+a159 1
+         lookahead = scan ();
+d162 1
+a162 1
+         lookahead = scan ();
+d166 2
+a167 2
+         tree = lookahead;
+         lookahead = scan ();
+d178 14
+a191 7
+   while (lookahead->symbol == '*' || lookahead->symbol == '/') {
+      absyn_tree oper = lookahead;
+      lookahead = scan ();
+      absyn_tree right = factor ();
+      oper->left = left;
+      oper->right = right;
+      left = oper;
+a192 2
+   print_absyn_tree ("term", left);
+   return left;
+d197 4
+a200 3
+   while (lookahead->symbol == '+' || lookahead->symbol == '-') {
+      absyn_tree oper = lookahead;
+      lookahead = scan ();
+d202 3
+a204 3
+      oper->left = left;
+      oper->right = right;
+      left = oper;
+d211 1
+a211 1
+   while (lookahead->symbol != ENDFILE) {
+d214 1
+a214 1
+      lookahead = scan ();
+d222 1
+a222 1
+   argv0 = argv[0];
+d224 1
+a224 1
+   lookahead = scan ();
+@
+
+
+1.52
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.50 2009-10-01 15:03:30-07 - - $
+d147 1
+a147 1
+void syntax (int symbol) {
+d159 1
+a159 1
+         assert (lookahead->symbol == ')');
+d168 1
+a168 1
+         syntax (NOSYMBOL);
+d205 1
+a205 1
+      assert (lookahead->symbol == ';');
+d218 1
+a218 1
+   syntax (ENDFILE);
+@
+
+
+1.51
+log
+@-
+@
+text
+@d116 1
+a116 3
+int isnone (int none) {
+   return FALSE;
+}
+d136 1
+a136 1
+            return scanchars (peekchar, isnone);
+@
+
+
+1.50
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.49 2009-10-01 15:01:26-07 - - $
+a37 1
+// LINTED (enum member defined but never used)
+@
+
+
+1.49
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.43 2009-10-01 14:25:45-07 - - $
+d38 1
+@
+
+
+1.48
+log
+@-
+@
+text
+@d161 1
+a161 1
+         assert (lookahead == ')');
+d178 1
+a178 1
+   while (lookahead == '*' || lookahead == '/') {
+d192 1
+a192 1
+   while (lookahead == '+' || lookahead == '-') {
+d205 1
+a205 1
+   while (lookahead != ENDFILE) {
+d207 1
+a207 1
+      assert (lookahead == ';');
+@
+
+
+1.47
+log
+@-
+@
+text
+@d157 1
+a157 1
+   switch (lookahead) {
+@
+
+
+1.46
+log
+@-
+@
+text
+@d150 1
+a150 1
+   verify (lookahead->symbol == symbol, "syntax error);
+@
+
+
+1.45
+log
+@-
+@
+text
+@d110 1
+a110 1
+int scanchars (int symbol, int (*ischar) (int)) {
+@
+
+
+1.44
+log
+@-
+@
+text
+@d104 1
+a104 1
+int scantrace (int symbol) {
+@
+
+
+1.43
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.42 2009-10-01 14:25:28-07 - - $
+d53 2
+a54 2
+typedef struct ast *ast;
+struct ast {
+d57 2
+a58 2
+   ast left;
+   ast right;
+d61 2
+a62 2
+ast new_ast (int symbol, char *lexeme) {
+   ast tree = malloc (sizeof (struct ast));
+d76 1
+a76 1
+void inorder_ast (ast tree) {
+d78 1
+a78 1
+   if (tree->left) inorder_ast (tree->left);
+d80 1
+a80 1
+   if (tree->right) inorder_ast (tree->right);
+d84 1
+a84 1
+void print_ast (char *label, ast tree) {
+d86 1
+a86 1
+   inorder_ast (tree);
+d94 1
+a94 1
+int lookahead;      // lookahead symbol
+d105 3
+a107 2
+   print_symbol (symbol, lexbuf);
+   return symbol;
+d120 1
+a120 1
+int scan (void) {
+d148 6
+a153 1
+ast expr (void);
+d155 2
+a156 2
+ast factor (void) {
+   ast tree = NULL;
+d166 1
+a166 1
+         tree = new_ast (lookahead, lexbuf);
+d170 1
+a170 1
+         verify (FALSE, "bad lookahead %d\"%s\"\n", lookahead, lexbuf);
+d172 1
+a172 1
+   print_ast ("factor", tree);
+d176 2
+a177 2
+ast term (void) {
+   ast left = factor ();
+d179 1
+a179 1
+      ast oper = new_ast (lookahead, lexbuf);
+d181 1
+a181 1
+      ast right = factor ();
+d186 1
+a186 1
+   print_ast ("term", left);
+d190 2
+a191 2
+ast expr (void) {
+   ast left = term ();
+d193 1
+a193 1
+      ast oper = new_ast (lookahead, lexbuf);
+d195 1
+a195 1
+      ast right = term ();
+d200 1
+a200 1
+   print_ast ("expr", left);
+d206 1
+a206 1
+      ast tree = expr ();
+d209 1
+a209 1
+      print_ast ("program", tree);
+d220 1
+a220 1
+   verify (lookahead == ENDFILE, "syntax error\n");
+@
+
+
+1.42
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.41 2009-10-01 14:21:55-07 - - $
+d164 1
+a164 1
+         verify (FALSE, ("bad lookahead %d\"%s\"\n", lookahead, lexbuf);
+@
+
+
+1.41
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.40 2009-10-01 14:15:34-07 - - $
+d38 1
+a38 1
+enum {FALSE = 0!=0, TRUE = 0==0};
+d164 1
+a164 3
+         xprintf ("bad lookahead %d, lexbuf=\"%s\"\n",
+                  lookahead, lexbuf);
+         assert (FALSE);
+@
+
+
+1.40
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.39 2009-10-01 14:07:50-07 - - $
+d53 37
+d94 1
+a94 1
+int lookahead;      // lookahead token code
+d104 3
+a106 3
+int scantrace (int token) {
+   xprintf ("scan token: %d\"%s\"\n", token, lexbuf);
+   return token;
+d109 1
+a109 1
+int scanchars (int token, int (*ischar) (int)) {
+d111 1
+a111 1
+   return scantrace (token);
+a146 33
+typedef struct ast *ast;
+struct ast {
+   int token;
+   char *lexeme;
+   ast left;
+   ast right;
+};
+
+ast newast (int token, char *lexeme) {
+   ast tree = malloc (sizeof (struct ast));
+   assert (tree != NULL);
+   tree->token = token;
+   tree->lexeme = strdup (lexeme);
+   assert (tree->lexeme != NULL);
+   tree->left = NULL;
+   tree->right = NULL;
+   return tree;
+}
+
+void inorderast (ast tree) {
+   xprintf (" (");
+   if (tree->left) inorderast (tree->left);
+   xprintf ("%d\"%s\"", tree->token, tree->lexeme);
+   if (tree->right) inorderast (tree->right);
+   xprintf (") ");
+}
+
+void dumpast (char *label, ast tree) {
+   xprintf ("%s: ", label);
+   inorderast (tree);
+   xprintf ("\n");
+}
+
+d160 1
+a160 1
+         tree = newast (lookahead, lexbuf);
+d168 1
+a168 1
+   dumpast ("factor", tree);
+d175 1
+a175 1
+      ast oper = newast (lookahead, lexbuf);
+d182 1
+a182 1
+   dumpast ("term", left);
+d189 1
+a189 1
+      ast oper = newast (lookahead, lexbuf);
+d196 1
+a196 1
+   dumpast ("expr", left);
+d205 1
+a205 1
+      dumpast ("program", tree);
+@
+
+
+1.39
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.38 2009-10-01 14:05:28-07 - - $
+d68 1
+a68 1
+   xprintf ("token = %d, lexeme = \"%s\"\n", token, lexbuf);
+d84 1
+a84 1
+      lexpos = lexbuf;
+d130 1
+a130 1
+   xprintf ("(");
+d134 1
+a134 1
+   xprintf (")");
+@
+
+
+1.38
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.37 2009-10-01 13:57:36-07 - - $
+d20 1
+a20 1
+// IDENT   -> [a-z][a-z0-9]*
+@
+
+
+1.37
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.36 2009-10-01 13:52:25-07 - - $
+d101 1
+a101 2
+         case EOF: {
+            xstrcpy (lexbuf, "[ENDFILE]");
+a102 1
+         }
+d132 1
+a132 1
+   xprintf ("%d.\"%s\"", tree->token, tree->lexeme);
+d202 1
+@
+
+
+1.36
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.29 2009-10-01 13:36:10-07 - - $
+d112 2
+a113 2
+typedef struct tree *tree;
+struct tree {
+d116 2
+a117 2
+   tree left;
+   tree right;
+d120 9
+a128 9
+tree newtree (int token, char *lexeme) {
+   tree node = malloc (sizeof (struct tree));
+   assert (node != NULL);
+   node->token = token;
+   node->lexeme = strdup (lexeme);
+   assert (node->lexeme != NULL);
+   node->left = NULL;
+   node->right = NULL;
+   return node;
+d131 1
+a131 1
+void infixtree (tree node) {
+d133 3
+a135 3
+   if (node->left) infixtree (node->left);
+   xprintf ("%s", node->lexeme);
+   if (node->right) infixtree (node->right);
+d139 1
+a139 1
+void dumptree (char *label, tree node) {
+d141 1
+a141 1
+   infixtree (node);
+d145 1
+a145 1
+tree expr (void);
+d147 2
+a148 2
+tree factor (void) {
+   tree node = NULL;
+d152 1
+a152 1
+         node = expr ();
+d158 1
+a158 1
+         node = newtree (lookahead, lexbuf);
+d166 2
+a167 2
+   dumptree ("factor", node);
+   return node;
+d170 2
+a171 2
+tree term (void) {
+   tree left = factor ();
+d173 1
+a173 1
+      tree oper = newtree (lookahead, lexbuf);
+d175 1
+a175 1
+      tree right = factor ();
+d180 1
+a180 1
+   dumptree ("term", left);
+d184 2
+a185 2
+tree expr (void) {
+   tree left = term ();
+d187 1
+a187 1
+      tree oper = newtree (lookahead, lexbuf);
+d189 1
+a189 1
+      tree right = term ();
+d194 1
+a194 1
+   dumptree ("expr", left);
+d200 1
+a200 1
+      tree node = expr ();
+d203 1
+a203 1
+      dumptree ("program", node);
+@
+
+
+1.35
+log
+@-
+@
+text
+@d36 1
+d45 1
+a45 1
+   fprintf (stderr, "%s: ", argv0);
+d77 1
+d102 1
+a102 1
+            strcpy (lexbuf, "[ENDFILE]");
+d207 1
+@
+
+
+1.34
+log
+@-
+@
+text
+@d76 1
+a76 1
+int isnone (int) {
+@
+
+
+1.33
+log
+@-
+@
+text
+@d37 1
+d44 1
+a44 1
+   fprintf (stderr, "%s; Error: ", argv0);
+d59 1
+a59 1
+   verify (peekchar != EOF, "Read past EOF\n");
+a66 1
+   *lexpos = '\0';
+d76 4
+d86 1
+a86 1
+            (void) readchar ();
+d89 1
+a89 3
+            while (peekchar != '\n' && peekchar != EOF) {
+               (void) readchar ();
+            }
+d98 1
+a98 3
+            int token = peekchar;
+            readchar ();
+            return scantrace (token);
+d100 1
+a100 2
+            char *filler = "[ENDFILE]";
+            while (*lexpos++ = *filler++);
+d106 1
+a106 1
+      verify (0, "bad input char \'%c\'\n", peekchar);
+d210 1
+a210 1
+   verify (lookahead == ENDFILE, "Syntax error.\n");
+@
+
+
+1.32
+log
+@-
+@
+text
+@d72 1
+a72 2
+   *lexpos++ = readchar ();
+   while (ischar (peekchar)) readchar ();
+@
+
+
+1.31
+log
+@-
+@
+text
+@d59 1
+@
+
+
+1.30
+log
+@-
+@
+text
+@d33 1
+d36 1
+a36 1
+#define xfflush (void) fflush
+@
+
+
+1.29
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.28 2009-09-29 21:03:25-07 - - $
+d28 1
+@
+
+
+1.28
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.27 2009-09-29 21:02:57-07 - - $
+d34 14
+a48 1
+typedef enum {FALSE = 0, TRUE = 1} bool;
+a49 1
+
+d55 4
+a58 5
+
+char readchar (void) {
+   // LINTED (assignment of 32-bit integer to 8-bit integer)
+   char currchar = peekchar;
+   assert (peekchar != EOF);
+a59 1
+   return currchar;
+d68 6
+a76 10
+      if (isalpha (peekchar)) {
+         *lexpos++ = readchar ();
+         while (isalnum (peekchar)) *lexpos++ = readchar ();
+         return scantrace (IDENT);
+      }
+      if (isdigit (peekchar)) {
+         *lexpos++ = readchar ();
+         while (isdigit (peekchar)) *lexpos++ = readchar ();
+         return scantrace (NUMBER);
+      }
+d81 1
+a81 1
+            break;
+d86 1
+a86 1
+            break;
+d94 3
+a96 1
+            return scantrace (*lexpos++ = readchar ());
+a101 3
+         default:
+            xprintf ("bad input char \'%c\'\n", peekchar);
+            assert (FALSE);
+d103 3
+a108 1
+
+a141 1
+
+a194 1
+
+a203 1
+// LINTED (argument unused in function)
+d205 1
+d209 2
+a210 1
+   assert (lookahead == ENDFILE);
+@
+
+
+1.27
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.26 2009-09-29 21:02:40-07 - - $
+d189 1
+@
+
+
+1.26
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.25 2009-09-29 21:01:07-07 - - $
+a37 1
+
+d43 1
+@
+
+
+1.25
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.24 2009-09-29 20:58:34-07 - - $
+d39 4
+a42 3
+int peekchar = 0;
+char lexbuf[1<<10];
+char *lexpos;
+a135 2
+int lookahead;
+
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.23 2009-09-29 20:58:21-07 - - $
+d38 1
+d100 1
+d134 1
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.22 2009-09-29 20:58:08-07 - - $
+d169 1
+a169 1
+   dumptree ("trem", left);
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.21 2009-09-29 20:56:21-07 - - $
+d155 1
+a155 1
+   dumptree ("factor", left);
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.18 2009-09-29 20:43:01-07 - - $
+d118 1
+a118 1
+void printtree (tree node) {
+d120 1
+a120 1
+   if (node->left) printtree (node->left);
+d122 1
+a122 1
+   if (node->right) printtree (node->right);
+d126 3
+a128 3
+void dumptree (tree node) {
+   xprintf ("AST = ");
+   printtree (node);
+d155 1
+d169 1
+d183 1
+d192 1
+a192 1
+      dumptree (node);
+@
+
+
+1.20
+log
+@-
+@
+text
+@d148 1
+a154 1
+   lookahead = scan ();
+@
+
+
+1.19
+log
+@-
+@
+text
+@d87 1
+a87 1
+         case EOF:
+d91 1
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.17 2009-09-29 20:42:27-07 - - $
+d88 2
+a89 1
+            xstrcpy (lexbuf, "[ENDFILE]");
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.16 2009-09-29 20:41:56-07 - - $
+d33 2
+d88 1
+a88 1
+            strcpy (lexbuf, "[ENDFILE]");
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: expr-recdes.c,v 1.15 2009-09-29 20:41:30-07 - - $
+d86 2
+a87 1
+            return scantrace (ENDFILE, "[ENDFILE]");
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: recdes-etf.c,v 1.24 2009-09-29 20:11:12-07 - - $
+d86 1
+a86 1
+            return scantrace (ENDFILE, "<<EOF>>";
+@
+
+
+1.14
+log
+@-
+@
+text
+@d34 1
+a34 1
+enum {IDENT = 257, NUMBER = 258};
+d85 2
+d180 1
+a180 1
+   while (lookahead != EOF) {
+d193 1
+a193 1
+   assert (peekchar == EOF);
+@
+
+
+1.13
+log
+@-
+@
+text
+@d133 1
+a134 1
+         int lookahead = scan ();
+@
+
+
+1.12
+log
+@-
+@
+text
+@d159 1
+d172 1
+@
+
+
+1.11
+log
+@-
+@
+text
+@a84 1
+         }
+@
+
+
+1.10
+log
+@-
+@
+text
+@d82 3
+a84 3
+         case ')': {
+            int token = *lexpos++ = readchar ();
+            return scantrace (token);
+d86 3
+a89 2
+      xprintf ("bad input char \'%c\'\n", peekchar);
+      assert (FALSE);
+@
+
+
+1.9
+log
+@-
+@
+text
+@d155 1
+d167 1
+@
+
+
+1.8
+log
+@-
+@
+text
+@d136 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d142 3
+a144 1
+         assert (TRUE == FALSE);
+@
+
+
+1.6
+log
+@-
+@
+text
+@d87 1
+a87 1
+      printf ("bad input char \'%c\'\n", peekchar);
+@
+
+
+1.5
+log
+@-
+@
+text
+@d83 1
+a83 2
+            int token = readchar ();
+            *lexpos++ = token;
+d87 1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d83 2
+a84 2
+            int token = peekchar;
+            *lexpos++ = readchar ();
+@
+
+
+1.3
+log
+@-
+@
+text
+@d132 1
+a132 1
+      case '(': {
+d134 2
+a135 2
+         int token = scan ();
+         assert (token == ')');
+a136 1
+      }
+d138 1
+a138 1
+      case NUMBER: {
+a140 1
+      }
+@
+
+
+1.2
+log
+@-
+@
+text
+@a182 1
+scantrace (IDENT,"dd");
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: recdes-etf.c,v 1.25 2009-09-29 20:12:51-07 - - $
+d34 1
+a34 1
+enum {IDENT, NUMBER};
+d50 1
+a50 1
+   xprintf ("token = %d, lexeme = %s\n", token, lexbuf);
+d183 1
+@

@@ -1,0 +1,11 @@
+#!/bin/sh -x
+#gcc -O3 -S -mv8 -msupersparc $*
+gcc \
+	-O3 \
+	-S \
+	-Wa,-xarch=v8plusa \
+	-fcaller-saves \
+	-finline-functions \
+	-fverbose-asm \
+	-mcpu=v9 \
+	$*

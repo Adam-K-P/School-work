@@ -1,0 +1,36 @@
+head	341.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+341.1
+date	2004.03.05.02.31.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+341.1
+log
+@-
+@
+text
+@typedef unsigned int uint;
+
+int add( int a, int b ){ return a + b; }
+int sub( int a, int b ){ return a - b; }
+int mul( int a, int b ){ return a * b; }
+int div( int a, int b ){ return a / b; }
+int rem( int a, int b ){ return a % b; }
+
+uint uadd( uint a, uint b ){ return a + b; }
+uint usub( uint a, uint b ){ return a - b; }
+uint umul( uint a, uint b ){ return a * b; }
+uint udiv( uint a, uint b ){ return a / b; }
+uint urem( uint a, uint b ){ return a % b; }
+@

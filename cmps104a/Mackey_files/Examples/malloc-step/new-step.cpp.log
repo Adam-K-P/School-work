@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting new-step.cpp
+new-step.cpp:
+     $Id: new-step.cpp,v 1.4 2015-05-07 18:15:30-07 - - $
+g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++11 new-step.cpp -o new-step -lglut -lGLU -lGL -lX11 -lrt -lm
+rm -f new-step.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished new-step.cpp

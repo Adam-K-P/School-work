@@ -1,0 +1,49 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.09.06.03.24.24;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.09.06.02.21.46;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@# $Id: test1.in,v 1.1 2013-09-05 19:21:46-07 - - $
+alpha=3+4*5-6
+crap out
+beta=alpha/3
+gamma=beta*10-alpha*33
+64e *98
+infinity=1e1000*1e1000
+nan=infinity/infinity
+foo*bar
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+# $Id: test1.dat,v 1.2 2009-10-20 20:35:19-07 - - $
+d9 1
+@

@@ -1,0 +1,5 @@
+#!/bin/env hashbang -foo
+// $Id: sh.out,v 345.4 2004-07-08 14:18:48-07 - - $
+this is a test
+3.1415926535
++-??

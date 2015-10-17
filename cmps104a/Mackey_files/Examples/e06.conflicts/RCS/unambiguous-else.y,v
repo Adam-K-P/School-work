@@ -1,0 +1,67 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2011.10.29.01.07.07;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: unambiguous-else.y,v 1.2 2011-10-28 18:06:21-07 - - $
+
+// Example of solving the problem of the dangling else with an
+// ambiguous grammar and precedence declarations.
+
+%verbose
+
+%token IF WHILE
+%right ELSE
+%start program
+
+%%
+
+program    : program statement
+           |
+           ;
+
+statement  : closedstmt
+           | openstmt
+           ;
+
+closedstmt : ifhead closedstmt ELSE closedstmt
+           | whilehead closedstmt
+           | otherstmt
+           ;
+
+openstmt   : ifhead closedstmt ELSE openstmt
+           | ifhead statement
+           | whilehead openstmt
+
+ifhead     : IF '(' expr ')'
+           ;
+
+whilehead  : WHILE '(' expr ')'
+           ;
+
+otherstmt  : expr ';'
+           ;
+
+expr       : 'x'
+           ;
+
+%%
+
+@

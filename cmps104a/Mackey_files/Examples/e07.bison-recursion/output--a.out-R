@@ -1,0 +1,54 @@
+Starting parse
+Entering state 0
+Reading a token: Next token is token '(' ()
+Shifting token '(', Entering state 1
+Reading a token: Next token is token 'R' ()
+Shifting token 'R', Entering state 5
+Reading a token: Next token is token 'R' ()
+Shifting token 'R', Entering state 5
+Reading a token: Next token is token 'R' ()
+Shifting token 'R', Entering state 5
+Reading a token: Next token is token 'R' ()
+Shifting token 'R', Entering state 5
+Reading a token: Next token is token 'R' ()
+Shifting token 'R', Entering state 5
+Reading a token: Next token is token 'R' ()
+Shifting token 'R', Entering state 5
+Reading a token: Next token is token 'R' ()
+Shifting token 'R', Entering state 5
+Reading a token: Next token is token 'R' ()
+Shifting token 'R', Entering state 5
+Reading a token: Next token is token ')' ()
+Shifting token ')', Entering state 6
+Reducing stack by rule 6 (line 23), ')' -> right
+Stack now 0 1 5 5 5 5 5 5 5 5
+Entering state 11
+Reducing stack by rule 5 (line 22), 'R' right -> right
+Stack now 0 1 5 5 5 5 5 5 5
+Entering state 11
+Reducing stack by rule 5 (line 22), 'R' right -> right
+Stack now 0 1 5 5 5 5 5 5
+Entering state 11
+Reducing stack by rule 5 (line 22), 'R' right -> right
+Stack now 0 1 5 5 5 5 5
+Entering state 11
+Reducing stack by rule 5 (line 22), 'R' right -> right
+Stack now 0 1 5 5 5 5
+Entering state 11
+Reducing stack by rule 5 (line 22), 'R' right -> right
+Stack now 0 1 5 5 5
+Entering state 11
+Reducing stack by rule 5 (line 22), 'R' right -> right
+Stack now 0 1 5 5
+Entering state 11
+Reducing stack by rule 5 (line 22), 'R' right -> right
+Stack now 0 1 5
+Entering state 11
+Reducing stack by rule 5 (line 22), 'R' right -> right
+Stack now 0 1
+Entering state 7
+Reducing stack by rule 2 (line 15), '(' right -> program
+Stack now 0
+Entering state 3
+Reading a token: Now at end of input.
+Parsing ``(RRRRRRRR)''

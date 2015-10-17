@@ -1,0 +1,1264 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 38 24 574 768
+%%Title: insertion-sort.ps
+%%For: Wesley Mackey
+%%Creator: GNU enscript 1.6.4
+%%CreationDate: Thu May 28 19:55:57 2015
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: Letter 612 792 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 4
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 4
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier-Bold /F-gs-font MF
+/F-gs-font 11 11 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [612 792] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-enscript-mycolor 1.6 4
+%%IncludeResource: font Times-Bold
+%%IncludeResource: font Times-Roman
+
+% Fonts.
+/Times-Bold /HeaderFont-Bold MF
+/HeaderDateF /HeaderFont-Bold findfont 12 scalefont def
+
+/Times-Roman /HeaderFont-Times MF
+/HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
+
+/HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
+/HeaderPageCountF /Helvetica-Bold findfont 18 scalefont def
+
+/do_header {	% print enscript header
+  gsave
+    d_header_x d_header_y translate
+
+    /dhw d_header_w 4 sub def
+
+    /linecolor {0 0 0 setrgbcolor} bind def  % line color
+    /txcolor   {0 0 0 setrgbcolor} bind def  % text color
+    /fncolor   {0 0 0 setrgbcolor} bind def  % filename line color
+
+    .5 setlinewidth
+
+    % line across bottom of the header area
+    linecolor
+    0 0 moveto dhw 0 lineto
+
+    % side boxes
+    /sbw d_header_h 2 mul def	% side box width
+
+    % left side box
+    0 0 sbw d_header_h Box
+    linecolor
+    stroke
+
+    % date/time in left box
+    txcolor
+    HeaderDateF setfont
+    moddatestr dup stringwidth pop sbw exch sub 2 div
+    d_header_h 2 div 2 add moveto show
+    modtimestr dup stringwidth pop sbw exch sub 2 div
+    d_header_h 5 div moveto show
+
+    % right side box
+    dhw sbw sub 0 sbw d_header_h Box
+    linecolor
+    stroke
+
+    % get width of pagecount
+    HeaderPageCountF setfont
+    pagecountstr stringwidth pop
+
+    txcolor
+    HeaderPageNumF setfont
+    pagenumstr stringwidth pop add  % add to width of pagecount
+    sbw exch sub 2 div dhw sbw sub add
+    d_header_h .2 mul moveto
+
+    pagenumstr show
+
+    HeaderPageCountF setfont
+    pagecountstr show
+
+    % filename
+    fncolor
+    HeaderHDRF setfont
+    dhw fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    fname show
+
+    % user supplied header string.
+    user_header_p {
+      /h d_header_h 8 div 5 mul def
+
+      % HACK around a bug in enscript 1.6.0:
+      % for some reason this is getting set to "(null)" and
+      %
+      user_header_center_str (\(null\)) eq {
+        /user_header_center_str () def
+      } if
+
+      % Implement strict enscript compatibility.
+      user_header_center_str () eq user_header_right_str () eq and {
+        dhw user_header_left_str stringwidth pop sub 2 div
+        h moveto user_header_left_str show
+      } {
+        sbw 5 add h moveto user_header_left_str show
+
+        dhw user_header_center_str stringwidth pop sub 2 div
+        h moveto user_header_center_str show
+
+	dhw sbw sub 5 sub user_header_right_str stringwidth pop
+	sub h moveto user_header_right_str show
+      } ifelse
+    } if
+
+  grestore
+} bind def
+%%EndResource
+/d_page_w 536 def
+/d_page_h 744 def
+/d_header_x 0 def
+/d_header_y 708 def
+/d_header_w 536 def
+/d_header_h 36 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 536 def
+/d_footer_h 0 def
+/d_output_w 536 def
+/d_output_h 708 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (insertion-sort.c) def
+/fdir () def
+/ftail (insertion-sort.c) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (05/28/15) def
+/pagecountstr (/1) def
+/modtimestr (19:50:03) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/insertion-sort/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(// $Id: insertion-sort.c,v 1.10 2015-05-28 19:45:20-07 - - $) s
+32.4 682 M (2:) s
+32.4 670 M (3:) s
+52.2 670 M
+(#include <stdio.h>) s
+32.4 658 M (4:) s
+52.2 658 M
+(#include <string.h>) s
+32.4 646 M (5:) s
+32.4 634 M (6:) s
+52.2 634 M
+(void sort \(void* a, size_t n, size_t w, int \(*cmp\) \(void*, void*\)\) {) s
+32.4 622 M (7:) s
+52.2 622 M
+(   char e[w];) s
+32.4 610 M (8:) s
+52.2 610 M
+(   for \(size_t s = 1; s < n; ++s\) {) s
+32.4 598 M (9:) s
+52.2 598 M
+(      size_t h = s;) s
+25.8 586 M (10:) s
+52.2 586 M
+(      memcpy \(e, a + h * w, w\);) s
+25.8 574 M (11:) s
+52.2 574 M
+(      while \(h > 0\) {) s
+25.8 562 M (12:) s
+52.2 562 M
+(         int c = cmp \(a + \(h - 1\) * w, e\);) s
+25.8 550 M (13:) s
+52.2 550 M
+(         if \(c < 0\) break;) s
+25.8 538 M (14:) s
+52.2 538 M
+(         memcpy \(a + h * w, a + \(h - 1\) * w, w\);) s
+25.8 526 M (15:) s
+52.2 526 M
+(         h = h - 1;) s
+25.8 514 M (16:) s
+52.2 514 M
+(      }) s
+25.8 502 M (17:) s
+52.2 502 M
+(      memcpy \(a + h * w, e, w\);) s
+25.8 490 M (18:) s
+52.2 490 M
+(   }) s
+25.8 478 M (19:) s
+52.2 478 M
+(}) s
+25.8 466 M (20:) s
+25.8 454 M (21:) s
+52.2 454 M
+(void print \(int* a, size_t n\) {) s
+25.8 442 M (22:) s
+52.2 442 M
+(   for \(size_t i = 0; i < n; ++i\) printf \(" %d", a[i]\);) s
+25.8 430 M (23:) s
+52.2 430 M
+(   printf \("\\n"\);) s
+25.8 418 M (24:) s
+52.2 418 M
+(}) s
+25.8 406 M (25:) s
+25.8 394 M (26:) s
+52.2 394 M
+(int cmp \(void* p1, void* p2\) {) s
+25.8 382 M (27:) s
+52.2 382 M
+(   int q1 = *\(int*\) p1;) s
+25.8 370 M (28:) s
+52.2 370 M
+(   int q2 = *\(int*\) p2;) s
+25.8 358 M (29:) s
+52.2 358 M
+(   return \(q1 > q2\) - \(q1 < q2\);) s
+25.8 346 M (30:) s
+52.2 346 M
+(}) s
+25.8 334 M (31:) s
+25.8 322 M (32:) s
+52.2 322 M
+(int main\(\) {) s
+25.8 310 M (33:) s
+52.2 310 M
+(   static int a[] = {13, 91, 41, 22, 67, 48, 11, 16, 55, 30};) s
+25.8 298 M (34:) s
+52.2 298 M
+(   size_t w = sizeof *a;) s
+25.8 286 M (35:) s
+52.2 286 M
+(   size_t n = sizeof a / w;) s
+25.8 274 M (36:) s
+52.2 274 M
+(   print \(a, n\);) s
+25.8 262 M (37:) s
+52.2 262 M
+(   sort \(a, n, w, cmp\);) s
+25.8 250 M (38:) s
+52.2 250 M
+(   print \(a, n\);) s
+25.8 238 M (39:) s
+52.2 238 M
+(}) s
+25.8 226 M (40:) s
+_R
+S
+%%Page: (1) 2
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (insertion-sort.s) def
+/fdir () def
+/ftail (insertion-sort.s) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (05/28/15) def
+/pagecountstr (/5) def
+/modtimestr (19:55:55) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/insertion-sort/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(        .file   "insertion-sort.c") s
+32.4 682 M (2:) s
+52.2 682 M
+(        .text) s
+32.4 670 M (3:) s
+52.2 670 M
+(        .globl  cmp) s
+32.4 658 M (4:) s
+52.2 658 M
+(cmp:) s
+32.4 646 M (5:) s
+52.2 646 M
+(.LFB25:) s
+32.4 634 M (6:) s
+52.2 634 M
+(        movl    \(%rsi\), %edx) s
+32.4 622 M (7:) s
+52.2 622 M
+(        movl    \(%rdi\), %ecx) s
+32.4 610 M (8:) s
+52.2 610 M
+(        xorl    %eax, %eax) s
+32.4 598 M (9:) s
+52.2 598 M
+(        cmpl    %edx, %ecx) s
+25.8 586 M (10:) s
+52.2 586 M
+(        setl    %dl) s
+25.8 574 M (11:) s
+52.2 574 M
+(        setg    %al) s
+25.8 562 M (12:) s
+52.2 562 M
+(        movzbl  %dl, %edx) s
+25.8 550 M (13:) s
+52.2 550 M
+(        subl    %edx, %eax) s
+25.8 538 M (14:) s
+52.2 538 M
+(        ret) s
+25.8 526 M (15:) s
+52.2 526 M
+(.LFE25:) s
+_R
+S
+%%Page: (2) 3
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (insertion-sort.s) def
+/fdir () def
+/ftail (insertion-sort.s) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (05/28/15) def
+/pagecountstr (/5) def
+/modtimestr (19:55:55) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/insertion-sort/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (16:) s
+25.8 682 M (17:) s
+52.2 682 M
+(        .globl  sort) s
+25.8 670 M (18:) s
+52.2 670 M
+(sort:) s
+25.8 658 M (19:) s
+52.2 658 M
+(.LFB23:) s
+25.8 646 M (20:) s
+52.2 646 M
+(        pushq   %rbp) s
+25.8 634 M (21:) s
+52.2 634 M
+(        leaq    15\(%rdx\), %rax) s
+25.8 622 M (22:) s
+52.2 622 M
+(        movq    %rsp, %rbp) s
+25.8 610 M (23:) s
+52.2 610 M
+(        pushq   %r15) s
+25.8 598 M (24:) s
+52.2 598 M
+(        andq    $-16, %rax) s
+25.8 586 M (25:) s
+52.2 586 M
+(        movq    %rcx, %r15) s
+25.8 574 M (26:) s
+52.2 574 M
+(        pushq   %r14) s
+25.8 562 M (27:) s
+52.2 562 M
+(        pushq   %r13) s
+25.8 550 M (28:) s
+52.2 550 M
+(        pushq   %r12) s
+25.8 538 M (29:) s
+52.2 538 M
+(        pushq   %rbx) s
+25.8 526 M (30:) s
+52.2 526 M
+(        movq    %rdx, %rbx) s
+25.8 514 M (31:) s
+52.2 514 M
+(        subq    $56, %rsp) s
+25.8 502 M (32:) s
+52.2 502 M
+(        movq    %rdi, -80\(%rbp\)) s
+25.8 490 M (33:) s
+52.2 490 M
+(        movq    %rsi, -88\(%rbp\)) s
+25.8 478 M (34:) s
+52.2 478 M
+(        subq    %rax, %rsp) s
+25.8 466 M (35:) s
+52.2 466 M
+(        movq    %rdi, %rax) s
+25.8 454 M (36:) s
+52.2 454 M
+(        movq    $2, -64\(%rbp\)) s
+25.8 442 M (37:) s
+52.2 442 M
+(        addq    %rdx, %rax) s
+25.8 430 M (38:) s
+52.2 430 M
+(        cmpq    $1, %rsi) s
+25.8 418 M (39:) s
+52.2 418 M
+(        movq    %rsp, -56\(%rbp\)) s
+25.8 406 M (40:) s
+52.2 406 M
+(        movq    %rax, -72\(%rbp\)) s
+25.8 394 M (41:) s
+52.2 394 M
+(        jbe     .L2) s
+25.8 382 M (42:) s
+52.2 382 M
+(.L12:) s
+25.8 370 M (43:) s
+52.2 370 M
+(        movq    -64\(%rbp\), %rax) s
+25.8 358 M (44:) s
+52.2 358 M
+(        movq    -72\(%rbp\), %r14) s
+25.8 346 M (45:) s
+52.2 346 M
+(        movq    %rbx, %rdx) s
+25.8 334 M (46:) s
+52.2 334 M
+(        movq    -56\(%rbp\), %rdi) s
+25.8 322 M (47:) s
+52.2 322 M
+(        leaq    -1\(%rax\), %r13) s
+25.8 310 M (48:) s
+52.2 310 M
+(        movq    %r14, %rsi) s
+25.8 298 M (49:) s
+52.2 298 M
+(        call    memcpy) s
+25.8 286 M (50:) s
+52.2 286 M
+(        testq   %r13, %r13) s
+25.8 274 M (51:) s
+52.2 274 M
+(        je      .L5) s
+25.8 262 M (52:) s
+52.2 262 M
+(        subq    %rbx, %r14) s
+25.8 250 M (53:) s
+52.2 250 M
+(        jmp     .L8) s
+25.8 238 M (54:) s
+52.2 238 M
+(.L6:) s
+25.8 226 M (55:) s
+52.2 226 M
+(        leaq    \(%r14,%rbx\), %rdi) s
+25.8 214 M (56:) s
+52.2 214 M
+(        movq    %r14, %rsi) s
+25.8 202 M (57:) s
+52.2 202 M
+(        movq    %rbx, %rdx) s
+25.8 190 M (58:) s
+52.2 190 M
+(        subq    %rbx, %r14) s
+25.8 178 M (59:) s
+52.2 178 M
+(        call    memcpy) s
+25.8 166 M (60:) s
+52.2 166 M
+(        testq   %r12, %r12) s
+25.8 154 M (61:) s
+52.2 154 M
+(        je      .L11) s
+25.8 142 M (62:) s
+52.2 142 M
+(        movq    %r12, %r13) s
+25.8 130 M (63:) s
+52.2 130 M
+(.L8:) s
+25.8 118 M (64:) s
+52.2 118 M
+(        movq    -56\(%rbp\), %rsi) s
+25.8 106 M (65:) s
+52.2 106 M
+(        movq    %r14, %rdi) s
+25.8 94 M (66:) s
+52.2 94 M
+(        leaq    -1\(%r13\), %r12) s
+25.8 82 M (67:) s
+52.2 82 M
+(        call    *%r15) s
+25.8 70 M (68:) s
+52.2 70 M
+(        testl   %eax, %eax) s
+25.8 58 M (69:) s
+52.2 58 M
+(        jns     .L6) s
+25.8 46 M (70:) s
+52.2 46 M
+(        movq    %r13, %rdi) s
+25.8 34 M (71:) s
+52.2 34 M
+(        imulq   %rbx, %rdi) s
+25.8 22 M (72:) s
+52.2 22 M
+(.L7:) s
+25.8 10 M (73:) s
+52.2 10 M
+(        addq    -80\(%rbp\), %rdi) s
+_R
+S
+%%Page: (3) 4
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (insertion-sort.s) def
+/fdir () def
+/ftail (insertion-sort.s) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (05/28/15) def
+/pagecountstr (/5) def
+/modtimestr (19:55:55) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/insertion-sort/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (74:) s
+52.2 694 M
+(        movq    -56\(%rbp\), %rsi) s
+25.8 682 M (75:) s
+52.2 682 M
+(        movq    %rbx, %rdx) s
+25.8 670 M (76:) s
+52.2 670 M
+(        call    memcpy) s
+25.8 658 M (77:) s
+52.2 658 M
+(        movq    -88\(%rbp\), %rax) s
+25.8 646 M (78:) s
+52.2 646 M
+(        cmpq    %rax, -64\(%rbp\)) s
+25.8 634 M (79:) s
+52.2 634 M
+(        jae     .L2) s
+25.8 622 M (80:) s
+52.2 622 M
+(.L9:) s
+25.8 610 M (81:) s
+52.2 610 M
+(        addq    %rbx, -72\(%rbp\)) s
+25.8 598 M (82:) s
+52.2 598 M
+(        addq    $1, -64\(%rbp\)) s
+25.8 586 M (83:) s
+52.2 586 M
+(        jmp     .L12) s
+25.8 574 M (84:) s
+52.2 574 M
+(.L11:) s
+25.8 562 M (85:) s
+52.2 562 M
+(        xorl    %edi, %edi) s
+25.8 550 M (86:) s
+52.2 550 M
+(        jmp     .L7) s
+25.8 538 M (87:) s
+52.2 538 M
+(.L2:) s
+25.8 526 M (88:) s
+52.2 526 M
+(        leaq    -40\(%rbp\), %rsp) s
+25.8 514 M (89:) s
+52.2 514 M
+(        popq    %rbx) s
+25.8 502 M (90:) s
+52.2 502 M
+(        popq    %r12) s
+25.8 490 M (91:) s
+52.2 490 M
+(        popq    %r13) s
+25.8 478 M (92:) s
+52.2 478 M
+(        popq    %r14) s
+25.8 466 M (93:) s
+52.2 466 M
+(        popq    %r15) s
+25.8 454 M (94:) s
+52.2 454 M
+(        popq    %rbp) s
+25.8 442 M (95:) s
+52.2 442 M
+(        ret) s
+25.8 430 M (96:) s
+52.2 430 M
+(.L5:) s
+25.8 418 M (97:) s
+52.2 418 M
+(        movq    -56\(%rbp\), %rsi) s
+25.8 406 M (98:) s
+52.2 406 M
+(        movq    -80\(%rbp\), %rdi) s
+25.8 394 M (99:) s
+52.2 394 M
+(        movq    %rbx, %rdx) s
+19.2 382 M (100:) s
+52.2 382 M
+(        call    memcpy) s
+19.2 370 M (101:) s
+52.2 370 M
+(        jmp     .L9) s
+19.2 358 M (102:) s
+52.2 358 M
+(.LFE23:) s
+_R
+S
+%%Page: (4) 5
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 4 def
+/fname (insertion-sort.s) def
+/fdir () def
+/ftail (insertion-sort.s) def
+% User defined strings:
+/pagenumstr (4) def
+/moddatestr (05/28/15) def
+/pagecountstr (/5) def
+/modtimestr (19:55:55) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/insertion-sort/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (103:) s
+19.2 682 M (104:) s
+52.2 682 M
+(.LC0:) s
+19.2 670 M (105:) s
+52.2 670 M
+(        .string " %d") s
+19.2 658 M (106:) s
+52.2 658 M
+(        .text) s
+19.2 646 M (107:) s
+52.2 646 M
+(        .globl  print) s
+19.2 634 M (108:) s
+52.2 634 M
+(print:) s
+19.2 622 M (109:) s
+52.2 622 M
+(.LFB24:) s
+19.2 610 M (110:) s
+52.2 610 M
+(        pushq   %r12) s
+19.2 598 M (111:) s
+52.2 598 M
+(        movq    %rdi, %r12) s
+19.2 586 M (112:) s
+52.2 586 M
+(        pushq   %rbp) s
+19.2 574 M (113:) s
+52.2 574 M
+(        movq    %rsi, %rbp) s
+19.2 562 M (114:) s
+52.2 562 M
+(        pushq   %rbx) s
+19.2 550 M (115:) s
+52.2 550 M
+(        xorl    %ebx, %ebx) s
+19.2 538 M (116:) s
+52.2 538 M
+(        testq   %rsi, %rsi) s
+19.2 526 M (117:) s
+52.2 526 M
+(        je      .L17) s
+19.2 514 M (118:) s
+52.2 514 M
+(.L19:) s
+19.2 502 M (119:) s
+52.2 502 M
+(        movl    \(%r12,%rbx,4\), %esi) s
+19.2 490 M (120:) s
+52.2 490 M
+(        xorl    %eax, %eax) s
+19.2 478 M (121:) s
+52.2 478 M
+(        movl    $.LC0, %edi) s
+19.2 466 M (122:) s
+52.2 466 M
+(        addq    $1, %rbx) s
+19.2 454 M (123:) s
+52.2 454 M
+(        call    printf) s
+19.2 442 M (124:) s
+52.2 442 M
+(        cmpq    %rbp, %rbx) s
+19.2 430 M (125:) s
+52.2 430 M
+(        jne     .L19) s
+19.2 418 M (126:) s
+52.2 418 M
+(.L17:) s
+19.2 406 M (127:) s
+52.2 406 M
+(        popq    %rbx) s
+19.2 394 M (128:) s
+52.2 394 M
+(        popq    %rbp) s
+19.2 382 M (129:) s
+52.2 382 M
+(        popq    %r12) s
+19.2 370 M (130:) s
+52.2 370 M
+(        movl    $10, %edi) s
+19.2 358 M (131:) s
+52.2 358 M
+(        jmp     putchar) s
+19.2 346 M (132:) s
+52.2 346 M
+(.LFE24:) s
+_R
+S
+%%Page: (5) 6
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 5 def
+/fname (insertion-sort.s) def
+/fdir () def
+/ftail (insertion-sort.s) def
+% User defined strings:
+/pagenumstr (5) def
+/moddatestr (05/28/15) def
+/pagecountstr (/5) def
+/modtimestr (19:55:55) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/insertion-sort/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (133:) s
+19.2 682 M (134:) s
+52.2 682 M
+(        .globl  main) s
+19.2 670 M (135:) s
+52.2 670 M
+(main:) s
+19.2 658 M (136:) s
+52.2 658 M
+(.LFB26:) s
+19.2 646 M (137:) s
+52.2 646 M
+(        subq    $8, %rsp) s
+19.2 634 M (138:) s
+52.2 634 M
+(        movl    $10, %esi) s
+19.2 622 M (139:) s
+52.2 622 M
+(        movl    $a.2584, %edi) s
+19.2 610 M (140:) s
+52.2 610 M
+(        call    print) s
+19.2 598 M (141:) s
+52.2 598 M
+(        movl    $cmp, %ecx) s
+19.2 586 M (142:) s
+52.2 586 M
+(        movl    $4, %edx) s
+19.2 574 M (143:) s
+52.2 574 M
+(        movl    $10, %esi) s
+19.2 562 M (144:) s
+52.2 562 M
+(        movl    $a.2584, %edi) s
+19.2 550 M (145:) s
+52.2 550 M
+(        call    sort) s
+19.2 538 M (146:) s
+52.2 538 M
+(        movl    $10, %esi) s
+19.2 526 M (147:) s
+52.2 526 M
+(        movl    $a.2584, %edi) s
+19.2 514 M (148:) s
+52.2 514 M
+(        call    print) s
+19.2 502 M (149:) s
+52.2 502 M
+(        xorl    %eax, %eax) s
+19.2 490 M (150:) s
+52.2 490 M
+(        addq    $8, %rsp) s
+19.2 478 M (151:) s
+52.2 478 M
+(        ret) s
+19.2 466 M (152:) s
+52.2 466 M
+(.LFE26:) s
+19.2 454 M (153:) s
+52.2 454 M
+(        .data) s
+19.2 442 M (154:) s
+52.2 442 M
+(        .align 32) s
+19.2 430 M (155:) s
+52.2 430 M
+(a.2584:) s
+19.2 418 M (156:) s
+52.2 418 M
+(        .long   13) s
+19.2 406 M (157:) s
+52.2 406 M
+(        .long   91) s
+19.2 394 M (158:) s
+52.2 394 M
+(        .long   41) s
+19.2 382 M (159:) s
+52.2 382 M
+(        .long   22) s
+19.2 370 M (160:) s
+52.2 370 M
+(        .long   67) s
+19.2 358 M (161:) s
+52.2 358 M
+(        .long   48) s
+19.2 346 M (162:) s
+52.2 346 M
+(        .long   11) s
+19.2 334 M (163:) s
+52.2 334 M
+(        .long   16) s
+19.2 322 M (164:) s
+52.2 322 M
+(        .long   55) s
+19.2 310 M (165:) s
+52.2 310 M
+(        .long   30) s
+_R
+S
+%%Trailer
+%%Pages: 6
+%%DocumentNeededResources: font Times-Roman Courier-Bold Times-Bold 
+%%EOF

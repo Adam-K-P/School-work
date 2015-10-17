@@ -1,0 +1,169 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.5
+date	2015.03.12.22.58.50;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2014.09.26.23.47.07;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2014.09.26.23.46.47;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2014.09.26.23.46.29;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.09.26.23.45.50;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@<HEAD>
+<TITLE>[104A] asg0-intro-unix.html</TITLE>
+<STYLE>
+body {
+   color: #2FFF2F !important;
+   background-color: #2F2F2F !important;
+}
+A:link {color: #2FFFFF}
+A:visited {color: #FFFF2F}
+A:hover {color: #FF2F2F}
+</STYLE>
+</HEAD>
+<BODY>
+<PRE>
+
+Asg0 - Introduction to Unix
+
+It is assumed that everyone in class is familiar with Unix
+(Linux), the UCSC submit command, and using Makefiles.
+
+TAs should review the use of the Linux command line for those
+few students who might not be familiar with it.  All programming
+projects in this course will be done on the unix.ucsc.edu
+servers or the workstations in BE/105.
+
+Most students will, of course, develop on their own computers.
+However, the production environment will be the Linux servers,
+and all code must run there.
+
+1. Use of the submit command.
+
+All programs will be submitted via submit on the campus Linux hosts:
+
+submit cmps104a-wm.s15 asg0 files...
+
+Substitute for asg0 the names of later assignments.  Facilities
+such as eCommons will not be used.
+
+2. Accessing the command line from home.
+
+ssh -X username@@unix.ucsc.edu
+
+The option -X works if you are doing X11 forwarding.
+
+3. Using make
+
+Write a simple program in C++ using several modules, header
+files, and separate compilation.  Write a Makefile that can
+build it.
+
+Submit the source code and Makefile as asg0.
+
+While we will be using C++ in this course, all students are
+expected to know C (prerequisite), and may use their own
+discretion as to how much of C++ to use and how much just to
+code in C.
+
+Simplified, source code files should have the suffices .h or
+.cpp, and we use g++ to compile source code.  It is recommended
+that the containers from the STL be used instead of coding
+containers yourself.
+
+4. Not graded.
+
+This assignment will not be graded.  There is no credit for it.
+If the above interaction with Linux is not completely obvious,
+attend the first couple of labs to be brought up to speed by
+the TAs.
+
+$Id: asg0-intro-unix.html,v 1.4 2014-09-26 16:47:07-07 - - $
+@
+
+
+1.4
+log
+@-
+@
+text
+@d34 1
+a34 1
+submit cmps104a-wm.f14 asg0 files...
+d70 1
+a70 1
+$Id: asg0-intro-unix.html,v 1.3 2014-09-26 16:46:47-07 - - $
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+<TITLE>asg0-intro-unix.html</TITLE>
+d70 1
+a70 1
+$Id: asg0-intro-unix.html,v 1.2 2014-09-26 16:46:29-07 - - $
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+<TITLE>~cmps104a-wm/Assignments/asg0-intro-unix.html</TITLE>
+d70 1
+a70 1
+$Id: asg0-intro-unix.html,v 1.1 2014-09-26 16:45:50-07 - - $
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+<TITLE>~cmps104a-wm/Assignments</TITLE>
+d70 1
+a70 1
+$Id: asg0-intro-unix.txt,v 1.6 2014-09-26 16:44:06-07 - - $
+@

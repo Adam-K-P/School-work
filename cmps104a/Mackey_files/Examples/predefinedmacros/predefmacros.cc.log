@@ -1,0 +1,5 @@
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting predefmacros.cc
+* predefmacros.cc: $Id: predefmacros.cc,v 1.4 2013-09-20 14:47:05-07 -
+- $
+* g++ -g -O0 -Wall -Wextra -std=gnu++0x predefmacros.cc -o predefmacros
+-lm

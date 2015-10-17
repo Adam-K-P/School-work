@@ -1,0 +1,58 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2011.09.01.00.54.03;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.10.09.01.08.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@
+Simple compiler:  Translate exprs to stack machine insns.
+
+Syntax:     the ETF grammar
+Lexical:    identifiers, numbers
+Comments:   // and /**/ C-style
+Directives: #-cpp style
+Activity:   Build AST
+Codegen:    Stack machine code
+
+$Id: README,v 1.1 2009-10-08 18:08:23-07 - - $
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d4 6
+a9 5
+Syntax:   the ETF grammar
+Lexical:  identifiers, numbers
+Comments: #-perl style
+Activity: Build AST
+Codegen:  Stack machine code
+d11 1
+a11 1
+$Id: README,v 1.1 2009-10-08 17:24:38-07 - - $
+@

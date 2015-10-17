@@ -1,0 +1,9 @@
+#!/bin/sh
+# $Id: hackparser,v 1.1 2010-02-26 20:18:17-08 - - $
+ed $1 <<__END__
+/YYSTYPE yyvsa\[YYINITDEPTH];/a
+bzero (yyvsa, sizeof yyvsa);
+.
+w
+q
+__END__

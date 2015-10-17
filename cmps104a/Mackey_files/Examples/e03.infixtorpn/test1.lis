@@ -1,0 +1,140 @@
+::::::::::::::::
+Makefile.dep
+::::::::::::::::
+     1	# Makefile.dep created Fri Oct 10 14:48:42 PDT 2014
+     2	main.o: main.cc extern.h
+     3	parser.o: parser.cc extern.h
+     4	scanner.o: scanner.cc extern.h parser.h
+::::::::::::::::
+test1.in
+::::::::::::::::
+     1	a*b+c*d;
+::::::::::::::::
+test1.out
+::::::::::::::::
+     1	ab*cd*+
+::::::::::::::::
+test1.err
+::::::::::::::::
+     1	Starting parse
+     2	Entering state 0
+     3	Reducing stack by rule 3 (line 20):
+     4	-> $$ = nterm program ()
+     5	Stack now 0
+     6	Entering state 1
+     7	Reading a token: --(end of buffer or a NUL)
+     8	--accepting rule at line 21 ("a")
+     9	Next token is token IDENT ()
+    10	Shifting token IDENT ()
+    11	Entering state 4
+    12	Reducing stack by rule 11 (line 34):
+    13	   $1 = token IDENT ()
+    14	Debug: printchar ('a')
+    15	-> $$ = nterm factor ()
+    16	Stack now 0 1
+    17	Entering state 8
+    18	Reducing stack by rule 9 (line 30):
+    19	   $1 = nterm factor ()
+    20	-> $$ = nterm term ()
+    21	Stack now 0 1
+    22	Entering state 7
+    23	Reading a token: --accepting rule at line 24 ("*")
+    24	Next token is token '*' ()
+    25	Shifting token '*' ()
+    26	Entering state 14
+    27	Reading a token: --accepting rule at line 21 ("b")
+    28	Next token is token IDENT ()
+    29	Shifting token IDENT ()
+    30	Entering state 4
+    31	Reducing stack by rule 11 (line 34):
+    32	   $1 = token IDENT ()
+    33	Debug: printchar ('b')
+    34	-> $$ = nterm factor ()
+    35	Stack now 0 1 7 14
+    36	Entering state 19
+    37	Reducing stack by rule 7 (line 28):
+    38	   $1 = nterm term ()
+    39	   $2 = token '*' ()
+    40	   $3 = nterm factor ()
+    41	Debug: printchar ('*')
+    42	-> $$ = nterm term ()
+    43	Stack now 0 1
+    44	Entering state 7
+    45	Reading a token: --accepting rule at line 22 ("+")
+    46	Next token is token '+' ()
+    47	Reducing stack by rule 6 (line 25):
+    48	   $1 = nterm term ()
+    49	-> $$ = nterm expr ()
+    50	Stack now 0 1
+    51	Entering state 6
+    52	Next token is token '+' ()
+    53	Shifting token '+' ()
+    54	Entering state 12
+    55	Reading a token: --accepting rule at line 21 ("c")
+    56	Next token is token IDENT ()
+    57	Shifting token IDENT ()
+    58	Entering state 4
+    59	Reducing stack by rule 11 (line 34):
+    60	   $1 = token IDENT ()
+    61	Debug: printchar ('c')
+    62	-> $$ = nterm factor ()
+    63	Stack now 0 1 6 12
+    64	Entering state 8
+    65	Reducing stack by rule 9 (line 30):
+    66	   $1 = nterm factor ()
+    67	-> $$ = nterm term ()
+    68	Stack now 0 1 6 12
+    69	Entering state 17
+    70	Reading a token: --accepting rule at line 24 ("*")
+    71	Next token is token '*' ()
+    72	Shifting token '*' ()
+    73	Entering state 14
+    74	Reading a token: --accepting rule at line 21 ("d")
+    75	Next token is token IDENT ()
+    76	Shifting token IDENT ()
+    77	Entering state 4
+    78	Reducing stack by rule 11 (line 34):
+    79	   $1 = token IDENT ()
+    80	Debug: printchar ('d')
+    81	-> $$ = nterm factor ()
+    82	Stack now 0 1 6 12 17 14
+    83	Entering state 19
+    84	Reducing stack by rule 7 (line 28):
+    85	   $1 = nterm term ()
+    86	   $2 = token '*' ()
+    87	   $3 = nterm factor ()
+    88	Debug: printchar ('*')
+    89	-> $$ = nterm term ()
+    90	Stack now 0 1 6 12
+    91	Entering state 17
+    92	Reading a token: --accepting rule at line 28 (";")
+    93	Next token is token ';' ()
+    94	Reducing stack by rule 4 (line 23):
+    95	   $1 = nterm expr ()
+    96	   $2 = token '+' ()
+    97	   $3 = nterm term ()
+    98	Debug: printchar ('+')
+    99	-> $$ = nterm expr ()
+   100	Stack now 0 1
+   101	Entering state 6
+   102	Next token is token ';' ()
+   103	Shifting token ';' ()
+   104	Entering state 11
+   105	Reducing stack by rule 1 (line 18):
+   106	   $1 = nterm program ()
+   107	   $2 = nterm expr ()
+   108	   $3 = token ';' ()
+   109	Debug: printchar ('\x0A')
+   110	-> $$ = nterm program ()
+   111	Stack now 0
+   112	Entering state 1
+   113	Reading a token: --accepting rule at line 29 ("
+   114	")
+   115	--(end of buffer or a NUL)
+   116	--EOF (start condition 0)
+   117	Now at end of input.
+   118	Shifting token $end ()
+   119	Entering state 2
+   120	Stack now 0 1 2
+   121	Cleanup: popping token $end ()
+   122	Cleanup: popping nterm program ()

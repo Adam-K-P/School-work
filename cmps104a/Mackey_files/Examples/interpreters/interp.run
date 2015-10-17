@@ -1,0 +1,3 @@
+#!interp -foo -bar
+some line 2
+last line in file.

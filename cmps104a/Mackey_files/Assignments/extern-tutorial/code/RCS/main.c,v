@@ -1,0 +1,174 @@
+head	1.8;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.8
+date	2014.10.10.21.27.52;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2014.10.10.21.24.12;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2014.08.08.22.43.53;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2014.08.08.22.34.30;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2014.08.08.22.00.23;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2014.08.08.22.00.06;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2014.08.08.21.59.54;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2011.09.02.00.42.12;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.8
+log
+@-
+@
+text
+@// This is an example of a module accessing an external variable.
+#include <stdio.h>
+#include <stdlib.h>
+#include "ext.h"
+int main (void) {
+   print_ext_var();
+   ext_var = 56;
+   print_ext_var();
+   return EXIT_SUCCESS;
+}
+@
+
+
+1.7
+log
+@-
+@
+text
+@d5 2
+a6 4
+int main (int argc, char **argv) {
+   (void) argc;
+   printf ("%s\n", argv[0]);
+   print_ext_var ();
+d8 1
+a8 1
+   print_ext_var ();
+@
+
+
+1.6
+log
+@-
+@
+text
+@a0 1
+// $Id: main.c,v 1.5 2014-08-08 15:34:30-07 - - $
+a1 1
+
+a3 1
+
+a4 1
+
+a12 1
+
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+d3 1
+a3 1
+// $Id: main.c,v 1.4 2014-08-08 15:00:23-07 - - $
+d6 1
+d8 1
+d17 1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 2
+// $Id: main.c,v 1.3 2014-08-08 15:00:06-07 - - $
+
+a4 1
+
+a5 1
+
+a13 1
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: main.c,v 1.2 2014-08-08 14:59:54-07 - - $
+d11 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: main.c,v 1.1 2011-09-01 17:42:12-07 - - $
+d10 1
+a10 1
+   (void) argc, argv;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: main.c,v 1.2 2009-09-14 18:06:58-07 - - $
+d10 1
+@

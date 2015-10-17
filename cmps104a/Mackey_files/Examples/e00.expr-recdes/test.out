@@ -1,0 +1,272 @@
+scan_new_token[109]:
+|  "foo" 257(IDENT)
+scan_new_token[109]:
+|  "*" 42('*')
+parse_factor[167]:
+|  "foo" 257(IDENT)
+scan_new_token[109]:
+|  "bar" 257(IDENT)
+scan_new_token[109]:
+|  "+" 43('+')
+parse_factor[167]:
+|  "bar" 257(IDENT)
+parse_term[185]:
+|  "*" 42('*')
+|  |  "foo" 257(IDENT)
+|  |  "bar" 257(IDENT)
+scan_new_token[109]:
+|  "baz" 257(IDENT)
+scan_new_token[109]:
+|  ";" 59(';')
+parse_factor[167]:
+|  "baz" 257(IDENT)
+parse_term[185]:
+|  "baz" 257(IDENT)
+parse_expr[206]:
+|  "+" 43('+')
+|  |  "*" 42('*')
+|  |  |  "foo" 257(IDENT)
+|  |  |  "bar" 257(IDENT)
+|  |  "baz" 257(IDENT)
+
+scan_new_token[109]:
+|  "34" 258(NUMBER)
+scan_new_token[109]:
+|  "*" 42('*')
+parse_factor[167]:
+|  "34" 258(NUMBER)
+scan_new_token[109]:
+|  "55" 258(NUMBER)
+scan_new_token[109]:
+|  "*" 42('*')
+parse_factor[167]:
+|  "55" 258(NUMBER)
+scan_new_token[109]:
+|  "66" 258(NUMBER)
+scan_new_token[109]:
+|  ";" 59(';')
+parse_factor[167]:
+|  "66" 258(NUMBER)
+parse_term[185]:
+|  "*" 42('*')
+|  |  "*" 42('*')
+|  |  |  "34" 258(NUMBER)
+|  |  |  "55" 258(NUMBER)
+|  |  "66" 258(NUMBER)
+parse_expr[206]:
+|  "*" 42('*')
+|  |  "*" 42('*')
+|  |  |  "34" 258(NUMBER)
+|  |  |  "55" 258(NUMBER)
+|  |  "66" 258(NUMBER)
+
+scan_new_token[109]:
+|  "add" 257(IDENT)
+scan_new_token[109]:
+|  "+" 43('+')
+parse_factor[167]:
+|  "add" 257(IDENT)
+parse_term[185]:
+|  "add" 257(IDENT)
+scan_new_token[109]:
+|  "this" 257(IDENT)
+scan_new_token[109]:
+|  "+" 43('+')
+parse_factor[167]:
+|  "this" 257(IDENT)
+parse_term[185]:
+|  "this" 257(IDENT)
+scan_new_token[109]:
+|  "and" 257(IDENT)
+scan_new_token[109]:
+|  "+" 43('+')
+parse_factor[167]:
+|  "and" 257(IDENT)
+parse_term[185]:
+|  "and" 257(IDENT)
+scan_new_token[109]:
+|  "this" 257(IDENT)
+scan_new_token[109]:
+|  ";" 59(';')
+parse_factor[167]:
+|  "this" 257(IDENT)
+parse_term[185]:
+|  "this" 257(IDENT)
+parse_expr[206]:
+|  "+" 43('+')
+|  |  "+" 43('+')
+|  |  |  "+" 43('+')
+|  |  |  |  "add" 257(IDENT)
+|  |  |  |  "this" 257(IDENT)
+|  |  |  "and" 257(IDENT)
+|  |  "this" 257(IDENT)
+
+scan_new_token[109]:
+|  "abc" 257(IDENT)
+scan_new_token[109]:
+|  "*" 42('*')
+parse_factor[167]:
+|  "abc" 257(IDENT)
+scan_new_token[109]:
+|  "(" 40('(')
+scan_new_token[109]:
+|  "def" 257(IDENT)
+scan_new_token[109]:
+|  "-" 45('-')
+parse_factor[167]:
+|  "def" 257(IDENT)
+parse_term[185]:
+|  "def" 257(IDENT)
+scan_new_token[109]:
+|  "ghi" 257(IDENT)
+scan_new_token[109]:
+|  ")" 41(')')
+parse_factor[167]:
+|  "ghi" 257(IDENT)
+parse_term[185]:
+|  "ghi" 257(IDENT)
+parse_expr[206]:
+|  "-" 45('-')
+|  |  "def" 257(IDENT)
+|  |  "ghi" 257(IDENT)
+scan_new_token[109]:
+|  ";" 59(';')
+parse_factor[167]:
+|  "-" 45('-')
+|  |  "def" 257(IDENT)
+|  |  "ghi" 257(IDENT)
+parse_term[185]:
+|  "*" 42('*')
+|  |  "abc" 257(IDENT)
+|  |  "-" 45('-')
+|  |  |  "def" 257(IDENT)
+|  |  |  "ghi" 257(IDENT)
+parse_expr[206]:
+|  "*" 42('*')
+|  |  "abc" 257(IDENT)
+|  |  "-" 45('-')
+|  |  |  "def" 257(IDENT)
+|  |  |  "ghi" 257(IDENT)
+
+scan_new_token[109]:
+|  "abc" 257(IDENT)
+scan_new_token[109]:
+|  "+" 43('+')
+parse_factor[167]:
+|  "abc" 257(IDENT)
+parse_term[185]:
+|  "abc" 257(IDENT)
+scan_new_token[109]:
+|  "def" 257(IDENT)
+scan_new_token[109]:
+|  "/" 47('/')
+parse_factor[167]:
+|  "def" 257(IDENT)
+scan_new_token[109]:
+|  "ghi" 257(IDENT)
+scan_new_token[109]:
+|  "-" 45('-')
+parse_factor[167]:
+|  "ghi" 257(IDENT)
+parse_term[185]:
+|  "/" 47('/')
+|  |  "def" 257(IDENT)
+|  |  "ghi" 257(IDENT)
+scan_new_token[109]:
+|  "jkl" 257(IDENT)
+scan_new_token[109]:
+|  ";" 59(';')
+parse_factor[167]:
+|  "jkl" 257(IDENT)
+parse_term[185]:
+|  "jkl" 257(IDENT)
+parse_expr[206]:
+|  "-" 45('-')
+|  |  "+" 43('+')
+|  |  |  "abc" 257(IDENT)
+|  |  |  "/" 47('/')
+|  |  |  |  "def" 257(IDENT)
+|  |  |  |  "ghi" 257(IDENT)
+|  |  "jkl" 257(IDENT)
+
+scan_new_token[109]:
+|  "foo" 257(IDENT)
+scan_new_token[109]:
+|  "*" 42('*')
+parse_factor[167]:
+|  "foo" 257(IDENT)
+scan_new_token[109]:
+|  "bar" 257(IDENT)
+scan_new_token[109]:
+|  "+" 43('+')
+parse_factor[167]:
+|  "bar" 257(IDENT)
+parse_term[185]:
+|  "*" 42('*')
+|  |  "foo" 257(IDENT)
+|  |  "bar" 257(IDENT)
+scan_new_token[109]:
+|  "baz" 257(IDENT)
+scan_new_token[109]:
+|  "/" 47('/')
+parse_factor[167]:
+|  "baz" 257(IDENT)
+scan_new_token[109]:
+|  "qux" 257(IDENT)
+scan_new_token[109]:
+|  ";" 59(';')
+parse_factor[167]:
+|  "qux" 257(IDENT)
+parse_term[185]:
+|  "/" 47('/')
+|  |  "baz" 257(IDENT)
+|  |  "qux" 257(IDENT)
+parse_expr[206]:
+|  "+" 43('+')
+|  |  "*" 42('*')
+|  |  |  "foo" 257(IDENT)
+|  |  |  "bar" 257(IDENT)
+|  |  "/" 47('/')
+|  |  |  "baz" 257(IDENT)
+|  |  |  "qux" 257(IDENT)
+
+scan_new_token[109]:
+|  "<<EOF>>" 256(ENDFILE)
+parse_program[221]:
+|  "<<ROOT>>" 259(ROOT)
+|  |  "+" 43('+')
+|  |  |  "*" 42('*')
+|  |  |  |  "foo" 257(IDENT)
+|  |  |  |  "bar" 257(IDENT)
+|  |  |  "baz" 257(IDENT)
+|  |  "*" 42('*')
+|  |  |  "*" 42('*')
+|  |  |  |  "34" 258(NUMBER)
+|  |  |  |  "55" 258(NUMBER)
+|  |  |  "66" 258(NUMBER)
+|  |  "+" 43('+')
+|  |  |  "+" 43('+')
+|  |  |  |  "+" 43('+')
+|  |  |  |  |  "add" 257(IDENT)
+|  |  |  |  |  "this" 257(IDENT)
+|  |  |  |  "and" 257(IDENT)
+|  |  |  "this" 257(IDENT)
+|  |  "*" 42('*')
+|  |  |  "abc" 257(IDENT)
+|  |  |  "-" 45('-')
+|  |  |  |  "def" 257(IDENT)
+|  |  |  |  "ghi" 257(IDENT)
+|  |  "-" 45('-')
+|  |  |  "+" 43('+')
+|  |  |  |  "abc" 257(IDENT)
+|  |  |  |  "/" 47('/')
+|  |  |  |  |  "def" 257(IDENT)
+|  |  |  |  |  "ghi" 257(IDENT)
+|  |  |  "jkl" 257(IDENT)
+|  |  "+" 43('+')
+|  |  |  "*" 42('*')
+|  |  |  |  "foo" 257(IDENT)
+|  |  |  |  "bar" 257(IDENT)
+|  |  |  "/" 47('/')
+|  |  |  |  "baz" 257(IDENT)
+|  |  |  |  "qux" 257(IDENT)

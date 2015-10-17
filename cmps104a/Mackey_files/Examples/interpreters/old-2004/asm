@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/ccs/bin/as -xarch=v8plusa $*

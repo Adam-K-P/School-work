@@ -1,0 +1,17 @@
+
+Actual leaks report    (actual leaks:         0  total size:       0 bytes)
+
+ 
+
+Possible leaks report  (possible leaks:       0  total size:       0 bytes)
+
+ 
+
+Blocks in use report   (blocks in use:        2  total size:   16426 bytes)
+
+ Total  % of Num of  Avg     Allocation call stack
+ Size    All Blocks  Size
+======= ==== ====== ======  =======================================
+  16386  99%      1  16386  yy_flex_alloc < yy_create_buffer < yylex < main 
+     40  <1%      1     40  yy_flex_alloc < yy_create_buffer < yylex < main 
+ 

@@ -1,0 +1,126 @@
+head	341.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+341.1
+date	2004.03.05.02.31.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+341.1
+log
+@-
+@
+text
+@/* $Id: newgoto-sm.c,v 341.21 2004-03-04 18:23:13-08 - - $ */
+/*
+* tos of stack is cached in a register.
+* *sp is actually second from top of stack.
+*
+* gcc specific coding:
+* In order to make the core interpreter loop as fast as possible,
+* any tricks are good tricks, regardless of their so-called software
+* engineering quality.  The program is simple and regular, so the
+* tricks hopefully will not lead to excessive obfuscation.
+*
+* -- Using goto *SW[*ip++] instead of a switch statement causes gcc
+*    to omit the bounds check it must normally do with a switch.
+*
+*/
+
+#include <inttypes.h>
+
+typedef uint8_t   ubyte;
+typedef int8_t    sbyte;
+typedef uint32_t  uword;
+typedef int32_t   sword;
+typedef void     *ugoto;
+
+enum Opcode{
+   LDC0, LDCP, LDCN, LDC2, LDC4,
+   LDL , LDL2, STL , STL2, SKL , SKL2,
+   ADD , SUB , MUL , DIV , REM ,
+   AND , OR  , XOR , SLL , SRL , SRA ,
+   NEG , POS , COM ,
+   EQ  , NE  , LT  , LE  , GT  , GE  ,
+   JMP ,
+   JZ  , JNZ ,
+   JEQ , JNE , JLT , JLE , JGT , JGE ,
+};
+
+void interp(){
+   static ugoto SWITCH[] = {
+      &&_LDC0, &&_LDCP, &&_LDCN, &&_LDC2, &&_LDC4,
+      &&_LDL , &&_LDL2, &&_STL , &&_STL2, &&_SKL , &&_SKL2,
+      &&_ADD , &&_SUB , &&_MUL , &&_DIV , &&_REM ,
+      &&_AND , &&_OR  , &&_XOR , &&_SLL , &&_SRL , &&_SRA ,
+      &&_NEG , &&_POS , &&_COM ,
+      &&_EQ  , &&_NE  , &&_LT  , &&_LE  , &&_GT  , &&_GE  ,
+      &&_JMP , &&_JZ  , &&_JNZ ,
+   };
+   register ubyte *ip;
+   register sword *sp;
+   register sword *fp;
+   register sword tos; /* cache for *sp */
+   register ugoto *SW = SWITCH;
+
+   #define _IP0     register sword w = (sbyte)(ip[0]);
+   #define _IP(N)   w = w<<8 | ip[N];
+   #define UIP1     ( *ip++ )
+   #define SIP2     ({ _IP0; _IP(1); ip+=2; w; })
+   #define SIP4     ({ _IP0; _IP(1); _IP(2); _IP(3); ip+=4; w; })
+   #define FETCH    { goto Fetch; }
+
+   Fetch: goto *SW[UIP1];
+
+   _LDC0: *sp++ = tos; tos = 0;                   FETCH;
+   _LDCP: *sp++ = tos; tos = UIP1;                FETCH;
+   _LDCN: *sp++ = tos; tos = UIP1 - 256;          FETCH;
+   _LDC2: *sp++ = tos; tos = SIP2;                FETCH;
+   _LDC4: *sp++ = tos; tos = SIP4;                FETCH;
+
+   _LDL : *sp++ = tos; tos = fp[UIP1];            FETCH;
+   _LDL2: *sp++ = tos; tos = fp[SIP2];            FETCH;
+   _STL : fp[UIP1] = tos; tos = *--sp;            FETCH;
+   _STL2: fp[SIP2] = tos; tos = *--sp;            FETCH;
+   _SKL : fp[UIP1] = tos;                         FETCH;
+   _SKL2: fp[SIP2] = tos;                         FETCH;
+
+   _ADD : tos = *--sp + tos;                      FETCH;
+   _SUB : tos = *--sp - tos;                      FETCH;
+   _MUL : tos = *--sp * tos;                      FETCH;
+   _DIV : tos = *--sp / tos;                      FETCH;
+   _REM : tos = *--sp % tos;                      FETCH;
+
+   _AND : tos = *--sp & tos;                      FETCH;
+   _OR  : tos = *--sp | tos;                      FETCH;
+   _XOR : tos = *--sp ^ tos;                      FETCH;
+   _SLL : tos = *--sp << tos;                     FETCH;
+   _SRL : tos = (uword)(*--sp) >> tos;            FETCH;
+   _SRA : tos = *--sp >> tos;                     FETCH;
+
+   _NEG : tos = - tos;                            FETCH;
+   _POS : tos = + tos;                            FETCH;
+   _COM : tos = ~ tos;                            FETCH;
+
+   _EQ  : tos = *--sp == tos;                     FETCH;
+   _NE  : tos = *--sp != tos;                     FETCH;
+   _LT  : tos = *--sp <  tos;                     FETCH;
+   _LE  : tos = *--sp <= tos;                     FETCH;
+   _GT  : tos = *--sp >  tos;                     FETCH;
+   _GE  : tos = *--sp >= tos;                     FETCH;
+
+   _JMP :                ip += SIP2;              FETCH;
+   _JZ  : if( tos == 0 ) ip += SIP2; tos = *--sp; FETCH;
+   _JNZ : if( tos != 0 ) ip += SIP2; tos = *--sp; FETCH;
+
+}
+@

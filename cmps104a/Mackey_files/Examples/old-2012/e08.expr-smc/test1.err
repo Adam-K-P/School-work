@@ -1,0 +1,308 @@
+DEBUGF(x): auxlib.c[117] set_debugflags():
+Debugflags = "@", all = 1
+zexprsm: bad option (d)
+DEBUGF(m): main.c[69] scan_opts():
+filename = test1.in, yyin = 0x1e22030, fileno (yyin) = 3
+Starting parse
+Entering state 0
+Reducing stack by rule 5 (line 45):
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e221f0-> 0:0.0: ROOT: 0x1e22230->"<<ROOT>>"
+-> $$ = nterm stmtseq ()
+Stack now 0
+Entering state 2
+Reading a token: --(end of buffer or a NUL)
+--accepting rule at line 36 ("# 1 "test1.in"")
+DEBUGF(m): lyutils.c[118] scanner_include():
+filename=test1.in, scan_linenr=0
+--accepting rule at line 38 ("
+")
+--accepting rule at line 36 ("# 1 "<built-in>"")
+DEBUGF(m): lyutils.c[118] scanner_include():
+filename=<built-in>, scan_linenr=0
+--accepting rule at line 38 ("
+")
+--accepting rule at line 36 ("# 1 "<command-line>"")
+DEBUGF(m): lyutils.c[118] scanner_include():
+filename=<command-line>, scan_linenr=0
+--accepting rule at line 38 ("
+")
+--accepting rule at line 36 ("# 1 "test1.in"")
+DEBUGF(m): lyutils.c[118] scanner_include():
+filename=test1.in, scan_linenr=0
+--accepting rule at line 38 ("
+")
+--accepting rule at line 38 ("
+")
+--accepting rule at line 41 ("a")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e263d0-> 4:2.0: IDENT: 0x1e26410->"a"
+Next token is token IDENT (259=IDENT)
+         (0x1e263d0-> astree {IDENT(259), 4:2.000, 0x1e26410->"a",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token IDENT (259=IDENT)
+         (0x1e263d0-> astree {IDENT(259), 4:2.000, 0x1e26410->"a",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 5
+Reducing stack by rule 15 (line 57):
+   $1 = token IDENT (259=IDENT)
+         (0x1e263d0-> astree {IDENT(259), 4:2.000, 0x1e26410->"a",
+                     first=(nil), last=(nil), next=(nil)})
+-> $$ = nterm expr ()
+Stack now 0 2
+Entering state 11
+Reading a token: --accepting rule at line 43 ("=")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e26430-> 4:2.1: '=': 0x1e26470->"="
+Next token is token '=' (61='=')
+         (0x1e26430-> astree {'='(61), 4:2.001, 0x1e26470->"=",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token '=' (61='=')
+         (0x1e26430-> astree {'='(61), 4:2.001, 0x1e26470->"=",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 16
+Reading a token: --accepting rule at line 41 ("b")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e26490-> 4:2.2: IDENT: 0x1e264d0->"b"
+Next token is token IDENT (259=IDENT)
+         (0x1e26490-> astree {IDENT(259), 4:2.002, 0x1e264d0->"b",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token IDENT (259=IDENT)
+         (0x1e26490-> astree {IDENT(259), 4:2.002, 0x1e264d0->"b",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 5
+Reducing stack by rule 15 (line 57):
+   $1 = token IDENT (259=IDENT)
+         (0x1e26490-> astree {IDENT(259), 4:2.002, 0x1e264d0->"b",
+                     first=(nil), last=(nil), next=(nil)})
+-> $$ = nterm expr ()
+Stack now 0 2 11 16
+Entering state 24
+Reading a token: --accepting rule at line 46 ("*")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e264f0-> 4:2.3: '*': 0x1e26530->"*"
+Next token is token '*' (42='*')
+         (0x1e264f0-> astree {'*'(42), 4:2.003, 0x1e26530->"*",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token '*' (42='*')
+         (0x1e264f0-> astree {'*'(42), 4:2.003, 0x1e26530->"*",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 19
+Reading a token: --accepting rule at line 41 ("c")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e26550-> 4:2.4: IDENT: 0x1e26590->"c"
+Next token is token IDENT (259=IDENT)
+         (0x1e26550-> astree {IDENT(259), 4:2.004, 0x1e26590->"c",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token IDENT (259=IDENT)
+         (0x1e26550-> astree {IDENT(259), 4:2.004, 0x1e26590->"c",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 5
+Reducing stack by rule 15 (line 57):
+   $1 = token IDENT (259=IDENT)
+         (0x1e26550-> astree {IDENT(259), 4:2.004, 0x1e26590->"c",
+                     first=(nil), last=(nil), next=(nil)})
+-> $$ = nterm expr ()
+Stack now 0 2 11 16 24 19
+Entering state 27
+Reading a token: --accepting rule at line 44 ("+")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e265b0-> 4:2.5: '+': 0x1e265f0->"+"
+Next token is token '+' (43='+')
+         (0x1e265b0-> astree {'+'(43), 4:2.005, 0x1e265f0->"+",
+                     first=(nil), last=(nil), next=(nil)})
+Reducing stack by rule 9 (line 51):
+   $1 = nterm expr ()
+   $2 = token '*' (42='*')
+         (0x1e264f0-> astree {'*'(42), 4:2.003, 0x1e26530->"*",
+                     first=(nil), last=(nil), next=(nil)})
+   $3 = nterm expr ()
+DEBUGF(a): astree.c[55] adopt():
+0x1e264f0 (*) adopting 0x1e26490 (b)
+DEBUGF(a): astree.c[55] adopt():
+0x1e264f0 (*) adopting 0x1e26550 (c)
+-> $$ = nterm expr ()
+Stack now 0 2 11 16
+Entering state 24
+Next token is token '+' (43='+')
+         (0x1e265b0-> astree {'+'(43), 4:2.005, 0x1e265f0->"+",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token '+' (43='+')
+         (0x1e265b0-> astree {'+'(43), 4:2.005, 0x1e265f0->"+",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 17
+Reading a token: --accepting rule at line 41 ("d")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e26610-> 4:2.6: IDENT: 0x1e26650->"d"
+Next token is token IDENT (259=IDENT)
+         (0x1e26610-> astree {IDENT(259), 4:2.006, 0x1e26650->"d",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token IDENT (259=IDENT)
+         (0x1e26610-> astree {IDENT(259), 4:2.006, 0x1e26650->"d",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 5
+Reducing stack by rule 15 (line 57):
+   $1 = token IDENT (259=IDENT)
+         (0x1e26610-> astree {IDENT(259), 4:2.006, 0x1e26650->"d",
+                     first=(nil), last=(nil), next=(nil)})
+-> $$ = nterm expr ()
+Stack now 0 2 11 16 24 17
+Entering state 25
+Reading a token: --accepting rule at line 46 ("*")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e26670-> 4:2.7: '*': 0x1e266b0->"*"
+Next token is token '*' (42='*')
+         (0x1e26670-> astree {'*'(42), 4:2.007, 0x1e266b0->"*",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token '*' (42='*')
+         (0x1e26670-> astree {'*'(42), 4:2.007, 0x1e266b0->"*",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 19
+Reading a token: --accepting rule at line 41 ("e")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e266d0-> 4:2.8: IDENT: 0x1e26710->"e"
+Next token is token IDENT (259=IDENT)
+         (0x1e266d0-> astree {IDENT(259), 4:2.008, 0x1e26710->"e",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token IDENT (259=IDENT)
+         (0x1e266d0-> astree {IDENT(259), 4:2.008, 0x1e26710->"e",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 5
+Reducing stack by rule 15 (line 57):
+   $1 = token IDENT (259=IDENT)
+         (0x1e266d0-> astree {IDENT(259), 4:2.008, 0x1e26710->"e",
+                     first=(nil), last=(nil), next=(nil)})
+-> $$ = nterm expr ()
+Stack now 0 2 11 16 24 17 25 19
+Entering state 27
+Reading a token: --accepting rule at line 51 (";")
+DEBUGF(f): astree.c[37] new_astree():
+malloc (56) = 0x1e26730-> 4:2.9: ';': 0x1e26770->";"
+Next token is token ';' (59=';')
+         (0x1e26730-> astree {';'(59), 4:2.009, 0x1e26770->";",
+                     first=(nil), last=(nil), next=(nil)})
+Reducing stack by rule 9 (line 51):
+   $1 = nterm expr ()
+   $2 = token '*' (42='*')
+         (0x1e26670-> astree {'*'(42), 4:2.007, 0x1e266b0->"*",
+                     first=(nil), last=(nil), next=(nil)})
+   $3 = nterm expr ()
+DEBUGF(a): astree.c[55] adopt():
+0x1e26670 (*) adopting 0x1e26610 (d)
+DEBUGF(a): astree.c[55] adopt():
+0x1e26670 (*) adopting 0x1e266d0 (e)
+-> $$ = nterm expr ()
+Stack now 0 2 11 16 24 17
+Entering state 25
+Next token is token ';' (59=';')
+         (0x1e26730-> astree {';'(59), 4:2.009, 0x1e26770->";",
+                     first=(nil), last=(nil), next=(nil)})
+Reducing stack by rule 7 (line 49):
+   $1 = nterm expr ()
+   $2 = token '+' (43='+')
+         (0x1e265b0-> astree {'+'(43), 4:2.005, 0x1e265f0->"+",
+                     first=(nil), last=(nil), next=(nil)})
+   $3 = nterm expr ()
+DEBUGF(a): astree.c[55] adopt():
+0x1e265b0 (+) adopting 0x1e264f0 (*)
+DEBUGF(a): astree.c[55] adopt():
+0x1e265b0 (+) adopting 0x1e26670 (*)
+-> $$ = nterm expr ()
+Stack now 0 2 11 16
+Entering state 24
+Next token is token ';' (59=';')
+         (0x1e26730-> astree {';'(59), 4:2.009, 0x1e26770->";",
+                     first=(nil), last=(nil), next=(nil)})
+Reducing stack by rule 6 (line 48):
+   $1 = nterm expr ()
+   $2 = token '=' (61='=')
+         (0x1e26430-> astree {'='(61), 4:2.001, 0x1e26470->"=",
+                     first=(nil), last=(nil), next=(nil)})
+   $3 = nterm expr ()
+DEBUGF(a): astree.c[55] adopt():
+0x1e26430 (=) adopting 0x1e263d0 (a)
+DEBUGF(a): astree.c[55] adopt():
+0x1e26430 (=) adopting 0x1e265b0 (+)
+-> $$ = nterm expr ()
+Stack now 0 2
+Entering state 11
+Next token is token ';' (59=';')
+         (0x1e26730-> astree {';'(59), 4:2.009, 0x1e26770->";",
+                     first=(nil), last=(nil), next=(nil)})
+Shifting token ';' (59=';')
+         (0x1e26730-> astree {';'(59), 4:2.009, 0x1e26770->";",
+                     first=(nil), last=(nil), next=(nil)})
+Entering state 22
+Reducing stack by rule 2 (line 42):
+   $1 = nterm stmtseq ()
+   $2 = nterm expr ()
+   $3 = token ';' (59=';')
+         (0x1e26730-> astree {';'(59), 4:2.009, 0x1e26770->";",
+                     first=(nil), last=(nil), next=(nil)})
+DEBUGF(f): astree.c[127] freeast():
+free [1E26730]-> 4:2.9: ';': 0x1e26770->";")
+DEBUGF(a): astree.c[55] adopt():
+0x1e221f0 (<<ROOT>>) adopting 0x1e26430 (=)
+-> $$ = nterm stmtseq ()
+Stack now 0
+Entering state 2
+Reading a token: --accepting rule at line 38 ("
+")
+--(end of buffer or a NUL)
+--EOF (start condition 0)
+Now at end of input.
+Reducing stack by rule 1 (line 39):
+   $1 = nterm stmtseq ()
+-> $$ = nterm program ()
+Stack now 0
+Entering state 1
+Now at end of input.
+Shifting token $end (0=$end)
+         (yyvaluep = 0x1e26730)
+Entering state 3
+Stack now 0 1 3
+Cleanup: popping token $end (0=$end)
+         (yyvaluep = 0x1e26730)
+Cleanup: popping nterm program ()
+DEBUGF(a): main.c[88] main():
+
+<<ROOT>> 0x1e221f0-> astree {ROOT(258), 0:0.000, 0x1e22230->"<<ROOT>>",
+            first=0x1e26430, last=0x1e26430, next=(nil)}
+   = 0x1e26430-> astree {'='(61), 4:2.001, 0x1e26470->"=",
+               first=0x1e263d0, last=0x1e265b0, next=(nil)}
+      a 0x1e263d0-> astree {IDENT(259), 4:2.000, 0x1e26410->"a",
+                  first=(nil), last=(nil), next=0x1e265b0}
+      + 0x1e265b0-> astree {'+'(43), 4:2.005, 0x1e265f0->"+",
+                  first=0x1e264f0, last=0x1e26670, next=(nil)}
+         * 0x1e264f0-> astree {'*'(42), 4:2.003, 0x1e26530->"*",
+                     first=0x1e26490, last=0x1e26550, next=0x1e26670}
+            b 0x1e26490-> astree {IDENT(259), 4:2.002, 0x1e264d0->"b",
+                        first=(nil), last=(nil), next=0x1e26550}
+            c 0x1e26550-> astree {IDENT(259), 4:2.004, 0x1e26590->"c",
+                        first=(nil), last=(nil), next=(nil)}
+         * 0x1e26670-> astree {'*'(42), 4:2.007, 0x1e266b0->"*",
+                     first=0x1e26610, last=0x1e266d0, next=(nil)}
+            d 0x1e26610-> astree {IDENT(259), 4:2.006, 0x1e26650->"d",
+                        first=(nil), last=(nil), next=0x1e266d0}
+            e 0x1e266d0-> astree {IDENT(259), 4:2.008, 0x1e26710->"e",
+                        first=(nil), last=(nil), next=(nil)}
+DEBUGF(f): astree.c[127] freeast():
+free [1E263D0]-> 4:2.0: IDENT: 0x1e26410->"a")
+DEBUGF(f): astree.c[127] freeast():
+free [1E26490]-> 4:2.2: IDENT: 0x1e264d0->"b")
+DEBUGF(f): astree.c[127] freeast():
+free [1E26550]-> 4:2.4: IDENT: 0x1e26590->"c")
+DEBUGF(f): astree.c[127] freeast():
+free [1E264F0]-> 4:2.3: '*': 0x1e26530->"*")
+DEBUGF(f): astree.c[127] freeast():
+free [1E26610]-> 4:2.6: IDENT: 0x1e26650->"d")
+DEBUGF(f): astree.c[127] freeast():
+free [1E266D0]-> 4:2.8: IDENT: 0x1e26710->"e")
+DEBUGF(f): astree.c[127] freeast():
+free [1E26670]-> 4:2.7: '*': 0x1e266b0->"*")
+DEBUGF(f): astree.c[127] freeast():
+free [1E265B0]-> 4:2.5: '+': 0x1e265f0->"+")
+DEBUGF(f): astree.c[127] freeast():
+free [1E26430]-> 4:2.1: '=': 0x1e26470->"=")
+DEBUGF(f): astree.c[127] freeast():
+free [1E221F0]-> 0:0.0: ROOT: 0x1e22230->"<<ROOT>>")

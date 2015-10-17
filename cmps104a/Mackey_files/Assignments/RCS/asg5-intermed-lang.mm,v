@@ -1,0 +1,4493 @@
+head	1.147;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.147
+date	2015.05.21.02.58.25;	author -;	state -;
+branches;
+next	1.146;
+
+1.146
+date	2014.12.06.00.11.07;	author -;	state -;
+branches;
+next	1.145;
+
+1.145
+date	2014.12.01.23.03.12;	author -;	state -;
+branches;
+next	1.144;
+
+1.144
+date	2014.12.01.23.02.39;	author -;	state -;
+branches;
+next	1.143;
+
+1.143
+date	2014.11.26.01.24.14;	author -;	state -;
+branches;
+next	1.142;
+
+1.142
+date	2014.11.26.00.16.42;	author -;	state -;
+branches;
+next	1.141;
+
+1.141
+date	2014.11.26.00.15.08;	author -;	state -;
+branches;
+next	1.140;
+
+1.140
+date	2014.11.26.00.14.12;	author -;	state -;
+branches;
+next	1.139;
+
+1.139
+date	2014.11.26.00.13.39;	author -;	state -;
+branches;
+next	1.138;
+
+1.138
+date	2014.11.26.00.12.08;	author -;	state -;
+branches;
+next	1.137;
+
+1.137
+date	2014.11.26.00.10.58;	author -;	state -;
+branches;
+next	1.136;
+
+1.136
+date	2014.11.26.00.10.35;	author -;	state -;
+branches;
+next	1.135;
+
+1.135
+date	2014.11.26.00.08.01;	author -;	state -;
+branches;
+next	1.134;
+
+1.134
+date	2014.11.26.00.06.25;	author -;	state -;
+branches;
+next	1.133;
+
+1.133
+date	2014.11.26.00.05.08;	author -;	state -;
+branches;
+next	1.132;
+
+1.132
+date	2014.11.26.00.04.05;	author -;	state -;
+branches;
+next	1.131;
+
+1.131
+date	2014.11.25.23.58.44;	author -;	state -;
+branches;
+next	1.130;
+
+1.130
+date	2014.11.22.00.56.20;	author -;	state -;
+branches;
+next	1.129;
+
+1.129
+date	2014.11.22.00.54.29;	author -;	state -;
+branches;
+next	1.128;
+
+1.128
+date	2014.11.22.00.49.25;	author -;	state -;
+branches;
+next	1.127;
+
+1.127
+date	2014.11.22.00.48.56;	author -;	state -;
+branches;
+next	1.126;
+
+1.126
+date	2014.11.21.23.50.08;	author -;	state -;
+branches;
+next	1.125;
+
+1.125
+date	2014.11.21.23.36.13;	author -;	state -;
+branches;
+next	1.124;
+
+1.124
+date	2014.11.21.23.35.29;	author -;	state -;
+branches;
+next	1.123;
+
+1.123
+date	2014.11.21.23.30.13;	author -;	state -;
+branches;
+next	1.122;
+
+1.122
+date	2014.11.21.23.29.41;	author -;	state -;
+branches;
+next	1.121;
+
+1.121
+date	2014.11.21.23.25.30;	author -;	state -;
+branches;
+next	1.120;
+
+1.120
+date	2014.11.21.23.07.03;	author -;	state -;
+branches;
+next	1.119;
+
+1.119
+date	2014.11.21.23.02.29;	author -;	state -;
+branches;
+next	1.118;
+
+1.118
+date	2014.11.21.22.48.44;	author -;	state -;
+branches;
+next	1.117;
+
+1.117
+date	2014.11.21.22.44.03;	author -;	state -;
+branches;
+next	1.116;
+
+1.116
+date	2014.11.21.22.41.38;	author -;	state -;
+branches;
+next	1.115;
+
+1.115
+date	2014.11.21.22.40.05;	author -;	state -;
+branches;
+next	1.114;
+
+1.114
+date	2014.11.21.22.36.20;	author -;	state -;
+branches;
+next	1.113;
+
+1.113
+date	2014.11.21.22.34.41;	author -;	state -;
+branches;
+next	1.112;
+
+1.112
+date	2014.11.21.22.28.06;	author -;	state -;
+branches;
+next	1.111;
+
+1.111
+date	2014.11.21.22.27.50;	author -;	state -;
+branches;
+next	1.110;
+
+1.110
+date	2014.11.21.22.26.54;	author -;	state -;
+branches;
+next	1.109;
+
+1.109
+date	2014.11.21.22.24.54;	author -;	state -;
+branches;
+next	1.108;
+
+1.108
+date	2014.11.21.22.18.52;	author -;	state -;
+branches;
+next	1.107;
+
+1.107
+date	2014.11.21.22.18.36;	author -;	state -;
+branches;
+next	1.106;
+
+1.106
+date	2014.11.21.22.18.10;	author -;	state -;
+branches;
+next	1.105;
+
+1.105
+date	2014.11.21.22.17.29;	author -;	state -;
+branches;
+next	1.104;
+
+1.104
+date	2014.11.21.22.17.13;	author -;	state -;
+branches;
+next	1.103;
+
+1.103
+date	2014.11.21.22.16.50;	author -;	state -;
+branches;
+next	1.102;
+
+1.102
+date	2014.11.21.22.16.13;	author -;	state -;
+branches;
+next	1.101;
+
+1.101
+date	2014.11.21.22.16.02;	author -;	state -;
+branches;
+next	1.100;
+
+1.100
+date	2014.11.21.22.15.49;	author -;	state -;
+branches;
+next	1.99;
+
+1.99
+date	2014.11.21.22.15.33;	author -;	state -;
+branches;
+next	1.98;
+
+1.98
+date	2014.11.21.22.15.18;	author -;	state -;
+branches;
+next	1.97;
+
+1.97
+date	2014.11.21.22.15.07;	author -;	state -;
+branches;
+next	1.96;
+
+1.96
+date	2014.11.21.22.14.56;	author -;	state -;
+branches;
+next	1.95;
+
+1.95
+date	2014.11.21.22.14.43;	author -;	state -;
+branches;
+next	1.94;
+
+1.94
+date	2014.11.21.22.14.33;	author -;	state -;
+branches;
+next	1.93;
+
+1.93
+date	2014.11.21.22.14.15;	author -;	state -;
+branches;
+next	1.92;
+
+1.92
+date	2014.11.21.22.11.53;	author -;	state -;
+branches;
+next	1.91;
+
+1.91
+date	2014.11.21.22.11.24;	author -;	state -;
+branches;
+next	1.90;
+
+1.90
+date	2014.11.21.22.10.37;	author -;	state -;
+branches;
+next	1.89;
+
+1.89
+date	2014.11.21.22.09.24;	author -;	state -;
+branches;
+next	1.88;
+
+1.88
+date	2014.11.21.22.09.09;	author -;	state -;
+branches;
+next	1.87;
+
+1.87
+date	2014.11.21.22.08.47;	author -;	state -;
+branches;
+next	1.86;
+
+1.86
+date	2014.11.21.22.06.22;	author -;	state -;
+branches;
+next	1.85;
+
+1.85
+date	2014.11.21.22.05.46;	author -;	state -;
+branches;
+next	1.84;
+
+1.84
+date	2014.11.21.21.59.16;	author -;	state -;
+branches;
+next	1.83;
+
+1.83
+date	2014.11.21.21.50.36;	author -;	state -;
+branches;
+next	1.82;
+
+1.82
+date	2014.11.21.21.49.57;	author -;	state -;
+branches;
+next	1.81;
+
+1.81
+date	2014.11.21.02.32.52;	author -;	state -;
+branches;
+next	1.80;
+
+1.80
+date	2014.11.21.02.31.47;	author -;	state -;
+branches;
+next	1.79;
+
+1.79
+date	2014.11.21.02.18.28;	author -;	state -;
+branches;
+next	1.78;
+
+1.78
+date	2014.11.21.01.50.04;	author -;	state -;
+branches;
+next	1.77;
+
+1.77
+date	2014.11.21.01.47.12;	author -;	state -;
+branches;
+next	1.76;
+
+1.76
+date	2014.11.19.01.05.00;	author -;	state -;
+branches;
+next	1.75;
+
+1.75
+date	2014.11.13.00.34.38;	author -;	state -;
+branches;
+next	1.74;
+
+1.74
+date	2014.11.11.20.01.35;	author -;	state -;
+branches;
+next	1.73;
+
+1.73
+date	2014.11.11.19.58.36;	author -;	state -;
+branches;
+next	1.72;
+
+1.72
+date	2014.11.11.19.57.20;	author -;	state -;
+branches;
+next	1.71;
+
+1.71
+date	2014.11.11.19.53.35;	author -;	state -;
+branches;
+next	1.70;
+
+1.70
+date	2014.11.11.19.50.02;	author -;	state -;
+branches;
+next	1.69;
+
+1.69
+date	2014.11.11.19.47.59;	author -;	state -;
+branches;
+next	1.68;
+
+1.68
+date	2014.11.11.19.41.03;	author -;	state -;
+branches;
+next	1.67;
+
+1.67
+date	2014.11.11.19.18.09;	author -;	state -;
+branches;
+next	1.66;
+
+1.66
+date	2014.11.07.03.41.59;	author -;	state -;
+branches;
+next	1.65;
+
+1.65
+date	2014.11.07.03.41.21;	author -;	state -;
+branches;
+next	1.64;
+
+1.64
+date	2014.11.07.03.40.27;	author -;	state -;
+branches;
+next	1.63;
+
+1.63
+date	2014.11.07.03.38.54;	author -;	state -;
+branches;
+next	1.62;
+
+1.62
+date	2014.11.07.03.20.21;	author -;	state -;
+branches;
+next	1.61;
+
+1.61
+date	2014.11.07.03.17.09;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2014.11.07.00.37.51;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2014.10.31.21.12.31;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2014.10.31.21.12.12;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2014.10.31.21.06.59;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2014.10.31.21.06.46;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2014.10.31.21.06.37;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2014.10.31.21.06.28;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2014.10.31.21.06.18;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2014.10.31.21.06.07;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2014.10.31.21.05.55;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2014.10.31.21.05.44;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2014.10.31.21.05.28;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2014.10.31.21.04.30;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2014.10.31.21.03.03;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2014.10.31.21.01.04;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2014.10.31.21.00.23;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2014.10.31.20.55.29;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2014.10.31.20.54.04;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2014.10.31.20.53.25;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2014.10.31.20.11.41;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2014.10.31.02.00.59;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2014.10.31.01.49.35;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2014.10.31.01.48.34;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2014.10.31.01.47.15;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2014.10.31.01.46.59;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2014.10.31.01.45.54;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2014.10.31.01.42.58;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2014.08.30.02.34.55;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2014.08.30.02.33.49;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2014.08.30.02.31.53;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2014.08.30.02.30.41;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2014.08.30.02.28.22;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2014.08.30.02.27.03;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2014.08.30.02.26.46;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2014.08.30.02.22.17;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2014.08.30.02.20.26;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2014.08.30.02.19.40;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2014.08.30.02.16.20;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2014.08.30.02.13.56;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2014.08.30.02.13.22;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2014.08.30.02.12.32;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2014.08.30.02.12.05;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2014.08.30.02.11.04;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2014.08.30.02.10.31;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2014.08.30.02.09.08;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2014.08.30.02.05.44;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2014.08.30.02.05.08;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2014.08.30.02.03.56;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2014.08.30.02.02.49;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2014.08.30.02.02.32;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2014.08.30.02.01.03;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2014.08.30.01.59.20;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2014.08.30.01.50.59;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2014.08.29.23.26.12;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2014.08.29.23.24.45;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2014.08.29.23.23.55;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2012.11.08.01.51.10;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2012.11.08.01.49.07;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2012.11.08.01.47.16;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2012.11.08.01.46.34;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.147
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.SIZE 12 14
+.TITLE CMPS-104A Fall\~2012 Project\~5 \
+"Code Emission\(:) \f[CB]oc\f[P] and \f[CB]oil\f[P]"
+.RCS "$Id: asg5-intermed-lang.mm,v 1.146 2014-12-05 16:11:07-08 - - $"
+.PWD
+.URL
+.GETST* OIL_GRAMMAR Figure_OIL_GRAMMAR
+.GETST* TYPE_DECLS Figure_TYPE_DECLS
+.GETST* NAME_MANGLING Figure_NAME_MANGLING
+.GETST* OCL_GCC Figure_OCL_GCC
+.GETST* OCLIB_OH Figure_OCLIB_OH
+.GETST* OCLIB_OH_C Figure_OCLIB_OH_C
+.GETST* OCLIB_OH_OC Figure_OCLIB_OH_OC
+.GETST* OCLIB_C_1 Figure_OCLIB_C_1
+.GETST* OCLIB_C_2 Figure_OCLIB_C_2
+.GETST* SAMPLE_FAC_OC Figure_SAMPLE_FAC_OC
+.GETST* SAMPLE_FAC_OIL Figure_SAMPLE_FAC_OIL
+.ds INDENT \0\0\0\0\0\0\0\0
+.nr Grammar_Pi \n[Pi]*11/4
+.nr Margin_Pi \n[Pi]/2
+.ds STICK \s+3\v'+1p'|\v'-1p'\s-3
+.ds OBRACK \s+3[\s-3
+.ds CBRACK \s+3]\s-3
+.ds PICDOTS \[bu]\0\[bu]\0\[bu]
+.ds ARROW \[->]\0
+.nr CONT_INDENT \w'\*[ARROW]'-(2*\w'\*[STICK]')
+.de *SI*V \" next words are small italic and then bold
+.   nop \f[I]\s-3\\$1\s+3\f[P]\f[CB]\\$2\f[P]
+.   *Continuation 2 \\$@@
+..
+.de *SI*'V \" next words are small italic and quoted bold
+.   nop \f[I]\s-3\\$1\s+3\f[P]`\f[CB]\\$2\f[P]'
+.   *Continuation 2 \\$@@
+..
+.de *'V*SI \" next words are small italic and quoted bold
+.   nop `\f[CB]\\$1\f[P]'\f[I]\s-3\\$2\s+3\f[P]
+.   *Continuation 2 \\$@@
+..
+.de *|
+.   RB \*[STICK]
+.   *Continuation 0 \\$@@
+..
+.de *[
+.   RI \*[OBRACK]
+.   *Continuation 0 \\$@@
+..
+.de *]
+.   RI \*[CBRACK]
+.   *Continuation 0 \\$@@
+..
+.de *]...
+.   RI \*[CBRACK]\|.\|.\|.\&
+.   *Continuation 0 \\$@@
+..
+.de RULE
+.   LI "\\$[1]"
+.   nop \*[ARROW]
+.   *Continuation 1 \\$@@
+..
+.de DECL
+.   *Continuation 0 \\$@@
+..
+.de CONT
+.   LI \0
+.   nop \h'\\n[CONT_INDENT]u'\h'5p'
+.   *Continuation 0 \\$@@
+..
+.de VS
+.   nop \f[CB]\\$1\f[P]\f[I]\s-3\\$2\s+3\f[P]\f[CB]\\$3\f[P]
+..
+.de NOT_FINISHED
+.   SP
+.   br
+.   S +12 +12
+.   E= "This document is not finished."
+.   br
+.   S -12 -12
+.   SP
+..
+.EQ
+delim $$
+.EN
+.gkacc@@over-def +' \[aa]
+.char-nt *o' \[*o] \[*o]\*[+']
+.ds-nt polumorphismos polumorphismos \
+\[*p]\[*o]\[*l]\[*u]\[*m]\[*o]\[*r]\[*f]\[*i]\[*s]\[*m]\[*o']\[ts]
+.H 1 Overview
+An intermediate language is a very low level language used
+by a compiler to perform optimizations and other changes
+before emitting final assembly language for some particular
+machine.
+It generally matches common assembly language statement semantics,
+but in a typeful manner.
+.P
+.SH=BVL
+.MANPAGE=LI SYNOPSIS
+.V= oc
+.=V \|[ -ly ]
+.=V \|[ -@@
+.IR flag \|.\|.\|.]
+.=V \|[ -D
+.IR string ]
+.IR \|program \f[CB].oc\f[P]
+.LE
+.P
+All of the requirements for all previous projects are included
+in this project.
+For any input file called
+.IV program .oc 
+emit an intermediate language file called
+\f[I]program\f[P]\f[CB].oil\f[P],
+which can then be compiled into assembly language using 
+.V= gcc .
+.DF L
+.SP
+.B1
+.SP
+.VL \n[Grammar_Pi] \n[Margin_Pi] 1
+.RULE program *[ *R structdef *]... \
+*[ *R stringdef *]... \
+*[ *R type *SI IDENT *'V ;\& *]... \
+*[ *R function *]...
+.RULE structdef *'V struct *SI TYPEID \
+*'V { *[ *R type *SI IDENT *'V ;\& *]... *'V } *'V ;\&
+.RULE stringdef *'V char* *SI IDENT *'V = *SI STRINGCON *'V ;\&
+.RULE function *R type *SI IDENT *'V ( parameters *'V ) fnbody
+.RULE fnbody *'V { *[ *R statement *]... *'V } *| *'V ;
+.RULE parameters *R type *SI IDENT *[ *'V , *R type *SI IDENT *]... \
+*| *'V void
+.RULE statement *SI LABEL *'V :;\&
+.RULE \0 *[ *'V if *'V ( *[ *'V ! *] *R operand *'V ) *] \
+*'V goto *SI LABEL *'V ;\&
+.RULE \0 *'V return *[ *R operand *] *'V ;\&
+.RULE \0 *[ *R type *] *SI IDENT *'V = *R expression *'V ;\&
+.RULE \0 *'V*SI * IDENT *'V = *R expression *'V ;\&
+.RULE \0 *[ *R type *SI IDENT *'V = *] \
+*SI IDENT *'V ( *[ *R operand *[ *'V , *R operand *]... *] *'V ) *'V ;\&
+.RULE expression *R operand *R binop *R operand *| unop *R operand \
+*| *R selection *| operand
+.RULE binop *'V + *| *'V - *| *'V * *| *'V / *| *'V % \
+*| *'V == *| *'V != *| *'V < *| *'V <= *| *'V > *| *'V >=
+.RULE unop *'V + *| *'V - *| *'V ! *| *'V * *| *'V (int) *| *'V (char)
+.RULE selection *'V & *SI IDENT *'V [ *R operand *'V ] \
+*| *'V & *SI IDENT *'V -> *SI IDENT
+.RULE operand *SI IDENT *| *SI INTCON *| *SI CHARCON \
+*| *'V sizeof *'V ( *R type *'V )
+.RULE type *'V void *| *'V void* *| *'V char *| *'V char* \
+*| *'V char** *| *'V char***
+.RULE \0 *'V int *| *'V int* *| *'V int** *| *'V struct *SI*'V TYPEID *
+.RULE \0 *'V struct *SI*'V TYPEID ** *'V struct *SI*'V TYPEID ***
+.LE
+.SP
+.B2
+.FG "\f[B]Grammar of \f[CB]oil\f[P]" "" 0 OIL_GRAMMAR
+.DE
+.DF L
+.SP
+.TS
+expand tab(|); |l lw(115p) |l lw(121p) |.
+_
+T{
+.fi
+.DECL *V bool *SI IDENT
+T}|T{
+.fi
+.DECL *V char *SI IDENT
+T}|T{
+.fi
+.DECL *V bool[] *SI IDENT
+T}|T{
+.fi
+.DECL *V char* *SI IDENT
+T}
+T{
+.fi
+.DECL *V char *SI IDENT
+T}|T{
+.fi
+.DECL *V char *SI IDENT
+T}|T{
+.fi
+.DECL *V char[] *SI IDENT
+T}|T{
+.fi
+.DECL *V char* *SI IDENT
+T}
+T{
+.fi
+.DECL *V int *SI IDENT
+T}|T{
+.fi
+.DECL *V int *SI IDENT
+T}|T{
+.fi
+.DECL *V int[] *SI IDENT
+T}|T{
+.fi
+.DECL *V int* *SI IDENT
+T}
+T{
+.fi
+.DECL *V string *SI IDENT
+T}|T{
+.fi
+.DECL *V char* *SI IDENT
+T}|T{
+.fi
+.DECL *V string[] *SI IDENT
+T}|T{
+.fi
+.DECL *V char** *SI IDENT
+T}
+T{
+.fi
+.DECL *SI TYPEID *SI IDENT
+T}|T{
+.fi
+.DECL *V struct *SI*V TYPEID * *SI IDENT
+T}|T{
+.fi
+.DECL *SI*V TYPEID [] *SI IDENT
+T}|T{
+.fi
+.DECL *V struct *SI*V TYPEID ** *SI IDENT
+T}
+_
+.TE
+.FG "\f[B]Type declarations in \f[CB]oc\f[P] and \f[CB]oil\f[P]" \
+"" 0 TYPE_DECLS
+.SP
+.DE
+.H 1 "Intermediate Language"
+The intermediate language chosen here looks very much like C,
+except that, for the most part, each
+.V= oil
+statement should be capable of translating into a single
+assembly language instruction, or only a few.
+Unlike most assembly languages,
+.V= oil
+is typed as to basic data types, namely char, int, and pointer.
+The size of the int and pointer types are dependent on the underlying
+architecture.
+.P
+The basic grammar of
+.V= oil
+is given in Figure \*[Figure_OIL_GRAMMAR],
+and uses the same metanotation as was used in the definition of
+.V= oc .
+Figure \*[Figure_TYPE_DECLS]
+shows the relationship between types in
+.V= oc
+and the corresponding C-compatible types in
+.V= oil .
+The extra types listed in
+Figure \*[Figure_OIL_GRAMMAR]
+but not in Figure \*[Figure_TYPE_DECLS]
+are used only when the address operator
+.=V ( & )
+is applied to take the address of a field selection,
+which is then dereferenced when applied.
+.P
+The intermediate language itself has three datatypes\(::
+byte
+.=V ( char )\(;;
+signed integer
+.=V ( int )\(;;
+and a pointer type.
+.H 2 "Program and Function Structure"
+An
+.V= oil
+program is structured in a way similar to C,
+except that it looks more like assembly language.
+All code is either aligned with the left margin or indented by
+8 spaces.
+.ALX a ()
+.LI
+Structure definitions come first, with the 
+.V= struct 
+keyword and closing brace left-aligned,
+and the fields indented, as in\(::
+.DS
+.VTCODE* 1 "struct s_foo {"
+.VTCODE* 1 "\*[INDENT]char** f_foo_string_array;"
+.VTCODE* 1 "\*[INDENT]struct s_foo* f_foo_pointer;"
+.VTCODE* 1 "};"
+.DE
+.LI
+Then all string constants are listed in the order they appear in the
+program.
+They are unlikely to be able to be used as immediate operands in
+assembly language.
+Global declarations are all left-aligned, as in\(::
+.DS
+.VTCODE* 1 "char* s1 = \[Dq]Hello, world!\[rs]n\[Dq];"
+.DE
+.LI
+Then all global variable declarations that appeared in the
+program,
+but without initialization,
+because in C,
+static initialization is done at compile time.
+.LI
+Finally,
+functions are emitted with one parameter per line.
+The function name and the two braces are left aligned,
+as are label statements,
+but everything else is indented, as in\(::
+.DS
+.VTCODE* 1 "int __add (
+.VTCODE* 1 "\*[INDENT]int _1_a,"
+.VTCODE* 1 "\*[INDENT]int _1_b)"
+.VTCODE* 1 "{"
+.VTCODE* 1 "\*[INDENT]int i2 = _1_a + _1_b;"
+.VTCODE* 1 "\*[INDENT]return i2;"
+.VTCODE* 1 "}"
+.DE
+.LE
+.H 2 "Statements"
+Statements are all indented,
+except for labels,
+and all declarations of local variables must be initialized.
+Expressions other than calls are restricted to three-address
+instructions,
+with a destination and at most two sources.
+.ALX a ()
+.LI
+A label is emitted unindented on a line by itself.
+It consists of a keyword from the source language followed by
+the coordinates taken from the node.
+.DS
+.VTCODE* 1 "while_4_20_9:;"
+.DE
+.LI
+A
+.V= goto
+statement may be conditional or unconditional,
+and if conditional is preceded by an
+.V= if
+and an operand (possibly complemented) in parentheses.
+.DS
+.VTCODE* 1 "\*[INDENT]goto while_4_20_9;"
+.VTCODE* 1 "\*[INDENT]if (b36) goto while_4_29_9;"
+.DE
+.LI
+A
+.V= return
+statement may or may not have an operand,
+depending on the requirements of the original
+.V= oc
+program.
+.DS
+.VTCODE* 1 "\*[INDENT]return _5_foobar;"
+.VTCODE* 1 "\*[INDENT]return;"
+.DE
+.LI
+An assignment statement takes an expression as an operand.
+A type is present if the identifier has not previously been
+declared,
+and absent if it has.
+.DS
+.VTCODE* 1 "\*[INDENT]int i5 = _2_n + 45;"
+.VTCODE* 1 "\*[INDENT]_2_n = i5;"
+.VTCODE* 1 "\*[INDENT]char c4 = (char) _4_foo;"
+.VTCODE* 1 "\*[INDENT]char* a5 = &_3_a[i6];"
+.VTCODE* 1 "\*[INDENT]*a5 = i7"
+.DE
+.LI
+A function call may only have operands in parentheses,
+but may have as many as appropriate.
+A void function has no assignment on the left.
+All other functions must have it,
+and the result is placed into a temporary.
+.LE
+.H 2 "Expressions"
+Expressions are simple and restricted to three-address code.
+.ALX a ()
+.LI
+Binary operators are the same as they are in 
+.V= oc
+and have already been type checked.
+As in C,
+0 means false and anything else means true.
+.LI
+The unary operators are also the same,
+with the cast
+.V= (int)
+being substituted for
+.V= ord ,
+and
+.V= (char)
+being substituted for
+.V= chr .
+These represent actual machine instructions that must be issued.
+.LI
+Address computation for indexing and field selection is taken care
+of by the back end,
+alghough a type checker would normally assign offsets of fields in
+structures and offsets of local variables from the frame pointer.
+.ALX i ()
+.LI
+The type of a subscript address is the same as the type of the
+array.
+So if we have
+.V= "char** _3_a" ,
+then a subscripting operation might be\(::
+.VTCODE* 1 "char** i5 = _3_a[_3_i];"
+and when it is used, 
+.V= i5
+must be dereferenced, as in\(::
+.VTCODE* 1 "_3_n = *i5;"
+.VTCODE* 1 "*i5 = _3_n;"
+depending on whether the dereference is an lvalue or an rvalue.
+.LI
+The type of a selection has one more level of pointer than
+the declaration of a field.
+So if a
+.V= struct 
+has a field
+.V= "char** f_foo_bar;" ,
+then the selection might be\(::
+.VTCODE* 1 "char*** a9 = &_3_ptr->f_foo_bar;"
+.LE
+.LI
+Figure \*[Figure_TYPE_DECLS]
+show the types in 
+.V= oc
+and their corresponding types in
+.V= oil .
+Note that the asterisk representing a pointer cuddles up against the
+following identifier,
+not against the type.
+.LI
+There is no
+.V= bool
+data type,
+it being replaced by
+.V= char .
+.LE
+.DF L
+.SP
+.TS
+center box tab(|); l l l l, l lfCB l lfCB.
+Category|Format string|Format arguments|Example
+_
+Global names|\[Dq]__%s\[Dq]|identifier|__glovar
+Local names|\[Dq]_%d_%s\[Dq]|block, identifier|_3_ix
+Stmt labels|\[Dq]%s_%d_%d_%d\[Dq]|keyword, file, line, offset|if_4_21_9
+Structure typeids|\[Dq]s_%s\[Dq]|structure_typeid|s_foo
+Field names|\[Dq]f_%s_%s\[Dq]|structure_typeid, field_name|f_foo_bar
+Virtual registers|\[Dq]%c%d\[Dq]|register_category, register_number|i67
+.TE
+.FG "\f[B]Summary of name mangling" "" 0 NAME_MANGLING
+.SP
+.DE
+.H 2 "Name Mangling"
+Assembly language generally uses a completely flat symbol table,
+so names need to be mangled in order to avoid clashing global names
+with various local scopes and the C library to which a program is
+linked.
+Figure \*[Figure_NAME_MANGLING]
+shows the 
+.V= fprintf (3)
+format items and arguments to be used to mangle a name.
+.ALX a ()
+.LI
+All global names, functions and global variables will be prefixed
+with a double underscore
+.=V ( __ ),
+e.g., 
+.=V `` __foo ''.
+Global names belong to block 0.
+.LI
+Local names will be prefixed with a double underscore with a block
+number between the underscores, as in 
+.=V `` _1_n ''.
+Local names belong to blocks whose number is greater than 0.
+.LI
+Statement labels are emitted with a keyword from the language followed
+by the file number, line number, and offset from the token.
+The following keywords are used\(::
+.=V `` while '',
+before a while expression\(;;
+.=V `` break '',
+the statement to transfer to for a false test\(;;
+.=V `` else '',
+to branch to if the if-test is false and there is an
+.V= else \(;;
+and
+.=V `` fi '',
+to skip the else part.
+.LI
+Structure names all have file scope and are just prefixed with
+.=V `` s_ ''.
+So the name of a
+.V= "struct foo"
+would be 
+.V= s_foo .
+.LI
+Field names are prefixed with 
+.=V `` f_ ''
+and the name of the structure to which they belong.
+So a field from
+.V= "struct foo { int ix; };"
+would be called
+.V= f_foo_ix .
+.LI
+Virtual registers are just assigned numbers in sequence throughout the
+entire program starting with 1, 2, 3, etc.
+The letter used is
+.V= c
+for a
+.V= char ,
+.V= i
+for an
+.V= int ,
+.V= s
+for a
+.*SI STRINGCON
+address,
+.V= p
+for a direct data pointer,
+and
+.V= a
+for an indirect (dereferenceable) address pointing at data.
+E.g., 
+.V= c1 ,
+.V= i2 ,
+.V= s3 ,
+.V= p4 ,
+.V= a5 .
+.LI
+Indirect addresses are the result of evaluating selections,
+which must be dereferenced when used.
+All other addresses are used directly.
+.DS
+.VTCODE* 1 "\*[INDENT]int* a6 = &_3_array[_3_i];"
+.VTCODE* 1 "\*[INDENT]char** a8 = &_3_foo->f_foo_bar;"
+.DE
+.LE
+.DF L
+.SP
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv oil-examples/ocl | expand
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[CB]oil-examples/ocl\f[P]" "" 0 OCL_GCC
+.DE
+.H 1 "Code Emission"
+Code is emitted from the AST with the benefit of the the symbol table
+and type checker.
+Since the suffix
+.V= oil
+is not recognized by
+.V= gcc ,
+in order to make it compile the code,
+the
+.V= -x
+option must be used.
+Figure \*[Figure_OCL_GCC] shows a shell script that will compile
+into an executable,
+given the name of the executable.
+.P
+The file
+.V= oclib.oh
+is bilingual for both
+.V= oc
+and
+.V= gcc .
+.ALX a ()
+.LI
+Figure \*[Figure_OCLIB_OH] shows the bilingual source file.
+.LI
+Figure \*[Figure_OCLIB_OH_OC]
+show the file preprocessed for
+.V= oc ,
+as will be seen by the
+.V= oc
+compiler when
+.V= #include d
+in an
+.V= oc
+program.
+Note that the
+.V= #define s
+.V= EOF
+and
+.V= assert
+are not shown in the preprocessed figures,
+but will be used by the preprocessor to process an
+.V= oc
+program.
+.LI
+Figure \*[Figure_OCLIB_OH_C]
+shows it preprocessed for
+.V= gcc ,
+with names mangled names correctly when
+.V= __OCLIB_C__
+is defined, 
+as is done when 
+.V= #include d
+from
+.V= oclib.c .
+.LE
+.P
+Figures \*[Figure_OCLIB_C_1] and \*[Figure_OCLIB_C_2]
+show the code for
+.V= oclib.c ,
+the library written in C.
+.H 2 "Top Level Description"
+First, a prolog is emitted,
+then 
+.\".IR "r\[a_]d\[i_]cis f\[i_]li\[o_]s f\[i_]li\[a_]sque"
+the children of the root
+are traversed in their own sequence to build the various parts
+of the program.
+.ALX a ()
+.LI
+Then all structure definitions are traversed and output as
+described above, with names mangled,
+and fields properly indented.
+.LI
+Next, all string constants are given names as described above.
+This should not require a complete tree traversal.
+Retrofit either the construction of the AST or the type checking
+module to put all
+.*SI STRINGCON
+AST nodes into a queue.
+.LI
+Then all global variables,
+immediate children of the root,
+and output,
+but without any initialization given to them by the source.
+.LI
+Then all functions are output,
+as described below.
+Finally a single function with the signature
+.VTCODE* 1 "void __ocmain (void)"
+is output,
+containing all global initializations and statements.
+.LE
+.H 2 "Emitting Functions and Statements"
+Function emission is done by a complete depth-first mostly post-order
+traversal of the AST for that function.
+Prototypes need not be emitted.
+They are used only in type checking.
+.ALX a ()
+.LI
+Output the function's return type,
+mangled name,
+and mangled parameter names.
+Mangle the parameter names using the block number the function created.
+.LI
+Following that,
+indented,
+are the declarations of all of the parameters.
+.LI
+An opening brace, unindented, at the start of the function's body,
+and a closing brace, unindented, after the function is finished.
+.LI
+A block simply has its children traversed.
+.LI
+A
+.V= while
+has two children.
+For the 
+.V= while
+and
+.V= break
+labels, both use the serial number of the
+.V= while
+token.
+.ALX i () "" 0
+.LI
+Emit\(::
+.V= "while_%d_%d_%d:;"
+unindented.
+.LI
+Emit the first child, unless it is an operand.
+.LI
+Emit\(::
+.VI "if (!" operand ") goto break_%d_%d_%d;"
+.LI
+Emit the statement.
+.LI
+Emit\(::
+.V= "goto while_%d_%d_%d;"
+.LI
+Emit\(::
+.V= "break_%d_%d_%d:;" 
+unindented.
+.LE
+.LI
+For an
+.V= if - else
+statement, do the following\(::
+.ALX i () "" 0
+.LI
+Emit the first expression, unless it is an operand.
+.LI
+Emit\(::
+.V= "if (!" operand ") goto else_%d_%d_%d;"
+.LI
+Emit the second child (consequent statement).
+.LI
+Emit\(::
+.V= "goto fi_%d_%d_%d;"
+.LI
+Emit\(::
+.V= else_%d_%d_%d:;
+unindented.
+.LI
+Emit the third child (alternate statement).
+.LI
+Emit
+.V= fi_%d_%d_%d:;
+unindented.
+.LE
+.LI
+For an
+.V= if
+with no
+.V= else ,
+do the following\(::
+.ALX i () "" 0
+.LI
+Emit the first expression, unless it is an operand.
+.LI
+Emit\(::
+.V= "if (!" operand ") goto fi_%d_%d_%d;"
+.LI
+Emit the second child (consequent statement).
+.LI
+Emit
+.V= fi_%d_%d_%d:;
+unindented.
+.LE
+.LI
+If a
+.V= return
+statement has an expression,
+emit the expression, unless it is an operand,
+then return the operand.
+If not, just 
+.V= return .
+.LE
+.H 2 "Emitting Expressions"
+Expressions are always emitted using a strict depth-first post-order
+traversal,
+accumulating values into virtual registers.
+This results in some redundant virtual registers,
+but the back end can use copy propagation to remove them during
+register allocation.
+.ALX a ()
+.LI
+In each case of generating code into an operand,
+generate a declaration of a virtual register with the appropriate
+letter,
+.V= b ,
+.V= i ,
+.V= a ,
+or 
+.V= p ,
+and assign it the value of the expression thus evaluated.
+.LI
+The binary operators are the same in both
+.V= oc
+and
+.V= oil ,
+and after emitting an instruction,
+record the register number in the AST node itself.
+This will require adding yet another field.
+Example\(::
+.VTCODE* 1 "int i5 = _3_n + 1;"
+.LI
+Similarly,
+handle the unary operators,
+except that 
+.V= ord
+becomes
+.V= (int)
+and
+.V= chr
+becomes
+.V= (char) .
+.LI
+An allocator uses a call to
+.V= xcalloc()
+to allocate the storage,
+based on the type of allocator,
+for some structure type
+.IR T
+and pointer number
+.IR i \(::
+.ALX i ()
+.LI
+.*'V new *SI TYPEID *'V ( *'V )
+.IR \& \(::
+.br
+Emit\(::
+.VI "struct " T "* p" i " = xcalloc (1, sizeof (struct " T "));"
+.LI
+.*'V new *'V string *'V ( *R expression *'V )
+.IR \& \(::
+.br
+Emit the expression, unless it is an operand.
+.br
+Emit\(::
+.VI "char* p" i " = xcalloc (" opnd ", sizeof (char));"
+.LI
+.*'V new *R basetype *'V [ *R expression *'V ]
+.IR \& \(::
+.br
+Emit the expression, unless it is an operand.
+.br
+Emit one of the following, depending on the
+.IR basetype \(::
+.ALX \[bu] 0 "" 0 0
+.LI
+.VI "char* p" i " = xcalloc (" opnd ", sizeof (char));"
+.LI
+.VI "int* p" i " = xcalloc (" opnd ", sizeof (int));"
+.LI
+.VI "char** p" i " = xcalloc (" opnd ", sizeof (char*));"
+.LI
+.VI "struct " T "** p" i \
+" = xcalloc (" opnd ", sizeof (struct " T "*));"
+.LE
+.LE
+.LI
+For a function call,
+evaluate each of the arguments into registers,
+and generate the call instruction.
+A
+.V= void
+function is just called.
+A
+.=V non- void
+function has its result captured into a register.
+.LI
+An
+.*SI INTCON
+must be emitted with leading zeros suppressed,
+since 0077 means tha same thing as 77 in 
+.V= oc ,
+but it means 63 in C.
+A
+.*SI CHARCON
+is emitted as is.
+The constants 
+.V= null
+and
+.V= false
+are emitted as the literal
+.V= 0 ,
+and
+.V= true
+is emitted as the literal
+.V= 1 .
+.LI
+Constants (except strings)
+and variables are never captured in registers,
+but instead are used as immediate operands.
+.LE
+.H 1 "An Example"
+Figure \*[Figure_SAMPLE_FAC_OC] contains a sample 
+.V= oc
+program.
+Figure \*[Figure_SAMPLE_FAC_OIL] contains the output file
+generated from it,
+except that the code generated from the
+.V= #include
+header file has been omitted.
+It is assumed that
+.V= cpp
+here has recognized this file as the fifth file in
+sequence and that the header file has generated 11 blocks
+so that the code presented is the 12th block.
+.EQ
+delim off
+.EN
+.DS
+\&
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv oc-programs/oclib.oh | expand
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[CB]oc-programs/oclib.oh\f[R]" "" 0 OCLIB_OH
+.DE
+.DS
+\&
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cpp oc-programs/oclib.oh | cat -nv | expand
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[CB]cpp oc-programs/oclib.oh\f[P]" "" 0 OCLIB_OH_OC
+.DE
+.DS
+\&
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cpp -D__OCLIB_C__ oc-programs/oclib.oh | cat -nv | expand | sed '/^ *[0-9][0-9]* *$/d'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[CB]cpp -D__OCLIB_C__ oc-programs/oclib.oh" "" 0 OCLIB_OH_C
+.DE
+.DS
+\&
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv oc-programs/oclib.c | expand | sed '/\^L/,$d'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[CB]oc-programs/oclib.c\f[B], part 1\fR" "" 0 OCLIB_C_1
+.DE
+.DS
+\&
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv oc-programs/oclib.c | expand | sed -n '/\^L/,$p'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[CB]oc-programs/oclib.c\f[B], part 2\fR" "" 0 OCLIB_C_2
+.DE
+.DS
+\&
+.B1
+.SP
+.ft CR
+.nf
+.eo
+     1  #include "oclib.oh"
+     2  int fac (int n) {
+     3     int f = 1;
+     4     while (n > 1) {
+     5        f = f * n;
+     6        n = n - 1;
+     7     }
+     8     return f;
+     9  }
+    10  int n = 1;
+    11  while (n <= 5) {
+    12     puti (fac (n));
+    13     endl ();
+    14     n = n + 1;
+    15  }
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "Sample program \f[CB]fac.oc" "" 0 SAMPLE_FAC_OC
+.DE
+.DS
+\&
+.B1
+.SP
+.ft CR
+.nf
+.eo
+     1  int __n;
+     2  int __fac (
+     3          int _12_n)
+     4  {
+     5          int _12_f = 1;
+     6  while_5_2_3:;
+     7          char b1 = _12_n > 1;
+     8          if (!b1) goto break_5_2_3;
+     9          int i1 = _12_f * _12_n;
+    10          _12_f = i1;
+    11          int i2 = _12_n - 1;
+    12          _12_n = i2;
+    13          goto while_5_2_3;
+    14  break_5_2_3:
+    15          return _12_f
+    16  }
+    17  void __ocmain (void)
+    18  {
+    19          __n = 1;
+    20  while_5_11_0:;
+    21          char b2 = __n <= 5;
+    22          if (!b2) goto break_5_11_0;
+    23          int i3 = __fac (__n);
+    24          __puti (i3);
+    25          __endl();
+    26          int i4 = __n + 1;
+    27          __n = i4;
+    28          goto while_5_11_0;
+    29  break_5_11_0:;
+    30  }
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "Sample generated \f[CB]fac.oil" "" 0 SAMPLE_FAC_OIL
+.DE
+.FINISH
+@
+
+
+1.146
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.145 2014-12-01 15:03:12-08 - - $"
+d243 1
+a243 1
+is typed as to basic data types, namely unsigned byte, int, and pointer.
+@
+
+
+1.145
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.144 2014-12-01 15:02:39-08 - - $"
+d424 1
+a424 1
+.VTCODE* 1 "char*** i9 = &_3_ptr->f_foo_bar;"
+@
+
+
+1.144
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.143 2014-11-25 17:24:14-08 - - $"
+d770 1
+@
+
+
+1.143
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.142 2014-11-25 16:16:42-08 - - $"
+d304 1
+a304 1
+static initialization is done at pile time.
+d422 1
+a422 1
+.V= "char** s_foo_bar;" ,
+d424 1
+a424 1
+.VTCODE* 1 "char*** i9 = &_3_ptr->s_foo_bar;"
+d539 1
+a539 1
+.VTCODE* 1 "\*[INDENT]int *a6 = &_3_array[_3_i];"
+@
+
+
+1.142
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.141 2014-11-25 16:15:08-08 - - $"
+d266 1
+a266 1
+8-bit byte
+d268 1
+a268 1
+two's complement signed integer
+d270 1
+a270 2
+and a pointer type for which the size
+depends on the hardware architecture and compilation options.
+d300 1
+a300 1
+Then come all global variable declarations that appeared in the
+@
+
+
+1.141
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.140 2014-11-25 16:14:12-08 - - $"
+d257 7
+@
+
+
+1.140
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.139 2014-11-25 16:13:39-08 - - $"
+d152 2
+a153 3
+.RULE \0 *'V int *| *'V int* *| *'V int** \
+*| *'V struct *SI*'V TYPEID * *| *'V struct *SI*'V TYPEID ** \
+*'V struct *SI*'V TYPEID ***
+@
+
+
+1.139
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.138 2014-11-25 16:12:08-08 - - $"
+d152 1
+a152 1
+.RULE \0 *| *'V int *| *'V int* *| *'V int** \
+@
+
+
+1.138
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.137 2014-11-25 16:10:58-08 - - $"
+d151 3
+a153 2
+*| *'V char** *| *'V char*** *| *'V int *| *'V int* *'V int**
+.RULE \0 *'V struct *SI*'V TYPEID * *| *'V struct *SI*'V TYPEID ** \
+@
+
+
+1.137
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.136 2014-11-25 16:10:35-08 - - $"
+d151 3
+a153 3
+*| *'V char** *| *'V int *| *'V int*
+.RULE \0 *'V struct *SI*'V TYPEID * *| *'V struct *SI*'V TYPEID **
+.RULE \0 *'V char*** *| *'V int** *| *'V struct *SI*'V TYPEID ***
+@
+
+
+1.136
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.135 2014-11-25 16:08:01-08 - - $"
+d153 1
+a153 1
+.RULE \0 *'V char*** *| int** *| *'V struct *SI*'V TYPEID ***
+@
+
+
+1.135
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.134 2014-11-25 16:06:25-08 - - $"
+d153 1
+@
+
+
+1.134
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.133 2014-11-25 16:05:08-08 - - $"
+d145 1
+a145 1
+.RULE unop *'V + *| *'V - *| *'V ! *| *'V (int) *| *'V (char)
+@
+
+
+1.133
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.132 2014-11-25 16:04:05-08 - - $"
+d401 1
+a401 1
+then a subscripting operation might be
+d407 2
+@
+
+
+1.132
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.131 2014-11-25 15:58:44-08 - - $"
+d360 2
+a361 2
+.VTCODE* 1 "\*[INDENT]char* ip5 = &_3_a[i6];"
+.VTCODE* 1 "\*[INDENT]*ip5 = i7"
+d517 1
+a517 1
+.V= ip
+d524 1
+a524 1
+.V= ip5 .
+d530 2
+a531 2
+.VTCODE* 1 "\*[INDENT]int *ip6 = &_3_array[_3_i];"
+.VTCODE* 1 "\*[INDENT]char** ip8 = &_3_foo->f_foo_bar;"
+@
+
+
+1.131
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.130 2014-11-21 16:56:20-08 - - $"
+d395 22
+@
+
+
+1.130
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.129 2014-11-21 16:54:29-08 - - $"
+d146 2
+a147 2
+.RULE selection *SI IDENT *'V [ *R operand *'V ] \
+*| *SI IDENT *'V -> *SI IDENT
+@
+
+
+1.129
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.128 2014-11-21 16:49:25-08 - - $"
+d616 1
+a616 1
+.VTCODE* 1 "void __ocmain ()"
+d986 1
+a986 1
+    17  void __ocmain()
+@
+
+
+1.128
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.127 2014-11-21 16:48:56-08 - - $"
+d129 4
+a132 4
+.RULE function *R type *SI IDENT \
+*'V ( *[ parameters *] *'V ) \
+*'V { *[ *R statement *]... *'V }
+.RULE parameters *R type *SI IDENT *[ *'V , *R type *SI IDENT *]...
+@
+
+
+1.127
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.126 2014-11-21 15:50:08-08 - - $"
+d150 2
+a151 2
+.RULE type *'V void *| void* *| *'V char *| *'V char* *| *'V char** \
+*| *'V int *| *'V int*
+@
+
+
+1.126
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.125 2014-11-21 15:36:13-08 - - $"
+d150 1
+a150 1
+.RULE type *'V void *| *'V char *| *'V char* *| *'V char** \
+@
+
+
+1.125
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.124 2014-11-21 15:35:29-08 - - $"
+d139 1
+a139 1
+.RULE \0 *[ *[ *R type *] *SI IDENT *'V = *] \
+@
+
+
+1.124
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.123 2014-11-21 15:30:13-08 - - $"
+a363 8
+Selection may occur on the left or right of an assignment operator,
+but if on the left,
+the right side may only be an operand, not an expression.
+.DS
+.VTCODE* 1 "\*[INDENT]__a[i9] = 5;"
+.VTCODE* 1 "\*[INDENT]_3_p->f_foo_st = i8;"
+.DE
+.LI
+@
+
+
+1.123
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.122 2014-11-21 15:29:41-08 - - $"
+d511 8
+@
+
+
+1.122
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.121 2014-11-21 15:25:30-08 - - $"
+d39 1
+a39 1
+.   nop `\f[CB]\\$1\f[P]' \f[I]\s-3\\$2\s+3\f[P]
+@
+
+
+1.121
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.120 2014-11-21 15:07:03-08 - - $"
+d38 4
+d138 1
+a138 1
+.RULE \0 *R selection *'V = *R operand *'V ;\&
+@
+
+
+1.120
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.119 2014-11-21 15:02:29-08 - - $"
+d352 7
+d363 4
+@
+
+
+1.119
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.118 2014-11-21 14:48:44-08 - - $"
+d19 2
+d827 14
+d955 30
+a984 30
+int __n;
+int __fac (
+        int _12_n)
+{
+	int _12_f = 1;
+while_5_2_3:;
+	char b1 = _12_n > 1;
+	if (!b1) goto break_5_2_3;
+	int i1 = _12_f * _12_n;
+	_12_f = i1;
+	int i2 = _12_n - 1;
+	_12_n = i2;
+	goto while_5_2_3;
+break_5_2_3:
+	return _12_f
+}
+void __ocmain()
+{
+	__n = 1;
+while_5_11_0:;
+	char b2 = __n <= 5;
+	if (!b2) goto break_5_11_0;
+	int i3 = __fac (__n);
+	__puti (i3);
+	__endl();
+	int i4 = __n + 1;
+	__n = i4;
+	goto while_5_11_0;
+break_5_11_0:;
+}
+d990 1
+a990 1
+.FG "Sample generated \f[CB]fac.oil" "" 0 SAMPLE_FAC_OC
+@
+
+
+1.118
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.117 2014-11-21 14:44:03-08 - - $"
+a622 2
+.br
+.ne 5
+d903 73
+@
+
+
+1.117
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.116 2014-11-21 14:41:38-08 - - $"
+a579 4
+The prolog is first generated\(::
+.VTCODE* 1 "#define __OCLIB_C__"
+.VTCODE* 1 "#include \[Dq]oclib.oh\[Dq]"
+.LI
+@
+
+
+1.116
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.115 2014-11-21 14:40:05-08 - - $"
+d581 1
+@
+
+
+1.115
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.114 2014-11-21 14:36:20-08 - - $"
+d406 1
+a406 1
+Category|format string|format arguments|example
+d626 2
+@
+
+
+1.114
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.113 2014-11-21 14:34:41-08 - - $"
+d405 1
+a405 1
+expand center box tab(|); l l l l, l lfCB l lfCB.
+d412 1
+a412 1
+Field names|\[Dq]f_%s_%s\[Dq]|structure_typeid, field_name|s_foo_bar
+d434 1
+d439 1
+d457 4
+d465 4
+@
+
+
+1.113
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.112 2014-11-21 14:28:06-08 - - $"
+d405 1
+a405 1
+center box tab(|); l l l l, l lfCB l lfCB.
+d407 1
+d416 1
+a416 1
+.SP .5v
+@
+
+
+1.112
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.111 2014-11-21 14:27:50-08 - - $"
+d405 8
+a412 7
+center box tab(|); l lfCB l.
+Global names|\[Dq]__%s\[Dq]|identifier
+Local names|\[Dq]_%d_%s\[Dq]|block, identifier
+Statement labels|\[Dq]%s_%d_%d_%d\[Dq]|keyword, file, line, offset
+Structure typeids|\[Dq]s_%s\[Dq]|structure_typeid
+Field names|\[Dq]f_%s_%s\[Dq]|structure_typeid, field_name
+Virtual registers|\[Dq]%c%d\[Dq]|register_category, register_number
+@
+
+
+1.111
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.110 2014-11-21 14:26:54-08 - - $"
+d146 1
+a146 1
+.RULE \0 *| *'V struct *SI*'V TYPEID * *| *'V struct *SI*'V TYPEID **
+@
+
+
+1.110
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.109 2014-11-21 14:24:54-08 - - $"
+d146 1
+a146 1
+.CONT *| *'V struct *SI*'V TYPEID * *| *'V struct *SI*'V TYPEID **
+@
+
+
+1.109
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.108 2014-11-21 14:18:52-08 - - $"
+a136 1
+.CONT *| *'V sizeof *'V ( *R type *'V )
+d142 2
+a143 1
+.RULE operand *SI IDENT *| *SI INTCON *| *SI CHARCON
+d752 1
+a752 4
+.VI "int i9 = sizeof (struct " T ");"
+.br
+Emit\(::
+.VI "struct " T "* p" i " = xcalloc (1, " i9 ");"
+d760 1
+a760 1
+.VI "char* p" i " = xcalloc (" opnd ", 1);"
+@
+
+
+1.108
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.107 2014-11-21 14:18:36-08 - - $"
+d752 4
+a755 1
+.VI "struct " T "* p" i " = xcalloc (1, sizeof (struct " T "));"
+d763 1
+a763 1
+.VI "char* p" i " = xcalloc (" opnd ", sizeof (char));"
+@
+
+
+1.107
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.106 2014-11-21 14:18:10-08 - - $"
+d62 1
+a62 1
+.   nop \h'\\n[CONT_INDENT]u'\h'6p'
+@
+
+
+1.106
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.105 2014-11-21 14:17:29-08 - - $"
+d62 1
+a62 1
+.   nop \h'\\n[CONT_INDENT]u'
+@
+
+
+1.105
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.104 2014-11-21 14:17:13-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'+\w'\[en]'-(2*\w'\*[STICK]')
+@
+
+
+1.104
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.103 2014-11-21 14:16:50-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'+\w'\0'-(2*\w'\*[STICK]')
+@
+
+
+1.103
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.102 2014-11-21 14:16:13-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'+\w'\~'-(2*\w'\*[STICK]')
+@
+
+
+1.102
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.101 2014-11-21 14:16:02-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(2.0*\w'\*[STICK]')
+@
+
+
+1.101
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.100 2014-11-21 14:15:49-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(1.9*\w'\*[STICK]')
+@
+
+
+1.100
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.99 2014-11-21 14:15:33-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(1.5*\w'\*[STICK]')
+@
+
+
+1.99
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.98 2014-11-21 14:15:18-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(2.0*\w'\*[STICK]')
+@
+
+
+1.98
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.97 2014-11-21 14:15:07-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(2.5*\w'\*[STICK]')
+@
+
+
+1.97
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.96 2014-11-21 14:14:56-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(0.5*\w'\*[STICK]')
+@
+
+
+1.96
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.95 2014-11-21 14:14:43-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(1.0*\w'\*[STICK]')
+@
+
+
+1.95
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.94 2014-11-21 14:14:33-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(1.5*\w'\*[STICK]')
+@
+
+
+1.94
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.93 2014-11-21 14:14:15-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-(2*\w'\*[STICK]')
+@
+
+
+1.93
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.92 2014-11-21 14:11:53-08 - - $"
+d27 1
+a27 1
+.nr CONT_INDENT \w'\*[ARROW]'-\w'\*[STICK]'
+@
+
+
+1.92
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.91 2014-11-21 14:11:24-08 - - $"
+d27 1
+d62 1
+a62 1
+.\"   nop \h'\w'\*[STICK]u''
+@
+
+
+1.91
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.90 2014-11-21 14:10:37-08 - - $"
+d61 1
+a61 1
+.   nop \h'\w'\*[STICK]u''
+@
+
+
+1.90
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.89 2014-11-21 14:09:24-08 - - $"
+d61 1
+a61 1
+.   nop \h'\w[STICK]u''
+@
+
+
+1.89
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.88 2014-11-21 14:09:09-08 - - $"
+a26 2
+.nr ARROW_WID \w'\*[ARROW]'
+.nr ARROW_WID_2 \n[ARROW_WID]*2
+d61 1
+a61 1
+.\"   nop \h'\\n[ARROW_WID]u'
+@
+
+
+1.88
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.87 2014-11-21 14:08:47-08 - - $"
+d63 1
+a63 1
+.   nop \h'\\n[ARROW_WID]u'
+@
+
+
+1.87
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.86 2014-11-21 14:06:22-08 - - $"
+d63 1
+a63 1
+.   nop \h'\\n[ARROW_WID_2]u'
+@
+
+
+1.86
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.85 2014-11-21 14:05:46-08 - - $"
+d138 1
+a138 3
+.LI "\0"
+\h'\w'\*[ARROW]'u'
+.DECL *| *'V sizeof *'V ( *R type *'V )
+d147 1
+a147 3
+.LI "\0"
+\h'\w'\*[ARROW]'u'
+.DECL *| *'V struct *SI*'V TYPEID * *| *'V struct *SI*'V TYPEID **
+@
+
+
+1.85
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.84 2014-11-21 13:59:16-08 - - $"
+d146 1
+a146 1
+.RULE operand *SI IDENT *| *SI INTCON *| *SI CHARCON \
+@
+
+
+1.84
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.83 2014-11-21 13:50:36-08 - - $"
+d138 3
+a146 1
+*| *'V sizeof *'V ( *R type *'V )
+@
+
+
+1.83
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.81 2014-11-20 18:32:52-08 - - $"
+d19 1
+d276 2
+a277 2
+.VTCODE* 1 "        char** f_foo_string_array;"
+.VTCODE* 1 "        struct s_foo* f_foo_pointer;"
+d303 2
+a304 2
+.VTCODE* 1 "        int _1_a,"
+.VTCODE* 1 "        int _1_b)"
+d306 2
+a307 2
+.VTCODE* 1 "        int i2 = _1_a + _1_b;"
+.VTCODE* 1 "        return i2;"
+d320 7
+d333 4
+d344 4
+d362 1
+a362 1
+and the result usually goes into a temporary.
+@
+
+
+1.82
+log
+@-
+@
+text
+@d286 1
+a286 4
+.B1
+.ft CB
+char* s1 = "Hello, world!\[rs]n";
+.B2
+d293 1
+a293 1
+static initialization is done at compile time.
+d301 7
+a307 10
+.B1
+.ft CB
+int __add (
+        int _1_a,
+        int _1_b)
+{
+        int i2 = _1_a + _1_b;
+        return i2;
+}
+.B2
+@
+
+
+1.81
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.80 2014-11-20 18:31:47-08 - - $"
+d286 4
+a289 1
+.VTCODE* 1 "char* s1 = \[Dq]Hello, world!\[rs]n\[Dq];"
+d296 1
+a296 1
+static initialization is done at pile time.
+d304 10
+a313 7
+.VTCODE* 1 "int __add (
+.VTCODE* 1 "        int _1_a,"
+.VTCODE* 1 "        int _1_b)"
+.VTCODE* 1 "{"
+.VTCODE* 1 "        int i2 = _1_a + _1_b;"
+.VTCODE* 1 "        return i2;"
+.VTCODE* 1 "}"
+@
+
+
+1.80
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.79 2014-11-20 18:18:28-08 - - $"
+d462 1
+a462 1
+for an indirect address pointing at data.
+a724 4
+Treat selectors other than those which a left child of assignment
+as binary operators,
+and evaluate them into a virutal register of the appropriate type.
+.LI
+@
+
+
+1.79
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.78 2014-11-20 17:50:04-08 - - $"
+d458 2
+d461 2
+a462 2
+.V= p
+for a data pointer.
+d467 2
+a468 1
+.V= p4 .
+@
+
+
+1.78
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.77 2014-11-20 17:47:12-08 - - $"
+d122 1
+a122 1
+.RULE stringdef *'V ubyte* *SI IDENT *'V = *SI STRINGCON *'V ;\&
+d139 1
+a139 1
+.RULE unop *'V + *| *'V - *| *'V ! *| *'V (int) *| *'V (ubyte)
+d144 1
+a144 1
+.RULE type *'V void *| *'V ubyte *| *'V ubyte* *| *'V ubyte** \
+d164 1
+a164 1
+.DECL *V ubyte *SI IDENT
+d170 1
+a170 1
+.DECL *V ubyte* *SI IDENT
+d177 1
+a177 1
+.DECL *V ubyte *SI IDENT
+d183 1
+a183 1
+.DECL *V ubyte* *SI IDENT
+d203 1
+a203 1
+.DECL *V ubyte* *SI IDENT
+d209 1
+a209 1
+.DECL *V ubyte** *SI IDENT
+d254 2
+a255 2
+8-bit unsigned byte
+.=V ( ubyte )\(;;
+d275 1
+a275 1
+.VTCODE* 1 "        ubyte** f_foo_string_array;"
+d286 1
+a286 1
+.VTCODE* 1 "ubyte* s1 = \[Dq]Hello, world!\[rs]n\[Dq];"
+d364 1
+a364 1
+.V= (ubyte)
+a386 2
+.V= ubyte ,
+as was done with
+d448 1
+a448 1
+.V= b
+d450 1
+a450 1
+.V= ubyte ,
+a453 3
+.V= p
+for a data pointer,
+and
+d457 4
+a460 1
+address.
+d462 3
+a464 3
+.V= s1 ,
+.V= b2 ,
+.V= i3 ,
+d720 1
+a720 1
+.V= (ubyte) .
+d748 1
+a748 1
+.VI "ubyte* p" i " = xcalloc (" opnd ", sizeof (ubyte));"
+d759 1
+a759 1
+.VI "ubyte* p" i " = xcalloc (" opnd ", sizeof (ubyte));"
+d763 1
+a763 1
+.VI "ubyte** p" i " = xcalloc (" opnd ", sizeof (ubyte*));"
+@
+
+
+1.77
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.76 2014-11-18 17:05:00-08 - - $"
+d765 1
+a765 1
+.VI "ubyte** p" i " = xcalloc (" opnd ", sizeof (ubyte *));"
+d768 1
+a768 1
+" = xcalloc (" opnd ", sizeof (struct " T " *));"
+@
+
+
+1.76
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.75 2014-11-12 16:34:38-08 - - $"
+d142 2
+a143 1
+.RULE operand *SI IDENT *| *SI INTCON *| *SI CHARCON *| *SI IDENT
+@
+
+
+1.75
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.74 2014-11-11 12:01:35-08 - - $"
+d501 1
+a501 1
+.V= gcc
+d503 5
+a507 5
+.V= oc ,
+and mangles names correctly when
+.V= __OCLIB_C__
+is defined.
+Figure \*[Figure_OCLIB_OH] shows the raw file,
+d511 7
+a517 3
+and Figure \*[Figure_OCLIB_OH_C]
+shows it preprocessed for
+.V= gcc .
+d523 17
+a539 1
+are not shown in the preprocessed figures.
+@
+
+
+1.74
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.73 2014-11-11 11:58:36-08 - - $"
+d801 1
+a801 1
+.FG "\f[CB]oc-programs/oclib.oh\f[R]" "" 0 OCLIB_OH_1
+@
+
+
+1.73
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.72 2014-11-11 11:57:20-08 - - $"
+d721 1
+a721 1
+.VI "struct " T " *p" i " = xcalloc (1, sizeof (struct " T "));"
+d729 1
+a729 1
+.VI "ubyte *p" i " = xcalloc (" opnd ", sizeof (ubyte));"
+d740 1
+a740 1
+.VI "ubyte *p" i " = xcalloc (" opnd ", sizeof (ubyte));"
+d742 1
+a742 1
+.VI "int *p" i " = xcalloc (" opnd ", sizeof (int));"
+d744 1
+a744 1
+.VI "ubyte **p" i " = xcalloc (" opnd ", sizeof (ubyte *));"
+d746 1
+a746 1
+.VI "struct " T " **p" i \
+@
+
+
+1.72
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.71 2014-11-11 11:53:35-08 - - $"
+d825 1
+a825 2
+.pso cpp -D__OCLIB_C__ oc-programs/oclib.oh | cat -nv | expand \
+| sed '/^ *[0-9][0-9]* *$/d'
+@
+
+
+1.71
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.70 2014-11-11 11:50:02-08 - - $"
+d825 2
+a826 1
+.pso cpp -D__OCLIB_C__ oc-programs/oclib.oh | cat -nv | expand
+@
+
+
+1.70
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.69 2014-11-11 11:47:59-08 - - $"
+d514 6
+@
+
+
+1.69
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.68 2014-11-11 11:41:03-08 - - $"
+d14 1
+a14 2
+.GETST* OCLIB_OH Figure_OCLIB_OH_1
+.GETST* OCLIB_OH Figure_OCLIB_OH_2
+d507 1
+a507 3
+Figures \*[Figure_OCLIB_OH_1]
+and \*[Figure_OCLIB_OH_2]
+show the raw file,
+d789 1
+a789 1
+.pso cat -nv oc-programs/oclib.oh | expand | sed '/\^L/,$d'
+d795 1
+a795 16
+.FG "\f[CB]oc-programs/oclib.oh\f[B], part 1\fR" "" 0 OCLIB_OH_1
+.DE
+.DS
+\&
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv oc-programs/oclib.oh | expand | sed -n '/\^L/,$p'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[CB]oc-programs/oclib.oh\f[B], part 2\fR" "" 0 OCLIB_OH_2
+@
+
+
+1.68
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.67 2014-11-11 11:18:09-08 - - $"
+d771 1
+a771 1
+are emitted as
+d775 1
+a775 1
+is emitted as
+@
+
+
+1.67
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.66 2014-11-06 19:41:59-08 - - $"
+a530 1
+.VTCODE* 1 "#define __OCLIB_C__"
+@
+
+
+1.66
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.65 2014-11-06 19:41:21-08 - - $"
+d256 1
+a256 1
+32-bit two's complement signed integer
+d258 2
+a259 6
+and a pointer type which is either 32 or 64 bits,
+depending on the architecture and compilation options
+such as
+.V= -m32
+or
+.V= -m64 .
+@
+
+
+1.65
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.64 2014-11-06 19:40:27-08 - - $"
+d797 1
+a797 1
+.pso cat -nv oc-programs/oclib.oh | expand | sed '/^\/\/^L/,$d'
+d812 1
+a812 1
+.pso cat -nv oc-programs/oclib.oh | expand | sed -n '/^\/\/^L/,$p'
+@
+
+
+1.64
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.63 2014-11-06 19:38:54-08 - - $"
+d797 1
+a797 1
+.pso cat -nv oc-programs/oclib.oh | expand | sed '/^\/\/^L$/,$d'
+d812 1
+a812 1
+.pso cat -nv oc-programs/oclib.oh | expand | sed -n '/^\/\/^L$/,$p'
+@
+
+
+1.63
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.62 2014-11-06 19:20:21-08 - - $"
+d797 1
+a797 1
+.pso cat -nv oc-programs/oclib.oh | expand | sed 's/^\/\/^L$/,$d'
+@
+
+
+1.62
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.61 2014-11-06 19:17:09-08 - - $"
+d14 2
+a15 1
+.GETST* OCLIB_OH Figure_OCLIB_OH
+d512 3
+a514 2
+Figure \*[Figure_OCLIB_OH]
+shows the raw file,
+d797 1
+a797 1
+.pso cat -nv oc-programs/oclib.oh | expand
+d803 16
+a818 1
+.FG "\f[CB]oc-programs/oclib.oh\f[P]" "" 0 OCLIB_OH
+d863 1
+a863 1
+.FG "\f[CB]oc-programs/oclib.c\f[P], part 1" "" 0 OCLIB_C_1
+d878 1
+a878 1
+.FG "\f[CB]oc-programs/oclib.c\f[P], part 2" "" 0 OCLIB_C_2
+@
+
+
+1.61
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.60 2014-11-06 16:37:51-08 - - $"
+d479 1
+a479 1
+.pso expand oil-examples/ocl | expand | cat -nv
+d795 1
+a795 1
+.pso expand oc-programs/oclib.oh | expand | cat -nv
+d810 1
+a810 1
+.pso cpp oc-programs/oclib.oh | expand | cat -nv
+d825 1
+a825 1
+.pso cpp -D__OCLIB_C__ oc-programs/oclib.oh | expand | cat -nv
+@
+
+
+1.60
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.59 2014-10-31 14:12:31-07 - - $"
+d479 1
+a479 1
+.pso expand oil-examples/ocl | sed 's/^/   /' | cat -nv
+d795 1
+a795 1
+.pso expand oc-programs/oclib.oh | sed 's/^/   /' | cat -nv
+d810 1
+a810 1
+.pso cpp oc-programs/oclib.oh | sed 's/^/   /' | cat -nv
+d825 1
+a825 1
+.pso cpp -D__OCLIB_C__ oc-programs/oclib.oh | sed 's/^/   /' | cat -nv
+d840 1
+a840 1
+.pso sed 's/^/   /' oc-programs/oclib.c | cat -nv | sed '/\^L/,$d'
+d855 1
+a855 1
+.pso sed 's/^/   /' oc-programs/oclib.c | cat -nv | sed -n '/\^L/,$p'
+@
+
+
+1.59
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.58 2014-10-31 14:12:12-07 - - $"
+d142 1
+a142 1
+.RULE operand *SI IDENT *| *SI INTCON *| *SI CHARCON
+@
+
+
+1.58
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.57 2014-10-31 14:06:59-07 - - $"
+d156 1
+a156 1
+center tab(|); |l lw(115p) |l lw(121p) |.
+@
+
+
+1.57
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.56 2014-10-31 14:06:46-07 - - $"
+a151 1
+.SP
+@
+
+
+1.56
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.55 2014-10-31 14:06:37-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(114p) |l lw(121p) |.
+@
+
+
+1.55
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.54 2014-10-31 14:06:28-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(113p) |l lw(121p) |.
+@
+
+
+1.54
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.53 2014-10-31 14:06:18-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(112p) |l lw(121p) |.
+@
+
+
+1.53
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.52 2014-10-31 14:06:07-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(115p) |l lw(120p) |.
+@
+
+
+1.52
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.51 2014-10-31 14:05:55-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(117p) |l lw(121p) |.
+@
+
+
+1.51
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.50 2014-10-31 14:05:44-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(118p) |l lw(121p) |.
+@
+
+
+1.50
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.49 2014-10-31 14:05:28-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(119p) |l lw(121p) |.
+@
+
+
+1.49
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.48 2014-10-31 14:04:30-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(120p) |l lw(120p) |.
+@
+
+
+1.48
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.47 2014-10-31 14:03:03-07 - - $"
+d157 1
+a157 1
+center tab(|); |l lw(122;) |l lw(122p) |.
+@
+
+
+1.47
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.46 2014-10-31 14:01:04-07 - - $"
+d157 1
+a157 1
+center tab(|); |l l |l l |.
+@
+
+
+1.46
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.45 2014-10-31 14:00:23-07 - - $"
+a156 82
+center tab(|); |l l |.
+_
+T{
+.fi
+.DECL *V bool *SI IDENT
+T}|T{
+.fi
+.DECL *V ubyte *SI IDENT
+T}
+T{
+.fi
+.DECL *V bool[] *SI IDENT
+T}|T{
+.fi
+.DECL *V ubyte* *SI IDENT
+T}
+T{
+.fi
+.DECL *V char *SI IDENT 
+T}|T{
+.fi
+.DECL *V ubyte *SI IDENT
+T}
+T{
+.fi
+.DECL *V char[] *SI IDENT
+T}|T{
+.fi
+.DECL *V ubyte* *SI IDENT
+T}
+T{
+.fi
+.DECL *V int *SI IDENT
+T}|T{
+.fi
+.DECL *V int *SI IDENT
+T}
+T{
+.fi
+.DECL *V int[] *SI IDENT
+T}|T{
+.fi
+.DECL *V int* *SI IDENT
+T}
+T{
+.fi
+.DECL *V string *SI IDENT
+T}|T{
+.fi
+.DECL *V ubyte* *SI IDENT
+T}
+T{
+.fi
+.DECL *V string[] *SI IDENT
+T}|T{
+.fi
+.DECL *V ubyte** *SI IDENT
+T}
+T{
+.fi
+.DECL *SI TYPEID *SI IDENT
+T}|T{
+.fi
+.DECL *V struct *SI*V TYPEID * *SI IDENT
+T}
+T{
+.fi
+.DECL *SI*V TYPEID [] *SI IDENT
+T}|T{
+.fi
+.DECL *V struct *SI*V TYPEID ** *SI IDENT
+T}
+_
+.TE
+.SP .5v
+.FG "\f[B]Type declarations in \f[CB]oc\f[P] and \f[CB]oil\f[P]" \
+"" 0 TYPE_DECLS
+.SP
+.DE
+.DF L
+.SP
+.TS
+d226 3
+@
+
+
+1.45
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.44 2014-10-31 13:55:29-07 - - $"
+d242 1
+d245 1
+d248 1
+d251 1
+d255 1
+d258 1
+d261 1
+d264 1
+d268 1
+d271 1
+d274 1
+d277 1
+d281 1
+d284 1
+d287 1
+d290 1
+d294 1
+d297 1
+d300 1
+d303 1
+@
+
+
+1.44
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.43 2014-10-31 13:54:04-07 - - $"
+d241 45
+a285 5
+bool IDENT|ubyte IDENT|bool[] IDENT|ubyte* IDENT
+char IDENT|ubyte IDENT|char[] IDENT|ubyte* IDENT
+int IDENT|int IDENT|int[] IDENT|int* IDENT
+string IDENT|ubyte* IDENT|string[] IDENT|ubyte** IDENT
+TYPEID IDENT|struct TYPEID* IDENT|TYPEID[] IDENT|struct TYPEID** IDENT
+@
+
+
+1.43
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.42 2014-10-31 13:53:25-07 - - $"
+d157 1
+a157 1
+center tab(|); |lw(90p) lw(130p) |.
+@
+
+
+1.42
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.41 2014-10-31 13:11:41-07 - - $"
+a156 13
+center tab(|); |l l |l l |.
+_
+bool IDENT|ubyte IDENT|bool[] IDENT|ubyte* IDENT
+char IDENT|ubyte IDENT|char[] IDENT|ubyte* IDENT
+int IDENT|int IDENT|int[] IDENT|int* IDENT
+string IDENT|ubyte* IDENT|string[] IDENT|ubyte** IDENT
+TYPEID IDENT|struct TYPEID* IDENT|TYPEID[] IDENT|struct TYPEID** IDENT
+_
+.TE
+.DE
+.DF L
+.SP
+.TS
+d236 13
+@
+
+
+1.41
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.40 2014-10-30 19:00:59-07 - - $"
+d157 13
+@
+
+
+1.40
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.39 2014-10-30 18:49:35-07 - - $"
+d32 4
+d147 1
+a147 1
+.DECL *| *'V struct *SI TYPEID *'V * *| *'V struct *SI TYPEID *'V **
+d224 1
+a224 1
+.DECL *SI TYPEID *V [] *SI IDENT
+@
+
+
+1.39
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.38 2014-10-30 18:48:34-07 - - $"
+d118 1
+a118 1
+.RULE stringdef *'V ubyte *'V * *SI IDENT *'V = *SI STRINGCON *'V ;\&
+@
+
+
+1.38
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.37 2014-10-30 18:47:15-07 - - $"
+d160 1
+a160 1
+.DECL *V char *SI IDENT
+@
+
+
+1.37
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.36 2014-10-30 18:46:59-07 - - $"
+d148 1
+d230 1
+@
+
+
+1.36
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.35 2014-10-30 18:45:54-07 - - $"
+d142 1
+a142 1
+\h'\w'\*[ARROW]''
+@
+
+
+1.35
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.34 2014-10-30 18:42:58-07 - - $"
+d142 1
+@
+
+
+1.34
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.33 2014-08-29 19:34:55-07 - - $"
+d141 2
+a142 2
+.LI ""
+.DECL *| *'V struct *SI TYPEID *'V * *[ *'V * *]
+@
+
+
+1.33
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.32 2014-08-29 19:33:49-07 - - $"
+d139 2
+a140 2
+.RULE type *'V void *| *'V ubyte *[ *'V * *[ *'V * *] *] \
+*| *'V int *[ *'V * *]
+@
+
+
+1.32
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.31 2014-08-29 19:31:53-07 - - $"
+d151 2
+a152 1
+center tab(|); |lw(100p) lw(130p) |.
+d223 1
+@
+
+
+1.31
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.30 2014-08-29 19:30:41-07 - - $"
+d147 2
+d151 1
+a151 1
+center tab(|); |lw(100p) |lw(130p) |.
+@
+
+
+1.30
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.29 2014-08-29 19:28:22-07 - - $"
+d149 1
+a149 1
+center tab(|); |lw(75p) |lw(115p) |.
+@
+
+
+1.29
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.28 2014-08-29 19:27:03-07 - - $"
+d149 1
+a149 2
+center tab(|); |lw(75p) |lw(115p) |l |lw(85p) |lw(125p) |.
+_|_||_|_
+d156 2
+a157 1
+T}||T{
+d170 2
+a171 1
+T}||T{
+d184 2
+a185 1
+T}||T{
+d198 2
+a199 1
+T}||T{
+d212 2
+a213 1
+T}||T{
+a219 1
+_|_||_|_
+@
+
+
+1.28
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.27 2014-08-29 19:26:46-07 - - $"
+d140 3
+a142 1
+*| *'V int *[ *'V * *] *| *'V struct *SI TYPEID *'V * *[ *'V * *]
+@
+
+
+1.27
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.26 2014-08-29 19:22:17-07 - - $"
+d29 1
+a29 1
+.   nop "\f[I]\s-3\\$1\s+3\f[P]\f[CB]\\$2\f[P]
+@
+
+
+1.26
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.25 2014-08-29 19:20:26-07 - - $"
+d28 4
+d206 1
+a206 1
+.DECL *V struct *SI TYPEID *V * *SI IDENT
+d212 1
+a212 1
+.DECL *V struct *SI TYPEID *V ** *SI IDENT
+@
+
+
+1.25
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.24 2014-08-29 19:19:40-07 - - $"
+d199 1
+a199 2
+.VS \& TYPEID
+.VS \| IDENT
+d202 1
+a202 3
+.V= struct
+.VS \& TYPEID *
+.VS \| IDENT
+d205 1
+a205 2
+.VS \& TYPEID []
+.VS \| IDENT
+d208 1
+a208 3
+.V= struct
+.VS \& TYPEID **
+.VS \| IDENT
+@
+
+
+1.24
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.23 2014-08-29 19:16:20-07 - - $"
+d50 1
+a50 1
+.   *Continuation 1 \\$@@
+@
+
+
+1.23
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.22 2014-08-29 19:13:56-07 - - $"
+d49 3
+d147 1
+a147 2
+.V= bool
+.VS \| IDENT
+d150 1
+a150 2
+.V= ubyte
+.VS \| IDENT
+d153 1
+a153 2
+.V= bool[]
+.VS \| IDENT
+d156 1
+a156 2
+.V= ubyte*
+.VS \| IDENT
+d160 1
+a160 2
+.V= char
+.VS \| IDENT
+d163 1
+a163 2
+.V= ubyte
+.VS \| IDENT
+d166 1
+a166 2
+.V= char[]
+.VS \| IDENT
+d169 1
+a169 2
+.V= ubyte*
+.VS \| IDENT
+d173 1
+a173 2
+.V= int
+.VS \| IDENT
+d176 1
+a176 2
+.V= int
+.VS \| IDENT
+d179 1
+a179 2
+.V= int[]
+.VS \| IDENT
+d182 1
+a182 2
+.V= int*
+.VS \| IDENT
+d186 1
+a186 2
+.V= string
+.VS \| IDENT
+d189 1
+a189 2
+.V= ubyte*
+.VS \| IDENT
+d192 1
+a192 2
+.V= string[]
+.VS \| IDENT
+d195 1
+a195 2
+.V= ubyte**
+.VS \| IDENT
+@
+
+
+1.22
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.21 2014-08-29 19:13:22-07 - - $"
+d140 1
+a140 1
+center tab(|); |lw(75p) |lw(110p) |l |lw(85p) |lw(120p) |.
+@
+
+
+1.21
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.20 2014-08-29 19:12:32-07 - - $"
+d140 1
+a140 1
+center tab(|); |lw(75p) |lw(105p) |l |lw(85p) |lw(115p) |.
+@
+
+
+1.20
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.19 2014-08-29 19:12:05-07 - - $"
+d113 1
+a113 1
+*'V ( *[ *R type *SI IDENT *[ *'V , *R type *SI IDENT *]... *] *'V ) \
+d115 1
+@
+
+
+1.19
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.18 2014-08-29 19:11:04-07 - - $"
+d139 1
+a139 1
+center tab(|); |lw(70p) |lw(100p) |l |lw(90p) |lw(110p) |.
+@
+
+
+1.18
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.8 2014-08-29 18:50:59-07 - - $"
+d139 1
+a139 1
+center tab(|); |l |lw(95p) |l |l |lw(101p) |.
+@
+
+
+1.17
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.16 2014-08-29 19:09:08-07 - - $"
+a48 3
+.de DECL
+.   *Continuation 0 \\$@@
+..
+d139 1
+a139 1
+center tab(|); |l |lw(120p) |l |lw(85p) |lw(125p) |.
+d142 3
+a144 1
+.DECL *V bool *SI IDENT
+d146 3
+a148 1
+.DECL *V ubyte *SI IDENT
+d150 3
+a152 1
+.DECL *V bool[] *SI IDENT
+d154 3
+a156 1
+.DECL *V ubyte* *SI IDENT
+@
+
+
+1.16
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.15 2014-08-29 19:05:44-07 - - $"
+d49 3
+d145 1
+a145 1
+*V bool *SI IDENT
+d147 1
+a147 1
+*V ubyte *SI IDENT
+d149 1
+a149 1
+*V bool[] *SI IDENT
+d151 1
+a151 1
+*V ubyte* *SI IDENT
+@
+
+
+1.15
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.14 2014-08-29 19:05:08-07 - - $"
+d142 1
+a142 3
+.fi
+.V= bool
+.VS \| IDENT
+d144 1
+a144 3
+.fi
+.V= ubyte
+.VS \| IDENT
+d146 1
+a146 3
+.fi
+.V= bool[]
+.VS \| IDENT
+d148 1
+a148 3
+.fi
+.V= ubyte*
+.VS \| IDENT
+@
+
+
+1.14
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.13 2014-08-29 19:03:56-07 - - $"
+d139 1
+a139 1
+center tab(|); |l |lw(125p) |l |lw(90p) |lw(120p) |.
+@
+
+
+1.13
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.12 2014-08-29 19:02:49-07 - - $"
+d139 1
+a139 1
+center tab(|); |l |lw(115p) |l |lw(100p) |lw(120p) |.
+@
+
+
+1.12
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.11 2014-08-29 19:02:32-07 - - $"
+d139 1
+a139 1
+center tab(|); |l |lw(110p) |l |l |lw(115p) |.
+@
+
+
+1.11
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.8 2014-08-29 18:50:59-07 - - $"
+d139 1
+a139 1
+center tab(|); |l |lw(100p) |l |l |lw(105p) |.
+@
+
+
+1.10
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.9 2014-08-29 18:59:20-07 - - $"
+d113 1
+a113 1
+*'V ( *[ *R parameters ] *'V ) \
+a114 1
+.RULE parameters *R type *SI IDENT *[ *'V , *R type *SI IDENT *]... *]
+d139 1
+a139 1
+center tab(|); |l |l |l |l |l |.
+@
+
+
+1.9
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.8 2014-08-29 18:50:59-07 - - $"
+d140 1
+a140 1
+center tab(|); |l |lw(95p) |l |l |lw(101p) |.
+@
+
+
+1.8
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.7 2014-08-29 16:26:12-07 - - $"
+d113 1
+a113 1
+*'V ( *[ *R type *SI IDENT *[ *'V , *R type *SI IDENT *]... *] *'V ) \
+d115 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d4 1
+d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.6 2014-08-29 16:24:45-07 - - $"
+@
+
+
+1.6
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.5 2014-08-29 16:23:55-07 - - $"
+d282 2
+a283 2
+.VTCODE* 1 "        ubyte **f_foo_string_array;"
+.VTCODE* 1 "        struct s_foo *f_foo_pointer;"
+d293 1
+a293 1
+.VTCODE* 1 "ubyte *s1 = \[Dq]Hello, world!\[rs]n\[Dq];"
+@
+
+
+1.5
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.4 2012-11-07 17:51:10-08 - - $"
+d215 2
+a216 2
+.VS \& TYPEID
+.VS \|* IDENT
+d224 2
+a225 2
+.VS \& TYPEID
+.VS \|** IDENT
+@
+
+
+1.4
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.3 2012-11-07 17:49:07-08 - - $"
+d154 2
+a155 2
+.V= ubyte
+.VS \|* IDENT
+d171 2
+a172 2
+.V= ubyte
+.VS \|* IDENT
+d188 2
+a189 2
+.V= int
+.VS \|* IDENT
+d197 2
+a198 2
+.V= ubyte
+.VS \|* IDENT
+d205 2
+a206 2
+.V= ubyte
+.VS \|** IDENT
+@
+
+
+1.3
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.2 2012-11-07 17:47:16-08 - - $"
+d257 1
+a257 1
+unsigned byte
+d259 2
+a260 3
+signed integer
+.=V ( int ),
+which is likely 32 bits\(;;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.1 2012-11-07 17:46:34-08 - - $"
+d118 1
+a118 1
+.RULE \0 *[ *R type *] *SI IDENT *'V = *R expr *'V ;\&
+d122 1
+a122 1
+.RULE expr *R operand *R binop *R operand *| unop *R operand \
+d728 1
+a728 1
+.*'V new *'V string *'V ( *R expr *'V )
+d736 1
+a736 1
+.*'V new *R basetype *'V [ *R expr *'V ]
+@
+
+
+1.1
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.2 2012-11-02 19:23:49-07 - - $"
+d8 1
+@

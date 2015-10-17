@@ -1,0 +1,56 @@
+head	341.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+341.1
+date	2004.03.05.02.39.20;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+341.1
+log
+@-
+@
+text
+@Script started on Thu Mar 04 18:38:25 2004
+
+
+======== 19% cat -n interp.run
+     1	#!interp -foo -bar
+
+
+======== 20% cat -n interp.c
+     1	int main( int argc, char **argv ){
+     2	   int i;
+     3	   for( i = 0; i < argc; i++ )
+     4	         printf( "argv[%d]=%s\n", i, argv[i] );
+     5	   exit(0);
+     6	}
+
+
+======== 21% cc interp.c -o interp
+
+
+======== 22% interp.run -arg1 arg2 arg3
+argv[0]=interp
+argv[1]=-foo
+argv[2]=interp.run
+argv[3]=-arg1
+argv[4]=arg2
+argv[5]=arg3
+
+
+======== 23% exit
+
+
+======== 24% 
+script done on Thu Mar 04 18:38:45 2004
+@

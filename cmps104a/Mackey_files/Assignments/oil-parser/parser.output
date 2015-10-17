@@ -1,0 +1,1577 @@
+Grammar
+
+    0 $accept: program $end
+
+    1 program: program structdef
+    2        | program globaldef
+    3        | program function
+    4        | program '\n'
+    5        | /* empty */
+
+    6 structdef: STRUCT IDENT '{' '\n' fields '}' ';' '\n'
+
+    7 fields: fields type IDENT ';' '\n'
+    8       | /* empty */
+
+    9 globaldef: type IDENT '=' STRINGCON ';' '\n'
+   10          | type IDENT ';' '\n'
+
+   11 function: type IDENT parameters ';' '\n'
+   12         | type IDENT parameters block
+   13         | VOID IDENT parameters ';' '\n'
+   14         | VOID IDENT parameters block
+
+   15 parameters: '(' params ')'
+   16           | '(' VOID ')'
+
+   17 params: params ',' type IDENT
+   18       | type IDENT
+
+   19 block: '{' '\n' statements '}' '\n'
+
+   20 statements: statements statement
+   21           | /* empty */
+
+   22 statement: IDENT ':' ';' '\n'
+   23          | IF '(' condition ')' GOTO IDENT ';' '\n'
+   24          | GOTO IDENT ';' '\n'
+   25          | RETURN operand ';' '\n'
+   26          | RETURN ';' '\n'
+   27          | type IDENT '=' expression ';' '\n'
+   28          | IDENT '=' expression ';' '\n'
+   29          | '*' IDENT '=' expression ';' '\n'
+   30          | type IDENT '=' call ';' '\n'
+   31          | call ';' '\n'
+   32          | block
+
+   33 call: IDENT '(' args ')'
+   34     | IDENT '(' ')'
+
+   35 args: args ',' operand
+   36     | operand
+
+   37 expression: operand binop operand
+   38           | unop operand
+   39           | selection
+   40           | operand
+
+   41 binop: '+'
+   42      | '-'
+   43      | '*'
+   44      | '/'
+   45      | '%'
+   46      | '<'
+   47      | '>'
+   48      | NE
+   49      | LT
+   50      | EQ
+   51      | GE
+
+   52 unop: '+'
+   53     | '-'
+   54     | '!'
+   55     | '*'
+   56     | '(' INT ')'
+   57     | '(' CHAR ')'
+
+   58 selection: '&' IDENT '[' operand ']'
+   59          | '&' IDENT PTR IDENT
+
+   60 condition: '!' operand
+   61          | operand
+
+   62 operand: IDENT
+   63        | INTCON
+   64        | CHARCON
+   65        | SIZEOF '(' type ')'
+
+   66 type: VOID '*'
+   67     | CHAR
+   68     | CHAR '*'
+   69     | CHAR '*' '*'
+   70     | CHAR '*' '*' '*'
+   71     | INT
+   72     | INT '*'
+   73     | INT '*' '*'
+   74     | STRUCT IDENT '*'
+   75     | STRUCT IDENT '*' '*'
+   76     | STRUCT IDENT '*' '*' '*'
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'\n' (10) 4 6 7 9 10 11 13 19 22 23 24 25 26 27 28 29 30 31
+'!' (33) 54 60
+'%' (37) 45
+'&' (38) 58 59
+'(' (40) 15 16 23 33 34 56 57 65
+')' (41) 15 16 23 33 34 56 57 65
+'*' (42) 29 43 55 66 68 69 70 72 73 74 75 76
+'+' (43) 41 52
+',' (44) 17 35
+'-' (45) 42 53
+'/' (47) 44
+':' (58) 22
+';' (59) 6 7 9 10 11 13 22 23 24 25 26 27 28 29 30 31
+'<' (60) 46
+'=' (61) 9 27 28 29 30
+'>' (62) 47
+'[' (91) 58
+']' (93) 58
+'{' (123) 6 19
+'}' (125) 6 19
+error (256)
+GOTO (258) 23 24
+IF (259) 23
+INT (260) 56 71 72 73
+RETURN (261) 25 26
+SIZEOF (262) 65
+STRUCT (263) 6 74 75 76
+CHAR (264) 57 67 68 69 70
+VOID (265) 13 14 16 66
+CHARCON (266) 64
+STRINGCON (267) 9
+INTCON (268) 63
+IDENT (269) 6 7 9 10 11 12 13 14 17 18 22 23 24 27 28 29 30 33 34 58
+    59 62 74 75 76
+PTR (270) 59
+NE (271) 48
+LT (272) 49
+EQ (273) 50
+GE (274) 51
+
+
+Nonterminals, with rules where they appear
+
+$accept (40)
+    on left: 0
+program (41)
+    on left: 1 2 3 4 5, on right: 0 1 2 3 4
+structdef (42)
+    on left: 6, on right: 1
+fields (43)
+    on left: 7 8, on right: 6 7
+globaldef (44)
+    on left: 9 10, on right: 2
+function (45)
+    on left: 11 12 13 14, on right: 3
+parameters (46)
+    on left: 15 16, on right: 11 12 13 14
+params (47)
+    on left: 17 18, on right: 15 17
+block (48)
+    on left: 19, on right: 12 14 32
+statements (49)
+    on left: 20 21, on right: 19 20
+statement (50)
+    on left: 22 23 24 25 26 27 28 29 30 31 32, on right: 20
+call (51)
+    on left: 33 34, on right: 30 31
+args (52)
+    on left: 35 36, on right: 33 35
+expression (53)
+    on left: 37 38 39 40, on right: 27 28 29
+binop (54)
+    on left: 41 42 43 44 45 46 47 48 49 50 51, on right: 37
+unop (55)
+    on left: 52 53 54 55 56 57, on right: 38
+selection (56)
+    on left: 58 59, on right: 39
+condition (57)
+    on left: 60 61, on right: 23
+operand (58)
+    on left: 62 63 64 65, on right: 25 35 36 37 38 40 58 60 61
+type (59)
+    on left: 66 67 68 69 70 71 72 73 74 75 76, on right: 7 9 10 11
+    12 17 18 27 30 65
+
+
+state 0
+
+    0 $accept: . program $end
+
+    $default  reduce using rule 5 (program)
+
+    program  go to state 1
+
+
+state 1
+
+    0 $accept: program . $end
+    1 program: program . structdef
+    2        | program . globaldef
+    3        | program . function
+    4        | program . '\n'
+
+    $end    shift, and go to state 2
+    INT     shift, and go to state 3
+    STRUCT  shift, and go to state 4
+    CHAR    shift, and go to state 5
+    VOID    shift, and go to state 6
+    '\n'    shift, and go to state 7
+
+    structdef  go to state 8
+    globaldef  go to state 9
+    function   go to state 10
+    type       go to state 11
+
+
+state 2
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+state 3
+
+   71 type: INT .
+   72     | INT . '*'
+   73     | INT . '*' '*'
+
+    '*'  shift, and go to state 12
+
+    $default  reduce using rule 71 (type)
+
+
+state 4
+
+    6 structdef: STRUCT . IDENT '{' '\n' fields '}' ';' '\n'
+   74 type: STRUCT . IDENT '*'
+   75     | STRUCT . IDENT '*' '*'
+   76     | STRUCT . IDENT '*' '*' '*'
+
+    IDENT  shift, and go to state 13
+
+
+state 5
+
+   67 type: CHAR .
+   68     | CHAR . '*'
+   69     | CHAR . '*' '*'
+   70     | CHAR . '*' '*' '*'
+
+    '*'  shift, and go to state 14
+
+    $default  reduce using rule 67 (type)
+
+
+state 6
+
+   13 function: VOID . IDENT parameters ';' '\n'
+   14         | VOID . IDENT parameters block
+   66 type: VOID . '*'
+
+    IDENT  shift, and go to state 15
+    '*'    shift, and go to state 16
+
+
+state 7
+
+    4 program: program '\n' .
+
+    $default  reduce using rule 4 (program)
+
+
+state 8
+
+    1 program: program structdef .
+
+    $default  reduce using rule 1 (program)
+
+
+state 9
+
+    2 program: program globaldef .
+
+    $default  reduce using rule 2 (program)
+
+
+state 10
+
+    3 program: program function .
+
+    $default  reduce using rule 3 (program)
+
+
+state 11
+
+    9 globaldef: type . IDENT '=' STRINGCON ';' '\n'
+   10          | type . IDENT ';' '\n'
+   11 function: type . IDENT parameters ';' '\n'
+   12         | type . IDENT parameters block
+
+    IDENT  shift, and go to state 17
+
+
+state 12
+
+   72 type: INT '*' .
+   73     | INT '*' . '*'
+
+    '*'  shift, and go to state 18
+
+    $default  reduce using rule 72 (type)
+
+
+state 13
+
+    6 structdef: STRUCT IDENT . '{' '\n' fields '}' ';' '\n'
+   74 type: STRUCT IDENT . '*'
+   75     | STRUCT IDENT . '*' '*'
+   76     | STRUCT IDENT . '*' '*' '*'
+
+    '{'  shift, and go to state 19
+    '*'  shift, and go to state 20
+
+
+state 14
+
+   68 type: CHAR '*' .
+   69     | CHAR '*' . '*'
+   70     | CHAR '*' . '*' '*'
+
+    '*'  shift, and go to state 21
+
+    $default  reduce using rule 68 (type)
+
+
+state 15
+
+   13 function: VOID IDENT . parameters ';' '\n'
+   14         | VOID IDENT . parameters block
+
+    '('  shift, and go to state 22
+
+    parameters  go to state 23
+
+
+state 16
+
+   66 type: VOID '*' .
+
+    $default  reduce using rule 66 (type)
+
+
+state 17
+
+    9 globaldef: type IDENT . '=' STRINGCON ';' '\n'
+   10          | type IDENT . ';' '\n'
+   11 function: type IDENT . parameters ';' '\n'
+   12         | type IDENT . parameters block
+
+    ';'  shift, and go to state 24
+    '='  shift, and go to state 25
+    '('  shift, and go to state 22
+
+    parameters  go to state 26
+
+
+state 18
+
+   73 type: INT '*' '*' .
+
+    $default  reduce using rule 73 (type)
+
+
+state 19
+
+    6 structdef: STRUCT IDENT '{' . '\n' fields '}' ';' '\n'
+
+    '\n'  shift, and go to state 27
+
+
+state 20
+
+   74 type: STRUCT IDENT '*' .
+   75     | STRUCT IDENT '*' . '*'
+   76     | STRUCT IDENT '*' . '*' '*'
+
+    '*'  shift, and go to state 28
+
+    $default  reduce using rule 74 (type)
+
+
+state 21
+
+   69 type: CHAR '*' '*' .
+   70     | CHAR '*' '*' . '*'
+
+    '*'  shift, and go to state 29
+
+    $default  reduce using rule 69 (type)
+
+
+state 22
+
+   15 parameters: '(' . params ')'
+   16           | '(' . VOID ')'
+
+    INT     shift, and go to state 3
+    STRUCT  shift, and go to state 30
+    CHAR    shift, and go to state 5
+    VOID    shift, and go to state 31
+
+    params  go to state 32
+    type    go to state 33
+
+
+state 23
+
+   13 function: VOID IDENT parameters . ';' '\n'
+   14         | VOID IDENT parameters . block
+
+    '{'  shift, and go to state 34
+    ';'  shift, and go to state 35
+
+    block  go to state 36
+
+
+state 24
+
+   10 globaldef: type IDENT ';' . '\n'
+
+    '\n'  shift, and go to state 37
+
+
+state 25
+
+    9 globaldef: type IDENT '=' . STRINGCON ';' '\n'
+
+    STRINGCON  shift, and go to state 38
+
+
+state 26
+
+   11 function: type IDENT parameters . ';' '\n'
+   12         | type IDENT parameters . block
+
+    '{'  shift, and go to state 34
+    ';'  shift, and go to state 39
+
+    block  go to state 40
+
+
+state 27
+
+    6 structdef: STRUCT IDENT '{' '\n' . fields '}' ';' '\n'
+
+    $default  reduce using rule 8 (fields)
+
+    fields  go to state 41
+
+
+state 28
+
+   75 type: STRUCT IDENT '*' '*' .
+   76     | STRUCT IDENT '*' '*' . '*'
+
+    '*'  shift, and go to state 42
+
+    $default  reduce using rule 75 (type)
+
+
+state 29
+
+   70 type: CHAR '*' '*' '*' .
+
+    $default  reduce using rule 70 (type)
+
+
+state 30
+
+   74 type: STRUCT . IDENT '*'
+   75     | STRUCT . IDENT '*' '*'
+   76     | STRUCT . IDENT '*' '*' '*'
+
+    IDENT  shift, and go to state 43
+
+
+state 31
+
+   16 parameters: '(' VOID . ')'
+   66 type: VOID . '*'
+
+    ')'  shift, and go to state 44
+    '*'  shift, and go to state 16
+
+
+state 32
+
+   15 parameters: '(' params . ')'
+   17 params: params . ',' type IDENT
+
+    ')'  shift, and go to state 45
+    ','  shift, and go to state 46
+
+
+state 33
+
+   18 params: type . IDENT
+
+    IDENT  shift, and go to state 47
+
+
+state 34
+
+   19 block: '{' . '\n' statements '}' '\n'
+
+    '\n'  shift, and go to state 48
+
+
+state 35
+
+   13 function: VOID IDENT parameters ';' . '\n'
+
+    '\n'  shift, and go to state 49
+
+
+state 36
+
+   14 function: VOID IDENT parameters block .
+
+    $default  reduce using rule 14 (function)
+
+
+state 37
+
+   10 globaldef: type IDENT ';' '\n' .
+
+    $default  reduce using rule 10 (globaldef)
+
+
+state 38
+
+    9 globaldef: type IDENT '=' STRINGCON . ';' '\n'
+
+    ';'  shift, and go to state 50
+
+
+state 39
+
+   11 function: type IDENT parameters ';' . '\n'
+
+    '\n'  shift, and go to state 51
+
+
+state 40
+
+   12 function: type IDENT parameters block .
+
+    $default  reduce using rule 12 (function)
+
+
+state 41
+
+    6 structdef: STRUCT IDENT '{' '\n' fields . '}' ';' '\n'
+    7 fields: fields . type IDENT ';' '\n'
+
+    INT     shift, and go to state 3
+    STRUCT  shift, and go to state 30
+    CHAR    shift, and go to state 5
+    VOID    shift, and go to state 52
+    '}'     shift, and go to state 53
+
+    type  go to state 54
+
+
+state 42
+
+   76 type: STRUCT IDENT '*' '*' '*' .
+
+    $default  reduce using rule 76 (type)
+
+
+state 43
+
+   74 type: STRUCT IDENT . '*'
+   75     | STRUCT IDENT . '*' '*'
+   76     | STRUCT IDENT . '*' '*' '*'
+
+    '*'  shift, and go to state 20
+
+
+state 44
+
+   16 parameters: '(' VOID ')' .
+
+    $default  reduce using rule 16 (parameters)
+
+
+state 45
+
+   15 parameters: '(' params ')' .
+
+    $default  reduce using rule 15 (parameters)
+
+
+state 46
+
+   17 params: params ',' . type IDENT
+
+    INT     shift, and go to state 3
+    STRUCT  shift, and go to state 30
+    CHAR    shift, and go to state 5
+    VOID    shift, and go to state 52
+
+    type  go to state 55
+
+
+state 47
+
+   18 params: type IDENT .
+
+    $default  reduce using rule 18 (params)
+
+
+state 48
+
+   19 block: '{' '\n' . statements '}' '\n'
+
+    $default  reduce using rule 21 (statements)
+
+    statements  go to state 56
+
+
+state 49
+
+   13 function: VOID IDENT parameters ';' '\n' .
+
+    $default  reduce using rule 13 (function)
+
+
+state 50
+
+    9 globaldef: type IDENT '=' STRINGCON ';' . '\n'
+
+    '\n'  shift, and go to state 57
+
+
+state 51
+
+   11 function: type IDENT parameters ';' '\n' .
+
+    $default  reduce using rule 11 (function)
+
+
+state 52
+
+   66 type: VOID . '*'
+
+    '*'  shift, and go to state 16
+
+
+state 53
+
+    6 structdef: STRUCT IDENT '{' '\n' fields '}' . ';' '\n'
+
+    ';'  shift, and go to state 58
+
+
+state 54
+
+    7 fields: fields type . IDENT ';' '\n'
+
+    IDENT  shift, and go to state 59
+
+
+state 55
+
+   17 params: params ',' type . IDENT
+
+    IDENT  shift, and go to state 60
+
+
+state 56
+
+   19 block: '{' '\n' statements . '}' '\n'
+   20 statements: statements . statement
+
+    GOTO    shift, and go to state 61
+    IF      shift, and go to state 62
+    INT     shift, and go to state 3
+    RETURN  shift, and go to state 63
+    STRUCT  shift, and go to state 30
+    CHAR    shift, and go to state 5
+    VOID    shift, and go to state 52
+    IDENT   shift, and go to state 64
+    '{'     shift, and go to state 34
+    '}'     shift, and go to state 65
+    '*'     shift, and go to state 66
+
+    block      go to state 67
+    statement  go to state 68
+    call       go to state 69
+    type       go to state 70
+
+
+state 57
+
+    9 globaldef: type IDENT '=' STRINGCON ';' '\n' .
+
+    $default  reduce using rule 9 (globaldef)
+
+
+state 58
+
+    6 structdef: STRUCT IDENT '{' '\n' fields '}' ';' . '\n'
+
+    '\n'  shift, and go to state 71
+
+
+state 59
+
+    7 fields: fields type IDENT . ';' '\n'
+
+    ';'  shift, and go to state 72
+
+
+state 60
+
+   17 params: params ',' type IDENT .
+
+    $default  reduce using rule 17 (params)
+
+
+state 61
+
+   24 statement: GOTO . IDENT ';' '\n'
+
+    IDENT  shift, and go to state 73
+
+
+state 62
+
+   23 statement: IF . '(' condition ')' GOTO IDENT ';' '\n'
+
+    '('  shift, and go to state 74
+
+
+state 63
+
+   25 statement: RETURN . operand ';' '\n'
+   26          | RETURN . ';' '\n'
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+    ';'      shift, and go to state 79
+
+    operand  go to state 80
+
+
+state 64
+
+   22 statement: IDENT . ':' ';' '\n'
+   28          | IDENT . '=' expression ';' '\n'
+   33 call: IDENT . '(' args ')'
+   34     | IDENT . '(' ')'
+
+    '='  shift, and go to state 81
+    '('  shift, and go to state 82
+    ':'  shift, and go to state 83
+
+
+state 65
+
+   19 block: '{' '\n' statements '}' . '\n'
+
+    '\n'  shift, and go to state 84
+
+
+state 66
+
+   29 statement: '*' . IDENT '=' expression ';' '\n'
+
+    IDENT  shift, and go to state 85
+
+
+state 67
+
+   32 statement: block .
+
+    $default  reduce using rule 32 (statement)
+
+
+state 68
+
+   20 statements: statements statement .
+
+    $default  reduce using rule 20 (statements)
+
+
+state 69
+
+   31 statement: call . ';' '\n'
+
+    ';'  shift, and go to state 86
+
+
+state 70
+
+   27 statement: type . IDENT '=' expression ';' '\n'
+   30          | type . IDENT '=' call ';' '\n'
+
+    IDENT  shift, and go to state 87
+
+
+state 71
+
+    6 structdef: STRUCT IDENT '{' '\n' fields '}' ';' '\n' .
+
+    $default  reduce using rule 6 (structdef)
+
+
+state 72
+
+    7 fields: fields type IDENT ';' . '\n'
+
+    '\n'  shift, and go to state 88
+
+
+state 73
+
+   24 statement: GOTO IDENT . ';' '\n'
+
+    ';'  shift, and go to state 89
+
+
+state 74
+
+   23 statement: IF '(' . condition ')' GOTO IDENT ';' '\n'
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+    '!'      shift, and go to state 90
+
+    condition  go to state 91
+    operand    go to state 92
+
+
+state 75
+
+   65 operand: SIZEOF . '(' type ')'
+
+    '('  shift, and go to state 93
+
+
+state 76
+
+   64 operand: CHARCON .
+
+    $default  reduce using rule 64 (operand)
+
+
+state 77
+
+   63 operand: INTCON .
+
+    $default  reduce using rule 63 (operand)
+
+
+state 78
+
+   62 operand: IDENT .
+
+    $default  reduce using rule 62 (operand)
+
+
+state 79
+
+   26 statement: RETURN ';' . '\n'
+
+    '\n'  shift, and go to state 94
+
+
+state 80
+
+   25 statement: RETURN operand . ';' '\n'
+
+    ';'  shift, and go to state 95
+
+
+state 81
+
+   28 statement: IDENT '=' . expression ';' '\n'
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+    '('      shift, and go to state 96
+    '*'      shift, and go to state 97
+    '+'      shift, and go to state 98
+    '-'      shift, and go to state 99
+    '!'      shift, and go to state 100
+    '&'      shift, and go to state 101
+
+    expression  go to state 102
+    unop        go to state 103
+    selection   go to state 104
+    operand     go to state 105
+
+
+state 82
+
+   33 call: IDENT '(' . args ')'
+   34     | IDENT '(' . ')'
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+    ')'      shift, and go to state 106
+
+    args     go to state 107
+    operand  go to state 108
+
+
+state 83
+
+   22 statement: IDENT ':' . ';' '\n'
+
+    ';'  shift, and go to state 109
+
+
+state 84
+
+   19 block: '{' '\n' statements '}' '\n' .
+
+    $default  reduce using rule 19 (block)
+
+
+state 85
+
+   29 statement: '*' IDENT . '=' expression ';' '\n'
+
+    '='  shift, and go to state 110
+
+
+state 86
+
+   31 statement: call ';' . '\n'
+
+    '\n'  shift, and go to state 111
+
+
+state 87
+
+   27 statement: type IDENT . '=' expression ';' '\n'
+   30          | type IDENT . '=' call ';' '\n'
+
+    '='  shift, and go to state 112
+
+
+state 88
+
+    7 fields: fields type IDENT ';' '\n' .
+
+    $default  reduce using rule 7 (fields)
+
+
+state 89
+
+   24 statement: GOTO IDENT ';' . '\n'
+
+    '\n'  shift, and go to state 113
+
+
+state 90
+
+   60 condition: '!' . operand
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+
+    operand  go to state 114
+
+
+state 91
+
+   23 statement: IF '(' condition . ')' GOTO IDENT ';' '\n'
+
+    ')'  shift, and go to state 115
+
+
+state 92
+
+   61 condition: operand .
+
+    $default  reduce using rule 61 (condition)
+
+
+state 93
+
+   65 operand: SIZEOF '(' . type ')'
+
+    INT     shift, and go to state 3
+    STRUCT  shift, and go to state 30
+    CHAR    shift, and go to state 5
+    VOID    shift, and go to state 52
+
+    type  go to state 116
+
+
+state 94
+
+   26 statement: RETURN ';' '\n' .
+
+    $default  reduce using rule 26 (statement)
+
+
+state 95
+
+   25 statement: RETURN operand ';' . '\n'
+
+    '\n'  shift, and go to state 117
+
+
+state 96
+
+   56 unop: '(' . INT ')'
+   57     | '(' . CHAR ')'
+
+    INT   shift, and go to state 118
+    CHAR  shift, and go to state 119
+
+
+state 97
+
+   55 unop: '*' .
+
+    $default  reduce using rule 55 (unop)
+
+
+state 98
+
+   52 unop: '+' .
+
+    $default  reduce using rule 52 (unop)
+
+
+state 99
+
+   53 unop: '-' .
+
+    $default  reduce using rule 53 (unop)
+
+
+state 100
+
+   54 unop: '!' .
+
+    $default  reduce using rule 54 (unop)
+
+
+state 101
+
+   58 selection: '&' . IDENT '[' operand ']'
+   59          | '&' . IDENT PTR IDENT
+
+    IDENT  shift, and go to state 120
+
+
+state 102
+
+   28 statement: IDENT '=' expression . ';' '\n'
+
+    ';'  shift, and go to state 121
+
+
+state 103
+
+   38 expression: unop . operand
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+
+    operand  go to state 122
+
+
+state 104
+
+   39 expression: selection .
+
+    $default  reduce using rule 39 (expression)
+
+
+state 105
+
+   37 expression: operand . binop operand
+   40           | operand .
+
+    NE   shift, and go to state 123
+    LT   shift, and go to state 124
+    EQ   shift, and go to state 125
+    GE   shift, and go to state 126
+    '*'  shift, and go to state 127
+    '+'  shift, and go to state 128
+    '-'  shift, and go to state 129
+    '/'  shift, and go to state 130
+    '%'  shift, and go to state 131
+    '<'  shift, and go to state 132
+    '>'  shift, and go to state 133
+
+    $default  reduce using rule 40 (expression)
+
+    binop  go to state 134
+
+
+state 106
+
+   34 call: IDENT '(' ')' .
+
+    $default  reduce using rule 34 (call)
+
+
+state 107
+
+   33 call: IDENT '(' args . ')'
+   35 args: args . ',' operand
+
+    ')'  shift, and go to state 135
+    ','  shift, and go to state 136
+
+
+state 108
+
+   36 args: operand .
+
+    $default  reduce using rule 36 (args)
+
+
+state 109
+
+   22 statement: IDENT ':' ';' . '\n'
+
+    '\n'  shift, and go to state 137
+
+
+state 110
+
+   29 statement: '*' IDENT '=' . expression ';' '\n'
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+    '('      shift, and go to state 96
+    '*'      shift, and go to state 97
+    '+'      shift, and go to state 98
+    '-'      shift, and go to state 99
+    '!'      shift, and go to state 100
+    '&'      shift, and go to state 101
+
+    expression  go to state 138
+    unop        go to state 103
+    selection   go to state 104
+    operand     go to state 105
+
+
+state 111
+
+   31 statement: call ';' '\n' .
+
+    $default  reduce using rule 31 (statement)
+
+
+state 112
+
+   27 statement: type IDENT '=' . expression ';' '\n'
+   30          | type IDENT '=' . call ';' '\n'
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 139
+    '('      shift, and go to state 96
+    '*'      shift, and go to state 97
+    '+'      shift, and go to state 98
+    '-'      shift, and go to state 99
+    '!'      shift, and go to state 100
+    '&'      shift, and go to state 101
+
+    call        go to state 140
+    expression  go to state 141
+    unop        go to state 103
+    selection   go to state 104
+    operand     go to state 105
+
+
+state 113
+
+   24 statement: GOTO IDENT ';' '\n' .
+
+    $default  reduce using rule 24 (statement)
+
+
+state 114
+
+   60 condition: '!' operand .
+
+    $default  reduce using rule 60 (condition)
+
+
+state 115
+
+   23 statement: IF '(' condition ')' . GOTO IDENT ';' '\n'
+
+    GOTO  shift, and go to state 142
+
+
+state 116
+
+   65 operand: SIZEOF '(' type . ')'
+
+    ')'  shift, and go to state 143
+
+
+state 117
+
+   25 statement: RETURN operand ';' '\n' .
+
+    $default  reduce using rule 25 (statement)
+
+
+state 118
+
+   56 unop: '(' INT . ')'
+
+    ')'  shift, and go to state 144
+
+
+state 119
+
+   57 unop: '(' CHAR . ')'
+
+    ')'  shift, and go to state 145
+
+
+state 120
+
+   58 selection: '&' IDENT . '[' operand ']'
+   59          | '&' IDENT . PTR IDENT
+
+    PTR  shift, and go to state 146
+    '['  shift, and go to state 147
+
+
+state 121
+
+   28 statement: IDENT '=' expression ';' . '\n'
+
+    '\n'  shift, and go to state 148
+
+
+state 122
+
+   38 expression: unop operand .
+
+    $default  reduce using rule 38 (expression)
+
+
+state 123
+
+   48 binop: NE .
+
+    $default  reduce using rule 48 (binop)
+
+
+state 124
+
+   49 binop: LT .
+
+    $default  reduce using rule 49 (binop)
+
+
+state 125
+
+   50 binop: EQ .
+
+    $default  reduce using rule 50 (binop)
+
+
+state 126
+
+   51 binop: GE .
+
+    $default  reduce using rule 51 (binop)
+
+
+state 127
+
+   43 binop: '*' .
+
+    $default  reduce using rule 43 (binop)
+
+
+state 128
+
+   41 binop: '+' .
+
+    $default  reduce using rule 41 (binop)
+
+
+state 129
+
+   42 binop: '-' .
+
+    $default  reduce using rule 42 (binop)
+
+
+state 130
+
+   44 binop: '/' .
+
+    $default  reduce using rule 44 (binop)
+
+
+state 131
+
+   45 binop: '%' .
+
+    $default  reduce using rule 45 (binop)
+
+
+state 132
+
+   46 binop: '<' .
+
+    $default  reduce using rule 46 (binop)
+
+
+state 133
+
+   47 binop: '>' .
+
+    $default  reduce using rule 47 (binop)
+
+
+state 134
+
+   37 expression: operand binop . operand
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+
+    operand  go to state 149
+
+
+state 135
+
+   33 call: IDENT '(' args ')' .
+
+    $default  reduce using rule 33 (call)
+
+
+state 136
+
+   35 args: args ',' . operand
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+
+    operand  go to state 150
+
+
+state 137
+
+   22 statement: IDENT ':' ';' '\n' .
+
+    $default  reduce using rule 22 (statement)
+
+
+state 138
+
+   29 statement: '*' IDENT '=' expression . ';' '\n'
+
+    ';'  shift, and go to state 151
+
+
+state 139
+
+   33 call: IDENT . '(' args ')'
+   34     | IDENT . '(' ')'
+   62 operand: IDENT .
+
+    '('  shift, and go to state 82
+
+    $default  reduce using rule 62 (operand)
+
+
+state 140
+
+   30 statement: type IDENT '=' call . ';' '\n'
+
+    ';'  shift, and go to state 152
+
+
+state 141
+
+   27 statement: type IDENT '=' expression . ';' '\n'
+
+    ';'  shift, and go to state 153
+
+
+state 142
+
+   23 statement: IF '(' condition ')' GOTO . IDENT ';' '\n'
+
+    IDENT  shift, and go to state 154
+
+
+state 143
+
+   65 operand: SIZEOF '(' type ')' .
+
+    $default  reduce using rule 65 (operand)
+
+
+state 144
+
+   56 unop: '(' INT ')' .
+
+    $default  reduce using rule 56 (unop)
+
+
+state 145
+
+   57 unop: '(' CHAR ')' .
+
+    $default  reduce using rule 57 (unop)
+
+
+state 146
+
+   59 selection: '&' IDENT PTR . IDENT
+
+    IDENT  shift, and go to state 155
+
+
+state 147
+
+   58 selection: '&' IDENT '[' . operand ']'
+
+    SIZEOF   shift, and go to state 75
+    CHARCON  shift, and go to state 76
+    INTCON   shift, and go to state 77
+    IDENT    shift, and go to state 78
+
+    operand  go to state 156
+
+
+state 148
+
+   28 statement: IDENT '=' expression ';' '\n' .
+
+    $default  reduce using rule 28 (statement)
+
+
+state 149
+
+   37 expression: operand binop operand .
+
+    $default  reduce using rule 37 (expression)
+
+
+state 150
+
+   35 args: args ',' operand .
+
+    $default  reduce using rule 35 (args)
+
+
+state 151
+
+   29 statement: '*' IDENT '=' expression ';' . '\n'
+
+    '\n'  shift, and go to state 157
+
+
+state 152
+
+   30 statement: type IDENT '=' call ';' . '\n'
+
+    '\n'  shift, and go to state 158
+
+
+state 153
+
+   27 statement: type IDENT '=' expression ';' . '\n'
+
+    '\n'  shift, and go to state 159
+
+
+state 154
+
+   23 statement: IF '(' condition ')' GOTO IDENT . ';' '\n'
+
+    ';'  shift, and go to state 160
+
+
+state 155
+
+   59 selection: '&' IDENT PTR IDENT .
+
+    $default  reduce using rule 59 (selection)
+
+
+state 156
+
+   58 selection: '&' IDENT '[' operand . ']'
+
+    ']'  shift, and go to state 161
+
+
+state 157
+
+   29 statement: '*' IDENT '=' expression ';' '\n' .
+
+    $default  reduce using rule 29 (statement)
+
+
+state 158
+
+   30 statement: type IDENT '=' call ';' '\n' .
+
+    $default  reduce using rule 30 (statement)
+
+
+state 159
+
+   27 statement: type IDENT '=' expression ';' '\n' .
+
+    $default  reduce using rule 27 (statement)
+
+
+state 160
+
+   23 statement: IF '(' condition ')' GOTO IDENT ';' . '\n'
+
+    '\n'  shift, and go to state 162
+
+
+state 161
+
+   58 selection: '&' IDENT '[' operand ']' .
+
+    $default  reduce using rule 58 (selection)
+
+
+state 162
+
+   23 statement: IF '(' condition ')' GOTO IDENT ';' '\n' .
+
+    $default  reduce using rule 23 (statement)

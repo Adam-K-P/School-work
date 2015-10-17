@@ -1,0 +1,80 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.2
+date	2006.10.16.19.17.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2006.10.16.19.09.22;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@/* $Id$ */
+
+#include <stdio.h>
+#include <ctype.h>
+#include <nan.h>
+#include <math.h>
+#include "csymbols.h"
+
+#define NOT_A_NUMBER  (0.0 / 0.0)
+
+#define SYMTABLE_MIN 'a'
+#define SYMTABLE_MAX 'z'
+#define SYMTABLE_DIM  (SYMTABLE_MAX - SYMTABLE_MIN + 1)
+
+double symtable[ SYMTABLE_DIM ];
+#define SYMTABLE(KEY)  (symtable[ tolower (KEY) - SYMTABLE_MIN ])
+
+void sym_init (void) {
+   int ident;
+   for (ident = SYMTABLE_MIN; ident <= SYMTABLE_MAX; ident++) {
+      SYMTABLE (ident) = NOT_A_NUMBER;
+   }
+}
+
+void sym_dump (void) {
+   int ident;
+   for (ident = SYMTABLE_MIN; ident <= SYMTABLE_MAX; ident++) {
+      if (! isnan (SYMTABLE (ident))) {
+         printf ("symbol_t[%c] = %.8g\n", ident, SYMTABLE (ident));
+      }
+   }
+}
+
+value_t sym_get (symbol_t ident) {
+   return SYMTABLE (ident);
+}
+
+value_t sym_put (symbol_t ident, value_t value) {
+   return SYMTABLE (ident) = value;
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $RCSfile: csymbols.c,v $$Revision: 131.162639 $ */
+@

@@ -1,0 +1,224 @@
+bison -v reduce-reduce.y
+::::::::::::::
+reduce-reduce.stdout
+::::::::::::::
+::::::::::::::
+reduce-reduce.stderr
+::::::::::::::
+reduce-reduce.y: conflicts: 1 reduce/reduce
+::::::::::::::
+reduce-reduce.output
+::::::::::::::
+State 5 conflicts: 1 reduce/reduce
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: program statement
+    2        | /* empty */
+
+    3 statement: declaration ';'
+    4          | expression ';'
+
+    5 declaration: basetype '[' ']' IDENT
+    6            | basetype IDENT
+
+    7 basetype: CHAR
+    8         | INT
+    9         | IDENT
+
+   10 expression: expression '[' expression ']'
+   11           | IDENT
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+';' (59) 3 4
+'[' (91) 5 10
+']' (93) 5 10
+error (256)
+CHAR (258) 7
+INT (259) 8
+IDENT (260) 5 6 9 11
+
+
+Nonterminals, with rules where they appear
+
+$accept (9)
+    on left: 0
+program (10)
+    on left: 1 2, on right: 0 1
+statement (11)
+    on left: 3 4, on right: 1
+declaration (12)
+    on left: 5 6, on right: 3
+basetype (13)
+    on left: 7 8 9, on right: 5 6
+expression (14)
+    on left: 10 11, on right: 4 10
+
+
+state 0
+
+    0 $accept: . program $end
+
+    $default  reduce using rule 2 (program)
+
+    program  go to state 1
+
+
+state 1
+
+    0 $accept: program . $end
+    1 program: program . statement
+
+    $end   shift, and go to state 2
+    CHAR   shift, and go to state 3
+    INT    shift, and go to state 4
+    IDENT  shift, and go to state 5
+
+    statement    go to state 6
+    declaration  go to state 7
+    basetype     go to state 8
+    expression   go to state 9
+
+
+state 2
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+state 3
+
+    7 basetype: CHAR .
+
+    $default  reduce using rule 7 (basetype)
+
+
+state 4
+
+    8 basetype: INT .
+
+    $default  reduce using rule 8 (basetype)
+
+
+state 5
+
+    9 basetype: IDENT .
+   11 expression: IDENT .
+
+    ';'       reduce using rule 11 (expression)
+    '['       reduce using rule 9 (basetype)
+    '['       [reduce using rule 11 (expression)]
+    $default  reduce using rule 9 (basetype)
+
+
+state 6
+
+    1 program: program statement .
+
+    $default  reduce using rule 1 (program)
+
+
+state 7
+
+    3 statement: declaration . ';'
+
+    ';'  shift, and go to state 10
+
+
+state 8
+
+    5 declaration: basetype . '[' ']' IDENT
+    6            | basetype . IDENT
+
+    IDENT  shift, and go to state 11
+    '['    shift, and go to state 12
+
+
+state 9
+
+    4 statement: expression . ';'
+   10 expression: expression . '[' expression ']'
+
+    ';'  shift, and go to state 13
+    '['  shift, and go to state 14
+
+
+state 10
+
+    3 statement: declaration ';' .
+
+    $default  reduce using rule 3 (statement)
+
+
+state 11
+
+    6 declaration: basetype IDENT .
+
+    $default  reduce using rule 6 (declaration)
+
+
+state 12
+
+    5 declaration: basetype '[' . ']' IDENT
+
+    ']'  shift, and go to state 15
+
+
+state 13
+
+    4 statement: expression ';' .
+
+    $default  reduce using rule 4 (statement)
+
+
+state 14
+
+   10 expression: expression '[' . expression ']'
+
+    IDENT  shift, and go to state 16
+
+    expression  go to state 17
+
+
+state 15
+
+    5 declaration: basetype '[' ']' . IDENT
+
+    IDENT  shift, and go to state 18
+
+
+state 16
+
+   11 expression: IDENT .
+
+    $default  reduce using rule 11 (expression)
+
+
+state 17
+
+   10 expression: expression . '[' expression ']'
+   10           | expression '[' expression . ']'
+
+    '['  shift, and go to state 14
+    ']'  shift, and go to state 19
+
+
+state 18
+
+    5 declaration: basetype '[' ']' IDENT .
+
+    $default  reduce using rule 5 (declaration)
+
+
+state 19
+
+   10 expression: expression '[' expression ']' .
+
+    $default  reduce using rule 10 (expression)

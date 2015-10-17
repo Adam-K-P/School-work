@@ -1,0 +1,99 @@
+--(end of buffer or a NUL)
+--accepting rule at line 35 ("# This is a comment.")
+--accepting rule at line 33 ("
+")
+--accepting rule at line 26 ("12.3")
+NEWLINE
+--accepting rule at line 34 (" ")
+--accepting rule at line 26 ("12.0")
+NUMBER "12.3"
+--accepting rule at line 34 (" ")
+--accepting rule at line 26 (".3")
+NUMBER "12.0"
+--accepting rule at line 34 (" ")
+--accepting rule at line 26 ("1123.4e4")
+NUMBER ".3"
+--accepting rule at line 34 (" ")
+--accepting rule at line 32 (";")
+NUMBER "1123.4e4"
+--accepting rule at line 33 ("
+")
+OPERATOR ";"
+--accepting rule at line 25 ("hello")
+NEWLINE
+--accepting rule at line 34 (" ")
+--accepting rule at line 31 ("=")
+IDENT "hello"
+--accepting rule at line 34 (" ")
+--accepting rule at line 25 ("world")
+OPERATOR "="
+--accepting rule at line 34 (" ")
+--accepting rule at line 27 ("+")
+IDENT "world"
+--accepting rule at line 26 (".1234")
+OPERATOR "+"
+--accepting rule at line 32 (";")
+NUMBER ".1234"
+--accepting rule at line 33 ("
+")
+OPERATOR ";"
+--accepting rule at line 25 ("this")
+NEWLINE
+--accepting rule at line 34 (" ")
+--accepting rule at line 29 ("*")
+IDENT "this"
+--accepting rule at line 34 (" ")
+--accepting rule at line 25 ("that")
+OPERATOR "*"
+--accepting rule at line 34 (" ")
+--accepting rule at line 27 ("+")
+IDENT "that"
+--accepting rule at line 34 (" ")
+--accepting rule at line 25 ("foo")
+OPERATOR "+"
+--accepting rule at line 34 (" ")
+--accepting rule at line 30 ("/")
+IDENT "foo"
+--accepting rule at line 34 (" ")
+--accepting rule at line 25 ("bar")
+OPERATOR "/"
+--accepting rule at line 32 (";")
+IDENT "bar"
+--accepting rule at line 33 ("
+")
+OPERATOR ";"
+--accepting rule at line 27 ("+")
+NEWLINE
+--accepting rule at line 34 (" ")
+--accepting rule at line 28 ("-")
+OPERATOR "+"
+--accepting rule at line 34 (" ")
+--accepting rule at line 29 ("*")
+OPERATOR "-"
+--accepting rule at line 34 (" ")
+--accepting rule at line 30 ("/")
+OPERATOR "*"
+--accepting rule at line 33 ("
+")
+OPERATOR "/"
+--accepting rule at line 25 ("Errors")
+NEWLINE
+--accepting rule at line 34 (" ")
+--accepting rule at line 36 (".")
+IDENT "Errors"
+--accepting rule at line 34 (" ")
+--accepting rule at line 36 (":")
+ERROR "."
+--accepting rule at line 34 (" ")
+--accepting rule at line 36 ("(")
+ERROR ":"
+--accepting rule at line 34 (" ")
+--accepting rule at line 36 (")")
+ERROR "("
+--accepting rule at line 33 ("
+")
+ERROR ")"
+--(end of buffer or a NUL)
+--EOF (start condition 0)
+NEWLINE
+END OF FILE

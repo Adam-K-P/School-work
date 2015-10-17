@@ -1,0 +1,42 @@
+Scanning input: "f(c)"
+Starting parse
+Entering state 0
+Reading a token: Next token is token IDENT (node1: IDENT 'f' nil nil)
+Shifting token IDENT (node1: IDENT 'f' nil nil)
+Entering state 1
+Reducing stack by rule 7 (line 53):
+   $1 = token IDENT (node1: IDENT 'f' nil nil)
+AST: node1: IDENT 'f' nil nil
+-> $$ = nterm factor ()
+Stack now 0
+Entering state 6
+Reducing stack by rule 5 (line 49):
+   $1 = nterm factor ()
+AST: node1: IDENT 'f' nil nil
+-> $$ = nterm term ()
+Stack now 0
+Entering state 5
+Reading a token: Next token is token LPAR (node2: LPAR '(' nil nil)
+Reducing stack by rule 3 (line 45):
+   $1 = nterm term ()
+AST: node1: IDENT 'f' nil nil
+-> $$ = nterm expr ()
+Stack now 0
+Entering state 4
+Next token is token LPAR (node2: LPAR '(' nil nil)
+Reducing stack by rule 1 (line 41):
+   $1 = nterm expr ()
+AST: node1: IDENT 'f' nil nil
+-> $$ = nterm start ()
+Stack now 0
+Entering state 3
+Next token is token LPAR (node2: LPAR '(' nil nil)
+syntax error, unexpected LPAR, expecting $end)
+Error: popping nterm start ()
+Stack now 0
+Cleanup: discarding lookahead token LPAR (node2: LPAR '(' nil nil)
+Stack now 0
+Finished parse: status 1
+Scanned input: "f(c)"
+Root of AST:
+AST: node1: IDENT 'f' nil nil

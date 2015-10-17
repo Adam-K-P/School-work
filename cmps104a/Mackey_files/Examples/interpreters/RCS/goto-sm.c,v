@@ -1,0 +1,226 @@
+head	341.2;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+341.2
+date	2012.11.17.04.49.45;	author -;	state -;
+branches;
+next	341.1;
+
+341.1
+date	2004.03.05.02.31.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+341.2
+log
+@-
+@
+text
+@/* $Id: newgoto-sm.c,v 341.1 2004-03-04 18:31:48-08 - - $ */
+/*
+* tos of stack is cached in a register.
+* *sp is actually second from top of stack.
+*
+* gcc specific coding:
+* In order to make the core interpreter loop as fast as possible,
+* any tricks are good tricks, regardless of their so-called software
+* engineering quality.  The program is simple and regular, so the
+* tricks hopefully will not lead to excessive obfuscation.
+*
+* -- Using goto *SW[*ip++] instead of a switch statement causes gcc
+*    to omit the bounds check it must normally do with a switch.
+*
+*/
+
+#include <inttypes.h>
+
+typedef uint8_t   ubyte;
+typedef int8_t    sbyte;
+typedef uint32_t  uword;
+typedef int32_t   sword;
+typedef void     *ugoto;
+
+enum Opcode{
+   LDC0, LDCP, LDCN, LDC2, LDC4,
+   LDL , LDL2, STL , STL2, SKL , SKL2,
+   ADD , SUB , MUL , DIV , REM ,
+   AND , OR  , XOR , SLL , SRL , SRA ,
+   NEG , POS , COM ,
+   EQ  , NE  , LT  , LE  , GT  , GE  ,
+   JMP ,
+   JZ  , JNZ ,
+   JEQ , JNE , JLT , JLE , JGT , JGE ,
+};
+
+void interp(){
+   static ugoto SWITCH[] = {
+      &&_LDC0, &&_LDCP, &&_LDCN, &&_LDC2, &&_LDC4,
+      &&_LDL , &&_LDL2, &&_STL , &&_STL2, &&_SKL , &&_SKL2,
+      &&_ADD , &&_SUB , &&_MUL , &&_DIV , &&_REM ,
+      &&_AND , &&_OR  , &&_XOR , &&_SLL , &&_SRL , &&_SRA ,
+      &&_NEG , &&_POS , &&_COM ,
+      &&_EQ  , &&_NE  , &&_LT  , &&_LE  , &&_GT  , &&_GE  ,
+      &&_JMP , &&_JZ  , &&_JNZ ,
+   };
+   register ubyte *ip;
+   register sword *sp;
+   register sword *fp;
+   register sword tos; /* cache for *sp */
+   register ugoto *SW = SWITCH;
+
+   #define _IP0     register sword w = (sbyte)(ip[0]);
+   #define _IP(N)   w = w<<8 | ip[N];
+   #define UIP1     ( *ip++ )
+   #define SIP2     ({ _IP0; _IP(1); ip+=2; w; })
+   #define SIP4     ({ _IP0; _IP(1); _IP(2); _IP(3); ip+=4; w; })
+   #define FETCH    { goto Fetch; }
+
+   Fetch: goto *SW[UIP1];
+
+   _LDC0: *sp++ = tos; tos = 0;                   FETCH;
+   _LDCP: *sp++ = tos; tos = UIP1;                FETCH;
+   _LDCN: *sp++ = tos; tos = UIP1 - 256;          FETCH;
+   _LDC2: *sp++ = tos; tos = SIP2;                FETCH;
+   _LDC4: *sp++ = tos; tos = SIP4;                FETCH;
+
+   _LDL : *sp++ = tos; tos = fp[UIP1];            FETCH;
+   _LDL2: *sp++ = tos; tos = fp[SIP2];            FETCH;
+   _STL : fp[UIP1] = tos; tos = *--sp;            FETCH;
+   _STL2: fp[SIP2] = tos; tos = *--sp;            FETCH;
+   _SKL : fp[UIP1] = tos;                         FETCH;
+   _SKL2: fp[SIP2] = tos;                         FETCH;
+
+   _ADD : tos = *--sp + tos;                      FETCH;
+   _SUB : tos = *--sp - tos;                      FETCH;
+   _MUL : tos = *--sp * tos;                      FETCH;
+   _DIV : tos = *--sp / tos;                      FETCH;
+   _REM : tos = *--sp % tos;                      FETCH;
+
+   _AND : tos = *--sp & tos;                      FETCH;
+   _OR  : tos = *--sp | tos;                      FETCH;
+   _XOR : tos = *--sp ^ tos;                      FETCH;
+   _SLL : tos = *--sp << tos;                     FETCH;
+   _SRL : tos = (uword)(*--sp) >> tos;            FETCH;
+   _SRA : tos = *--sp >> tos;                     FETCH;
+
+   _NEG : tos = - tos;                            FETCH;
+   _POS : tos = + tos;                            FETCH;
+   _COM : tos = ~ tos;                            FETCH;
+
+   _EQ  : tos = *--sp == tos;                     FETCH;
+   _NE  : tos = *--sp != tos;                     FETCH;
+   _LT  : tos = *--sp <  tos;                     FETCH;
+   _LE  : tos = *--sp <= tos;                     FETCH;
+   _GT  : tos = *--sp >  tos;                     FETCH;
+   _GE  : tos = *--sp >= tos;                     FETCH;
+
+   _JMP :                ip += SIP2;              FETCH;
+   _JZ  : if( tos == 0 ) ip += SIP2; tos = *--sp; FETCH;
+   _JNZ : if( tos != 0 ) ip += SIP2; tos = *--sp; FETCH;
+
+}
+@
+
+
+341.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $Id: goto-sm.c,v 310.2 2001-01-19 20:25:14-08 - - $ */
+a14 11
+* -- Using goto *Fetch uses up a register, but confuses the CSE
+*    eliminator for statements, thus reducing the number of
+*    jumps to jumps compiled.
+*    // register void *Fetch = &&Switch;
+*    // #define FETCH() { goto *Fetch; }
+*
+* -- Using goto *SP[*ip++] at the end of every instruction reduces
+*    the number of machine cycles per loop.  This leads to a little
+*    code bloat, but we trade speed for space and reduce the number
+*    of jumps.
+*
+d17 7
+a23 5
+typedef unsigned char ubyte;
+typedef signed char   sbyte;
+typedef unsigned int  uword;
+typedef signed int    sword;
+typedef void         *ugoto;
+d38 8
+a45 9
+   #define SW(OP) [OP] &&Case_##OP
+   static ugoto Switch_cases[] = {
+      SW(LDC0), SW(LDCP), SW(LDCN), SW(LDC2), SW(LDC4),
+      SW(LDL ), SW(LDL2), SW(STL ), SW(STL2), SW(SKL ), SW(SKL2),
+      SW(ADD ), SW(SUB ), SW(MUL ), SW(DIV ), SW(REM ),
+      SW(AND ), SW(OR  ), SW(XOR ), SW(SLL ), SW(SRL ), SW(SRA ),
+      SW(NEG ), SW(POS ), SW(COM ),
+      SW(EQ  ), SW(NE  ), SW(LT  ), SW(LE  ), SW(GT  ), SW(GE  ),
+      SW(JMP ), SW(JZ  ), SW(JNZ ),
+d51 1
+a51 1
+   register ugoto *SW = Switch_cases;
+d53 49
+a101 49
+   #define UIP1()   ( (ubyte)ip[0] )
+   #define SIP2()   ( (sbyte)ip[0]<<8 | ip[1] )
+   #define SIP4()   ( SIP2()<<16 | ip[2]<<8 | ip[3] )
+   #define SPILL()  ( *sp++ = tos )
+   #define FILL(N)  { sp -= (N); tos = *sp; }
+   #define FETCH(N) { ip += (N)+1; goto *SW[ip[-1]]; }
+
+   Fetch    : goto *SW[*ip++];
+
+   Case_LDC0: SPILL(); tos = 0;                          FETCH(0);
+   Case_LDCP: SPILL(); tos = UIP1();                     FETCH(1);
+   Case_LDCN: SPILL(); tos = UIP1() - 256;               FETCH(1);
+   Case_LDC2: SPILL(); tos = SIP2();                     FETCH(2);
+   Case_LDC4: SPILL(); tos = SIP4();                     FETCH(4);
+
+   Case_LDL : SPILL(); tos = fp[UIP1()];                 FETCH(1);
+   Case_LDL2: SPILL(); tos = fp[SIP2()];                 FETCH(2);
+   Case_STL : fp[UIP1()] = tos; FILL(1);                 FETCH(1);
+   Case_STL2: fp[SIP2()] = tos; FILL(1);                 FETCH(2);
+   Case_SKL : fp[UIP1()] = tos;                          FETCH(1);
+   Case_SKL2: fp[SIP2()] = tos;                          FETCH(2);
+
+   Case_ADD : tos = *--sp + tos;                         FETCH(0);
+   Case_SUB : tos = *--sp - tos;                         FETCH(0);
+   Case_MUL : tos = *--sp * tos;                         FETCH(0);
+   Case_DIV : tos = *--sp / tos;                         FETCH(0);
+   Case_REM : tos = *--sp % tos;                         FETCH(0);
+
+   Case_AND : tos = *--sp & tos;                         FETCH(0);
+   Case_OR  : tos = *--sp | tos;                         FETCH(0);
+   Case_XOR : tos = *--sp ^ tos;                         FETCH(0);
+   Case_SLL : tos = *--sp << tos;                        FETCH(0);
+   Case_SRL : tos = (uword)(*--sp) >> tos;               FETCH(0);
+   Case_SRA : tos = *--sp >> tos;                        FETCH(0);
+
+   Case_NEG : tos = - tos;                               FETCH(0);
+   Case_POS : tos = + tos;                               FETCH(0);
+   Case_COM : tos = ~ tos;                               FETCH(0);
+
+   Case_EQ  : tos = *--sp == tos;                        FETCH(0);
+   Case_NE  : tos = *--sp != tos;                        FETCH(0);
+   Case_LT  : tos = *--sp <  tos;                        FETCH(0);
+   Case_LE  : tos = *--sp <= tos;                        FETCH(0);
+   Case_GT  : tos = *--sp >  tos;                        FETCH(0);
+   Case_GE  : tos = *--sp >= tos;                        FETCH(0);
+
+   Case_JMP :                     ip += SIP2();          FETCH(2);
+   Case_JZ  : if( tos    == 0   ) ip += SIP2(); FILL(1); FETCH(2);
+   Case_JNZ : if( tos    != 0   ) ip += SIP2(); FILL(1); FETCH(2);
+@

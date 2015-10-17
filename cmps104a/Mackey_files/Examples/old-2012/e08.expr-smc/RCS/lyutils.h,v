@@ -1,0 +1,239 @@
+head	1.10;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.10
+date	2013.08.22.20.58.43;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2011.10.07.05.05.30;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2011.10.07.05.02.37;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2011.10.07.04.46.13;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2011.09.01.01.10.49;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2011.09.01.00.54.03;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2010.10.22.01.16.58;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2010.10.01.22.13.41;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2010.02.12.23.04.56;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.10.09.01.08.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.10
+log
+@-
+@
+text
+@#ifndef __LYUTILS_H__
+#define __LYUTILS_H__
+
+// Lex and Yacc interface utility.
+
+#include <stdio.h>
+
+#include "astree.h"
+#include "auxlib.h"
+
+#define YYEOF 0
+
+extern FILE *yyin;
+extern astree yyparse_astree;
+extern int yyin_linenr;
+extern char *yytext;
+extern int yy_flex_debug;
+extern int yydebug;
+extern int yyleng;
+
+int yylex (void);
+int yyparse (void);
+void yyerror (char *message);
+const char *get_yytname (int symbol);
+
+char *scanner_filename (int filenr);
+void scanner_newfilename (char *filename);
+void scanner_badchar (unsigned char bad);
+void scanner_badtoken (char *lexeme);
+void scanner_newline (void);
+void scanner_setecho (bool echoflag);
+void scanner_useraction (void);
+
+astree new_parseroot (void);
+int yylval_token (int symbol);
+
+void scanner_include (void);
+
+#define YYSTYPE astree
+#include "yyparse.h"
+
+RCSH("$Id: lyutils.h,v 1.9 2011-10-06 22:05:30-07 - - $")
+#endif
+@
+
+
+1.9
+log
+@-
+@
+text
+@d42 1
+a42 2
+// LINTED(static unused)
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.8 2011-10-06 22:02:37-07 - - $")
+@
+
+
+1.8
+log
+@-
+@
+text
+@a0 1
+
+d43 1
+a43 1
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.7 2011-10-06 21:46:13-07 - - $")
+a44 1
+
+@
+
+
+1.7
+log
+@-
+@
+text
+@d12 2
+d44 1
+a44 1
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.6 2011-08-31 18:10:49-07 - - $")
+@
+
+
+1.6
+log
+@-
+@
+text
+@d5 1
+a5 6
+//
+// Lex and Yacc utility:
+// Contains all of the external definitions and global usages
+// necessary to connect yylex() and yyparse() to the rest of
+// the program.
+//
+d42 1
+a42 1
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.5 2011-08-31 17:54:03-07 - - $")
+@
+
+
+1.5
+log
+@-
+@
+text
+@a18 1
+extern char *yyin_filename;
+d30 1
+a30 1
+char *scanner_filename (void);
+d47 1
+a47 1
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.4 2010-10-21 18:16:58-07 - - $")
+@
+
+
+1.4
+log
+@-
+@
+text
+@d20 1
+d31 2
+d42 2
+d48 1
+a48 1
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.3 2010-10-01 15:13:41-07 - - $")
+@
+
+
+1.3
+log
+@-
+@
+text
+@d28 1
+a28 1
+const char *const get_yytname (int symbol);
+d43 1
+a43 1
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.2 2010-02-12 15:04:56-08 - - $")
+@
+
+
+1.2
+log
+@-
+@
+text
+@d31 1
+d43 1
+a43 1
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.1 2009-10-08 18:08:23-07 - - $")
+@
+
+
+1.1
+log
+@-
+@
+text
+@d28 1
+a28 1
+char *get_yytname (int symbol);
+d42 1
+a42 1
+RCSH(LYUTILS_H,"$Id: lyutils.h,v 1.1 2009-10-08 17:24:38-07 - - $")
+@

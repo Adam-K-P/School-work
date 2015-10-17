@@ -1,0 +1,1753 @@
+head	1.67;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.67
+date	2014.10.11.00.13.03;	author -;	state -;
+branches;
+next	1.66;
+
+1.66
+date	2014.10.10.21.28.30;	author -;	state -;
+branches;
+next	1.65;
+
+1.65
+date	2014.10.10.21.21.21;	author -;	state -;
+branches;
+next	1.64;
+
+1.64
+date	2014.10.10.21.14.51;	author -;	state -;
+branches;
+next	1.63;
+
+1.63
+date	2014.10.10.21.14.36;	author -;	state -;
+branches;
+next	1.62;
+
+1.62
+date	2014.10.10.21.13.50;	author -;	state -;
+branches;
+next	1.61;
+
+1.61
+date	2014.10.10.21.12.55;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2014.10.10.21.12.21;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2014.10.10.21.11.41;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2014.10.10.21.06.46;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2014.10.10.02.12.12;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2014.10.10.02.11.51;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2014.10.10.02.10.52;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2014.10.10.02.09.26;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2014.10.10.02.08.53;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2014.10.10.02.07.59;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2014.10.10.02.07.43;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2014.10.10.02.06.59;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2014.10.10.02.04.42;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2014.10.10.02.03.26;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2014.10.10.02.02.33;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2014.10.10.02.01.57;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2014.10.10.01.54.25;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2014.10.10.01.53.33;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2014.10.10.01.53.02;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2014.10.10.01.52.40;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2014.10.10.01.52.15;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2014.10.10.01.52.03;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2014.10.10.01.50.29;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2014.10.10.01.49.36;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2014.10.10.01.48.46;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2014.10.10.01.47.43;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2014.10.10.01.44.47;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2014.08.08.23.02.16;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2014.08.08.23.01.32;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2014.08.08.23.00.23;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2014.08.08.22.59.40;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2014.08.08.22.59.24;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2014.08.08.22.59.08;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2014.08.08.22.58.20;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2014.08.08.22.52.30;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2014.08.08.22.46.01;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2014.08.08.22.45.14;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2014.08.08.22.42.34;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2014.08.08.22.41.52;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2014.08.08.22.28.25;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2014.08.08.22.27.18;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2014.08.08.22.26.39;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2014.08.08.22.25.50;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2014.08.08.22.17.15;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2014.08.08.22.06.16;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2014.08.08.22.01.36;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2013.10.04.02.28.05;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2013.10.04.02.27.49;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2013.10.04.02.26.32;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2013.10.04.02.24.13;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2011.09.02.01.13.23;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2011.09.02.01.11.03;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2011.09.02.01.10.35;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2011.09.02.01.08.37;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2011.09.02.01.06.38;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2011.09.02.00.59.43;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2011.09.02.00.59.26;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2011.09.02.00.59.09;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2011.09.02.00.58.28;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2011.09.02.00.51.54;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2011.09.02.00.44.44;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.67
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.SIZE 12 14
+.INITR* \n[.F]
+.TITLE "Tutorial\(:) the \f[CB]extern\f[P] keyword"
+.RCS "$Id: extern-tutorial.mm,v 1.66 2014-10-10 14:28:30-07 - - $"
+.PWD
+.URL
+.nr SHELLCNT 0 1
+.de COMMAND
+.   P
+.   ft CR
+.   nop -bash-\\n+[SHELLCNT]$
+.   ft CB
+.   nop \\$*
+.   ft CR
+.   br
+.   nf
+.   pso \\$* | expand | groffify | fmt -80 -s
+.   br
+.   ft R
+.   fi
+..
+This is a short tutorial on the use of the
+.V= extern
+keyword in C.
+Each brief item comments on a shell command,
+the output of which is shown after the command.
+User input is shown in 
+.V= Courier-Bold
+and computer output is shown in plain
+.V= Courier .
+.ALX 1 ()
+.LI
+All of these commands are being run on a Unix server.
+First, let's look at some of the server's properties.
+.COMMAND hostname
+.COMMAND uname --kernel-name --kernel-release --kernel-version
+.COMMAND uname --nodename --operating-system
+.COMMAND uname --machine --processor --hardware-platform
+.LI
+The program was built with the simple script
+.V= mk .
+.COMMAND cat code/mk
+.COMMAND cd code; mk
+.LI
+Using the command
+.V= file (1),
+we examine the types of the files in the 
+.V= code/
+subdirectory.
+.COMMAND file code/*
+.LI
+The files in
+.V= code/
+are listed as follows.
+.COMMAND ls -goad code/*
+.LI
+The file
+.V= code/main.c
+uses an external variable exported from another module.
+.COMMAND cat code/main.c
+.LI
+The file
+.V= code/ext.c
+exports an external variable.
+.COMMAND cat code/ext.c
+.LI
+The file
+.V= code/ext.h
+is included in both and links the two.
+Note the file guards.
+.COMMAND cat code/ext.h
+.LI
+When run, the program produces the following output.
+.COMMAND code/a.out
+.LI
+Every module that accesses an external variable must declare it
+using the
+.V= extern
+keyword.
+In order to ensure consistency of declaration,
+this should be placed in a header file.
+The module exporting the variable, and only that module,
+then redeclares that same variable without the
+.V= extern
+keyword.
+Every external variable must be declared without the 
+.V= extern
+keyword in exactly one module.
+.LI
+If not declared at all,
+one gets an undefined external reference error at link time.
+If declared more than once,
+then the error is a duplicate declaration error at link time.
+If not declared as
+.V= extern
+in a header file,
+then the variables are local to the file and not related.
+.LI
+Now consider the output of running
+.V= nm (1)
+on each of the object files.
+The 
+.V= extern
+keyword in the header file marks the variable as external,
+that is global to both modules.
+It is redeclared in the file
+.V= ext.c
+without the
+.V= extern keyword, so
+.V= "nm code/ext.o"
+produces the following output.
+.COMMAND nm code/ext.o
+.LI
+On the other hand, running
+.V= "nm code/main.o"
+shows that
+.V= external_variable
+is undefined in that module.
+.COMMAND nm code/main.o
+.LI
+Looking at the executable image
+.V= a.out
+with
+.V= "nm code/a.out"
+we see that each symbol has a specific address assigned to it.
+It also has references included from the library.
+The letter shows whether the object is Undefined,
+or belongs to the Text, Data, or BSS segment,
+or if it is Absolute.
+See
+.V= nm (1)
+for a complete explanation.
+.COMMAND nm code/a.out
+.LI
+The sizes of the segments in the object files and executable binary
+can be obtained via 
+.V= size (1).
+.COMMAND cd code; size *.o a.out
+.LE
+.FINISH
+@
+
+
+1.66
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.65 2014-10-10 14:21:21-07 - - $"
+d19 1
+a19 1
+.   pso \\$* | expand | sed -e 's/\\\\\\\\/&[rs]/' | fmt -80 -s
+@
+
+
+1.65
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.64 2014-10-10 14:14:51-07 - - $"
+d13 1
+a13 1
+.   nop sh-\\n+[SHELLCNT]%
+@
+
+
+1.64
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.63 2014-10-10 14:14:36-07 - - $"
+d19 1
+a19 1
+.   pso \\$* | expand | perl -pe 's/\\\\\\\\/$&[rs]/' | fmt -80 -s
+@
+
+
+1.63
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.62 2014-10-10 14:13:50-07 - - $"
+a18 1
+.   tm \\$* \\\\\\\\
+@
+
+
+1.62
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.61 2014-10-10 14:12:55-07 - - $"
+d20 1
+a20 1
+.   pso \\$* | expand | fmt -80 -s
+@
+
+
+1.61
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.60 2014-10-10 14:12:21-07 - - $"
+d19 1
+a19 1
+.   tm \\$* \\\\
+@
+
+
+1.60
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.59 2014-10-10 14:11:41-07 - - $"
+d19 2
+a20 1
+.   pso \\$* | expand | perl -pe 's/\\\\/\\\\(rs/g' | fmt -80 -s
+@
+
+
+1.59
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.58 2014-10-10 14:06:46-07 - - $"
+d19 1
+a19 1
+.   pso \\$* | expand | perl -pe 's/\\/\\(rs/g' | fmt -80 -s
+@
+
+
+1.58
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.57 2014-10-09 19:12:12-07 - - $"
+a11 2
+.   br
+.   nf
+d17 3
+a19 1
+.   pso \\$* | expand | fmt -80 -s
+a24 2
+\\
+\\
+@
+
+
+1.57
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.56 2014-10-09 19:11:51-07 - - $"
+d19 1
+a19 3
+.   ec %
+.   pso %%$* | expand | fmt -80 -s
+.   ec
+@
+
+
+1.56
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.55 2014-10-09 19:10:52-07 - - $"
+d19 2
+a20 2
+.   ec ¤
+.   pso ¤¤$* | expand | fmt -80 -s
+@
+
+
+1.55
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.54 2014-10-09 19:09:26-07 - - $"
+d19 3
+a21 1
+.   pso \\$* | expand | fmt -80 -s
+@
+
+
+1.54
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.53 2014-10-09 19:08:53-07 - - $"
+d19 1
+a19 1
+.   pso \\$* | sed -e 's/\\\\/Z//' | expand | fmt -80 -s
+@
+
+
+1.53
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.50 2014-10-09 19:06:59-07 - - $"
+d19 1
+a19 1
+.   pso \\$* | sed 's/\\\\/Z/' | expand | fmt -80 -s
+@
+
+
+1.52
+log
+@-
+@
+text
+@d25 2
+@
+
+
+1.51
+log
+@-
+@
+text
+@d19 1
+a19 1
+.   pso \\$* | sed 's/\\/Z/' | expand | fmt -80 -s
+@
+
+
+1.50
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.49 2014-10-09 19:04:42-07 - - $"
+d19 1
+a19 1
+.   pso \\$* | sed 's/\\\\/\\\\ZZ\\\\/' | expand | fmt -80 -s
+@
+
+
+1.49
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.48 2014-10-09 19:03:26-07 - - $"
+d19 1
+a19 1
+.   pso \\$* | sed 's/\\/\\\\/' | expand | fmt -80 -s
+@
+
+
+1.48
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.47 2014-10-09 19:02:33-07 - - $"
+d15 5
+a19 2
+sh-\\n+[SHELLCNT]% \f[CB]\\$*\f[CR]
+.   pso \\$* | expand | fmt -80 -s
+@
+
+
+1.47
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.46 2014-10-09 19:01:57-07 - - $"
+a15 1
+.   eo
+a17 1
+.   ec
+@
+
+
+1.46
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.45 2014-10-09 18:54:25-07 - - $"
+d15 1
+a16 1
+sh-\\n+[SHELLCNT]% \f[CB]\\$*\f[CR]
+@
+
+
+1.45
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.44 2014-10-09 18:53:33-07 - - $"
+d15 1
+d18 2
+a21 1
+.   br
+@
+
+
+1.44
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.43 2014-10-09 18:53:02-07 - - $"
+d16 1
+a16 2
+.\".   pso \\$* 2>&1 | expand | fmt -80 -s
+.   pso \\$* | expand
+@
+
+
+1.43
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.42 2014-10-09 18:52:40-07 - - $"
+d17 1
+a17 1
+.   pso \\$*
+@
+
+
+1.42
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.41 2014-10-09 18:52:15-07 - - $"
+d17 1
+a17 1
+.   pso \$*
+@
+
+
+1.41
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.40 2014-10-09 18:52:03-07 - - $"
+d17 1
+@
+
+
+1.40
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.39 2014-10-09 18:50:29-07 - - $"
+d8 1
+@
+
+
+1.39
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.38 2014-10-09 18:49:36-07 - - $"
+d15 1
+a15 1
+.   pso \\$* 2>&1 | expand | fmt -80 -s
+@
+
+
+1.38
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.37 2014-10-09 18:48:46-07 - - $"
+a14 1
+.   tm \\$* 2>&1 | expand | fmt -80 -s
+@
+
+
+1.37
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.36 2014-10-09 18:47:43-07 - - $"
+d15 2
+a16 2
+.\".   pso \\$* 2>&1 | expand | fmt -80 -s
+.   pso \\$*
+@
+
+
+1.36
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.35 2014-10-09 18:44:47-07 - - $"
+d15 2
+a16 1
+.   pso \\$* 2>&1 | expand | fmt -80 -s
+d59 1
+a59 1
+.\".COMMAND cat code/main.c
+@
+
+
+1.35
+log
+@-
+@
+text
+@d2 1
+a3 1
+.if t .Newcentury-fonts
+d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.34 2014-08-08 16:02:16-07 - - $"
+d58 1
+a58 1
+.COMMAND cat code/main.c
+@
+
+
+1.34
+log
+@-
+@
+text
+@d2 1
+a2 1
+.S 12 14.4
+d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.33 2014-08-08 16:01:32-07 - - $"
+@
+
+
+1.33
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.32 2014-08-08 16:00:23-07 - - $"
+d15 1
+a15 1
+.   pso \\$* 2>&1 | expand
+@
+
+
+1.32
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.31 2014-08-08 15:59:40-07 - - $"
+d29 2
+a30 2
+.DS
+.fi
+d37 1
+a37 3
+.DE
+.DS
+.fi
+d42 1
+a42 3
+.DE
+.DS
+.fi
+d49 1
+a49 3
+.DE
+.DS
+.fi
+d54 1
+a54 3
+.DE
+.DS
+.fi
+d59 1
+a59 3
+.DE
+.DS
+.fi
+d64 1
+a64 3
+.DE
+.DS
+.fi
+d70 1
+a70 3
+.DE
+.DS
+.fi
+d73 1
+a73 3
+.DE
+.DS
+.fi
+d87 1
+a87 3
+.DE
+.DS
+.fi
+d96 1
+a96 3
+.DE
+.DS
+.fi
+d111 1
+a111 3
+.DE
+.DS
+.fi
+d118 1
+a118 3
+.DE
+.DS
+.fi
+d132 1
+a132 3
+.DE
+.DS
+.fi
+d137 1
+a137 1
+.DE
+@
+
+
+1.31
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.30 2014-08-08 15:59:24-07 - - $"
+d15 1
+a15 1
+.   pso \\$* 2>&1 | expand | perl -pe 's/(.{80})(.*)/$1\\\\n        $2/'
+@
+
+
+1.30
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.29 2014-08-08 15:59:08-07 - - $"
+d15 1
+a15 1
+.   pso \\$* 2>&1 | expand | perl -pe 's/(.{80})(.*)/$1\\n        $2/'
+@
+
+
+1.29
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.28 2014-08-08 15:58:20-07 - - $"
+d15 1
+a15 1
+.   pso \\$* 2>&1 | expand | perl -pe 's/(.{80})(.*)/$1\n        $2/'
+@
+
+
+1.28
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.27 2014-08-08 15:52:30-07 - - $"
+d15 1
+a15 1
+.   pso \\$* 2>&1 | expand | fmt -80 -s 
+@
+
+
+1.27
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.26 2014-08-08 15:46:01-07 - - $"
+a15 1
+.\"| sed 's/\\\\\\\\/\\\\\\\\\\\\\\\\/'
+@
+
+
+1.26
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.25 2014-08-08 15:45:14-07 - - $"
+d15 2
+a16 2
+.   pso \\$* 2>&1 | expand | fmt -80 -s \
+| sed 's/\\\\\\\\/\\\\\\\\\\\\\\\\/'
+@
+
+
+1.25
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.24 2014-08-08 15:42:34-07 - - $"
+d15 1
+a15 1
+.   pso \\$* 2>&1 | expand | fmt -72 -s \
+@
+
+
+1.24
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.23 2014-08-08 15:41:52-07 - - $"
+d15 2
+a16 1
+.   pso \\$* 2>&1 | expand | sed 's/\\\\\\\\/\\\\\\\\\\\\\\\\/'
+@
+
+
+1.23
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.22 2014-08-08 15:28:25-07 - - $"
+d30 1
+d39 1
+d46 1
+d55 1
+d62 1
+d69 1
+d76 1
+d84 1
+d89 1
+d105 1
+d116 1
+d133 1
+d142 1
+d158 1
+@
+
+
+1.22
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.15 2013-10-03 19:28:05-07 - - $"
+d29 1
+a29 2
+.ALX 1 ()
+.LI
+d36 2
+a37 1
+.LI
+d42 2
+a43 1
+.LI
+d50 2
+a51 1
+.LI
+d56 2
+a57 1
+.LI
+d62 2
+a63 1
+.LI
+d68 2
+a69 1
+.LI
+d75 2
+a76 1
+.LI
+d79 2
+a80 1
+.LI
+d94 2
+a95 1
+.LI
+d104 2
+a105 1
+.LI
+d120 2
+a121 1
+.LI
+d128 2
+a129 1
+.LI
+d143 2
+a144 1
+.LI
+d149 1
+a149 1
+.LE
+@
+
+
+1.21
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.20 2014-08-08 15:26:39-07 - - $"
+a19 5
+.de DEHDS1
+.   DE
+.   H 1 "\\$1"
+.   DS
+..
+d29 2
+a30 2
+.DS
+.H 1 "\f[CB]hostname\f[P]"
+d37 1
+a37 1
+.DEHDS1 "\f[CB]mk\f[P]"
+d42 1
+a42 1
+.DEHDS1 "\f[CB]file\f[P]"
+d49 1
+a49 1
+.DEHDS1 "\f[CB]code/\f[P]"
+d54 1
+a54 1
+.DEHDS1 "\f[CB]code/main.c\f[P]"
+d59 1
+a59 1
+.DEHDS1 "\f[CB]code/ext.c\f[P]"
+d64 1
+a64 1
+.DEHDS1 "\f[CB]code/ext.h\f[P]"
+d70 1
+a70 1
+.DEHDS1 "\f[CB]code/a.out\f[P]"
+d73 1
+a73 1
+.DEHDS1 "\f[CB]extern\f[P] keyword"
+d87 1
+a87 1
+.DEHDS1 "undefined external reference"
+d96 1
+a96 1
+.DEHDS1 "\f[CB]nm code/ext.o\f[P]"
+d111 1
+a111 1
+.DEHDS1 "\f[CB]nm code/main.o\f[P]"
+d118 1
+a118 1
+.DEHDS1 "\f[CB]nm code/a.out\f[P]"
+d132 1
+a132 1
+.DEHDS1 "\f[CB]size\f[P]"
+d137 1
+a137 1
+.DE
+@
+
+
+1.20
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.19 2014-08-08 15:25:50-07 - - $"
+d20 1
+a20 1
+.de DEHDS
+d42 1
+a42 1
+.DEHDS 1 "\f[CB]mk\f[P]"
+d47 1
+a47 1
+.DEHDS 1 "\f[CB]file\f[P]"
+d54 1
+a54 1
+.DEHDS 1 "\f[CB]code/\f[P]"
+d59 1
+a59 1
+.DEHDS 1 "\f[CB]code/main.c\f[P]"
+d64 1
+a64 1
+.DEHDS 1 "\f[CB]code/ext.c\f[P]"
+d69 1
+a69 1
+.DEHDS 1 "\f[CB]code/ext.h\f[P]"
+d75 1
+a75 1
+.DEHDS 1 "\f[CB]code/a.out\f[P]"
+d78 1
+a78 1
+.DEHDS 1 "\f[CB]extern\f[P] keyword"
+d92 1
+a92 1
+.DEHDS 1 "undefined external reference"
+d101 1
+a101 1
+.DEHDS 1 "\f[CB]nm code/ext.o\f[P]"
+d116 1
+a116 1
+.DEHDS 1 "\f[CB]nm code/main.o\f[P]"
+d123 1
+a123 1
+.DEHDS 1 "\f[CB]nm code/a.out\f[P]"
+d137 1
+a137 1
+.DEHDS 1 "\f[CB]size\f[P]"
+@
+
+
+1.19
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.18 2014-08-08 15:17:15-07 - - $"
+d22 1
+a22 1
+.   H 1 "\\[1]"
+@
+
+
+1.18
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.17 2014-08-08 15:06:16-07 - - $"
+d20 5
+d34 1
+d42 1
+a42 1
+.H 1 "\f[CB]mk\f[P]"
+d47 1
+a47 1
+.H 1 "\f[CB]file\f[P]"
+d54 1
+a54 1
+.H 1 "\f[CB]code/\f[P]"
+d59 1
+a59 1
+.H 1 "\f[CB]code/main.c\f[P]"
+d64 1
+a64 1
+.H 1 "\f[CB]code/ext.c\f[P]"
+d69 1
+a69 1
+.H 1 "\f[CB]code/ext.h\f[P]"
+d75 1
+a75 1
+.H 1 "\f[CB]code/a.out\f[P]"
+d78 1
+a78 1
+.H 1 "\f[CB]extern\f[P] keyword"
+d92 1
+a92 1
+.H 1 "undefined external reference"
+d101 1
+a101 1
+.H 1 "\f[CB]nm code/ext.o\f[P]"
+d116 1
+a116 1
+.H 1 "\f[CB]nm code/main.o\f[P]"
+d123 1
+a123 1
+.H 1 "\f[CB]nm code/a.out\f[P]"
+d137 1
+a137 1
+.H 1 "\f[CB]size\f[P]"
+d142 1
+@
+
+
+1.17
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.16 2014-08-08 15:01:36-07 - - $"
+d29 1
+a29 2
+.ALX 1 ()
+.LI
+d36 1
+a36 1
+.LI
+d41 1
+a41 1
+.LI
+d48 1
+a48 1
+.LI
+d53 1
+a53 1
+.LI
+d58 1
+a58 1
+.LI
+d63 1
+a63 1
+.LI
+d69 1
+a69 1
+.LI
+d72 1
+a72 1
+.LI
+d86 1
+a86 1
+.LI
+d95 1
+a95 1
+.LI
+d110 1
+a110 1
+.LI
+d117 1
+a117 1
+.LI
+d131 1
+a131 1
+.LI
+a135 1
+.LE
+@
+
+
+1.16
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.15 2013-10-03 19:28:05-07 - - $"
+a29 1
+.DS
+a36 2
+.DE
+.DS
+a41 1
+.DE
+@
+
+
+1.15
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.14 2013-10-03 19:27:49-07 - - $"
+d30 1
+d38 2
+d45 1
+@
+
+
+1.14
+log
+@-
+@
+text
+@a2 1
+.if t .PGFORM 6i 11i 1.25i 1
+d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.13 2013-10-03 19:26:32-07 - - $"
+@
+
+
+1.13
+log
+@-
+@
+text
+@d2 1
+a3 1
+.S 12 14.4
+d7 1
+a7 1
+.RCS "$Id: extern-tutorial.mm,v 1.12 2013-10-03 19:24:13-07 - - $"
+@
+
+
+1.12
+log
+@-
+@
+text
+@d2 1
+d7 1
+a7 1
+.RCS "$Id: extern-tutorial.mm,v 1.11 2011-09-01 18:13:23-07 - - $"
+@
+
+
+1.11
+log
+@-
+@
+text
+@d2 1
+d6 1
+a6 1
+.RCS "$Id: extern-tutorial.mm,v 1.10 2011-09-01 18:11:03-07 - - $"
+@
+
+
+1.10
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.9 2011-09-01 18:10:35-07 - - $"
+d9 1
+d33 3
+a35 8
+.COMMAND uname --kernel-name
+.COMMAND uname --nodename
+.COMMAND uname --kernel-release
+.COMMAND uname --kernel-version
+.COMMAND uname --machine
+.COMMAND uname --processor
+.COMMAND uname --hardware-platform
+.COMMAND uname --operating-system
+@
+
+
+1.9
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.8 2011-09-01 18:08:37-07 - - $"
+a8 2
+.   DS
+.   B1
+a16 2
+.   B2
+.   DE
+@
+
+
+1.8
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.7 2011-09-01 18:06:38-07 - - $"
+d10 1
+d19 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.6 2011-09-01 17:59:43-07 - - $"
+d9 1
+a9 1
+.   P
+d18 1
+@
+
+
+1.6
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.5 2011-09-01 17:59:26-07 - - $"
+d31 1
+d33 8
+a40 1
+.COMMAND uname -a
+@
+
+
+1.5
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.4 2011-09-01 17:59:09-07 - - $"
+a32 2
+.DS
+.fi
+a37 1
+.DE
+@
+
+
+1.4
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.3 2011-09-01 17:58:28-07 - - $"
+d34 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.2 2011-09-01 17:51:54-07 - - $"
+d33 1
+d39 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.1 2011-09-01 17:44:44-07 - - $"
+a105 10
+Note that in this case,
+.V= external_variable
+is marked as an object
+.=V ( OBJT )
+and global
+.=V ( GLOB ).
+And, of course, 
+.V= printf
+is undefined
+.=V ( UNDEF ).
+d119 8
+a126 1
+we see that it has a specific address assigned to it.
+@
+
+
+1.1
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: extern-tutorial.mm,v 1.80 2011-09-01 17:44:21-07 - - $"
+d104 1
+a104 1
+.V= "nm -x code/ext.o"
+d116 1
+a116 1
+.COMMAND nm -x code/ext.o
+d119 1
+a119 1
+.V= "nm -x code/main.o"
+d123 1
+a123 1
+.COMMAND nm -x code/main.o
+d128 1
+a128 1
+.V= "nm -x code/a.out"
+d130 1
+a130 1
+.COMMAND nm -x code/a.out
+@

@@ -1,0 +1,29 @@
+# $Id: test1.in,v 1.2 2013-09-05 20:24:24-07 - - $
+
+alpha=3+4*5-6
+****EXPR==17
+crap out ... [[variable is uninitialized (crap)]]
+ ... [[syntax error, unexpected IDENT]]
+
+****ERROR #1
+beta=alpha/3
+****EXPR==5.666666667
+gamma=beta*10-alpha*33
+****EXPR==-504.3333333
+64e ... [[invalid numeric value (64e)]]
+ * ... [[syntax error, unexpected '*']]
+98
+****ERROR #2
+infinity=1e1000*1e1000
+****EXPR==inf
+nan=infinity/infinity
+****EXPR==-nan
+foo* ... [[variable is uninitialized (foo)]]
+bar
+ ... [[variable is uninitialized (bar)]]
+****EXPR==-nan
+symtab[alpha] = 17
+symtab[beta] = 5.666666667
+symtab[gamma] = -504.3333333
+symtab[infinity] = inf
+symtab[nan] = -nan

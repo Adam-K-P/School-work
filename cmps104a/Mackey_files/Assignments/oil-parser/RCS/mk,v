@@ -1,0 +1,65 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.3
+date	2014.11.19.01.15.41;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2014.11.19.01.15.08;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.11.19.01.13.16;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk,v 1.2 2014-11-18 17:15:08-08 - - $
+cid $0 parser.y scanner.l
+bison --defines=parser.h --output=parser.c parser.y
+flex --outfile=scanner.c scanner.l 2>scanner.log
+mkpspdf Listing.ps parser.y scanner.l parser.output scanner.log
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.1 2014-11-18 17:13:16-08 - - $
+d6 1
+a6 1
+mkpspdf Listing.ps parser.y parser.output scanner.l scanner.log
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d6 1
+@
