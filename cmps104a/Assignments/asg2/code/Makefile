@@ -49,7 +49,6 @@ ${PARSECPP} ${PARSEHDR} : ${BISONSRC}
 	${BISON} ${BISONSRC}
 	echo -e '1,$$!cpp -fpreprocessed -dD\nw\nq\n' | ex ${PARSEHDR}
 
-
 ci : ${ALLSRC} ${TESTINS}
 	- checksource ${ALLSRC}
 	- cpplint.py.perl ${CPPSRC}
@@ -62,9 +61,7 @@ lis : ${LISTSRC} tests
 		${patsubst %, ${test}.%, in out err log}}
 
 clean :
-	- rm ${OBJECTS} ${ALLGENS} ${REPORTS} ${DEPSFILE} core
-	- rm ${foreach test, ${TESTINS:.in=}, \
-		${patsubst %, ${test}.%, out err log}}
+	rm *o *output yylex.cpp 
 
 spotless : clean
 	- rm ${EXECBIN} List.*.ps List.*.pdf

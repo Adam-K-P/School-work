@@ -14,7 +14,6 @@
 %}
 
 %option 8bit
-%option debug
 %option nodefault
 %option noinput
 %option nounput
@@ -47,6 +46,12 @@ IDENT           ({LETTER}({LETTER}|{DIGIT})*)
 "("             { RETURN ('('); }
 ")"             { RETURN (')'); }
 ";"             { RETURN (';'); }
+"["             { RETURN ('['); }
+"]"             { RETURN (']'); }
+"{"             { RETURN ('{'); }
+"}"             { RETURN ('}'); }
+"<"             { RETURN ('<'); }
+">"             { RETURN ('>'); }
 
 {NOTNUMBER}     { lexer::badtoken (yytext); RETURN (NUMBER); }
 .               { lexer::badchar (*yytext); }

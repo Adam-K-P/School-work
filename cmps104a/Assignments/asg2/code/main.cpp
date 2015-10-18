@@ -3,6 +3,10 @@
  * main.cpp
  * asg1 */
 
+/* TODO 
+ * #-directive stuff
+ * debugging for CPP */
+
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -17,12 +21,15 @@ using namespace std;
 
 #include "stringset.h"
 #include "auxlib.h"
+#include "utils.h"
 #include "yylex.h"
+
+#define YYEOF 0
 
 const string CPP = "/usr/bin/cpp";
 const size_t LINESIZE = 1024;
 bool yy_debug = false;
-bool yy_flex_debug = false;
+extern int yy_flex_debug;
 
 static void chomp (char* string, char delim) {
    size_t len = strlen(string);
@@ -31,7 +38,7 @@ static void chomp (char* string, char delim) {
    if (*nlpos == delim) *nlpos = '\0';
 }
 
-static void cpplines (FILE* pipe, const char* filename) {
+static void cpplines (FILE* pipe, char* filename) {
    int linenr = 1;
    char inputname[LINESIZE];
    strcpy (inputname, filename);
@@ -62,7 +69,7 @@ static void perform_op (int argc, char **argv) {
    for (int option = 0; (option = getopt(argc, argv, "ly@:D:")) != -1; ) {
       switch (option) {
          case 'l':
-            yy_flex_debug = true;
+            yy_flex_debug = 1;
             break;
 
          case 'y':
@@ -101,11 +108,11 @@ static string check_suffix (int argc, char** argv) {
       cerr << "Usage: oc [-ly] [-@ flag...] [-D string] program.oc" << endl;
       exit(EXIT_FAILURE);
    }
-   string outfile_name = filename.substr(0, filename.length() - 3) + ".str"; 
+   string outfile_name = filename.substr(0, filename.length() - 3); 
    return outfile_name;
 }
 
-static void insert_set (const char* infile_name) {
+static void insert_set (char* infile_name) {
    string command = CPP + " " + infile_name;
    FILE* pipe = popen(command.c_str(), "r");
    if (pipe == NULL) {
@@ -120,17 +127,17 @@ static void insert_set (const char* infile_name) {
    }
 }
 
-static void generate_set (string infile_name, string outfile_name) {
+static void generate_set (char* infile_name, string& base_out_name) {
+   string outfile_name = base_out_name + ".str";
    ifstream infile(infile_name);
    ofstream outfile(outfile_name);
-   insert_set(infile_name.c_str());
+   insert_set(infile_name);
    dump_stringset(outfile);
    infile.close();
    outfile.close();
 }
 
-static void perform_flex (const char* infile_name) {
-   cout << "sync_lex called" << endl;
+static void open_yyin (char* infile_name) {
    string command = CPP + " " + infile_name;
    yyin = popen(command.c_str(), "r");
    if (yyin == NULL) {
@@ -139,25 +146,43 @@ static void perform_flex (const char* infile_name) {
    }
    else {
       if (yy_flex_debug) {
-         cerr << "-- popen " << command <<", fileno(yyin = " << fileno(yyin) 
-                                                             << endl;
+         cerr << "-- popen " << command << ", fileno(yyin) = " << fileno(yyin) 
+                                                               << endl;
       }
-      //lexer::newfilename(command);
    }
 }
 
+static void perform_flex (const char* outfile_name) {
+   FILE* outfile = fopen(outfile_name, "w");
+   for (;;) {
+      int token = yylex();
+      if (yy_flex_debug) fflush(NULL);
+      switch(token) {
+         case YYEOF:
+            printf("END OF FILE\n");
+            return;
+         default:
+            //printf("SOMETHING ELSE: %s\n", yytext);
+            yylval->dump_node(outfile);
+            fprintf(outfile, "\n");
+            break;
+      }
+   }
+}
 
-static void scan_file (string infile_name, string outfile_name) {
+static void scan_file (char* infile_name, string& outfile_name) {
    ifstream infile(infile_name);
    ofstream outfile(outfile_name);
-   perform_flex(infile_name.c_str());
+   open_yyin(infile_name);
+   perform_flex(outfile_name.c_str());
 }
 
 int main (int argc, char** argv) {
    perform_op(argc, argv);
-   string infile_name  = argv[argc - 1];
-   string outfile_name = check_suffix(argc, argv);
-   generate_set(infile_name, outfile_name);
+   char* infile_name  = argv[argc - 1];
+   string base_out_name = check_suffix(argc, argv);
+   generate_set(infile_name, base_out_name);
+   string outfile_name = base_out_name + ".tok";
    scan_file(infile_name, outfile_name);
    return EXIT_SUCCESS;
 }
