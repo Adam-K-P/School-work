@@ -17,10 +17,12 @@ using namespace std;
 
 #include "stringset.h"
 #include "auxlib.h"
+#include "yylex.h"
 
 const string CPP = "/usr/bin/cpp";
 const size_t LINESIZE = 1024;
-
+bool yy_debug = false;
+bool yy_flex_debug = false;
 
 static void chomp (char* string, char delim) {
    size_t len = strlen(string);
@@ -29,7 +31,7 @@ static void chomp (char* string, char delim) {
    if (*nlpos == delim) *nlpos = '\0';
 }
 
-static void cpplines (FILE* pipe, char* filename, ostream& out) {
+static void cpplines (FILE* pipe, const char* filename) {
    int linenr = 1;
    char inputname[LINESIZE];
    strcpy (inputname, filename);
@@ -38,12 +40,10 @@ static void cpplines (FILE* pipe, char* filename, ostream& out) {
       char* fgets_rc = fgets (buffer, LINESIZE, pipe);
       if (fgets_rc == NULL) break;
       chomp (buffer, '\n');
-      //printf ("%s:line %d: [%s]\n", filename, linenr, buffer);
       // http://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html
       int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
                               &linenr, filename);
       if (sscanf_rc == 2) {
-         //printf ("DIRECTIVE: line %d file \"%s\"\n", linenr, filename);
          continue;
       }
       char* savepos = NULL;
@@ -53,8 +53,6 @@ static void cpplines (FILE* pipe, char* filename, ostream& out) {
          bufptr = NULL;
          if (token == NULL) break;
          intern_stringset(token);
-         /*printf ("token %d.%d: [%s]\n",
-                 linenr, tokenct, token);*/
       }
       ++linenr;
    }
@@ -64,7 +62,7 @@ static void perform_op (int argc, char **argv) {
    for (int option = 0; (option = getopt(argc, argv, "ly@:D:")) != -1; ) {
       switch (option) {
          case 'l':
-            printf("read in l\n");
+            yy_flex_debug = true;
             break;
 
          case 'y':
@@ -107,8 +105,7 @@ static string check_suffix (int argc, char** argv) {
    return outfile_name;
 }
 
-static void insert_set (ifstream& infile, ofstream& outfile, 
-                                          char* infile_name) {
+static void insert_set (const char* infile_name) {
    string command = CPP + " " + infile_name;
    FILE* pipe = popen(command.c_str(), "r");
    if (pipe == NULL) {
@@ -116,21 +113,51 @@ static void insert_set (ifstream& infile, ofstream& outfile,
       exit(EXIT_FAILURE);
    }
    else {
-      cpplines(pipe, infile_name, outfile);
+      cpplines(pipe, infile_name);
       int pclose_rc = pclose(pipe);
-      //eprint_status(command.c_str(), pclose_rc);
+      if (pclose_rc < 0) 
+         cerr << "error closing pipe: " << command << endl;
    }
+}
+
+static void generate_set (string infile_name, string outfile_name) {
+   ifstream infile(infile_name);
+   ofstream outfile(outfile_name);
+   insert_set(infile_name.c_str());
+   dump_stringset(outfile);
+   infile.close();
+   outfile.close();
+}
+
+static void perform_flex (const char* infile_name) {
+   cout << "sync_lex called" << endl;
+   string command = CPP + " " + infile_name;
+   yyin = popen(command.c_str(), "r");
+   if (yyin == NULL) {
+      syserrprintf(command.c_str());
+      exit(EXIT_FAILURE);
+   }
+   else {
+      if (yy_flex_debug) {
+         cerr << "-- popen " << command <<", fileno(yyin = " << fileno(yyin) 
+                                                             << endl;
+      }
+      //lexer::newfilename(command);
+   }
+}
+
+
+static void scan_file (string infile_name, string outfile_name) {
+   ifstream infile(infile_name);
+   ofstream outfile(outfile_name);
+   perform_flex(infile_name.c_str());
 }
 
 int main (int argc, char** argv) {
    perform_op(argc, argv);
+   string infile_name  = argv[argc - 1];
    string outfile_name = check_suffix(argc, argv);
-
-   ifstream infile(argv[argc - 1]);
-   ofstream outfile(outfile_name);
-   insert_set(infile, outfile, argv[argc - 1]);
-   dump_stringset(outfile);
-   infile.close();
-   outfile.close();
+   generate_set(infile_name, outfile_name);
+   scan_file(infile_name, outfile_name);
    return EXIT_SUCCESS;
 }

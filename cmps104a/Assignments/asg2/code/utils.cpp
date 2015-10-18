@@ -51,6 +51,7 @@ void lexer::badchar (unsigned char bad) {
                   buffer);
 }
 
+
 void lexer::badtoken (char* lexeme) {
    errllocprintf (lexer::lloc, "invalid token (%s)\n", lexeme);
 }

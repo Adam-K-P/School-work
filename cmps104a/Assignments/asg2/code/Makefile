@@ -9,7 +9,7 @@ GRIND     = valgrind --leak-check=full --show-reachable=yes
 FLEX      = flex --header-file=${LEXHDR} --outfile=${LEXCPP}
 BISON     = bison --defines=${PARSEHDR} --output=${PARSECPP}
 
-MODULES   = astree auxlib lyutils stringset utils emitter syslib
+MODULES   = astree utils stringset emitter syslib
 HDRSRC    = ${MODULES:=.h}
 CPPSRC    = ${MODULES:=.cpp} main.cpp
 FLEXSRC   = lexer.l
@@ -20,7 +20,7 @@ LEXCPP    = yylex.cpp
 PARSECPP  = yyparse.cpp
 CGENS     = ${LEXCPP} ${PARSECPP}
 ALLGENS   = ${LEXHDR} ${PARSEHDR} ${CGENS}
-EXECBIN   = zexprsm
+EXECBIN   = oc
 ALLCSRC   = ${CPPSRC} ${CGENS}
 OBJECTS   = ${ALLCSRC:.cpp=.o}
 LEXOUT    = yylex.output
