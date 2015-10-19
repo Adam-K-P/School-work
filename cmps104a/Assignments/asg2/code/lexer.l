@@ -14,6 +14,7 @@
 %}
 
 %option 8bit
+%option debug
 %option nodefault
 %option noinput
 %option nounput

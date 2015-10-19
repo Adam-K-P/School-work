@@ -38,10 +38,10 @@ static void chomp (char* string, char delim) {
    if (*nlpos == delim) *nlpos = '\0';
 }
 
-static void cpplines (FILE* pipe, char* filename) {
+static void cpplines (FILE* pipe, char* infile_name) {
    int linenr = 1;
    char inputname[LINESIZE];
-   strcpy (inputname, filename);
+   strcpy (inputname, infile_name);
    for (;;) {
       char buffer[LINESIZE];
       char* fgets_rc = fgets (buffer, LINESIZE, pipe);
@@ -49,7 +49,7 @@ static void cpplines (FILE* pipe, char* filename) {
       chomp (buffer, '\n');
       // http://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html
       int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
-                              &linenr, filename);
+                              &linenr, infile_name);
       if (sscanf_rc == 2) {
          continue;
       }
@@ -144,24 +144,21 @@ static void open_yyin (char* infile_name) {
       syserrprintf(command.c_str());
       exit(EXIT_FAILURE);
    }
-   else {
-      if (yy_flex_debug) {
-         cerr << "-- popen " << command << ", fileno(yyin) = " << fileno(yyin) 
-                                                               << endl;
-      }
-   }
 }
 
 static void perform_flex (const char* outfile_name) {
    FILE* outfile = fopen(outfile_name, "w");
    for (;;) {
       int token = yylex();
-      if (yy_flex_debug) fflush(NULL);
       switch(token) {
          case YYEOF:
             printf("END OF FILE\n");
             return;
          default:
+            /*int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
+                                    &linenr, filename);
+            if (sscanf_rc == 2) //directive
+               continue;*/
             //printf("SOMETHING ELSE: %s\n", yytext);
             yylval->dump_node(outfile);
             fprintf(outfile, "\n");
@@ -178,6 +175,7 @@ static void scan_file (char* infile_name, string& outfile_name) {
 }
 
 int main (int argc, char** argv) {
+   yy_flex_debug = 0;
    perform_op(argc, argv);
    char* infile_name  = argv[argc - 1];
    string base_out_name = check_suffix(argc, argv);
