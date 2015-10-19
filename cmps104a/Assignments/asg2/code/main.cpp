@@ -150,19 +150,10 @@ static void perform_flex (const char* outfile_name) {
    FILE* outfile = fopen(outfile_name, "w");
    for (;;) {
       int token = yylex();
-      switch(token) {
-         case YYEOF:
-            printf("END OF FILE\n");
-            return;
-         default:
-            /*int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
-                                    &linenr, filename);
-            if (sscanf_rc == 2) //directive
-               continue;*/
-            //printf("SOMETHING ELSE: %s\n", yytext);
-            yylval->dump_node(outfile);
-            fprintf(outfile, "\n");
-            break;
+      if (token == YYEOF) return;
+      else { 
+         yylval->dump_node(outfile);
+         fprintf(outfile, "\n");
       }
    }
 }

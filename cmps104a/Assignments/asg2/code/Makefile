@@ -38,7 +38,7 @@ all : ${EXECBIN}
 ${EXECBIN} : ${OBJECTS}
 	${CPP} -o${EXECBIN} ${OBJECTS}
 
-%.o : %.cpp
+%.o : %.cpp ${LEXCPP} ${PARSECPP}
 	${CPP} -c $<
 
 ${LEXCPP} : ${FLEXSRC}
@@ -47,7 +47,6 @@ ${LEXCPP} : ${FLEXSRC}
 
 ${PARSECPP} ${PARSEHDR} : ${BISONSRC}
 	${BISON} ${BISONSRC}
-	echo -e '1,$$!cpp -fpreprocessed -dD\nw\nq\n' | ex ${PARSEHDR}
 
 ci : ${ALLSRC} ${TESTINS}
 	- checksource ${ALLSRC}
@@ -61,7 +60,8 @@ lis : ${LISTSRC} tests
 		${patsubst %, ${test}.%, in out err log}}
 
 clean :
-	rm *o *output yylex.cpp 
+	rm yylex* yyparse* 
+	rm *o
 
 spotless : clean
 	- rm ${EXECBIN} List.*.ps List.*.pdf

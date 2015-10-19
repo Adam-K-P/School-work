@@ -54,7 +54,6 @@ void emit_assign (astree* tree) {
    }
 }
 
-
 void emit (astree* tree) {
    switch (tree->symbol) {
       case ROOT  : postorder_emit_stmts (tree);       break;
@@ -69,6 +68,7 @@ void emit (astree* tree) {
       case NEG   : postorder_emit_oper (tree, "neg"); break;
       case IDENT : emit_push (tree, "pushvar");       break;
       case NUMBER: emit_push (tree, "pushnum");       break;
+      case DIRECTIVE: emit_push (tree, "pushdir");    break;
       default    : assert (false);                    break;
    }
 }

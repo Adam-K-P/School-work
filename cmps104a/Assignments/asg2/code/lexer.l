@@ -29,8 +29,11 @@ EXPONENT        ([Ee][+-]?{DIGIT}+)
 NUMBER          ({MANTISSA}{EXPONENT}?)
 NOTNUMBER       ({MANTISSA}[Ee][+-]?)
 IDENT           ({LETTER}({LETTER}|{DIGIT})*)
+DIRECTIVE       ("# "{NUMBER}" "\".*\")
 
 %%
+
+{DIRECTIVE}     { RETURN (DIRECTIVE); } /* has to go before "#".* */
 
 "#".*           { lexer::include(); }
 [ \t]+          { }

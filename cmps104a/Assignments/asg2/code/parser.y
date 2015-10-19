@@ -25,7 +25,7 @@
    parser::root = new astree (ROOT, {0, 0, 0}, "<<ROOT>>");
 }
 
-%token  ROOT IDENT NUMBER
+%token  ROOT IDENT NUMBER DIRECTIVE
 
 %right  '='
 %left   '+' '-'
