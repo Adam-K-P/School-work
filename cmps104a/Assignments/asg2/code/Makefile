@@ -62,6 +62,10 @@ lis : ${LISTSRC} tests
 clean :
 	rm yylex* yyparse* 
 	rm *o
+	rm oc
+
+del :
+	rm *str *tok
 
 spotless : clean
 	- rm ${EXECBIN} List.*.ps List.*.pdf

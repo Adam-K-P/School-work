@@ -21,9 +21,10 @@ const string* lexer::filename (int filenr) {
    return &lexer::filenames.at(filenr);
 }
 
-void lexer::newfilename (const string& filename) {
+void lexer::newfilename (char* filename) {
    lexer::lloc.filenr = lexer::filenames.size();
    lexer::filenames.push_back (filename);
+   ++(lexer::lloc.filenr);
 }
 
 void lexer::advance() {

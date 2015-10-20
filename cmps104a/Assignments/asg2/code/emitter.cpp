@@ -46,7 +46,7 @@ void emit_assign (astree* tree) {
    assert (tree->children.size() == 2);
    astree* left = tree->children.at(0);
    emit (tree->children.at(1));
-   if (left->symbol != IDENT) {
+   if (left->symbol != TOK_IDENT) {
       errllocprintf (left->lloc, "%s\n",
                     "left operand of '=' not an identifier");
    }else{
@@ -56,20 +56,20 @@ void emit_assign (astree* tree) {
 
 void emit (astree* tree) {
    switch (tree->symbol) {
-      case ROOT  : postorder_emit_stmts (tree);       break;
-      case ';'   : postorder_emit_semi (tree);        break;
-      case '='   : emit_assign (tree);                break;
-      case '+'   : postorder_emit_oper (tree, "add"); break;
-      case '-'   : postorder_emit_oper (tree, "sub"); break;
-      case '*'   : postorder_emit_oper (tree, "mul"); break;
-      case '/'   : postorder_emit_oper (tree, "div"); break;
-      case '^'   : postorder_emit_oper (tree, "pow"); break;
-      case POS   : postorder_emit_oper (tree, "pos"); break;
-      case NEG   : postorder_emit_oper (tree, "neg"); break;
-      case IDENT : emit_push (tree, "pushvar");       break;
-      case NUMBER: emit_push (tree, "pushnum");       break;
-      case DIRECTIVE: emit_push (tree, "pushdir");    break;
-      default    : assert (false);                    break;
+      case ROOT  : postorder_emit_stmts (tree);                    break;
+      case ';'   : postorder_emit_semi (tree);                     break;
+      case '='   : emit_assign (tree);                             break;
+      case '+'   : postorder_emit_oper (tree, "add");              break;
+      case '-'   : postorder_emit_oper (tree, "sub");              break;
+      case '*'   : postorder_emit_oper (tree, "mul");              break;
+      case '/'   : postorder_emit_oper (tree, "div");              break;
+      case '^'   : postorder_emit_oper (tree, "pow");              break;
+      case POS   : postorder_emit_oper (tree, "pos");              break;
+      case NEG   : postorder_emit_oper (tree, "neg");              break;
+      case NUMBER: emit_push (tree, "pushnum");                    break;
+      case DIRECTIVE : emit_push (tree, "pushdir");                break;
+      case TOK_IDENT : emit_push (tree, "pushvar");                break;
+      default    : assert (false);                                 break;
    }
 }
 

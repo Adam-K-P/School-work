@@ -151,10 +151,8 @@ static void perform_flex (const char* outfile_name) {
    for (;;) {
       int token = yylex();
       if (token == YYEOF) return;
-      else { 
-         yylval->dump_node(outfile);
-         fprintf(outfile, "\n");
-      }
+      if (token == DIRECTIVE) fprintf(outfile, "%s\n", yytext);
+      else yylval->dump_node(outfile, token);
    }
 }
 

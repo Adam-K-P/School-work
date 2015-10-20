@@ -26,7 +26,7 @@ struct lexer {
    static size_t last_yyleng;
    static vector<string> filenames;
    static const string* filename (int filenr);
-   static void newfilename (const string& filename);
+   static void newfilename (char* filename);
    static void advance();
    static void newline();
    static void badchar (unsigned char bad);

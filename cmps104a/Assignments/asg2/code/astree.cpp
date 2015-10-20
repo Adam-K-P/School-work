@@ -10,6 +10,7 @@
 #include "astree.h"
 #include "stringset.h"
 #include "utils.h"
+#include "yylex.h"
 
 astree::astree (int symbol_, const location& lloc_, const char* info) {
    symbol = symbol_;
@@ -42,27 +43,23 @@ astree* astree::adopt_sym (astree* child, int symbol_) {
    return adopt (child);
 }
 
-void astree::dump_node (FILE* outfile) {
-   fprintf (outfile, "%p->{%s %zd.%zd.%zd \"%s\":",
-            this, parser::get_tname (symbol),
-            lloc.filenr, lloc.linenr, lloc.offset,
-            lexinfo->c_str());
-   for (size_t child = 0; child < children.size(); ++child) {
-      fprintf (outfile, " %p", children.at(child));
-   }
+void astree::dump_node (FILE* outfile, int token) {
+   fprintf (outfile, "%4lu  %2lu.%.3lu %3d %-16s (%s)\n",
+            lloc.filenr, lloc.linenr, lloc.offset, token, 
+            parser::get_tname (symbol), yytext);
 }
 
-void astree::dump_tree (FILE* outfile, int depth) {
+void astree::dump_tree (FILE* outfile, int depth, int token) {
    fprintf (outfile, "%*s", depth * 3, "");
-   dump_node (outfile);
+   dump_node (outfile, token);
    fprintf (outfile, "\n");
    for (astree* child: children) child->dump_tree (outfile, depth + 1);
    fflush (NULL);
 }
 
-void astree::dump (FILE* outfile, astree* tree) {
+void astree::dump (FILE* outfile, astree* tree, int token) {
    if (tree == nullptr) fprintf (outfile, "nullptr");
-                   else tree->dump_node (outfile);
+                   else tree->dump_node (outfile, token);
 }
 
 void astree::print (FILE* outfile, astree* tree, int depth) {

@@ -28,9 +28,9 @@ struct astree {
    ~astree();
    astree* adopt (astree* child1, astree* child2 = nullptr);
    astree* adopt_sym (astree* child, int symbol);
-   void dump_node (FILE*);
-   void dump_tree (FILE*, int depth = 0);
-   static void dump (FILE* outfile, astree* tree);
+   void dump_node (FILE*, int);
+   void dump_tree (FILE*, int depth = 0, int token = 0);
+   static void dump (FILE* outfile, astree* tree, int token = 0);
    static void print (FILE* outfile, astree* tree, int depth = 0);
 };
 

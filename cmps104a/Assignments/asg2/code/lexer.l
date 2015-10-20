@@ -11,6 +11,11 @@
    return SYMBOL; \
 }
 
+#define RETDIR(SYMBOL) { \
+   lexer::newfilename(yytext); \
+   RETURN (SYMBOL); \
+}
+
 %}
 
 %option 8bit
@@ -28,19 +33,23 @@ MANTISSA        ({DIGIT}+\.?{DIGIT}*|\.{DIGIT}+)
 EXPONENT        ([Ee][+-]?{DIGIT}+)
 NUMBER          ({MANTISSA}{EXPONENT}?)
 NOTNUMBER       ({MANTISSA}[Ee][+-]?)
-IDENT           ({LETTER}({LETTER}|{DIGIT})*)
+TOK_IDENT       ({LETTER}({LETTER}|{DIGIT})*)
 DIRECTIVE       ("# "{NUMBER}" "\".*\")
+RESERVED_1      (["void""bool""char""int""string""struct""if""else""while"])
+RESERVED_2      (["return""false""true""null""ord""chr""new"])
+RESERVED        ({RESERVED_1}|{RESERVED_2})
 
 %%
 
-{DIRECTIVE}     { RETURN (DIRECTIVE); } /* has to go before "#".* */
+{DIRECTIVE}     { RETDIR (DIRECTIVE); }
 
 "#".*           { lexer::include(); }
 [ \t]+          { }
 \n              { lexer::newline(); }
 
 {NUMBER}        { RETURN (NUMBER); }
-{IDENT}         { RETURN (IDENT); }
+{RESERVED}      { printf("reserved yo\n"); }
+{TOK_IDENT}     { RETURN (TOK_IDENT); }
 "="             { RETURN ('='); }
 "+"             { RETURN ('+'); }
 "-"             { RETURN ('-'); }
