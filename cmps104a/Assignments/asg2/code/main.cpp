@@ -10,6 +10,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <locale>
 #include <unordered_set>
 
 using namespace std;
@@ -19,6 +20,7 @@ using namespace std;
 #include <string.h>
 #include <unistd.h>
 
+#include "astree.h"
 #include "stringset.h"
 #include "auxlib.h"
 #include "utils.h"
@@ -151,7 +153,31 @@ static void perform_flex (const char* outfile_name) {
    for (;;) {
       int token = yylex();
       if (token == YYEOF) return;
-      if (token == DIRECTIVE) fprintf(outfile, "%s\n", yytext);
+      else if (token == DIRECTIVE) fprintf(outfile, "%s\n", yytext);
+      else if (token == RESERVED) { 
+
+         string res_name;
+         if (strcmp(yytext, "void") == 0)   res_name = "TOK_KW_VOID";
+         if (strcmp(yytext, "bool") == 0)   res_name = "TOK_KW_BOOL";
+         if (strcmp(yytext, "char") == 0)   res_name = "TOK_KW_CHAR";
+         if (strcmp(yytext, "int") == 0)    res_name = "TOK_KW_INT";
+         if (strcmp(yytext, "string") == 0) res_name = "TOK_KW_STRING";
+         if (strcmp(yytext, "struct") == 0) res_name = "TOK_KW_STRUCT";
+         if (strcmp(yytext, "if") == 0)     res_name = "TOK_KW_IF";
+         if (strcmp(yytext, "else") == 0)   res_name = "TOK_KW_ELSE";
+         if (strcmp(yytext, "while") == 0)  res_name = "TOK_KW_WHILE";
+         if (strcmp(yytext, "return") == 0) res_name = "TOK_KW_RETURN";
+         if (strcmp(yytext, "false") == 0)  res_name = "TOK_KW_FALSE";
+         if (strcmp(yytext, "true") == 0)   res_name = "TOK_KW_TRUE";
+         if (strcmp(yytext, "null") == 0)   res_name = "TOK_KW_NULL";
+         if (strcmp(yytext, "ord") == 0)    res_name = "TOK_KW_ORD";
+         if (strcmp(yytext, "chr") == 0)    res_name = "TOK_KW_CHR";
+         if (strcmp(yytext, "new") == 0)    res_name = "TOK_KW_NEW";
+
+         fprintf(outfile, "%4lu  %2lu.%.3lu %3d %-16s (%s)\n", 
+                 yylval->lloc.filenr, yylval->lloc.linenr, yylval->lloc.offset, 
+                 token, res_name.c_str(), yytext);
+      }
       else yylval->dump_node(outfile, token);
    }
 }

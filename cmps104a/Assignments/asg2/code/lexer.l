@@ -35,8 +35,8 @@ NUMBER          ({MANTISSA}{EXPONENT}?)
 NOTNUMBER       ({MANTISSA}[Ee][+-]?)
 TOK_IDENT       ({LETTER}({LETTER}|{DIGIT})*)
 DIRECTIVE       ("# "{NUMBER}" "\".*\")
-RESERVED_1      (["void""bool""char""int""string""struct""if""else""while"])
-RESERVED_2      (["return""false""true""null""ord""chr""new"])
+RESERVED_1      ("void"|"bool"|"char"|"int"|"string"|"struct"|"if"|"else")
+RESERVED_2      ("while"|"return"|"false"|"true"|"null"|"ord"|"chr"|"new")
 RESERVED        ({RESERVED_1}|{RESERVED_2})
 
 %%
@@ -48,7 +48,7 @@ RESERVED        ({RESERVED_1}|{RESERVED_2})
 \n              { lexer::newline(); }
 
 {NUMBER}        { RETURN (NUMBER); }
-{RESERVED}      { printf("reserved yo\n"); }
+{RESERVED}      { RETURN (RESERVED); }
 {TOK_IDENT}     { RETURN (TOK_IDENT); }
 "="             { RETURN ('='); }
 "+"             { RETURN ('+'); }

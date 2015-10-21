@@ -25,13 +25,14 @@
    parser::root = new astree (ROOT, {0, 0, 0}, "<<ROOT>>");
 }
 
-%token  ROOT TOK_IDENT NUMBER DIRECTIVE
+%token  ROOT TOK_IDENT NUMBER DIRECTIVE RESERVED
 
 %right  '='
 %left   '+' '-'
 %left   '*' '/'
 %right  '^'
 %right  POS NEG
+%left   '<' '>'
 
 %start  program
 
@@ -53,9 +54,13 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | expr '*' expr         { $$ = $2->adopt ($1, $3); }
         | expr '/' expr         { $$ = $2->adopt ($1, $3); }
         | expr '^' expr         { $$ = $2->adopt ($1, $3); }
+        | expr '<' expr         { $$ = $2->adopt ($1, $3); }
+        | expr '>' expr         { $$ = $2->adopt ($1, $3); }
         | '+' expr %prec POS    { $$ = $1->adopt_sym ($2, POS); }
         | '-' expr %prec NEG    { $$ = $1->adopt_sym ($2, NEG); }
         | '(' expr ')'          { destroy ($1, $3); $$ = $2; }
+        | '[' expr ']'          { destroy ($1, $3); $$ = $2; }
+        | '{' expr '}'          { destroy ($1, $3); $$ = $2; }
         | TOK_IDENT             { $$ = $1; }
         | NUMBER                { $$ = $1; }
         ;

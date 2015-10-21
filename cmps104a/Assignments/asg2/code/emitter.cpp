@@ -64,11 +64,14 @@ void emit (astree* tree) {
       case '*'   : postorder_emit_oper (tree, "mul");              break;
       case '/'   : postorder_emit_oper (tree, "div");              break;
       case '^'   : postorder_emit_oper (tree, "pow");              break;
+      case '<'   : postorder_emit_oper (tree, "les");              break;
+      case '>'   : postorder_emit_oper (tree, "grt");              break;
       case POS   : postorder_emit_oper (tree, "pos");              break;
       case NEG   : postorder_emit_oper (tree, "neg");              break;
       case NUMBER: emit_push (tree, "pushnum");                    break;
       case DIRECTIVE : emit_push (tree, "pushdir");                break;
       case TOK_IDENT : emit_push (tree, "pushvar");                break;
+      case RESERVED  : emit_push (tree, "pushres");                break;
       default    : assert (false);                                 break;
    }
 }
