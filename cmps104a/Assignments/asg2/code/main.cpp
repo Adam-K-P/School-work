@@ -3,10 +3,6 @@
  * main.cpp
  * asg1 */
 
-/* TODO 
- * #-directive stuff
- * debugging for CPP */
-
 #include <fstream>
 #include <iomanip>
 #include <iostream>

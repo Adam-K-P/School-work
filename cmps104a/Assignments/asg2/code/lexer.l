@@ -1,4 +1,7 @@
-/* $Id: lexer.l,v 1.3 2015-07-09 14:08:58-07 - - $ */
+/* Adam Pinarbasi
+ * akpinarb
+ * main.cpp
+ * asg1 */
 
 %{
 
