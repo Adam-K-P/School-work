@@ -58,12 +58,33 @@ module Bigint = struct
           let sum = car1 + car2 + carry
           in  sum mod radix :: add' cdr1 cdr2 (sum / radix)
 
+    let rec cmp list1 list2 = match (list1, list2) with
+        | list1, []       -> 1
+        | [], list2       -> -1
+        | car1::cdr1, car2::cdr2 -> 
+          if cdr1 = [] && cdr2 = [] then
+              if car1 > car2 then 1
+              else if car1 < car2 then -1
+              else 0
+           else cmp cdr1 cdr2
+
     let add (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
         if neg1 = neg2
         then Bigint (neg1, add' value1 value2 0)
-        else zero
+        else zero (*inappropriate behavior*)
 
-    let sub = add
+
+    let sub (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
+        let comp = cmp value1 value2 in
+        printf "comp: %d\n" comp;
+        Bigint (neg1, add' value1 value2 0)
+        
+        (*printf "cmp: %d\n" cmp value1 value2;
+        Bigint (neg1, add' value1 value2 0)*)
+       (*if neg1 = neg2 && (greater_than value1 value2 || equals value1 value2) then
+           Bigint(neg1, sub'
+       
+       then if greater_than value1 value2 || equals value1 value2*)
 
     let mul = add
 
