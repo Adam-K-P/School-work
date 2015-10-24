@@ -1,0 +1,3186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Pre-defined Compiler Macros</title>
+    <meta name="generator" content="muse.el">
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" media="screen" href="predef.css"/>
+  </head>
+  <body>
+    <h1>Pre-defined Compiler Macros</h1>
+    <!-- Page published by Emacs Muse begins here -->
+
+<table class="menu">
+ <tbody>
+  <tr class="menuheader">
+   <td><a href="index.php">Home</a></td>
+   <td><a href="prestd.html">Standards</a></td>
+   <td class="menucurrent">Compilers</td>
+   <td><a href="prelib.html">Libraries</a></td>
+   <td><a href="preos.html">Operating Systems</a></td>
+   <td><a href="prearch.html">Architectures</a></td>
+  </tr>
+  <tr class="menuline">
+   <td class="menulinefirst">&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td class="menulinelast">&nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+
+
+<p>Most compilers defines macros to indicate the compiler and its version.
+These are useful to avoid bugs in certain compiler versions, or to check
+for the existance of certain features.</p>
+
+<h2><a name="sec1" id="sec1"></a>
+Table of Content - Compilers</h2>
+<div class="contents">
+<dl>
+<dt>
+<a href="precomp.html#sec1">Table of Content - Compilers</a>
+</dt>
+<dt>
+<a href="precomp.html#sec2">Borland Turbo C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec3">Borland C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec4">Comeau C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec5">Compaq C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec6">Cray C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec7">Cygwin</a>
+</dt>
+<dt>
+<a href="precomp.html#sec8">Diab C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec9">Digital Mars</a>
+</dt>
+<dt>
+<a href="precomp.html#sec10">Dignus Systems/C and Systems/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec11">DJGPP</a>
+</dt>
+<dt>
+<a href="precomp.html#sec12">EKOPath</a>
+</dt>
+<dt>
+<a href="precomp.html#sec13">EDG C++ Front End</a>
+</dt>
+<dt>
+<a href="precomp.html#sec14">GNU C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec15">Green Hill C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec16">HP ANSI C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec17">HP aCC</a>
+</dt>
+<dt>
+<a href="precomp.html#sec18">IAR C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec19">IBM XL C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec20">IBM z/OS C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec21">ImageCraft C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec22">Intel C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec23">KAI C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec24">Keil CARM</a>
+</dt>
+<dt>
+<a href="precomp.html#sec25">Keil C166</a>
+</dt>
+<dt>
+<a href="precomp.html#sec26">Keil C51</a>
+</dt>
+<dt>
+<a href="precomp.html#sec27">LCC</a>
+</dt>
+<dt>
+<a href="precomp.html#sec28">LLVM</a>
+</dt>
+<dt>
+<a href="precomp.html#sec29">MetaWare High C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec30">Metrowerks CodeWarrior</a>
+</dt>
+<dt>
+<a href="precomp.html#sec31">MinGW</a>
+</dt>
+<dt>
+<a href="precomp.html#sec32">MIPSpro</a>
+</dt>
+<dt>
+<a href="precomp.html#sec33">MPW C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec34">Microsoft Visual C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec35">Microtec C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec36">Norcroft C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec37">Pacific C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec38">Palm C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec39">Pelles C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec40">Portland Group C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec41">RealView C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec42">SAS/C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec43">SCO OpenServer</a>
+</dt>
+<dt>
+<a href="precomp.html#sec44">Small Device C Compiler</a>
+</dt>
+<dt>
+<a href="precomp.html#sec45">Sun Studio</a>
+</dt>
+<dt>
+<a href="precomp.html#sec46">TenDRA C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec47">Tiny C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec48">Ultimate C/C++</a>
+</dt>
+<dt>
+<a href="precomp.html#sec49">USL C</a>
+</dt>
+<dt>
+<a href="precomp.html#sec50">Watcom C++</a>
+</dt>
+</dl>
+</div>
+
+
+
+
+
+<h2><a name="sec2" id="sec2"></a>
+Borland Turbo C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__TURBOC__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__TURBOC__</td>
+      <td>?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Turbo C</th>
+      <th>__TURBOC__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.0</td>
+      <td>397</td>
+    </tr>
+    <tr>
+      <td>3.0</td>
+      <td>661</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.borland.com/borlandcpp/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Turbo_C">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec3" id="sec3"></a>
+Borland C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__BORLANDC__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__BORLANDC__</td>
+      <td>?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Borland C++</th>
+      <th>C++ Builder</th>
+      <th>__BORLANDC__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.0</td>
+      <td>.</td>
+      <td>0x200</td>
+    </tr>
+    <tr>
+      <td>3.0</td>
+      <td>.</td>
+      <td>0x400</td>
+    </tr>
+    <tr>
+      <td>3.1</td>
+      <td>.</td>
+      <td>0x410</td>
+    </tr>
+    <tr>
+      <td>4.0</td>
+      <td>.</td>
+      <td>0x452</td>
+    </tr>
+    <tr>
+      <td>5.0</td>
+      <td>.</td>
+      <td>0x500</td>
+    </tr>
+    <tr>
+      <td>5.02</td>
+      <td>1.0</td>
+      <td>0x520</td>
+    </tr>
+    <tr>
+      <td>.</td>
+      <td>3.0</td>
+      <td>0x530</td>
+    </tr>
+    <tr>
+      <td>.</td>
+      <td>4.0</td>
+      <td>0x540</td>
+    </tr>
+    <tr>
+      <td>5.5</td>
+      <td>5.0</td>
+      <td>0x550</td>
+    </tr>
+    <tr>
+      <td>5.51</td>
+      <td>.</td>
+      <td>0x551</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.borland.com/downloads/download_cbuilder.html">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Programming/Languages/C%2B%2B/C%2B%2BBuilder/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/C_plus_plus_builder">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec4" id="sec4"></a>
+Comeau C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__COMO__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__COMO_VERSION__</td>
+      <td>VRR</td>
+      <td>V = Version<br>RR = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Comeau C++</th>
+      <th>__COMO_VERSION__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.3</td>
+      <td>230</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.comeaucomputing.com/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec5" id="sec5"></a>
+Compaq C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__DECC</td>
+      <td>.</td>
+      <td>C compiler</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__DECC_VER</td>
+      <td>VVRRTPPPP</td>
+      <td>VV = Version<br>RR = Revision<br>T = Type (9 = official)<br>PPPP = Patch</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__DECCXX</td>
+      <td>.</td>
+      <td>C++ compiler</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__DECCXX_VER</td>
+      <td>As __DECC_VER</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__VAXC</td>
+      <td>.</td>
+      <td>Obsolete</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>VAXC</td>
+      <td>.</td>
+      <td>Obsolete</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Compaq C/C++</th>
+      <th>__DECC_VER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6.0-001</td>
+      <td>60090001</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.openvms.compaq.com/openvms/brochures/deccplus/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec6" id="sec6"></a>
+Cray C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_CRAYC</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_RELEASE</td>
+      <td>Version</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_RELEASE_MINOR</td>
+      <td>Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.cray.com/products/software/cplus.html">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec7" id="sec7"></a>
+Cygwin</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__CYGWIN__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.cygwin.com/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Cygwin">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec8" id="sec8"></a>
+Diab C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__DCC__</td>
+      <td>1</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__VERSION_NUMBER__</td>
+      <td>VRPP</td>
+      <td>V = Version<br>R = Revision<br>PP = Patch</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Diab C/C++</th>
+      <th>__VERSION_NUMBER__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.4g</td>
+      <td>4426</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.windriver.com/products/html/dcc_compiler.html">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec9" id="sec9"></a>
+Digital Mars</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__DMC__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__SC__</td>
+      <td>.</td>
+      <td>Obsolete</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__ZTC__</td>
+      <td>.</td>
+      <td>Obsolete</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__DMC__</td>
+      <td>0xVRP</td>
+      <td>V = Version<br>R = Revision<br>PP = Patch</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Digital Mars</th>
+      <th>__DMC__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>7.0</td>
+      <td>0x700</td>
+    </tr>
+    <tr>
+      <td>7.2</td>
+      <td>0x720</td>
+    </tr>
+    <tr>
+      <td>8.0</td>
+      <td>0x800</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.digitalmars.com/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec10" id="sec10"></a>
+Dignus Systems/C and Systems/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__SYSC__</td>
+      <td>.</td>
+      <td>C compiler</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__SYSC_VER__</td>
+      <td>VRRPP</td>
+      <td>V = Version<br>RR = Revision<br>PP = Patch</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Systems/C</th>
+      <th>__SYSC_VER__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.80.32</td>
+      <td>18032</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.dignus.com/dcxx/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec11" id="sec11"></a>
+DJGPP</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__DJGPP__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__DJGPP__</td>
+      <td>Version</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__DJGPP_MINOR__</td>
+      <td>Revision</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__GO32__</td>
+      <td>Defined by DJGPP 1.x</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>DJGPP</th>
+      <th>__DJGPP__</th>
+      <th>__DJGPP_MINOR__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.01</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.delorie.com/djgpp/">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Software/Operating_Systems/x86/DOS/Programming/Compilers/DJGPP/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Djgpp">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec12" id="sec12"></a>
+EKOPath</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__PATHCC__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__PATHCC__</td>
+      <td>Version</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__PATHCC_MINOR__</td>
+      <td>Revision</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__PATHCC_PATCHLEVEL__</td>
+      <td>Patch</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>EKOPath</th>
+      <th>__PATHCC__</th>
+      <th>__PATHCC_MINOR__</th>
+      <th>__PATHCC_PATCHLEVEL__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.pathscale.com/ekopath.html">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec13" id="sec13"></a>
+EDG C++ Front End</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__EDG__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__EDG_VERSION__</td>
+      <td>VRR</td>
+      <td>V = Version<br>RR = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>EDG C++</th>
+      <th>__EDG_VERSION__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.30</td>
+      <td>230</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.edg.com/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec14" id="sec14"></a>
+GNU C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__GNUC__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__GNUC__</td>
+      <td>Version</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__GNUC_MINOR__</td>
+      <td>Revision</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__GNUC_PATCHLEVEL__</td>
+      <td>Patch (introduced in version 3.0)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that the meaning of the __GNUC__ macro has changed subtly over
+the years, from identifying the GNU C/C++ compiler to identifying any compiler
+that implements the GNU compiler extensions
+(see the <a href="http://gcc.gnu.org/ml/gcc/2008-07/threads.html#00025">Feature request - a macro defined for GCC</a> discussion for further
+information).
+For example, the Intel C++ on Linux also defines these macros from version
+8.1 (see the <a href="ftp://download.intel.com/support/performancetools/c/linux/sb/clin81_relnotes.pdf">Intel C++ Compiler 8.1 for Linux Release Notes</a> and
+<a href="http://www.intel.com/cd/software/products/asmo-na/eng/284736.htm">Intel Compilers for Linux: Compatibility with GNU Compilers</a>.)</p>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>GNU C/C++</th>
+      <th>__GNUC__</th>
+      <th>__GNUC_MINOR__</th>
+      <th>__GNUC_PATCHLEVEL__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.7.x</td>
+      <td>2</td>
+      <td>7</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>3.0.2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+<h4>Alternative Version</h4>
+
+<p class="first">If you prefer a single version macro, you can define the following yourself.</p>
+
+<pre class="example">
+#if defined(__GNUC__)
+# if defined(__GNUC_PATCHLEVEL__)
+#  define __GNUC_VERSION__ (__GNUC__ * 10000 \
+                            + __GNUC_MINOR__ * 100 \
+                            + __GNUC_PATCHLEVEL__)
+# else
+#  define __GNUC_VERSION__ (__GNUC__ * 10000 \
+                            + __GNUC_MINOR__ * 100)
+# endif
+#endif
+</pre>
+
+<p>The format of this new macro is:</p>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version</td>
+      <td>__GNUC_VERSION__</td>
+      <td>VVRRPP</td>
+      <td>VV = Version<br>RR = Revision<br>PP = Patch</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h4>Example of Alternative Version</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>GNU C/C++</th>
+      <th>__GNUC_VERSION__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.7.x</td>
+      <td>20700</td>
+    </tr>
+    <tr>
+      <td>3.0.2</td>
+      <td>30002</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://gcc.gnu.org/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Programming/Compilers/GNU_Compiler_Collection/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/GNU_Compiler_Collection">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec15" id="sec15"></a>
+Green Hill C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__ghs__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__GHS_VERSION_NUMBER__</td>
+      <td>VRP</td>
+      <td>V = Version<br>R = Revision<br>P = Patch</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__GHS_REVISION_DATE__</td>
+      <td>Epoch time</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Green Hill C/C++</th>
+      <th>__GHS_VERSION_NUMBER__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.2.1</td>
+      <td>421</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.ghs.com/products/MULTI_IDE.html">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Green_Hills_Software">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec16" id="sec16"></a>
+HP ANSI C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__HP_cc</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://devresource.hp.com/devresource/Tools/lang.html">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec17" id="sec17"></a>
+HP aCC</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__HP_aCC</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__HP_aCC</td>
+      <td>1</td>
+      <td>From version A.01.15 (and A.03.13)</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__HP_aCC</td>
+      <td>VVRRPP</td>
+      <td>VV = Version<br>RR = Revision<br>PP = Patch<br><br>From version A.01.21 (and A.03.25)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>HP aCC</th>
+      <th>__HP_aCC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A.01.21</td>
+      <td>012100</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://devresource.hp.com/devresource/Tools/lang.html">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec18" id="sec18"></a>
+IAR C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__IAR_SYSTEMS_ICC__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__VER__</td>
+      <td>VRR</td>
+      <td>V = Version<br>RR = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>IAR C/C++</th>
+      <th>__VER__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.34</td>
+      <td>334</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.iar.com/p7371/p7371_eng.php">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec19" id="sec19"></a>
+IBM XL C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__xlc__</td>
+      <td>.</td>
+      <td>Compiles C</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__xlC__</td>
+      <td>.</td>
+      <td>Compiles C++</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__xlc__<br>__xlC__</td>
+      <td>0xVVRR</td>
+      <td>VV = Version<br>RR = Revision</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__IBMC__</td>
+      <td>.</td>
+      <td>From ?</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__IBMCPP__</td>
+      <td>.</td>
+      <td>From ?</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__IBMC__<br>__IBMCPP__</td>
+      <td>VRP</td>
+      <td>V = Version<br>R = Revision<br>P = Patch</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that the z/OS C/C++ compiler also defines <code>__IBMC__</code> and <code>__IBMCPP__</code> macros, but with a different syntax. See the entry on the z/OS C/C++ compiler below for further information.</p>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>IBM XL C/C++</th>
+      <th>__xlC__</th>
+      <th>__IBMCPP__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.1</td>
+      <td>0x0301</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>4.5</td>
+      <td>0x0405</td>
+      <td>450</td>
+    </tr>
+    <tr>
+      <td>5.0</td>
+      <td>0x0500</td>
+      <td>500</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.ibm.com/software/ad/caix/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/VisualAge">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec20" id="sec20"></a>
+IBM z/OS C/C++</h2>
+
+<p class="first">This is the XL C/C++ compiler for mainframes (e.g. z/OS). The entry on XL C/C++ has been split into two for clarity.</p>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__IBMC__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__IBMCPP__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__IBMC__<br>__IBMCPP__</td>
+      <td>NVRRM</td>
+      <td>N = Product (0 = C/370, 1 = MVS, 2 = OS/390, 4 = z/OS)<br>V = Version<br>RR = Revision<br>P = Patch<br><br>Defined for z/OS XL C/C++</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__COMPILER_VER__</td>
+      <td>0xNVRRPPPP</td>
+      <td>N = Product (see above)<br>V = Version<br>RR = Revision<br>PPPP = Patch<br><br>Defined for z/OS XL C/C++</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that XL C/C++ also defines <code>__IBMC__</code> and <code>__IBMCPP__</code> macros, but with a different syntax. You can use <code>__xlC__</code> (only defined for XL C/C++) or <code>__COMPILER_VER__</code> (only defined for z/OS C/C++) to distinguish between the two.</p>
+
+<pre class="example">
+#if defined(__IBMC__) || defined(__IBMCPP__)
+# if defined(__COMPILER_VER__)
+/* z/OS C/C++ so __IBMC__ is defined as NVRRM */
+# else
+/* XL C/C++ so __IBMC__ is defined as VRP */
+# endif
+#endif
+</pre>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>IBM z/OS XL C/C++</th>
+      <th>__IBMC__</th>
+      <th>__COMPILER_VER__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.7</td>
+      <td>41070</td>
+      <td>0x41070000</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.ibm.com/software/awdtools/czos/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/VisualAge">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec21" id="sec21"></a>
+ImageCraft C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__IMAGECRAFT__</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.imagecraft.com/">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec22" id="sec22"></a>
+Intel C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__INTEL_COMPILER</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__ICC</td>
+      <td>.</td>
+      <td>Obsolete</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__ECC</td>
+      <td>.</td>
+      <td>Obsolete</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__ICL</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__INTEL_COMPILER</td>
+      <td>VRP</td>
+      <td>V = Version<br>R = Revision<br>P = Patch</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__INTEL_COMPILER_BUILD_DATE</td>
+      <td>YYYYMMDD</td>
+      <td>YYYY = Year<br>MM = Month<br>DD = Day</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Intel C/C++</th>
+      <th>__INTEL_COMPILER</th>
+      <th>__INTEL_COMPILER_BUILD_DATE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5.0</td>
+      <td>500</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>6.0</td>
+      <td>600</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>8.0</td>
+      <td>800</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>9.0</td>
+      <td>900</td>
+      <td>20060222</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.intel.com/software/products/index.htm">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec23" id="sec23"></a>
+KAI C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__KCC</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__KCC_VERSION</td>
+      <td>0xVRPP</td>
+      <td>V = Version<br>R = Revision<br>PP = Patch (a = 01, b = 02, ...)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>KAI C++</th>
+      <th>__KCC_VERSION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.0d</td>
+      <td>4004</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://developer.intel.com/software/products/kcc/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec24" id="sec24"></a>
+Keil CARM</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__CA__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__KEIL__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__CA__</td>
+      <td>VRR</td>
+      <td>V = Version<br>R = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Keil CARM</th>
+      <th>__CA__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.01</td>
+      <td>101</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.keil.com/arm/carm.asp">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec25" id="sec25"></a>
+Keil C166</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__C166__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__C166__</td>
+      <td>VRR</td>
+      <td>V = Version<br>R = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Keil C166</th>
+      <th>__C166__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5.01</td>
+      <td>501</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.keil.com/c166/c166.asp">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec26" id="sec26"></a>
+Keil C51</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__C51__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__CX51__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__C51__</td>
+      <td>VRR</td>
+      <td>V = Version<br>R = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Keil C51</th>
+      <th>__C51__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>7.01</td>
+      <td>701</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.keil.com/c51/c51.asp">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec27" id="sec27"></a>
+LCC</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__LCC__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.cs.virginia.edu/%7Elcc-win32/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Local_C_compiler">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec28" id="sec28"></a>
+LLVM</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__llvm__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://llvm.org/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/LLVM">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec29" id="sec29"></a>
+MetaWare High C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__HIGHC__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.metaware.com/">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec30" id="sec30"></a>
+Metrowerks CodeWarrior</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__MWERKS__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__MWERKS__</td>
+      <td>1</td>
+      <td>Until CodeWarrior 7</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__MWERKS__</td>
+      <td>0xVRPP</td>
+      <td>V = Version<br>R = Revision<br>PP = Patch<br><br>From CodeWarrior 7</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Metrowerks C/C++</th>
+      <th>__MWERKS__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.0</td>
+      <td>0x2000</td>
+    </tr>
+    <tr>
+      <td>2.2</td>
+      <td>0x2200</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.metrowerks.com/platforms/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/CodeWarrior">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec31" id="sec31"></a>
+MinGW</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__MINGW32__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__MINGW32_MAJOR_VERSION</td>
+      <td>Version</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__MINGW32_MINOR_VERSION</td>
+      <td>Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>MinGW</th>
+      <th>__MINGW32_MAJOR_VERSION</th>
+      <th>__MINGW32_MINOR_VERSION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.4</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.mingw.org/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/MinGW">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec32" id="sec32"></a>
+MIPSpro</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__sgi</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>sgi</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_COMPILER_VERSION</td>
+      <td>VRP</td>
+      <td>V = Version<br>R = Revision<br>P = Patch<br><br>Until ?</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_SGI_COMPILER_VERSION</td>
+      <td>VRP</td>
+      <td>V = Version<br>R = Revision<br>P = Patch<br><br>From ?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>MIPSpro</th>
+      <th>_COMPILER_VERSION</th>
+      <th>_SGI_COMPILER_VERSION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6.0.2</td>
+      <td>602</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>7.2.1</td>
+      <td>721</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>7.4.4</td>
+      <td>.</td>
+      <td>744</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.sgi.com/developers/devtools/languages/mipspro.html">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec33" id="sec33"></a>
+MPW C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__MRC__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>MPW_C</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>MPW_CPLUS</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__MRC__</td>
+      <td>0xVVRR</td>
+      <td>VV = Version<br>RR = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>MPW C++</th>
+      <th>__MRC__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5.0</td>
+      <td>0x500</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://developer.apple.com/tools/mpw-tools/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec34" id="sec34"></a>
+Microsoft Visual C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_MSC_VER</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_MSC_VER</td>
+      <td>VVRR</td>
+      <td>VV = Version<br>RR = Revision</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_MSC_FULL_VER</td>
+      <td>VVRRPPPP</td>
+      <td>VV = Version<br>RR = Revision<br>PPPP = Patch<br><br>From ?</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_MSC_FULL_VER</td>
+      <td>VVRRPPPPP</td>
+      <td>VV = Version<br>RR = Revision<br>PPPPP = Patch<br><br>From Visual C++ 8.0 ?</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_MSC_BUILD</td>
+      <td>B</td>
+      <td>B = Build number<br><br>From Visual C++ 9.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that <code>_MSC_FULL_VER</code> and <code>_MSC_BUILD</code> are not officially documented by the vendor.</p>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Visual C++</th>
+      <th>_MSC_VER</th>
+      <th>_MSC_FULL_VER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.0</td>
+      <td>800</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>3.0</td>
+      <td>900</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>4.0</td>
+      <td>1000</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>4.2</td>
+      <td>1020</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>5.0</td>
+      <td>1100</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>6.0</td>
+      <td>1200</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>6.0 SP6</td>
+      <td>1200</td>
+      <td>12008804</td>
+    </tr>
+    <tr>
+      <td>7.0</td>
+      <td>1300</td>
+      <td>13009466</td>
+    </tr>
+    <tr>
+      <td>7.1 (2003)</td>
+      <td>1310</td>
+      <td>13103077</td>
+    </tr>
+    <tr>
+      <td>8.0 (2005)</td>
+      <td>1400</td>
+      <td>140050727</td>
+    </tr>
+    <tr>
+      <td>9.0 (2008) Beta-2</td>
+      <td>1500</td>
+      <td>150020706</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://msdn.microsoft.com/visualc/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Programming/Languages/C%2B%2B/Visual_C%2B%2B/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Visual_C_Plus_Plus">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec35" id="sec35"></a>
+Microtec C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_MRI</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.mentor.com/microtec/">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec36" id="sec36"></a>
+Norcroft C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__CC_NORCROFT</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__ARMCC_VERSION</td>
+      <td>V.R</td>
+      <td>V = Version<br>R = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that <code>__ARMCC_VERSION</code> is assigned a floating-point number, so it
+cannot be used by the preprocessor to compare versions.</p>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Norcroft C</th>
+      <th>__ARMCC_VERSION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.69</td>
+      <td>4.69</td>
+    </tr>
+    <tr>
+      <td>4.90</td>
+      <td>4.90</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec37" id="sec37"></a>
+Pacific C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__PACIFIC__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.htsoft.com/products/PACIFICc.php">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec38" id="sec38"></a>
+Palm C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_PACC_VER</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_PACC_VER</td>
+      <td>0xVRRPPBBB</td>
+      <td>V = Version<br>RR = Revision<br>PP = Patch<br>BBB = Build</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Palm C/C++</th>
+      <th>_PACC_VER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.0.0.13</td>
+      <td>0x1000000D</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.palmos.com/dev/dl/dl_sdks/">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Systems/Handhelds/Palm_OS/Programming/Development_Kits/C_and_C%2B%2B/">Google Directory</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec39" id="sec39"></a>
+Pelles C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__POCC__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__POCC__</td>
+      <td>VRR</td>
+      <td>V = Version<br>RR = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Pelles C</th>
+      <th>__POCC__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.00</td>
+      <td>300</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.smorgasbordet.com/pellesc/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec40" id="sec40"></a>
+Portland Group C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__PGI</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.pgroup.com/products/workpgcc.htm">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec41" id="sec41"></a>
+RealView C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__CC_ARM</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__ARMCC_VERSION</td>
+      <td>VRPBBB</td>
+      <td>V = Version<br>R = Revision<br>P = Patch<br>BBB = Build</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that the <code>__ARMCC_VERSION</code> macro is also used as
+version indicator for Norcroft C, but that the format is different.</p>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Realview C</th>
+      <th>__ARMCC_VERSION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.0</td>
+      <td>300503</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.arm.com/products/DevTools/RVCT.html">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec42" id="sec42"></a>
+SAS/C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>SASC</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__SASC</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__SASC__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__VERSION__</td>
+      <td>.</td>
+      <td>Until ?</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__REVISION__</td>
+      <td>.</td>
+      <td>Until ?</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__SASC__</td>
+      <td>VRR</td>
+      <td>V = Version<br>RR = Revision<br><br>From ?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>SAS/C</th>
+      <th>__SASC__</th>
+      <th>__VERSION__</th>
+      <th>__REVISION__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5.10</td>
+      <td>.</td>
+      <td>5</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>6.50</td>
+      <td>650</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.sas.com/products/sasc/">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec43" id="sec43"></a>
+SCO OpenServer</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_SCO_DS</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.caldera.com/products/unixware/udk.html">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec44" id="sec44"></a>
+Small Device C Compiler</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>SDCC</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>SDCC</td>
+      <td>VRP</td>
+      <td>V = Version<br>R = Revision<br>P = Patch</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>SDCC Version</th>
+      <th>SDCC Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.5.6</td>
+      <td>256</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://sdcc.sourceforge.net/">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Programming/Languages/C/Compilers/Cross_Compilers/SDCC/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Small_Device_C_Compiler">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec45" id="sec45"></a>
+Sun Studio</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__SUNPRO_C</td>
+      <td>.</td>
+      <td>C compiler</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__SUNPRO_C</td>
+      <td>0xVRP</td>
+      <td>V = Version<br>R = Revision<br>P = Patch</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__SUNPRO_CC</td>
+      <td>.</td>
+      <td>C++ compiler</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__SUNPRO_CC</td>
+      <td>As __SUNPRO_C</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Sun Studio</th>
+      <th>__SUNPRO_C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.2</td>
+      <td>0x420</td>
+    </tr>
+    <tr>
+      <td>5.0</td>
+      <td>0x500</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.sun.com/forte/cplusplus/index.html">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec46" id="sec46"></a>
+TenDRA C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__TenDRA__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.tendra.org/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/TenDRA_Compiler">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec47" id="sec47"></a>
+Tiny C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__TINYC__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://tinycc.org/">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec48" id="sec48"></a>
+Ultimate C/C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_UCC</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_MAJOR_REV = V<br>_MINOR_REV = R</td>
+      <td>V = Version<br>R = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Ultimate C/C++</th>
+      <th>_MAJOR_REV</th>
+      <th>_MINOR_REV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec49" id="sec49"></a>
+USL C</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__USLC__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__SCO_VERSION</td>
+      <td>0xVRRYYYYMM</td>
+      <td>V = Version<br>RR = Revision<br>YYYY = Year<br>MM = Month</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>USL C</th>
+      <th>__SCO_VERSION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.2</td>
+      <td>302199801</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.caldera.com/products/unixware/udk.html">Official site</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec50" id="sec50"></a>
+Watcom C++</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__WATCOMC__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__WATCOMC__</td>
+      <td>VVRR</td>
+      <td>VV = Version<br>RR = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that Watcom C++ became Open Watcom C++ after version 11.0, and the
+official version numbering (but not the version macro) was restated at version
+1.0.</p>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Watcom C++</th>
+      <th>Open Watcom C++</th>
+      <th>__WATCOMC__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10.5</td>
+      <td>.</td>
+      <td>1050</td>
+    </tr>
+    <tr>
+      <td>11.0</td>
+      <td>.</td>
+      <td>1100</td>
+    </tr>
+    <tr>
+      <td>.</td>
+      <td>1.0</td>
+      <td>1200</td>
+    </tr>
+    <tr>
+      <td>.</td>
+      <td>1.7</td>
+      <td>1270</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://openwatcom.com/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Watcom">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span>
+
+
+
+
+<hr>
+<p class="footer">Copyright &copy; 2002-2008 Bj&oslash;rn Reese </p>
+<p class="footer">
+Permission to use, copy, modify, and distribute this document for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all copies.
+</p>
+<p class="footer">
+THIS DOCUMENT IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE
+AUTHORS AND CONTRIBUTORS ACCEPT NO RESPONSIBILITY IN ANY CONCEIVABLE
+MANNER.
+</p>
+<center class="footer">
+$Id: precomp.muse,v 1.14 2009/01/04 12:26:07 breese Exp $
+</center>
+
+
+
+
+<!-- Page published by Emacs Muse ends here -->
+  </body>
+</html>

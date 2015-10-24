@@ -74,11 +74,12 @@ module Bigint = struct
         then Bigint (neg1, add' value1 value2 0)
         else zero (*inappropriate behavior*)
 
-        (*
     (* Precondition: list1 must be greater than list2 *)
     let rec sub' list1 list2 carry = match (list1, list2, carry) with
-        | list1, [], 0      -> list1
-        | *)
+        | list1, [], false      -> list1
+        | list1, [], true       -> sub' list1 [carry] 0
+        | car1::cdr1, car2::cdr2, carry ->
+          
 
     let sub (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
         if neg1 = neg2 then (* will all use sub *)
@@ -88,15 +89,6 @@ module Bigint = struct
                 else zero);
         else Bigint (neg1, add' value1 value2 0) 
        
-
-        
-        (*printf "cmp: %d\n" cmp value1 value2;
-        Bigint (neg1, add' value1 value2 0)*)
-       (*if neg1 = neg2 && (greater_than value1 value2 || equals value1 value2) then
-           Bigint(neg1, sub'
-       
-       then if greater_than value1 value2 || equals value1 value2*)
-
     let mul = add
 
     let div = add

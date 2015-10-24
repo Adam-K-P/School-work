@@ -1,0 +1,7131 @@
+head	1.241;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.241
+date	2014.04.04.02.43.01;	author -;	state -;
+branches;
+next	1.240;
+
+1.240
+date	2014.04.04.02.40.23;	author -;	state -;
+branches;
+next	1.239;
+
+1.239
+date	2014.04.04.02.38.14;	author -;	state -;
+branches;
+next	1.238;
+
+1.238
+date	2014.04.04.02.34.53;	author -;	state -;
+branches;
+next	1.237;
+
+1.237
+date	2014.04.04.02.33.29;	author -;	state -;
+branches;
+next	1.236;
+
+1.236
+date	2014.04.04.02.20.50;	author -;	state -;
+branches;
+next	1.235;
+
+1.235
+date	2014.04.04.02.20.14;	author -;	state -;
+branches;
+next	1.234;
+
+1.234
+date	2014.04.04.02.19.28;	author -;	state -;
+branches;
+next	1.233;
+
+1.233
+date	2013.03.29.02.21.28;	author -;	state -;
+branches;
+next	1.232;
+
+1.232
+date	2013.01.04.02.42.00;	author -;	state -;
+branches;
+next	1.231;
+
+1.231
+date	2012.10.09.20.09.39;	author -;	state -;
+branches;
+next	1.230;
+
+1.230
+date	2011.01.10.21.48.34;	author -;	state -;
+branches;
+next	1.229;
+
+1.229
+date	2011.01.10.21.47.00;	author -;	state -;
+branches;
+next	1.228;
+
+1.228
+date	2010.04.01.23.36.14;	author -;	state -;
+branches;
+next	1.227;
+
+1.227
+date	2009.12.18.02.05.17;	author -;	state -;
+branches;
+next	1.226;
+
+1.226
+date	2009.04.11.02.47.42;	author -;	state -;
+branches;
+next	1.225;
+
+1.225
+date	2009.04.11.02.47.03;	author -;	state -;
+branches;
+next	1.224;
+
+1.224
+date	2009.04.11.02.46.23;	author -;	state -;
+branches;
+next	1.223;
+
+1.223
+date	2009.04.11.02.43.31;	author -;	state -;
+branches;
+next	1.222;
+
+1.222
+date	2009.04.11.02.39.05;	author -;	state -;
+branches;
+next	1.221;
+
+1.221
+date	2009.04.11.01.11.59;	author -;	state -;
+branches;
+next	1.220;
+
+1.220
+date	2009.04.11.01.11.26;	author -;	state -;
+branches;
+next	1.219;
+
+1.219
+date	2009.04.11.00.24.35;	author -;	state -;
+branches;
+next	1.218;
+
+1.218
+date	2009.03.27.03.22.48;	author -;	state -;
+branches;
+next	1.217;
+
+1.217
+date	2009.01.06.04.19.17;	author -;	state -;
+branches;
+next	1.216;
+
+1.216
+date	2009.01.06.04.16.07;	author -;	state -;
+branches;
+next	1.215;
+
+1.215
+date	2009.01.06.04.15.57;	author -;	state -;
+branches;
+next	1.214;
+
+1.214
+date	2008.01.09.02.04.11;	author -;	state -;
+branches;
+next	1.213;
+
+1.213
+date	2007.08.18.02.26.23;	author -;	state -;
+branches;
+next	1.212;
+
+1.212
+date	2007.08.18.02.13.28;	author -;	state -;
+branches;
+next	1.211;
+
+1.211
+date	2007.08.18.02.13.11;	author -;	state -;
+branches;
+next	1.210;
+
+1.210
+date	2007.08.18.02.08.25;	author -;	state -;
+branches;
+next	1.209;
+
+1.209
+date	2007.08.18.02.07.10;	author -;	state -;
+branches;
+next	1.208;
+
+1.208
+date	2007.08.18.02.05.40;	author -;	state -;
+branches;
+next	1.207;
+
+1.207
+date	2007.08.18.02.04.54;	author -;	state -;
+branches;
+next	1.206;
+
+1.206
+date	2007.08.15.20.28.00;	author -;	state -;
+branches;
+next	1.205;
+
+1.205
+date	2007.07.30.20.10.11;	author -;	state -;
+branches;
+next	1.204;
+
+1.204
+date	2007.07.30.20.01.45;	author -;	state -;
+branches;
+next	1.203;
+
+1.203
+date	2007.07.30.19.59.45;	author -;	state -;
+branches;
+next	1.202;
+
+1.202
+date	2007.07.25.20.36.05;	author -;	state -;
+branches;
+next	1.201;
+
+1.201
+date	2007.07.25.20.27.21;	author -;	state -;
+branches;
+next	1.200;
+
+1.200
+date	2007.07.25.20.24.48;	author -;	state -;
+branches;
+next	1.199;
+
+1.199
+date	2007.07.25.20.23.42;	author -;	state -;
+branches;
+next	1.198;
+
+1.198
+date	2007.07.25.20.15.38;	author -;	state -;
+branches;
+next	1.197;
+
+1.197
+date	2007.07.25.20.15.06;	author -;	state -;
+branches;
+next	1.196;
+
+1.196
+date	2007.07.25.20.11.28;	author -;	state -;
+branches;
+next	1.195;
+
+1.195
+date	2007.07.25.20.02.47;	author -;	state -;
+branches;
+next	1.194;
+
+1.194
+date	2007.07.13.03.33.27;	author -;	state -;
+branches;
+next	1.193;
+
+1.193
+date	2007.07.13.03.32.15;	author -;	state -;
+branches;
+next	1.192;
+
+1.192
+date	2007.07.13.03.31.18;	author -;	state -;
+branches;
+next	1.191;
+
+1.191
+date	2007.07.13.03.30.25;	author -;	state -;
+branches;
+next	1.190;
+
+1.190
+date	2007.07.13.03.26.02;	author -;	state -;
+branches;
+next	1.189;
+
+1.189
+date	2007.07.13.03.23.49;	author -;	state -;
+branches;
+next	1.188;
+
+1.188
+date	2007.07.13.03.13.25;	author -;	state -;
+branches;
+next	1.187;
+
+1.187
+date	2007.07.09.20.02.52;	author -;	state -;
+branches;
+next	1.186;
+
+1.186
+date	2007.07.09.19.56.06;	author -;	state -;
+branches;
+next	1.185;
+
+1.185
+date	2007.07.09.19.54.07;	author -;	state -;
+branches;
+next	1.184;
+
+1.184
+date	2007.07.09.19.53.37;	author -;	state -;
+branches;
+next	1.183;
+
+1.183
+date	2007.07.09.19.53.22;	author -;	state -;
+branches;
+next	1.182;
+
+1.182
+date	2007.07.07.01.57.18;	author -;	state -;
+branches;
+next	1.181;
+
+1.181
+date	2007.07.07.01.32.21;	author -;	state -;
+branches;
+next	1.180;
+
+1.180
+date	2007.07.07.01.30.38;	author -;	state -;
+branches;
+next	1.179;
+
+1.179
+date	2007.07.07.01.30.22;	author -;	state -;
+branches;
+next	1.178;
+
+1.178
+date	2007.07.07.01.29.59;	author -;	state -;
+branches;
+next	1.177;
+
+1.177
+date	2007.07.07.01.24.42;	author -;	state -;
+branches;
+next	1.176;
+
+1.176
+date	2007.07.07.01.13.39;	author -;	state -;
+branches;
+next	1.175;
+
+1.175
+date	2007.07.07.01.11.32;	author -;	state -;
+branches;
+next	1.174;
+
+1.174
+date	2007.07.07.01.07.25;	author -;	state -;
+branches;
+next	1.173;
+
+1.173
+date	2007.07.07.01.06.46;	author -;	state -;
+branches;
+next	1.172;
+
+1.172
+date	2007.07.07.01.03.54;	author -;	state -;
+branches;
+next	1.171;
+
+1.171
+date	2007.07.07.00.49.19;	author -;	state -;
+branches;
+next	1.170;
+
+1.170
+date	2007.07.07.00.46.56;	author -;	state -;
+branches;
+next	1.169;
+
+1.169
+date	2007.07.07.00.28.58;	author -;	state -;
+branches;
+next	1.168;
+
+1.168
+date	2007.07.07.00.26.52;	author -;	state -;
+branches;
+next	1.167;
+
+1.167
+date	2007.07.07.00.24.09;	author -;	state -;
+branches;
+next	1.166;
+
+1.166
+date	2007.07.07.00.14.03;	author -;	state -;
+branches;
+next	1.165;
+
+1.165
+date	2007.07.07.00.13.24;	author -;	state -;
+branches;
+next	1.164;
+
+1.164
+date	2007.07.07.00.12.18;	author -;	state -;
+branches;
+next	1.163;
+
+1.163
+date	2007.07.07.00.10.23;	author -;	state -;
+branches;
+next	1.162;
+
+1.162
+date	2007.07.06.20.37.18;	author -;	state -;
+branches;
+next	1.161;
+
+1.161
+date	2007.07.06.20.35.08;	author -;	state -;
+branches;
+next	1.160;
+
+1.160
+date	2007.07.06.20.32.51;	author -;	state -;
+branches;
+next	1.159;
+
+1.159
+date	2007.07.06.20.23.35;	author -;	state -;
+branches;
+next	1.158;
+
+1.158
+date	2007.07.06.20.22.20;	author -;	state -;
+branches;
+next	1.157;
+
+1.157
+date	2007.07.06.20.16.18;	author -;	state -;
+branches;
+next	1.156;
+
+1.156
+date	2007.07.06.20.04.30;	author -;	state -;
+branches;
+next	1.155;
+
+1.155
+date	2007.07.06.20.03.22;	author -;	state -;
+branches;
+next	1.154;
+
+1.154
+date	2007.07.06.20.02.28;	author -;	state -;
+branches;
+next	1.153;
+
+1.153
+date	2007.07.06.20.00.34;	author -;	state -;
+branches;
+next	1.152;
+
+1.152
+date	2007.07.06.19.57.20;	author -;	state -;
+branches;
+next	1.151;
+
+1.151
+date	2007.07.06.19.56.56;	author -;	state -;
+branches;
+next	1.150;
+
+1.150
+date	2007.07.06.19.56.28;	author -;	state -;
+branches;
+next	1.149;
+
+1.149
+date	2007.07.06.19.55.23;	author -;	state -;
+branches;
+next	1.148;
+
+1.148
+date	2007.07.06.19.53.07;	author -;	state -;
+branches;
+next	1.147;
+
+1.147
+date	2007.07.06.19.51.51;	author -;	state -;
+branches;
+next	1.146;
+
+1.146
+date	2007.07.06.19.51.04;	author -;	state -;
+branches;
+next	1.145;
+
+1.145
+date	2007.07.06.19.43.10;	author -;	state -;
+branches;
+next	1.144;
+
+1.144
+date	2007.07.06.19.42.33;	author -;	state -;
+branches;
+next	1.143;
+
+1.143
+date	2007.07.06.19.39.50;	author -;	state -;
+branches;
+next	1.142;
+
+1.142
+date	2007.07.06.19.38.16;	author -;	state -;
+branches;
+next	1.141;
+
+1.141
+date	2007.07.06.19.33.52;	author -;	state -;
+branches;
+next	1.140;
+
+1.140
+date	2007.07.06.02.58.24;	author -;	state -;
+branches;
+next	1.139;
+
+1.139
+date	2007.07.06.02.57.52;	author -;	state -;
+branches;
+next	1.138;
+
+1.138
+date	2007.07.06.02.56.28;	author -;	state -;
+branches;
+next	1.137;
+
+1.137
+date	2007.07.06.02.55.36;	author -;	state -;
+branches;
+next	1.136;
+
+1.136
+date	2007.07.06.02.52.52;	author -;	state -;
+branches;
+next	1.135;
+
+1.135
+date	2007.07.06.02.46.40;	author -;	state -;
+branches;
+next	1.134;
+
+1.134
+date	2007.07.06.02.46.28;	author -;	state -;
+branches;
+next	1.133;
+
+1.133
+date	2007.07.06.02.44.58;	author -;	state -;
+branches;
+next	1.132;
+
+1.132
+date	2007.07.06.02.44.36;	author -;	state -;
+branches;
+next	1.131;
+
+1.131
+date	2007.07.06.02.40.37;	author -;	state -;
+branches;
+next	1.130;
+
+1.130
+date	2007.07.06.02.40.08;	author -;	state -;
+branches;
+next	1.129;
+
+1.129
+date	2007.07.06.02.38.28;	author -;	state -;
+branches;
+next	1.128;
+
+1.128
+date	2007.07.06.02.34.35;	author -;	state -;
+branches;
+next	1.127;
+
+1.127
+date	2007.07.06.02.33.34;	author -;	state -;
+branches;
+next	1.126;
+
+1.126
+date	2007.07.06.02.32.40;	author -;	state -;
+branches;
+next	1.125;
+
+1.125
+date	2007.07.06.02.24.53;	author -;	state -;
+branches;
+next	1.124;
+
+1.124
+date	2007.07.06.02.23.04;	author -;	state -;
+branches;
+next	1.123;
+
+1.123
+date	2007.07.06.01.58.19;	author -;	state -;
+branches;
+next	1.122;
+
+1.122
+date	2007.07.06.01.57.34;	author -;	state -;
+branches;
+next	1.121;
+
+1.121
+date	2007.07.06.01.57.06;	author -;	state -;
+branches;
+next	1.120;
+
+1.120
+date	2007.07.06.01.55.14;	author -;	state -;
+branches;
+next	1.119;
+
+1.119
+date	2007.07.06.01.15.12;	author -;	state -;
+branches;
+next	1.118;
+
+1.118
+date	2007.07.06.01.14.08;	author -;	state -;
+branches;
+next	1.117;
+
+1.117
+date	2007.07.06.01.13.19;	author -;	state -;
+branches;
+next	1.116;
+
+1.116
+date	2007.07.06.01.13.03;	author -;	state -;
+branches;
+next	1.115;
+
+1.115
+date	2007.07.06.01.09.17;	author -;	state -;
+branches;
+next	1.114;
+
+1.114
+date	2007.07.06.01.08.42;	author -;	state -;
+branches;
+next	1.113;
+
+1.113
+date	2007.07.06.01.04.49;	author -;	state -;
+branches;
+next	1.112;
+
+1.112
+date	2007.07.06.00.58.52;	author -;	state -;
+branches;
+next	1.111;
+
+1.111
+date	2007.07.06.00.58.34;	author -;	state -;
+branches;
+next	1.110;
+
+1.110
+date	2007.07.06.00.50.44;	author -;	state -;
+branches;
+next	1.109;
+
+1.109
+date	2007.07.06.00.49.49;	author -;	state -;
+branches;
+next	1.108;
+
+1.108
+date	2007.07.06.00.47.04;	author -;	state -;
+branches;
+next	1.107;
+
+1.107
+date	2007.07.06.00.46.05;	author -;	state -;
+branches;
+next	1.106;
+
+1.106
+date	2007.07.06.00.37.15;	author -;	state -;
+branches;
+next	1.105;
+
+1.105
+date	2007.07.06.00.36.59;	author -;	state -;
+branches;
+next	1.104;
+
+1.104
+date	2007.07.06.00.00.06;	author -;	state -;
+branches;
+next	1.103;
+
+1.103
+date	2007.07.05.23.59.19;	author -;	state -;
+branches;
+next	1.102;
+
+1.102
+date	2007.07.05.23.58.35;	author -;	state -;
+branches;
+next	1.101;
+
+1.101
+date	2007.07.05.23.57.28;	author -;	state -;
+branches;
+next	1.100;
+
+1.100
+date	2007.07.05.23.56.46;	author -;	state -;
+branches;
+next	1.99;
+
+1.99
+date	2007.07.05.23.55.00;	author -;	state -;
+branches;
+next	1.98;
+
+1.98
+date	2007.07.05.23.52.33;	author -;	state -;
+branches;
+next	1.97;
+
+1.97
+date	2007.07.05.23.24.54;	author -;	state -;
+branches;
+next	1.96;
+
+1.96
+date	2007.07.05.22.53.41;	author -;	state -;
+branches;
+next	1.95;
+
+1.95
+date	2007.07.05.22.52.45;	author -;	state -;
+branches;
+next	1.94;
+
+1.94
+date	2007.07.05.22.51.57;	author -;	state -;
+branches;
+next	1.93;
+
+1.93
+date	2007.07.05.22.50.06;	author -;	state -;
+branches;
+next	1.92;
+
+1.92
+date	2007.07.05.22.48.40;	author -;	state -;
+branches;
+next	1.91;
+
+1.91
+date	2007.07.05.22.47.22;	author -;	state -;
+branches;
+next	1.90;
+
+1.90
+date	2007.07.05.22.36.58;	author -;	state -;
+branches;
+next	1.89;
+
+1.89
+date	2007.07.05.22.35.53;	author -;	state -;
+branches;
+next	1.88;
+
+1.88
+date	2007.07.05.22.34.16;	author -;	state -;
+branches;
+next	1.87;
+
+1.87
+date	2007.07.05.22.32.37;	author -;	state -;
+branches;
+next	1.86;
+
+1.86
+date	2007.07.05.22.32.01;	author -;	state -;
+branches;
+next	1.85;
+
+1.85
+date	2007.07.05.22.28.23;	author -;	state -;
+branches;
+next	1.84;
+
+1.84
+date	2007.07.05.22.26.54;	author -;	state -;
+branches;
+next	1.83;
+
+1.83
+date	2007.07.05.22.25.26;	author -;	state -;
+branches;
+next	1.82;
+
+1.82
+date	2007.07.05.22.23.31;	author -;	state -;
+branches;
+next	1.81;
+
+1.81
+date	2007.07.05.22.21.31;	author -;	state -;
+branches;
+next	1.80;
+
+1.80
+date	2007.07.05.22.12.51;	author -;	state -;
+branches;
+next	1.79;
+
+1.79
+date	2007.07.05.22.12.29;	author -;	state -;
+branches;
+next	1.78;
+
+1.78
+date	2007.07.05.22.12.11;	author -;	state -;
+branches;
+next	1.77;
+
+1.77
+date	2007.07.05.22.06.08;	author -;	state -;
+branches;
+next	1.76;
+
+1.76
+date	2007.07.05.22.05.02;	author -;	state -;
+branches;
+next	1.75;
+
+1.75
+date	2007.07.05.22.04.15;	author -;	state -;
+branches;
+next	1.74;
+
+1.74
+date	2007.07.05.22.01.40;	author -;	state -;
+branches;
+next	1.73;
+
+1.73
+date	2007.07.05.22.01.04;	author -;	state -;
+branches;
+next	1.72;
+
+1.72
+date	2007.07.05.21.56.55;	author -;	state -;
+branches;
+next	1.71;
+
+1.71
+date	2007.07.05.21.56.18;	author -;	state -;
+branches;
+next	1.70;
+
+1.70
+date	2007.07.05.21.54.38;	author -;	state -;
+branches;
+next	1.69;
+
+1.69
+date	2007.07.05.21.54.20;	author -;	state -;
+branches;
+next	1.68;
+
+1.68
+date	2007.07.05.21.52.42;	author -;	state -;
+branches;
+next	1.67;
+
+1.67
+date	2007.07.05.21.51.00;	author -;	state -;
+branches;
+next	1.66;
+
+1.66
+date	2007.07.05.21.50.46;	author -;	state -;
+branches;
+next	1.65;
+
+1.65
+date	2007.07.05.21.48.58;	author -;	state -;
+branches;
+next	1.64;
+
+1.64
+date	2007.07.05.21.47.22;	author -;	state -;
+branches;
+next	1.63;
+
+1.63
+date	2007.07.05.21.43.54;	author -;	state -;
+branches;
+next	1.62;
+
+1.62
+date	2007.07.05.21.43.13;	author -;	state -;
+branches;
+next	1.61;
+
+1.61
+date	2007.07.05.21.39.51;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2007.07.05.21.37.52;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2007.07.05.21.36.41;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2007.07.05.21.36.10;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2007.07.05.21.33.47;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2007.07.05.21.31.08;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2007.07.05.21.28.52;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2007.07.05.21.28.13;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2007.07.05.21.27.11;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2007.07.05.21.26.38;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2007.07.05.21.26.15;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2007.07.05.21.25.15;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2007.07.05.21.13.49;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2007.07.05.21.13.10;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2007.07.05.21.09.35;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2007.07.05.21.08.01;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2007.07.05.21.07.15;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2007.07.05.21.06.29;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2007.07.05.18.57.58;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2007.07.04.03.07.49;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2007.07.04.03.03.30;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2007.07.04.03.00.51;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2007.07.04.02.59.15;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2007.07.04.02.58.24;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2007.07.04.02.56.55;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2007.07.04.02.55.32;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2007.07.04.02.55.09;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2007.07.04.02.54.55;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2007.07.04.02.54.26;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2007.07.04.02.52.55;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2007.07.04.02.50.47;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2007.07.04.02.49.19;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2007.07.04.02.43.34;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2007.07.04.02.43.08;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2007.07.04.02.42.28;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2007.07.04.02.41.53;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2007.07.04.02.41.20;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2007.07.04.02.38.25;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2007.07.04.02.38.04;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2007.07.04.02.20.53;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2007.07.04.02.11.25;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2007.07.04.02.08.18;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2007.07.04.02.07.47;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2007.07.04.02.01.53;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2007.07.04.02.01.12;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2007.07.04.01.58.55;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2007.07.04.01.57.11;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2007.07.04.01.52.03;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2007.07.04.01.51.37;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2007.07.04.01.39.32;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2007.07.04.01.38.16;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2007.07.04.01.34.43;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2007.07.04.01.33.59;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2007.07.04.01.33.33;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2007.07.04.01.32.20;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2007.07.04.00.06.59;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2007.07.04.00.06.45;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2007.07.04.00.06.24;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2007.07.04.00.05.41;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2007.07.04.00.04.13;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2007.07.03.23.50.55;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.241
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.SIZE 12 14
+.INITR* \n[.F]
+.TITLE "Coding Style"
+.RCS "$Id: coding-style.mm,v 1.240 2014-04-03 19:40:23-07 - - $"
+.PWD
+.URL
+.de andhalf
+.   if t \\$1\[12]
+.   if n \\$1\~1/2
+..
+.de CODE
+.   VICODE* 1 \\$@@
+..
+.de PSO-ON
+.   ft CR
+.   nf
+.   eo
+..
+.de PSO-OFF
+.   ec
+.   fi
+.   ft R
+..
+.de http
+.   =V [ http://\\$1 ]\\$2
+..
+.\" .ds BASE-TITLE-LEFT \*[TITLE-LEFT]
+.\" .de HY
+.\" .   RI "\\n[hd*level] \\n[hd*arg1] \\$2 (\\*(}0) (\\$3)"
+.\" .   ds TITLE-LEFT \\*[BASE-TITLE-LEFT] \[bu] \\*[}0]\\$3
+.\" ..
+.INITR* \n[.F]
+.EQ
+delim $$
+.EN
+Programs are a communication device not only from a person to a
+computer,
+but from a person to another person,
+and should thus be readable.
+Time spent in making a program readable makes it easier for
+others to read your program.
+.P
+This document provides some general coding style guidelines.
+They are necessarily incomplete and not every statement is applicable
+to every programming language.
+Examples are restricted to the C and Java languages,
+since those are the only programming languages seen by UCSC
+students in introductory courses.
+.P
+Most text is in Roman or
+.BR Bold
+font for the narrative.
+In coding examples,
+.V= "Courier Bold"
+is mostly used to indicate what you type in exactly, and
+.IR Italic
+to indicate something you substituted.
+In computer interaction listings,
+.T= "Courier Roman"
+is used to indicate what the computer displays and
+.V= "Courier Bold"
+to indicate what you type in yourself at the keyboard.
+.P
+This document is expected to be marginally comprehensible to students
+at the beginning of CMPS-012A,
+mostly comprehensible to students at the end of CMPS-012A or the
+beginning of CMPS-012B,
+and completely comprehensible to students who have completed
+CMPS-012B, or any course for which it is a prerequisite.
+.H 1 "General introduction"
+.ALX 1 ()
+.LI
+The first line of every text file you submit for evaluation should
+contain your personal name and
+.IV username @@ucsc.edu
+at the top of the file.
+If it is program file, this must be in a comment.
+A text file is any file readable with an editor,
+.V= cat (1),
+.V= more (1), 
+etc., be it a program source file, a
+.V= Makefile ,
+or a
+.V= README .
+In the case of a shell or Perl script, 
+it must be the second line, the first line being the hash-bang
+.=V ( #! )
+line, as in 
+.CODE "#!/bin/bash"
+.LI
+When resizing an 
+.V= xterm
+using your window manager,
+look for the little box that shows its dimension.
+It might say something like
+.V= 80x75 .
+Make sure the 
+.V= xterm 
+is 80 columns wide.
+Choose whatever height is convenient for your screen.
+Taller is better.
+Taller than the screen is not good.
+History\(::
+The original DEC VT-100 terminal, which
+.V= xterm 
+emulates had 80 columns and 24 lines, which is why the default
+.V= xterm
+uses
+.V= "-geometry 80x24" .
+.LI
+Messages sent in email should have
+lines limited to 65 characters,
+so that when quoted in a followup,
+lines tend not to wrap and are still shorter than 72 characters
+after several followups.
+History\(::
+A page is
+.andhalf 8
+inches wide and with 1 inch margins
+leaves
+.andhalf 6
+inches for text.
+A standard typewriter font prints 10 characters per inch,
+which is 65 characters per line.
+.LI
+To reformat a paragraph from inside
+.V= vi (1),
+the 
+.V= fmt (1)
+command may be used in several ways, 
+sometimes with the crown margin
+.=V ( -c )
+option.
+A couple of examples follow\(::
+.CODE "{!}fmt -65"
+.CODE ":10,20!fmt -65
+.LI
+If you insist on having a signature keep it to four or fewer lines.
+No one wants to see an ASCII cartoon or box of asterisks.
+And, of course, a
+.V= \&.gif
+or
+.V= \&.jpg
+is quite obnoxious.
+.LI
+If you use
+.V= vi (1),
+create a file called
+.V= \&.exrc
+in your home directory.
+A sample
+.V= \&.exrc 
+file is shown in the
+.V= examples/
+subdirectory.
+Your
+.V= \&.exrc
+should contain at least the following lines\(::
+.CODE "set number"
+.CODE "set showmode"
+.LE
+.H 1 "File format"
+.ALX 1 ()
+.LI
+Lines of source code should never be longer than 72 characters.
+The standard
+.V= xterm (1)
+is 80 columns wide,
+and when the 
+.V= ":set number"
+option is used in
+.V= vi (1),
+line numbers are displayed in a field of width 8 on the left side
+of the screen.
+Lines longer than 72 characters thus cause ugly and unreadable
+wraparound.
+History\(::
+Punched cards were 80 columns wide, 
+with 72 characters being used for data and the remaining 8 characters
+used for sequence numbers (in case you dropped your deck).
+.LI
+Text files should contain only visible printable characters,
+spaces, and newlines.
+Specifically, there should
+.E= never
+be carriage return
+.=V ( \[ha]M )
+characters in a file.
+If you have the extremely bad judgement to edit using bloatware
+from M*cr*\[Do]*ft,
+you may delete them with such programs as
+.V= dos2unix (1),
+by using the
+.V= vi
+command
+.CODE ":g/\[ha]V\[ha]M/s///"
+or with the shell command
+.CODE "perl -pi -e 's/\[rs]r//g' " filename
+.LI
+Do not use tabs in files.
+When used for indentation,
+they cause the code to move too far to the right,
+thus making lines appear longer than 72 characters.
+Never use an editor command to change the length of a tab,
+since that will not necessarily be the same when viewed by someone else
+using a different editor.
+The command
+.V= expand (1)
+can be used to remove tabs from files.
+.LI
+.E= Exception\(::
+When typing in a
+.V= Makefile ,
+tabs are required before commands, 
+but never elsewhere.
+Use exactly one tab at the beginning of a shell command in a 
+.V= Makefile .
+Making tabs significant was a design flaw in
+.V= make (1),
+which
+.V= gmake
+follows.
+.LI
+The last character of every line in a text file must always be a
+newline character.
+This includes the last line of a file.
+The
+.V= vi (1)
+editor automatically ensures that this is true, but
+.V= emacs (1)
+does not.
+If you use
+.V= emacs ,
+make sure your home directory has a file called
+.V= \&.emacs
+(note the initial dot)
+containing the line
+.CODE "(setq require-final-newline t)"
+.LI
+Every file should usually contain an
+.V= "RCS \[Do]Id\[Do]"
+string.
+This identifies a copy of any printed listing with a specific
+version number.
+This identifier should be the first
+(after your name and username)
+or last line of a file,
+and,
+for any given project, be consistently placed.
+For a program, it usually appears in a comment,
+but it may instead appear in a macro or string
+in order to propagate it into an object file.
+All versions of all files must be archived in an
+.V= RCS ,
+.V= CVS ,
+.V= SVN ,
+or
+.V= Git
+repository.
+.LI
+.V= SVN
+users should Google for
+.=V `` svn:keywords ''
+to find out how to do this.
+See
+.http svnbook.red-bean.com/en/1.0/ch07s02.html
+for a command like
+.CODE "svn propset svn:keywords \[Dq]Id\[Dq] " filename
+.LI
+One of the following commands can be used to check for invalid
+unprintable characters in a file (usually tabs and carriage returns)
+and for a missing newline at end of file.
+It 
+.V= cat s
+the file using the
+.V= -vt
+option which displays invisible characters visibly,
+and pipes the output into
+.V= diff (1)
+to check it against the original.
+A minus sign
+.=V ( - )
+argument to 
+.V= diff
+causes it to compare 
+.V= stdin .
+It also complains about missing newlines, if any.
+We specifically omit the
+.V= -t
+option for
+.V= Makefile s,
+since tabs can not be avoided.
+.ds filename.str \f[CB]-vt \f[P]\f[I]filename\f[P]
+.ds Makefile.str \f[CB]-v  \f[P]\f[CB]Makefile\f[P]
+.nr filename.wid \w'\*[filename.str]'
+.nr Makefile.wid \w'\*[Makefile.str]'
+.nr diffname.wid \n[filename.wid]-\n[Makefile.wid]
+.ie \n[diffname.wid]<0 .as filename.str \h'-\n[diffname.wid]u'
+.el                    .as Makefile.str \h'\n[diffname.wid]u'
+.CODE "cat \*[filename.str] 2>&1 | diff - " filename
+.CODE "cat \*[Makefile.str] 2>&1 | diff - Makefile"
+.LI
+The following command 
+.V= cat s
+a file into 
+.V= expand (1),
+.V= cut (1)s
+the first 72 characters of the file, and 
+.V= grep(1)s
+for any remaining line with nine or more characters.
+I.e., the line numbers and excess characters are printed.
+It prints nothing if all lines are within bounds.
+The
+.V= grep (1)
+command has 9 dots,
+which will match the 8-position line number plus one character.
+.CODE "cat -n " filename " | expand | cut -c1-8,81- | grep ........."
+.LI
+Run the program
+.V= checksource
+(in the
+.V= bin
+subdirectory of the course volume)
+and see that it does not complain.
+.LE
+.H 1 "Filenames and identifiers"
+.ALX 1 ()
+.LI
+Filenames should be spelled using only lower case letters,
+digits, periods, and underscores or minus signs.
+Upper case letters in filenames are generally to be avoided,
+except for special names such as
+.V= Makefile
+and
+.V= README ,
+which must be spelled exactly that way.
+Commands like
+.V= ls (1)
+sort filenames lexicographically and thus list capitalized names before
+lower case names.
+Use this as a sorting tool.
+The following non-alphanumeric characters generally to not cause
+problems when used in filenames\(::
+.CODE "% + , - . : = @@ _"
+.LI
+Shell metacharacters are prohibited in filenames.
+A slash
+.=V ( / )
+is a directory separator,
+so Unix will not let you use it in a filename, even if you quote it.
+Following is a list of shell metacharacters\(::
+.CODE "! \[Dq] # \[Do] & ' ( ) * / ; < > ? \
+[ \[rs] ] \[ha] ` { | } \[ti]"
+The tilde
+.=V ( \[ti] )
+only has special meaning when it is the first character in a filename,
+in which case it causes username interpolation.
+This, along with the plus
+.=V ( + )
+and minus
+.=V ( - )
+characters,
+may appear in a filename, 
+but never as the first character.
+.LI
+When Java compiles inner classes, 
+it creates filenames with the dollar sign
+.=V ( \[Do] ),
+which is a very bad design decision,
+but there is nothing you can do about it.
+.LI
+Never use one-letter identifiers.
+Using
+.V= i ,
+for example,
+means that when searching for the variable using an editor,
+the search will stop at keywords such as
+.V= if
+and
+.V= while .
+Instead, use a name related to the variable being scanned,
+as in the use of
+.V= argi
+as an index into
+.V= argv .
+Never use an identifier which is a substring of a reserved word.
+.LI
+On the other hand, excessively long identifiers are not a good thing
+either.
+Names like
+.V= ArrayIndexOutOfBoundsException ,
+.V= NoSuchElementException ,
+.V= NullPointerException ,
+.V= StringIndexOutOfBoundsException ,
+are excessively long and uglier than a camel.
+Kernighan & Ritchie's laconic style as used in the C library is
+better, e.g., 
+.V= fclose ,
+.V= fopen ,
+.V= printf , 
+.V= strcmp .
+.LI
+Many Java programmers like using CamelCase.
+CamelCase is ugly and unnatural because it has interior capital
+letters.
+When using the Java API, it is not possible to avoid CamelCase.
+Generally it is better for variable,
+class, and function names to be
+writting entirely in lower case with underscores separating words.
+.LI
+Identifiers should be long enough that the command
+.V= grep (1)
+will print out only those lines containing those identifiers,
+and few other spurious lines.
+Do not use excessively long names, 
+nor interior capital letters.
+Use underscores to separate words when that enhances readability.
+.LI
+Enumeration constants, preprocessor symbols, and
+.V= final
+variables
+in Java should be spelled in
+.V= UPPER_CASE .
+No other identifiers should be spelled in upper case.
+.LI
+It is a C convention that no name may end with the characters
+.V= _t
+except for symbols defined via
+.V= typedef .
+.LI
+If an identifier consists of more than one word,
+and there is no ambiguity,
+such as
+.V= strcmp ,
+etc., just concatenate the words.
+If it is difficult to see the word boundary, use an underscore
+.=V ( _ )
+to separate the words, as in
+.V= max_incr ,
+for example.
+.LE
+.H 1 "Indentation and layout"
+.ALX 1 ()
+.LI
+Top level constructs should always be against the left margin.
+For Java, these are
+.V= import 
+and
+.V= class
+statements.
+For C, they are
+.V= #include s,
+global variables,
+and functions.
+.LI
+An opening brace
+.=V ( { )
+should never be on a line by itself.
+Always place it at the end of the line after the control construct.
+The corresponding closing brace
+.=V ( } )
+should be in the same column as the keyword or type that opened the
+block.
+.LI
+.E= Exception\(::
+Some C programmers like putting the opening brace of a
+.E= function
+in the leftmost column immediately underneath the return type.
+This is the only case where an opening brace may appear on a line
+by itself.
+.LI
+All code between the braces should be indented by three spaces,
+as shown in the example C and Java programs.
+.LI
+When using an 
+.V= if \|.\|.\|.\| else
+structure, the
+.V= else
+should be on the same line as the closing brace of the corresponding
+.V= if , 
+When using
+.V= "else if"
+the entire construct from the closing brace before the
+.V= else
+to the opening brace after the condition should be on the same line,
+if it fits.
+Following is an example of the expected layout\(::
+.CODE "if (" "condition" ") {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}else if (" "condition" ") {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}else {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}"
+.LI
+An infinite loop with a 
+.V= break
+or
+.V= return
+in the middle is frequently written as an empty 
+.V= for -construct, 
+as in
+.CODE "for (;;) {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "   if (" "condition" ") break;"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}"
+.LI
+Occasionally,
+both branches of the conditional will be very short and
+then may be written in a slightly different style without braces,
+with each statement being aligned\(::
+.CODE "if (prev == null) head = newnode;"
+.CODE "             else prev.link = newnode;"
+.LI
+In C, always use file guards in a header file.
+So, for example, if you have a file called
+.V= foo.h ,
+make a preprocessor symbol from the filename (upper case),
+as in
+.CODE "#ifndef __FOO_H__"
+.CODE "#define __FOO_H__"
+.CODE "" "header file declarations \|.\|.\|."
+.CODE "#endif"
+.LI
+In C, use the preprocessor symbol
+.V= NULL
+and not a 0, because it is more readable.
+.LI
+Never omit the braces if the statements being controlled by a
+construct are written on a different line than the control construct.
+If the
+.V= if -part
+has braces then so must the
+.V= else -part
+and vice versa.
+.LI
+Never omit the braces if the statement being controlled by a 
+construct is itself a control construct.
+This is especially important if the keyword
+.V= else
+is involved.
+The dangling
+.V= else
+can introduce hard-to-find bugs.
+.LI
+Parentheses should be used consistently.
+Either put a space immediately outside of each parenthesis,
+opening or closing,
+as is illustrated in the example in this document,
+and never inside\(;;
+or put a space immediately inside each parenthesis,
+but not outside.
+Every parenthesis must have a space before it or after it but not
+both.
+.LI
+When defining a parameterized macro in C, the language prohibits a
+space in front of the open parenthesis in the left side of the
+definition.
+.LI
+Always put a space after a semi-colon in the control part of a
+.V= for
+statement.
+Do not put more than one statement on a line without a very good
+reason.
+.LI
+Do not use parentheses at the top level of a
+.V= return
+statement.
+If the 
+.V= return
+statement is complicated, inner parentheses might be needed.
+.LI
+Sometimes a statement is too long for a line.
+In that case, the best place to break a line is after a comma, 
+as shown here.
+The next line should then be indented a little further and aligned
+at a sensible spot.
+.CODE "out.printf (\[Dq]value = %d, string = %s, truth = %b%n\[Dq],"
+.CODE "            value, this.string, the.truth);"
+.LI
+For a very long assignment statement,
+break just in front of a very low precedence operator and align
+that operator under the equal sign.
+.LI
+Do not declare more than one variable per line,
+except for formal parameters,
+which are normally declared all on the same line.
+If that line is long, break after a comma, and indent the next
+line to the indentation of the first parameter.
+.LE
+.H 1 "Comments"
+.ALX 1 ()
+.LI
+Every program must also contain an RCS
+.V= \[Do]Id\[Do]
+string in a comment, macro, or string.
+When you initially type it in,
+just type the four characters.
+The RCS
+.V= ci
+operation will edit that string.
+.LI
+The beginning of a program containing a main function should have
+a large comment in the format of a Unix 
+.V= man (1)
+page, so shown in the examples.
+.LI
+If you use 
+.V= //
+comments,
+Each of the comment markers should be lined up at the beginning of each
+line,
+as is shown in the example C program.
+.LI
+If you use
+.VI "/*" "\|.\|.\|.\|" "*/"
+comments, the opening
+.V= /*
+and closing
+.V= */
+should be on lines by themselves with a column of asterisks
+.=V ( * )
+connecting them, as is shown in the example C program.
+It is also acceptable, for short comments to put both the
+.V= /*
+and
+.V= */
+on the same line.
+.LI
+Comments on code or functions should precede that which they describe
+and be indented to the same level as the code they describe.
+.LI
+If code is tricky, and a comment is short,
+the comment may appear after the code on the same line,
+provided that it fits.
+Tricky code is usually bad.
+.\" .FS
+.\" .IR "\[<<]equo ne credite, Teucri."
+.\" .IR "quidquid id est, timeo Danaos et dona ferentis.\[>>]"
+.\" .br
+.\" \[em]
+.\" Publius Vergilius Maro,
+.\" .IR "\[AE]neidos, liber ii."
+.\" .FE
+.\" but, depending on your perspective,
+.\" it might occasionally be good\*F.
+.LE
+.H 1 "Process requirements"
+.ALX 1 ()
+.LI
+Error messages should always be printed to
+.V= stderr
+.=V ( System.err ),
+never to
+.V= stdout
+.=V ( System.out ),
+and an error message (whether a warning or a fatal error)
+should cause a non-zero exit code.
+.LI
+Debug messages and trace chatter should also be written to
+.V= stderr ,
+not
+.V= stdout ,
+since they are not properly part of the output stream of a program.
+.LI
+An exit status of 0 should always be returned if the program worked.
+A non-zero exit status between 1 and 255 should be returned
+if the program failed.
+In C, use the preprocessor symbols
+.V= EXIT_SUCCESS
+for 0 and
+.V= EXIT_FAILURE
+for 1,
+rather than the numbers.
+.LI
+In Java, the
+.V= main
+function is of type 
+.V= void
+and returns an exit status of 0 if it returns.
+To return a non-zero exit status, use the function
+.V= System.exit .
+Define the following constants\(::
+.CODE "public static final int EXIT_SUCCESS = 0;"
+.CODE "public static final int EXIT_FAILURE = 1;"
+.LE
+.H 1 "Coding strategy"
+.ALX 1 ()
+.LI
+Avoid confusing uses of the
+.V= ++
+and
+.V= -- 
+operators.
+The following is very bad\(::
+.CODE "data[++index] = other[++index];"
+.LI
+Never\*F use a 
+.FS
+Edsger W.\& Dijkstra\(::
+Go To Statement Considered Harmful.
+.http www.acm.org/classics/oct95/
+.FE
+.V= goto \*F.
+.FS
+Edsger W.\& Dijkstra\(::
+EWD 214\(::
+A Case against the GO TO Statement.
+.http www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF
+.FE
+Well, almost never\*F.
+.FS
+Donald E. Knuth\(::
+Structured Programming with go to Statements.
+ACM Computing Surveys, vol.\~6, December 1974, pp.\~261\[en]301.
+.http portal.acm.org/citation.cfm?id=356640
+.FE
+Most programmers, upon being told to go to hell\*F,
+.FS
+.IR "\[<<]Lasciate ogne speranza, voi ch'intrate.\[>>]" 
+\[em]
+Dante Alighieri,
+.IR "La Divina Commedia, Inferno, canto iii."
+.FE
+will object more to the method than the destination.
+The
+.V= break ,
+.V= continue ,
+and
+.V= return
+statements make a
+.V= goto 
+absolutely unnecesary for well-written code.
+Java has, in addition to these,
+.V= try ,
+.V= catch ,
+and
+.V= throw .
+.LI
+In C,
+.V= gdb (1)
+and
+.V= valgrind (1)
+to check for bad memory accesses and memory leak.
+.LI
+If you use
+.V= gcc
+to compile your programs, use the following options\(::
+.CODE "gcc -g -O0 -Wall -Wextra -std=gnu99"
+.LI
+Study the Ten Commandments for C Programmers (Annotated Edition),
+by Henry Spencer,
+available at 
+.http www.lysator.liu.se/c/ten-commandments.html
+.LE
+.H 1 "Example code"
+Following are some example programs and code.
+The files are all in a subdirectory 
+.V= examples/ .
+The line numbers are present for ease of classroom discussion,
+and are not actually in the document.
+The leftmost characters in the text of the programs is actually
+flush against the left margin,
+indented code being moved over a little.
+Each example is preceded by a shell pipelines that test for basic
+formatting sanity.
+.P
+An example
+.V= Makefile
+is shown at the end of this document.
+but a detailed discussion is beyond the scope of this document.
+Refer to the classroom presentation at the appropriate time.
+In general, it is a better idea to use
+.V= gmake
+rather than
+.V= make ,
+since it is more powerful,
+and has builtin as well as user-defined functions.
+.SP 10i
+.H 2 "An example Java program"
+.TVCODE* 0 "bash-% " \
+"cat -vt examples/args.java | diff - examples/args.java"
+.PSO-ON
+.pso cat -vt examples/args.java | diff - examples/args.java
+.PSO-OFF
+.TVCODE* 0 "bash-% " \
+"cat -n  examples/args.java | expand | cut -c1-8,81- | grep ........."
+.PSO-ON
+.pso cat -n examples/args.java | expand | cut -c1-8,81- | grep .........
+.PSO-OFF
+.TVCODE* 0 "bash-% " "cat -nv examples/args.java | expand"
+.PSO-ON
+.pso cat -nv examples/args.java | expand
+.PSO-OFF
+.SP 10i
+.H 2 "An example C program"
+.TVCODE* 0 "bash-% " \
+"cat -vt examples/argv.c | diff - examples/argv.c"
+.PSO-ON
+.pso cat -vt examples/argv.c | diff - examples/argv.c
+.PSO-OFF
+.TVCODE* 0 "bash-% " \
+"cat -n  examples/argv.c | expand | cut -c1-8,81- | grep ........."
+.PSO-ON
+.pso cat -n examples/argv.c | expand | cut -c1-8,81- | grep .........
+.PSO-OFF
+.TVCODE* 0 "bash-% " "cat -nv examples/argv.c | expand"
+.PSO-ON
+.pso cat -nv examples/argv.c | expand
+.PSO-OFF
+.SP 10i
+.H 2 "An example \f[CB]Makefile\f[P]"
+Note that tabs only appear in the left margin to indent commands,
+not comments, macro definitions, or dependency specifications.
+When displayed at a terminal or on paper,
+tabs appear to be eight spaces.
+.P
+.TVCODE* 0 "bash-% " \
+"cat -v  examples/Makefile | diff - examples/Makefile"
+.PSO-ON
+.pso cat -v examples/Makefile | diff - examples/Makefile
+.PSO-OFF
+.TVCODE* 0 "bash-% " \
+"cat -n  examples/Makefile | expand | cut -c1-8,81- | grep ........."
+.PSO-ON
+.pso cat -n examples/Makefile | expand | cut -c1-8,81- | grep .........
+.PSO-OFF
+.TVCODE* 0 "bash-% " "cat -nv examples/Makefile | expand"
+.PSO-ON
+.pso cat -nv examples/Makefile | expand
+.PSO-OFF
+.SP 10i
+.H 2 "An example \f[CB].exrc\f[P]"
+Note the output of the invalid character checking shell command.
+As a special case, the
+.V= set
+commands in the
+.V= \&.exrc
+need to actually terminate with a carriage return character.
+In input mode,
+they can be typed in with
+.V= \[ha]V\[ha]M
+(Ctrl/V,\~Ctrl/M).
+The leading quote
+.=V ( \[Dq] )
+is a comment marker.
+The command
+.V= "set showmatch"
+is useful for typing in programs when you need to see matching
+parentheses, brackets, and braces as you type them in.
+.P
+.TVCODE* 0 "bash-% " "cat -nv examples/.exrc | expand"
+.PSO-ON
+.pso cat -nv examples/.exrc | expand
+.PSO-OFF
+.SP 10i
+.H 2 "A format-checking script \f[CB]check.sh\f[P]
+Following is a script that performs basic format checking.
+.P
+.TVCODE* 0 "bash-% " "cat -nv examples/check.sh"
+.PSO-ON
+.pso cat -nv examples/check.sh
+.PSO-OFF
+.SP 10i
+.H 2 "A file format fixing script \f[CB]fixfile.sh\f[P]
+A script that removes carriage returns, expands tabs,
+and adds a trailing newline if necessary.
+.P
+.TVCODE* 0 "bash-% " "cat -nv examples/fixfile.sh"
+.PSO-ON
+.pso cat -nv examples/fixfile.sh
+.PSO-OFF
+.FINISH
+@
+
+
+1.240
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: coding-style.mm,v 1.239 2014-04-03 19:38:14-07 - - $"
+a742 19
+If programming in C, always use
+.V= lint (1)
+to check up on your code.
+You should modify your program to keep
+.V= lint
+from complaining, although message like the following for some
+.V= <stdio.h>
+library functions are usually ignored\(::
+.TVCODE* 1 "function returns value which is always ignored"
+.TVCODE* 1 "    fclose              printf              putchar"
+The sample
+.V= Makefile
+shows some 
+.V= lint
+options that are useful for programs compiled on the Solaris
+machines\(::
+.ds LINTOPT -Xa -fd -m -u -x -errchk=%all,no%longptr64
+.TVCODE* 1 "LINTOPT = -D__EXTENSIONS__ \*[LINTOPT]"
+.LI
+d744 1
+a744 1
+.V= dbx (1)
+d746 1
+a746 1
+.V= bcheck (1)
+a748 5
+When debugging using Sun's C compiler, use the following options\(::
+.V= "-Xc -v -g -xO0" .
+You may also want to use
+.V= -D__EXTENSIONS__ .
+.LI
+d752 1
+a752 1
+.V= "-g -ansi -pedantic -Wall" .
+@
+
+
+1.239
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: coding-style.mm,v 1.238 2014-04-03 19:34:53-07 - - $"
+d192 1
+a192 1
+from M*cr*\[Do]*ft\*F,
+a649 2
+.\" .FS
+.\" .FE
+a723 1
+.br
+@
+
+
+1.238
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: coding-style.mm,v 1.237 2014-04-03 19:33:29-07 - - $"
+d16 9
+a24 2
+.de HX
+.   nr ;3 4v
+d813 1
+a813 1
+.VERBON
+d815 1
+a815 1
+.VERBOFF
+d818 1
+a818 1
+.VERBON
+d820 1
+a820 1
+.VERBOFF
+d822 1
+a822 1
+.VERBON
+d824 1
+a824 1
+.VERBOFF
+d829 1
+a829 1
+.VERBON
+d831 1
+a831 1
+.VERBOFF
+d834 1
+a834 1
+.VERBON
+d836 1
+a836 1
+.VERBOFF
+d838 1
+a838 1
+.VERBON
+d840 1
+a840 1
+.VERBOFF
+d850 1
+a850 1
+.VERBON
+d852 1
+a852 1
+.VERBOFF
+d855 1
+a855 1
+.VERBON
+d857 1
+a857 1
+.VERBOFF
+d859 1
+a859 1
+.VERBON
+d861 1
+a861 1
+.VERBOFF
+d883 1
+a883 1
+.VERBON
+d885 1
+a885 1
+.VERBOFF
+d891 1
+a891 1
+.VERBON
+d893 1
+a893 1
+.VERBOFF
+d900 1
+a900 1
+.VERBON
+d902 1
+a902 1
+.VERBOFF
+@
+
+
+1.237
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: coding-style.mm,v 1.236 2014-04-03 19:20:50-07 - - $"
+d806 1
+a806 1
+.VERBON 1
+d811 1
+a811 1
+.VERBON 1
+d815 1
+a815 1
+.VERBON 1
+d822 1
+a822 1
+.VERBON 1
+d827 1
+a827 1
+.VERBON 1
+d831 1
+a831 1
+.VERBON 1
+d843 1
+a843 1
+.VERBON 1
+d848 1
+a848 1
+.VERBON 1
+d852 1
+a852 1
+.VERBON 1
+d876 1
+a876 1
+.VERBON 1
+d884 1
+a884 1
+.VERBON 1
+d893 1
+a893 1
+.VERBON 1
+@
+
+
+1.236
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: coding-style.mm,v 1.235 2014-04-03 19:20:14-07 - - $"
+a12 4
+.de ITEMIZE
+.   ALX 1 ()
+.   sp -1v
+..
+d66 1
+a66 1
+.ITEMIZE
+d158 1
+a158 1
+.ITEMIZE
+d322 1
+a322 1
+.ITEMIZE
+d438 1
+a438 1
+.ITEMIZE
+d588 1
+a588 1
+.ITEMIZE
+d647 1
+a647 1
+.ITEMIZE
+d686 1
+a686 1
+.ITEMIZE
+@
+
+
+1.235
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: coding-style.mm,v 1.234 2014-04-03 19:19:28-07 - - $"
+a189 3
+.FS
+.Cato.maior
+.FE
+@
+
+
+1.234
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: coding-style.mm,v 1.233 2013-03-28 19:21:28-07 - - $"
+d40 1
+a40 12
+others to read your program\*F.
+.FS
+``First off,
+I'd suggest printing out a copy of the GNU coding standards,
+and NOT read it.
+Burn them, it's a great symbolic gesture.''
+.br
+\[em]
+Linus Torvalds, Linux kernel coding style.
+.br
+.http www.chris-lott.org/resources/cstyle/LinuxKernelCodingStyle.txt
+.FE
+@
+
+
+1.233
+log
+@-
+@
+text
+@d3 1
+d6 1
+a6 1
+.RCS "$Id: coding-style.mm,v 1.232 2013-01-03 18:42:00-08 - - $"
+@
+
+
+1.232
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.231 2012-10-09 13:09:39-07 - - $"
+d98 1
+a98 1
+.CODE "#!/usr/bin/perl"
+d120 1
+a120 1
+Messages sent in email and posted to the newsgroup should have
+a146 11
+.E= Never
+send HTML in email or post it to the newsgroup..
+HTML is ugly and unnecessary.
+Obviously, also
+.E= never
+send a Word document as an attachment.
+Send plain text, using either the US-ASCII or the ISO-8859-1
+(ISO-Latin-1) character sets and 7-bit or 8-bit encoding.
+.E= Never
+use base-64 content transfer encoding.
+.LI
+d205 5
+a209 5
+by using the command
+.V= ":g/\[ha]V\[ha]M/s///"
+in 
+.V= vi (1),
+or with the command
+a251 13
+If you still decide that you really want to use software
+that does not conform to these standards, you can fix files with
+the script
+.V= fixfile.sh ,
+shown at the end of this document and in my
+.V= bin
+directory.
+The command
+.CODE "fixfile.sh *.java"
+will expand tabs, delete carriage returns, and add a final
+newline if one is missing.
+It does not fix excessively long lines.
+.LI
+d359 1
+a359 5
+The tilde
+.=V ( \[ti] )
+only has special meaning when it is the first character in a filename,
+in which case it causes username interpolation,
+and a slash
+d366 11
+d419 3
+@
+
+
+1.231
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.230 2011-01-10 13:48:34-08 - - $"
+d7 1
+@
+
+
+1.230
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.229 2011-01-10 13:47:00-08 - - $"
+a380 1
+Only perverts use spaces, tabs, returns, or newlines in filenames.
+@
+
+
+1.229
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.228 2010-04-01 16:36:14-07 - - $"
+d275 1
+a275 1
+Every file must contain an
+@
+
+
+1.228
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.227 2009-12-17 18:05:17-08 - - $"
+d291 3
+a293 2
+or 
+.V= SVN
+@
+
+
+1.227
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.226 2009-04-10 19:47:42-07 - - $"
+d391 2
+a392 1
+.CODE "! \[Dq] # \[Do] & ' () * / ; < > ? [ \[rs] ] \[ha] ` { | } \[ti]"
+@
+
+
+1.226
+log
+@-
+@
+text
+@d1 1
+a1 1
+.so .gmmso/Tmac.mm-etc
+d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.225 2009-04-10 19:47:03-07 - - $"
+@
+
+
+1.225
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.224 2009-04-10 19:46:23-07 - - $"
+a674 3
+.H 1 "Code formatting
+.ITEMIZE
+.LE
+@
+
+
+1.224
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.223 2009-04-10 19:43:31-07 - - $"
+a511 1
+.DS "" F
+a518 1
+.DE
+a526 1
+.DS "" F
+a531 1
+.DE
+a536 1
+.DS "" F
+a538 1
+.DE
+a544 1
+.DS "" F
+a548 1
+.DE
+a602 1
+.DS "" F
+a604 1
+.DE
+a713 1
+.DS
+a715 1
+.DE
+a725 1
+.DS
+a726 1
+.DE
+@
+
+
+1.223
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.222 2009-04-10 19:39:05-07 - - $"
+d522 15
+d546 16
+a686 49
+.LI
+An infinite loop with a 
+.V= break
+or
+.V= return
+in the middle is frequently written as an empty 
+.V= for -construct, 
+as in
+.DS "" F
+.CODE "for (;;) {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "   if (" "condition" ") break;"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}"
+.DE
+.LI
+Nested 
+.V= if - else
+sequences should be properly aligned,
+and
+.V= else\~if
+should be considered a single compound keyword, as in
+.DS "" F
+.CODE "if (" "condition" ") {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}else if (" "condition" ") {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}slse if (" "condition" ") {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}else {"
+.CODE "   " "statements \|.\|.\|."
+.CODE "}"
+.DE
+.LI
+In C, always use file guards in a header file.
+So, for example, if you have a file called
+.V= foo.h ,
+make a preprocessor symbol from the filename (upper case),
+as in
+.DS "" F
+.CODE "#ifndef __FOO_H__"
+.CODE "#define __FOO_H__"
+.CODE "" "header file declarations \|.\|.\|."
+.CODE "#endif"
+.DE
+.LI
+In C, use the preprocessor symbol
+.V= NULL
+and not a 0, because it is more readable.
+@
+
+
+1.222
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.221 2009-04-10 18:11:59-07 - - $"
+d97 1
+a97 3
+.DS
+.VCODE* 1 "#!/usr/bin/perl"
+.DE
+a142 1
+.DS
+a144 1
+.DE
+a177 1
+.DS "" F
+a179 1
+.DE
+a219 1
+.DS "" F
+a220 1
+.DE
+a259 1
+.DS "" F
+a260 1
+.DE
+d270 1
+a270 1
+.VCODE* 1 "fixfile.sh *.java"
+a301 1
+.DS "" F
+a302 1
+.DE
+a333 1
+.DS
+a335 1
+.DE
+a350 1
+.DS
+a351 1
+.DE
+d378 1
+a378 13
+.DS "" F
+.ft CB
+\0\0
+\&%\&
+\&+\&
+\&,\&
+\&-\&
+\&.\&
+\&:\&
+\&=\&
+\&@@\&
+\&_\&
+.DE
+d391 1
+a391 28
+.DS "" F
+.ft CB
+\0\0
+\&!\&
+\&\[Dq]\&
+\&#\&
+\&\[Do]\&
+\&&\&
+\&'\&\&
+\&(\&
+\&)\&
+\&*\&
+\&/\&
+\&;\&
+\&<\&
+\&>\&
+\&?\&
+\&[\&
+\&\[rs]\&
+\&]\&
+\&\[ha]\&
+\&`\&
+\&{\&
+\&|\&
+\&}\&
+\&\[ti]\&
+.ft R
+.DE
+a810 1
+.DS "" F
+a812 1
+.DE
+a818 1
+.DS
+a820 1
+.DE
+@
+
+
+1.221
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.220 2009-04-10 18:11:26-07 - - $"
+d272 13
+@
+
+
+1.220
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.219 2009-04-10 17:24:35-07 - - $"
+d997 1
+d1004 1
+a1004 1
+.pso cat -nv examples/check.sh
+@
+
+
+1.219
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.218 2009-03-26 20:22:48-07 - - $"
+d997 8
+@
+
+
+1.218
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.217 2009-01-05 20:19:17-08 - - $"
+d714 18
+@
+
+
+1.217
+log
+@-
+@
+text
+@d3 1
+d5 2
+a6 1
+.RCS "$Id: coding-style.mm,v 1.216 2009-01-05 20:16:07-08 - - $"
+@
+
+
+1.216
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.215 2009-01-05 20:15:57-08 - - $"
+d42 1
+d45 1
+d470 2
+a471 2
+Many Java programmers like using camelCase.
+camelCase is ugly and unnatural because it has interior capital
+d473 1
+a473 1
+When using the Java API, it is not possible to avoid camelCase.
+@
+
+
+1.215
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.214 2008-01-08 18:04:11-08 - - $"
+d11 1
+a11 1
+.   SP -1v
+@
+
+
+1.214
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.213 2007-08-17 19:26:23-07 - - $"
+d11 1
+d69 3
+a71 3
+at the beginning of CMPS-012A/L,
+mostly comprehensible to students at the end of CMPS-012A/L or the
+beginning of CMPS-012B/M,
+d73 1
+a73 1
+CMPS-012B/M, or any course for which it is a prerequisite.
+d109 1
+a109 1
+.E= History\(::
+d122 1
+a122 1
+.E= History\(::
+d198 1
+a198 1
+.E= History\(::
+@
+
+
+1.213
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.212 2007-08-17 19:13:28-07 - - $"
+d390 2
+a391 3
+Under no circumstances should one ever create filenames using spaces,
+tabs, returns, or newlines.
+Shell metacharacters are absolutely prohibited in filenames.
+@
+
+
+1.212
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.211 2007-08-17 19:13:11-07 - - $"
+d18 3
+d43 1
+d291 2
+a292 2
+See the documentation at
+.=V [ http://svnbook.red-bean.com/en/1.0/ch07s02.html ],
+d784 1
+a784 1
+.=V [ http://www.acm.org/classics/oct95/ ].
+d791 1
+a791 1
+.=V [ http://www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF ].
+d798 1
+a798 1
+.=V [ http://portal.acm.org/citation.cfm?id=356640 ].
+d865 1
+a865 1
+.=V [ http://www.lysator.liu.se/c/ten-commandments.html ].
+@
+
+
+1.211
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.210 2007-08-17 19:08:25-07 - - $"
+d37 1
+a37 1
+ Burn them, it's a great symbolic gesture.''
+@
+
+
+1.210
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.209 2007-08-17 19:07:10-07 - - $"
+d27 15
+@
+
+
+1.209
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.208 2007-08-17 19:05:40-07 - - $"
+d761 1
+a761 3
+.E= Never
+use a 
+.V= goto \*F
+d767 1
+a767 1
+\*F.
+@
+
+
+1.208
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.207 2007-08-17 19:04:54-07 - - $"
+d763 1
+a763 1
+.V= goto \*F.
+d768 3
+a770 1
+.br
+@
+
+
+1.207
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.206 2007-08-15 13:28:00-07 - - $"
+d778 1
+a778 1
+ACM Computing Surveys, December 1974, pp.\~261\[en]301.
+@
+
+
+1.206
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.205 2007-07-30 13:10:11-07 - - $"
+d273 1
+a273 1
+.V= http://svnbook.red-bean.com/en/1.0/ch07s02.html ,
+d765 1
+d767 1
+a767 2
+Edsger W.\& Dijkstra,
+.V= http://www.acm.org/classics/oct95/ .
+d769 1
+d772 1
+a772 2
+Edsger W.\& Dijkstra,
+.V= http://www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF .
+d774 8
+a781 1
+Any decent programmer, upon being told to go to hell\*F,
+d846 1
+a846 1
+.V= http://www.lysator.liu.se/c/ten-commandments.html .
+@
+
+
+1.205
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.204 2007-07-30 13:01:45-07 - - $"
+d10 1
+a10 1
+.   ALX 1 .
+@
+
+
+1.204
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.203 2007-07-30 12:59:45-07 - - $"
+d558 9
+@
+
+
+1.203
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.202 2007-07-25 13:36:05-07 - - $"
+d442 1
+a442 1
+Kernighan & Ritchie's Lacedemonian style as used in the C library is
+@
+
+
+1.202
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.201 2007-07-25 13:27:21-07 - - $"
+d69 7
+@
+
+
+1.201
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.200 2007-07-25 13:24:48-07 - - $"
+d793 10
+d810 10
+@
+
+
+1.200
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.199 2007-07-25 13:23:42-07 - - $"
+a495 1
+.LI
+d501 7
+@
+
+
+1.199
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.198 2007-07-25 13:15:38-07 - - $"
+d902 1
+@
+
+
+1.198
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.197 2007-07-25 13:15:06-07 - - $"
+d116 1
+a116 1
+.CODE "10,20!fmt -65
+d317 4
+d899 7
+@
+
+
+1.197
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.196 2007-07-25 13:11:28-07 - - $"
+d112 2
+a113 1
+option\(::
+d115 1
+a115 1
+.CODE "{!}fmt -65".
+@
+
+
+1.196
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.195 2007-07-25 13:02:47-07 - - $"
+d90 1
+a90 1
+Text messages sent in email and posted to the newsgroup should have
+d105 13
+@
+
+
+1.195
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.194 2007-07-12 20:33:27-07 - - $"
+d108 2
+a109 1
+.E= "Absolutely never"
+d113 1
+a113 1
+.E= "Absolutely never"
+d122 1
+a122 1
+is in extremely bad taste.
+d196 1
+a196 1
+Exception\(::
+@
+
+
+1.194
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.193 2007-07-12 20:32:15-07 - - $"
+d618 13
+a630 13
+Tricky code is usually bad\*F.
+.FS
+.IR "\[<<]equo ne credite, Teucri."
+.IR "quidquid id est, timeo Danaos et dona ferentis.\[>>]"
+.br
+\[em]
+Publius Vergilius Maro,
+.IR "\[AE]neidos, liber ii."
+.FE
+.\"but, depending on your perspective,
+.\"it might occasionally be good\*F.
+.\".FS
+.\".FE
+d780 1
+a780 1
+.H 1 "Example programs and \f[CB]Makefile\f[P]s"
+d803 1
+d805 1
+a805 1
+.TVCODE* 0 "bash-%% " \
+d810 1
+a810 1
+.TVCODE* 0 "bash-%% " \
+d815 1
+a815 1
+.TVCODE* 0 "bash-%% " "cat -nv examples/args.java | expand"
+d819 1
+d821 1
+a821 1
+.TVCODE* 0 "bash-%% " \
+d826 1
+a826 1
+.TVCODE* 0 "bash-%% " \
+d831 1
+a831 1
+.TVCODE* 0 "bash-%% " "cat -nv examples/argv.c | expand"
+d835 1
+d842 1
+a842 1
+.TVCODE* 0 "bash-%% " \
+d847 1
+a847 1
+.TVCODE* 0 "bash-%% " \
+d852 1
+a852 1
+.TVCODE* 0 "bash-%% " "cat -nv examples/Makefile | expand"
+d856 1
+d876 1
+a876 1
+.TVCODE* 0 "bash-%% " "cat -nv examples/.exrc | expand"
+@
+
+
+1.193
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.192 2007-07-12 20:31:18-07 - - $"
+d626 1
+a626 1
+.\".FE
+@
+
+
+1.192
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.191 2007-07-12 20:30:25-07 - - $"
+d618 1
+a618 1
+Tricky code is usually bad\*F,
+d626 5
+a630 5
+.FE
+but, depending on your perspective,
+it might occasionally be good\*F.
+.FS
+.FE
+@
+
+
+1.191
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.190 2007-07-12 20:26:02-07 - - $"
+d722 1
+a722 1
+.V= goto \*F
+d727 1
+a727 3
+.FE
+\*F.
+.FS
+@
+
+
+1.190
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.189 2007-07-12 20:23:49-07 - - $"
+d722 1
+a722 1
+.V= goto \*F\*F.
+d728 1
+@
+
+
+1.189
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.188 2007-07-12 20:13:25-07 - - $"
+d722 1
+a722 1
+.V= goto \*F.
+d724 1
+a724 1
+Go To Statement Considered Harmful,
+d727 2
+a728 1
+.br
+d730 1
+a730 1
+A Case against the GO TO Statement,
+@
+
+
+1.188
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.187 2007-07-09 13:02:52-07 - - $"
+d622 1
+a723 1
+E.W.\~Dijkstra,
+d725 1
+d727 5
+d736 1
+@
+
+
+1.187
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.186 2007-07-09 12:56:06-07 - - $"
+d618 12
+a629 1
+But usually, tricky code is inferior to straightforward code.
+d731 1
+@
+
+
+1.186
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.185 2007-07-09 12:54:07-07 - - $"
+d347 1
+a347 1
+Also, shell metacharacters are absolutely prohibited in filenames.
+d439 2
+a440 1
+in Java should be spelled in UPPER CASE.
+d443 5
+d536 4
+@
+
+
+1.185
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.184 2007-07-09 12:53:37-07 - - $"
+d334 9
+a342 9
+%
++
+,
+-
+\&.
+:
+=
+@@
+_
+d348 1
+a348 30
+Following is a list of shell metacharacters\(::
+.DS "" F
+.ft CB
+\0\0
+!\&
+\[Dq]\&
+#\&
+\[Do]\&
+&\&
+\&'\&
+(\&
+)\&
+*\&
+/\&
+;\&
+<\&
+>\&
+?\&
+[\&
+\[rs]\&
+]\&
+\[ha]\&
+`\&
+{\&
+|\&
+}\&
+\[ti]\&
+.ft R
+.DE
+Actually, the tilde
+d356 29
+@
+
+
+1.184
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.183 2007-07-09 12:53:22-07 - - $"
+d338 1
+a338 1
+.
+d357 1
+a357 1
+'\&
+@
+
+
+1.183
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.182 2007-07-06 18:57:18-07 - - $"
+d343 1
+@
+
+
+1.182
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.181 2007-07-06 18:32:21-07 - - $"
+a122 11
+.V= SVN
+users should Google for
+.=V `` svn:keywords ''
+to find out how to do this.
+See the documentation at
+.V= http://svnbook.red-bean.com/en/1.0/ch07s02.html ,
+for a command like
+.DS "" F
+.CODE "svn propset svn:keywords \[Dq]Id\[Dq] " filename
+.DE
+.LI
+d231 3
+a233 1
+This identifier should be the first or last line of a file,
+d237 2
+a238 1
+but it may instead appear in a macro or string.
+d246 11
+d316 2
+a317 2
+Filenames should be spelled entirely using lower case letters,
+digits, periods, underscores, and minus signs.
+d329 14
+d351 23
+a373 24
+.V= !\&
+.V= \[Dq]\&
+.V= #\&
+.V= \[Do]\&
+.V= %\&
+.V= &\&
+.V= '\&
+.V= (\&
+.V= )\&
+.V= *\&
+.V= /\&
+.V= ;\&
+.V= <\&
+.V= >\&
+.V= ?\&
+.V= [\&
+.V= \[rs]\&
+.V= ]\&
+.V= \[ha]\&
+.V= `\&
+.V= {\&
+.V= |\&
+.V= }\&
+.V= \[ti]\&
+@
+
+
+1.181
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.180 2007-07-06 18:30:38-07 - - $"
+a756 1
+.DS "" F
+a771 2
+.DE
+.DS "" F
+a786 2
+.DE
+.DS "" F
+a806 2
+.DE
+.DS "" F
+a829 1
+.DE
+@
+
+
+1.180
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.179 2007-07-06 18:30:22-07 - - $"
+d285 2
+a286 2
+.CODE "cat \*[filename.str] 2>&1 | diff - \*[filename.str]"
+.CODE "cat \*[Makefile.str] 2>&1 | diff - \*[Makefile.str]"
+@
+
+
+1.179
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.178 2007-07-06 18:29:59-07 - - $"
+a283 1
+.tm \w'\*[filename.str]', \w'\*[Makefile.str]'
+@
+
+
+1.178
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.177 2007-07-06 18:24:42-07 - - $"
+a284 1
+.tm filename.wid=\n[filename.wid]; Makefile.wid=\n[Makefile.wid];\
+@
+
+
+1.177
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.176 2007-07-06 18:13:39-07 - - $"
+d281 5
+a285 1
+.tm filename.wid=\n[filename.wid]; Makefile.wid=\n[Makefile.wid]
+@
+
+
+1.176
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.175 2007-07-06 18:11:32-07 - - $"
+d277 5
+a281 3
+.nr filenamewid \w'\f[CB]-vt \f[P]\f[I]filename\f[P]'
+.nr makefilewid \w'\f[CB]-v  \f[P]\f[CB]Makefile\f[P]'
+.tm filenamewid=\n[filenamewid]; makefilewid=\n[makefilewid]
+d283 2
+a284 2
+.CODE "cat -vt " filename " 2>&1 | diff - " filename
+.CODE "cat -v  Makefile 2>&1 | diff - Makefile"
+@
+
+
+1.175
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.174 2007-07-06 18:07:25-07 - - $"
+d277 2
+a278 2
+.nr filenamewid \w'\f[I]filename\f[P]'
+.nr makefilewid \w'\f[CB]Makefile\f[P]'
+@
+
+
+1.174
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.173 2007-07-06 18:06:46-07 - - $"
+d277 3
+@
+
+
+1.173
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.172 2007-07-06 18:03:54-07 - - $"
+d279 1
+a279 1
+.CODE "cat -vt Makefile 2>&1 | diff - Makefile"
+@
+
+
+1.172
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.171 2007-07-06 17:49:19-07 - - $"
+d114 1
+d116 6
+@
+
+
+1.171
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.170 2007-07-06 17:46:56-07 - - $"
+d300 3
+a302 2
+digits, periods, underscores, and hyphens.
+The only exceptions are special names like
+d307 5
+@
+
+
+1.170
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.169 2007-07-06 17:28:58-07 - - $"
+d607 1
+a607 1
+.H 1 "General coding requirements"
+@
+
+
+1.169
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.168 2007-07-06 17:26:52-07 - - $"
+d573 1
+a573 1
+.H 1 "Coding strategy"
+a590 10
+Avoid confusing uses of the
+.V= ++
+and
+.V= -- 
+operators.
+The following is very bad\(::
+.DS
+.CODE "data[++index] = other[++index];"
+.DE
+.LI
+d603 58
+d713 1
+a713 42
+.LI
+Error messages should always be printed to
+.V= stderr
+.=V ( System.err ),
+never to
+.V= stdout
+.=V ( System.out ),
+and an error message (whether a warning or a fatal error)
+should cause a non-zero exit code.
+.LI
+Debug messages and trace chatter should also be written to
+.V= stderr ,
+not
+.V= stdout ,
+since they are not properly part of the output stream of a program.
+.LI
+An exit status of 0 should always be returned if the program worked.
+A non-zero exit status between 1 and 255 should be returned
+if the program failed.
+In C, use the preprocessor symbols
+.V= EXIT_SUCCESS
+for 0 and
+.V= EXIT_FAILURE
+for 1,
+rather than the numbers.
+.LI
+In Java, the
+.V= main
+function is of type 
+.V= void
+and returns an exit status of 0 if it returns.
+To return a non-zero exit status, use the function
+.V= System.exit .
+Define the following constants\(::
+.DS
+.CODE "public static final int EXIT_SUCCESS = 0;"
+.CODE "public static final int EXIT_FAILURE = 1;"
+.DE
+.LI
+In C, use the preprocessor symbol
+.V= NULL
+and not a 0, because it is more readable.
+@
+
+
+1.168
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.167 2007-07-06 17:24:09-07 - - $"
+d420 9
+@
+
+
+1.167
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.166 2007-07-06 17:14:03-07 - - $"
+d271 16
+a286 2
+.CODE "cat -vt " filename " | diff - " filename
+.CODE "cat -vt Makefile | diff - Makefile"
+@
+
+
+1.166
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.165 2007-07-06 17:13:24-07 - - $"
+d53 1
+a53 1
+CMPS-012B/M.
+d247 28
+@
+
+
+1.165
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.164 2007-07-06 17:12:18-07 - - $"
+d43 1
+a43 1
+.V= "Courier Roman"
+@
+
+
+1.164
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.163 2007-07-06 17:10:23-07 - - $"
+a143 24
+.LI
+Every file must contain an
+.V= "RCS \[Do]Id\[Do]"
+string.
+This identifies a copy of any printed listing with a specific
+version number.
+This identifier should be the first or last line of a file,
+and,
+for any given project, be consistently placed.
+For a program, it usually appears in a comment,
+but it may instead appear in a macro or string.
+All versions of all files must be archived in an
+.V= RCS ,
+.V= CVS ,
+or 
+.V= SVN
+repository.
+.LI
+Run the program
+.V= checksource
+(in the
+.V= bin
+subdirectory of the course volume)
+and see that it does not complain.
+d229 24
+@
+
+
+1.163
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.162 2007-07-06 13:37:18-07 - - $"
+a89 34
+Text files should contain only visible printable characters,
+spaces, and newlines.
+Specifically, there should
+.E= never
+be carriage return
+.=V ( \[ha]M )
+characters in a file.
+If you have the extremely bad judgement to edit using bloatware
+from M*cr*\[Do]*ft\*F,
+.FS
+.Cato.maior
+.FE
+you may delete them with such programs as
+.V= dos2unix (1),
+by using the command
+.V= ":g/\[ha]V\[ha]M/s///"
+in 
+.V= vi (1),
+or with the command
+.DS "" F
+.CODE "perl -pi -e 's/\[rs]r//g' " filename
+.DE
+.LI
+Do not use tabs in files.
+When used for indentation,
+they cause the code to move too far to the right,
+thus making lines appear longer than 72 characters.
+Never use an editor command to change the length of a tab,
+since that will not necessarily be the same when viewed by someone else
+using a different editor.
+The command
+.V= expand (1)
+can be used to remove tabs from files.
+.LI
+a115 31
+Exception\(::
+When typing in a
+.V= Makefile ,
+tabs are required before commands, 
+but never elsewhere.
+Use exactly one tab at the beginning of a shell command in a 
+.V= Makefile .
+Making tabs significant was a design flaw in
+.V= make (1),
+which
+.V= gmake
+follows.
+.LI
+The last character of every line in a text file must always be a
+newline character.
+This includes the last line of a file.
+The
+.V= vi (1)
+editor automatically ensures that this is true, but
+.V= emacs (1)
+does not.
+If you use
+.V= emacs ,
+make sure your home directory has a file called
+.V= \&.emacs
+(note the initial dot)
+containing the line
+.DS "" F
+.CODE "(setq require-final-newline t)"
+.DE
+.LI
+d188 65
+@
+
+
+1.162
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.161 2007-07-06 13:35:08-07 - - $"
+d54 1
+a54 1
+.H 1 "General appearance"
+a69 17
+Lines of source code should never be longer than 72 characters.
+The standard
+.V= xterm (1)
+is 80 columns wide,
+and when the 
+.V= ":set number"
+option is used in
+.V= vi (1),
+line numbers are displayed in a field of width 8 on the left side
+of the screen.
+Lines longer than 72 characters thus cause ugly and unreadable
+wraparound.
+.E= History\(::
+Punched cards were 80 columns wide, 
+with 72 characters being used for data and the remaining 8 characters
+used for sequence numbers (in case you dropped your deck).
+.LI
+d234 20
+@
+
+
+1.161
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.160 2007-07-06 13:32:51-07 - - $"
+d30 4
+a36 1
+.P
+@
+
+
+1.160
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.159 2007-07-06 13:23:35-07 - - $"
+d154 1
+a154 1
+send HTML in email.
+d158 2
+a159 2
+Send plain text, using the US-ASCII or ISO-8859-1 (ISO-Latin-1)
+character sets and 7-bit or 8-bit encoding.
+d162 1
+@
+
+
+1.159
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.158 2007-07-06 13:22:20-07 - - $"
+d153 10
+@
+
+
+1.158
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.157 2007-07-06 13:16:18-07 - - $"
+d138 15
+a229 15
+Text messages sent in email and posted to the newsgroup should have
+lines limited to 65 characters,
+so that when quoted in a followup,
+lines tend not to wrap and are still shorter than 72 characters
+after several followups.
+.E= History\(::
+A page is
+.andhalf 8
+inches wide and with 1 inch margins
+leaves
+.andhalf 6
+inches for text.
+A standard typewriter font prints 10 characters per inch,
+which is 65 characters per line.
+.LI
+@
+
+
+1.157
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.156 2007-07-06 13:04:30-07 - - $"
+d97 1
+a97 1
+The original hardware terminal, the DEC VT-100, which the
+d99 1
+a99 1
+program emulates had 80 columns and 24 lines, which is why the default
+d101 1
+a101 1
+comes up with
+@
+
+
+1.156
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.155 2007-07-06 13:03:22-07 - - $"
+a150 11
+.V= SVN
+users should Google for
+.=V `` svn:keywords ''
+to find out how to do this.
+See the documentation at
+.V= http://svnbook.red-bean.com/en/1.0/ch07s02.html ,
+for a command like
+.DS "" F
+.CODE "svn propset svn:keywords \[Dq]Id\[Dq] " filename
+.DE
+.LI
+d169 11
+d503 1
+@
+
+
+1.155
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.154 2007-07-06 13:02:28-07 - - $"
+d256 10
+a265 10
+.V= \[Dq]
+.V= #
+.V= \[Do]
+.V= %
+.V= &
+.V= '
+.V= (
+.V= )
+.V= *
+.V= /
+d267 2
+a268 2
+.V= <
+.V= >
+d270 9
+a278 9
+.V= [
+.V= \[rs]
+.V= ]
+.V= \[ha]
+.V= `
+.V= {
+.V= |
+.V= }
+.V= \[ti]
+@
+
+
+1.154
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.153 2007-07-06 13:00:34-07 - - $"
+d255 1
+a255 1
+.V= !
+d266 1
+a266 1
+.V= ;
+d269 1
+a269 1
+.V= ?
+@
+
+
+1.153
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.152 2007-07-06 12:57:20-07 - - $"
+d253 27
+a279 25
+\&
+.V= \~\~!
+.V= \~\~\[Dq]
+.V= \~\~#
+.V= \~\~\[Do]
+.V= \~\~%
+.V= \~\~&
+.V= \~\~'
+.V= \~\~(
+.V= \~\~)
+.V= \~\~*
+.V= \~\~/
+.V= \~\~;
+.V= \~\~<
+.V= \~\~>
+.V= \~\~?
+.V= \~\~[
+.V= \~\~\[rs]
+.V= \~\~]
+.V= \~\~\[ha]
+.V= \~\~`
+.V= \~\~{
+.V= \~\~|
+.V= \~\~}
+.V= \~\~\[ti]
+@
+
+
+1.152
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.151 2007-07-06 12:56:56-07 - - $"
+a17 5
+.de INITI*
+.   ds IDX-FILENAME \\$1
+.   substring IDX-FILENAME 1 -3
+.   INITI B \\*[IDX-FILENAME]
+..
+a23 1
+.INITI* \n[.F]
+a72 1
+.IND "set number"
+a194 1
+.IND "set number"
+a195 1
+.IND "set showmode"
+a544 1
+.IND goto
+a739 1
+.INDP
+@
+
+
+1.151
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.150 2007-07-06 12:56:28-07 - - $"
+d29 1
+a29 1
+.INITI index-file
+@
+
+
+1.150
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.149 2007-07-06 12:55:23-07 - - $"
+d29 1
+a29 1
+.INITI* \n[.F]
+@
+
+
+1.149
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.148 2007-07-06 12:53:07-07 - - $"
+a21 1
+.   tm \\*[IDX-FILENAME]
+@
+
+
+1.148
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.147 2007-07-06 12:51:51-07 - - $"
+a20 1
+.   as IDX-FILENAME .idx
+d22 1
+@
+
+
+1.147
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.146 2007-07-06 12:51:04-07 - - $"
+d22 1
+a22 1
+.   INITI \\*[IDX-FILENAME]
+@
+
+
+1.146
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.145 2007-07-06 12:43:10-07 - - $"
+d22 1
+@
+
+
+1.145
+log
+@-
+@
+text
+@d4 1
+a4 5
+.RCS "$Id: coding-style.mm,v 1.144 2007-07-06 12:42:33-07 - - $"
+.INITR* \n[.F]
+.EQ
+delim $$
+.EN
+d18 5
+d28 5
+d79 1
+d202 1
+d204 1
+d554 1
+d750 1
+@
+
+
+1.144
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.143 2007-07-06 12:39:50-07 - - $"
+d27 1
+a27 2
+.TC
+Following are some general coding style guidelines.
+@
+
+
+1.143
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.142 2007-07-06 12:38:16-07 - - $"
+d27 1
+a740 1
+.TC
+@
+
+
+1.142
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.141 2007-07-06 12:33:52-07 - - $"
+d740 1
+@
+
+
+1.141
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.140 2007-07-05 19:58:24-07 - - $"
+d44 7
+d542 2
+a543 1
+Never use a 
+d554 1
+a554 1
+.IR "La Divina Commedia, Inferno, canto iii" ]
+@
+
+
+1.140
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.139 2007-07-05 19:57:52-07 - - $"
+d104 5
+a108 1
+If you have the extremely bad judgement to edit using M*cr*\[Do]*ft,
+d536 9
+a544 3
+.V= goto .
+Any decent programmer, upon being told to go to hell
+.RI [ "\[<<]Lasciate ogne speranza, voi ch'intrate.\[>>]" 
+d546 2
+a547 1
+.IR "Inferno, canto iii" ],
+a650 3
+.FS
+.Cato.maior
+.FE
+@
+
+
+1.139
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.138 2007-07-05 19:56:28-07 - - $"
+d536 1
+a536 1
+.IR "Inferno, Canto III" ],
+@
+
+
+1.138
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.137 2007-07-05 19:55:36-07 - - $"
+d534 1
+a534 1
+.RI [`` "Lasciate ogne speranza, voi ch'intrate." ''
+@
+
+
+1.137
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.136 2007-07-05 19:52:52-07 - - $"
+d22 5
+a26 5
+.ds BASE-TITLE-LEFT \*[TITLE-LEFT]
+.de HY
+.\" RI "\\n[hd*level] \\n[hd*arg1] \\$2 (\\*(}0) (\\$3)"
+.   ds TITLE-LEFT \\*[BASE-TITLE-LEFT] \[bu] \\*[}0]\\$3
+..
+@
+
+
+1.136
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.135 2007-07-05 19:46:40-07 - - $"
+d24 1
+a24 2
+.   br
+.   RI "\\n[hd*level] \\n[hd*arg1] \\$2 (\\*(}0) (\\$3)"
+a25 1
+.   br
+@
+
+
+1.135
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.134 2007-07-05 19:46:28-07 - - $"
+d22 1
+d26 1
+@
+
+
+1.134
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.133 2007-07-05 19:44:58-07 - - $"
+d24 1
+a24 1
+.   RI "(\\*[hd*mark]) \\n[hd*level] \\n[hd*arg1] \\$2 (\\*(}0) (\\$3)"
+@
+
+
+1.133
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.132 2007-07-05 19:44:36-07 - - $"
+d24 1
+a24 1
+.   RI "[\\*[hd*mark] \\n[hd*level] \\n[hd*arg1] \\$2 [\\*(}0] [\\$3]"
+@
+
+
+1.132
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.131 2007-07-05 19:40:37-07 - - $"
+d24 1
+a24 1
+.   RI "[\\*[hd*mark] \\n[hd*level] \\n[hd*arg1] \\$2 [\\*}0] [\\$3]"
+@
+
+
+1.131
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.130 2007-07-05 19:40:08-07 - - $"
+d24 1
+a24 1
+.   RI "\\n[hd*level] \\n[hd*arg1] \\$2 [\\*}0] [\\$3]"
+@
+
+
+1.130
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.129 2007-07-05 19:38:28-07 - - $"
+d24 1
+a24 1
+.   RI "\\n[hd*level] \\n[hd*arg1] \\$2 \\*}0 arg3=\\$3"
+@
+
+
+1.129
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.128 2007-07-05 19:34:35-07 - - $"
+d24 1
+a24 1
+.   RI "level=\\n[hd*level] arg1=\\n[hd*arg1] arg2=\\$2 arg3=\\$3"
+@
+
+
+1.128
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.127 2007-07-05 19:33:34-07 - - $"
+d22 5
+@
+
+
+1.127
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.126 2007-07-05 19:32:40-07 - - $"
+d14 1
+a14 1
+.   ALX 1 ()
+@
+
+
+1.126
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.125 2007-07-05 19:24:53-07 - - $"
+d529 3
+a531 1
+.RI [`` "Lasciate ogne speranza, voi ch'intrate" ''],
+@
+
+
+1.125
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.124 2007-07-05 19:23:04-07 - - $"
+d510 1
+d512 1
+d528 2
+a529 1
+Any decent programmer, upon being told to go to hell,
+@
+
+
+1.124
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.123 2007-07-05 18:58:19-07 - - $"
+d641 1
+a641 1
+"cat -n examples/args.java | expand | cut -c1-8,81- | grep ........."
+d658 1
+a658 1
+"cat -n examples/argv.c | expand | cut -c1-8,81- | grep ........."
+d675 1
+a675 1
+"cat -v examples/Makefile | diff - examples/Makefile"
+d680 1
+a680 1
+"cat -n examples/Makefile | expand | cut -c1-8,81- | grep ........."
+@
+
+
+1.123
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.122 2007-07-05 18:57:34-07 - - $"
+d19 3
+a485 1
+.ne 5
+@
+
+
+1.122
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.121 2007-07-05 18:57:06-07 - - $"
+d298 1
+a298 1
+are excessively long as well as being uglier than a camel.
+d306 2
+a307 2
+Many Java programmers like using CamelCase.
+CamelCase is ugly and unnatural because it has interior capital
+d309 1
+a309 1
+When using the Java API, it is not possible to avoid CamelCase.
+@
+
+
+1.121
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.120 2007-07-05 18:55:14-07 - - $"
+d298 1
+a298 1
+are excessively long as well as being as ugly as a camel.
+@
+
+
+1.120
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.119 2007-07-05 18:15:12-07 - - $"
+d297 1
+a297 2
+and
+.V= StringIndexOutOfBoundsException
+d300 5
+a304 1
+better.
+@
+
+
+1.119
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.118 2007-07-05 18:14:08-07 - - $"
+d289 18
+d319 1
+a319 1
+in Java should be spelled in upper case.
+d395 1
+d398 2
+d562 1
+a562 1
+V= stderr
+d566 9
+a574 1
+.=V ( System.out ).
+@
+
+
+1.118
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.117 2007-07-05 18:13:19-07 - - $"
+d234 1
+@
+
+
+1.117
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.116 2007-07-05 18:13:03-07 - - $"
+d564 1
+d567 1
+@
+
+
+1.116
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.115 2007-07-05 18:09:17-07 - - $"
+a525 1
+
+@
+
+
+1.115
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.114 2007-07-05 18:08:42-07 - - $"
+d525 2
+a526 1
+.TVCODE* 1 "    printf    fclose    putchar"
+@
+
+
+1.114
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.113 2007-07-05 18:04:49-07 - - $"
+d520 3
+a522 2
+from complaining, although message like the following for some library
+functions are usually ignored\(::
+@
+
+
+1.113
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.112 2007-07-05 17:58:52-07 - - $"
+d524 1
+a524 1
+.TVCODE* 1 "    printf          "
+@
+
+
+1.112
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.111 2007-07-05 17:58:34-07 - - $"
+d501 13
+@
+
+
+1.111
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.110 2007-07-05 17:50:44-07 - - $"
+d134 1
+a134 1
+.=T `` svn:keywords ''
+@
+
+
+1.110
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.109 2007-07-05 17:49:49-07 - - $"
+d167 1
+a167 1
+.V= .exrc 
+d172 1
+a172 1
+.V= .exrc
+d644 1
+a644 1
+.V= .exrc
+@
+
+
+1.109
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.108 2007-07-05 17:47:04-07 - - $"
+d584 1
+a584 1
+.TVCODE* 0 "bash-% " \
+d589 1
+a589 1
+.TVCODE* 0 "bash-% " \
+d594 1
+a594 1
+.TVCODE* 0 "bash-% " "cat -nv examples/args.java | expand"
+d601 1
+a601 1
+.TVCODE* 0 "bash-% " \
+d606 1
+a606 1
+.TVCODE* 0 "bash-% " \
+d611 1
+a611 1
+.TVCODE* 0 "bash-% " "cat -nv examples/argv.c | expand"
+d623 1
+a623 1
+.TVCODE* 0 "bash-% " \
+d628 1
+a628 1
+.TVCODE* 0 "bash-% " \
+d633 1
+a633 1
+.TVCODE* 0 "bash-% " "cat -nv examples/Makefile | expand"
+d658 1
+a658 1
+.TVCODE* 0 "bash-% " "cat -nv examples/.exrc | expand"
+@
+
+
+1.108
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.107 2007-07-05 17:46:05-07 - - $"
+d648 9
+a656 2
+.V= \[ti]V\[ti]M
+.=V (Ctrl/ V ", Ctrl/" M).
+a657 10
+.TVCODE* 0 "bash-% " \
+"cat -v examples/.exrc | diff - examples/.exrc"
+.VERBON 1
+.pso cat -v examples/.exrc | diff - examples/.exrc
+.VERBOFF
+.TVCODE* 0 "bash-% " \
+"cat -n examples/.exrc | expand | cut -c1-8,81- | grep ........."
+.VERBON 1
+.pso cat -n examples/.exrc | expand | cut -c1-8,81- | grep .........
+.VERBOFF
+@
+
+
+1.107
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.106 2007-07-05 17:37:15-07 - - $"
+d648 1
+a648 1
+.V= \[ti]V\[TI]M
+@
+
+
+1.106
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.105 2007-07-05 17:36:59-07 - - $"
+d163 1
+a163 1
+Create a file called
+d165 9
+a173 1
+in your home directory, which contains at least the following lines\(::
+d638 28
+@
+
+
+1.105
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.104 2007-07-05 17:00:06-07 - - $"
+d25 1
+@
+
+
+1.104
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.103 2007-07-05 16:59:19-07 - - $"
+d22 3
+d26 9
+a34 2
+typewriter font is used to indicate what is to be typed in exactly,
+and Roman font is used to indicate something to be substituted.
+@
+
+
+1.103
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.102 2007-07-05 16:58:35-07 - - $"
+d210 1
+a210 1
+Under no circumstances should one ever create filenames using spaces
+@
+
+
+1.102
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.101 2007-07-05 16:57:28-07 - - $"
+d246 2
+a247 2
+is used as a directory separator,
+and Unix will not let you use it in a filename, even if you quote it.
+@
+
+
+1.101
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.100 2007-07-05 16:56:46-07 - - $"
+d215 1
+@
+
+
+1.100
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.99 2007-07-05 16:55:00-07 - - $"
+d214 1
+a214 1
+.br
+d238 1
+a238 1
+.br
+@
+
+
+1.99
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.98 2007-07-05 16:52:33-07 - - $"
+d214 1
+a214 1
+.V= \~\~!
+d230 1
+a230 1
+.V= \~\~\
+d238 1
+@
+
+
+1.98
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.97 2007-07-05 16:24:54-07 - - $"
+d213 25
+a237 3
+following is a list of shell metacharacters\(::
+.CODE "! \[Dq] # \[Do] % & ' () * / ; < > ? [ \ ] \[ha] ` { | }"
+\[ti]
+@
+
+
+1.97
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.96 2007-07-05 15:53:41-07 - - $"
+d94 1
+a94 1
+.CODE "perl -pi -e 's/\[rs]r//g'" filename
+d129 1
+a129 1
+.CODE "svn propset svn:keywords \[Dq]Id\[Dq] filename
+d203 1
+a203 1
+digits, periods, and hyphens.
+d209 15
+a223 2
+Under no circumstances should one ever create filenames with spaces in
+them or using any shell metacharacters.
+d387 2
+a388 1
+.V= // -comments,
+d492 1
+a492 1
+In C, we typically use the preprocessor symbols
+d496 13
+a508 1
+for 1.
+@
+
+
+1.96
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.95 2007-07-05 15:52:45-07 - - $"
+a569 1
+.tm hd*format=\*[hd*format]; g[H1]=\g[H1];
+@
+
+
+1.95
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.94 2007-07-05 15:51:57-07 - - $"
+d496 2
+@
+
+
+1.94
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.93 2007-07-05 15:50:06-07 - - $"
+d549 3
+d553 1
+a553 1
+"cat -vt examples/Makefile | diff - examples/Makefile"
+d555 1
+a555 1
+.pso cat -vt examples/Makefile | diff - examples/Makefile
+@
+
+
+1.93
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.92 2007-07-05 15:48:40-07 - - $"
+d552 1
+a552 1
+.pso cat -v examples/Makefile | diff - examples/Makefile
+@
+
+
+1.92
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.91 2007-07-05 15:47:22-07 - - $"
+a512 4
+.TVCODE* 0 "bash-% " "cat -nv examples/args.java | expand"
+.VERBON 1
+.pso cat -nv examples/args.java | expand
+.VERBOFF
+d523 4
+a529 4
+.TVCODE* 0 "bash-% " "cat -nv examples/argv.c | expand"
+.VERBON 1
+.pso cat -nv examples/argv.c | expand
+.VERBOFF
+d540 4
+a548 4
+.TVCODE* 0 "bash-% " "cat -nv examples/Makefile | expand"
+.VERBON 1
+.pso cat -nv examples/Makefile | expand
+.VERBOFF
+d559 4
+@
+
+
+1.91
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.90 2007-07-05 15:36:58-07 - - $"
+d539 5
+d558 5
+@
+
+
+1.90
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.89 2007-07-05 15:35:53-07 - - $"
+d522 5
+@
+
+
+1.89
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.88 2007-07-05 15:34:16-07 - - $"
+d53 1
+a53 1
+History\(::
+a56 6
+The original hardware terminal, the DEC VT-100, which the
+.V= xterm 
+program emulates had 80 columns and 24 lines, which is why the default
+.V= xterm
+comes up with
+.V= "-geometry 80x24" .
+d70 7
+d182 1
+a182 1
+History\(::
+@
+
+
+1.88
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.87 2007-07-05 15:32:37-07 - - $"
+d62 1
+a62 1
+.V= "-geometry 80x25" .
+@
+
+
+1.87
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.86 2007-07-05 15:32:01-07 - - $"
+d61 2
+a62 1
+comes up with that geometry.
+@
+
+
+1.86
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.85 2007-07-05 15:28:23-07 - - $"
+d544 1
+a544 1
+.pso cat -vt examples/Makefile | diff - examples/Makefile
+@
+
+
+1.85
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.84 2007-07-05 15:26:54-07 - - $"
+d515 5
+d527 5
+d541 5
+@
+
+
+1.84
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.83 2007-07-05 15:25:26-07 - - $"
+a18 6
+.nr EXAMPLE 0 +1
+.af EXAMPLE A
+.de EXAMPLE
+.   HU "Example \n+[EXAMPLE].\~\~\\$*"
+
+..
+d510 1
+a510 1
+.EXAMPLE "A Java program"
+d517 1
+a517 1
+.EXAMPLE "A C program"
+d524 1
+a524 1
+.EXAMPLE "A \f[CB]Makefile\f[P]"
+@
+
+
+1.83
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.82 2007-07-05 15:23:31-07 - - $"
+d22 1
+a22 1
+.   HU "Example \n+[EXAMPLE].\*[}2]\\$*"
+@
+
+
+1.82
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.81 2007-07-05 15:21:31-07 - - $"
+d19 1
+a19 1
+.nr EXAMPLE 1 +1
+d22 1
+a22 1
+.   HU "Example \n+[EXAMPLE] \\$*"
+d516 1
+a516 1
+.EXAMPLE "An example Java program"
+d523 1
+a523 1
+.EXAMPLE "An example C program"
+d530 1
+a530 1
+.EXAMPLE "An example \f[CB]Makefile\f[P]"
+@
+
+
+1.81
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.80 2007-07-05 15:12:51-07 - - $"
+d19 2
+a20 1
+.nr EXAMPLE 1 1
+d22 1
+a22 1
+.   HU "Example \n[EXAMPLE]+ \\$*"
+@
+
+
+1.80
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.79 2007-07-05 15:12:29-07 - - $"
+d19 5
+d515 1
+a515 1
+.HU "An example Java program"
+d522 1
+a522 1
+.HU "An example C program"
+d529 1
+a529 1
+.HU "An example \f[CB]Makefile\f[P]"
+@
+
+
+1.79
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.78 2007-07-05 15:12:11-07 - - $"
+d533 1
+a533 1
+.tm hd*format=\*[hd*format]; g[H1]=\\g[H1];
+@
+
+
+1.78
+log
+@-
+@
+text
+@a2 1
+.tm hd*format=\*[hd*format]; g[H1]=\\g[H1];
+d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.77 2007-07-05 15:06:08-07 - - $"
+d533 1
+@
+
+
+1.77
+log
+@-
+@
+text
+@d3 1
+d5 1
+a5 1
+.RCS "$Id: coding-style.mm,v 1.76 2007-07-05 15:05:02-07 - - $"
+d486 1
+a486 1
+.H 1 "Example programs and "\f[CB]Makefile\f[P]s"
+@
+
+
+1.76
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.75 2007-07-05 15:04:15-07 - - $"
+d510 1
+a510 1
+.APP "" "An example Java program"
+d517 1
+a517 1
+.APP "" "An example C program"
+d524 1
+a524 1
+.APP "" "An example \f[CB]Makefile\f[P]"
+@
+
+
+1.75
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.74 2007-07-05 15:01:40-07 - - $"
+d510 1
+a510 1
+.APP ""2 "An example Java program"
+d517 1
+a517 1
+.APP ""2 "An example C program"
+d524 1
+a524 1
+.APP ""2 "An example \f[CB]Makefile\f[P]"
+@
+
+
+1.74
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.73 2007-07-05 15:01:04-07 - - $"
+d485 10
+a494 1
+.H 1 "\f[CB]Makefile\f[P]s"
+a505 9
+.H 1 "Example programs"
+Following are some example programs and code.
+The files are all in a subdirectory 
+.V= examples/ .
+The line numbers are present for ease of classroom discussion,
+and are not actually in the document.
+The leftmost characters in the text of the programs is actually
+flush against the left margin,
+indented code being moved over a little.
+d510 1
+a510 1
+.H 2 "An example Java program"
+d517 1
+a517 1
+.H 2 "An example C program"
+d524 1
+a524 1
+.H 2 "An example \f[CB]Makefile\f[P]"
+@
+
+
+1.73
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.72 2007-07-05 14:56:55-07 - - $"
+d510 1
+a510 1
+.H 1 "An example Java program"
+d517 1
+a517 1
+.H 1 "An example C program"
+d524 1
+a524 1
+.H 1 "An example \f[CB]Makefile\f[P]"
+@
+
+
+1.72
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.71 2007-07-05 14:56:18-07 - - $"
+d25 1
+a25 1
+.H 1 "General Appearance"
+d197 1
+a197 1
+.H 1 "File Names and Identifiers"
+d256 1
+a256 1
+.H 1 "Indentation and Layout"
+d400 1
+a400 1
+.H 1 "Coding Strategy"
+d485 1
+a485 1
+.H 1 "\f[CB]Makefile\f[P]"
+d497 1
+a497 1
+.H 1 "Example Programs"
+d510 1
+a510 1
+An example Java program.
+d512 1
+a512 1
+.VERBON 7
+d517 1
+a517 1
+An example C program.
+d519 1
+a519 1
+.VERBON 7
+d524 1
+a524 2
+An example
+.V= Makefile .
+d528 1
+a528 1
+.VERBON 7
+@
+
+
+1.71
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.70 2007-07-05 14:54:38-07 - - $"
+d511 1
+a511 1
+.TVCODE "bash-% " "cat -nv examples/args.java | expand"
+d518 1
+a518 1
+.TVCODE "bash-% " "cat -nv examples/argv.c | expand"
+d528 1
+a528 1
+.TVCODE "bash-% " "cat -nv examples/Makefile | expand"
+@
+
+
+1.70
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.69 2007-07-05 14:54:20-07 - - $"
+d511 1
+d518 1
+d528 1
+@
+
+
+1.69
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.68 2007-07-05 14:52:42-07 - - $"
+d506 3
+a529 3
+.FS
+.Cato.maior
+.FE
+@
+
+
+1.68
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.67 2007-07-05 14:51:00-07 - - $"
+d507 1
+a507 2
+.V= examples/args.java
+\[em] an example Java program.
+d513 1
+a513 2
+.V= examples/argv.c
+\[em] an example C program.
+d519 1
+a519 2
+.V= examples/Makefile
+\[em] an example
+@
+
+
+1.67
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.66 2007-07-05 14:50:46-07 - - $"
+a505 1
+.nr Verbin 5n
+a506 1
+An example Java program\(::
+d508 2
+a509 1
+.VERBON 23
+a513 1
+An example C program\(::
+d515 2
+a516 1
+.VERBON 23
+a520 2
+An example
+.V= Makefile \(::
+d522 2
+d526 1
+a526 1
+.VERBON 23
+@
+
+
+1.66
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.65 2007-07-05 14:48:58-07 - - $"
+a530 1
+.LE
+@
+
+
+1.65
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.64 2007-07-05 14:47:22-07 - - $"
+d507 1
+a507 3
+.ITEMIZE
+.DS
+.LI
+d514 1
+a514 2
+.DS
+.LI
+d521 1
+a521 2
+.DS
+.LI
+@
+
+
+1.64
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.63 2007-07-05 14:43:54-07 - - $"
+d508 1
+d515 2
+d523 2
+d534 1
+@
+
+
+1.63
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.62 2007-07-05 14:43:13-07 - - $"
+d272 1
+a272 1
+as shown in the sample C and Java programs.
+d375 1
+a375 1
+as is shown in the sample C program.
+d385 1
+a385 1
+connecting them, as is shown in the sample C program.
+d486 1
+a486 1
+A sample
+d497 2
+a498 2
+.H 1 "Sample Programs"
+Following are some sample programs and code.
+d500 1
+a500 2
+.V= examples/
+of this directory.
+d509 1
+a509 1
+A sample Java program\(::
+d511 1
+a511 1
+.VERBON 7
+d515 1
+a515 1
+A sample C program\(::
+d517 1
+a517 1
+.VERBON 7
+d521 1
+a521 1
+A sample
+d526 1
+a526 1
+.VERBON 7
+@
+
+
+1.62
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.61 2007-07-05 14:39:51-07 - - $"
+d512 1
+a512 1
+.VERBON 31
+d518 1
+a518 1
+.VERBON 31
+@
+
+
+1.61
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.60 2007-07-05 14:37:52-07 - - $"
+d513 1
+a513 1
+.pso expand examples/args.java
+d519 1
+a519 1
+.pso expand examples/argv.c
+d527 2
+a528 2
+.VERBON 31
+.pso expand examples/Makefile
+@
+
+
+1.60
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.59 2007-07-05 14:36:41-07 - - $"
+d507 1
+d519 1
+a519 1
+.pso cat -nv examples/argv.c | expand
+d528 1
+a528 1
+.pso cat -nv examples/Makefile | expand
+@
+
+
+1.59
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.58 2007-07-05 14:36:10-07 - - $"
+a506 16
+.de START-PSO
+.   SP
+.   ft CR
+.   nf
+..
+.de END-PSO
+.   fi
+.   ft R
+.   SP
+..
+.de EXAMPLE
+\\$1
+.   VERBON 31
+.   pso expand \\$1
+.   VERBOFF
+..
+d511 3
+a513 1
+.EXAMPLE examples/args.java
+d517 1
+a517 2
+.START-PSO
+.eo
+d519 1
+a519 2
+.ec
+.END-PSO
+d526 1
+a526 2
+.START-PSO
+.eo
+d528 1
+a528 2
+.ec
+.END-PSO
+@
+
+
+1.58
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.57 2007-07-05 14:33:47-07 - - $"
+d518 1
+@
+
+
+1.57
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.56 2007-07-05 14:31:08-07 - - $"
+d517 5
+d526 1
+a526 3
+.VERBON 15
+.pso cat -nv examples/args.java | expand
+.VERBOFF
+@
+
+
+1.56
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.55 2007-07-05 14:28:52-07 - - $"
+d521 1
+a521 2
+.START-PSO
+.eo
+d523 1
+a523 2
+.ec
+.END-PSO
+@
+
+
+1.55
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.54 2007-07-05 14:28:13-07 - - $"
+a510 1
+.   eo
+a512 1
+.   ec
+d519 2
+a520 1
+A sample Java program.
+d522 1
+a522 1
+----|----1----|----2
+d524 1
+d527 2
+a528 1
+A sample C program.
+d530 1
+d532 1
+d536 2
+a537 1
+.V= Makefile .
+d541 1
+d543 1
+@
+
+
+1.54
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.53 2007-07-05 14:27:11-07 - - $"
+a519 1
+.DS
+a525 2
+.DE
+.DS
+a530 2
+.DE
+.DS
+a538 1
+.DE
+@
+
+
+1.53
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.52 2007-07-05 14:26:38-07 - - $"
+d520 1
+d527 2
+d534 2
+d544 1
+@
+
+
+1.52
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.51 2007-07-05 14:26:15-07 - - $"
+d524 1
+a524 1
+.pso cat -nv examples/args.java | expand | sed 's/^/   /'
+d529 1
+a529 1
+.pso cat -nv examples/argv.c | expand | sed 's/^/   /'
+d537 1
+a537 1
+.pso cat -nv examples/Makefile | expand | sed 's/^/   /'
+@
+
+
+1.51
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.50 2007-07-05 14:25:15-07 - - $"
+d523 1
+a523 1
+....;....1
+@
+
+
+1.50
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.49 2007-07-05 14:13:49-07 - - $"
+d523 1
+@
+
+
+1.49
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.48 2007-07-05 14:13:10-07 - - $"
+a5 4
+.GETST* EXAMPLE_ARGS_JAVA Figure_EXAMPLE_ARGS_JAVA
+.GETST* EXAMPLE_ARGV_C Figure_EXAMPLE_ARGV_C
+.GETST* EXAMPLE_MAKEFILE Figure_EXAMPLE_MAKEFILE
+.nr Df 4
+a24 42
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv examples/args.java | expand | sed 's/^/   /'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[B]Example of a Java program\f[P]" "" 0 EXAMPLE_ARGS_JAVA
+.DE
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv examples/argv.c | expand | sed 's/^/   /'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[B]Example of a C program\f[P]" "" 0 EXAMPLE_ARGV_C
+.DE
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv examples/Makefile | expand | sed 's/^/   /'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[B]Example of a Makefile\f[P]" "" 0 EXAMPLE_MAKEFILE
+.DE
+d272 1
+a272 2
+as shown in Figures \*[Figure_EXAMPLE_ARGS_JAVA]
+and \*[Figure_EXAMPLE_ARGV_C].
+d374 2
+a375 1
+line.
+d385 1
+a385 1
+connecting them.
+d488 1
+a488 1
+is shown in Figure \*[Figure_EXAMPLE_MAKEFILE],
+a490 3
+There is a subdirectory called
+.V= examples/
+which contains the code shown in the figures in this document.
+d497 42
+@
+
+
+1.48
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.47 2007-07-05 14:09:35-07 - - $"
+d424 1
+a424 1
+.CODE "/*" "\|.\|.\|.\|" "*/"
+@
+
+
+1.47
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.46 2007-07-05 14:08:01-07 - - $"
+d336 1
+a336 1
+.CODE "   " "statements\|.\|.\|."
+d338 1
+a338 1
+.CODE "   " "statements\|.\|.\|."
+d340 1
+a340 1
+.CODE "   " "statements\|.\|.\|."
+d458 1
+a458 1
+.CODE "   " "statements\|.\|.\|."
+d460 1
+a460 1
+.CODE "   " "statements\|.\|.\|."
+d480 1
+a480 1
+.CODE "   " "header file declarations \|.\|.\|."
+d544 2
+a545 1
+since it is more powerful, having functions.
+@
+
+
+1.46
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.45 2007-07-05 14:07:15-07 - - $"
+d335 7
+a341 1
+lkj;lkj;lkj;lkj;ljk;ljk;lkj;lkj
+@
+
+
+1.45
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.44 2007-07-05 14:06:29-07 - - $"
+d418 1
+a418 1
+.VICODE /* \|.\|.\|.\| */
+@
+
+
+1.44
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.43 2007-07-05 11:57:58-07 - - $"
+d21 1
+a21 1
+.  .VICODE* 1 \\$@@
+@
+
+
+1.43
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.42 2007-07-03 20:07:49-07 - - $"
+a7 1
+.GETST* EXAMPLE_IF_ELSE Figure_EXAMPLE_IF_ELSE
+d20 3
+d26 3
+a59 18
+.nf
+.ds CODEINDENT \h'11n'
+.VI "\*[CODEINDENT]if (" condition ") {"
+.VI "\*[CODEINDENT]   " "statements\|.\|.\|.
+.VI "\*[CODEINDENT]}else if (" condition ") {"
+.VI "\*[CODEINDENT]   " "statements\|.\|.\|.
+.VI "\*[CODEINDENT]}else {
+.VI "\*[CODEINDENT]   " "statements\|.\|.\|.
+.VI "\*[CODEINDENT]}"
+.fi
+.SP
+.B2
+.FG "\f[B]Example of an \f[CB]if else\f[R] construct\f[R]" \
+"" 0 EXAMPLE_IF_ELSE
+.DE
+.DF L
+.B1
+.SP
+a73 7
+Run the program
+.V= checksource
+(in the
+.V= bin
+subdirectory of the course volume)
+and see that it does not complain.
+.LI
+d75 4
+a78 2
+contain your name and username
+.V= @@ucsc.edu .
+d138 1
+a138 2
+.VCODE 1 "perl -pi -e 's/\[rs]r//g'" 
+.IR filename
+d173 1
+a173 2
+.VCODE 1 "svn propset svn:keywords \[Dq]Id\[Dq] 
+.IR filename
+d191 1
+a191 1
+.VCODE* 1 "(setq require-final-newline t)"
+d200 2
+a201 2
+.VCODE* 1 "set number"
+.VCODE* 1 "set showmode"
+d235 7
+d325 2
+a326 2
+should be on the same line as the closing brace, 
+as shown in Figure \*[Figure_EXAMPLE_IF_ELSE].
+d333 4
+d343 2
+a344 2
+.VCODE* 1 "if (prev == null) head = newnode;"
+.VCODE* 1 "             else prev.link = newnode;"
+d381 2
+a382 2
+.VCODE* 1 "out.printf (\[Dq]value = %d, string = %s, truth = %b%n\[Dq],"
+.VCODE* 1 "            value, this.string, the.truth);"
+a397 4
+Every program you submit for evaluation must contain your name and
+.IV username @@ucsc.edu
+in a comment at or near the top of the file.
+.LI
+d418 2
+a419 2
+.V= /* -comments,
+the
+d421 1
+a421 1
+and terminating
+d450 7
+a456 3
+.VCODE 1 "for (;;) {"
+.IR statements\|.\|.\|.
+.V= }
+d464 1
+a464 1
+.VCODE* 1 "data[++index] = other[++index];"
+d472 4
+a475 4
+.VCODE* 1 "#ifndef __FOO_H__"
+.VCODE* 1 "#define __FOO_H__"
+.VI "   " "\|.\|.\|. header file declarations \|.\|.\|."
+.VCODE* 1 "#endif"
+@
+
+
+1.42
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.41 2007-07-03 20:03:30-07 - - $"
+d121 5
+@
+
+
+1.41
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.40 2007-07-03 20:00:51-07 - - $"
+d489 11
+a499 1
+to check up on your code, and use 
+@
+
+
+1.40
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.39 2007-07-03 19:59:15-07 - - $"
+d499 20
+@
+
+
+1.39
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.38 2007-07-03 19:58:24-07 - - $"
+d499 4
+a502 2
+.H 1 "Makefile"
+A sample makefile is shown in Figure \*[Figure_EXAMPLE_MAKEFILE],
+d508 5
+@
+
+
+1.38
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.37 2007-07-03 19:56:55-07 - - $"
+a178 17
+Every file must contain an
+.V= "RCS \[Do]Id\[Do]"
+string.
+This identifies a copy of any printed listing with a specific
+version number.
+This identifier should be the first or last line of a file,
+and,
+for any given project, be consistently placed.
+For a program, it usually appears in a comment,
+but it may instead appear in a macro or string.
+All versions of all files must be archived in an
+.V= RCS ,
+.V= CVS ,
+or 
+.V= SVN
+repository.
+.LI
+d219 17
+@
+
+
+1.37
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.36 2007-07-03 19:55:32-07 - - $"
+a134 15
+Text messages sent in email and posted to the newsgroup should have
+lines limited to 65 characters,
+so that when quoted in a followup,
+lines tend not to wrap and are still shorter than 72 characters
+after several followups.
+History\(::
+A page is
+.andhalf 8
+inches wide and with 1 inch margins
+leaves
+.andhalf 6
+inches for text.
+A standard typewriter font prints 10 characters per inch,
+which is 65 characters per line.
+.LI
+d235 15
+@
+
+
+1.36
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.35 2007-07-03 19:55:09-07 - - $"
+d165 1
+a165 1
+.DS
+d218 1
+a218 1
+.DS
+d237 1
+a237 1
+.DS
+d246 1
+a246 1
+.DS
+d346 1
+a346 1
+.DS
+d384 1
+a384 1
+.DS
+d475 1
+a475 1
+.DS
+@
+
+
+1.35
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.34 2007-07-03 19:54:55-07 - - $"
+d167 1
+a168 1
+.IR filename
+@
+
+
+1.34
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.33 2007-07-03 19:54:26-07 - - $"
+d220 1
+a221 1
+.IR filename
+@
+
+
+1.33
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.32 2007-07-03 19:52:55-07 - - $"
+d21 3
+a83 3
+Following are some general coding style guidelines.
+They are necessarily incomplete and not every statement is applicable
+to every programming language.
+@
+
+
+1.32
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.31 2007-07-03 19:50:47-07 - - $"
+d21 60
+a250 46
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv examples/args.java | expand | sed 's/^/   /'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[B]Example of a Java program\f[P]" "" 0 EXAMPLE_ARGS_JAVA
+.DE
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv examples/argv.c | expand | sed 's/^/   /'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[B]Example of a C program\f[P]" "" 0 EXAMPLE_ARGV_C
+.DE
+.DF L
+.B1
+.SP
+.nf
+.ds CODEINDENT \h'11n'
+.VI "\*[CODEINDENT]if (" condition ") {"
+.VI "\*[CODEINDENT]   " "statements\|.\|.\|.
+.VI "\*[CODEINDENT]}else if (" condition ") {"
+.VI "\*[CODEINDENT]   " "statements\|.\|.\|.
+.VI "\*[CODEINDENT]}else {
+.VI "\*[CODEINDENT]   " "statements\|.\|.\|.
+.VI "\*[CODEINDENT]}"
+.fi
+.SP
+.B2
+.FG "\f[B]Example of an \f[CB]if else\f[R] construct\f[R]" \
+"" 0 EXAMPLE_IF_ELSE
+.DE
+a446 14
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso cat -nv examples/Makefile | expand | sed 's/^/   /'
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[B]Example of a Makefile\f[P]" "" 0 EXAMPLE_MAKEFILE
+.DE
+@
+
+
+1.31
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.30 2007-07-03 19:49:19-07 - - $"
+d10 1
+@
+
+
+1.30
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.29 2007-07-03 19:43:34-07 - - $"
+d104 1
+d106 1
+d157 1
+d159 1
+d176 1
+d178 1
+d185 1
+d188 1
+d446 1
+@
+
+
+1.29
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.28 2007-07-03 19:43:08-07 - - $"
+d9 1
+d424 14
+a437 1
+.ne 4
+d489 7
+@
+
+
+1.28
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.27 2007-07-03 19:42:28-07 - - $"
+d454 1
+a454 1
+.VI "   " "\|.\|.\|. header file declarations"
+@
+
+
+1.27
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.26 2007-07-03 19:41:53-07 - - $"
+d454 1
+a454 1
+.IR "\|.\|.\|. header file declarations"
+@
+
+
+1.26
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.25 2007-07-03 19:41:20-07 - - $"
+d423 1
+a423 1
+.ne 3
+@
+
+
+1.25
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.24 2007-07-03 19:38:25-07 - - $"
+d423 1
+@
+
+
+1.24
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.23 2007-07-03 19:38:04-07 - - $"
+d172 8
+@
+
+
+1.23
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.22 2007-07-03 19:20:53-07 - - $"
+d416 1
+@
+
+
+1.22
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.21 2007-07-03 19:11:25-07 - - $"
+d60 13
+d319 8
+d360 6
+d415 50
+@
+
+
+1.21
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.20 2007-07-03 19:08:18-07 - - $"
+d325 62
+@
+
+
+1.20
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.19 2007-07-03 19:07:47-07 - - $"
+d306 1
+a306 1
+Parenthese should be used consistently.
+d312 13
+@
+
+
+1.19
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.18 2007-07-03 19:01:53-07 - - $"
+d82 1
+a82 5
+If you have the extremely bad judgement to edit using
+M*cr*\[Do]*ft\*F,
+.FS
+.Cato.maior
+.FE
+d313 4
+@
+
+
+1.18
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.17 2007-07-03 19:01:12-07 - - $"
+d82 5
+a86 1
+If you have the extremely bad judgement to edit using M*cr*\[Do]*ft,
+d294 22
+@
+
+
+1.17
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.16 2007-07-03 18:58:55-07 - - $"
+d192 1
+a192 1
+.ds CODEINDENT \h'\n[Pi]n'
+@
+
+
+1.16
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.15 2007-07-03 18:57:11-07 - - $"
+d192 8
+a199 7
+.VI "if (" condition ") {"
+.VI "   " "statements\|.\|.\|.
+.VI "}else if (" condition ") {"
+.VI "   " "statements\|.\|.\|.
+.VI "}else {
+.VI "   " "statements\|.\|.\|.
+.VI "}"
+d203 2
+a204 1
+.FG "\f[B]Example of an C program\f[P]" "" 0 EXAMPLE_IF_ELSE
+@
+
+
+1.15
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.14 2007-07-03 18:52:03-07 - - $"
+d192 7
+a198 2
+.V= "if (" condition ") {"
+.V= "   " "statements\|.\|.\|.
+@
+
+
+1.14
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.13 2007-07-03 18:51:37-07 - - $"
+d8 1
+d188 11
+d276 7
+@
+
+
+1.13
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.12 2007-07-03 18:39:32-07 - - $"
+d28 1
+a28 1
+subdirectory of the course directory)
+@
+
+
+1.12
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.11 2007-07-03 18:38:16-07 - - $"
+d132 1
+d137 5
+@
+
+
+1.11
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.10 2007-07-03 18:34:43-07 - - $"
+d159 1
+a159 1
+.pso cat -nv examples/argv.c | expand | sed 's/^/   /'
+@
+
+
+1.10
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.9 2007-07-03 18:33:59-07 - - $"
+d159 1
+a159 1
+.pso expand examples/argv.c | sed 's/^/   /' | cat -nv
+d173 1
+a173 1
+.pso expand examples/argv.c | sed 's/^/   /' | cat -nv
+@
+
+
+1.9
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.8 2007-07-03 18:33:33-07 - - $"
+d153 28
+a239 28
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso expand examples/argv.c | sed 's/^/   /' | cat -nv
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[B]Example of a Java program\f[P]" "" 0 EXAMPLE_ARGS_JAVA
+.DE
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.eo
+.pso expand examples/argv.c | sed 's/^/   /' | cat -nv
+.ec
+.fi
+.ft R
+.SP
+.B2
+.FG "\f[B]Example of a C program\f[P]" "" 0 EXAMPLE_ARGV_C
+.DE
+@
+
+
+1.8
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.7 2007-07-03 18:32:20-07 - - $"
+d218 1
+a218 1
+.pso expand argv.c | sed 's/^/   /' | cat -nv
+d232 1
+a232 1
+.pso expand argv.c | sed 's/^/   /' | cat -nv
+@
+
+
+1.7
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.6 2007-07-03 17:06:59-07 - - $"
+d211 1
+d224 1
+a224 1
+.FG "Example of a Java program"" "" 0 EXAMPLE_ARGS_JAVA
+d238 1
+a238 1
+.FG "Example of a C program"" "" 0 EXAMPLE_ARGV_C
+@
+
+
+1.6
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.5 2007-07-03 17:06:45-07 - - $"
+d6 2
+a7 1
+.GETST* INDENTDOCUMENT Figure_INDENTDOCUMENT
+d211 28
+d255 2
+a256 1
+as shown in Figure \*[Figure_INDENTDOCUMENT].
+a257 14
+.DF L
+.B1
+.SP
+.ft CR
+.nf
+.\" .eo
+.\" .pso expand yes.c | sed 's/^/   /' | cat -n
+.\" .ec
+.fi
+.ft R
+.SP
+.B2
+.FG "Example of indentation and documentation" "" 0 INDENTDOCUMENT
+.DE
+@
+
+
+1.5
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.4 2007-07-03 17:06:24-07 - - $"
+d233 1
+a233 1
+.eo
+d235 1
+a235 1
+.ec
+@
+
+
+1.4
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.3 2007-07-03 17:05:41-07 - - $"
+d234 1
+a234 1
+.\".pso expand yes.c | sed 's/^/   /' | cat -n
+@
+
+
+1.3
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.2 2007-07-03 17:04:13-07 - - $"
+d227 1
+a241 1
+.LE
+@
+
+
+1.2
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.1 2007-07-03 16:50:55-07 - - $"
+d233 1
+a233 1
+.pso expand yes.c | sed 's/^/   /' | cat -n
+@
+
+
+1.1
+log
+@-
+@
+text
+@d4 1
+a4 1
+.RCS "$Id: coding-style.mm,v 1.5 2007-07-03 16:40:18-07 - - $"
+d6 1
+a6 1
+.GETST* INDENTATION Figure_INDENTATION
+d226 1
+a226 1
+as shown in Figure \*[Figure_INDENTATION].
+d230 7
+a236 5
+#include <stdio.h>
+#include <
+int main (int argc, char **argv) {
+   
+}
+d239 1
+a239 1
+.FG "Example of proper indentation" "" 0 INDENTATION
+@

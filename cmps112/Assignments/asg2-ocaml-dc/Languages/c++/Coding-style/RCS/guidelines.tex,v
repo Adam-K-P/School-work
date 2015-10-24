@@ -1,0 +1,287 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@% @;
+
+
+1.1
+date	2010.12.10.03.23.37;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{mathptm}
+\renewcommand{\sfdefault}{phv}
+
+\begin{document}
+\title{cmps109 --- 1998q1 --- C++ Coding Style --- General Guidelines}
+\date{\verb|$Id: guidelines.tex,v 330.3 2003/01/15 20:26:39 - - $|}
+
+The following are general programming guidelines for C++.  This
+file should serve as a checklist for programmers.  Some of these
+rules are requirements and some of them are general rules which
+may be ignored with suitable justification.
+
+\section{General}
+\begin{enumerate}
+
+\item No one letter identifiers.  Ever.  Identifiers should be
+      long enough or unique enough so that a \texttt{grep} for
+      an identifier should pick up only those identifiers and
+      specifically related identifiers, and possibly words in
+      comments and strings which are spelled in the same way.
+      Identifiers should always consist of words or phrases with
+      no unusual abbreviations.
+
+\item No \texttt{goto}s.  Ever.  Especially no \texttt{goto}s to
+      a pointer or to an array element\,!
+
+\item Do not define external variables.  However, due to the
+      legacy libraries inherited by C++ from C, it is sometimes
+      necessary to reference external variables defined by these
+      libraries.  An \texttt{extern} declaration which refers to
+      a global variable documented in the C library is
+      acceptable when there is no other way of accessing it.  If
+      you think you need to define an external variable, what
+      you probably really need is a private static data member.
+      Static variables of file scope are deprecated, but not
+      prohibited.
+
+\item Don't use \texttt{<stdio.h>}.  Instead, use
+      \texttt{<iostream>}, \texttt{<iomanip>}, etc.
+
+\item Other C header files may be used, but in their C++
+      \texttt{\#include}-form\,:  \texttt{<cassert>},
+      \texttt{<cctype>}, \texttt{<climits>}, \texttt{<cmath>},
+      etc.  You probably want to include the statement
+      \texttt{use namespace std;} for most C++ code.
+
+\item Never use \texttt{malloc()} or \texttt{free()}.  Instead,
+      use the C++ operators \texttt{new} and \texttt{delete}.
+
+\item If an object was created with \texttt{new}, then it should
+      be destroyed with \texttt{delete}.  If the call to
+      \texttt{new} used \texttt{[]} to allocate an array, then
+      use \texttt{delete[]} to destroy it.
+
+\item Spelling\,:  Class names should always be Capitalized or
+      Capitalized\_MixedCase.  Names defined via
+      \texttt{\#define} or \texttt{enum}, that is, compile time
+      constants, should be spelled in UPPER\_CASE.  All other
+      identifiers should be spelled in lower case or
+      lower\_mixedCase.
+
+\item Indentation must be consistent.  Anything inside of braces
+      (\texttt{\{}) and \texttt{\}}) must be indented three
+      spaces more than what immediately precedes and follows the
+      braces.  An open brace (\texttt{\{}) must never be on a
+      line by itself, always being put at the end of a line that
+      controls it.  A closing brace (\texttt{\}}) must always be
+      on a line by itself and aligned underneath the keyword
+      which introduced the construct that is being ended.
+
+\item Do not use C-style casts such as \texttt{(T)x}.  Instead,
+      use \texttt{static\_cast<T>(x)} where possible.  Use
+      \texttt{dynamic\_cast} when run time type information
+      (RTTI) is needed.
+
+\item Avoid using \texttt{reinterpret\_cast} unless you
+      absolutely must.  And then be aware that its behavior is
+      implementation dependent.  Don't use \texttt{union}s
+      either, for the same reason.  If you think you need a
+      union, you probably want inheritance instead.
+
+\item Use of \texttt{++}, \texttt{--}, or any assignment
+      operator, \texttt{=}, \texttt{+=}, \texttt{-=}, etc.,
+      inside of expressions is deprecated.  A statement should
+      alter one object and only one object.
+
+\end{enumerate}
+
+\section{Classes}
+\begin{enumerate}
+
+\item All data members should be private.  There may be the
+      occasional exception in very lightweight classes, but
+      public data members are probably wrong.  Protected data
+      members are also probably wrong.
+
+\item All classes should be declared with a destructor in order
+      to indicate that it was not forgotten.  It may never be
+      disabled, but its body may be just \texttt{\{}\}.  All
+      pointer variables in a class must be \texttt{delete}d from
+      inside of the destructor in order to avoid memory leak.
+      That is, if a pointer is the last pointer to a particular
+      object.
+
+\item All classes should have a default constructor declared
+      which properly initializes all of the data members.
+      Default construction may be disabled by declaring the
+      default constructor as a private member and not
+      implementing its body.
+
+\item All classes should have a copy constructor declared.  It's
+      single argument is a constant reference to an object of
+      its own class.  It may be disabled if the client should
+      not use it.
+
+\item All classes should have an \texttt{operator=} declared.
+      The return type and argument should both be a constant
+      reference to its class.  It may be disabled.  If a class
+      contains pointers, the default \texttt{operator=} is
+      certainly wrong.
+
+\item An implementation of \texttt{operator=} should always
+      check if its argument is the same object as
+      \texttt{this}.
+
+\item A class's single-parameter constructors and
+      \texttt{operator=} must be semantically related so that
+      the statements \texttt{T~x;x=y;} means exactly the same as
+      \texttt{T x(y);}, although the former may be less
+      efficient.  This must be true no matter the type of
+      \texttt{y}.
+
+\item All constructors which take a single parameter should be
+      marked \texttt{explicit}, because otherwise they are also
+      implicit conversion functions, unless a specific decision
+      has been made that such a conversion is reasonable.
+
+\item Data members which have identical values in all instances
+      of the class or which should be shared among all instances
+      of the class are declared \texttt{static}.  If they are of
+      an integral type and their value is known at compile time,
+      they should be \texttt{enum} constants instead of data
+      members.
+
+\item A class should have good cohesion.  That is, a class
+      should have one purpose and serve it well.  The general
+      purpose of a class should be describable in one sentence
+      without a long list of things.  The same is true of
+      programs.  A text editor, for example, should not be able
+      to read news, read mail, or do word processing\,; nor
+      should an operating system contain a windowing system or a
+      web browser.
+
+\item A class should have minimal coupling.  That is, a class
+      should keep as much as possible private and away from the
+      client.  The less that appears in the interface, the less
+      that the client needs to remember in order to properly use
+      the class.
+
+\item Avoid inline functions in header files where possible.
+      Whenever you have a choice between putting something
+      either in an interface (\texttt{.h}) file or in an
+      implementation (\texttt{.cc}) file, put it in the
+      implementation file.
+
+\end{enumerate}
+
+\section{Operators and Friends}
+\begin{enumerate}
+
+\item For a class \texttt{Foo}, declare\,:  \texttt{friend
+      ostream\& operator<<( ostream\&, const Foo\& )}, which
+      will be able to format and print an object in some
+      reasonable default format.
+
+\item Operators should be defined only when they will not
+      violate the Principle of Least Astonishment.  They should
+      be chosen to be semantically consistent with builtin and
+      library uses of the operators.
+
+\item The operator and assign form of operators should be
+      consistent with the base form.  For example, \texttt{a+=b}
+      should always be interchangeable with \texttt{a=a+b}, the
+      only possible differences being matters of efficiency.
+      Also, \texttt{++a} should always be identical to
+      \texttt{a+=1}, and, of course, to \texttt{a=a+1}.  And
+      \texttt{a++} should always be identical to \texttt{({t=a;
+      a+=1; return t})}.  Consider not implementing either the
+      prefix nor postfix form of \texttt{++} and \texttt{--}.
+
+\item Binary operators must have one parameter if implemented as
+      member functions and two parameters if implemented as
+      non-member functions.  Unary operators must have zero
+      parameters if implemented as member functions and one
+      parameters if implemented as non-member functions.
+
+\item The operators \texttt{++} and \texttt{--} are implemented
+      as unary operators in their prefix form and as binary
+      operators with a spurious \texttt{int} argument to
+      indicate their postfix form.
+
+\item It would be nice to use \texttt{operator**} as the
+      exponentiation operator, as is done in other languages,
+      but you can't, because \texttt{a**b} means
+      \texttt{a*(*b)}.  And don't define
+      \texttt{operator\textasciicircum} as exponentiation
+      either, since its precedence is wrong for that and it
+      means exclusive or.  An exponentiation operator should be
+      a binary operator with a higher precedence than multiply
+      and divide, but there are none.
+
+\item Relational operators are related.  After the statement
+      \texttt{a=b}, it should always be the case that
+      \texttt{a==b}.  Whenever \texttt{a==b} is true,
+      \texttt{a!=b} should always be false.  Similar comments
+      apply to \texttt{<}, \texttt{<=}, \texttt{>}, and
+      \texttt{>=}.  The relational operators and \texttt{!}
+      should always return a \texttt{bool} result.
+
+\item If it is necessary to use an object in a boolean context,
+      define an \texttt{operator bool} to implicitly convert the
+      class to boolean.  Do not use the older style of providing
+      an implicit converstion to \texttt{void*}, which was a
+      hack to get the same effect before \texttt{bool} was in
+      the language.  Better yet, consider member functions such
+      as \texttt{good()} or \texttt{error()} instead, for use
+      such as\,:  \texttt{if(x.good())}.
+
+\item Define related operators.  For example, if \texttt{a+b} is
+      meaningful, then implement the reverse operator so that
+      \texttt{b+a} provides a meaningful result, although the
+      second will have to be defined via the friend mechanism.
+      Side note\,:  \texttt{operator+} is not always
+      commutative, as that depends on the objects being
+      handled\,; e.g., not all string and matrix operators are
+      commutative.
+
+\end{enumerate}
+
+\section{Single Inheritance}
+\begin{enumerate}
+
+\item Any class that has any virtual function must have its
+      destructor declared as virtual.
+
+\item If a class is involved in inheritance, all function
+      members probably should be virtual.
+
+\end{enumerate}
+
+\section{Multiple Inheritance}
+\begin{enumerate}
+
+\item Don't.
+
+\end{enumerate}
+
+\section{More later}
+
+\end{document}
+@

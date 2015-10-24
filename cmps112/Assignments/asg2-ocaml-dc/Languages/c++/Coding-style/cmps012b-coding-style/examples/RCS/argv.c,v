@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2009.12.18.02.04.46;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// Author:  Your Name, username@@ucsc.edu
+// $Id: argv.c,v 1.3 2009-04-10 19:49:03-07 - - $
+//
+// NAME
+//    argv - print out the strings in argv
+//
+// SYNOPSIS
+//    argv [string...]
+//
+// DESCRIPTION
+//    Print out the strings from the command line argument vector.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (int argc, char **argv) {
+   int argi;
+   for (argi = 0; argi < argc; ++argi) {
+      printf ("argv[%d]=\"%s\"\n", argi, argv[argi]);
+   }
+   return EXIT_SUCCESS;
+}
+
+@

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Pre-defined C/C++ Compiler Macros</title>
+    <meta name="generator" content="muse.el">
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" media="screen" href="predef.css"/>
+  </head>
+  <body>
+    <h1>Pre-defined C/C++ Compiler Macros</h1>
+    <!-- Page published by Emacs Muse begins here -->
+
+<table class="menu">
+ <tbody>
+  <tr class="menuheader">
+   <td class="menucurrent">Home</td>
+   <td><a href="prestd.html">Standards</a></td>
+   <td><a href="precomp.html">Compilers</a></td>
+   <td><a href="prelib.html">Libraries</a></td>
+   <td><a href="preos.html">Operating Systems</a></td>
+   <td><a href="prearch.html">Architectures</a></td>
+  </tr>
+  <tr class="menuline">
+   <td class="menulinefirst">&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td class="menulinelast">&nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+
+
+
+
+<p>Please send updates/corrections to <a href="mailto:predef-contribute@lists.sourceforge.net">mailto:predef-contribute@lists.sourceforge.net</a>.</p>
+
+<p>Project page is at <a href="http://sourceforge.net/projects/predef/">http://sourceforge.net/projects/predef/</a></p>
+
+
+
+<h2>Introduction</h2>
+
+<p class="first">C and C++ compilers automatically define certain macros that can be used to
+check for compiler or operating system features. This is useful when writing
+portable software.</p>
+
+<p>These pages lists various pre-defined compiler macros that can be used to
+identify standards, compilers, operating systems, hardware architectures, and
+even basic run-time libraries at compile-time.</p>
+
+<p>For example, if we want to use a generic or opaque pointer type, we use <code>void</code>
+pointers. However, ancient K&amp;R compilers (from the time before the first ANSI C
+standard) do not support <code>void</code> pointers. Instead we can define our own type:</p>
+
+<pre class="example">
+#if defined(__STDC__) || defined(__cplusplus) || defined(_MSC_EXTENSIONS)
+typedef void * t_pointer;
+#else
+typedef char * t_pointer;
+#endif
+</pre>
+
+<p>Another example, Microsoft Visual C++ version 4.2 added a pragma to reduce
+compilation times by only including a file once (if <code>_MSC_VER</code> is not defined then
+it will evaluate to 0 (zero) &mdash; however, some compilers may complain about an
+undefined macro)</p>
+
+<pre class="example">
+#if defined(_MSC_VER) &amp;&amp; (_MSC_VER &gt;= 1020)
+#pragma once
+#endif
+</pre>
+
+<p>The macros contained in these pages have been obtained through vendor
+documentation, the <a href="defines.txt">defines script</a>, contributors, and third-party source code.
+No guarantee about the correctness of the macros is given.</p>
+
+<p>An often-used alternative is <a href="http://predef.sourceforge.net/href=%22http://www.gnu.org/software/autoconf/">Autoconf</a>, which is a more powerful tool to examine
+various types of features, including compilation options.
+However, Autoconf is fairly Unix-centric, and requires a Unix layer on other
+platforms (e.g. Cygwin on Windows).
+Other alternatives are <a href="http://buildtool.sourceforge.net/">Buildtool</a>, <a href="http://www.cmake.org/">CMake</a>, <a href="http://www.scons.org/">SCons</a>, <a href="http://pmk.sourceforge.net/">PMK</a>, <a href="http://www.perforce.com/jam/jam.html">Jam</a>, <a href="http://ant.apache.org/">Ant</a>, and <a href="http://bakefile.sourceforge.net">Bakefile</a>.</p>
+
+
+
+
+<h2>References</h2>
+
+<ul>
+<li><a href="http://petef.port5.com/c/portability.txt">Portability Guide</a>, Pete Forman</li>
+<li><a href="http://oakroadsystems.com/tech/c-predef.htm">Identifiers NOT To Use in C Programs</a>, Stan Brown</li>
+<li><a href="http://oakroadsystems.com/tech/cppredef.htm">Identifiers To Avoid in C++ Programs</a>, Stan Brown</li>
+<li><a href="http://david.tribble.com/text/cdiffs.htm">Incompatibilities Between ISO C and ISO C++</a>, David R. Tribble</li>
+<li><a href="http://www.mozilla.org/hacking/portable-cpp.html">C++ portability guide</a>, Mozilla</li>
+<li><a href="http://www.chris-lott.org/resources/cstyle/portableC.html">Notes On Writing Portable Programs In C</a>, Dolenc, Lemmke, Keppel</li>
+<li><a href="http://docs.sun.com/htmlcoll/coll.33.7/iso-8859-1/CUG/tguide.html">Chapter 7. Transitioning to ANSI/ISO C</a>, C User's Guide, Sun Microsystems</li>
+<li><a href="http://www.unix-systems.org/version3/apis.html">The Single UNIX Specification Version 3 Interface Tables</a>, The Austin Common Standards Revision Group</li>
+</ul>
+
+
+
+
+<h2>Contributors</h2>
+
+<p class="first">Daniel Stenberg,
+Greg Roelofs,
+Steven G. Johnson,
+Wlodzimierz ABX Skiba,
+Marc Finet,
+Philip Newton,
+Mitchell Charity,
+Christian Klutz,
+Seo Sanghyeon,
+Chris Adami,
+Geoff Clare,
+Dan Fandrich,
+Mike Gorchak,
+Yuri D'Elia,
+Gynvael Coldwind,
+Alain Tauch,
+Vadim Zeitlin,
+Steve White,
+Thomas David Rivers,
+Tom Honermann,
+Martin Mitas,
+Dinesh Chhadwa,
+Erik Faye-Lund,
+Leo Davis,
+Paul Hsieh,
+Roland Schwarz,
+Darko Kolakovic,
+Andy Buonviri,
+Ming Kin Lai,
+Kent Johnson,
+Helmut Bauer,
+Oliver Schneider,
+Ron Pimblett.
+
+
+
+
+<hr>
+<p class="footer">Copyright &copy; 2002-2008 Bj&oslash;rn Reese </p>
+<p class="footer">
+Permission to use, copy, modify, and distribute this document for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all copies.
+</p>
+<p class="footer">
+THIS DOCUMENT IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE
+AUTHORS AND CONTRIBUTORS ACCEPT NO RESPONSIBILITY IN ANY CONCEIVABLE
+MANNER.
+</p>
+<center class="footer">
+$Id: index.muse,v 1.15 2009/01/04 12:26:07 breese Exp $
+</center>
+
+
+
+<!-- Page published by Emacs Muse ends here -->
+  </body>
+</html>

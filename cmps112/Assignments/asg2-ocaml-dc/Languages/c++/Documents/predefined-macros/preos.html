@@ -1,0 +1,2310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Pre-defined Operating System Macros</title>
+    <meta name="generator" content="muse.el">
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" media="screen" href="predef.css"/>
+  </head>
+  <body>
+    <h1>Pre-defined Operating System Macros</h1>
+    <!-- Page published by Emacs Muse begins here -->
+
+<table class="menu">
+ <tbody>
+  <tr class="menuheader">
+   <td><a href="index.php">Home</a></td>
+   <td><a href="prestd.html">Standards</a></td>
+   <td><a href="precomp.html">Compilers</a></td>
+   <td><a href="prelib.html">Libraries</a></td>
+   <td class="menucurrent">Operating Systems</td>
+   <td><a href="prearch.html">Architectures</a></td>
+  </tr>
+  <tr class="menuline">
+   <td class="menulinefirst">&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td class="menulinelast">&nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+
+
+<h2><a name="sec1" id="sec1"></a>
+Table of Content - Operating Systems</h2>
+<div class="contents">
+<dl>
+<dt>
+<a href="preos.html#sec1">Table of Content - Operating Systems</a>
+</dt>
+<dt>
+<a href="preos.html#sec2">AIX</a>
+</dt>
+<dt>
+<a href="preos.html#sec3">AmigaOS</a>
+</dt>
+<dt>
+<a href="preos.html#sec4">BeOS</a>
+</dt>
+<dt>
+<a href="preos.html#sec5">BSD/OS</a>
+</dt>
+<dt>
+<a href="preos.html#sec6">Cray UniCOS</a>
+</dt>
+<dt>
+<a href="preos.html#sec7">DG/UX</a>
+</dt>
+<dt>
+<a href="preos.html#sec8">DragonFly</a>
+</dt>
+<dt>
+<a href="preos.html#sec9">DYNIX/ptx</a>
+</dt>
+<dt>
+<a href="preos.html#sec10">eCos</a>
+</dt>
+<dt>
+<a href="preos.html#sec11">FreeBSD</a>
+</dt>
+<dt>
+<a href="preos.html#sec12">GNU Hurd</a>
+</dt>
+<dt>
+<a href="preos.html#sec13">HI-UX/MPP</a>
+</dt>
+<dt>
+<a href="preos.html#sec14">HP-UX</a>
+</dt>
+<dt>
+<a href="preos.html#sec15">INTEGRITY</a>
+</dt>
+<dt>
+<a href="preos.html#sec16">IRIX</a>
+</dt>
+<dt>
+<a href="preos.html#sec17">Linux</a>
+</dt>
+<dt>
+<a href="preos.html#sec18">LynxOS</a>
+</dt>
+<dt>
+<a href="preos.html#sec19">MacOS</a>
+</dt>
+<dt>
+<a href="preos.html#sec20">Microware OS-9</a>
+</dt>
+<dt>
+<a href="preos.html#sec21">MINIX</a>
+</dt>
+<dt>
+<a href="preos.html#sec22">MPE/iX</a>
+</dt>
+<dt>
+<a href="preos.html#sec23">MSDOS</a>
+</dt>
+<dt>
+<a href="preos.html#sec24">MS Windows</a>
+</dt>
+<dt>
+<a href="preos.html#sec25">MS Windows CE</a>
+</dt>
+<dt>
+<a href="preos.html#sec26">NetBSD</a>
+</dt>
+<dt>
+<a href="preos.html#sec27">OpenBSD</a>
+</dt>
+<dt>
+<a href="preos.html#sec28">OS/2</a>
+</dt>
+<dt>
+<a href="preos.html#sec29">Pyramid DC/OS</a>
+</dt>
+<dt>
+<a href="preos.html#sec30">QNX</a>
+</dt>
+<dt>
+<a href="preos.html#sec31">Reliant UNIX</a>
+</dt>
+<dt>
+<a href="preos.html#sec32">SCO OpenServer</a>
+</dt>
+<dt>
+<a href="preos.html#sec33">Solaris</a>
+</dt>
+<dt>
+<a href="preos.html#sec34">Symbian OS</a>
+</dt>
+<dt>
+<a href="preos.html#sec35">Tru64 (OSF/1)</a>
+</dt>
+<dt>
+<a href="preos.html#sec36">Ultrix</a>
+</dt>
+<dt>
+<a href="preos.html#sec37">UnixWare</a>
+</dt>
+<dt>
+<a href="preos.html#sec38">VMS</a>
+</dt>
+<dt>
+<a href="preos.html#sec39">z/OS (OS/390)</a>
+</dt>
+<dt>
+<a href="preos.html#sec40">BSD Environment</a>
+</dt>
+<dt>
+<a href="preos.html#sec41">EMX Environment</a>
+</dt>
+<dt>
+<a href="preos.html#sec42">SVR4 Environment</a>
+</dt>
+<dt>
+<a href="preos.html#sec43">Unix Environment</a>
+</dt>
+<dt>
+<a href="preos.html#sec44">U/Win Environment</a>
+</dt>
+<dt>
+<a href="preos.html#sec45">Wind/U Environment</a>
+</dt>
+</dl>
+</div>
+
+
+
+
+
+<h2><a name="sec2" id="sec2"></a>
+AIX</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_AIX</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>.</td>
+      <td>See example</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__TOS_AIX__</td>
+      <td>Defined by xlC</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p class="first">If <code>_AIX</code> is defined, then the following macros can be used to determine the version.
+Please note that the macros indicates the mentioned version or higher. For example,
+if <code>_AIX43</code> is defined, then <code>_AIX41</code> will also be defined.</p>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>AIX</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.2.x</td>
+      <td>_AIX3, _AIX32</td>
+    </tr>
+    <tr>
+      <td>4.1</td>
+      <td>_AIX41</td>
+    </tr>
+    <tr>
+      <td>4.3</td>
+      <td>_AIX43</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.ibm.com/servers/aix/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/AIX/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/AIX_operating_system">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec3" id="sec3"></a>
+AmigaOS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>AMIGA</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__amigaos__</td>
+      <td>Defined by GNU C</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.amiga.com/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Systems/Amiga/Software/Operating_Systems/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/AmigaOS">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec4" id="sec4"></a>
+BeOS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__BEOS__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.openbeos.org/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Microkernel/BeOS/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/BeOS">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec5" id="sec5"></a>
+BSD/OS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__bsdi__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://en.wikipedia.org/wiki/BSD/OS">Wikipedia</a>
+</span></p>
+
+
+
+
+<h2><a name="sec6" id="sec6"></a>
+Cray UniCOS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_UNICOS</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_UNICOS</td>
+      <td>V</td>
+      <td>V = Version</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.cray.com/products/software/unicos.html">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/UniCOS">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec7" id="sec7"></a>
+DG/UX</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>DGUX</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__DGUX__</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__dgux__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www-csc.dg.com/csc/dguxfaqs1.asp">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Data_General">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec8" id="sec8"></a>
+DragonFly</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__DragonFly__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.dragonflybsd.org/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/DragonFly_BSD">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec9" id="sec9"></a>
+DYNIX/ptx</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_SEQUENT_</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>sequent</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.sequent.com/products/software/operatingsys/dynix.html">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Dynix">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec10" id="sec10"></a>
+eCos</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__ECOS</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://ecos.sourceware.org/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Realtime/eCos/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/ECos">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec11" id="sec11"></a>
+FreeBSD</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__FreeBSD__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>BSD</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__FreeBSD__</td>
+      <td>V</td>
+      <td>V = Version</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__FreeBSD_version</td>
+      <td>?</td>
+      <td>Must be included from &lt;osreldate.h&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>FreeBSD</th>
+      <th>__FreeBSD__</th>
+      <th>__FreeBSD_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.x</td>
+      <td>1</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>2.0-RELEASE</td>
+      <td>2</td>
+      <td>119411</td>
+    </tr>
+    <tr>
+      <td>2.2-RELEASE</td>
+      <td>2</td>
+      <td>220000</td>
+    </tr>
+    <tr>
+      <td>3.0-RELEASE</td>
+      <td>3</td>
+      <td>300005</td>
+    </tr>
+    <tr>
+      <td>4.0-RELEASE</td>
+      <td>4</td>
+      <td>400017</td>
+    </tr>
+    <tr>
+      <td>4.5-RELEASE</td>
+      <td>4</td>
+      <td>450000</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p>For more information see the <a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/freebsd-versions.html">FreeBSD porters handbook</a>.</p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.freebsd.org/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/BSD/FreeBSD/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Freebsd">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec12" id="sec12"></a>
+GNU Hurd</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__GNU__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.gnu.org/software/hurd/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Microkernel/Mach/GNU_Hurd/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/GNU/Hurd">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec13" id="sec13"></a>
+HI-UX/MPP</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__hiuxmpp</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.hitachi.co.jp/Prod/comp/soft1/sr8000/index-e.html">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec14" id="sec14"></a>
+HP-UX</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_hpux</td>
+      <td>Defined by HP UPC</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>hpux</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__hpux</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.hp.com/products1/unix/operating/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/HP-UX/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/HP-UX">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec15" id="sec15"></a>
+INTEGRITY</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__INTEGRITY</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.ghs.com/products/rtos/integrity.html">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Software/Operating_Systems/Realtime/POSIX/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Integrity_%28operating_system%29">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec16" id="sec16"></a>
+IRIX</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>sgi</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__sgi</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.sgi.com/developers/technology/irix.html">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/IRIX/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Irix">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec17" id="sec17"></a>
+Linux</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>linux</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__linux</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.linuxhq.com/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Linux/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Linux">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec18" id="sec18"></a>
+LynxOS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__Lynx__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.lynuxworks.com/rtos/rtos.php">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Software/Operating_Systems/Realtime/LynxOS/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/LynxOS">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec19" id="sec19"></a>
+MacOS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>macintosh</td>
+      <td>Mac OS 9</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>Macintosh</td>
+      <td>Mac OS 9</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__APPLE__ &amp; __MACH__</td>
+      <td>Mac OS X<br><br>Defined by GNU C and Intel C++</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.apple.com/macosx/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Mac_OS/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Mac_OS">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec20" id="sec20"></a>
+Microware OS-9</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__OS9000</td>
+      <td>Defined by Ultimate C/C++</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>_OSK</td>
+      <td>Defined by Ultimate C/C++</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.microware.com/products/Microware%20OS-9.cfm">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/OS-9">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec21" id="sec21"></a>
+MINIX</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__minix</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.minix3.org/">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Software/Operating_Systems/Unix/MINIX/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Minix">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec22" id="sec22"></a>
+MPE/iX</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>mpeix</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__mpexl</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.hp.com/products1/mpeix/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/MPE">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec23" id="sec23"></a>
+MSDOS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>MSDOS</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__MSDOS__</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>_MSDOS</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__DOS__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/x86/DOS/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/MS-DOS">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec24" id="sec24"></a>
+MS Windows</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_WIN32</td>
+      <td>Defined for both 32-bit and 64-bit environments</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>_WIN64</td>
+      <td>Defined for 64-bit environments.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__WIN32__</td>
+      <td>Defined by Borland C++</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__TOS_WIN__</td>
+      <td>Defined by xlC</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__WINDOWS__</td>
+      <td>Defined by Watcom C/C++</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.microsoft.com/windows/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Microsoft_Windows/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Category:Microsoft_Windows">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec25" id="sec25"></a>
+MS Windows CE</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_WIN32_WCE</td>
+      <td>.</td>
+      <td>Defined by Embedded Visual Studio C++</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_WIN32_WCE</td>
+      <td>VRR</td>
+      <td>V = Version<br>R = Revision</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>WIN32_PLATFORM_'P'</td>
+      <td>.</td>
+      <td>P = Platform</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>WIN32_PLATFORM_'P'</td>
+      <td>V</td>
+      <td>P = Platform<br>V = Version</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>_WIN32_WCE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.01</td>
+      <td>201</td>
+    </tr>
+    <tr>
+      <td>2.11</td>
+      <td>211</td>
+    </tr>
+    <tr>
+      <td>3.0</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <td>4.0</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <td>4.1</td>
+      <td>410</td>
+    </tr>
+    <tr>
+      <td>4.2</td>
+      <td>420</td>
+    </tr>
+    <tr>
+      <td>5.0</td>
+      <td>501</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Macro</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>H/PC 2000</td>
+      <td>WIN32_PLATFORM_HPC2000</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>H/PC Pro 2.11</td>
+      <td>WIN32_PLATFORM_HPCPRO</td>
+      <td>211</td>
+    </tr>
+    <tr>
+      <td>H/PC Pro 3.0</td>
+      <td>WIN32_PLATFORM_HPCPRO</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <td>Pocket PC</td>
+      <td>WIN32_PLATFORM_PSPC</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Pocket PC 2002</td>
+      <td>WIN32_PLATFORM_PSPC</td>
+      <td>310</td>
+    </tr>
+    <tr>
+      <td>Windows Mobile 2003</td>
+      <td>WIN32_PLATFORM_PSPC</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <td>Smartphone 2002</td>
+      <td>WIN32_PLATFORM_WFSP</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://msdn2.microsoft.com/en-us/embedded/aa731407.aspx">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Systems/Handhelds/Windows_CE/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Windows_CE">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec26" id="sec26"></a>
+NetBSD</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__NetBSD__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>BSD</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>NetBSD'V'_'R'</td>
+      <td>.</td>
+      <td>V = Version<br>R = Revision<br><br>Must be included from &lt;sys/param.h&gt;</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__NetBSD_Version</td>
+      <td>VVRRAAPP00</td>
+      <td>VV = Version<br>RR = Revision<br>AA = Release<br>PP = Patch<br><br>From NetBSD 1.2D (?) until NetBSD 2.0H<br><br>Must be included from &lt;sys/param.h&gt;</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__NetBSD_Version</td>
+      <td>VVRR00PP00</td>
+      <td>VV = Version<br>RR = Revision<br>PP = Patch<br><br>From NetBSD 2.99.9<br><br>Must be included from &lt;sys/param.h&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>NetBSD</th>
+      <th>__NetBSD_Version__</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.8</td>
+      <td>.</td>
+      <td>NetBSD0_8</td>
+    </tr>
+    <tr>
+      <td>0.9</td>
+      <td>.</td>
+      <td>NetBSD0_9</td>
+    </tr>
+    <tr>
+      <td>1.0</td>
+      <td>.</td>
+      <td>NetBSD1_0 = 1</td>
+    </tr>
+    <tr>
+      <td>1.0A</td>
+      <td>.</td>
+      <td>NetBSD1_0 = 2</td>
+    </tr>
+    <tr>
+      <td>1.2D</td>
+      <td>102040000</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>1.2.1</td>
+      <td>102000100</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.netbsd.org/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/BSD/NetBSD/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Netbsd">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec27" id="sec27"></a>
+OpenBSD</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__OpenBSD__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>BSD</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>OpenBSD'V'_'R'</td>
+      <td>.</td>
+      <td>V = Version<br>R = Revision<br><br>Must be included from &lt;sys/param.h&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>OpenBSD</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.1</td>
+      <td>OpenBSD3_1</td>
+    </tr>
+    <tr>
+      <td>3.9</td>
+      <td>OpenBSD3_9</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.openbsd.org/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/BSD/OpenBSD/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Openbsd">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec28" id="sec28"></a>
+OS/2</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>OS2</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>_OS2</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__OS2__</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__TOS_OS2__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.ibm.com/software/os/warp/">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Software/Operating_Systems/OS-2/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/OS/2">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec29" id="sec29"></a>
+Pyramid DC/OS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>pyr</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<h2><a name="sec30" id="sec30"></a>
+QNX</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__QNX__</td>
+      <td>.</td>
+      <td>QNX 4.x</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__QNXNTO__</td>
+      <td>.</td>
+      <td>QNX 6.x</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_NTO_VERSION</td>
+      <td>VRR</td>
+      <td>V = Version<br>RR = Revision<br><br>Only available when __QNXNTO__ is defined.<br><br>Must be included from &lt;sys/neutrino.h&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>QNX</th>
+      <th>_NTO_VERSION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6.2</td>
+      <td>620</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.qnx.com/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Realtime/QNX/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/QNX">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec31" id="sec31"></a>
+Reliant UNIX</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>sinux</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://manuals.fujitsu-siemens.com:80/dynaweb/english/unixe/ru_en">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec32" id="sec32"></a>
+SCO OpenServer</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>M_I386</td>
+      <td>Defined by GNU C</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>M_XENIX</td>
+      <td>Defined by GNU C</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>_SCO_DS</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.caldera.com/support/docs/openserver/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/SCO/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/SCO_OpenServer">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec33" id="sec33"></a>
+Solaris</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>sun</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__sun</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__'System'_'Version'</td>
+      <td>System = uname -s<br>Version = uname -r<br>Any illegal character is replaced by an underscore.<br><br>Defined by Sun Studio</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Use the SVR4 macros to distinguish between Solaris and SunOS.
+<pre class="example">
+#if defined(sun) || defined(__sun)
+# if defined(__SVR4) || defined(__svr4__)
+/* Solaris */
+# else
+/* SunOS */
+# endif
+#endif
+</pre></p>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Solaris</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.7</td>
+      <td>__SunOS_5_7</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>__SunOS_5_8</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.sun.com/solaris/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/Solaris/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Solaris_Operating_Environment">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec34" id="sec34"></a>
+Symbian OS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__SYMBIAN32__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://developer.symbian.com/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Symbian_OS">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec35" id="sec35"></a>
+Tru64 (OSF/1)</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__osf__</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__osf</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.tru64unix.compaq.com/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/OSF1/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Digital_UNIX">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec36" id="sec36"></a>
+Ultrix</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>ultrix</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__ultrix</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__ultrix__</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>unix &amp; vax</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://en.wikipedia.org/wiki/Ultrix">Wikipedia</a>
+</span></p>
+
+
+
+
+<h2><a name="sec37" id="sec37"></a>
+UnixWare</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>sco</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>_UNIXWARE7</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://docsrv.caldera.com/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/SCO/UnixWare/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/UnixWare">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec38" id="sec38"></a>
+VMS</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>VMS</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__VMS</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__VMS_VER</td>
+      <td>VVRREPPTT</td>
+      <td>VV = Version<br>RR = Revision<br>E = Edit number<br>PP = Patch (01 = A, ... 26 = Z)<br>TT = Type (22 = official)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>VMS</th>
+      <th>__VMS_VER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6.1</td>
+      <td>60100022</td>
+    </tr>
+    <tr>
+      <td>6.2</td>
+      <td>60200022</td>
+    </tr>
+    <tr>
+      <td>6.2-1I</td>
+      <td>60210922</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.openvms.compaq.com/">Official site</a></td>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Midrange/VMS/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Vms">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec39" id="sec39"></a>
+z/OS (OS/390)</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__MVS__</td>
+      <td>Host</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__HOS_MVS__</td>
+      <td>Host</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__TOS_MVS__</td>
+      <td>Target</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.ibm.com/servers/s390/os390/">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Software/Operating_Systems/Mainframe/IBM/z-OS/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Z/OS">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec40" id="sec40"></a>
+BSD Environment</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__FreeBSD__<br>__NetBSD__<br>__OpenBSD__<br>__bsdi__<br>__DragonFly__</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>BSD</td>
+      <td>YYYYMM</td>
+      <td>YYYY = Year<br>MM = Month<br><br>Must be included from &lt;sys/param.h&gt;</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>BSD4_2<br>BSD4_3<br>BSD4_4</td>
+      <td>.</td>
+      <td>Must be included from &lt;sys/param.h&gt;</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>_SYSTYPE_BSD</td>
+      <td>.</td>
+      <td>Defined by DEC C</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>BSD</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.3 Net2</td>
+      <td>199103</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>4.4</td>
+      <td>199306</td>
+      <td>BSD4_4</td>
+    </tr>
+    <tr>
+      <td>4.4BSD-Lite2</td>
+      <td>199506</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://en.wikipedia.org/wiki/Bsd">Wikipedia</a>
+</span></p>
+
+
+
+
+
+<h2><a name="sec41" id="sec41"></a>
+EMX Environment</h2>
+
+<p class="first">Unix compatible environment for OS/2.</p>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__EMX__</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://posix2.sourceforge.net/">Unofficial site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Software/Operating_Systems/OS-2/Development/">Google Directory</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec42" id="sec42"></a>
+SVR4 Environment</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__sysv__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__SVR4</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__svr4__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>_SYSTYPE_SVR4</td>
+      <td>Defined on IRIX</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.caldera.com/developers/devspecs/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/UNIX_System_V">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec43" id="sec43"></a>
+Unix Environment</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__unix__</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__unix</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that not all compilers defines these macros, e.g. the xlC or the DEC C/C++ compiler, so it may be better to use the POSIX or X/Open standard macros instead.</p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Unix">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+<h2><a name="sec44" id="sec44"></a>
+U/Win Environment</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_UWIN</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<a href="http://www.wipro.com/uwin/">Official site</a>
+</span></p>
+
+
+
+
+<h2><a name="sec45" id="sec45"></a>
+Wind/U Environment</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_WINDU_SOURCE</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example</h4>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Wind/U</th>
+      <th>_WINDU_SOURCE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.1.2</td>
+      <td>0x030102</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.bristol.com/windu/">Official site</a>
+</span>
+
+
+
+
+<hr>
+<p class="footer">Copyright &copy; 2002-2008 Bj&oslash;rn Reese </p>
+<p class="footer">
+Permission to use, copy, modify, and distribute this document for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all copies.
+</p>
+<p class="footer">
+THIS DOCUMENT IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE
+AUTHORS AND CONTRIBUTORS ACCEPT NO RESPONSIBILITY IN ANY CONCEIVABLE
+MANNER.
+</p>
+<center class="footer">
+$Id: preos.muse,v 1.10 2008/07/12 11:48:21 breese Exp $
+</center>
+
+
+
+
+<!-- Page published by Emacs Muse ends here -->
+  </body>
+</html>

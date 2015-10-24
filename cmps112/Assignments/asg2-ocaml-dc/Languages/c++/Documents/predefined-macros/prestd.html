@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Pre-defined Standard Macros</title>
+    <meta name="generator" content="muse.el">
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" media="screen" href="predef.css"/>
+  </head>
+  <body>
+    <h1>Pre-defined Standard Macros</h1>
+    <!-- Page published by Emacs Muse begins here -->
+
+<table class="menu">
+ <tbody>
+  <tr class="menuheader">
+   <td><a href="index.php">Home</a></td>
+   <td class="menucurrent">Standards</td>
+   <td><a href="precomp.html">Compilers</a></td>
+   <td><a href="prelib.html">Libraries</a></td>
+   <td><a href="preos.html">Operating Systems</a></td>
+   <td><a href="prearch.html">Architectures</a></td>
+  </tr>
+  <tr class="menuline">
+   <td class="menulinefirst">&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td class="menulinelast">&nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+
+
+<h2><a name="sec1" id="sec1"></a>
+Table of Contents - Standards</h2>
+<div class="contents">
+<dl>
+<dt>
+<a href="prestd.html#sec1">Table of Contents - Standards</a>
+</dt>
+<dt>
+<a href="prestd.html#sec2">Language Standards</a>
+</dt>
+<dd>
+<dl>
+<dt>
+<a href="prestd.html#sec3">Example: C Standards</a>
+</dt>
+<dt>
+<a href="prestd.html#sec4">Example: Pre-C89</a>
+</dt>
+</dl>
+</dd>
+<dt>
+<a href="prestd.html#sec5">Unix Standards</a>
+</dt>
+<dd>
+<dl>
+<dt>
+<a href="prestd.html#sec6">Example: Unix Standards</a>
+</dt>
+</dl>
+</dd>
+</dl>
+</div>
+
+
+
+<h2><a name="sec2" id="sec2"></a>
+Language Standards</h2>
+
+<p class="first">Language standards requires the existance of pre-defined macros.</p>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Macro</th>
+      <th>Standard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>C89</td>
+      <td><code>__STDC__</code></td>
+      <td>ANSI X3.159-1989</td>
+    </tr>
+    <tr>
+      <td>C90</td>
+      <td><code>__STDC_VERSION__</code></td>
+      <td>ISO/IEC 9899:1990</td>
+    </tr>
+    <tr>
+      <td>C94</td>
+      <td><code>__STDC_VERSION__</code> = 199409L</td>
+      <td>ISO/IEC 9899-1:1994</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.open-std.org/jtc1/sc22/wg14/">C99</a></td>
+      <td><code>__STDC_VERSION__</code> = 199901L</td>
+      <td>ISO/IEC 9899:1999</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.open-std.org/jtc1/sc22/wg21/">C++98</a></td>
+      <td><code>__cplusplus</code> = 199707L</td>
+      <td>ISO/IEC 14882:1998</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.ecma-international.org/publications/standards/Ecma-372.htm">C++/CLI</a></td>
+      <td><code>__cplusplus_cli</code> = 200406L</td>
+      <td>ECMA-372</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.caravan.net/ec2plus/">EC++</a></td>
+      <td><code>__embedded_cplusplus</code></td>
+      <td>Embedded C++</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a name="sec3" id="sec3"></a>
+Example: C Standards</h3>
+
+<pre class="example">
+#if defined(__STDC__)
+# define PREDEF_STANDARD_C_1989
+# if defined(__STDC_VERSION__)
+#  define PREDEF_STANDARD_C_1990
+#  if (__STDC_VERSION__ &gt;= 199409L)
+#   define PREDEF_STANDARD_C_1994
+#  endif
+#  if (__STDC_VERSION__ &gt;= 199901L)
+#   define PREDEF_STANDARD_C_1999
+#  endif
+# endif
+#endif
+</pre>
+
+<p>Please note that not all compliant compilers provides the correct pre-defined
+macros. For example, Microsoft Visual C++ does not define <code>__STDC__</code>, or Sun
+Workshop 4.2 supports C94 without setting <code>__STDC_VERSION__</code> to the proper value.
+Extra checks for such compilers must be added.</p>
+
+
+<h3><a name="sec4" id="sec4"></a>
+Example: Pre-C89</h3>
+
+<p class="first">Pre-C89 compilers do not recognize certain keywords. Let the
+preprocessor remove those keywords for those compilers.</p>
+
+<pre class="example">
+#if !defined(PREDEF_STANDARD_C_1989) &amp;&amp; !defined(__cplusplus)
+# define const
+# define volatile
+#endif
+</pre>
+
+
+
+<h2><a name="sec5" id="sec5"></a>
+Unix Standards</h2>
+
+<p class="first">Unix standards require the existance macros in the <code>&lt;unistd.h&gt;</code> header file.</p>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Macro</th>
+      <th>Standard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>POSIX.1-1988</td>
+      <td><code>_POSIX_VERSION</code> = 198808L</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>POSIX.1-1990</td>
+      <td><code>_POSIX_VERSION</code> = 199009L</td>
+      <td>ISO/IEC 9945-1:1990</td>
+    </tr>
+    <tr>
+      <td>POSIX.2</td>
+      <td><code>_POSIX2_C_VERSION</code> = 199209L</td>
+      <td>ISO/IEC 9945-2:1993</td>
+    </tr>
+    <tr>
+      <td>POSIX.1b-1993</td>
+      <td><code>_POSIX_VERSION</code> = 199309L</td>
+      <td>IEEE 1003.1b-1993</td>
+    </tr>
+    <tr>
+      <td>POSIX.1-1996</td>
+      <td><code>_POSIX_VERSION</code> = 199506L</td>
+      <td>IEEE 1003.1-1996</td>
+    </tr>
+    <tr>
+      <td>POSIX.1-2001</td>
+      <td><code>_POSIX_VERSION</code> = 200112L</td>
+      <td>IEEE 1003.1-2001</td>
+    </tr>
+    <tr>
+      <td>XPG3</td>
+      <td><code>_XOPEN_VERSION</code> = 3</td>
+      <td>X/Open Portability Guide 3 (1989)</td>
+    </tr>
+    <tr>
+      <td>XPG4</td>
+      <td><code>_XOPEN_VERSION</code> = 4</td>
+      <td>X/Open Portability Guide 4 (1992)</td>
+    </tr>
+    <tr>
+      <td>SUS</td>
+      <td><code>_XOPEN_VERSION</code> = 4 &amp;&amp; <code>_XOPEN_UNIX</code></td>
+      <td>X/Open Single UNIX Specification (UNIX95)</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.opengroup.org/onlinepubs/7908799/toc.htm">SUSv2</a></td>
+      <td><code>_XOPEN_VERSION</code> = 500</td>
+      <td>X/Open Single UNIX Specification, Version 2 (UNIX98)</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.opengroup.org/onlinepubs/007904975/nfindex.html">SUSv3</a></td>
+      <td><code>_XOPEN_VERSION</code> = 600</td>
+      <td>Open Group Single UNIX Specification, Version 3 (UNIX03)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a name="sec6" id="sec6"></a>
+Example: Unix Standards</h3>
+
+<p class="first">The following examples assumes the definition of these macros.</p>
+
+<pre class="example">
+#if defined(unix) || defined(__unix__) || defined(__unix)
+# define PREDEF_PLATFORM_UNIX
+#endif
+#if defined(PREDEF_PLATFORM_UNIX)
+# include &lt;unistd.h&gt;
+# if defined(_XOPEN_VERSION)
+#  if (_XOPEN_VERSION &gt;= 3)
+#   define PREDEF_STANDARD_XOPEN_1989
+#  endif
+#  if (_XOPEN_VERSION &gt;= 4)
+#   define PREDEF_STANDARD_XOPEN_1992
+#  endif
+#  if (_XOPEN_VERSION &gt;= 4) &amp;&amp; defined(_XOPEN_UNIX)
+#   define PREDEF_STANDARD_XOPEN_1995
+#  endif
+#  if (_XOPEN_VERSION &gt;= 500)
+#   define PREDEF_STANDARD_XOPEN_1998
+#  endif
+#  if (_XOPEN_VERSION &gt;= 600)
+#   define PREDEF_STANDARD_XOPEN_2003
+#  endif
+# endif
+#endif
+</pre>
+
+<p>Please note that not all compliant compilers provides the correct pre-defined
+macros. For example, IBM xlC supports Unix without setting any of the
+<code>__unix__</code> macros.
+Extra checks for such compilers must be added.
+
+
+
+
+<hr>
+<p class="footer">Copyright &copy; 2002-2008 Bj&oslash;rn Reese </p>
+<p class="footer">
+Permission to use, copy, modify, and distribute this document for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all copies.
+</p>
+<p class="footer">
+THIS DOCUMENT IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE
+AUTHORS AND CONTRIBUTORS ACCEPT NO RESPONSIBILITY IN ANY CONCEIVABLE
+MANNER.
+</p>
+<center class="footer">
+$Id: prestd.muse,v 1.3 2008/06/06 13:13:32 breese Exp $
+</center>
+
+
+
+
+<!-- Page published by Emacs Muse ends here -->
+  </body>
+</html>

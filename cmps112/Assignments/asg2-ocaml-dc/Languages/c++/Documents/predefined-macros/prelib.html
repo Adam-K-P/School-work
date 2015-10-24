@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Pre-defined Library Macros</title>
+    <meta name="generator" content="muse.el">
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" media="screen" href="predef.css"/>
+  </head>
+  <body>
+    <h1>Pre-defined Library Macros</h1>
+    <!-- Page published by Emacs Muse begins here -->
+
+<table class="menu">
+ <tbody>
+  <tr class="menuheader">
+   <td><a href="index.php">Home</a></td>
+   <td><a href="prestd.html">Standards</a></td>
+   <td><a href="precomp.html">Compilers</a></td>
+   <td class="menucurrent">Libraries</td>
+   <td><a href="preos.html">Operating Systems</a></td>
+   <td><a href="prearch.html">Architectures</a></td>
+  </tr>
+  <tr class="menuline">
+   <td class="menulinefirst">&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td class="menulinelast">&nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+
+
+<h2><a name="sec1" id="sec1"></a>
+Table of Content - Compilers</h2>
+<div class="contents">
+<dl>
+<dt>
+<a href="prelib.html#sec1">Table of Content - Compilers</a>
+</dt>
+<dt>
+<a href="prelib.html#sec2">Standard C Libraries</a>
+</dt>
+<dd>
+<dl>
+<dt>
+<a href="prelib.html#sec3">GNU glibc</a>
+</dt>
+<dt>
+<a href="prelib.html#sec4">VMS libc</a>
+</dt>
+<dt>
+<a href="prelib.html#sec5">uClibc</a>
+</dt>
+<dt>
+<a href="prelib.html#sec6">z/OS libc</a>
+</dt>
+</dl>
+</dd>
+<dt>
+<a href="prelib.html#sec7">Standard C++ Libraries</a>
+</dt>
+<dd>
+<dl>
+<dt>
+<a href="prelib.html#sec8">Dinkumware</a>
+</dt>
+<dt>
+<a href="prelib.html#sec9">GNU libstdc++</a>
+</dt>
+<dt>
+<a href="prelib.html#sec10">Intel C++ Run-Time Libraries</a>
+</dt>
+</dl>
+</dd>
+<dt>
+<a href="prelib.html#sec11">Other Libraries</a>
+</dt>
+<dd>
+<dl>
+<dt>
+<a href="prelib.html#sec12">Microsoft Foundation Classes</a>
+</dt>
+</dl>
+</dd>
+</dl>
+</div>
+
+
+
+
+
+<h2><a name="sec2" id="sec2"></a>
+Standard C Libraries</h2>
+
+<h3><a name="sec3" id="sec3"></a>
+GNU glibc</h3>
+
+<p class="first">The following macros have to be included from <code>&lt;features.h&gt;</code>.</p>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version</td>
+      <td>__GNU_LIBRARY__<br>__GNU_LIBRARY_MINOR__</td>
+      <td>Until version 5</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__GLIBC__<br>__GLIBC_MINOR__</td>
+      <td>From version 6</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that <code>&lt;features.h&gt;</code> does not exist on all platforms, so it cannot
+be included without further ado. However, since it is included by other GNU
+glibc header files, a better way to obtain the above-mentioned macros is to
+include <code>&lt;limits.h&gt;</code> (see e.g. paragraph 4/6 in ISO/IEC 9899:1999).</p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.gnu.org/software/libc/libc.html">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Software/Operating_Systems/Linux/Projects/Libraries/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Glibc">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+<h3><a name="sec4" id="sec4"></a>
+VMS libc</h3>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__CRTL_VER</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__CRTL_VER</td>
+      <td>VVRREPPTT</td>
+      <td>VV = Version<br>RR = Revision<br>E = Edit number<br>PP = Patch (01 = A, ... 26 = Z)<br>TT = Type (22 = official)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that I am not sure about the format of <code>__CRTL_VER</code>, but it seems to
+follow that of <code>__VMS_VER</code>.</p>
+
+
+<h3><a name="sec5" id="sec5"></a>
+uClibc</h3>
+
+<p class="first">The following macros have to be included from <code>&lt;features.h&gt;</code>.</p>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__UCLIBC__</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__UCLIBC_MAJOR__</td>
+      <td>Version</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__UCLIBC_MINOR__</td>
+      <td>Revision</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__UCLIBC_SUBLEVEL__</td>
+      <td>Patch</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://www.uclibc.org/">Official site</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Uclibc">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+<h3><a name="sec6" id="sec6"></a>
+z/OS libc</h3>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__LIBREL__</td>
+      <td>.</td>
+      <td>Host</td>
+    </tr>
+    <tr>
+      <td>Identification</td>
+      <td>__TARGET_LIB__</td>
+      <td>.</td>
+      <td>Target</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__LIBREL__</td>
+      <td>0xNVRRPPPP</td>
+      <td>N = Product (0 = C/370, 1 = MVS, 2 = OS/390, 4 = z/OS)<br>V = Version<br>RR = Revision<br>PPPP = Patch<br><br>Defined for z/OS XL C/C++</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__TARGET_LIB__</td>
+      <td>As above</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Library</th>
+      <th>__LIBREL__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OS/390 2.10</td>
+      <td>0x220A0000</td>
+    </tr>
+    <tr>
+      <td>z/OS 1.1</td>
+      <td>0x41010000</td>
+    </tr>
+    <tr>
+      <td>z/OS 1.6</td>
+      <td>0x41060000</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+
+
+
+
+<h2><a name="sec7" id="sec7"></a>
+Standard C++ Libraries</h2>
+
+<h3><a name="sec8" id="sec8"></a>
+Dinkumware</h3>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__CPPLIB_VER</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__CPPLIB_VER</td>
+      <td>VVRR</td>
+      <td>VV = Version<br>RR = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Dinkumware</th>
+      <th>__CPPLIB_VER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.08</td>
+      <td>308</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://www.dinkumware.com/libcpp.html">Official site</a>
+</span></p>
+
+
+<h3><a name="sec9" id="sec9"></a>
+GNU libstdc++</h3>
+
+<p class="first">It appears that a standard header file must be included before any of the following macros are defined.</p>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version</td>
+      <td>__GLIBCPP__</td>
+      <td>YYYYMMDD</td>
+      <td>YYYY = Year<br>MM = Month<br>DD = Day<br><br>From GCC 3.0.0 until GCC 3.4.0</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>__GLIBCXX__</td>
+      <td>YYYYMMDD</td>
+      <td>YYYY = Year<br>MM = Month<br>DD = Day<br><br>From GCC 3.4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>GCC</th>
+      <th>__GLIBCPP__</th>
+      <th>__GLIBCXX__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.0.0</td>
+      <td>20010615</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>3.1.0</td>
+      <td>20020514</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>3.2.0</td>
+      <td>20020814</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>3.3.0</td>
+      <td>20030513</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>3.4.0</td>
+      <td>.</td>
+      <td>20040419</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<a href="http://gcc.gnu.org/libstdc++/">Official site</a>
+</span></p>
+
+
+<h3><a name="sec10" id="sec10"></a>
+Intel C++ Run-Time Libraries</h3>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>__INTEL_CXXLIB_ICC</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<h2><a name="sec11" id="sec11"></a>
+Other Libraries</h2>
+
+<h3><a name="sec12" id="sec12"></a>
+Microsoft Foundation Classes</h3>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Macro</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>_MFC_VER</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>_MFC_VER</td>
+      <td>0xVVRR</td>
+      <td>VV = Version<br>RR = Revision</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="versionx">
+<table class="muse-table" border="2" cellpadding="5">
+  <thead>
+    <tr>
+      <th>MFC</th>
+      <th>_MFC_VER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.21</td>
+      <td>0x0421</td>
+    </tr>
+    <tr>
+      <td>6.0</td>
+      <td>0x0600</td>
+    </tr>
+    <tr>
+      <td>7.0</td>
+      <td>0x0700</td>
+    </tr>
+  </tbody>
+</table>
+</span></p>
+
+<p><span class="menu">
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vclib/html/_mfc_class_library_reference_introduction.asp">Official site</a></td>
+      <td><a href="http://www.google.com/Top/Computers/Programming/Languages/C%2B%2B/Class_Libraries/MFC/">Google Directory</a></td>
+      <td><a href="http://en.wikipedia.org/wiki/Microsoft_Foundation_Classes">Wikipedia</a></td>
+    </tr>
+  </tbody>
+</table>
+</span>
+
+
+
+
+<hr>
+<p class="footer">Copyright &copy; 2002-2008 Bj&oslash;rn Reese </p>
+<p class="footer">
+Permission to use, copy, modify, and distribute this document for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all copies.
+</p>
+<p class="footer">
+THIS DOCUMENT IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE
+AUTHORS AND CONTRIBUTORS ACCEPT NO RESPONSIBILITY IN ANY CONCEIVABLE
+MANNER.
+</p>
+<center class="footer">
+$Id: prelib.muse,v 1.3 2008/07/12 13:24:41 breese Exp $
+</center>
+
+
+
+
+<!-- Page published by Emacs Muse ends here -->
+  </body>
+</html>
