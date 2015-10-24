@@ -49,15 +49,6 @@ module Bigint = struct
                        ((if sign = Pos then "" else "-") ::
                         (map string_of_int reversed))
 
-    let rec add' list1 list2 carry = match (list1, list2, carry) with
-        | list1, [], 0       -> list1
-        | [], list2, 0       -> list2
-        | list1, [], carry   -> add' list1 [carry] 0
-        | [], list2, carry   -> add' [carry] list2 0
-        | car1::cdr1, car2::cdr2, carry ->
-          let sum = car1 + car2 + carry
-          in  sum mod radix :: add' cdr1 cdr2 (sum / radix)
-
     let rec cmp list1 list2 = match (list1, list2) with
         | list1, []       -> 1
         | [], list2       -> -1
@@ -68,16 +59,36 @@ module Bigint = struct
               else 0
            else cmp cdr1 cdr2
 
+    let rec add' list1 list2 carry = match (list1, list2, carry) with
+        | list1, [], 0       -> list1
+        | [], list2, 0       -> list2
+        | list1, [], carry   -> add' list1 [carry] 0
+        | [], list2, carry   -> add' [carry] list2 0
+        | car1::cdr1, car2::cdr2, carry ->
+          let sum = car1 + car2 + carry
+          in  sum mod radix :: add' cdr1 cdr2 (sum / radix)
+
+
     let add (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
         if neg1 = neg2
         then Bigint (neg1, add' value1 value2 0)
         else zero (*inappropriate behavior*)
 
+        (*
+    (* Precondition: list1 must be greater than list2 *)
+    let rec sub' list1 list2 carry = match (list1, list2, carry) with
+        | list1, [], 0      -> list1
+        | *)
 
     let sub (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
-        let comp = cmp value1 value2 in
-        printf "comp: %d\n" comp;
-        Bigint (neg1, add' value1 value2 0)
+        if neg1 = neg2 then (* will all use sub *)
+            let comp = cmp value1 value2 in
+                (if comp > 0 then Bigint (neg1, add' value1 value2 0)
+                else if comp < 0 then Bigint (neg1, add' value1 value2 0)
+                else zero);
+        else Bigint (neg1, add' value1 value2 0) 
+       
+
         
         (*printf "cmp: %d\n" cmp value1 value2;
         Bigint (neg1, add' value1 value2 0)*)
