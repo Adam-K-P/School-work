@@ -79,19 +79,30 @@ module Bigint = struct
 
     (* Precondition: list1 must be greater than list2 *)
     let rec sub' list1 list2 carry = match (list1, list2, carry) with
-        | list1, [], false      -> list1
-        | list1, [], true       -> 
+        | list1, [], false -> list1
+        | list1, [], true  -> 
           let diff = (car list1) - 1 
           in  if diff < 0 then (diff + 10)::(sub' (cdr list1) [] true)
           else diff::(cdr list1)
-        | [], list2, true       -> sub_prev ()
-        | [], list2, false      -> sub_prev ()  
+        | [], list2, true  -> sub_prev ()
+        | [], list2, false -> sub_prev ()  
         | car1::cdr1, car2::cdr2, carry -> 
             let diff = car1 - car2 in
                 if carry then sub' ((car1 - 1)::cdr1) list2 false
                 else if diff < 0 then (diff + 10)::(sub' cdr1 cdr2 true)
                 else diff::(sub' cdr1 cdr2 false) 
            
+    (* traverse list1 in this function *)
+    let rec mul_help list1 num carry = 
+        if list1 = [] then [carry]
+        else let prd = (car list1) * num + carry in
+            (prd mod 10)::(mul_help (cdr list1) num (prd / 10))
+
+    (* traverse list2 in this function *)
+    let rec mul' list1 list2 =
+        if list1 = [] || list2 = [] then []
+        else add' (mul_help list1 (car list2) 0) (0::(mul' list1 (cdr list2))) 0
+
     let add (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
         if neg1 = neg2
         then Bigint (neg1, add' value1 value2 0)
@@ -109,9 +120,11 @@ module Bigint = struct
                      in  Bigint (sign, can (sub' value2 value1 false))
                  else zero
         else Bigint (neg1, add' value1 value2 0) 
-       
-    let mul = add
 
+    let mul (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
+        if neg1 = neg2 then Bigint (Pos, can (mul' value1 value2))
+        else Bigint (Neg, can (mul' value1 value2))
+            
     let div = add
 
     let rem = add
