@@ -49,12 +49,16 @@ module Bigint = struct
                        ((if sign = Pos then "" else "-") ::
                         (map string_of_int reversed))
 
-    let rec can value = 
-        printf "car value: %d\ncdr value: %s\n" (car value) 
-                 (string_of_bigint (Bigint (Pos, (cdr value))));
-        if (cdr value) = [] then
-            if (car value) = 0 then [] else value
-        else (car value)::can (cdr value)
+    let rec can_again value =
+        if (cdr value) = [] then 
+            if (car value) = 0 then true else false
+        else can_again (cdr value)
+
+    let rec can' value =
+        if (cdr value) = [] then [] 
+        else ((car value)::can' (cdr value))
+
+    let rec can value = if can_again value then can (can' value) else value
 
     let rec cmp list1 list2 = match (list1, list2) with
         | list1, []       -> 1
