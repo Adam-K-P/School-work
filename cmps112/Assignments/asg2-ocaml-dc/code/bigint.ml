@@ -73,11 +73,6 @@ module Bigint = struct
           let sum = car1 + car2 + carry
           in  sum mod radix :: add' cdr1 cdr2 (sum / radix)
 
-    let add (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
-        if neg1 = neg2
-        then Bigint (neg1, add' value1 value2 0)
-        else zero (*inappropriate behavior*)
-
     let sub_prev () =
        fprintf stderr "Precondition violation: list1 > list2\n%!";
        exit 1
@@ -85,7 +80,10 @@ module Bigint = struct
     (* Precondition: list1 must be greater than list2 *)
     let rec sub' list1 list2 carry = match (list1, list2, carry) with
         | list1, [], false      -> list1
-        | list1, [], true       -> ((car list1) - 1)::(cdr list1)
+        | list1, [], true       -> 
+          let diff = (car list1) - 1 
+          in  if diff < 0 then (diff + 10)::(sub' (cdr list1) [] true)
+          else diff::(cdr list1)
         | [], list2, true       -> sub_prev ()
         | [], list2, false      -> sub_prev ()  
         | car1::cdr1, car2::cdr2, carry -> 
@@ -94,6 +92,14 @@ module Bigint = struct
                 else if diff < 0 then (diff + 10)::(sub' cdr1 cdr2 true)
                 else diff::(sub' cdr1 cdr2 false) 
            
+    let add (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
+        if neg1 = neg2
+        then Bigint (neg1, add' value1 value2 0)
+        else let comp = cmp value1 value2 in
+            if comp > 0 then Bigint (neg1, sub' value1 value2 false)
+            else if comp < 0 then Bigint (neg2, sub' value2 value1 false)
+            else zero
+
     let sub (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
        if neg1 = neg2 then 
             let comp = cmp value1 value2 in
