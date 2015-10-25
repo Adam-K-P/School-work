@@ -50,6 +50,8 @@ module Bigint = struct
                         (map string_of_int reversed))
 
     let rec can value = 
+        printf "car value: %d\ncdr value: %s\n" (car value) 
+                 (string_of_bigint (Bigint (Pos, (cdr value))));
         if (cdr value) = [] then
             if (car value) = 0 then [] else value
         else (car value)::can (cdr value)
@@ -92,6 +94,24 @@ module Bigint = struct
                 else if diff < 0 then (diff + 10)::(sub' cdr1 cdr2 true)
                 else diff::(sub' cdr1 cdr2 false) 
            
+    let add (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
+        if neg1 = neg2
+        then Bigint (neg1, add' value1 value2 0)
+        else let comp = cmp value1 value2 in
+            if comp > 0 then Bigint (neg1, sub' value1 value2 false)
+            else if comp < 0 then Bigint (neg2, sub' value2 value1 false)
+            else zero
+
+    let sub (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
+        if neg1 = neg2 then 
+            let comp = cmp value1 value2 in
+                 if comp > 0 then Bigint (neg1, can (sub' value1 value2 false))
+                 else if comp < 0 then 
+                     let sign = if neg1 = Pos then Neg else Pos
+                     in  Bigint (sign, can (sub' value2 value1 false))
+                 else zero
+        else Bigint (neg1, add' value1 value2 0) 
+
     (* traverse list1 in this function *)
     let rec mul_help list1 num carry = 
         if list1 = [] then [carry]
@@ -103,33 +123,29 @@ module Bigint = struct
         if list1 = [] || list2 = [] then []
         else add' (mul_help list1 (car list2) 0) (0::(mul' list1 (cdr list2))) 0
 
-    let add (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
-        if neg1 = neg2
-        then Bigint (neg1, add' value1 value2 0)
-        else let comp = cmp value1 value2 in
-            if comp > 0 then Bigint (neg1, sub' value1 value2 false)
-            else if comp < 0 then Bigint (neg2, sub' value2 value1 false)
-            else zero
-
-    let sub (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
-       if neg1 = neg2 then 
-            let comp = cmp value1 value2 in
-                 if comp > 0 then Bigint (neg1, can (sub' value1 value2 false))
-                 else if comp < 0 then 
-                     let sign = if neg1 = Pos then Neg else Pos
-                     in  Bigint (sign, can (sub' value2 value1 false))
-                 else zero
-        else Bigint (neg1, add' value1 value2 0) 
-
     let mul (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
         if neg1 = neg2 then Bigint (Pos, can (mul' value1 value2))
         else Bigint (Neg, can (mul' value1 value2))
             
+    (* divrem will return a tuple that is the divisor and remainder *)
+    (* will take in two lists and a list sum and a list doubled *)
+    (*let divrem divisor dividend sum doubled = 
+        if cmp divisor sum *)
+
     let div = add
 
     let rem = add
 
-    let pow = add
+    let rec pow' list1 list2 olist1 =
+        if (car list2) = 1 then list1
+        else pow' (mul' list1 olist1) (sub' list2 [1] false) olist1
+
+    let pow (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
+        if neg2 = Neg then zero
+        else match (value1, value2) with
+            | [], value2     -> zero
+            | value1, []     -> Bigint (Pos, [1])
+            | value1, value2 -> Bigint (neg1, (can (pow' value1 value2 value1)))
 
 end
 

@@ -49,6 +49,7 @@ let execute (thestack: stack_t) (oper: char) =
         | 'f'  -> Stack.iter print_number thestack
         | 'l'  -> failwith "operator l scanned with no register"
         | 'p'  -> print_number (Stack.top thestack)
+        | 'q'  -> exit 0
         | 's'  -> failwith "operator s scanned with no register"
         | '\n' -> ()
         | ' '  -> ()
