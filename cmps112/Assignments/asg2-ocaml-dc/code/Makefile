@@ -28,7 +28,7 @@ ${CAMLRUN} : ${OBJCMO} ${OBJCMI}
 	ocamllex $<
 
 clean :
-	- rm ${OBJCMO} ${OBJCMI} ${DEPSFILE} scanner.ml
+	- rm ${OBJCMO} ${OBJCMI} ${DEPSFILE} scanner.ml ocamldc
 
 spotless : clean
 	- rm ${CAMLRUN} ${LISTING} ${LISTING:.ps=.pdf}
