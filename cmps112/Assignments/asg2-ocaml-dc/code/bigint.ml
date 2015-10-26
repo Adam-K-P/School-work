@@ -60,7 +60,8 @@ module Bigint = struct
 
     let rec can value = if can_again value then can (can' value) else value
 
-    let rec cmp list1 list2 = match (list1, list2) with
+    let rec cmp list1 list2 = match (can list1, can list2) with
+        | [], []          -> 0
         | list1, []       -> 1
         | [], list2       -> -1
         | car1::cdr1, car2::cdr2 -> 
@@ -131,12 +132,32 @@ module Bigint = struct
         if neg1 = neg2 then Bigint (Pos, can (mul' value1 value2))
         else Bigint (Neg, can (mul' value1 value2))
             
-    (* divrem will return a tuple that is the divisor and remainder *)
-    (* will take in two lists and a list sum and a list doubled *)
-    (*let divrem divisor dividend sum doubled = 
-        if cmp divisor sum *)
+    let div_by_0 () =
+        fprintf stderr "ocamldc: division by 0 not allowed, now exiting\n";
+        exit 1
 
-    let div = add
+    let rec div' divisor dividend value oldcount newcount =
+        let comp = cmp (mul' newcount dividend) divisor in
+            if comp > 0 then oldcount
+            else if comp < 0 then div' divisor dividend (mul' value [2])
+                                                         newcount 
+                                                         value 
+            else newcount
+
+    (* divrem will return a tuple that is the divisor and remainder 
+     * will take in two lists and a list sum and a list doubled *)
+    let rec divrem divisor dividend value = 
+        let newv = div' divisor dividend [1] [] [1] in
+            if value = newv then value
+            else divrem divisor dividend (add' value newv 0)
+
+    let div (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
+        match (value1, value2) with
+            | [], value2     -> zero
+            | value1, []     -> div_by_0 ()
+            | value1, value2 -> 
+              let sign = if neg1 = neg2 then Pos else Neg in
+                  Bigint (sign, divrem value1 value2 [])
 
     let rem = add
 
@@ -152,4 +173,3 @@ module Bigint = struct
             | value1, value2 -> Bigint (neg1, (can (pow' value1 value2 value1)))
 
 end
-
