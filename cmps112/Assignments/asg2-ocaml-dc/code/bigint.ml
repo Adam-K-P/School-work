@@ -71,14 +71,17 @@ module Bigint = struct
               else 0
            else cmp cdr1 cdr2
 
-    let rec add' list1 list2 carry = match (list1, list2, carry) with
+    let rec add' list1 list2 carry = 
+        printf "list1: %s\nlist2: %s\n" (string_of_bigint (Bigint (Pos, list1)))
+                                        (string_of_bigint (Bigint (Pos, list2)));
+        match (list1, list2, carry) with
         | list1, [], 0       -> list1
         | [], list2, 0       -> list2
         | list1, [], carry   -> add' list1 [carry] 0
         | [], list2, carry   -> add' [carry] list2 0
         | car1::cdr1, car2::cdr2, carry ->
-          let sum = car1 + car2 + carry
-          in  sum mod radix :: add' cdr1 cdr2 (sum / radix)
+          let sum = car1 + car2 + carry in
+          sum mod radix :: add' cdr1 cdr2 (sum / radix)
 
     let sub_prev () =
        fprintf stderr "Precondition violation: list1 > list2\n%!";
@@ -125,6 +128,7 @@ module Bigint = struct
 
     (* traverse list2 in this function *)
     let rec mul' list1 list2 =
+        printf "in mult\n";
         if list1 = [] || list2 = [] then []
         else add' (mul_help list1 (car list2) 0) (0::(mul' list1 (cdr list2))) 0
 
@@ -137,7 +141,9 @@ module Bigint = struct
         exit 1
 
     let rec div' divisor dividend value oldcount newcount =
+        printf "mult: %s\n" (string_of_bigint (Bigint (Pos, mul' newcount dividend)));
         let comp = cmp (mul' newcount dividend) divisor in
+            printf "here\n";
             if comp > 0 then oldcount
             else if comp < 0 then div' divisor dividend (mul' value [2])
                                                          newcount 
@@ -157,7 +163,7 @@ module Bigint = struct
             | value1, []     -> div_by_0 ()
             | value1, value2 -> 
               let sign = if neg1 = neg2 then Pos else Neg in
-                  Bigint (sign, divrem value1 value2 [])
+                  Bigint (sign, can (divrem value1 value2 []))
 
     let rem = add
 
