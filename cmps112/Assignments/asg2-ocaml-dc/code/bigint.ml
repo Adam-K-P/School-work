@@ -49,29 +49,24 @@ module Bigint = struct
                        ((if sign = Pos then "" else "-") ::
                         (map string_of_int reversed))
 
-    let rec can_again value =
-        if (cdr value) = [] then if (car value) = 0 then true else false
-        else can_again (cdr value)
-
-    let rec can' value =
-        if (cdr value) = [] then [] 
-        else ((car value)::can' (cdr value))
-
-    let rec can value = if can_again value then can (can' value) else value
+    let rec can value =
+        let rvalue = reverse value in
+            if (car rvalue) = 0 then can (reverse (cdr rvalue))
+            else value
 
     let rec cmp list1 list2 = 
-        if (List.length (can list1)) > (List.length (can list2)) then 1
-        else if (List.length (can list1)) < (List.length (can list2)) then -1
-        else match (can list1, can list2) with
+        if (List.length list1) > (List.length list2) then 1
+        else if (List.length list1) < (List.length list2) then -1
+        else match (list1, list2) with
             | [], []          -> 0
             | list1, []       -> 1
             | [], list2       -> -1
-            | car1::cdr1, car2::cdr2 ->  
-                if cdr1 = [] && cdr2 = [] then
-                    if car1 > car2 then 1
-                    else if car1 < car2 then -1
-                    else 0
-                else cmp cdr1 cdr2
+            | list1, list2 ->  
+                let rlist1 = reverse list1 in
+                let rlist2 = reverse list2 in
+                    if (car rlist1) > (car rlist2) then 1
+                    else if (car rlist1) < (car rlist2) then -1
+                    else cmp (reverse (cdr rlist1)) (reverse (cdr rlist2))
 
     let rec add' list1 list2 carry = 
         match (list1, list2, carry) with
@@ -140,18 +135,15 @@ module Bigint = struct
         exit 1
 
     let rec div' divisor dividend oldv newv value = 
-        let comp = cmp (mul' (add' value newv 0) dividend) divisor in
+        let comp = cmp (can (mul' (add' value newv 0) dividend)) divisor in
             if comp > 0 then oldv
             else if comp < 0 then div' divisor dividend newv (mul' newv [2]) value
             else newv
 
     let rec divrem divisor dividend value = 
         let newv = div' divisor dividend [] [1] value in
-            let sum = add' value newv 0 in
-            let comp = cmp (mul' sum dividend) divisor in
-                if comp > 0 then value
-                else if comp < 0 then divrem divisor dividend sum
-                else sum
+            if newv = [] then value
+            else divrem divisor dividend (add' value newv 0)
 
     let div (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
         match (value1, value2) with
@@ -161,7 +153,8 @@ module Bigint = struct
               let sign = if neg1 = neg2 then Pos else Neg in
                   Bigint (sign, can (divrem value1 value2 []))
 
-    let rem = add
+    let rem (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
+        Bigint (neg1, (sub' value1 (divrem value1 value2 []) false))
 
     let rec pow' list1 list2 olist1 =
         if (car list2) = 1 then list1
