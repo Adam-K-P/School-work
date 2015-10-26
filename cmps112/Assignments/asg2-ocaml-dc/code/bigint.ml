@@ -50,8 +50,7 @@ module Bigint = struct
                         (map string_of_int reversed))
 
     let rec can_again value =
-        if (cdr value) = [] then 
-            if (car value) = 0 then true else false
+        if (cdr value) = [] then if (car value) = 0 then true else false
         else can_again (cdr value)
 
     let rec can' value =
@@ -60,7 +59,6 @@ module Bigint = struct
 
     let rec can value = if can_again value then can (can' value) else value
 
-    (* failing here? *)
     let rec cmp list1 list2 = 
         if (List.length (can list1)) > (List.length (can list2)) then 1
         else if (List.length (can list1)) < (List.length (can list2)) then -1
@@ -141,20 +139,19 @@ module Bigint = struct
         fprintf stderr "ocamldc: division by 0 not allowed, now exiting\n";
         exit 1
 
-    let rec div' divisor dividend value oldcount newcount =
-        let comp = cmp (mul' newcount dividend) divisor in 
-            if comp > 0 then oldcount
-            else if comp < 0 then div' divisor dividend (mul' value [2])
-                                                         newcount 
-                                                         value 
-            else newcount
+    let rec div' divisor dividend oldv newv value = 
+        let comp = cmp (mul' (add' value newv 0) dividend) divisor in
+            if comp > 0 then oldv
+            else if comp < 0 then div' divisor dividend newv (mul' newv [2]) value
+            else newv
 
-    (* divrem will return a tuple that is the divisor and remainder 
-     * will take in two lists and a list sum and a list doubled *)
     let rec divrem divisor dividend value = 
-        let newv = div' divisor dividend [1] [] [1] in
-            if value = newv then value
-            else divrem divisor dividend (add' value newv 0)
+        let newv = div' divisor dividend [] [1] value in
+            let sum = add' value newv 0 in
+            let comp = cmp (mul' sum dividend) divisor in
+                if comp > 0 then value
+                else if comp < 0 then divrem divisor dividend sum
+                else sum
 
     let div (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
         match (value1, value2) with
