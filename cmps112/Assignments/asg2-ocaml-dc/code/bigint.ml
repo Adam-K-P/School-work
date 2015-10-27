@@ -50,7 +50,8 @@ module Bigint = struct
                         (map string_of_int reversed))
 
     let rec can value =
-        let rvalue = reverse value in
+        if value = [] then []
+        else let rvalue = reverse value in
             if (car rvalue) = 0 then can (reverse (cdr rvalue))
             else value
 
@@ -86,7 +87,7 @@ module Bigint = struct
     let rec sub' list1 list2 carry = match (list1, list2, carry) with
         | list1, [], false -> list1
         | list1, [], true  -> 
-          let diff = (car list1) - 1 
+          let diff = (car list1) - 1 (* line below could crash the program *)
           in  if diff < 0 then (diff + 10)::(sub' (cdr list1) [] true)
           else diff::(cdr list1)
         | [], list2, true  -> sub_prev ()
@@ -154,7 +155,8 @@ module Bigint = struct
                   Bigint (sign, can (divrem value1 value2 []))
 
     let rem (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
-        Bigint (neg1, (sub' value1 (divrem value1 value2 []) false))
+        Bigint (neg1,  
+        (can (sub' value1 (can (mul' (divrem value1 value2 []) value2)) false)))
 
     let rec pow' list1 list2 olist1 =
         if (car list2) = 1 then list1
