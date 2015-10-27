@@ -159,7 +159,7 @@ module Bigint = struct
         (can (sub' value1 (can (mul' (divrem value1 value2 []) value2)) false)))
 
     let rec pow' list1 list2 olist1 =
-        if (car list2) = 1 then list1
+        if (car list2) = 0 then list1
         else pow' (mul' list1 olist1) (sub' list2 [1] false) olist1
 
     let pow (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
