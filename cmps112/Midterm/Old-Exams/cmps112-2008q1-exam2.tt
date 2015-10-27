@@ -1,0 +1,195 @@
+CMPS-112 · Comparative Programming Languages · Winter 2008 · page 12of 3
+$Id: cmps112-2008q1-exam2.mm,v 8.53 2008-05-02 13:16:28-07 - - $
+
+.PS
+examboxes(3,30)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Do your scratch work elsewhere and
+enter only your final answer into the spaces provided.
+
+.EQ
+delim $$
+.EN
+
+ 1. Using Scheme, define the function of one argument which produces
+    Fibonacci numbers.  Obviously you can't use a loop.  Make your
+    function tail recursive and run in $ O ( n ) $ time.  If needed, you
+    may define an auxiliary function.  To remind you, the mathematical
+    definition is given here.  [2pt]
+
+    .EQ
+    lpile { F ( 0 ) above F ( 1 ) above F ( n ) } ~
+    lpile { =       above =       above =       } ~
+    lpile { 0       above 1       above F ( n - 1 ) + F ( n - 2 ) }
+    .EN
+
+    > (fib 8)
+    21
+
+ 2. Define the function grep in Scheme.  Do not use any higher-order
+    function inside it.  Its first argument is a function of one
+    argument which returns a boolean value.  Its second argument is a
+    list.  Its result is a list containing all elements of its second
+    argument for which the first argument returns true.  [2pt]
+    > (grep integer? '(1 (sqrt -1) 3.14 "foo" 'bar 10 ()))
+    (1 10)
+
+ 3. In C++, write a typedef that will define a map whose keys are
+    strings and whose values are ints.  Then write a loop that uses an
+    iterator to print out each key and value pair, one pair per line.
+    [2pt]
+
+ 4. Using C++, give an example of operator or function overriding.
+    [2pt]
+
+ 5. What is the difference between structural and name equivalence of
+    data types?  [2pt]
+
+ 6. Name and describe two kinds of parameter passing.  Using C++, give
+    an example of each.  [2pt]
+
+ 7. Define the function foldl in Scheme.  Its arguments are:  a function
+    to be applied between successive elements of the list, an unit
+    element, and a list conforming to the requirements of the function
+    and the unit.  [2pt]
+    > (foldl + 0 '(1 2 3 4))
+    10
+    > (foldl (lambda (a b)
+      (if (< a b) a b)) 0 '(-5 8 4 9))
+    -5
+    > (foldl (lambda (a b)
+      (if (> a b) a b)) 0 '(-5 8 4 9))
+    9
+    > (foldl cons 0 '(1 2 3 4))
+    ((((0 . 1) . 2) . 3) . 4)
+
+ 8. Write a program in Perl which reads words and keeps track of their
+    lengths.  At end of file, print out a table of two columns, with
+    each line consisting of the length of a word and the number of words
+    of that length.  Use <> to read lines.  A word is any sequence of
+    characters that matches the regex m/\w+/.  The example output shows
+    that for this input, there is 1 word of length 1, 4 words of length
+    3, and 3 words of length 5.  [2pt]
+
+    +--------------+----------------+
+    |example input | example output |
+    +--------------+----------------+
+    |foo bar baz x |    1      1    |
+    |hello world   |    3      4    |
+    |qux quuux     |    5      3    |
+    +--------------+----------------+
+
+ 9. Write code in either Java or C++ which shows how to declare an
+    exception class.  Define two functions, f and g, where f calls g,
+    which throws that exception just defined, and f catches it and
+    prints a message.  [2pt]
+
+10. Code a function which accepts two lists of integers sorted into
+    ascending order, merges them, and returns a single list of integers
+    also sorted into ascending order.  Answer one or the other of the
+    following two questions, but not both:  [2pt]
+     (a) Code in Scheme.  (define (merge list1 list2) ...
+     (b) Code in Perl, representing the lists as array references.  sub
+         merge($$) { my ($aref1, $aref2) = @_;  ...
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write `Z' if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [11pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   11 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. Which expression will produce the list (3 4)?
+    (A) (caar '(1 2 3 4))
+    (B) (cadr '(1 2 3 4))
+    (C) (cdar '(1 2 3 4))
+    (D) (cddr '(1 2 3 4))
+
+ 2. Given the declarations in C++:
+    void foo (int a, int b);
+    void foo (double a, double b); Which statement will cause an
+    overloading ambiguity?
+    (A) foo ('a', 'b');
+    (B) foo (3, 4);
+    (C) foo (3, 4.5);
+    (D) foo (3.3, 4.4);
+
+ 3. In C and C++, which is an operator that uses lazy evaluation?
+    (A) &&
+    (B) **
+    (C) ++
+    (D) <<
+
+ 4. What is the proper way to define the C++ operator= for class foo?
+    (A) foo &operator= (const foo &);
+    (B) foo &operator= (const foo);
+    (C) foo operator= (const foo &);
+    (D) foo operator= (const foo);
+
+ 5. Perl and Scheme are examples of languages whose type checking is
+    (A) strong and dynamic
+    (B) strong and static
+    (C) weak and dynamic
+    (D) weak and static
+
+ 6. A heap-allocated structure used to hold escaping variables in a
+    language that allows nested functions to refer to variables in the
+    enclosing function is called a:
+    (A) closure
+    (B) stack frame
+    (C) static link
+    (D) tail call
+
+ 7. Given the definition
+    (define f (lambda (x) (lambda (y) (+ x y))))
+    what will produce 7?
+    (A) ((f 3) 4)
+    (B) (f (3 4))
+    (C) (f 3 4)
+    (D) f (3, 4)
+
+ 8. In a Makefile recipe, what gmake variable should replace the line of
+    underscores?
+    %.o : %.cc
+            ${CCC} ${CCCOPTS} ____ -c
+    (A) $$
+    (B) $<
+    (C) $@
+    (D) ${}
+
+ 9. In C++, which of the following problems are possible?
+    (A) dangling pointers
+    (B) memory leak
+    (C) unsafe type conversions
+    (D) all of the above
+
+10. In Perl, to declare an array variable with lexical scope and
+    allocate storage for it, what statement would be used?
+    (A) local @foo;
+    (B) my @foo;
+    (C) our @foo;
+    (D) use @foo;
+
+11.
+    (A) awk
+    (B) perl
+    (C) python
+    (D) ruby
+
+____________________
+
+   Total:  31 *
+

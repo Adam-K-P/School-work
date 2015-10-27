@@ -1,0 +1,368 @@
+CMPS-112 · Comparative Programming Languages · Winter 2008 · pagel1Eofm5
+$Id: cmps112-2008q1-exam3.mm,v 8.49 2008-05-02 13:16:37-07 - - $
+
+.PS
+examboxes(5,50)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Do your scratch work elsewhere and
+enter only your final answer into the spaces provided.
+
+.EQ
+delim $$
+.EN
+
+ 1. Enter the names of the following languages in the appropriate places
+    in the table:  [2pt]
+    C, C++, Java, Ocaml, Perl, Prolog, Scheme.
+
+                  +---------------------------+---------------------------+
+                  |       static types        |       dynamic types       |
+    +-------------+---------------------------+---------------------------+
+    |             |                           |                           |
+    |strong types |                           |                           |
+    +-------------+---------------------------+---------------------------+
+    |weak types   |                           |                           |
+    +-------------+---------------------------+---------------------------+
+
+ 2. Define the function zipwith in Ocaml.  It takes a binary function
+    and applies it pairwise to its two argument lists.  If the lists are
+    not of the same length, raise the Invalid_argument exception.  [2pt]
+    # zipwith;;
+    - : ('a -> 'b -> 'c) -> 'a list -> 'b list -> 'c list
+    # zipwith (+) [1;2;3] [4;5;6];;
+    - : int list = [5; 7; 9]
+
+ 3. Write some facts in Prolog to describe the following directed graph.
+    Call the predicate link, with the first parameter pointing at the
+    second parameter.  [2pt]
+
+    .PS .75i
+    arrowht = .2
+    arrowwid = arrowht/2
+    A: circle "a"
+    B: circle "b" at A+(4*circlerad,0)
+    C: circle "c" at B+(4*circlerad,0)
+    D: circle "d" at B-(0,4*circlerad)
+    E: circle "e" at A-(0,4*circlerad)
+    arrow from A to B chop
+    arrow from B to C chop
+    arrow from B to D chop
+    arrow from D to E chop
+    arrow from A to E chop
+    Z: circle invis at B+(0,4*circlerad)
+    spline-> from C to Z then to A chop
+    .PE
+
+ 4. What is normal order evaluation?  What is applicative order
+    evaluation?  [2pt]
+
+ 5. Fill in the blanks with an appropriate expression which will
+    generate the results shown.  Do not write a definition.  A fun or
+    \lambda-expression, respectively, is required.  [2pt]
+
+     (a) Ocaml:
+         # List.map (_________________________) [1;2;3;4];;
+         - : int list = [2; 4; 6; 8]
+
+     (b) Scheme:
+         > (map (_________________________) '(1 2 3 4))
+         (2 4 6 8)
+
+ 6. Define a function split in Ocaml which takes a single list as an
+    argument and returns a tuple of two lists of the same type each
+    containing half of the elements of the original.  If the list has an
+    odd number of elements, one of the output lists will be one element
+    longer than the other.  It does not matter which elements go in
+    which output lists.  [2pt]
+
+    # split;;
+    - : 'a list -> 'a list * 'a list = <fun>
+    # split [1;2;3;4;5;6];;
+    - : int list * int list = ([1; 3; 5], [2; 4; 6])
+
+ 7. Define a Scheme function split which takes a single list as an
+    argument and returns a list of length two, of which the car is a
+    list of half of the elements and the cadr is a list of the other
+    half.  The actual selection of elements for each output list is
+    arbitrary.  [2pt]
+
+    > (split '(1 2 3 4 5 6 7 8))
+    ((1 3 5 7) (2 4 6 8))
+
+ 8. In either Ocaml or Scheme, using the higher-order functions map and
+    foldl, and without defining any functions (use fun or lambda), write
+    two expressions:  [2pt]
+
+     (a) compute the sum of a list of integers.
+
+     (b) add one to each element of a list of integers and return it as
+         a new list.
+
+ 9. Define the predicate mem in Prolog, which succeeds if its first
+    argument can unify with one of the elements of its second argument,
+    which is a list.  [2pt]
+    ?- mem(3,[1,2,3,4]).
+    Yes
+    ?- mem(9,[1,2,3,4]).
+    No
+
+10. Define the predicate sum in Prolog, which sets its first argument to
+    the sum of the integers in the list of its second argument.  [2pt]
+    ?- sum(X,[]).
+    X = 0
+    ?- sum(X,[1,2,3,4]).
+    X = 10
+
+11. In C++, provide the definition of class box compatible with the
+    usage shown in main.  Define the ctor of one parameter, put, which
+    deposits a thing in the box, and get which copies it out.  It must
+    be a template class.  Since the functions are trivial, code them all
+    as inline functions.  [2pt]
+
+    int main () {
+       box <int> bi (3);
+       bi.put (6);
+       cout << bi.get () << endl;
+       box <string> bs ("foo");
+       bs.put ("bar");
+       cout << bs.get () << endl;
+       return 0;
+    }
+
+12. Write a program in Perl which uses <> to read lines of input.  Each
+    line is split on white space.  Each word thus found is added to the
+    total and at final EOF, the sum of all the words is printed.  All
+    words are guaranteed to look to Perl like numbers.  [2pt]
+
+13. Write a function in Perl called search which takes another function
+    as its first argument, and a pointer to an array as its second
+    argument.  It searches the array for the earliest element for which
+    the function returns true and returns that element.  If none are
+    found, it returns undef.  [2pt]
+    % tail -2 search.perl
+    $a = search sub{$_[0]<0}, [1, 2, -3, -4, 5];
+    print "$a\n";
+    % search.perl
+    -3
+
+14. Write a function in Scheme called grep whose first argument is a
+    function and whose second argument is a list.  The result is a
+    sublist of the argument, in the same order, for which the list
+    elements accepted by the function.  Do not use a higher-order
+    function.  Use a let to avoid calling car or cdr more than once.
+    [2pt]
+    > (grep (lambda (x) (> x 0)) '(1 2 -3 -4 5))
+    (1 2 5)
+
+15. Draw a picture of the following Scheme list.  For each cons cell,
+    draw a box divided into two parts.  For any half of such a box:  If
+    it is null, write the Greek letter \phi in it.  If it contains an
+    atom, write that atom inside the half box.  Otherwise draw an arrow
+    from the half box to the cell that it points at.  [2pt]
+    ((a b c) (d ((e))) (f . g) h)
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write `Z' if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [11pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   11 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. The Scheme function map and the Ocaml function List.map take how
+    much time on a list of length $n$?
+    (A) $ O ( 1 ) $
+    (B) $ O ( log sub 2 n ) $
+    (C) $ O ( n ) $
+    (D) $ O ( n log sub 2 n ) $
+
+ 2. Which statement will cause Ocaml to print
+    val f : int -> int -> int = <fun>
+    (A) let f (x, y) = x + y;;
+    (B) let f = 3, 4, 5;;
+    (C) let f x = x, x, x;;
+    (D) let f x y = x + y;;
+
+ 3. What is the type of the Ocaml expression
+    List.map (fun x -> x+x) [1;2;3]
+    (A) ('a -> 'b) -> 'a list -> 'b list
+    (B) int -> int
+    (C) int list
+    (D) int list -> int list
+
+ 4. Allowing partial parameterization of a function is called
+    (A) currying
+    (B) lambda lifting
+    (C) tupling
+    (D) unification
+
+ 5. What is the time efficiency of
+    let rec f n = match n with
+        | 0 -> 0 | 1 -> 1
+        | n -> f (n - 1) + f (n - 2)
+    (A) $ O ( n ) $
+    (B) $ O ( n log sub 2 n ) $
+    (C) $ O ( n sup 2 ) $
+    (D) $ O ( 2 sup n ) $
+
+ 6. The language PL/I allowed a non-local goto, that is a goto that
+    transferred control from one function into another by allowing
+    statement labels to be passed as parameters.  A structured form of
+    non-local goto is accomplished in C++ and Java with what statement?
+    (A) break
+    (B) catch
+    (C) continue
+    (D) throw
+
+ 7. What kind of polymorphism does ANSI C support?
+    (A) coercion
+    (B) inclusion
+    (C) overloading
+    (D) parametric
+
+ 8. What kind of polymorphism is provided by an object-oriented
+    language?
+    (A) coercion
+    (B) inclusion
+    (C) overloading
+    (D) parametric
+
+ 9. Algol 60's parameter passing mechanism by name uses a parameterless
+    procedure called a
+    (A) closure
+    (B) curry
+    (C) horn
+    (D) thunk
+
+10. Which of the following higher order functions would be useful in
+    returning a list containing the squares of all the integers in a
+    list passed to it as an argument?
+    (A) compose
+    (B) foldl
+    (C) foldr
+    (D) map
+
+11. The Norwegian lives in the first house.
+    % einstein.pl
+    The _____ owns the fish.
+    (A) brit
+    (B) dane
+    (C) german
+    (D) swede
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write `Z' if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [11pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   11 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. Unification is used as part of the static type checking algorithm
+    used in
+    (A) C++
+    (B) Ocaml
+    (C) Prolog
+    (D) Scheme
+
+ 2. In C++, in order to make a member of a class available only to other
+    members of the same class and also to any derived class, but not to
+    any other classes, what keyword is used?
+    (A) friend
+    (B) private
+    (C) protected
+    (D) public
+
+ 3. In order to suppress a C++ constructor with one parameter being used
+    in automatic type conversion, one precedes the definition of that
+    constructor with what keyword?
+    (A) automatic
+    (B) explicit
+    (C) implicit
+    (D) static
+
+ 4. What is the type of
+    let f x y = y x;;
+    (A) 'a * 'b -> 'b * 'a
+    (B) 'a -> 'b -> 'c -> 'a
+    (C) 'a -> ('a -> 'b) -> 'b
+    (D) ('a -> 'b) -> 'a -> 'b
+
+ 5. Which of these memory management mechanisms is most friendly to the
+    page tables?
+    (A) copying collector with semispaces
+    (B) explicit use of free
+    (C) mark and sweep in-place collection
+    (D) reference counting
+
+ 6. The Ocaml function List.filter is of type
+    ('a -> bool) -> 'a list -> 'a list
+    A function to extract positive integers from a list can be defined
+    as
+    (A) let pos = List.filter ((<)0)
+    (B) let pos = List.filter ((>)0)
+    (C) let pos = List.filter (0(<))
+    (D) let pos = List.filter (0(>))
+
+ 7. When an Ocaml function has a type like the following, what kind of
+    polymorphism is thus illustrated?
+    ('a -> 'b) -> 'a list -> 'b list
+    (A) coercion
+    (B) inclusion
+    (C) overloading
+    (D) parametric
+
+ 8. Which of the following C++ functions will compile without type-
+    checking errors, but return a dangling pointer when called?
+    (A) int  p() { int  x = 0; return x; }
+    (B) int &p() { int  x = 0; return x; }
+    (C) int *p() { int  x = 0; return x; }
+    (D) int *p() { int *x = 0; return x; }
+
+ 9. Suppose we have a generic associative container in C++ called hash.
+    What would be correct syntax for declaring such with keys as strings
+    and values as integers?
+    (A) hash <string, int> m;
+    (B) hash m <string, int>;
+    (C) hash m of string and int;
+    (D) m: (string * int) hash;
+
+10. Given the query car(L,X), what Prolog statement will properly
+    extract the first element of list L and assign it to X?
+    (A) car( [Head | Tail], Tail).
+    (B) car( [Head | Tail], _).
+    (C) car( [Head | _], Head).
+    (D) car( [Head, Tail], Head).
+
+11.
+    (A) 2264
+    (B) 2462
+    (C) 4622
+    (D) 6224
+
+____________________
+
+   Total:  52 *
+

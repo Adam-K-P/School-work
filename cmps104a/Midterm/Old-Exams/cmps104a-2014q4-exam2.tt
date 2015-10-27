@@ -1,0 +1,193 @@
+CMPS-104A · Compiler Design I · Fall 2014 · Test #2             1 of 1
+$Id: cmps104a-2014q4-exam2.mm,v 1.31 2014-11-20 12:00:29-08 - - $
+
+.PS
+examboxes(3)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Do your scratch work elsewhere
+and enter only your final answer into the spaces provided.
+
+.EQ
+delim $$
+.EN
+
+ 1. Write a grammar in bison which will recognize an input stream of
+    balanced parentheses.  The only input tokens are the left
+    parenthesis and the right parenthesis.  Each left must match a
+    corresponding right somewhere to the right of it.  Explained
+    another way, if you count parentheses from left to right where a
+    left counts $+1$ and a right counts $-1$, the count may never go
+    negative, and must be 0 in the end.  The example at the left shows
+    examples of balanced parentheses.  [1pt]
+
+    +-------------+
+    |((((()))))   |
+    |()(())()()   |
+    |(((()()()))) |
+    |((())(())()) |
+    +-------------+
+
+ 2. Write an unambiguous grammar using bison where an expression is a
+    sequence of one or more terms connected by at sign (@) operators.
+    A term is a sequence of one or more tokens connected by percent
+    (%) operators.  A token is either an identifier or a number.  Both
+    operators are right associative.  Do not show semantic actions.
+    [3pt]
+
+ 3. Given the grammar presented here, and using the style of the
+    handout, use LR(0) analysis to construct the characteristic finite
+    state machine (CSFM), sets of items and transition diagram,
+    showing shifts, reductions, and acceptance.  [6pt]
+
+    +---------------+
+    |0.  S -> $ E $ |
+    |1.  E -> ( L ) |
+    |2.  E -> t     |
+    |3.  L -> L E   |
+    |4.  L ->       |
+    +---------------+
+
+ 4. Define a grammar using bison for a language described as follows.
+    [4pt]
+     (a) A program consists of zero or more statements, each
+         terminated with a semi-colon.
+     (b) A statement is a function call.
+     (c) A function call is an identifier, followed by a left
+         parenthesis, followed by zero or more arguments separated by
+         commas, followed by a right parenthesis.
+     (d) An argument is a function call, an identifier, or a number.
+
+ 5. Using Thompson's construction exactly, without optimization or
+    minimization, draw the non-deterministic finite state machine
+    given by the following flex regular expression.  [2pt]
+
+    +-------+
+    |ab*|cd |
+    +-------+
+
+ 6. There are two kinds of things permitted in an NFA that are
+    prohibited in a DFA.  What are they?  For each, draw a very small
+    NFA that illustrates it.  [2pt]
+
+ 7. Draw the abstract syntax tree as per the project 3 specifications
+    for the following code.  [2pt]
+
+    +--------------------------+
+    |if (a < b) c = f (x, y);  |
+    |      else y = m * x + b; |
+    +--------------------------+
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write Z if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [12pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   12 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. The variable that communicates semantic information from yylex()
+    to yyparse() is:
+    (A) yydebug
+    (B) yyleng
+    (C) yylval
+    (D) yytext
+
+ 2. Which is an example of an imput recognized by the following
+    grammar?
+    $ A -> x A y $
+    $ A -> $
+    (A) $xxxxxxxxxy$
+    (B) $xxxxxyyyyy$
+    (C) $xyxyxyxyxy$
+    (D) $xyyyyyyyyy$
+
+ 3. If an NFA is constructed from a regex $r$ and is used to scan a
+    string $s$, then its memory requirement $M$ and running time $T$
+    are:
+    (A) $ M = O ( 2 sup { left | r right | } ) ~ ; ~ ~ T = O ( left |
+        s right | ) $
+    (B) $ M = O ( left | r right | ) ~ ; ~ ~ T = O ( left | r right |
+        times left | s right | ) $
+    (C) $ M = O ( left | r right | times left | s right | ) ~ ; ~ ~ T
+        = O ( left | r right | ) $
+    (D) $ M = O ( left | s right | ) ~ ; ~ ~ T = O ( 2 sup { left | r
+        right | } ) $
+
+ 4. For unambiguous grammars, what kind of analysis is performed by
+    bison?
+    (A) LALR(1)
+    (B) LL($k$)
+    (C) LR(0)
+    (D) recursive descent
+
+ 5. Which rule shows that = is a right-associative operator?
+    (A) $ E -> E = E $
+    (B) $ E -> E = T $
+    (C) $ E -> T = E $
+    (D) $ E = E -> E $
+
+ 6. What parsing action pops some number of elements (equal to the
+    length of the right-hand side of a rule) off the parsing stack and
+    then pushes a non-terminal onto the stack?
+    (A) accept
+    (B) reduce
+    (C) scan
+    (D) shift
+
+ 7. If a regular expression $r$ of length $ | r | $ is converted into
+    a deterministic automaton and then used to scan a string $s$ of
+    length $ | s | $, how fast will it run?
+    (A) $ O ( | r | ) $
+    (B) $ O ( | r | times | s | ) $
+    (C) $ O ( | s | ) $
+    (D) $ O ( | s | + | r | ) $
+
+ 8. To solve the problem of the dangling else with an ambiguous
+    grammar, else should be declared as __-associative and given a
+    precedence __er than the arithmetic operators.
+    (A) left-associative, higher than
+    (B) left-associative, lower than
+    (C) right-associative, higher than
+    (D) right-associative, lower than
+
+ 9. Given the semantics of adopt2 from the provided code, what is the
+    appropriate action for the rule
+    expr : expr '+' expr
+    (A) { $$ = adopt2 ($1, $2, $3); }
+    (B) { $$ = adopt2 ($1, $3, $2); }
+    (C) { $$ = adopt2 ($2, $1, $3); }
+    (D) { $$ = adopt2 ($3, $2, $1); }
+
+10. If command contains the Unix command to start the preprocessor,
+    what will be used to allow reading its output?
+    (A) yyin = fopen (command, "r");
+    (B) yyin = fopen (command, "w");
+    (C) yyin = popen (command, "r");
+    (D) yyin = popen (command, "w");
+
+11. As a semantic action embedded in yylex(), which is obviously
+    wrong?
+    (A) { return '+'; }
+    (B) { return *yytext; }
+    (C) { return PLUS; }
+    (D) { return "+"; }
+
+12. If a DFA is constructed from each of the following regular
+    expressions, then minimized, which will have the fewest states?
+    (A) x
+    (B) x*
+    (C) x+
+    (D) x?
+

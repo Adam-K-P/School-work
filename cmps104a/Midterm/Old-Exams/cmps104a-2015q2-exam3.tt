@@ -1,0 +1,343 @@
+CMPS-104A · Compiler Design I · Spring 2015 · Final Exam        1 of 1
+$Id: cmps104a-2015q2-exam3.mm,v 1.33 2015-06-02 14:29:41-07 - - $
+
+.PS
+examboxes(5)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Do your scratch work elsewhere
+and enter only your final answer into the spaces provided.
+
+.EQ
+delim $$
+.EN
+
+1. Given the grammar presented here, and using the style from the
+   LALR(1) handout:
+   (a) Construct the characteristic finite state machine (CFSM), sets
+       of items and transition diagram, showing shifts, reductions,
+       and acceptance.  [6pt]
+   (b) Construct the FOLLOW sets.  Show the first pass with rule
+       symbols in the Follow sets.  Then show the revised follow sets
+       with only terminal symbols.  (See chart at the bottom of the
+       page.)  [3pt]
+   (c) Answer yes or no to each of the following questions:  [1pt]
+
+       Is the grammar LR(0)?  __________    Is the grammar SLR(1)?
+       __________
+
+   +---------------+
+   |0.  S -> $ G $ |
+   |1.  G -> G R x |
+   |2.  G -> G o x |
+   |3.  G -> G x   |
+   |4.  G ->       |
+   |5.  R -> s =   |
+   |6.  R -> R s   |
+   +---------------+
+
+    Follow sets with rule symbols:
+   +-------------------------------+
+   |Follow(C):                     |
+   +-------------------------------+
+   |Follow(A):                     |
+   +-------------------------------+
+    Follow sets with only $V sub T$ symbols:
+   +-----------------------------------------+
+   |Follow(C):                               |
+   +-----------------------------------------+
+   |Follow(A):                               |
+   +-----------------------------------------+
+
+2. Outline, using C-like pseudocode, the mark algorithm used in the
+   mark and sweep collection algorithm.  Assume a variable rootset.
+   [3pt]
+
+3. Assuming a compacting or copying collector, write the malloc
+   algorithm, assuming that memory is always allocated on a 16-byte
+   boundary.  [3pt]
+
+4. Write an unambiguous grammar for the following language:  An E is a
+   sequence of one or more Ts connected by a right associative /
+   operator.  A T is an F optionally preceded by a + or a - operator.
+   An F is an x or an E in parentheses.  Use the same syntax as is
+   used on the first page.  [2pt]
+
+5. Draw the CFSM for the following grammar.  Is the grammar LR(0)?
+   [2pt]
+
+   T -> x T
+   T ->
+
+6. Code the function abs, which takes the absolute value of an
+   integer.  Do not use any control transfer instructions.  Assume
+   that an int is 32 bits and that the operator >> does an arithmetic
+   right shift.  [1pt]
+   int abs (int n) {
+
+   }
+
+7. Given the declaration of a class at the left, draw a picture of a
+   foo* p pointing at an object, label the contens of each field, and
+   show the contents of the virtual function table.  [2pt]
+
+   class foo {
+      int a;
+      int b;
+      virtual void f();
+      virtual void g();
+   }
+
+8. Given the function at the left, translate it into oil statements
+   using the specification for project 5.  Each statement of your
+   answer should be put in the box corresponding to the original
+   source statement.  [4pt]
+
+   +-------------------------------------+---------------------------------------+
+   |int prod (int[] a, int[] b, int n) { |                                       |
+   |                                     |                                       |
+   |                                     |                                       |
+   +-------------------------------------+---------------------------------------+
+   |   int s = 0;                        |                                       |
+   +-------------------------------------+---------------------------------------+
+   |   int i = 0;                        |                                       |
+   |                                     |                                       |
+   +-------------------------------------+---------------------------------------+
+   |   while (i < n) {                   |                                       |
+   |                                     |                                       |
+   |                                     |                                       |
+   +-------------------------------------+---------------------------------------+
+   |      s = s + a[i] * b[i];           |                                       |
+   |                                     |                                       |
+   |                                     |                                       |
+   |                                     |                                       |
+   +-------------------------------------+---------------------------------------+
+   |      i = i + 1;                     |                                       |
+   |                                     |                                       |
+   |                                     |                                       |
+   +-------------------------------------+---------------------------------------+
+   |   }                                 |                                       |
+   |                                     |                                       |
+   |                                     |                                       |
+   +-------------------------------------+---------------------------------------+
+   |   return s;                         |                                       |
+   |                                     |                                       |
+   |                                     |                                       |
+   +-------------------------------------+---------------------------------------+
+   |}                                    |                                       |
+   |                                     |                                       |
+   |                                     |                                       |
+   +-------------------------------------+---------------------------------------+
+
+9. Draw the abstract syntax tree for the above function, using the
+   specifications for project 3.  [3pt]
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write Z if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [12pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   12 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. Which of the following items in a state was added during the
+    closure computation?
+    (A) $ E ~ -> ~ · ~ E + T $
+    (B) $ E ~ -> ~ E ~ · ~ + T $
+    (C) $ E ~ -> ~ E + ~ · ~ T $
+    (D) $ E ~ -> ~ E + T ~ · $
+
+ 2. The number of registers on the x86-64 architecture is:
+    (A)  8
+    (B) 16
+    (C) 32
+    (D) 64
+
+ 3. If a function is nested inside another, what does the inner
+    function use to access the local variables of the outer function?
+    (A) dynamic link
+    (B) frame pointer
+    (C) stack pointer
+    (D) static link
+
+ 4. If an NFA is constructed from a regular expression whose length is
+    $ | r | $ and is used to scan a string whose length is $ | s | $,
+    then it will run at speed:
+    (A) $ O ( | r | ) $
+    (B) $ O ( | r | + | s | ) $
+    (C) $ O ( | r | times | s | ) $
+    (D) $ O ( | s | ) $
+
+ 5. What is used to identify the natural loops of a function?
+    (A) basic block
+    (B) dominator tree
+    (C) flow graph
+    (D) tail call
+
+ 6. Given a grammar $ G = < V sub N , V sub T , P , S > $, where $ V =
+    V sub N union V sub T $.  The set of productions $P$ consists of
+    rules of the form $ ( A -> alpha ) $, where:
+    (A) $ A elem V $ and $ alpha elem V sup {*}  $.
+    (B) $ A elem V sub N $ and $ alpha elem V sup {*}  $.
+    (C) $ A elem V sub T $ and $ alpha elem V sub N sup {*}  $.
+    (D) $ A elem V sup {+} $ and $ alpha elem V sup {+} $.
+
+ 7. Which of the following items will cause a shift transition to be
+    added to the current state?
+    (A) $ E ~ -> ~ · ~ E + T $
+    (B) $ E ~ -> ~ E ~ · ~ + T $
+    (C) $ E ~ -> ~ E + ~ · ~ T $
+    (D) $ E ~ -> ~ E + T ~ · $
+
+ 8. The number of bits in %rax on the x86-64 architecture is:
+    (A)  8
+    (B) 16
+    (C) 32
+    (D) 64
+
+ 9. If an NFA is constructed from a regular expression whose length is
+    $ | r | $ and is used to scan a string whose length is $ | s | $,
+    then it will run at speed:
+    (A) $ O ( | r | ) $
+    (B) $ O ( | r | + | s | ) $
+    (C) $ O ( | r | times | s | ) $
+    (D) $ O ( | s | ) $
+
+10. The first instruction in a function will usually push what
+    register onto the function call stack?
+    (A) argument pointer
+    (B) frame pointer
+    (C) return address
+    (D) stack pointer
+
+11. In C++, what data structure implements a hash table that allows a
+    key lookup to find an associated value?
+    (A) map
+    (B) set
+    (C) unordered_map
+    (D) unordered_set
+
+12. The executable binary name of the C/C++ preprocessor is:
+    (A) /usr/bin/cccp
+    (B) /usr/bin/cpp
+    (C) /usr/bin/g++
+    (D) /usr/bin/gcc
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write Z if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [12pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   12 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. Which of the following items will cause a reduction action to be
+    added to the current state?
+    (A) $ E ~ -> ~ · ~ E + T $
+    (B) $ E ~ -> ~ E ~ · ~ + T $
+    (C) $ E ~ -> ~ E + ~ · ~ T $
+    (D) $ E ~ -> ~ E + T ~ · $
+
+ 2. The grammar:
+    $ A -> A x $
+    $ A -> y $
+    (A) is LR(0) but not SLR(1)
+    (B) is SLR(1) but not LR(0)
+    (C) is both LR(0) and SLR(1)
+    (D) is neither LR(0) nor SLR(1)
+
+ 3. What parsing action pops some number of items from the parsing
+    stack and then pushes a nonterminal onto that stack?
+    (A) accept
+    (B) error
+    (C) reduce
+    (D) shift
+
+ 4. The address of a variable local to a function is determined at ___
+    time.
+    (A) compile
+    (B) exec
+    (C) function call
+    (D) link
+
+ 5. Given an NFA constructed via Thompson's construction, which is
+    then converted into a DFA using the subset construction, but not
+    mimimized, the NFA will likely be [x] than the DFA, and when used
+    in scanning, the NFA will likely run more [y] than the DFA.
+    (A) [x] = larger, [y] = quickly
+    (B) [x] = larger, [y] = slowly
+    (C) [x] = smaller, [y] = quickly
+    (D) [x] = smaller, [y] = slowly
+
+ 6. On the x86-64, what is the alignment requirement for %rbp and
+    %rsp?
+    (A)    0x10
+    (B)   0x100
+    (C)  0x1000
+    (D) 0x10000
+
+ 7. The Java virtual machine (JVM) interprets what kind of language?
+    (A) abstract syntax tree
+    (B) stack machine code
+    (C) three address code
+    (D) two address code
+
+ 8. Which of the following items has a transition which will be taken
+    during a reduction operation?
+    (A) $ E ~ -> ~ · ~ E + T $
+    (B) $ E ~ -> ~ E ~ · ~ + T $
+    (C) $ E ~ -> ~ E + ~ · ~ T $
+    (D) $ E ~ -> ~ E + T ~ · $
+
+ 9. Which statement is true?
+    (A) All LR(k) languages are unambiguous.
+    (B) All context free languages are LR(k).
+    (C) Some LR(k) languages are ambiguous.
+    (D) Some regular languages are not LR(k).
+
+10. Which of the following problems can be solved using a context-free
+    grammar but not a regular grammar?
+    (A) Detecting C++ double-slash (//) comments.
+    (B) Detecting a plus or minus sign followed by one or more digits.
+    (C) Detecting a sequence of one or more letters and digits,
+        beginning with a letter.
+    (D) Detecting balanced parentheses.
+
+11. Which grammar is ambiguous?
+    (A) $ A -> A ~ x $
+        $ A -> x $
+    (B) $ A -> x ~ A $
+        $ A -> x $
+    (C) $ A -> A ~ A $
+        $ A -> x $
+    (D) $ A -> x ~ x $
+        $ A -> x $
+
+12. Which (flex) pattern will recognize a double-slash (//) comment as
+    in Java or C++?
+    (A) /\/\[^/n]*
+    (B) /\/\[^\n]*
+    (C) \/\/[^/n]*
+    (D) \/\/[^\n]*
+

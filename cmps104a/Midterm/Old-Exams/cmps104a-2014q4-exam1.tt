@@ -1,0 +1,233 @@
+CMPS-104A · Compiler Design I · Fall 2014 · Test #1             1 of 1
+$Id: cmps104a-2014q4-exam1.mm,v 1.78 2014-10-21 17:30:16-07 - - $
+
+.PS
+examboxes(3)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Do your scratch work elsewhere
+and enter only your final answer into the spaces provided.
+
+.EQ
+delim $$
+.EN
+
+ 1. Using the precedence and associativity of C, draw abstract syntax
+    trees for each of the following.  [3pt]
+
+    +--------------------+---------------------+---------------------+
+    |   a + b * c / d    |    a + b / c + d    |    a * b + c * d    |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    +--------------------+---------------------+---------------------+
+
+ 2. Using as few states as possible, draw deterministic finite
+    automata for each of the following flex regular expressions.  Do
+    not show garbage states.  [5pt]
+
+     (i) ab*c+
+
+    (ii) x*abb
+
+    (iii) abc|d+
+
+    (iv) a*b*c*
+
+     (v) (a?b*)x
+
+ 3. Write a function openpipe that will take a string char* command,
+    as an argument and open a pipe to a subprocess for reading.  If
+    the open fails, call the function void syserror().  If it
+    succeeds, pass the opened file to the function void readpipe
+    (FILE*).  [2pt]
+
+ 4. Write flex patterns for each of the following descriptions.
+    Whenever letters are mentioned or required, they may appear either
+    as upper-case or lower-case.  [5pt]
+
+     (i) An identifier starts with a letter, followed by zero or more
+         letters, digits, or underscores.
+
+    (ii) A hexadecimal constant which starts with the digit 0, a
+         letter X, followed by one or more hexadecimal digits.
+
+    (iii) A string constant which starts and ends with a single quote
+         (') and has any number of characters (except single quotes)
+         in between.  If a single quote appears in the string it is
+         doubled.  Examples:  'abc', 'don''t'.
+
+    (iv) A floating point number consists of one or more decimal
+         digits, possibly with a decimal point.  If a decimal point
+         appears, there must be at least one digit before and after
+         the decimal point.  It may have an optional exponent, which
+         consists of the letter E, optionally followed by a + or -
+         sign, then followed by one or more decimal digits.
+
+     (v) The name of a list-extracting function from Lisp or Scheme,
+         which consists of the lower-case (only) letter C, followed by
+         one or more occurrences of the lower-case letters A or D in
+         any order, and terminated by the lower-case letter R.
+         Examples:  car, cdr, caar, cadr, cdar, cddr, ..., etc.
+
+ 5. Given the following nondeterministic finite automaton:
+     (a) Write the regular expression from which Thompson's
+         construction was used to construct it.  [1pt]
+     (b) Fill in the table with the \epsilon-closure of each state.
+         [2pt]
+     (c) Use the subset algorithm to construct the equivalent
+         deterministic finite automaton.  Inside each state of the DFA
+         write the numbers of the NFA states to which it corresponds.
+         [2pt]
+
+                                                       +------------+------------------------+
+                                                       |  state $s$ | \epsilon-closure ($s$) |
+    .PS 3i                                             +------------+------------------------+
+    arrowwid = 0.1                                     |     1      |                        |
+    arrowht = 0.2                                      +------------+------------------------+
+    S0: circle invis                                   |     2      |                        |
+    S1: circle "1" at S0+(1,0)                         +------------+------------------------+
+    S2: circle "2" at S1+(1.6,.75)                     |     3      |                        |
+    S3: circle "3" at S2+(1.2,0)                       +------------+------------------------+
+    S4: circle "4" at S3+(1.2,0)                       |     4      |                        |
+    S5: circle "5" at S1+(1,-.75)                      +------------+------------------------+
+    S6: circle "6" at S5+(1.2,0)                       |     5      |                        |
+    S7: circle "7" at S6+(1.2,0)                       +------------+------------------------+
+    S8: circle "8" at S7+(1.2,0)                       |     6      |                        |
+    S9: circle "9" at S1+(5.6,0)                       +------------+------------------------+
+    circle rad circlerad-.075 at S9                    |     7      |                        |
+    circle invis at S9+(.5,0)                          +------------+------------------------+
+    arrow from S0 to S1 chop                           |     8      |                        |
+    arrow "\[*e]" above from S1 to S2 chop             +------------+------------------------+
+    arrow "a" above from S2 to S3 chop                 |     9      |                        |
+    arrow "b" above from S3 to S4 chop                 +------------+------------------------+
+    arrow "\[*e]" above from S4 to S9 chop             |            |                        |
+    arrow "\[*e]" above from S1 to S5 chop             |            |                        |
+    arrow "\[*e]" above from S5 to S6 chop             |            |                        |
+    arrow "c" above from S6 to S7 chop                 |            |                        |
+    arrow "\[*e]" above from S7 to S8 chop             |            |                        |
+    arrow "\[*e]" above from S8 to S9 chop             |            |                        |
+    spline from S7.n to S6+(.6,.75) then to S6.n ->    |            |                        |
+    spline from S5.se to S6+(.6,-.75) then to S8.sw -> |            |                        |
+    "\[*e]" at S6+(.6,.75)                             |            |                        |
+    "\[*e]" at S6+(.6,-.8)                             |            |                        |
+    .PE                                                |            |                        |
+                                                       |            |                        |
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write Z if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [12pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   12 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. A scanner generated by flex makes use of what kind of language?
+    (A) recursively enumerable
+    (B) context-sensitive
+    (C) context-free
+    (D) regular
+
+ 2. A parser generated by bison makes use of what kind of language?
+    (A) recursively enumerable
+    (B) context-sensitive
+    (C) context-free
+    (D) regular
+
+ 3. The shortest string that the pattern xx+ can match contains how
+    many characters?
+    (A) 1
+    (B) 2
+    (C) 3
+    (D) unlimited
+
+ 4. Which pattern will match one or more a's followed by one or more
+    b's?
+    (A) (a|b)+
+    (B) a+|b+
+    (C) a+b+
+    (D) a|b+
+
+ 5. The last byte of the string pointed at by char* yytext contains:
+    (A) '0'
+    (B) '\0'
+    (C) '\n'
+    (D) EOF
+
+ 6. What is the expected speed of a lookup in an unordered_
+    set<string>?
+    (A) $ O ( 1 ) $
+    (B) $ O ( log sub 2 n ) $
+    (C) $ O ( n ) $
+    (D) $ O ( n log sub 2 n ) $
+
+ 7. Comments in oc are stripped of by the:
+    (A) parser
+    (B) preprocessor
+    (C) scanner
+    (D) stringset
+
+ 8. For a grammar $G = < V sub N , V sub T , P , S > $, the set $P$
+    contains rules of the form $( A -> beta ) $, where
+
+.EQ
+define STAR |size 10 *|
+define PLUS |size 10 +|
+.EN
+
+    (A) $ A elem V sub N $ and $ beta elem ( V sub N inter V sub T )
+        sup STAR $
+    (B) $ A elem V sub N $ and $ beta elem ( V sub N union V sub T )
+        sup STAR $
+    (C) $ A elem V sub T $ and $ beta elem ( V sub N inter V sub T )
+        sup PLUS $
+    (D) $ A elem V sub T $ and $ beta elem ( V sub N union V sub T )
+        sup PLUS $
+
+ 9. The expression ab|c* means
+    (A) ((ab)|c)*
+    (B) (a(b|c))*
+    (C) (ab)|(c*)
+    (D) a((b|c)*)
+
+10. A stringset with search time $ O ( 1 ) $ can be implemented as a
+    (A) binarytree_map<string>
+    (B) binarytree_set<string>
+    (C) unordered_map<string>
+    (D) unordered_set<string>
+
+11. Which of the following rules from the ETF example shows that the
+    operator $+$ is left associative?
+    (A) $ E + T -> E $
+    (B) $ E + T -> T $
+    (C) $ E -> E + T $
+    (D) $ E -> T + E $
+
+12. How many tokens in the following C statement?
+    printf ("%s\n", hello); // Say hello there.
+    (A)  5
+    (B)  7
+    (C)  9
+    (D) 11
+The Antikythera mechanism, built ca. 160-100 BCE, is the oldest known
+complex scientific calculator, and is sometimes called the first known
+analog computer, with operational instructions written in Greek.
+http://en.wikipedia.org/wiki/Antikythera_mechanism
+

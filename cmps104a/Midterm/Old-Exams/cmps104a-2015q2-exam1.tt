@@ -1,0 +1,254 @@
+CMPS-104A · Compiler Design I · Spring 2015 · Test #1           1 of 1
+$Id: cmps104a-2015q2-exam1.mm,v 1.134 2015-04-20 21:26:59-07 - -
+$
+
+.PS
+examboxes(3)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Do your scratch work elsewhere
+and enter only your final answer into the spaces provided.
+
+.EQ
+delim $$
+.EN
+
+ 1. The ETF grammar is presented here.  Rewrite it so that the + and *
+    operators are both right-associative, and also make + have a
+    higher precedence than *.  [2pt]
+
+    E -> E + T
+    E -> T
+    T -> T * F
+    T -> F
+    F -> ( E )
+    F -> i
+
+ 2. Draw abstract syntax trees (not parse trees) for each of the
+    following C expressions.  [3pt]
+
+    +--------------------+---------------------+---------------------+
+    |  a * b + c * d     |  ( a + b ) * c * d  |    a / b * c + d    |
+    +--------------------+---------------------+---------------------+
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    |                    |                     |                     |
+    +--------------------+---------------------+---------------------+
+
+ 3. Given the nondeterministic finite automaton shown here:
+     (a) Write the regular expression that was used by Thompson's
+         construction to create this NFA.  [1pt]
+
+     (b) Fill in the table of \epsilon-closures for each state.  [2pt]
+     (c) Use the subset algorithm to construct the equivalent
+         deterministic finite automaton.  Inside each state of the
+         DFA, write the numbers of the NFA states to which it
+         corresponds.  [2pt]
+
+    +----------+------------------------+
+    |state $s$ | \epsilon-closure ($s$) |
+    +----------+------------------------+ .PS 3.3i
+    |    1     |                        | circlerad=.3
+    +----------+------------------------+ arrowwid=0.1
+    |    2     |                        | arrowht=0.2
+    +----------+------------------------+ movewid=.5
+    |    3     |                        | x=movewid*1.4
+    +----------+------------------------+ S2: circle "2"
+    |    4     |                        | S3: circle "3" at S2+(x*2,0)
+    +----------+------------------------+ S4: circle "4" at S3+(x*2,0)
+    |    5     |                        | S5: circle "5" at S4+(x*2,0)
+    +----------+------------------------+ S6: circle "6" at S5+(x*2,0)
+    |    6     |                        | S8: circle "8" at S2-(0,x*3)
+    +----------+------------------------+ S9: circle "9" at S8+(x*2,0)
+    |    7     |                        | S10: circle "10" at S9+(x*2,0)
+    +----------+------------------------+ S11: circle "11" at S10+(x*2,0)
+    |    8     |                        | S12: circle "12" at S11+(x*2,0)
+    +----------+------------------------+ arrow "\[*e]" above from S2 to S3 chop
+    |    9     |                        | arrow "a" above from S3 to S4 chop
+    +----------+------------------------+ arrow "\[*e]" above from S4 to S5 chop
+    |   10     |                        | arrow "b" above from S5 to S6 chop
+    +----------+------------------------+ arrow "\[*e]" above from S8 to S9 chop
+    |   11     |                        | arrow "c" above from S9 to S10 chop
+    +----------+------------------------+ arrow "\[*e]" above from S10 to S11 chop
+    |   12     |                        | arrow "d" above from S11 to S12 chop
+    +----------+------------------------+ spline from S4.nw to S3+(x,x) then to S3.ne ->
+    |          |                        | spline from S10.nw to S9+(x,x) then to S9.ne ->
+    |          |                        | spline from S2.se to S3+(0,-x) then to S4+(0,-x) then to S5.sw ->
+    |          |                        | spline from S8.se to S9+(0,-x) then to S10+(0,-x) then to S11.sw ->
+    |          |                        | "\[*e]" at S3+(x,x*1.1)
+    |          |                        | "\[*e]" at S9+(x,x*1.1)
+    |          |                        | "\[*e]" at S3+(x,-x*.8)
+    |          |                        | "\[*e]" at S9+(x,-x*.8)
+    |          |                        | S1: circle "1" at S2+(-x*1.322876,-x*1.5)
+    |          |                        | S7: circle "7" at S6+(x*1.322876,-x*1.5)
+    |          |                        | circle rad circlerad*.8 at S7
+    |          |                        | arrow "\[*e]" above from S1 to S2 chop
+    |          |                        | arrow "\[*e]" above from S1 to S8 chop
+    |          |                        | arrow "\[*e]" above from S6 to S7 chop
+    |          |                        | arrow "\[*e]" above from S12 to S7 chop
+    |          |                        | S0: circle invis at S1-(x*2,0)
+    |          |                        | arrow from S0 to S1 chop
+    |          |                        | .PE
+    |          |                        |
+
+ 4. Write flex regular expressions for each of the following
+    descriptions of tokens.  [3pt]
+
+     (a) An identifier consists of upper- and lower-case letters and
+         digits and underscores.  It may not being with a digit or an
+         underscore, nor end with an underscore.  Underscores may not
+         appear next to each other.
+
+     (b) A string consists of a sequence of characters between either
+         double quotes or single quotes, but the ending quote must be
+         the same as the starting quote.  In between the quotes may be
+         any characters except for newlines and the quotes that begin
+         and end the string.
+
+     (c) A number consists of a sequence of decimal digits with a
+         decimal point somewhere in between the digits, but the
+         decimal point may not appear on the front or on the end.  An
+         optional exponent may appear, which consists of an E or an e,
+         followed optionally by a + or - sign, followed by one or more
+         digits.
+
+ 5. For each of the following flex regular expressions, draw a
+    deterministic finite automaton, using as few states as possible.
+    [4pt]
+
+     (a) ab|cd*
+
+     (b) a*b|c
+
+     (c) a?b*c+
+
+     (d) a*b*c
+
+ 6. Draw parse trees (not abstract syntax trees) for the following
+    expressions, given the ETF grammar at the left.  The lexical
+    symbols are below the middle line.  Match each with a terminal
+    symbol above the middle line and draw the trees.  [2pt]
+
+               +---------------------------------+---------------------------------+
+    E -> E + T |                                 |                                 |
+    E -> T     |                                 |                                 |
+    T -> T * F |                                 |                                 |
+    T -> F     |                                 |                                 |
+    F -> ( E ) |                                 |                                 |
+    F -> i     |                                 |                                 |
+               +---------------------------------+---------------------------------+
+               | a    *    b    +    c    *    d | (    a    +    b    )    *    c |
+               +---------------------------------+---------------------------------+
+
+ 7. A context-free grammar $G = < V sub N , V sub T , P , S > $.  If
+    $P$ is the ETF grammar, fill in the blanks for the other three
+    components.  [1pt]
+
+    $ V sub N = left { "_______________" right } , ~ ~ ~ ~ V sub T =
+    left { "_______________" right } , ~ ~ ~ ~ S = "_____" $
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write Z if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [12pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   12 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. Thompson's construction:
+    (A) converts C code into assembly language.
+    (B) converts a regular expression into an NFA.
+    (C) converts an NFA into a DFA.
+    (D) minimizes a DFA.
+
+ 2. Given a regular expression $r$ used to construct a DFA, and a
+    scanned string $s$, the worst-case size of a DFA is:
+    (A) $ O ( 2 sup { | r | } ) $
+    (B) $ O ( 2 sup { | s | } ) $
+    (C) $ O ( | r | sup 2 ) $
+    (D) $ O ( | r | times | s | ) $
+
+ 3. Which pattern might match a string of zero characters?
+    (A) a*b*
+    (B) a*b+
+    (C) a+b*
+    (D) a+b+
+
+ 4. Which pattern will match the following string?  bbaaaabaaaabababa
+    (A) (ba)+
+    (B) (b+a+)*
+    (C) (ba+)*
+    (D) b+a+
+
+ 5. Given a regular expression $r$ used to construct an NFA, and a
+    scanned string $s$, the speed of the scan is:
+    (A) $ O ( 2 sup { | r | } ) $
+    (B) $ O ( 2 sup { | s | } ) $
+    (C) $ O ( | r | sup 2 ) $
+    (D) $ O ( | r | times | s | ) $
+
+ 6. The flex pattern .  (dot) is the same as
+    (A) [/n]
+    (B) [\n]
+    (C) [^/n]
+    (D) [^\n]
+
+ 7. What is not possible in an NFA?
+    (A) epsilon transitions
+    (B) multiple final states
+    (C) multiple initial states
+    (D) multiple outgoing transitions from a given state with the same
+        label
+
+ 8. How many tokens in the following Java statement?
+    out.printf("%d%n",n);
+    (A)  7
+    (B)  9
+    (C) 11
+    (D) 13
+
+ 9. Which is equivalent to the following regex?
+    a|bc*
+    (A) ((a|b)c)*
+    (B) (a|b)(c*)
+    (C) a|((bc)*)
+    (D) a|(b(c*))
+
+10. Determining that int is a reserved word, not an identifier, is
+    done by:
+    (A) preprocessor
+    (B) scanner
+    (C) parser
+    (D) magic numbers
+
+11. The value returned by yylex is:
+    (A) a non-terminal symbol
+    (B) a pointer to a struct token
+    (C) a pointer to the lexical buffer
+    (D) an integer token code
+
+12. Which of the following regexes will produce the smallest DFA (DFA
+    with the fewest states)?
+    (A) (a)
+    (B) a*
+    (C) a+
+    (D) ab
+
