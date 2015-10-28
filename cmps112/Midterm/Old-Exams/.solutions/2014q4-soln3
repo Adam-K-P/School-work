@@ -36,7 +36,6 @@ Question 4. [2]
     (if (or (null? list) (<= n 0)) '()
         (cons (car list) (takex (- n 1) (cdr list)))))
 
-
 Answers to 2014q4-test3, page 2
 
 ________________________________________________________________________
@@ -92,7 +91,6 @@ Question 9. [2]
              (if (p hd) (cons hd tl)
                         (tl)))))
 
-
 Answers to 2014q4-test3, page 3
 
 ________________________________________________________________________
@@ -135,7 +133,6 @@ let rec pairthem l1 l2 = match l1, l2 with
    | _, [] -> []
    | h1::t1, h2::t2 -> (h1,h2):: pairthem t1 t2;;
 
-
 Answers to 2014q4-test3, page 4
 
  1.    (B) lambda
@@ -162,7 +159,6 @@ Answers to 2014q4-test3, page 4
 
 12.    (C) Donald Knuth
 
-
 Answers to 2014q4-test3, page 5
 
  1.    (A) C++

@@ -71,42 +71,42 @@ ________________________________________________________________________
 Question 6. [2]
 
 (define (foldl fn unit list)
-        (if (null? list) unit
-            (foldl fn (fn unit (car list)) (cdr list))))
+ (if (null? list) unit
+  (foldl fn (fn unit (car list)) (cdr list))))
 
-________________________________________________________________________
-Question 7. [1]
+    ________________________________________________________________________
+    Question 7. [1]
 
 (define (product list) (foldl * 1 list))
 
-________________________________________________________________________
-Question 8. [1]
+    ________________________________________________________________________
+    Question 8. [1]
 
-non lambda version ....................
-(define (ad n _) (+ n 1))
+    non lambda version ....................
+    (define (ad n _) (+ n 1))
 (define (len list) (foldleft ad 0 list))
-lambda version ....................
+    lambda version ....................
 (define (lenn list) (foldleft (lambda (n _) (+ n 1)) 0 list))
 
-________________________________________________________________________
-Question 9. [2]
+    ________________________________________________________________________
+    Question 9. [2]
 
-product := [:vec |
-   |prod|
-   prod := 1.
-   1 to: vec size do: [:i| prod := prod * (vec at: i)].
-   prod
-].
+    product := [:vec |
+    |prod|
+    prod := 1.
+    1 to: vec size do: [:i| prod := prod * (vec at: i)].
+    prod
+    ].
 
-________________________________________________________________________
-Question 10. [1]
+    ________________________________________________________________________
+    Question 10. [1]
 
-$product = 1;
-map {$product *= $_} @array;
-________________________________________________________________________
-Question 11. [2]
+    $product = 1;
+    map {$product *= $_} @array;
+    ________________________________________________________________________
+    Question 11. [2]
 
-(define (reverse list)
+    (define (reverse list)
         (define (rev list m)
                 (if (null? list) m
                     (rev (cdr list) (cons (car list) m))))
