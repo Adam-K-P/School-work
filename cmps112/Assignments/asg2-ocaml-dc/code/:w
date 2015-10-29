@@ -84,12 +84,12 @@ module Bigint = struct
        exit 1
 
     (* Precondition: list1 must be greater than list2 *)
-    let rec sub' list1 list2 carry = 
-        match (list1, list2, carry) with
+    let rec sub' list1 list2 carry = match (list1, list2, carry) with
         | list1, [], false -> list1
         | list1, [], true  -> 
+          printf "ugh\n%!";
           let diff = (car list1) - 1 (* line below could crash the program *)
-          in if diff < 0 then (diff + 10)::(sub' (cdr list1) [] true)
+          in  if diff < 0 then (diff + 10)::(sub' (cdr list1) [] true)
           else diff::(cdr list1)
         | [], list2, true  -> sub_prev ()
         | [], list2, false -> sub_prev ()  
@@ -160,9 +160,8 @@ module Bigint = struct
         (can (sub' value1 (can (mul' (divrem value1 value2 []) value2)) false)))
 
     let rec pow' list1 list2 olist1 =
-        let list2' = (can (sub' list2 [1] false)) in
-            if list2' = [] then list1
-            else pow' (mul' list1 olist1) list2' olist1
+        if (car list2) = 0 then list1
+        else pow' (mul' list1 olist1) (sub' list2 [1] false) olist1
 
     let pow (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
         if neg2 = Neg then zero
