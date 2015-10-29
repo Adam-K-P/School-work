@@ -17,9 +17,18 @@ let pop = Stack.pop
 let ord thechar = int_of_char thechar
 type binop_t = bigint -> bigint -> bigint
 
-let print_number number = printf "%s\n%!" (string_of_bigint number)
+let print_number number = 
+    let number' = string_of_bigint number in
+    let length  = (String.length number') in
+    let rec print_number' index =
+        let num_left = length - index in
+            if (num_left >= 69) then
+                (printf "%s\\\n%!" (String.sub number' index 69);
+                 print_number' (index + 69))
+            else printf "%s\n%!" (String.sub number' index num_left)
+    in print_number' 0
 
-let print_stackempty () = printf "stack empty\n%!"
+let print_stackempty () = printf "ocamldc: stack empty\n%!"
 
 let executereg (thestack: stack_t) (oper: char) (reg: int) =
     try match oper with
