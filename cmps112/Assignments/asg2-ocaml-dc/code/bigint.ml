@@ -49,12 +49,14 @@ module Bigint = struct
                        ((if sign = Pos then "" else "-") ::
                         (map string_of_int reversed))
 
+    (* canonicalizes a list *)
     let rec can value =
         if value = [] then []
         else let rvalue = reverse value in
             if (car rvalue) = 0 then can (reverse (cdr rvalue))
             else value
 
+    (* compares two list2 in the style of strcmp *)
     let rec cmp list1 list2 = 
         if (List.length list1) > (List.length list2) then 1
         else if (List.length list1) < (List.length list2) then -1
@@ -99,6 +101,7 @@ module Bigint = struct
                 else if diff < 0 then (diff + 10)::(sub' cdr1 cdr2 true)
                 else diff::(sub' cdr1 cdr2 false) 
            
+    (* adds two bigints together *)
     let add (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
         if neg1 = neg2
         then Bigint (neg1, add' value1 value2 0)
@@ -107,6 +110,7 @@ module Bigint = struct
             else if comp < 0 then Bigint (neg2, sub' value2 value1 false)
             else zero
 
+    (* subtracts two bigints *)
     let sub (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
         if neg1 = neg2 then 
             let comp = cmp value1 value2 in
@@ -128,25 +132,30 @@ module Bigint = struct
         if (list1 = [] || list2 = []) then []
         else add' (mul_help list1 (car list2) 0) (0::(mul' list1 (cdr list2))) 0
 
+    (* multiplies two Bigints together *)
     let mul (Bigint (neg1, value1)) (Bigint (neg2, value2)) =
         if neg1 = neg2 then Bigint (Pos, can (mul' value1 value2))
         else Bigint (Neg, can (mul' value1 value2))
             
+    (* diviion by 0 error message *)
     let div_by_0 () =
         fprintf stderr "ocamldc: division by 0 not allowed, now exiting\n";
         exit 1
 
+    (* division helper function *)
     let rec div' divisor dividend oldv newv value = 
         let comp = cmp (can (mul' (add' value newv 0) dividend)) divisor in
             if comp > 0 then oldv
             else if comp < 0 then div' divisor dividend newv (mul' newv [2]) value
             else newv
 
+    (* division helper function *)
     let rec divrem divisor dividend value = 
         let newv = div' divisor dividend [] [1] value in
             if newv = [] then value
             else divrem divisor dividend (add' value newv 0)
 
+    (* divides two bigints *)
     let div (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
         match (value1, value2) with
             | [], value2     -> zero
@@ -155,15 +164,18 @@ module Bigint = struct
               let sign = if neg1 = neg2 then Pos else Neg in
                   Bigint (sign, can (divrem value1 value2 []))
 
+    (* finds the modulo of two bigints *)
     let rem (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
         Bigint (neg1,  
         (can (sub' value1 (can (mul' (divrem value1 value2 []) value2)) false)))
 
+    (* exponentiation helper function *)
     let rec pow' list1 list2 olist1 =
         let list2' = (can (sub' list2 [1] false)) in
             if list2' = [] then list1
             else pow' (mul' list1 olist1) list2' olist1
 
+    (* exponentiates a bigint *)
     let pow (Bigint (neg1, value1)) (Bigint (neg2, value2)) = 
         if neg2 = Neg then zero
         else match (value1, value2) with
