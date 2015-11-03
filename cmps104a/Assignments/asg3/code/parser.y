@@ -41,7 +41,6 @@
 
 %start  program
 
-
 %%
 
 program : stmtseq               { $$ = $1 = nullptr; }
@@ -53,7 +52,9 @@ stmtseq : stmtseq expr ';'      { destroy ($3); $$ = $1->adopt ($2); }
         |                       { $$ = parser::root; }
         ;
 
-expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
+expr    : expr '=' expr         { printf ("reaching bison\n"); 
+                                  $$ = $2->adopt ($1, $3); }
+
         | expr '+' expr         { $$ = $2->adopt ($1, $3); }
         | expr '-' expr         { $$ = $2->adopt ($1, $3); }
         | expr '*' expr         { $$ = $2->adopt ($1, $3); }

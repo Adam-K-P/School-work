@@ -172,5 +172,8 @@ int main (int argc, char** argv) {
    generate_set(infile_name, base_out_name);
    string outfile_name = base_out_name + ".tok";
    scan_file(infile_name, outfile_name);
+   //open_yyin(infile_name);
+   yyparse();
+   pclose(yyin);
    return EXIT_SUCCESS;
 }

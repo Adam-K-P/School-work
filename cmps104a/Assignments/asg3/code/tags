@@ -1,0 +1,166 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLCSRC	Makefile	/^ALLCSRC   = ${CPPSRC} ${CGENS}$/;"	m
+ALLGENS	Makefile	/^ALLGENS   = ${LEXHDR} ${PARSEHDR} ${CGENS}$/;"	m
+ALLSRC	Makefile	/^ALLSRC    = README ${FLEXSRC} ${BISONSRC} ${MODSRC} ${MISCSRC} Makefile$/;"	m
+BISON	Makefile	/^BISON     = bison --defines=${PARSEHDR} --output=${PARSECPP}$/;"	m
+BISONSRC	Makefile	/^BISONSRC  = parser.y$/;"	m
+CGENS	Makefile	/^CGENS     = ${LEXCPP} ${PARSECPP}$/;"	m
+CPP	Makefile	/^CPP       = g++ -g -O0 -Wall -Wextra -std=gnu++11$/;"	m
+CPP	main.cpp	/^const string CPP = "\/usr\/bin\/cpp";$/;"	v
+CPPSRC	Makefile	/^CPPSRC    = ${MODULES:=.cpp} main.cpp$/;"	m
+DEBUGF	auxlib.h	102;"	d
+DEBUGF	auxlib.h	108;"	d
+DEBUGSTMT	auxlib.h	103;"	d
+DEBUGSTMT	auxlib.h	110;"	d
+DEPSFILE	Makefile	/^DEPSFILE  = Makefile.deps$/;"	m
+EXECBIN	Makefile	/^EXECBIN   = oc$/;"	m
+EXECTEST	Makefile	/^EXECTEST  = ${EXECBIN} -ly$/;"	m
+FLEX	Makefile	/^FLEX      = flex --header-file=${LEXHDR} --outfile=${LEXCPP}$/;"	m
+FLEXSRC	Makefile	/^FLEXSRC   = lexer.l$/;"	m
+GRIND	Makefile	/^GRIND     = valgrind --leak-check=full --show-reachable=yes$/;"	m
+HDRSRC	Makefile	/^HDRSRC    = ${MODULES:=.h}$/;"	m
+LEXCPP	Makefile	/^LEXCPP    = yylex.cpp$/;"	m
+LEXHDR	Makefile	/^LEXHDR    = yylex.h$/;"	m
+LEXOUT	Makefile	/^LEXOUT    = yylex.output$/;"	m
+LINESIZE	main.cpp	/^const size_t LINESIZE = 1024;$/;"	v
+LISTSRC	Makefile	/^LISTSRC   = ${ALLSRC} ${DEPSFILE} ${PARSEHDR}$/;"	m
+MISCSRC	Makefile	/^MISCSRC   = ${filter-out ${MODSRC}, ${HDRSRC} ${CPPSRC}}$/;"	m
+MKDEPS	Makefile	/^MKDEPS    = g++ -MM -std=gnu++11$/;"	m
+MODSRC	Makefile	/^MODSRC    = ${foreach MOD, ${MODULES}, ${MOD}.h ${MOD}.cpp}$/;"	m
+MODULES	Makefile	/^MODULES   = astree utils stringset emitter syslib$/;"	m
+NEEDINCL	Makefile	/^NEEDINCL  = ${filter ${NOINCLUDE}, ${MAKECMDGOALS}}$/;"	m
+NOINCLUDE	Makefile	/^NOINCLUDE = ci clean spotless$/;"	m
+OBJECTS	Makefile	/^OBJECTS   = ${ALLCSRC:.cpp=.o}$/;"	m
+PARSECPP	Makefile	/^PARSECPP  = yyparse.cpp$/;"	m
+PARSEHDR	Makefile	/^PARSEHDR  = yyparse.h$/;"	m
+PARSEOUT	Makefile	/^PARSEOUT  = yyparse.output$/;"	m
+RCS2	auxlib.h	119;"	d
+RCS3	auxlib.h	118;"	d
+RCSC	auxlib.h	121;"	d
+RCSH	auxlib.h	120;"	d
+REPORTS	Makefile	/^REPORTS   = ${LEXOUT} ${PARSEOUT}$/;"	m
+STUBPRINTF	auxlib.h	77;"	d
+TESTINS	Makefile	/^TESTINS   = ${wildcard test*.in}$/;"	m
+YYEOF	main.cpp	25;"	d	file:
+YYSTYPE	utils.h	42;"	d
+__ASTREE_H__	astree.h	4;"	d
+__AUXLIB_H__	auxlib.h	2;"	d
+__EMIT_H__	emitter.h	4;"	d
+__OCLIB_C__	oc-programs/oclib.c	10;"	d	file:
+__STRINGSET__	stringset.h	8;"	d
+__SYSLIB_H__	syslib.h	4;"	d
+__UTILS_H__	utils.h	4;"	d
+____assert_fail	oc-programs/oclib.c	/^void ____assert_fail (char* expr, char* file, int line) {$/;"	f
+__debugprintf	auxlib.cpp	/^void __debugprintf (char flag, const char* file, int line,$/;"	f
+__endl	oc-programs/oclib.c	/^void __endl (void)       { printf ("\\n"); fflush (NULL); }$/;"	f
+__exit	oc-programs/oclib.c	/^void __exit (int status) { exit (status); }$/;"	f
+__getargv	oc-programs/oclib.c	/^char** __getargv (void)  { return oc_argv; }$/;"	f
+__getc	oc-programs/oclib.c	/^int __getc (void)        { return getchar(); } $/;"	f
+__getln	oc-programs/oclib.c	/^char* __getln (void)     { return scan (isfalse, isnl); } $/;"	f
+__getw	oc-programs/oclib.c	/^char* __getw (void)      { return scan (isspace, isspace); }$/;"	f
+__putb	oc-programs/oclib.c	/^void __putb (char byte)  { printf ("%s", byte ? "true" : "false"); } $/;"	f
+__putc	oc-programs/oclib.c	/^void __putc (char byte)  { printf ("%c", byte); } $/;"	f
+__puti	oc-programs/oclib.c	/^void __puti (int val)    { printf ("%d", val); }$/;"	f
+__puts	oc-programs/oclib.c	/^void __puts (char* str)  { printf ("%s", str); }$/;"	f
+__stubprintf	auxlib.cpp	/^void __stubprintf (const char* file, int line, const char* func,$/;"	f
+adopt	astree.cpp	/^astree* astree::adopt (astree* child1, astree* child2) {$/;"	f	class:astree
+adopt_sym	astree.cpp	/^astree* astree::adopt_sym (astree* child, int symbol_) {$/;"	f	class:astree
+advance	utils.cpp	/^void lexer::advance() {$/;"	f	class:lexer
+alldebugflags	auxlib.cpp	/^static bool alldebugflags = false;$/;"	v	file:
+astree	astree.cpp	/^astree::astree (int symbol_, const location& lloc_, const char* info) {$/;"	f	class:astree
+astree	astree.h	/^struct astree {$/;"	s
+badchar	utils.cpp	/^void lexer::badchar (unsigned char bad) {$/;"	f	class:lexer
+badtoken	utils.cpp	/^void lexer::badtoken (char* lexeme) {$/;"	f	class:lexer
+check_suffix	main.cpp	/^static string check_suffix (int argc, char** argv) {$/;"	f	file:
+children	astree.h	/^   vector<astree*> children; \/\/ children of this n-way node$/;"	m	struct:astree
+chomp	main.cpp	/^static void chomp (char* string, char delim) {$/;"	f	file:
+cpplines	main.cpp	/^static void cpplines (FILE* pipe, char* infile_name) {$/;"	f	file:
+debugflags	auxlib.cpp	/^static const char* debugflags = "";$/;"	v	file:
+destroy	astree.cpp	/^void destroy (astree* tree1, astree* tree2) {$/;"	f
+dump	astree.cpp	/^void astree::dump (FILE* outfile, astree* tree, int token) {$/;"	f	class:astree
+dump_node	astree.cpp	/^void astree::dump_node (FILE* outfile, int token) {$/;"	f	class:astree
+dump_stringset	stringset.cpp	/^void dump_stringset (ostream& out) {$/;"	f
+dump_tree	astree.cpp	/^void astree::dump_tree (FILE* outfile, int depth, int token) {$/;"	f	class:astree
+emit	emitter.cpp	/^void emit (astree* tree) {$/;"	f
+emit_assign	emitter.cpp	/^void emit_assign (astree* tree) {$/;"	f
+emit_insn	emitter.cpp	/^void emit_insn (const char* opcode, const char* operand, astree* tree) {$/;"	f
+emit_push	emitter.cpp	/^void emit_push (astree* tree, const char* opcode) {$/;"	f
+emit_sm_code	emitter.cpp	/^void emit_sm_code (astree* tree) {$/;"	f
+eprint_signal	auxlib.cpp	/^static void eprint_signal (const char* kind, int signal) {$/;"	f	file:
+eprint_signal	syslib.cpp	/^static void eprint_signal (const char* kind, int signal) {$/;"	f	file:
+eprint_status	auxlib.cpp	/^void eprint_status (const char* command, int status) {$/;"	f
+eprint_status	syslib.cpp	/^void eprint_status (const char* command, int status) {$/;"	f
+eprintf	auxlib.cpp	/^void eprintf (const char* format, ...) {$/;"	f
+errllocprintf	astree.cpp	/^void errllocprintf (const location& lloc, const char* format,$/;"	f
+errprintf	auxlib.cpp	/^void errprintf (const char* format, ...) {$/;"	f
+errprintf	syslib.cpp	/^void errprintf (const char* format, ...) {$/;"	f
+exec	syslib.h	/^struct exec {$/;"	s
+execname	auxlib.cpp	/^static const char* execname = NULL;$/;"	v	file:
+execname	syslib.cpp	/^string exec::execname;$/;"	m	class:exec	file:
+execname	syslib.h	/^   static string execname;$/;"	m	struct:exec
+exit_status	syslib.cpp	/^int exec::exit_status = EXIT_SUCCESS;$/;"	m	class:exec	file:
+exit_status	syslib.h	/^   static int exit_status;$/;"	m	struct:exec
+exitstatus	auxlib.cpp	/^static int exitstatus = EXIT_SUCCESS;$/;"	v	file:
+expr	parser.y	/^expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }$/;"	l
+filename	utils.cpp	/^const string* lexer::filename (int filenr) {$/;"	f	class:lexer
+filenames	utils.cpp	/^vector<string> lexer::filenames;$/;"	m	class:lexer	file:
+filenames	utils.h	/^   static vector<string> filenames;$/;"	m	struct:lexer
+filenr	astree.h	/^   size_t filenr;$/;"	m	struct:location
+generate_set	main.cpp	/^static void generate_set (char* infile_name, string& base_out_name) {$/;"	f	file:
+get_execname	auxlib.cpp	/^const char* get_execname (void) {$/;"	f
+get_exitstatus	auxlib.cpp	/^int get_exitstatus (void) {$/;"	f
+include	utils.cpp	/^void lexer::include() {$/;"	f	class:lexer
+insert_set	main.cpp	/^static void insert_set (char* infile_name) {$/;"	f	file:
+interactive	utils.cpp	/^bool lexer::interactive = true;$/;"	m	class:lexer	file:
+interactive	utils.h	/^   static bool interactive;$/;"	m	struct:lexer
+intern_stringset	stringset.cpp	/^const string* intern_stringset (const char* insert) {$/;"	f
+is_debugflag	auxlib.cpp	/^bool is_debugflag (char flag) {$/;"	f
+isfalse	oc-programs/oclib.c	/^int isfalse (int byte)   { return 0 & byte; } $/;"	f
+isnl	oc-programs/oclib.c	/^int isnl (int byte)      { return byte == '\\n'; }$/;"	f
+last_yyleng	utils.cpp	/^size_t lexer::last_yyleng = 0;$/;"	m	class:lexer	file:
+last_yyleng	utils.h	/^   static size_t last_yyleng;$/;"	m	struct:lexer
+lexer	utils.h	/^struct lexer {$/;"	s
+lexinfo	astree.h	/^   const string* lexinfo;    \/\/ pointer to lexical information$/;"	m	struct:astree
+linenr	astree.h	/^   size_t linenr;$/;"	m	struct:location
+lloc	astree.h	/^   location lloc;            \/\/ source location$/;"	m	struct:astree
+lloc	utils.cpp	/^location lexer::lloc = {0, 1, 0};$/;"	m	class:lexer	file:
+lloc	utils.h	/^   static location lloc;$/;"	m	struct:lexer
+location	astree.h	/^struct location {$/;"	s
+main	main.cpp	/^int main (int argc, char** argv) {$/;"	f
+main	oc-programs/oclib.c	/^int main (int argc, char** argv) {$/;"	f
+newfilename	utils.cpp	/^void lexer::newfilename (char* filename) {$/;"	f	class:lexer
+newline	utils.cpp	/^void lexer::newline() {$/;"	f	class:lexer
+oc_argv	oc-programs/oclib.c	/^char** oc_argv;$/;"	v
+offset	astree.h	/^   size_t offset;$/;"	m	struct:location
+open_yyin	main.cpp	/^static void open_yyin (char* infile_name) {$/;"	f	file:
+parser	utils.h	/^struct parser {$/;"	s
+perform_flex	main.cpp	/^static void perform_flex (const char* outfile_name) {$/;"	f	file:
+perform_op	main.cpp	/^static void perform_op (int argc, char **argv) {$/;"	f	file:
+postorder	emitter.cpp	/^void postorder (astree* tree) {$/;"	f
+postorder_emit_oper	emitter.cpp	/^void postorder_emit_oper (astree* tree, const char* opcode) {$/;"	f
+postorder_emit_semi	emitter.cpp	/^void postorder_emit_semi (astree* tree) {$/;"	f
+postorder_emit_stmts	emitter.cpp	/^void postorder_emit_stmts (astree* tree) {$/;"	f
+print	astree.cpp	/^void astree::print (FILE* outfile, astree* tree, int depth) {$/;"	f	class:astree
+program	parser.y	/^program : stmtseq               { $$ = $1 = nullptr; }$/;"	l
+root	utils.cpp	/^astree* parser::root = nullptr;$/;"	m	class:parser	file:
+root	utils.h	/^   static astree* root;$/;"	m	struct:parser
+scan	oc-programs/oclib.c	/^char* scan (int (*skipover) (int), int (*stopat) (int)) {$/;"	f
+scan_file	main.cpp	/^static void scan_file (char* infile_name, string& outfile_name) {$/;"	f	file:
+set_debugflags	auxlib.cpp	/^void set_debugflags (const char* flags) {$/;"	f
+set_execname	auxlib.cpp	/^void set_execname (char* argv0) {$/;"	f
+set_exitstatus	auxlib.cpp	/^void set_exitstatus (int newexitstatus) {$/;"	f
+set_status	syslib.cpp	/^void exec::set_status (int status) {$/;"	f	class:exec
+stmtseq	parser.y	/^stmtseq : stmtseq expr ';'      { destroy ($3); $$ = $1->adopt ($2); }$/;"	l
+symbol	astree.h	/^   int symbol;               \/\/ token code$/;"	m	struct:astree
+syserrprintf	auxlib.cpp	/^void syserrprintf (const char* object) {$/;"	f
+syserrprintf	syslib.cpp	/^void syserrprintf (const char* object) {$/;"	f
+veprintf	auxlib.cpp	/^void veprintf (const char* format, va_list args) {$/;"	f
+xcalloc	oc-programs/oclib.c	/^void* xcalloc (int nelem, int size) {$/;"	f
+yy_debug	main.cpp	/^bool yy_debug = false;$/;"	v
+yyerror	utils.cpp	/^void yyerror (const char* message) {$/;"	f
+~astree	astree.cpp	/^astree::~astree() {$/;"	f	class:astree
