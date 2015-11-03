@@ -1,0 +1,472 @@
+head	1.17;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.17
+date	2013.08.22.20.58.43;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2012.10.22.21.03.59;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2012.10.12.01.22.20;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2012.10.12.01.15.35;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2012.10.12.01.15.12;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2012.10.03.20.54.16;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2012.10.03.20.54.07;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2011.09.01.00.54.03;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2010.10.09.01.06.06;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2010.10.08.21.56.36;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2010.10.08.21.41.54;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2010.10.08.20.52.02;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2010.10.07.23.53.00;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2010.10.07.23.42.32;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2010.09.28.21.38.34;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2010.02.12.23.04.56;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.10.09.01.08.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.17
+log
+@-
+@
+text
+@
+#include <assert.h>
+#include <errno.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "astree.h"
+#include "emit.h"
+#include "lyutils.h"
+#include "auxlib.h"
+
+#define CPP "/usr/bin/cpp"
+
+struct options{
+   bool dumptree;
+   bool echoinput;
+};
+
+// Open a pipe from the C preprocessor.
+// Exit failure if can't.
+// Assignes opened pipe to FILE *yyin.
+char *yyin_cpp_command = NULL;
+void yyin_cpp_popen (char *filename) {
+   yyin_cpp_command = malloc (strlen (CPP) + strlen (filename) + 2);
+   assert (yyin_cpp_command != NULL);
+   strcpy (yyin_cpp_command, CPP);
+   strcat (yyin_cpp_command, " ");
+   strcat (yyin_cpp_command, filename);
+   yyin = popen (yyin_cpp_command, "r");
+   if (yyin == NULL) {
+      syserrprintf (yyin_cpp_command);
+      exit (get_exitstatus());
+   }
+}
+
+void yyin_cpp_pclose (void) {
+   int pclose_rc = pclose (yyin);
+   eprint_status (yyin_cpp_command, pclose_rc);
+   if (pclose_rc != 0) set_exitstatus (EXIT_FAILURE);
+}
+
+
+void scan_opts (int argc, char **argv, struct options *options) {
+   int option;
+   opterr = 0;
+   yy_flex_debug = 0;
+   yydebug = 0;
+   for(;;) {
+      option = getopt (argc, argv, "@@:ely");
+      if (option == EOF) break;
+      switch (option) {
+         case '@@': set_debugflags (optarg);   break;
+         case 'e': options->echoinput = true; break;
+         case 'l': yy_flex_debug = 1;         break;
+         case 'y': yydebug = 1;               break;
+         default:  errprintf ("%:bad option (%c)\n", optopt); break;
+      }
+   }
+   if (optind > argc) {
+      errprintf ("Usage: %s [-ly] [filename]\n", get_execname());
+      exit (get_exitstatus());
+   }
+   char *filename = optind == argc ? "-" : argv[optind];
+   yyin_cpp_popen (filename);
+   DEBUGF ('m', "filename = %s, yyin = %p, fileno (yyin) = %d\n",
+           filename, yyin, fileno (yyin));
+   scanner_newfilename (filename);
+}
+
+int main (int argc, char **argv) {
+   struct options options = {false, false};
+   int parsecode = 0;
+   set_execname (argv[0]);
+   DEBUGSTMT ('m',
+      for (int argi = 0; argi < argc; ++argi) {
+         eprintf ("%s%c", argv[argi], argi < argc - 1 ? ' ' : '\n');
+      }
+   );
+   scan_opts (argc, argv, &options);
+   scanner_setecho (options.echoinput);
+   parsecode = yyparse();
+   if (parsecode) {
+      errprintf ("%:parse failed (%d)\n", parsecode);
+   }else {
+      DEBUGSTMT ('a', dump_astree (stderr, yyparse_astree); );
+      emit_sm_code (yyparse_astree);
+   }
+   freeast (yyparse_astree);
+   yyin_cpp_pclose();
+   return get_exitstatus();
+}
+
+RCSC("$Id: main.c,v 1.16 2012-10-22 14:03:59-07 - - $")
+
+@
+
+
+1.16
+log
+@-
+@
+text
+@d96 1
+a96 2
+// LINTED(static unused)
+RCSC(MAIN_C,"$Id: main.c,v 1.15 2012-10-11 18:22:20-07 - - $")
+@
+
+
+1.15
+log
+@-
+@
+text
+@d42 1
+d97 1
+a97 1
+RCSC(MAIN_C,"$Id: main.c,v 1.14 2012-10-11 18:15:35-07 - - $")
+@
+
+
+1.14
+log
+@-
+@
+text
+@d44 1
+d96 1
+a96 1
+RCSC(MAIN_C,"$Id: main.c,v 1.13 2012-10-11 18:15:12-07 - - $")
+@
+
+
+1.13
+log
+@-
+@
+text
+@d4 1
+d95 1
+a95 1
+RCSC(MAIN_C,"$Id: main.c,v 1.12 2012-10-03 13:54:16-07 - - $")
+@
+
+
+1.12
+log
+@-
+@
+text
+@d53 1
+a53 1
+         case 'e': options->echoinput = TRUE; break;
+d71 1
+a71 1
+   struct options options = {FALSE, FALSE};
+d94 1
+a94 1
+RCSC(MAIN_C,"$Id: main.c,v 1.11 2012-10-03 13:54:07-07 - - $")
+@
+
+
+1.11
+log
+@-
+@
+text
+@d94 1
+a94 2
+RCSC(MAIN_C,"$Id: main.c,v 1.10 2011-08-31 17:54:03-07 - - $")
+
+@
+
+
+1.10
+log
+@-
+@
+text
+@d94 2
+a95 1
+RCSC(MAIN_C,"$Id: main.c,v 1.9 2010-10-08 18:06:06-07 - - $")
+@
+
+
+1.9
+log
+@-
+@
+text
+@d2 1
+d14 2
+d21 22
+d57 2
+a58 2
+      };
+   };
+d62 6
+a67 14
+   };
+   if (optind == argc) {
+      yyin_filename = "-";
+      yyin = stdin;
+   }else{
+      yyin_filename = argv[ optind ];
+      yyin = fopen (yyin_filename, "r");
+      if (yyin == NULL) {
+         syserrprintf (yyin_filename);
+         exit (get_exitstatus());
+      };
+   };
+   DEBUGF ('m', "yyin_filename = %s, yyin = %p, fileno (yyin) = %d\n",
+           yyin_filename, yyin, fileno (yyin));
+d89 1
+d94 1
+a94 1
+RCSC(MAIN_C,"$Id: main.c,v 1.8 2010-10-08 14:56:36-07 - - $")
+@
+
+
+1.8
+log
+@-
+@
+text
+@d24 1
+a24 1
+      option = getopt (argc, argv, "@@:dely");
+a27 1
+         case 'd': options->dumptree = TRUE;  break;
+d31 1
+a31 1
+         default:  eprintf ("%:bad option (%c)\n", optopt); break;
+d35 1
+a35 1
+      eprintf ("Usage: %s [-ly] [filename]\n", get_execname());
+d45 1
+a45 1
+         syseprintf (yyin_filename);
+d57 5
+d66 1
+a66 1
+      eprintf ("%:parse failed (%d)\n", parsecode);
+d68 1
+a68 4
+      if (is_debugflag ('a')){
+         DEBUGF ('a', "");
+         dump_astree (stderr, yyparse_astree);
+      }
+d76 1
+a76 1
+RCSC(MAIN_C,"$Id: main.c,v 1.7 2010-10-08 14:41:54-07 - - $")
+@
+
+
+1.7
+log
+@-
+@
+text
+@d64 4
+a67 1
+      if (options.dumptree) dump_astree (stderr, yyparse_astree);
+d75 1
+a75 1
+RCSC(MAIN_C,"$Id: main.c,v 1.6 2010-10-08 13:52:02-07 - - $")
+@
+
+
+1.6
+log
+@-
+@
+text
+@d64 1
+a64 1
+      if (options.dumptree) dump_astree (yyparse_astree);
+d72 1
+a72 1
+RCSC(MAIN_C,"$Id: main.c,v 1.5 2010-10-07 16:53:00-07 - - $")
+@
+
+
+1.5
+log
+@-
+@
+text
+@d24 1
+a24 1
+      option = getopt (argc, argv, "D:dely");
+d41 1
+d50 2
+d55 1
+a55 1
+   struct options options = { FALSE, FALSE };
+d72 1
+a72 1
+RCSC(MAIN_C,"$Id: main.c,v 1.4 2010-10-07 16:42:32-07 - - $")
+@
+
+
+1.4
+log
+@-
+@
+text
+@d27 1
+a27 1
+         case 'D': set_debugflags (optarg);   break;
+d69 1
+a69 1
+RCSC(MAIN_C,"$Id: main.c,v 1.3 2010-09-28 14:38:34-07 - - $")
+@
+
+
+1.3
+log
+@-
+@
+text
+@d36 2
+a37 2
+      eprintf ("Usage: %s [-ly] [filename]\n", get_progname());
+      exit (get_exitcode());
+d46 1
+a46 1
+         exit (get_exitcode());
+d54 1
+a54 1
+   set_progname (argv[0]);
+d65 1
+a65 1
+   return get_exitcode();
+d69 1
+a69 1
+RCSC(MAIN_C,"$Id: main.c,v 1.2 2010-02-12 15:04:56-08 - - $")
+@
+
+
+1.2
+log
+@-
+@
+text
+@a2 1
+#include <getopt.h>
+d6 1
+d69 1
+a69 1
+RCSC(MAIN_C,"$Id: main.c,v 1.1 2009-10-08 18:08:23-07 - - $")
+@
+
+
+1.1
+log
+@-
+@
+text
+@d3 1
+d6 1
+a6 1
+#include <strings.h>
+d69 1
+a69 1
+RCSC(MAIN_C,"$Id: main.c,v 1.1 2009-10-08 17:24:38-07 - - $")
+@

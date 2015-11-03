@@ -1,0 +1,239 @@
+head	1.7;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.7
+date	2013.08.30.21.09.53;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2013.08.30.21.07.27;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2013.08.30.21.06.33;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2012.10.10.00.55.32;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2012.10.10.00.51.31;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2012.10.09.01.42.58;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2012.10.09.01.42.25;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@-
+@
+text
+@// $Id: main.c,v 1.6 2013-08-30 14:07:27-07 - - $
+
+#include <errno.h>
+#include <getopt.h>
+#include <libgen.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "tokens.h"
+
+int main (void) {
+   yy_flex_debug = 1;
+   int linenr = 1;
+
+   for (;;) {
+      int token = yylex();
+      if (yy_flex_debug) fflush (NULL);
+      switch (token) {
+         case YYEOF:
+            printf ("END OF FILE\n");
+            return 0;
+         case IDENT:
+            printf ("IDENT \"%s\"\n", yytext);
+            break;
+         case NUMBER:
+            printf ("NUMBER \"%s\"\n", yytext);
+            break;
+         case '+':
+         case '-':
+         case '*':
+         case '/':
+            printf ("OPERATOR \"%s\"\n", yytext);
+            break;
+         case '\n':
+            printf ("NEWLINE\n");
+            ++linenr;
+            break;
+         default:
+            printf ("ERROR_TOKEN \"%s\"\n", yytext);
+      }
+   }
+
+   return 0;
+}
+
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.5 2013-08-30 14:06:33-07 - - $
+d25 1
+a25 1
+            printf ("IDENT = \"%s\"\n", yytext);
+d28 1
+a28 1
+            printf ("NUMBER = \"%s\"\n", yytext);
+d34 1
+a34 1
+            printf ("OPERATOR = \"%s\"\n", yytext);
+d41 1
+a41 1
+            printf ("BAD TOKEN \"%s\"\n", yytext);
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.4 2012-10-09 17:55:32-07 - - $
+d23 1
+a23 1
+            return;
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.3 2012-10-09 17:51:31-07 - - $
+d13 3
+a15 5
+extern int yy_flex_debug;
+extern char *yytext;
+extern int yylex (void);
+extern FILE* yyin;
+#define YYEOF 0
+a16 2
+void scanfile (char *filename) {
+   int linenr = 1;
+a17 4
+      if (yy_flex_debug) {
+         fflush (NULL);
+         fprintf (stderr, "%s:%d:yylex(): ", filename, linenr);
+      }
+a43 33
+}
+
+int main (int argc, char **argv) {
+   char *progname = basename (argv[0]);
+   int exit_status = EXIT_SUCCESS;
+   
+   yy_flex_debug = 0;
+   for (;;) {
+      int opt = getopt (argc, argv, "l");
+      if (opt == EOF) break;
+      switch (opt) {
+         case 'l': yy_flex_debug = 1;
+      }
+   }
+
+   if (optind >= argc) {
+      scanfile ("-");
+   }else {
+      for (int argi = optind; argi < argc; ++argi) {
+         char *filename = argv[argi];
+         yyin = fopen (filename, "r");
+         if (yyin == NULL) {
+            fflush (NULL);
+            fprintf (stderr, "%s: %s: %s\n",
+                     progname, filename, strerror (errno));
+            fflush (NULL);
+            exit_status = EXIT_FAILURE;
+         }else {
+            scanfile (filename);
+            fclose (yyin);
+         }
+      }
+   }
+d45 1
+a45 1
+   return exit_status;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.2 2012-10-08 18:42:58-07 - - $
+d22 4
+a25 2
+      printf ("%s: %d: ", filename, linenr);
+      if (yy_flex_debug) fflush (NULL);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.1 2012-10-08 18:42:25-07 - - $
+d23 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d24 1
+@

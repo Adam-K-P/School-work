@@ -1,0 +1,54 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2006.10.16.19.17.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2006.10.16.19.09.22;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@# $Id$
+
+This is a simple calculator with some arithmetic operations
+having the usual priorities and a symbol table of one-letter
+variable names.
+
+It is an example of the use of bison and flex used to
+generate an output file from test data.  It also illustrates
+how to use a Makefile with bison, flex, and gcc.
+
+This example is definitely overkill on the user of many
+files.  However, each of the files present illustrate a part
+of a compiler and their counterpart in your project will be
+much larger.
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $RCSfile: README,v $$Revision: 131.162638 $ */
+@

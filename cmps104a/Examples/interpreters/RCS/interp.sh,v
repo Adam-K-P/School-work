@@ -1,0 +1,26 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.11.24.02.40.59;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id$
+interp.run foo bar baz
+@

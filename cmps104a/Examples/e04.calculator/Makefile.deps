@@ -1,0 +1,3 @@
+main.o: main.cc extern.h parser.h
+scanner.o: scanner.cc extern.h parser.h
+parser.o: parser.cc extern.h parser.h

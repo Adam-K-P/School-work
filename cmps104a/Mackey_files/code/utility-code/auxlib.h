@@ -59,8 +59,7 @@ void eprintf (const char* format, ...);
 void errprintf (const char* format, ...);
    //
    // Print an error message according to the printf format
-   // specified, using eprintf.  Sets the exitstatus to
-   // EXIT_FAILURE.
+   // specified, using eprintf.  Sets the exitstatus to EXIT_FAILURE.
    //
 
 void syserrprintf (const char* object);
@@ -86,12 +85,11 @@ void __stubprintf (const char* file, int line, const char* func,
 
 void set_debugflags (const char* flags);
 
-   // Sets a string of debug flags to be used by DEBUGF
-   // statements.  Uses the address of the string, and does
-   // not copy it, so it must not be dangling.  If a particular
-   // debug flag has been set, messages are printed.  The format
-   // is identical to printf format.  The flag "@" turns on
-   // all flags.
+   // Sets a string of debug flags to be used by DEBUGF statements.
+   // Uses the address of the string, and does // not copy it, so it
+   // must not be dangling.  If a particular debug flag has been set,
+   // messages are printed.  The format is identical to printf format.
+   // The flag "@" turns on all flags.
 
 
 bool is_debugflag (char flag);

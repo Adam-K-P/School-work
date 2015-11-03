@@ -1,0 +1,105 @@
+head	990409.111651;
+access;
+symbols;
+locks
+	wmackey:990409.111651;
+comment	@# @;
+
+
+990409.111651
+date	99.04.09.18.16.51;	author wmackey;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+990409.111651
+log
+@*** empty log message ***
+@
+text
+@# $RCSfile: Makefile,v $$Revision: 970930.193111 $
+
+GCC     = gcc -MMD
+GCCOPTS = -Wall -ansi -pedantic -g -D__USE_FIXED_PROTOTYPES__
+LEX     = flex
+LFLAGS  = -8bdpsv -CeF
+
+
+SRCS = main.c scanner.l tokendefs.h
+DEPS = main.d scanner.d
+GENS = scanner.c
+OBJS = main.o scanner.o
+BINS = tokenlist
+LOGS = scanner.log
+OUT1 = test1.out test1.err
+OUT2 = test2.out test2.err
+OUTS = ${OUT1} ${OUT2}
+DAT1 = test1.dat ${OUT1}
+DAT2 = test2.dat ${OUT2}
+DATS = ${DAT1} ${DAT2}
+LISTS = Listing.lis Listing.ps
+
+LISTFILES = ${SRCS} ${DEPS} Makefile ${LOGS} ${DATS}
+
+all : ${BINS}
+	which gcc flex
+	${MAKE} RCS/Makefile,v
+
+clean :
+	- rm -i core ${GENS} ${LOGS} ${OBJS} ${OUTS} ${LISTS}
+
+spotless : clean
+	- rm -i ${DEPS} ${BINS}
+
+tokenlist : ${OBJS}
+	${GCC} -o tokenlist ${OBJS}
+
+main.o : main.c tokendefs.h
+	${MAKE} RCS/main.c,v RCS/tokendefs.h,v
+	${GCC} ${GCCOPTS} main.c -c
+
+%.d : %.o
+
+scanner.o : scanner.c tokendefs.h
+	${GCC} scanner.c -c
+
+scanner.c : scanner.l tokendefs.h
+	${MAKE} RCS/scanner.l,v RCS/tokendefs.h,v
+	${LEX} ${LFLAGS} -oscanner.c scanner.l >scanner.log 2>&1
+	cat lex.backup >>scanner.log
+	- rm lex.backup
+
+out : all ${OUTS}
+
+%.err : %.out
+
+test1.out : ${BINS}
+	tokenlist test1.dat >test1.out 2>test1.err
+
+test2.out : ${BINS}
+	tokenlist -debug test2.dat >test2.out 2>test2.err
+
+RCS/%,v : %
+	if [ ! -d RCS ] ; then mkdir RCS ; fi
+	yes . | ci -l`date +%y%m%d.%H%M%S` -q $<
+	touch -f $@@
+
+lis : out Listing.lis
+
+Listing.lis : ${LISTFILES}
+	lis ${LISTFILES} > Listing.lis
+
+ps : Listing.ps
+
+Listing.ps : Listing.lis
+	enscript -G2r -p- `pwd`/Listing.lis \
+		> Listing.ps
+
+view : ps
+	ghostview -landscape Listing.ps &
+
+@

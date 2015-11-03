@@ -1,0 +1,313 @@
+bison -v unambiguous-else.y
+::::::::::::::
+unambiguous-else.stdout
+::::::::::::::
+::::::::::::::
+unambiguous-else.stderr
+::::::::::::::
+::::::::::::::
+unambiguous-else.output
+::::::::::::::
+Grammar
+
+    0 $accept: program $end
+
+    1 program: program statement
+    2        | /* empty */
+
+    3 statement: closedstmt
+    4          | openstmt
+
+    5 closedstmt: ifhead closedstmt ELSE closedstmt
+    6           | whilehead closedstmt
+    7           | otherstmt
+
+    8 openstmt: ifhead closedstmt ELSE openstmt
+    9         | ifhead statement
+   10         | whilehead openstmt
+
+   11 ifhead: IF '(' expr ')'
+
+   12 whilehead: WHILE '(' expr ')'
+
+   13 otherstmt: expr ';'
+
+   14 expr: 'x'
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'(' (40) 11 12
+')' (41) 11 12
+';' (59) 13
+'x' (120) 14
+error (256)
+IF (258) 11
+WHILE (259) 12
+ELSE (260) 5 8
+
+
+Nonterminals, with rules where they appear
+
+$accept (10)
+    on left: 0
+program (11)
+    on left: 1 2, on right: 0 1
+statement (12)
+    on left: 3 4, on right: 1 9
+closedstmt (13)
+    on left: 5 6 7, on right: 3 5 6 8
+openstmt (14)
+    on left: 8 9 10, on right: 4 8 10
+ifhead (15)
+    on left: 11, on right: 5 8 9
+whilehead (16)
+    on left: 12, on right: 6 10
+otherstmt (17)
+    on left: 13, on right: 7
+expr (18)
+    on left: 14, on right: 11 12 13
+
+
+state 0
+
+    0 $accept: . program $end
+
+    $default  reduce using rule 2 (program)
+
+    program  go to state 1
+
+
+state 1
+
+    0 $accept: program . $end
+    1 program: program . statement
+
+    $end   shift, and go to state 2
+    IF     shift, and go to state 3
+    WHILE  shift, and go to state 4
+    'x'    shift, and go to state 5
+
+    statement   go to state 6
+    closedstmt  go to state 7
+    openstmt    go to state 8
+    ifhead      go to state 9
+    whilehead   go to state 10
+    otherstmt   go to state 11
+    expr        go to state 12
+
+
+state 2
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+state 3
+
+   11 ifhead: IF . '(' expr ')'
+
+    '('  shift, and go to state 13
+
+
+state 4
+
+   12 whilehead: WHILE . '(' expr ')'
+
+    '('  shift, and go to state 14
+
+
+state 5
+
+   14 expr: 'x' .
+
+    $default  reduce using rule 14 (expr)
+
+
+state 6
+
+    1 program: program statement .
+
+    $default  reduce using rule 1 (program)
+
+
+state 7
+
+    3 statement: closedstmt .
+
+    $default  reduce using rule 3 (statement)
+
+
+state 8
+
+    4 statement: openstmt .
+
+    $default  reduce using rule 4 (statement)
+
+
+state 9
+
+    5 closedstmt: ifhead . closedstmt ELSE closedstmt
+    8 openstmt: ifhead . closedstmt ELSE openstmt
+    9         | ifhead . statement
+
+    IF     shift, and go to state 3
+    WHILE  shift, and go to state 4
+    'x'    shift, and go to state 5
+
+    statement   go to state 15
+    closedstmt  go to state 16
+    openstmt    go to state 8
+    ifhead      go to state 9
+    whilehead   go to state 10
+    otherstmt   go to state 11
+    expr        go to state 12
+
+
+state 10
+
+    6 closedstmt: whilehead . closedstmt
+   10 openstmt: whilehead . openstmt
+
+    IF     shift, and go to state 3
+    WHILE  shift, and go to state 4
+    'x'    shift, and go to state 5
+
+    closedstmt  go to state 17
+    openstmt    go to state 18
+    ifhead      go to state 9
+    whilehead   go to state 10
+    otherstmt   go to state 11
+    expr        go to state 12
+
+
+state 11
+
+    7 closedstmt: otherstmt .
+
+    $default  reduce using rule 7 (closedstmt)
+
+
+state 12
+
+   13 otherstmt: expr . ';'
+
+    ';'  shift, and go to state 19
+
+
+state 13
+
+   11 ifhead: IF '(' . expr ')'
+
+    'x'  shift, and go to state 5
+
+    expr  go to state 20
+
+
+state 14
+
+   12 whilehead: WHILE '(' . expr ')'
+
+    'x'  shift, and go to state 5
+
+    expr  go to state 21
+
+
+state 15
+
+    9 openstmt: ifhead statement .
+
+    $default  reduce using rule 9 (openstmt)
+
+
+state 16
+
+    3 statement: closedstmt .
+    5 closedstmt: ifhead closedstmt . ELSE closedstmt
+    8 openstmt: ifhead closedstmt . ELSE openstmt
+
+    ELSE  shift, and go to state 22
+
+    $default  reduce using rule 3 (statement)
+
+
+state 17
+
+    6 closedstmt: whilehead closedstmt .
+
+    $default  reduce using rule 6 (closedstmt)
+
+
+state 18
+
+   10 openstmt: whilehead openstmt .
+
+    $default  reduce using rule 10 (openstmt)
+
+
+state 19
+
+   13 otherstmt: expr ';' .
+
+    $default  reduce using rule 13 (otherstmt)
+
+
+state 20
+
+   11 ifhead: IF '(' expr . ')'
+
+    ')'  shift, and go to state 23
+
+
+state 21
+
+   12 whilehead: WHILE '(' expr . ')'
+
+    ')'  shift, and go to state 24
+
+
+state 22
+
+    5 closedstmt: ifhead closedstmt ELSE . closedstmt
+    8 openstmt: ifhead closedstmt ELSE . openstmt
+
+    IF     shift, and go to state 3
+    WHILE  shift, and go to state 4
+    'x'    shift, and go to state 5
+
+    closedstmt  go to state 25
+    openstmt    go to state 26
+    ifhead      go to state 9
+    whilehead   go to state 10
+    otherstmt   go to state 11
+    expr        go to state 12
+
+
+state 23
+
+   11 ifhead: IF '(' expr ')' .
+
+    $default  reduce using rule 11 (ifhead)
+
+
+state 24
+
+   12 whilehead: WHILE '(' expr ')' .
+
+    $default  reduce using rule 12 (whilehead)
+
+
+state 25
+
+    5 closedstmt: ifhead closedstmt ELSE closedstmt .
+
+    $default  reduce using rule 5 (closedstmt)
+
+
+state 26
+
+    8 openstmt: ifhead closedstmt ELSE openstmt .
+
+    $default  reduce using rule 8 (openstmt)

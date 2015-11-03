@@ -1,0 +1,6 @@
+argv[0]=interp
+argv[1]=-foo -bar
+argv[2]=./interp.run
+argv[3]=foo
+argv[4]=bar
+argv[5]=baz

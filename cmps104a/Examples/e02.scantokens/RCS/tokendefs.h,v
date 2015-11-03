@@ -1,0 +1,29 @@
+head	990409.111625;
+access;
+symbols;
+locks
+	wmackey:990409.111625;
+comment	@ * @;
+
+
+990409.111625
+date	99.04.09.18.16.25;	author wmackey;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+990409.111625
+log
+@*** empty log message ***
+@
+text
+@/* $RCSfile: tokendefs.h,v $$Revision: 970930.192759 $ */
+
+#define IDENTIFIER 260
+#define NUMBER     261
+
+@

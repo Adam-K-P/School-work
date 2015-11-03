@@ -27,6 +27,7 @@ void chomp (char* string, char delim) {
    if (*nlpos == delim) *nlpos = '\0';
 }
 
+
 // Run cpp against the lines of the file.
 void cpplines (FILE* pipe, char* filename) {
    int linenr = 1;
@@ -71,6 +72,7 @@ int main (int argc, char** argv) {
          cpplines (pipe, filename);
          int pclose_rc = pclose (pipe);
          eprint_status (command.c_str(), pclose_rc);
+         if (pclose_rc != 0) set_exitstatus (EXIT_FAILURE);
       }
    }
    return get_exitstatus();

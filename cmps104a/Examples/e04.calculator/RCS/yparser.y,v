@@ -1,0 +1,94 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.2
+date	2006.10.16.19.17.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2006.10.16.19.09.22;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@
+%{
+/* $Id$ */
+
+#define YYDEBUG (1)
+#define YYERROR_VERBOSE (1)
+
+#include "cyystype.h"
+#include "csymbols.h"
+
+%}
+
+%token  IDENT NUMBER
+%right  '='
+%left   '+' '-'
+%left   '*' '/'
+%right  UNARY
+%start  start
+
+%%
+
+start : init stmts           { sym_dump (); }
+      ;
+
+init  :                      { sym_init (); }
+      ;
+
+stmts : stmts stmt           { }
+      |                      { }
+      ;
+
+stmt  : expr '\n'            { printf ("*EXPR==%.8g\n\n", $1.val); }
+      | error '\n'           { printf ("*ERROR #%d\n\n", yynerrs); }
+      | '\n'                 { printf ("\n"); }
+      ;
+
+expr  : IDENT '=' expr       { $$.val = sym_put ($1.sym, $3.val); }
+      | expr '+' expr        { $$.val = $1.val + $3.val; }
+      | expr '-' expr        { $$.val = $1.val - $3.val; }
+      | expr '*' expr        { $$.val = $1.val * $3.val; }
+      | expr '/' expr        { $$.val = $1.val / $3.val; }
+      | '-' expr %prec UNARY { $$.val = - $2.val; }
+      | '+' expr %prec UNARY { $$.val = + $2.val; }
+      | '(' expr ')'         { $$.val = $2.val; }
+      | NUMBER               { $$.val = $1.val; }
+      | IDENT                { $$.val = sym_get ($$.sym = $1.sym); }
+      ; 
+
+%%
+
+const char *translate_name (int grammar_sym)
+{
+   return yytname [YYTRANSLATE (grammar_sym)];
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d3 1
+a3 1
+/* $RCSfile: yparser.y,v $$Revision: 131.162639 $ */
+@

@@ -1,0 +1,34 @@
+head	341.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+341.1
+date	2004.03.05.02.31.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+341.1
+log
+@-
+@
+text
+@#!/bin/sh -x
+#gcc -O3 -S -mv8 -msupersparc $*
+gcc \
+	-O3 \
+	-S \
+	-Wa,-xarch=v8plusa \
+	-fcaller-saves \
+	-finline-functions \
+	-fverbose-asm \
+	-mcpu=v9 \
+	$*
+@

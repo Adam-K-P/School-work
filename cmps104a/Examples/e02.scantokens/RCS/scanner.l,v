@@ -1,0 +1,64 @@
+head	990409.111722;
+access;
+symbols;
+locks
+	wmackey:990409.111722;
+comment	@ * @;
+
+
+990409.111722
+date	99.04.09.18.17.22;	author wmackey;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+990409.111722
+log
+@*** empty log message ***
+@
+text
+@%{
+/* $RCSfile: scanner.l,v $$Revision: 971001.150909 $ */
+
+#include "tokendefs.h"
+
+%}
+
+LETTER     [a-zA-Z]
+DIGIT      [0-9]
+IDENTIFIER {LETTER}({LETTER}|{DIGIT})*
+NUMBER     {DIGIT}+
+
+%option noyywrap
+
+%%
+
+{IDENTIFIER}   { return IDENTIFIER; }
+{NUMBER}       { return NUMBER;     }
+"+"            { return '+';        }
+"-"            { return '-';        }
+"*"            { return '*';        }
+"/"            { return '/';        }
+[ \t\n]+       { /* null */         }
+.              { return *yytext;    }
+
+%%
+
+/*
+* cool new feature in the latest release of flex:  use the
+* %options noyywrap to kill the need for the use of the yywrap
+* function (below).  Also note that #ifdef is a good way to
+* comment out blocks of code that contain comments.
+*/
+
+#ifdef THE_FOLLOWING_CODE_IS_COMMENTED_OUT
+int yywrap( void ){
+   return 1; /*comment*/
+}
+#endif
+
+@

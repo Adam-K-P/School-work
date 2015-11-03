@@ -1,0 +1,298 @@
+head	1.9;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.9
+date	2013.08.22.20.58.43;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2012.10.12.01.22.20;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2011.10.28.22.04.05;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2011.09.01.00.54.03;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2010.10.22.02.18.52;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2010.10.22.01.10.39;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2010.09.10.01.17.20;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2010.02.12.23.04.56;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.10.09.01.08.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.9
+log
+@-
+@
+text
+@%{
+// $Id: parser.y,v 1.8 2012-10-11 18:22:20-07 - - $
+
+#include <assert.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "lyutils.h"
+#include "astree.h"
+#include "astree.rep.h"
+
+#define YYDEBUG 1
+#define YYERROR_VERBOSE 1
+#define YYPRINT yyprint
+#define YYMALLOC yycalloc
+
+static void *yycalloc (size_t size);
+
+%}
+
+%debug
+%defines
+%error-verbose
+%token-table
+%verbose
+
+%token  ROOT IDENT NUMBER
+
+%right  '='
+%left   '+' '-'
+%left   '*' '/'
+%right  '^'
+%right  POS "u+" NEG "u-"
+
+%start  program
+
+%%
+
+program : stmtseq               { $$ = $1; }
+        ;
+
+stmtseq : stmtseq expr ';'      { freeast ($3); $$ = adopt1 ($1, $2); }
+        | stmtseq error ';'     { freeast ($3); $$ = $1; }
+        | stmtseq ';'           { freeast ($2); $$ = $1; }
+        |                       { $$ = new_parseroot(); }
+        ;
+
+expr    : expr '=' expr         { $$ = adopt2 ($2, $1, $3); }
+        | expr '+' expr         { $$ = adopt2 ($2, $1, $3); }
+        | expr '-' expr         { $$ = adopt2 ($2, $1, $3); }
+        | expr '*' expr         { $$ = adopt2 ($2, $1, $3); }
+        | expr '/' expr         { $$ = adopt2 ($2, $1, $3); }
+        | expr '^' expr         { $$ = adopt2 ($2, $1, $3); }
+        | '+' expr %prec POS    { $$ = adopt1sym ($1, $2, POS); }
+        | '-' expr %prec NEG    { $$ = adopt1sym ($1, $2, NEG); }
+        | '(' expr ')'          { freeast2 ($1, $3); $$ = $2; }
+        | IDENT                 { $$ = $1; }
+        | NUMBER                { $$ = $1; }
+        ;
+
+
+%%
+
+const char *get_yytname (int symbol) {
+   return yytname [YYTRANSLATE (symbol)];
+}
+
+static void *yycalloc (size_t size) {
+   void *result = calloc (1, size);
+   assert (result != NULL);
+   return result;
+}
+
+RCSC("$Id: parser.y,v 1.8 2012-10-11 18:22:20-07 - - $")
+
+@
+
+
+1.8
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.7 2011-10-28 15:04:05-07 - - $
+d74 1
+a74 2
+// LINTED(static unused)
+RCSC(PARSER_Y,"$Id: parser.y,v 1.7 2011-10-28 15:04:05-07 - - $")
+@
+
+
+1.7
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.6 2011-08-31 17:54:03-07 - - $
+d61 1
+d75 1
+a75 1
+RCSC(PARSER_Y,"$Id: parser.y,v 1.6 2011-08-31 17:54:03-07 - - $")
+@
+
+
+1.6
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.5 2010-10-21 19:18:52-07 - - $
+d25 1
+d74 1
+a74 1
+RCSC(PARSER_Y,"$Id: parser.y,v 1.5 2010-10-21 19:18:52-07 - - $")
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.4 2010-10-21 18:10:39-07 - - $
+d4 2
+a6 1
+#include <stdlib.h>
+d67 3
+a69 1
+   return calloc (1, size);
+d73 1
+a73 1
+RCSC(PARSER_Y,"$Id: parser.y,v 1.4 2010-10-21 18:10:39-07 - - $")
+@
+
+
+1.4
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.3 2010-09-09 18:17:20-07 - - $
+a15 1
+// static void user_destruct (int yytype, YYSTYPE *yyvaluep);
+a64 6
+// static void user_destruct (int yytype, YYSTYPE *yyvaluep) {
+//    YYDSYMPRINTF ("Destroying:", yytype, yyvaluep, 0);
+//    if (is_astree (*yyvaluep)) freeast (*yyvaluep);
+//    *yyvaluep = NULL;
+// }
+
+d70 1
+a70 1
+RCSC(PARSER_Y,"$Id: parser.y,v 1.3 2010-09-09 18:17:20-07 - - $")
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.2 2010-02-12 15:04:56-08 - - $
+d16 1
+a16 1
+static void user_destruct (int yytype, YYSTYPE *yyvaluep);
+d62 1
+a62 1
+const char *const get_yytname (int symbol) {
+d66 5
+a70 5
+static void user_destruct (int yytype, YYSTYPE *yyvaluep) {
+   // YYDSYMPRINTF ("Destroying:", yytype, yyvaluep, 0);
+   if (is_astree (*yyvaluep)) freeast (*yyvaluep);
+   *yyvaluep = NULL;
+}
+d77 1
+a77 1
+RCSC(PARSER_Y,"$Id: parser.y,v 1.2 2010-02-12 15:04:56-08 - - $")
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 4
+a5 1
+// $Id: parser.y,v 1.1 2009-10-08 18:08:23-07 - - $
+a10 2
+#include <string.h>
+
+d14 1
+d17 1
+d72 4
+d77 1
+a77 1
+RCSC(PARSER_Y,"$Id: parser.y,v 1.1 2009-10-08 18:08:23-07 - - $")
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+// $Id: parser.y,v 1.1 2009-10-08 17:24:38-07 - - $
+d8 1
+a8 1
+#include <strings.h>
+a39 1
+        | stmtseq error         { $$ = $1; }
+d59 1
+a59 1
+char *get_yytname (int symbol) {
+d64 1
+a64 1
+   YYDSYMPRINTF ("Destroying:", yytype, yyvaluep, 0);
+d70 1
+a70 1
+RCSC(PARSER_Y,"$Id: parser.y,v 1.1 2009-10-08 17:24:38-07 - - $")
+@

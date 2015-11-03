@@ -1,3 +1,4 @@
+// $Id: auxlib.cpp,v 1.3 2015-10-01 18:15:04-07 - - $
 
 #include <assert.h>
 #include <errno.h>
@@ -52,6 +53,7 @@ void eprint_status (const char* command, int status) {
    eprintf ("\n");
 }
 
+
 void veprintf (const char* format, va_list args) {
    assert (execname != NULL);
    assert (format != NULL);
@@ -103,6 +105,7 @@ void __stubprintf (const char* file, int line, const char* func,
    fflush (NULL);
 }     
 
+
 void set_debugflags (const char* flags) {
    debugflags = flags;
    if (strchr (debugflags, '@') != NULL) alldebugflags = true;
@@ -126,6 +129,4 @@ void __debugprintf (char flag, const char* file, int line,
    va_end (args);
    fflush (NULL);
 }
-
-RCSC("$Id: auxlib.cpp,v 1.2 2014-10-07 18:07:29-07 - - $")
 

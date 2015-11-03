@@ -1,0 +1,38 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2011.10.29.01.07.07;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@
+%start S
+%token a b c d
+
+%%
+
+S : A a ;
+S : b A c ;
+S : B c ;
+S : b B a ;
+A : d ;
+B : d ;
+
+%%
+
+@

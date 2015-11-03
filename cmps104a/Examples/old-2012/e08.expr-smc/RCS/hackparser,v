@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.02.27.04.18.17;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id$
+ed $1 <<__END__
+/YYSTYPE yyvsa\[YYINITDEPTH];/a
+bzero (yyvsa, sizeof yyvsa);
+.
+w
+q
+__END__
+@

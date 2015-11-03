@@ -1,9 +1,14 @@
-head	1.2;
+head	1.3;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.3
+date	2015.10.02.01.15.04;	author -;	state -;
+branches;
+next	1.2;
 
 1.2
 date	2014.10.08.01.07.29;	author -;	state -;
@@ -20,12 +25,13 @@ desc
 @@
 
 
-1.2
+1.3
 log
 @-
 @
 text
-@
+@// $Id$
+
 #include <assert.h>
 #include <errno.h>
 #include <libgen.h>
@@ -156,6 +162,16 @@ void __debugprintf (char flag, const char* file, int line,
    fflush (NULL);
 }
 
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a132 2
 RCSC("$Id: auxlib.cpp,v 1.1 2014-10-03 18:51:47-07 - - $")
 
 @

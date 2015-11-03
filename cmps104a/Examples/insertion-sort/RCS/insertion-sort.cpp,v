@@ -1,0 +1,89 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.3
+date	2015.05.29.02.30.54;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2015.05.29.02.30.25;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2015.05.29.02.29.13;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: insertion-sort.cpp,v 1.2 2015-05-28 19:30:25-07 - - $
+
+#include <cstdio>
+
+template <typename Item>
+void sort (Item* a, size_t n) {
+   for (size_t s = 1; s < n; ++s) {
+      size_t h = s;
+      Item e = a[h];
+      while (h > 0) {
+         if (a[h - 1] < e) break;
+         a[h] = a[h - 1];
+         h = h - 1;
+      }
+      a[h] = e;
+   }
+}
+
+void print (int* a, size_t n) {
+   for (size_t i = 0; i < n; ++i) printf (" %d", a[i]);
+   printf ("\n");
+}
+
+int main() {
+   int a[] {3, 1, 4, 2, 7, 8, 11, 16, 5, 0};
+   size_t n = sizeof a / sizeof *a;
+   print (a, n);
+   sort (a, n);
+   print (a, n);
+}
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.cpp,v 1.1 2015-05-28 19:29:13-07 - - $
+d20 1
+a20 1
+   for (int i = 0; i < n; ++i) printf (" %s", a[i]);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 3
+a3 1
+// $Id$
+@

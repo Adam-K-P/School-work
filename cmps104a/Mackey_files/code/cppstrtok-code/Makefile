@@ -47,7 +47,7 @@ test : ${EXECBIN}
 	${VALGRIND} ${EXECBIN} foo.oc 1>test.out 2>test.err
 
 misc.lis : ${DEPFILE} foo.oc foo1.oh foo2.oh
-	morecat ${DEPFILE} foo.oc foo1.oh foo2.oh >misc.lis
+	catnv ${DEPFILE} foo.oc foo1.oh foo2.oh >misc.lis
 
 lis : misc.lis test
 	mkpspdf ${LISTING} ${SRCFILES} misc.lis test.out test.err

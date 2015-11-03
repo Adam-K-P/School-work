@@ -1,0 +1,77 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.2
+date	2006.10.16.19.17.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2006.10.16.19.09.22;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@/* $Id$ */
+
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+extern int yy_flex_debug;
+extern int yydebug;
+int yyparse (void);
+const char *translate_name (int grammar_symbol);
+
+void set_options (int argc, char *argv[]) {
+   int option;
+   yy_flex_debug = yydebug = 0;
+   for(;;) {
+      option = getopt (argc, argv, "LY");
+      if (option == EOF) break;
+      switch (option) {
+         case 'L': yy_flex_debug = 1; break;
+         case 'Y': yydebug       = 1; break;
+      }
+   }
+   printf ("options: lex=%d, yacc=%d.\n",
+           yy_flex_debug, yydebug);
+}
+
+int main (int argc, char *argv[]) {
+   int parse_rc;
+   set_options (argc, argv);
+   parse_rc = yyparse ();
+   return parse_rc;
+}
+
+void yyerror (const char *message) {
+   extern int yynerrs;
+   printf ("%s (#%d)\n", message, yynerrs);
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $RCSfile: cmain.c,v $$Revision: 10412.121330 $ */
+@

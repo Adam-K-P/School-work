@@ -1,0 +1,56 @@
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+log: predefmacros.log
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+     1	Script  : /afs/cats.ucsc.edu/courses/cmps012b-wm/bin/runprogram.perl
+     2	limit c :    0 max core file size (KB)
+     3	limit f : 4194303 max output file size (KB)
+     4	limit t : 4294967295 max CPU time (sec)
+     5	stdin   : /dev/null
+     6	stdout  : predefmacros.out
+     7	stderr  : predefmacros.err
+     8	log     : predefmacros.log
+     9	listing : predefmacros.lis
+    10	Command : ./predefmacros
+    11	starting: pid 23661: 14:47:05.00
+    12	finished: pid 23661: 14:47:05.00, real 0.00, user 0.00, sys 0.01
+    13	pstatus: 0x0000 EXIT STATUS = 0
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+stdin: /dev/null
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+stdout: predefmacros.out
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+     1	Fri Sep 20 14:47:05 PDT 2013
+     2	uname --all = Linux unix2.ic.ucsc.edu 2.6.32-220.23.1.el6.x86_64 #1 SMP Mon Jun 18 18:58:52 BST 2012 x86_64 x86_64 x86_64 GNU/Linux
+     3	uname --kernel-name = Linux
+     4	uname --nodename = unix2.ic.ucsc.edu
+     5	uname --kernel-release = 2.6.32-220.23.1.el6.x86_64
+     6	uname --kernel-version = #1 SMP Mon Jun 18 18:58:52 BST 2012
+     7	uname --machine = x86_64
+     8	uname --processor = x86_64
+     9	uname --hardware-platform = x86_64
+    10	uname --operating-system = GNU/Linux
+    11	__FILE__ = "predefmacros.cc"
+    12	__LINE__ = 85
+    13	__DATE__ = "Sep 20 2013"
+    14	__TIME__ = "14:42:10"
+    15	__STDC__ = 1
+    16	__func__ = "main"
+    17	__cplusplus = 1
+    18	__unix__ = 1
+    19	__linux__ = 1
+    20	__x86_64__ = 1
+    21	__GNUC__ = 4
+    22	__GNUC_MINOR__ = 4
+    23	__GNUC_PATCHLEVEL__ = 6
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+stderr: predefmacros.err
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+

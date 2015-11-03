@@ -1,0 +1,4 @@
+#!/bin/sh -x
+/opt/SUNWspro/bin/cc \
+	-dalign -xdepend -xarch=v8plusa -xO5 -S \
+	$*

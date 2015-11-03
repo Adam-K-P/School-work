@@ -1,0 +1,166 @@
+Grammar
+
+    0 $accept: start $end
+
+    1 start: expr
+
+    2 expr: expr ADD term
+    3     | term
+
+    4 term: term MUL factor
+    5     | factor
+
+    6 factor: LPAR expr RPAR
+    7       | IDENT
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+IDENT (258) 7
+ADD (259) 2
+MUL (260) 4
+LPAR (261) 6
+RPAR (262) 6
+
+
+Nonterminals, with rules where they appear
+
+$accept (8)
+    on left: 0
+start (9)
+    on left: 1, on right: 0
+expr (10)
+    on left: 2 3, on right: 1 2 6
+term (11)
+    on left: 4 5, on right: 2 3 4
+factor (12)
+    on left: 6 7, on right: 4 5
+
+
+state 0
+
+    0 $accept: . start $end
+
+    IDENT  shift, and go to state 1
+    LPAR   shift, and go to state 2
+
+    start   go to state 3
+    expr    go to state 4
+    term    go to state 5
+    factor  go to state 6
+
+
+state 1
+
+    7 factor: IDENT .
+
+    $default  reduce using rule 7 (factor)
+
+
+state 2
+
+    6 factor: LPAR . expr RPAR
+
+    IDENT  shift, and go to state 1
+    LPAR   shift, and go to state 2
+
+    expr    go to state 7
+    term    go to state 5
+    factor  go to state 6
+
+
+state 3
+
+    0 $accept: start . $end
+
+    $end  shift, and go to state 8
+
+
+state 4
+
+    1 start: expr .
+    2 expr: expr . ADD term
+
+    ADD  shift, and go to state 9
+
+    $default  reduce using rule 1 (start)
+
+
+state 5
+
+    3 expr: term .
+    4 term: term . MUL factor
+
+    MUL  shift, and go to state 10
+
+    $default  reduce using rule 3 (expr)
+
+
+state 6
+
+    5 term: factor .
+
+    $default  reduce using rule 5 (term)
+
+
+state 7
+
+    2 expr: expr . ADD term
+    6 factor: LPAR expr . RPAR
+
+    ADD   shift, and go to state 9
+    RPAR  shift, and go to state 11
+
+
+state 8
+
+    0 $accept: start $end .
+
+    $default  accept
+
+
+state 9
+
+    2 expr: expr ADD . term
+
+    IDENT  shift, and go to state 1
+    LPAR   shift, and go to state 2
+
+    term    go to state 12
+    factor  go to state 6
+
+
+state 10
+
+    4 term: term MUL . factor
+
+    IDENT  shift, and go to state 1
+    LPAR   shift, and go to state 2
+
+    factor  go to state 13
+
+
+state 11
+
+    6 factor: LPAR expr RPAR .
+
+    $default  reduce using rule 6 (factor)
+
+
+state 12
+
+    2 expr: expr ADD term .
+    4 term: term . MUL factor
+
+    MUL  shift, and go to state 10
+
+    $default  reduce using rule 2 (expr)
+
+
+state 13
+
+    4 term: term MUL factor .
+
+    $default  reduce using rule 4 (term)

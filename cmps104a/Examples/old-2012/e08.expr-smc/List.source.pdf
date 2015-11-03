@@ -1,0 +1,4310 @@
+%PDF-1.4
+5 0 obj
+<</Length 6 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 276.446 736.5 Tm
+(README)Tj
+-113.733 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+(1:)Tj
+11.5 TL
+T*[(2:)-600(Simple compiler:  Translate exprs to stack machine insns.)]TJ
+(3:)'
+T*[(4:)-600(Syntax:     the ETF grammar)]TJ
+T*[(5:)-600(Lexical:    identifiers, numbers)]TJ
+T*[(6:)-600(Comments:   // and /**/ C-style)]TJ
+T*[(7:)-600(Directives: #-cpp style)]TJ
+T*[(8:)-600(Activity:   Build AST)]TJ
+T*[(9:)-600(Codegen:    Stack machine code)]TJ
+-6.3 -11.5 Td
+(10:)Tj
+T*[(11:)-600($Id: README,v 1.2 2011-08-31 17:54:03-07 - - $)]TJ
+(12:)'
+ET
+Q
+Q
+endstream
+endobj
+6 0 obj
+975
+endobj
+19 0 obj
+<</Length 20 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 280.731 736.5 Tm
+(Makefile)Tj
+-118.018 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(# $Id: Makefile,v 1.28 2013-08-22 13:59:59-07 - - $)]TJ
+11.5 TL
+(2:)'
+T*[(3:)-600(MKFILE    = Makefile)]TJ
+T*[(4:)-600(DEPSFILE  = ${MKFILE}.deps)]TJ
+T*[(5:)-600(NOINCLUDE = ci clean spotless)]TJ
+T*[(6:)-600(NEEDINCL  = ${filter ${NOINCLUDE}, ${MAKECMDGOALS}})]TJ
+(7:)'
+T*[(8:)-600(#)]TJ
+T*[(9:)-600(# Definitions of list of files:)]TJ
+-6.3 -11.5 Td
+[(10:)-600(#)]TJ
+T*[(11:)-600(HSOURCES  = astree.h astree.rep.h emit.h lyutils.h auxlib.h)]TJ
+T*[(12:)-600(CSOURCES  = astree.c emit.c lyutils.c main.c auxlib.c)]TJ
+T*[(13:)-600(LSOURCES  = scanner.l)]TJ
+T*[(14:)-600(YSOURCES  = parser.y)]TJ
+T*[(15:)-600(ETCSRC    = README ${MKFILE} ${DEPSFILE})]TJ
+T*[(16:)-600(CLGEN     = yylex.c)]TJ
+T*[(17:)-600(HYGEN     = yyparse.h)]TJ
+T*[(18:)-600(CYGEN     = yyparse.c)]TJ
+T*[(19:)-600(CGENS     = ${CLGEN} ${CYGEN})]TJ
+T*[(20:)-600(ALLGENS   = ${HYGEN} ${CGENS})]TJ
+T*[(21:)-600(EXECBIN   = zexprsm)]TJ
+T*[(22:)-600(ALLCSRC   = ${CSOURCES} ${CGENS})]TJ
+T*[(23:)-600(OBJECTS   = ${ALLCSRC:.c=.o})]TJ
+T*[(24:)-600(LREPORT   = yylex.output)]TJ
+T*[(25:)-600(YREPORT   = yyparse.output)]TJ
+T*[(26:)-600(IREPORT   = ident.output)]TJ
+T*[(27:)-600(REPORTS   = ${LREPORT} ${YREPORT} ${IREPORT})]TJ
+T*[(28:)-600(ALLSRC    = ${ETCSRC} ${YSOURCES} ${LSOURCES} ${HSOURCES} ${CSOURCES})]TJ
+T*[(29:)-600(TESTINS   = ${wildcard test?.in})]TJ
+T*[(30:)-600(LISTSRC   = ${ALLSRC} ${HYGEN})]TJ
+(31:)'
+T*[(32:)-600(#)]TJ
+T*[(33:)-600(# Definitions of the compiler and compilation options:)]TJ
+T*[(34:)-600(#)]TJ
+T*[(35:)-600(GCC       = gcc -g -O0 -Wall -Wextra -std=gnu99)]TJ
+T*[(36:)-600(MKDEPS    = gcc -MM)]TJ
+(37:)'
+T*[(38:)-600(#)]TJ
+T*[(39:)-600(# The first target is always ``all'', and hence the default,)]TJ
+T*[(40:)-600(# and builds the executable images)]TJ
+T*[(41:)-600(#)]TJ
+T*[(42:)-600(all : ${EXECBIN})]TJ
+(43:)'
+T*[(44:)-600(#)]TJ
+T*[(45:)-600(# Build the executable image from the object files.)]TJ
+T*[(46:)-600(#)]TJ
+T*[(47:)-600(${EXECBIN} : ${OBJECTS})]TJ
+T*[(48:)-600(        ${GCC} -o${EXECBIN} ${OBJECTS})]TJ
+T*[(49:)-600(        ident ${OBJECTS} ${EXECBIN} >${IREPORT})]TJ
+(50:)'
+T*[(51:)-600(#)]TJ
+T*[(52:)-600(# Build an object file form a C source file.)]TJ
+T*[(53:)-600(#)]TJ
+T*[(54:)-600(%.o : %.c)]TJ
+T*[(55:)-600(        cid + $<)]TJ
+T*[(56:)-600(        ${GCC} -c $<)]TJ
+(57:)'
+ET
+Q
+Q
+endstream
+endobj
+20 0 obj
+2817
+endobj
+24 0 obj
+<</Length 25 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 280.731 736.5 Tm
+(Makefile)Tj
+-118.018 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(58:)Tj
+11.5 TL
+T*[(59:)-600(#)]TJ
+T*[(60:)-600(# Build the scanner.)]TJ
+T*[(61:)-600(#)]TJ
+T*[(62:)-600(${CLGEN} : ${LSOURCES})]TJ
+T*[(63:)-600(        flex -o${CLGEN} ${LSOURCES} 2>${LREPORT})]TJ
+T*[(64:)-600(        - grep -v '^  ' ${LREPORT})]TJ
+T*[(65:)-600(        - \(perl -e 'print "="x65,"\\n"'; cat lex.backup\) >>${LREPORT} )]TJ
+T*[(66:)-600(        - rm lex.backup)]TJ
+(67:)'
+T*[(68:)-600(#)]TJ
+T*[(69:)-600(# Build the parser.)]TJ
+T*[(70:)-600(#)]TJ
+T*[(71:)-600(${CYGEN} ${HYGEN} : ${YSOURCES})]TJ
+T*[(72:)-600(        bison -dtv -o${CYGEN} ${YSOURCES})]TJ
+(73:)'
+T*[(74:)-600(#)]TJ
+T*[(75:)-600(# Check sources into an RCS subdirectory.)]TJ
+T*[(76:)-600(#)]TJ
+T*[(77:)-600(ci : ${ALLSRC} ${TESTINS})]TJ
+T*[(78:)-600(        cid + ${ALLSRC} ${TESTINS} test?.inh)]TJ
+(79:)'
+T*[(80:)-600(#)]TJ
+T*[(81:)-600(# Make a listing from all of the sources)]TJ
+T*[(82:)-600(#)]TJ
+T*[(83:)-600(lis : ${LISTSRC} tests)]TJ
+T*[(84:)-600(        mkpspdf List.source.ps ${LISTSRC})]TJ
+T*[(85:)-600(        mkpspdf List.output.ps ${REPORTS} \\)]TJ
+T*[(86:)-600(                ${foreach test, ${TESTINS:.in=}, \\)]TJ
+T*[(87:)-600(                ${patsubst %, ${test}.%, in out err log}})]TJ
+(88:)'
+T*[(89:)-600(#)]TJ
+T*[(90:)-600(# Clean and spotless remove generated files.)]TJ
+T*[(91:)-600(#)]TJ
+T*[(92:)-600(clean :)]TJ
+T*[(93:)-600(        - rm ${OBJECTS} ${ALLGENS} ${REPORTS} ${DEPSFILE} core)]TJ
+T*[(94:)-600(        - rm ${foreach test, ${TESTINS:.in=}, \\)]TJ
+T*[(95:)-600(                ${patsubst %, ${test}.%, out err log}})]TJ
+(96:)'
+T*[(97:)-600(spotless : clean)]TJ
+T*[(98:)-600(        - rm ${EXECBIN} List.*.ps List.*.pdf)]TJ
+(99:)'
+ET
+Q
+Q
+endstream
+endobj
+25 0 obj
+2171
+endobj
+29 0 obj
+<</Length 30 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 280.731 736.5 Tm
+(Makefile)Tj
+-118.018 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+(100:)Tj
+11.5 TL
+T*[(101:)-600(#)]TJ
+T*[(102:)-600(# Build the dependencies file using the C preprocessor)]TJ
+T*[(103:)-600(#)]TJ
+T*[(104:)-600(deps : ${ALLCSRC})]TJ
+T*[(105:)-600(        @ echo "# ${DEPSFILE} created `date` by ${MAKE}" >${DEPSFILE})]TJ
+T*[(106:)-600(        ${MKDEPS} ${ALLCSRC} >>${DEPSFILE})]TJ
+(107:)'
+T*[(108:)-600(${DEPSFILE} :)]TJ
+T*[(109:)-600(        @ touch ${DEPSFILE})]TJ
+T*[(110:)-600(        ${MAKE} --no-print-directory deps)]TJ
+(111:)'
+T*[(112:)-600(#)]TJ
+T*[(113:)-600(# Test)]TJ
+T*[(114:)-600(#)]TJ
+(115:)'
+T*[(116:)-600(tests : ${EXECBIN} ${TESTINS:.in=.out})]TJ
+(117:)'
+T*[(118:)-600(%.out %.err %.log : %.in ${EXECBIN})]TJ
+T*[(119:)-600(        runprog -o$* ${EXECBIN} -@@ -ly -de $<)]TJ
+(120:)'
+T*[(121:)-600(#)]TJ
+T*[(122:)-600(# Everything)]TJ
+T*[(123:)-600(#)]TJ
+T*[(124:)-600(again :)]TJ
+T*[(125:)-600(        gmake --no-print-directory spotless deps ci all lis)]TJ
+T*[(126:)-600(        )]TJ
+T*[(127:)-600(ifeq "${NEEDINCL}" "")]TJ
+T*[(128:)-600(include ${DEPSFILE})]TJ
+T*[(129:)-600(endif)]TJ
+(130:)'
+ET
+Q
+Q
+endstream
+endobj
+30 0 obj
+1569
+endobj
+34 0 obj
+<</Length 35 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 266.15 736.5 Tm
+(Makefile.deps)Tj
+-103.437 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(# Makefile.deps created Wed Sep 11 20:17:48 PDT 2013 by gmake)]TJ
+11.5 TL
+T*[(2:)-600(astree.o: astree.c astree.h auxlib.h astree.rep.h lyutils.h yyparse.h)]TJ
+T*[(3:)-600(emit.o: emit.c astree.h auxlib.h astree.rep.h emit.h lyutils.h yyparse.h)]TJ
+T*[(4:)-600(lyutils.o: lyutils.c astree.rep.h astree.h auxlib.h lyutils.h yyparse.h)]TJ
+T*[(5:)-600(main.o: main.c astree.h auxlib.h emit.h lyutils.h yyparse.h)]TJ
+T*[(6:)-600(auxlib.o: auxlib.c auxlib.h)]TJ
+T*[(7:)-600(yylex.o: yylex.c auxlib.h lyutils.h astree.h yyparse.h)]TJ
+T*[(8:)-600(yyparse.o: yyparse.c lyutils.h astree.h auxlib.h yyparse.h astree.rep.h)]TJ
+ET
+Q
+Q
+endstream
+endobj
+35 0 obj
+1153
+endobj
+39 0 obj
+<</Length 40 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.65 736.5 Tm
+(parser.y)Tj
+-120.936 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(%{)]TJ
+11.5 TL
+T*[(2:)-600(// $Id: parser.y,v 1.9 2013-08-22 13:58:43-07 - - $)]TJ
+(3:)'
+T*[(4:)-600(#include <assert.h>)]TJ
+T*[(5:)-600(#include <stdlib.h>)]TJ
+T*[(6:)-600(#include <string.h>)]TJ
+(7:)'
+T*[(8:)-600(#include "lyutils.h")]TJ
+T*[(9:)-600(#include "astree.h")]TJ
+-6.3 -11.5 Td
+[(10:)-600(#include "astree.rep.h")]TJ
+(11:)'
+T*[(12:)-600(#define YYDEBUG 1)]TJ
+T*[(13:)-600(#define YYERROR_VERBOSE 1)]TJ
+T*[(14:)-600(#define YYPRINT yyprint)]TJ
+T*[(15:)-600(#define YYMALLOC yycalloc)]TJ
+(16:)'
+T*[(17:)-600(static void *yycalloc \(size_t size\);)]TJ
+(18:)'
+T*[(19:)-600(%})]TJ
+(20:)'
+T*[(21:)-600(%debug)]TJ
+T*[(22:)-600(%defines)]TJ
+T*[(23:)-600(%error-verbose)]TJ
+T*[(24:)-600(%token-table)]TJ
+T*[(25:)-600(%verbose)]TJ
+(26:)'
+T*[(27:)-600(%token  ROOT IDENT NUMBER)]TJ
+(28:)'
+T*[(29:)-600(%right  '=')]TJ
+T*[(30:)-600(%left   '+' '-')]TJ
+T*[(31:)-600(%left   '*' '/')]TJ
+T*[(32:)-600(%right  '^')]TJ
+T*[(33:)-600(%right  POS "u+" NEG "u-")]TJ
+(34:)'
+T*[(35:)-600(%start  program)]TJ
+(36:)'
+T*[(37:)-600(%%)]TJ
+(38:)'
+T*[(39:)-600(program : stmtseq               { $$ = $1; })]TJ
+T*[(40:)-600(        ;)]TJ
+(41:)'
+T*[(42:)-600(stmtseq : stmtseq expr ';'      { freeast \($3\); $$ = adopt1 \($1, $2\); })]TJ
+T*[(43:)-600(        | stmtseq error ';'     { freeast \($3\); $$ = $1; })]TJ
+T*[(44:)-600(        | stmtseq ';'           { freeast \($2\); $$ = $1; })]TJ
+T*[(45:)-600(        |                       { $$ = new_parseroot\(\); })]TJ
+T*[(46:)-600(        ;)]TJ
+(47:)'
+T*[(48:)-600(expr    : expr '=' expr         { $$ = adopt2 \($2, $1, $3\); })]TJ
+T*[(49:)-600(        | expr '+' expr         { $$ = adopt2 \($2, $1, $3\); })]TJ
+T*[(50:)-600(        | expr '-' expr         { $$ = adopt2 \($2, $1, $3\); })]TJ
+T*[(51:)-600(        | expr '*' expr         { $$ = adopt2 \($2, $1, $3\); })]TJ
+T*[(52:)-600(        | expr '/' expr         { $$ = adopt2 \($2, $1, $3\); })]TJ
+T*[(53:)-600(        | expr '^' expr         { $$ = adopt2 \($2, $1, $3\); })]TJ
+T*[(54:)-600(        | '+' expr %prec POS    { $$ = adopt1sym \($1, $2, POS\); })]TJ
+T*[(55:)-600(        | '-' expr %prec NEG    { $$ = adopt1sym \($1, $2, NEG\); })]TJ
+T*[(56:)-600(        | '\(' expr '\)'          { freeast2 \($1, $3\); $$ = $2; })]TJ
+T*[(57:)-600(        | IDENT                 { $$ = $1; })]TJ
+T*[(58:)-600(        | NUMBER                { $$ = $1; })]TJ
+T*[(59:)-600(        ;)]TJ
+(60:)'
+ET
+Q
+Q
+endstream
+endobj
+40 0 obj
+2918
+endobj
+44 0 obj
+<</Length 45 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.65 736.5 Tm
+(parser.y)Tj
+-120.936 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(61:)Tj
+11.5 TL
+T*[(62:)-600(%%)]TJ
+(63:)'
+T*[(64:)-600(const char *get_yytname \(int symbol\) {)]TJ
+T*[(65:)-600(   return yytname [YYTRANSLATE \(symbol\)];)]TJ
+T*[(66:)-600(})]TJ
+(67:)'
+T*[(68:)-600(static void *yycalloc \(size_t size\) {)]TJ
+T*[(69:)-600(   void *result = calloc \(1, size\);)]TJ
+T*[(70:)-600(   assert \(result != NULL\);)]TJ
+T*[(71:)-600(   return result;)]TJ
+T*[(72:)-600(})]TJ
+(73:)'
+T*[(74:)-600(RCSC\("$Id: parser.y,v 1.9 2013-08-22 13:58:43-07 - - $"\))]TJ
+(75:)'
+ET
+Q
+Q
+endstream
+endobj
+45 0 obj
+1013
+endobj
+49 0 obj
+<</Length 50 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 280.927 736.5 Tm
+(scanner.l)Tj
+-118.213 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(%{)]TJ
+11.5 TL
+T*[(2:)-600(// $Id: scanner.l,v 1.11 2013-09-11 20:17:48-07 - - $)]TJ
+(3:)'
+T*[(4:)-600(#include <stdlib.h>)]TJ
+T*[(5:)-600(#include <stdbool.h>)]TJ
+(6:)'
+T*[(7:)-600(#include "auxlib.h")]TJ
+T*[(8:)-600(#include "lyutils.h")]TJ
+(9:)'
+-6.3 -11.5 Td
+[(10:)-600(#define YY_USER_ACTION  { scanner_useraction \(\); })]TJ
+T*[(11:)-600(#define IGNORE\(THING\)   { })]TJ
+(12:)'
+T*[(13:)-600(%})]TJ
+(14:)'
+T*[(15:)-600(%option 8bit)]TJ
+T*[(16:)-600(%option backup)]TJ
+T*[(17:)-600(%option debug)]TJ
+T*[(18:)-600(%option ecs)]TJ
+T*[(19:)-600(%option nodefault)]TJ
+T*[(20:)-600(%option nounput)]TJ
+T*[(21:)-600(%option noyywrap)]TJ
+T*[(22:)-600(%option perf-report)]TJ
+T*[(23:)-600(%option verbose)]TJ
+T*[(24:)-600(%option warn)]TJ
+(25:)'
+T*[(26:)-600(LETTER          [A-Za-z_])]TJ
+T*[(27:)-600(DIGIT           [0-9])]TJ
+T*[(28:)-600(MANTISSA        \({DIGIT}+\\.?{DIGIT}*|\\.{DIGIT}+\))]TJ
+T*[(29:)-600(EXPONENT        \([Ee][+-]?{DIGIT}+\))]TJ
+T*[(30:)-600(NUMBER          \({MANTISSA}{EXPONENT}?\))]TJ
+T*[(31:)-600(NOTNUMBER       \({MANTISSA}[Ee][+-]?\))]TJ
+T*[(32:)-600(IDENT           \({LETTER}\({LETTER}|{DIGIT}\)*\))]TJ
+(33:)'
+T*[(34:)-600(%%)]TJ
+(35:)'
+T*[(36:)-600("#".*           { scanner_include\(\); })]TJ
+T*[(37:)-600([ \\t]+          { IGNORE \(white space\) })]TJ
+T*[(38:)-600(\\n              { scanner_newline\(\); })]TJ
+(39:)'
+T*[(40:)-600({NUMBER}        { return yylval_token \(NUMBER\); })]TJ
+T*[(41:)-600({IDENT}         { return yylval_token \(IDENT\); })]TJ
+(42:)'
+T*[(43:)-600("="             { return yylval_token \('='\); })]TJ
+T*[(44:)-600("+"             { return yylval_token \('+'\); })]TJ
+T*[(45:)-600("-"             { return yylval_token \('-'\); })]TJ
+T*[(46:)-600("*"             { return yylval_token \('*'\); })]TJ
+T*[(47:)-600("/"             { return yylval_token \('/'\); })]TJ
+T*[(48:)-600("^"             { return yylval_token \('^'\); })]TJ
+T*[(49:)-600("\("             { return yylval_token \('\('\); })]TJ
+T*[(50:)-600("\)"             { return yylval_token \('\)'\); })]TJ
+T*[(51:)-600(";"             { return yylval_token \(';'\); })]TJ
+(52:)'
+T*[(53:)-600({NOTNUMBER}     { scanner_badtoken \(yytext\);)]TJ
+T*[(54:)-600(                  return yylval_token \(NUMBER\); })]TJ
+(55:)'
+T*[(56:)-600(.               { scanner_badchar \(*yytext\); })]TJ
+(57:)'
+T*[(58:)-600(%%)]TJ
+ET
+Q
+Q
+endstream
+endobj
+50 0 obj
+2868
+endobj
+54 0 obj
+<</Length 55 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 280.927 736.5 Tm
+(scanner.l)Tj
+-118.213 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(59:)Tj
+11.5 TL
+(60:)'
+T*[(61:)-600(RCSC\("$Id: scanner.l,v 1.11 2013-09-11 20:17:48-07 - - $"\))]TJ
+(62:)'
+ET
+Q
+Q
+endstream
+endobj
+55 0 obj
+632
+endobj
+59 0 obj
+<</Length 60 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 284.427 736.5 Tm
+(astree.h)Tj
+-121.713 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(#ifndef __ASTREE_H__)]TJ
+11.5 TL
+T*[(2:)-600(#define __ASTREE_H__)]TJ
+(3:)'
+T*[(4:)-600(#include <stdbool.h>)]TJ
+(5:)'
+T*[(6:)-600(#include "auxlib.h")]TJ
+(7:)'
+T*[(8:)-600(typedef struct astree_rep *astree;)]TJ
+(9:)'
+-6.3 -11.5 Td
+[(10:)-600(bool is_astree \(void *object\);)]TJ
+T*[(11:)-600(astree new_astree \(int symbol, int filenr, int linenr, int offset,)]TJ
+T*[(12:)-600(                   char *lexinfo\);)]TJ
+T*[(13:)-600(astree adopt \(astree root, /*ASTree*/ ... /*, NULL */\);)]TJ
+T*[(14:)-600(astree adopt1 \(astree root, astree child\);)]TJ
+T*[(15:)-600(astree adopt2 \(astree root, astree left, astree right\);)]TJ
+T*[(16:)-600(astree adopt1sym \(astree root, astree child, int symbol\);)]TJ
+T*[(17:)-600(void dump_astree \(FILE *outfile, astree root\);)]TJ
+T*[(18:)-600(void yyprint \(FILE *outfile, unsigned short toknum, astree yyvaluep\);)]TJ
+T*[(19:)-600(void freeast \(astree tree\);)]TJ
+(20:)'
+T*[(21:)-600(#define freeast2\(T1,T2\) { freeast \(T1\); freeast \(T2\); })]TJ
+(22:)'
+T*[(23:)-600(RCSH\("$Id: astree.h,v 1.8 2013-08-22 13:58:43-07 - - $"\))]TJ
+T*[(24:)-600(#endif)]TJ
+ET
+Q
+Q
+endstream
+endobj
+60 0 obj
+1635
+endobj
+64 0 obj
+<</Length 65 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 273.738 736.5 Tm
+(astree.rep.h)Tj
+-111.025 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(#ifndef __ASTREEREP_H__)]TJ
+11.5 TL
+T*[(2:)-600(#define __ASTREEREP_H__)]TJ
+(3:)'
+T*[(4:)-600(#include "astree.h")]TJ
+(5:)'
+T*[(6:)-600(struct astree_rep {)]TJ
+T*[(7:)-600(   char *tag;           // tag field to verify class membership)]TJ
+T*[(8:)-600(   int symbol;          // token code)]TJ
+T*[(9:)-600(   int filenr;          // index into filename stack)]TJ
+-6.3 -11.5 Td
+[(10:)-600(   int linenr;          // line number from source code)]TJ
+T*[(11:)-600(   int offset;          // offset of token with current line)]TJ
+T*[(12:)-600(   char *lexinfo;       // pointer to lexical information)]TJ
+T*[(13:)-600(   astree first;        // first child node of this node)]TJ
+T*[(14:)-600(   astree last;         // last child node of this node)]TJ
+T*[(15:)-600(   astree next;         // next younger sibling of this node)]TJ
+T*[(16:)-600(};)]TJ
+(17:)'
+T*[(18:)-600(RCSH\("$Id: astree.rep.h,v 1.5 2013-08-22 13:58:43-07 - - $"\))]TJ
+T*[(19:)-600(#endif)]TJ
+ET
+Q
+Q
+endstream
+endobj
+65 0 obj
+1494
+endobj
+69 0 obj
+<</Length 70 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 288.305 736.5 Tm
+(emit.h)Tj
+-125.591 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(#ifndef __EMIT_H__)]TJ
+11.5 TL
+T*[(2:)-600(#define __EMIT_H__)]TJ
+(3:)'
+T*[(4:)-600(#include "astree.h")]TJ
+(5:)'
+T*[(6:)-600(void emit_sm_code \(astree\);)]TJ
+(7:)'
+T*[(8:)-600(RCSH\("$Id: emit.h,v 1.3 2013-08-22 13:58:43-07 - - $"\))]TJ
+T*[(9:)-600(#endif)]TJ
+ET
+Q
+Q
+endstream
+endobj
+70 0 obj
+793
+endobj
+74 0 obj
+<</Length 75 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.244 736.5 Tm
+(lyutils.h)Tj
+-120.53 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(#ifndef __LYUTILS_H__)]TJ
+11.5 TL
+T*[(2:)-600(#define __LYUTILS_H__)]TJ
+(3:)'
+T*[(4:)-600(// Lex and Yacc interface utility.)]TJ
+(5:)'
+T*[(6:)-600(#include <stdio.h>)]TJ
+(7:)'
+T*[(8:)-600(#include "astree.h")]TJ
+T*[(9:)-600(#include "auxlib.h")]TJ
+-6.3 -11.5 Td
+(10:)Tj
+T*[(11:)-600(#define YYEOF 0)]TJ
+(12:)'
+T*[(13:)-600(extern FILE *yyin;)]TJ
+T*[(14:)-600(extern astree yyparse_astree;)]TJ
+T*[(15:)-600(extern int yyin_linenr;)]TJ
+T*[(16:)-600(extern char *yytext;)]TJ
+T*[(17:)-600(extern int yy_flex_debug;)]TJ
+T*[(18:)-600(extern int yydebug;)]TJ
+T*[(19:)-600(extern int yyleng;)]TJ
+(20:)'
+T*[(21:)-600(int yylex \(void\);)]TJ
+T*[(22:)-600(int yyparse \(void\);)]TJ
+T*[(23:)-600(void yyerror \(char *message\);)]TJ
+T*[(24:)-600(const char *get_yytname \(int symbol\);)]TJ
+(25:)'
+T*[(26:)-600(char *scanner_filename \(int filenr\);)]TJ
+T*[(27:)-600(void scanner_newfilename \(char *filename\);)]TJ
+T*[(28:)-600(void scanner_badchar \(unsigned char bad\);)]TJ
+T*[(29:)-600(void scanner_badtoken \(char *lexeme\);)]TJ
+T*[(30:)-600(void scanner_newline \(void\);)]TJ
+T*[(31:)-600(void scanner_setecho \(bool echoflag\);)]TJ
+T*[(32:)-600(void scanner_useraction \(void\);)]TJ
+(33:)'
+T*[(34:)-600(astree new_parseroot \(void\);)]TJ
+T*[(35:)-600(int yylval_token \(int symbol\);)]TJ
+(36:)'
+T*[(37:)-600(void scanner_include \(void\);)]TJ
+(38:)'
+T*[(39:)-600(#define YYSTYPE astree)]TJ
+T*[(40:)-600(#include "yyparse.h")]TJ
+(41:)'
+T*[(42:)-600(RCSH\("$Id: lyutils.h,v 1.10 2013-08-22 13:58:43-07 - - $"\))]TJ
+T*[(43:)-600(#endif)]TJ
+ET
+Q
+Q
+endstream
+endobj
+75 0 obj
+2063
+endobj
+79 0 obj
+<</Length 80 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.25 736.5 Tm
+(auxlib.h)Tj
+-120.537 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+[(1:)-600(#ifndef __AUXLIB_H__)]TJ
+11.5 TL
+T*[(2:)-600(#define __AUXLIB_H__)]TJ
+(3:)'
+T*[(4:)-600(#include <stdarg.h>)]TJ
+(5:)'
+T*[(6:)-600(//)]TJ
+T*[(7:)-600(// DESCRIPTION)]TJ
+T*[(8:)-600(//    Auxiliary library containing miscellaneous useful things.)]TJ
+T*[(9:)-600(//)]TJ
+-6.3 -11.5 Td
+(10:)Tj
+T*[(11:)-600(//)]TJ
+T*[(12:)-600(// Error message and exit status utility.)]TJ
+T*[(13:)-600(//)]TJ
+(14:)'
+T*[(15:)-600(void set_execname \(char *argv0\);)]TJ
+T*[(16:)-600(   //)]TJ
+T*[(17:)-600(   // Sets the program name for use by auxlib messages.)]TJ
+T*[(18:)-600(   // Must called from main before anything else is done,)]TJ
+T*[(19:)-600(   // passing in argv[0].)]TJ
+T*[(20:)-600(   //)]TJ
+(21:)'
+T*[(22:)-600(char *get_execname \(void\);)]TJ
+T*[(23:)-600(   //)]TJ
+T*[(24:)-600(   // Returns a read-only value previously stored by set_progname.)]TJ
+T*[(25:)-600(   //)]TJ
+(26:)'
+T*[(27:)-600(void eprint_status \(char *command, int status\);)]TJ
+T*[(28:)-600(   //)]TJ
+T*[(29:)-600(   // Print the status returned by wait\(2\) from a subprocess.)]TJ
+T*[(30:)-600(   //)]TJ
+(31:)'
+T*[(32:)-600(int get_exitstatus \(void\);)]TJ
+T*[(33:)-600(   //)]TJ
+T*[(34:)-600(   // Returns the exit status.  Default is EXIT_SUCCESS unless)]TJ
+T*[(35:)-600(   // set_exitstatus \(int\) is called.  The last statement in main)]TJ
+T*[(36:)-600(   // should be:  ``return get_exitstatus\(\);''.)]TJ
+T*[(37:)-600(   //)]TJ
+(38:)'
+T*[(39:)-600(void set_exitstatus \(int\);)]TJ
+T*[(40:)-600(   //)]TJ
+T*[(41:)-600(   // Sets the exit status.  Remebers only the largest value passed in.)]TJ
+T*[(42:)-600(   //)]TJ
+(43:)'
+ET
+Q
+Q
+endstream
+endobj
+80 0 obj
+2126
+endobj
+84 0 obj
+<</Length 85 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.25 736.5 Tm
+(auxlib.h)Tj
+-120.537 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(44:)Tj
+11.5 TL
+T*[(45:)-600(void veprintf \(char *format, va_list args\);)]TJ
+T*[(46:)-600(   //)]TJ
+T*[(47:)-600(   // Prints a message to stderr using the vector form of )]TJ
+T*[(48:)-600(   // argument list.)]TJ
+T*[(49:)-600(   //)]TJ
+(50:)'
+T*[(51:)-600(void eprintf \(char *format, ...\);)]TJ
+T*[(52:)-600(   //)]TJ
+T*[(53:)-600(   // Print a message to stderr according to the printf format)]TJ
+T*[(54:)-600(   // specified.  Usually called for debug output.)]TJ
+T*[(55:)-600(   // Precedes the message by the program name if the format)]TJ
+T*[(56:)-600(   // begins with the characters `%:'.)]TJ
+T*[(57:)-600(   //)]TJ
+(58:)'
+T*[(59:)-600(void errprintf \(char *format, ...\);)]TJ
+T*[(60:)-600(   //)]TJ
+T*[(61:)-600(   // Print an error message according to the printf format)]TJ
+T*[(62:)-600(   // specified, using eprintf.  Sets the exitstatus to EXIT_FAILURE.)]TJ
+T*[(63:)-600(   //)]TJ
+(64:)'
+T*[(65:)-600(void syserrprintf \(char *object\);)]TJ
+T*[(66:)-600(   //)]TJ
+T*[(67:)-600(   // Print a message resulting from a bad system call.  The)]TJ
+T*[(68:)-600(   // object is the name of the object causing the problem and)]TJ
+T*[(69:)-600(   // the reason is taken from the external variable errno.)]TJ
+T*[(70:)-600(   //)]TJ
+(71:)'
+ET
+Q
+Q
+endstream
+endobj
+85 0 obj
+1769
+endobj
+89 0 obj
+<</Length 90 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.25 736.5 Tm
+(auxlib.h)Tj
+-120.537 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(72:)Tj
+11.5 TL
+T*[(73:)-600(//)]TJ
+T*[(74:)-600(// Support for stub messages.)]TJ
+T*[(75:)-600(//)]TJ
+T*[(76:)-600(#define STUBPRINTF\(...\) \\)]TJ
+T*[(77:)-600(        __stubprintf \(__FILE__, __LINE__, __func__, __VA_ARGS__\))]TJ
+T*[(78:)-600(void __stubprintf \(char *file, int line, const char *func,)]TJ
+T*[(79:)-600(                   char *format, ...\);)]TJ
+(80:)'
+T*[(81:)-600(//)]TJ
+T*[(82:)-600(// Debugging utility.)]TJ
+T*[(83:)-600(//)]TJ
+(84:)'
+T*[(85:)-600(void set_debugflags \(char *flags\);)]TJ
+T*[(86:)-600(   //)]TJ
+T*[(87:)-600(   // Sets a string of debug flags to be used by DEBUGF statements.)]TJ
+T*[(88:)-600(   // Uses the address of the string, and does not copy it, so it)]TJ
+T*[(89:)-600(   // must not be dangling.  If a particular debug flag has been set,)]TJ
+T*[(90:)-600(   // messages are printed.  The format is identical to printf format.)]TJ
+T*[(91:)-600(   // The flag "@" turns on all flags.)]TJ
+T*[(92:)-600(   //)]TJ
+(93:)'
+T*[(94:)-600(bool is_debugflag \(char flag\);)]TJ
+T*[(95:)-600(   //)]TJ
+T*[(96:)-600(   // Checks to see if a debugflag is set.)]TJ
+T*[(97:)-600(   //)]TJ
+(98:)'
+T*[(99:)-600(#ifdef NDEBUG)]TJ
+-6.3 -11.5 Td
+[(100:)-600(// Do not generate any code.)]TJ
+T*[(101:)-600(#define DEBUGF\(FLAG,...\)   /**/)]TJ
+T*[(102:)-600(#define DEBUGSTMT\(FLAG,STMTS\) /**/)]TJ
+T*[(103:)-600(#else)]TJ
+T*[(104:)-600(// Generate debugging code.)]TJ
+T*[(105:)-600(void __debugprintf \(char flag, char *file, int line, const char *func,)]TJ
+T*[(106:)-600(                    char *format, ...\);)]TJ
+T*[(107:)-600(#define DEBUGF\(FLAG,...\) \\)]TJ
+T*[(108:)-600(        __debugprintf \(FLAG, __FILE__, __LINE__, __func__, __VA_ARGS__\))]TJ
+T*[(109:)-600(#define DEBUGSTMT\(FLAG,STMTS\) \\)]TJ
+T*[(110:)-600(        if \(is_debugflag \(FLAG\)\) { DEBUGF \(FLAG, "\\n"\); STMTS })]TJ
+T*[(111:)-600(#endif)]TJ
+(112:)'
+T*[(113:)-600(//)]TJ
+T*[(114:)-600(// Definition of RCSID macro to include RCS info in objs and execbin.)]TJ
+T*[(115:)-600(//)]TJ
+(116:)'
+T*[(117:)-600(#define RCS3\(ID,N,X\) static const char ID##N[] = X;)]TJ
+T*[(118:)-600(#define RCS2\(N,X\) RCS3\(RCS_Id,N,X\))]TJ
+T*[(119:)-600(#define RCSH\(X\) RCS2\(__COUNTER__,X\))]TJ
+T*[(120:)-600(#define RCSC\(X\) RCSH\(X \\)]TJ
+T*[(121:)-600("\\0$Compiled: " __FILE__ " " __DATE__ " " __TIME__ " $"\))]TJ
+T*[(122:)-600(RCSH\("$Id: auxlib.h,v 1.10 2013-08-22 13:58:43-07 - - $"\) )]TJ
+T*[(123:)-600(#endif)]TJ
+ET
+Q
+Q
+endstream
+endobj
+90 0 obj
+2935
+endobj
+94 0 obj
+<</Length 95 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 284.819 736.5 Tm
+(astree.c)Tj
+-122.105 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+(1:)Tj
+11.5 TL
+T*[(2:)-600(#include <assert.h>)]TJ
+T*[(3:)-600(#include <inttypes.h>)]TJ
+T*[(4:)-600(#include <stdarg.h>)]TJ
+T*[(5:)-600(#include <stdio.h>)]TJ
+T*[(6:)-600(#include <stdlib.h>)]TJ
+T*[(7:)-600(#include <string.h>)]TJ
+(8:)'
+T*[(9:)-600(#include "astree.h")]TJ
+-6.3 -11.5 Td
+[(10:)-600(#include "astree.rep.h")]TJ
+T*[(11:)-600(#include "lyutils.h")]TJ
+(12:)'
+T*[(13:)-600(static char *astree_tag = "struct astree_rep";)]TJ
+(14:)'
+T*[(15:)-600(bool is_astree \(void *object\) {)]TJ
+T*[(16:)-600(   astree tree = \(astree\) object;)]TJ
+T*[(17:)-600(   return tree != NULL && tree->tag == astree_tag;)]TJ
+T*[(18:)-600(})]TJ
+(19:)'
+T*[(20:)-600(astree new_astree \(int symbol, int filenr, int linenr, int offset,)]TJ
+T*[(21:)-600(                   char *lexinfo\) {)]TJ
+T*[(22:)-600(   size_t size = sizeof \(struct astree_rep\);)]TJ
+T*[(23:)-600(   astree tree = malloc \(size\);)]TJ
+T*[(24:)-600(   assert \(tree != NULL\);)]TJ
+T*[(25:)-600(   tree->tag = astree_tag;)]TJ
+T*[(26:)-600(   tree->symbol = symbol;)]TJ
+T*[(27:)-600(   tree->filenr = filenr;)]TJ
+T*[(28:)-600(   tree->linenr = linenr;)]TJ
+T*[(29:)-600(   tree->offset = offset;)]TJ
+T*[(30:)-600(   tree->lexinfo = strdup \(lexinfo\);)]TJ
+T*[(31:)-600(   assert \(tree->lexinfo != NULL\);)]TJ
+T*[(32:)-600(   tree->first = NULL;)]TJ
+T*[(33:)-600(   tree->last = NULL;)]TJ
+T*[(34:)-600(   tree->next = NULL;)]TJ
+T*[(35:)-600(   DEBUGF \('f', "malloc \(%d\) = %p-> %d:%d.%d: %s: %p->\\"%s\\"\\n",)]TJ
+T*[(36:)-600(           size, tree, tree->filenr, tree->linenr, tree->offset,)]TJ
+T*[(37:)-600(           get_yytname \(tree->symbol\), tree->lexinfo, tree->lexinfo\);)]TJ
+T*[(38:)-600(   return tree;)]TJ
+T*[(39:)-600(})]TJ
+(40:)'
+ET
+Q
+Q
+endstream
+endobj
+95 0 obj
+2226
+endobj
+99 0 obj
+<</Length 100 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 284.819 736.5 Tm
+(astree.c)Tj
+-122.105 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(41:)Tj
+11.5 TL
+T*[(42:)-600(astree adopt \(astree root, ...\) {)]TJ
+T*[(43:)-600(   va_list children;)]TJ
+T*[(44:)-600(   assert \(is_astree \(root\)\);)]TJ
+T*[(45:)-600(   va_start \(children, root\);)]TJ
+T*[(46:)-600(   for\(;;\) {)]TJ
+T*[(47:)-600(      astree child = va_arg \(children, astree\);)]TJ
+T*[(48:)-600(      if \(child == NULL\) break;)]TJ
+T*[(49:)-600(      assert \(is_astree \(child\)\);)]TJ
+T*[(50:)-600(      if \(root->last == NULL\) root->first = child;)]TJ
+T*[(51:)-600(                         else root->last->next = child;)]TJ
+T*[(52:)-600(      root->last = child;)]TJ
+T*[(53:)-600(      DEBUGF \('a', "%p \(%s\) adopting %p \(%s\)\\n",)]TJ
+T*[(54:)-600(              root, root->lexinfo,)]TJ
+T*[(55:)-600(              child, child->lexinfo\);)]TJ
+T*[(56:)-600(   })]TJ
+T*[(57:)-600(   va_end \(children\);)]TJ
+T*[(58:)-600(   return root;)]TJ
+T*[(59:)-600(})]TJ
+(60:)'
+T*[(61:)-600(astree adopt2 \(astree root, astree left, astree right\) {)]TJ
+T*[(62:)-600(   return adopt \(root, left, right, NULL\);)]TJ
+T*[(63:)-600(})]TJ
+(64:)'
+T*[(65:)-600(astree adopt1 \(astree root, astree child\) {)]TJ
+T*[(66:)-600(   return adopt \(root, child, NULL\);)]TJ
+T*[(67:)-600(})]TJ
+(68:)'
+T*[(69:)-600(astree adopt1sym \(astree root, astree child, int symbol\) {)]TJ
+T*[(70:)-600(   root = adopt1 \(root, child\);)]TJ
+T*[(71:)-600(   root->symbol = symbol;)]TJ
+T*[(72:)-600(   return root;)]TJ
+T*[(73:)-600(})]TJ
+(74:)'
+ET
+Q
+Q
+endstream
+endobj
+100 0 obj
+1963
+endobj
+104 0 obj
+<</Length 105 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 284.819 736.5 Tm
+(astree.c)Tj
+-122.105 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(75:)Tj
+11.5 TL
+T*[(76:)-600(static void dump_node \(FILE *outfile, astree node, int depth\) {)]TJ
+T*[(77:)-600(   assert \(is_astree \(node\)\);)]TJ
+T*[(78:)-600(   fprintf \(outfile, "%p-> astree {%s\(%d\), %d:%d.%03d, %p->\\"%s\\",\\n",)]TJ
+T*[(79:)-600(             \(void*\) node, get_yytname \(node->symbol\), node->symbol,)]TJ
+T*[(80:)-600(             node->filenr, node->linenr, node->offset,)]TJ
+T*[(81:)-600(             node->lexinfo, node->lexinfo\);)]TJ
+T*[(82:)-600(   fprintf \(outfile, "%*sfirst=%p, last=%p, next=%p}",)]TJ
+T*[(83:)-600(             depth * 3 + 12, "", \(void*\) node->first,)]TJ
+T*[(84:)-600(             \(void*\) node->last, \(void*\) node->next\);)]TJ
+T*[(85:)-600(})]TJ
+(86:)'
+T*[(87:)-600(static void dump_astree_rec \(FILE *outfile, astree root, int depth\) {)]TJ
+T*[(88:)-600(   astree child = NULL;)]TJ
+T*[(89:)-600(   if \(root == NULL\) return;)]TJ
+T*[(90:)-600(   assert \(is_astree \(root\)\);)]TJ
+T*[(91:)-600(   fprintf \(outfile, "%*s%s ", depth * 3, "", root->lexinfo\);)]TJ
+T*[(92:)-600(   dump_node \(outfile, root, depth\);)]TJ
+T*[(93:)-600(   fprintf \(outfile, "\\n"\);)]TJ
+T*[(94:)-600(   for \(child = root->first; child != NULL; child = child->next\) {)]TJ
+T*[(95:)-600(      dump_astree_rec \(outfile, child, depth + 1\);)]TJ
+T*[(96:)-600(   })]TJ
+T*[(97:)-600(})]TJ
+(98:)'
+T*[(99:)-600(void dump_astree \(FILE *outfile, astree root\) {)]TJ
+-6.3 -11.5 Td
+[(100:)-600(   dump_astree_rec \(outfile, root, 0\);)]TJ
+T*[(101:)-600(   fflush \(NULL\);)]TJ
+T*[(102:)-600(})]TJ
+(103:)'
+T*[(104:)-600(void yyprint \(FILE *outfile, unsigned short toknum, astree yyvaluep\) {)]TJ
+T*[(105:)-600(   fprintf \(outfile, "%d=%s\)\\n%*s\(",)]TJ
+T*[(106:)-600(             toknum, get_yytname \(toknum\), 9, ""\);)]TJ
+T*[(107:)-600(   if \(is_astree \(yyvaluep\)\) {)]TJ
+T*[(108:)-600(      dump_node \(outfile, yyvaluep, 3\);)]TJ
+T*[(109:)-600(   }else{)]TJ
+T*[(110:)-600(      fprintf \(outfile, "yyvaluep = %p", \(void*\) yyvaluep\);)]TJ
+T*[(111:)-600(   })]TJ
+T*[(112:)-600(   fflush \(NULL\);)]TJ
+T*[(113:)-600(})]TJ
+(114:)'
+T*[(115:)-600(void freeast \(astree root\) {)]TJ
+T*[(116:)-600(   astree child = NULL;)]TJ
+T*[(117:)-600(   if \(root == NULL\) return;)]TJ
+T*[(118:)-600(   assert \(is_astree \(root\)\);)]TJ
+T*[(119:)-600(   for \(child = root->first; child != NULL;\) {)]TJ
+T*[(120:)-600(      astree asttofree = child;)]TJ
+T*[(121:)-600(      assert \(is_astree \(asttofree\)\);)]TJ
+T*[(122:)-600(      child = child->next;)]TJ
+T*[(123:)-600(      freeast \(asttofree\);)]TJ
+T*[(124:)-600(   })]TJ
+T*[(125:)-600(   DEBUGF \('f', "free [%X]-> %d:%d.%d: %s: %p->\\"%s\\"\)\\n",)]TJ
+T*[(126:)-600(           \(uintptr_t\) root, root->filenr, root->linenr, root->offset,)]TJ
+T*[(127:)-600(            get_yytname \(root->symbol\), root->lexinfo, root->lexinfo\);)]TJ
+T*[(128:)-600(   free \(root->lexinfo\);)]TJ
+T*[(129:)-600(   memset \(root, 0, sizeof \(struct astree_rep\)\);)]TJ
+T*[(130:)-600(   free \(root\);)]TJ
+T*[(131:)-600(})]TJ
+(132:)'
+T*[(133:)-600(RCSC\("$Id: astree.c,v 1.12 2013-08-22 13:58:43-07 - - $"\))]TJ
+(134:)'
+ET
+Q
+Q
+endstream
+endobj
+105 0 obj
+3610
+endobj
+109 0 obj
+<</Length 110 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 288.697 736.5 Tm
+(emit.c)Tj
+-125.983 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+(1:)Tj
+11.5 TL
+T*[(2:)-600(#include <stdio.h>)]TJ
+T*[(3:)-600(#include <assert.h>)]TJ
+(4:)'
+T*[(5:)-600(#include "astree.h")]TJ
+T*[(6:)-600(#include "astree.rep.h")]TJ
+T*[(7:)-600(#include "emit.h")]TJ
+T*[(8:)-600(#include "lyutils.h")]TJ
+T*[(9:)-600(#include "auxlib.h")]TJ
+-6.3 -11.5 Td
+(10:)Tj
+T*[(11:)-600(void emit \(astree\);)]TJ
+(12:)'
+T*[(13:)-600(void emit_insn \(char *opcode, char *operand, astree tree\) {)]TJ
+T*[(14:)-600(   printf \("%-10s%-10s%-20s; %s %d.%d\\n", "",)]TJ
+T*[(15:)-600(            opcode, operand, scanner_filename \(tree->filenr\),)]TJ
+T*[(16:)-600(            tree->linenr, tree->offset\);)]TJ
+T*[(17:)-600(})]TJ
+(18:)'
+T*[(19:)-600(void postorder \(astree tree\) {)]TJ
+T*[(20:)-600(   astree itor;)]TJ
+T*[(21:)-600(   assert \(tree != NULL\);)]TJ
+T*[(22:)-600(   for \(itor = tree->first; itor != NULL; itor = itor->next\) {)]TJ
+T*[(23:)-600(      emit \(itor\);)]TJ
+T*[(24:)-600(   })]TJ
+T*[(25:)-600(})]TJ
+(26:)'
+T*[(27:)-600(void postorder_emit_stmts \(astree tree\) {)]TJ
+T*[(28:)-600(   postorder \(tree\);)]TJ
+T*[(29:)-600(})]TJ
+(30:)'
+T*[(31:)-600(void postorder_emit_oper \(astree tree, char *opcode\) {)]TJ
+T*[(32:)-600(   postorder \(tree\);)]TJ
+T*[(33:)-600(   emit_insn \(opcode, "", tree\);)]TJ
+T*[(34:)-600(})]TJ
+(35:)'
+T*[(36:)-600(void postorder_emit_semi \(astree tree\) {)]TJ
+T*[(37:)-600(   postorder \(tree\);)]TJ
+T*[(38:)-600(   emit_insn \("", "", tree\);)]TJ
+T*[(39:)-600(})]TJ
+(40:)'
+T*[(41:)-600(void emit_push \(astree tree, char *opcode\) {)]TJ
+T*[(42:)-600(   assert \(tree != NULL\);)]TJ
+T*[(43:)-600(   assert \(tree->first == NULL\);)]TJ
+T*[(44:)-600(   emit_insn \(opcode, tree->lexinfo, tree\);)]TJ
+T*[(45:)-600(})]TJ
+(46:)'
+T*[(47:)-600(void emit_assign \(astree tree\) {)]TJ
+T*[(48:)-600(   astree left = NULL;)]TJ
+T*[(49:)-600(   assert \(tree != NULL\);)]TJ
+T*[(50:)-600(   left = tree->first;)]TJ
+T*[(51:)-600(   assert \(left != NULL\);)]TJ
+T*[(52:)-600(   assert \(left->next != NULL\);)]TJ
+T*[(53:)-600(   assert \(left->next->next == NULL\);)]TJ
+T*[(54:)-600(   emit \(left->next\);)]TJ
+T*[(55:)-600(   if \(left->symbol != IDENT\) {)]TJ
+T*[(56:)-600(      eprintf \("%:%s: %d: left operand of `=' is not an identifier\\n",)]TJ
+T*[(57:)-600(               scanner_filename \(left->filenr\), left->linenr\);)]TJ
+T*[(58:)-600(   }else{)]TJ
+T*[(59:)-600(      emit_insn \("popvar", left->lexinfo, left\);)]TJ
+T*[(60:)-600(   })]TJ
+T*[(61:)-600(})]TJ
+ET
+Q
+Q
+endstream
+endobj
+110 0 obj
+2944
+endobj
+114 0 obj
+<</Length 115 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 288.697 736.5 Tm
+(emit.c)Tj
+-125.983 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(62:)Tj
+ET
+Q
+Q
+endstream
+endobj
+115 0 obj
+529
+endobj
+119 0 obj
+<</Length 120 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 288.697 736.5 Tm
+(emit.c)Tj
+-125.983 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(63:)Tj
+11.5 TL
+T*[(64:)-600(void emit \(astree tree\) {)]TJ
+T*[(65:)-600(   assert \(is_astree \(tree\)\);)]TJ
+T*[(66:)-600(   switch \(tree->symbol\) {)]TJ
+T*[(67:)-600(      case ROOT  : postorder_emit_stmts \(tree\);       break;)]TJ
+T*[(68:)-600(      case ';'   : postorder_emit_semi \(tree\);        break;)]TJ
+T*[(69:)-600(      case '='   : emit_assign \(tree\);                break;)]TJ
+T*[(70:)-600(      case '+'   : postorder_emit_oper \(tree, "add"\); break;)]TJ
+T*[(71:)-600(      case '-'   : postorder_emit_oper \(tree, "sub"\); break;)]TJ
+T*[(72:)-600(      case '*'   : postorder_emit_oper \(tree, "mul"\); break;)]TJ
+T*[(73:)-600(      case '/'   : postorder_emit_oper \(tree, "div"\); break;)]TJ
+T*[(74:)-600(      case '^'   : postorder_emit_oper \(tree, "pow"\); break;)]TJ
+T*[(75:)-600(      case POS   : postorder_emit_oper \(tree, "pos"\); break;)]TJ
+T*[(76:)-600(      case NEG   : postorder_emit_oper \(tree, "neg"\); break;)]TJ
+T*[(77:)-600(      case IDENT : emit_push \(tree, "pushvar"\);       break;)]TJ
+T*[(78:)-600(      case NUMBER: emit_push \(tree, "pushnum"\);       break;)]TJ
+T*[(79:)-600(      default    : assert \(! "emit default"\);         break;)]TJ
+T*[(80:)-600(   })]TJ
+T*[(81:)-600(})]TJ
+(82:)'
+T*[(83:)-600(void emit_sm_code \(astree tree\) {)]TJ
+T*[(84:)-600(   printf \("\\n"\);)]TJ
+T*[(85:)-600(   if \(tree\) emit \(tree\);)]TJ
+T*[(86:)-600(})]TJ
+(87:)'
+T*[(88:)-600(RCSC\("$Id: emit.c,v 1.6 2013-08-22 13:58:43-07 - - $"\))]TJ
+(89:)'
+ET
+Q
+Q
+endstream
+endobj
+120 0 obj
+2012
+endobj
+124 0 obj
+<</Length 125 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.636 736.5 Tm
+(lyutils.c)Tj
+-120.922 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+(1:)Tj
+11.5 TL
+T*[(2:)-600(#include <assert.h>)]TJ
+T*[(3:)-600(#include <ctype.h>)]TJ
+T*[(4:)-600(#include <stdbool.h>)]TJ
+T*[(5:)-600(#include <stdio.h>)]TJ
+T*[(6:)-600(#include <stdlib.h>)]TJ
+T*[(7:)-600(#include <string.h>)]TJ
+(8:)'
+T*[(9:)-600(#include "astree.rep.h")]TJ
+-6.3 -11.5 Td
+[(10:)-600(#include "lyutils.h")]TJ
+T*[(11:)-600(#include "auxlib.h")]TJ
+(12:)'
+T*[(13:)-600(astree yyparse_astree = NULL;)]TJ
+T*[(14:)-600(int scan_linenr = 1;)]TJ
+T*[(15:)-600(int scan_offset = 0;)]TJ
+T*[(16:)-600(bool scan_echo = false;)]TJ
+(17:)'
+T*[(18:)-600(struct {)]TJ
+T*[(19:)-600(   char **filenames;)]TJ
+T*[(20:)-600(   int size;)]TJ
+T*[(21:)-600(   int last_filenr;)]TJ
+T*[(22:)-600(} filename_stack = {NULL, 0, -1};)]TJ
+(23:)'
+T*[(24:)-600(char *scanner_filename \(int filenr\) {)]TJ
+T*[(25:)-600(   assert \(filename_stack.filenames != NULL\);)]TJ
+T*[(26:)-600(   return filename_stack.filenames[filenr];)]TJ
+T*[(27:)-600(})]TJ
+(28:)'
+T*[(29:)-600(void scanner_newfilename \(char *filename\) {)]TJ
+T*[(30:)-600(   assert \(filename != NULL\);)]TJ
+T*[(31:)-600(   if \(filename_stack.filenames == NULL\) {)]TJ
+T*[(32:)-600(      filename_stack.size = 16;)]TJ
+T*[(33:)-600(      filename_stack.last_filenr = -1;)]TJ
+T*[(34:)-600(      filename_stack.filenames)]TJ
+T*[(35:)-600(            = malloc \(filename_stack.size * sizeof \(char*\)\);)]TJ
+T*[(36:)-600(      assert \(filename_stack.filenames != NULL\);)]TJ
+T*[(37:)-600(   }else if \(filename_stack.last_filenr == filename_stack.size - 1\) {)]TJ
+T*[(38:)-600(      filename_stack.size *= 2;)]TJ
+T*[(39:)-600(      filename_stack.filenames)]TJ
+T*[(40:)-600(            = realloc \(filename_stack.filenames,)]TJ
+T*[(41:)-600(                       filename_stack.size * sizeof \(char*\)\);)]TJ
+T*[(42:)-600(      assert \(filename_stack.filenames != NULL\);)]TJ
+T*[(43:)-600(   })]TJ
+T*[(44:)-600(   char *newfilename = strdup \(filename\);)]TJ
+T*[(45:)-600(   assert \(newfilename != NULL\);)]TJ
+T*[(46:)-600(   filename_stack.filenames[++filename_stack.last_filenr])]TJ
+T*[(47:)-600(         = newfilename;)]TJ
+T*[(48:)-600(})]TJ
+(49:)'
+T*[(50:)-600(void scanner_newline \(void\) {)]TJ
+T*[(51:)-600(   ++scan_linenr;)]TJ
+T*[(52:)-600(   scan_offset = 0;)]TJ
+T*[(53:)-600(})]TJ
+(54:)'
+T*[(55:)-600(void scanner_setecho \(bool echoflag\) {)]TJ
+T*[(56:)-600(   scan_echo = echoflag;)]TJ
+T*[(57:)-600(})]TJ
+(58:)'
+ET
+Q
+Q
+endstream
+endobj
+125 0 obj
+2893
+endobj
+129 0 obj
+<</Length 130 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.636 736.5 Tm
+(lyutils.c)Tj
+-120.922 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(59:)Tj
+11.5 TL
+T*[(60:)-600(void scanner_useraction \(void\) {)]TJ
+T*[(61:)-600(   if \(scan_echo\) {)]TJ
+T*[(62:)-600(      if \(scan_offset == 0\) printf \(";%5d: ", scan_linenr\);)]TJ
+T*[(63:)-600(      printf \("%s", yytext\);)]TJ
+T*[(64:)-600(   })]TJ
+T*[(65:)-600(   scan_offset += yyleng;)]TJ
+T*[(66:)-600(})]TJ
+(67:)'
+T*[(68:)-600(void yyerror \(char *message\) {)]TJ
+T*[(69:)-600(   assert \(filename_stack.filenames != NULL\);)]TJ
+T*[(70:)-600(   errprintf \("%:%s: %d: %s\\n",)]TJ
+T*[(71:)-600(              filename_stack.filenames[filename_stack.last_filenr],)]TJ
+T*[(72:)-600(              scan_linenr, message\);)]TJ
+T*[(73:)-600(})]TJ
+(74:)'
+T*[(75:)-600(void scanner_badchar \(unsigned char bad\) {)]TJ
+T*[(76:)-600(   char char_rep[16];)]TJ
+T*[(77:)-600(   sprintf \(char_rep, isgraph \(\(int\) bad\) ? "%c" : "\\\\%03o", bad\);)]TJ
+T*[(78:)-600(   errprintf \("%:%s: %d: invalid source character \(%s\)\\n",)]TJ
+T*[(79:)-600(              filename_stack.filenames[filename_stack.last_filenr],)]TJ
+T*[(80:)-600(              scan_linenr, char_rep\);)]TJ
+T*[(81:)-600(})]TJ
+(82:)'
+T*[(83:)-600(void scanner_badtoken \(char *lexeme\) {)]TJ
+T*[(84:)-600(   errprintf \("%:%s: %d: invalid token \(%s\)\\n",)]TJ
+T*[(85:)-600(              filename_stack.filenames[filename_stack.last_filenr],)]TJ
+T*[(86:)-600(              scan_linenr, lexeme\);)]TJ
+T*[(87:)-600(})]TJ
+(88:)'
+T*[(89:)-600(int yylval_token \(int symbol\) {)]TJ
+T*[(90:)-600(   int offset = scan_offset - yyleng;)]TJ
+T*[(91:)-600(   yylval = new_astree \(symbol, filename_stack.last_filenr,)]TJ
+T*[(92:)-600(                        scan_linenr, offset, yytext\);)]TJ
+T*[(93:)-600(   return symbol;)]TJ
+T*[(94:)-600(})]TJ
+(95:)'
+T*[(96:)-600(astree new_parseroot \(void\) {)]TJ
+T*[(97:)-600(   yyparse_astree = new_astree \(ROOT, 0, 0, 0, "<<ROOT>>"\);)]TJ
+T*[(98:)-600(   return yyparse_astree;)]TJ
+T*[(99:)-600(})]TJ
+-6.3 -11.5 Td
+(100:)Tj
+ET
+Q
+Q
+endstream
+endobj
+130 0 obj
+2445
+endobj
+134 0 obj
+<</Length 135 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.636 736.5 Tm
+(lyutils.c)Tj
+-120.922 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+(101:)Tj
+11.5 TL
+T*[(102:)-600(void scanner_include \(void\) {)]TJ
+T*[(103:)-600(   scanner_newline\(\);)]TJ
+T*[(104:)-600(   char *filename = alloca \(strlen \(yytext\) + 1\);)]TJ
+T*[(105:)-600(   int linenr;)]TJ
+T*[(106:)-600(   int scan_rc = sscanf \(yytext, "# %d \\"%[^\\"]\\"", &linenr, filename\);)]TJ
+T*[(107:)-600(   if \(scan_rc != 2\) {)]TJ
+T*[(108:)-600(      errprintf \("%: %d: [%s]: invalid directive, ignored\\n",)]TJ
+T*[(109:)-600(                 scan_rc, yytext\);)]TJ
+T*[(110:)-600(   }else {)]TJ
+T*[(111:)-600(      char *newfilename = strdup \(filename\);)]TJ
+T*[(112:)-600(      assert \(newfilename != NULL\);)]TJ
+T*[(113:)-600(      printf \(";# %d \\"%s\\"\\n", linenr, newfilename\);)]TJ
+T*[(114:)-600(      scanner_newfilename \(newfilename\);)]TJ
+T*[(115:)-600(      scan_linenr = linenr - 1;)]TJ
+T*[(116:)-600(      DEBUGF \('m', "filename=%s, scan_linenr=%d\\n",)]TJ
+T*[(117:)-600(              filename_stack.filenames[filename_stack.last_filenr],)]TJ
+T*[(118:)-600(              scan_linenr\);)]TJ
+T*[(119:)-600(   })]TJ
+T*[(120:)-600(})]TJ
+(121:)'
+T*[(122:)-600(RCSC\("$Id: lyutils.c,v 1.12 2013-08-22 13:58:43-07 - - $"\))]TJ
+(123:)'
+ET
+Q
+Q
+endstream
+endobj
+135 0 obj
+1693
+endobj
+139 0 obj
+<</Length 140 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 287.143 736.5 Tm
+(main.c)Tj
+-124.429 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+(1:)Tj
+11.5 TL
+T*[(2:)-600(#include <assert.h>)]TJ
+T*[(3:)-600(#include <errno.h>)]TJ
+T*[(4:)-600(#include <stdbool.h>)]TJ
+T*[(5:)-600(#include <stdio.h>)]TJ
+T*[(6:)-600(#include <stdlib.h>)]TJ
+T*[(7:)-600(#include <string.h>)]TJ
+T*[(8:)-600(#include <unistd.h>)]TJ
+(9:)'
+-6.3 -11.5 Td
+[(10:)-600(#include "astree.h")]TJ
+T*[(11:)-600(#include "emit.h")]TJ
+T*[(12:)-600(#include "lyutils.h")]TJ
+T*[(13:)-600(#include "auxlib.h")]TJ
+(14:)'
+T*[(15:)-600(#define CPP "/usr/bin/cpp")]TJ
+(16:)'
+T*[(17:)-600(struct options{)]TJ
+T*[(18:)-600(   bool dumptree;)]TJ
+T*[(19:)-600(   bool echoinput;)]TJ
+T*[(20:)-600(};)]TJ
+(21:)'
+T*[(22:)-600(// Open a pipe from the C preprocessor.)]TJ
+T*[(23:)-600(// Exit failure if can't.)]TJ
+T*[(24:)-600(// Assignes opened pipe to FILE *yyin.)]TJ
+T*[(25:)-600(char *yyin_cpp_command = NULL;)]TJ
+T*[(26:)-600(void yyin_cpp_popen \(char *filename\) {)]TJ
+T*[(27:)-600(   yyin_cpp_command = malloc \(strlen \(CPP\) + strlen \(filename\) + 2\);)]TJ
+T*[(28:)-600(   assert \(yyin_cpp_command != NULL\);)]TJ
+T*[(29:)-600(   strcpy \(yyin_cpp_command, CPP\);)]TJ
+T*[(30:)-600(   strcat \(yyin_cpp_command, " "\);)]TJ
+T*[(31:)-600(   strcat \(yyin_cpp_command, filename\);)]TJ
+T*[(32:)-600(   yyin = popen \(yyin_cpp_command, "r"\);)]TJ
+T*[(33:)-600(   if \(yyin == NULL\) {)]TJ
+T*[(34:)-600(      syserrprintf \(yyin_cpp_command\);)]TJ
+T*[(35:)-600(      exit \(get_exitstatus\(\)\);)]TJ
+T*[(36:)-600(   })]TJ
+T*[(37:)-600(})]TJ
+(38:)'
+T*[(39:)-600(void yyin_cpp_pclose \(void\) {)]TJ
+T*[(40:)-600(   int pclose_rc = pclose \(yyin\);)]TJ
+T*[(41:)-600(   eprint_status \(yyin_cpp_command, pclose_rc\);)]TJ
+T*[(42:)-600(   if \(pclose_rc != 0\) set_exitstatus \(EXIT_FAILURE\);)]TJ
+T*[(43:)-600(})]TJ
+(44:)'
+ET
+Q
+Q
+endstream
+endobj
+140 0 obj
+2249
+endobj
+144 0 obj
+<</Length 145 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 287.143 736.5 Tm
+(main.c)Tj
+-124.429 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(45:)Tj
+11.5 TL
+T*[(46:)-600(void scan_opts \(int argc, char **argv, struct options *options\) {)]TJ
+T*[(47:)-600(   int option;)]TJ
+T*[(48:)-600(   opterr = 0;)]TJ
+T*[(49:)-600(   yy_flex_debug = 0;)]TJ
+T*[(50:)-600(   yydebug = 0;)]TJ
+T*[(51:)-600(   for\(;;\) {)]TJ
+T*[(52:)-600(      option = getopt \(argc, argv, "@:ely"\);)]TJ
+T*[(53:)-600(      if \(option == EOF\) break;)]TJ
+T*[(54:)-600(      switch \(option\) {)]TJ
+T*[(55:)-600(         case '@': set_debugflags \(optarg\);   break;)]TJ
+T*[(56:)-600(         case 'e': options->echoinput = true; break;)]TJ
+T*[(57:)-600(         case 'l': yy_flex_debug = 1;         break;)]TJ
+T*[(58:)-600(         case 'y': yydebug = 1;               break;)]TJ
+T*[(59:)-600(         default:  errprintf \("%:bad option \(%c\)\\n", optopt\); break;)]TJ
+T*[(60:)-600(      })]TJ
+T*[(61:)-600(   })]TJ
+T*[(62:)-600(   if \(optind > argc\) {)]TJ
+T*[(63:)-600(      errprintf \("Usage: %s [-ly] [filename]\\n", get_execname\(\)\);)]TJ
+T*[(64:)-600(      exit \(get_exitstatus\(\)\);)]TJ
+T*[(65:)-600(   })]TJ
+T*[(66:)-600(   char *filename = optind == argc ? "-" : argv[optind];)]TJ
+T*[(67:)-600(   yyin_cpp_popen \(filename\);)]TJ
+T*[(68:)-600(   DEBUGF \('m', "filename = %s, yyin = %p, fileno \(yyin\) = %d\\n",)]TJ
+T*[(69:)-600(           filename, yyin, fileno \(yyin\)\);)]TJ
+T*[(70:)-600(   scanner_newfilename \(filename\);)]TJ
+T*[(71:)-600(})]TJ
+(72:)'
+T*[(73:)-600(int main \(int argc, char **argv\) {)]TJ
+T*[(74:)-600(   struct options options = {false, false};)]TJ
+T*[(75:)-600(   int parsecode = 0;)]TJ
+T*[(76:)-600(   set_execname \(argv[0]\);)]TJ
+T*[(77:)-600(   DEBUGSTMT \('m',)]TJ
+T*[(78:)-600(      for \(int argi = 0; argi < argc; ++argi\) {)]TJ
+T*[(79:)-600(         eprintf \("%s%c", argv[argi], argi < argc - 1 ? ' ' : '\\n'\);)]TJ
+T*[(80:)-600(      })]TJ
+T*[(81:)-600(   \);)]TJ
+T*[(82:)-600(   scan_opts \(argc, argv, &options\);)]TJ
+T*[(83:)-600(   scanner_setecho \(options.echoinput\);)]TJ
+T*[(84:)-600(   parsecode = yyparse\(\);)]TJ
+T*[(85:)-600(   if \(parsecode\) {)]TJ
+T*[(86:)-600(      errprintf \("%:parse failed \(%d\)\\n", parsecode\);)]TJ
+T*[(87:)-600(   }else {)]TJ
+T*[(88:)-600(      DEBUGSTMT \('a', dump_astree \(stderr, yyparse_astree\); \);)]TJ
+T*[(89:)-600(      emit_sm_code \(yyparse_astree\);)]TJ
+T*[(90:)-600(   })]TJ
+T*[(91:)-600(   freeast \(yyparse_astree\);)]TJ
+T*[(92:)-600(   yyin_cpp_pclose\(\);)]TJ
+T*[(93:)-600(   return get_exitstatus\(\);)]TJ
+T*[(94:)-600(})]TJ
+(95:)'
+T*[(96:)-600(RCSC\("$Id: main.c,v 1.17 2013-08-22 13:58:43-07 - - $"\))]TJ
+(97:)'
+ET
+Q
+Q
+endstream
+endobj
+145 0 obj
+3077
+endobj
+149 0 obj
+<</Length 150 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.643 736.5 Tm
+(auxlib.c)Tj
+-120.929 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+(1:)Tj
+11.5 TL
+T*[(2:)-600(#define _GNU_SOURCE)]TJ
+T*[(3:)-600(#define __USE_GNU)]TJ
+(4:)'
+T*[(5:)-600(#include <assert.h>)]TJ
+T*[(6:)-600(#include <errno.h>)]TJ
+T*[(7:)-600(#include <libgen.h>)]TJ
+T*[(8:)-600(#include <limits.h>)]TJ
+T*[(9:)-600(#include <stdarg.h>)]TJ
+-6.3 -11.5 Td
+[(10:)-600(#include <stdbool.h>)]TJ
+T*[(11:)-600(#include <stdio.h>)]TJ
+T*[(12:)-600(#include <stdlib.h>)]TJ
+T*[(13:)-600(#include <string.h>)]TJ
+T*[(14:)-600(#include <wait.h>)]TJ
+(15:)'
+T*[(16:)-600(#include "auxlib.h")]TJ
+(17:)'
+T*[(18:)-600(static int exitstatus = EXIT_SUCCESS;)]TJ
+T*[(19:)-600(static char *execname = NULL;)]TJ
+T*[(20:)-600(static char *debugflags = "";)]TJ
+T*[(21:)-600(static bool alldebugflags = false;)]TJ
+(22:)'
+T*[(23:)-600(void set_execname \(char *argv0\) {)]TJ
+T*[(24:)-600(   execname = basename \(argv0\);)]TJ
+T*[(25:)-600(})]TJ
+(26:)'
+T*[(27:)-600(char *get_execname \(void\) {)]TJ
+T*[(28:)-600(   assert \(execname != NULL\);)]TJ
+T*[(29:)-600(   return execname;)]TJ
+T*[(30:)-600(})]TJ
+(31:)'
+T*[(32:)-600(static void eprint_signal \(char *kind, int signal\) {)]TJ
+T*[(33:)-600(   eprintf \(", %s %d", kind, signal\);)]TJ
+T*[(34:)-600(   char *sigstr = strsignal \(signal\);)]TJ
+T*[(35:)-600(   if \(sigstr != NULL\) fprintf \(stderr, " %s", sigstr\);)]TJ
+T*[(36:)-600(})]TJ
+(37:)'
+T*[(38:)-600(void eprint_status \(char *command, int status\) {)]TJ
+T*[(39:)-600(   if \(status == 0\) return; )]TJ
+T*[(40:)-600(   eprintf \("%s: status 0x%04X", command, status\);)]TJ
+T*[(41:)-600(   if \(WIFEXITED \(status\)\) {)]TJ
+T*[(42:)-600(      eprintf \(", exit %d", WEXITSTATUS \(status\)\);)]TJ
+T*[(43:)-600(   })]TJ
+T*[(44:)-600(   if \(WIFSIGNALED \(status\)\) {)]TJ
+T*[(45:)-600(      eprint_signal \("Terminated", WTERMSIG \(status\)\);)]TJ
+T*[(46:)-600(      #ifdef WCOREDUMP)]TJ
+T*[(47:)-600(      if \(WCOREDUMP \(status\)\) eprintf \(", core dumped"\);)]TJ
+T*[(48:)-600(      #endif)]TJ
+T*[(49:)-600(   })]TJ
+T*[(50:)-600(   if \(WIFSTOPPED \(status\)\) {)]TJ
+T*[(51:)-600(      eprint_signal \("Stopped", WSTOPSIG \(status\)\);)]TJ
+T*[(52:)-600(   })]TJ
+T*[(53:)-600(   if \(WIFCONTINUED \(status\)\) {)]TJ
+T*[(54:)-600(      eprintf \(", Continued"\);)]TJ
+T*[(55:)-600(   })]TJ
+T*[(56:)-600(   eprintf \("\\n"\);)]TJ
+T*[(57:)-600(})]TJ
+(58:)'
+T*[(59:)-600(int get_exitstatus \(void\) {)]TJ
+T*[(60:)-600(   return exitstatus;)]TJ
+T*[(61:)-600(})]TJ
+ET
+Q
+Q
+endstream
+endobj
+150 0 obj
+2896
+endobj
+154 0 obj
+<</Length 155 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.643 736.5 Tm
+(auxlib.c)Tj
+-120.929 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(62:)Tj
+ET
+Q
+Q
+endstream
+endobj
+155 0 obj
+531
+endobj
+159 0 obj
+<</Length 160 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.643 736.5 Tm
+(auxlib.c)Tj
+-120.929 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(63:)Tj
+11.5 TL
+T*[(64:)-600(void veprintf \(char *format, va_list args\) {)]TJ
+T*[(65:)-600(   assert \(execname != NULL\);)]TJ
+T*[(66:)-600(   assert \(format != NULL\);)]TJ
+T*[(67:)-600(   fflush \(NULL\);)]TJ
+T*[(68:)-600(   if \(strstr \(format, "%:"\) == format\) {)]TJ
+T*[(69:)-600(      fprintf \(stderr, "%s: ", get_execname \(\)\);)]TJ
+T*[(70:)-600(      format += 2;)]TJ
+T*[(71:)-600(   })]TJ
+T*[(72:)-600(   vfprintf \(stderr, format, args\);)]TJ
+T*[(73:)-600(   fflush \(NULL\);)]TJ
+T*[(74:)-600(})]TJ
+(75:)'
+T*[(76:)-600(void eprintf \(char *format, ...\) {)]TJ
+T*[(77:)-600(   va_list args;)]TJ
+T*[(78:)-600(   va_start \(args, format\);)]TJ
+T*[(79:)-600(   veprintf \(format, args\);)]TJ
+T*[(80:)-600(   va_end \(args\);)]TJ
+T*[(81:)-600(})]TJ
+(82:)'
+T*[(83:)-600(void errprintf \(char *format, ...\) {)]TJ
+T*[(84:)-600(   va_list args;)]TJ
+T*[(85:)-600(   va_start \(args, format\);)]TJ
+T*[(86:)-600(   veprintf \(format, args\);)]TJ
+T*[(87:)-600(   va_end \(args\);)]TJ
+T*[(88:)-600(   exitstatus = EXIT_FAILURE;)]TJ
+T*[(89:)-600(})]TJ
+(90:)'
+T*[(91:)-600(void syserrprintf \(char *object\) {)]TJ
+T*[(92:)-600(   errprintf \("%:%s: %s\\n", object, strerror \(errno\)\);)]TJ
+T*[(93:)-600(})]TJ
+(94:)'
+T*[(95:)-600(void set_exitstatus \(int newexitstatus\) {)]TJ
+T*[(96:)-600(   newexitstatus &= 0xFF;)]TJ
+T*[(97:)-600(   if \(exitstatus < newexitstatus\) exitstatus = newexitstatus;)]TJ
+T*[(98:)-600(   DEBUGF \('x', "exitstatus = %d\\n", exitstatus\);)]TJ
+T*[(99:)-600(})]TJ
+-6.3 -11.5 Td
+(100:)Tj
+T*[(101:)-600(void __stubprintf \(char *file, int line, const char *func,)]TJ
+T*[(102:)-600(                   char *format, ...\) {)]TJ
+T*[(103:)-600(   va_list args;)]TJ
+T*[(104:)-600(   fflush \(NULL\);)]TJ
+T*[(105:)-600(   printf \("%s: %s[%d] %s: ", execname, file, line, func\);)]TJ
+T*[(106:)-600(   va_start \(args, format\);)]TJ
+T*[(107:)-600(   vprintf \(format, args\);)]TJ
+T*[(108:)-600(   va_end \(args\);)]TJ
+T*[(109:)-600(   fflush \(NULL\);)]TJ
+T*[(110:)-600(}     )]TJ
+(111:)'
+ET
+Q
+Q
+endstream
+endobj
+160 0 obj
+2532
+endobj
+164 0 obj
+<</Length 165 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:49)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(4)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 283.643 736.5 Tm
+(auxlib.c)Tj
+-120.929 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-106.114 -36 Td
+(112:)Tj
+11.5 TL
+T*[(113:)-600(void set_debugflags \(char *flags\) {)]TJ
+T*[(114:)-600(   debugflags = flags;)]TJ
+T*[(115:)-600(   if \(strchr \(debugflags, '@'\) != NULL\) alldebugflags = true;)]TJ
+T*[(116:)-600(   DEBUGF \('x', "Debugflags = \\"%s\\", all = %d\\n",)]TJ
+T*[(117:)-600(           debugflags, alldebugflags\);)]TJ
+T*[(118:)-600(})]TJ
+(119:)'
+T*[(120:)-600(bool is_debugflag \(char flag\) {)]TJ
+T*[(121:)-600(   return alldebugflags || strchr \(debugflags, flag\) != NULL;)]TJ
+T*[(122:)-600(})]TJ
+(123:)'
+T*[(124:)-600(void __debugprintf \(char flag, char *file, int line, const char *func,)]TJ
+T*[(125:)-600(                    char *format, ...\) {)]TJ
+T*[(126:)-600(   va_list args;)]TJ
+T*[(127:)-600(   if \(! is_debugflag \(flag\)\) return;)]TJ
+T*[(128:)-600(   fflush \(NULL\);)]TJ
+T*[(129:)-600(   va_start \(args, format\);)]TJ
+T*[(130:)-600(   fprintf \(stderr, "DEBUGF\(%c\): %s[%d] %s\(\):\\n",)]TJ
+T*[(131:)-600(             flag, file, line, func\);)]TJ
+T*[(132:)-600(   vfprintf \(stderr, format, args\);)]TJ
+T*[(133:)-600(   va_end \(args\);)]TJ
+T*[(134:)-600(   fflush \(NULL\);)]TJ
+T*[(135:)-600(})]TJ
+(136:)'
+T*[(137:)-600(RCSC\("$Id: auxlib.c,v 1.16 2013-08-22 13:59:59-07 - - $"\))]TJ
+(138:)'
+ET
+Q
+Q
+endstream
+endobj
+165 0 obj
+1751
+endobj
+169 0 obj
+<</Length 170 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 278.981 736.5 Tm
+(yyparse.h)Tj
+-116.267 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-93.5137 -36 Td
+(1:)Tj
+11.5 TL
+T*[(2:)-600(/* A Bison parser, made by GNU Bison 2.4.1.  */)]TJ
+(3:)'
+T*[(4:)-600(/* Skeleton interface for Bison's Yacc-like parsers in C)]TJ
+T*[(5:)-600(   )]TJ
+T*[(6:)-600(      Copyright \(C\) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 20)]TJ
+-26.2 -11.5 Td
+(06)Tj
+26.2 -11.5 Td
+[(7:)-600(   Free Software Foundation, Inc.)]TJ
+T*[(8:)-600(   )]TJ
+T*[(9:)-600(   This program is free software: you can redistribute it and/or modify)]TJ
+-6.3 -11.5 Td
+[(10:)-600(   it under the terms of the GNU General Public License as published by)]TJ
+T*[(11:)-600(   the Free Software Foundation, either version 3 of the License, or)]TJ
+T*[(12:)-600(   \(at your option\) any later version.)]TJ
+T*[(13:)-600(   )]TJ
+T*[(14:)-600(   This program is distributed in the hope that it will be useful,)]TJ
+T*[(15:)-600(   but WITHOUT ANY WARRANTY; without even the implied warranty of)]TJ
+T*[(16:)-600(   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the)]TJ
+T*[(17:)-600(   GNU General Public License for more details.)]TJ
+T*[(18:)-600(   )]TJ
+T*[(19:)-600(   You should have received a copy of the GNU General Public License)]TJ
+T*[(20:)-600(   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */)]TJ
+(21:)'
+T*[(22:)-600(/* As a special exception, you may create a larger work that contains)]TJ
+T*[(23:)-600(   part or all of the Bison parser skeleton and distribute that work)]TJ
+T*[(24:)-600(   under terms of your choice, so long as that work isn't itself a)]TJ
+T*[(25:)-600(   parser generator using the skeleton or a modified version thereof)]TJ
+T*[(26:)-600(   as a parser skeleton.  Alternatively, if you modify or redistribute)]TJ
+T*[(27:)-600(   the parser skeleton itself, you may \(at your option\) remove this)]TJ
+T*[(28:)-600(   special exception, which will cause the skeleton and the resulting)]TJ
+T*[(29:)-600(   Bison output files to be licensed under the GNU General Public)]TJ
+T*[(30:)-600(   License without this special exception.)]TJ
+T*[(31:)-600(   )]TJ
+T*[(32:)-600(   This special exception was added by the Free Software Foundation in)]TJ
+T*[(33:)-600(   version 2.2 of Bison.  */)]TJ
+(34:)'
+(35:)'
+T*[(36:)-600(/* Tokens.  */)]TJ
+T*[(37:)-600(#ifndef YYTOKENTYPE)]TJ
+T*[(38:)-600(# define YYTOKENTYPE)]TJ
+T*[(39:)-600(   /* Put the tokens into the symbol table, so that GDB and other debuggers)]TJ
+T*[(40:)-600(      know about them.  */)]TJ
+T*[(41:)-600(   enum yytokentype {)]TJ
+T*[(42:)-600(     ROOT = 258,)]TJ
+T*[(43:)-600(     IDENT = 259,)]TJ
+T*[(44:)-600(     NUMBER = 260,)]TJ
+T*[(45:)-600(     NEG = 263,)]TJ
+T*[(46:)-600(     POS = 264)]TJ
+T*[(47:)-600(   };)]TJ
+T*[(48:)-600(#endif)]TJ
+(49:)'
+(50:)'
+(51:)'
+T*[(52:)-600(#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED)]TJ
+T*[(53:)-600(typedef int YYSTYPE;)]TJ
+T*[(54:)-600(# define YYSTYPE_IS_TRIVIAL 1)]TJ
+T*[(55:)-600(# define yystype YYSTYPE /* obsolescent; will be withdrawn */)]TJ
+T*[(56:)-600(# define YYSTYPE_IS_DECLARED 1)]TJ
+T*[(57:)-600(#endif)]TJ
+(58:)'
+T*[(59:)-600(extern YYSTYPE yylval;)]TJ
+(60:)'
+ET
+Q
+Q
+endstream
+endobj
+170 0 obj
+3577
+endobj
+174 0 obj
+<</Length 175 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+/R7 gs
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 12 Tf
+1 0 0 1 52.6641 752 Tm
+(09/11/13)Tj
+-0.659766 -12.8 Td
+(20:17:48)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R10 28.8 Tf
+1 0 0 1 529.994 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R12 14 Tf
+1 0 0 1 278.981 736.5 Tm
+(yyparse.h)Tj
+-116.267 18 Td
+($cmps104a-wm/Examples/old-2012/e08.expr-smc/)Tj
+/R14 10.5 Tf
+-99.8137 -36 Td
+(61:)Tj
+ET
+Q
+Q
+endstream
+endobj
+175 0 obj
+532
+endobj
+4 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 16 0 R
+/Font 17 0 R
+>>
+/Contents 5 0 R
+>>
+endobj
+18 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 21 0 R
+/Font 22 0 R
+>>
+/Contents 19 0 R
+>>
+endobj
+23 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 26 0 R
+/Font 27 0 R
+>>
+/Contents 24 0 R
+>>
+endobj
+28 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 31 0 R
+/Font 32 0 R
+>>
+/Contents 29 0 R
+>>
+endobj
+33 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 36 0 R
+/Font 37 0 R
+>>
+/Contents 34 0 R
+>>
+endobj
+38 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 41 0 R
+/Font 42 0 R
+>>
+/Contents 39 0 R
+>>
+endobj
+43 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 46 0 R
+/Font 47 0 R
+>>
+/Contents 44 0 R
+>>
+endobj
+48 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 51 0 R
+/Font 52 0 R
+>>
+/Contents 49 0 R
+>>
+endobj
+53 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 56 0 R
+/Font 57 0 R
+>>
+/Contents 54 0 R
+>>
+endobj
+58 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 61 0 R
+/Font 62 0 R
+>>
+/Contents 59 0 R
+>>
+endobj
+63 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 66 0 R
+/Font 67 0 R
+>>
+/Contents 64 0 R
+>>
+endobj
+68 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 71 0 R
+/Font 72 0 R
+>>
+/Contents 69 0 R
+>>
+endobj
+73 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 76 0 R
+/Font 77 0 R
+>>
+/Contents 74 0 R
+>>
+endobj
+78 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 81 0 R
+/Font 82 0 R
+>>
+/Contents 79 0 R
+>>
+endobj
+83 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 86 0 R
+/Font 87 0 R
+>>
+/Contents 84 0 R
+>>
+endobj
+88 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 91 0 R
+/Font 92 0 R
+>>
+/Contents 89 0 R
+>>
+endobj
+93 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 96 0 R
+/Font 97 0 R
+>>
+/Contents 94 0 R
+>>
+endobj
+98 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 101 0 R
+/Font 102 0 R
+>>
+/Contents 99 0 R
+>>
+endobj
+103 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 106 0 R
+/Font 107 0 R
+>>
+/Contents 104 0 R
+>>
+endobj
+108 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 111 0 R
+/Font 112 0 R
+>>
+/Contents 109 0 R
+>>
+endobj
+113 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 116 0 R
+/Font 117 0 R
+>>
+/Contents 114 0 R
+>>
+endobj
+118 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 121 0 R
+/Font 122 0 R
+>>
+/Contents 119 0 R
+>>
+endobj
+123 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 126 0 R
+/Font 127 0 R
+>>
+/Contents 124 0 R
+>>
+endobj
+128 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 131 0 R
+/Font 132 0 R
+>>
+/Contents 129 0 R
+>>
+endobj
+133 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 136 0 R
+/Font 137 0 R
+>>
+/Contents 134 0 R
+>>
+endobj
+138 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 141 0 R
+/Font 142 0 R
+>>
+/Contents 139 0 R
+>>
+endobj
+143 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 146 0 R
+/Font 147 0 R
+>>
+/Contents 144 0 R
+>>
+endobj
+148 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 151 0 R
+/Font 152 0 R
+>>
+/Contents 149 0 R
+>>
+endobj
+153 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 156 0 R
+/Font 157 0 R
+>>
+/Contents 154 0 R
+>>
+endobj
+158 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 161 0 R
+/Font 162 0 R
+>>
+/Contents 159 0 R
+>>
+endobj
+163 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 166 0 R
+/Font 167 0 R
+>>
+/Contents 164 0 R
+>>
+endobj
+168 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 171 0 R
+/Font 172 0 R
+>>
+/Contents 169 0 R
+>>
+endobj
+173 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/ExtGState 176 0 R
+/Font 177 0 R
+>>
+/Contents 174 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [
+4 0 R
+18 0 R
+23 0 R
+28 0 R
+33 0 R
+38 0 R
+43 0 R
+48 0 R
+53 0 R
+58 0 R
+63 0 R
+68 0 R
+73 0 R
+78 0 R
+83 0 R
+88 0 R
+93 0 R
+98 0 R
+103 0 R
+108 0 R
+113 0 R
+118 0 R
+123 0 R
+128 0 R
+133 0 R
+138 0 R
+143 0 R
+148 0 R
+153 0 R
+158 0 R
+163 0 R
+168 0 R
+173 0 R
+] /Count 33
+>>
+endobj
+1 0 obj
+<</Type /Catalog /Pages 3 0 R
+/Metadata 183 0 R
+>>
+endobj
+7 0 obj
+<</Type/ExtGState
+/OPM 1>>endobj
+16 0 obj
+<</R7
+7 0 R>>
+endobj
+17 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+21 0 obj
+<</R7
+7 0 R>>
+endobj
+22 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+26 0 obj
+<</R7
+7 0 R>>
+endobj
+27 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+31 0 obj
+<</R7
+7 0 R>>
+endobj
+32 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+36 0 obj
+<</R7
+7 0 R>>
+endobj
+37 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+41 0 obj
+<</R7
+7 0 R>>
+endobj
+42 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+46 0 obj
+<</R7
+7 0 R>>
+endobj
+47 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+51 0 obj
+<</R7
+7 0 R>>
+endobj
+52 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+56 0 obj
+<</R7
+7 0 R>>
+endobj
+57 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+61 0 obj
+<</R7
+7 0 R>>
+endobj
+62 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+66 0 obj
+<</R7
+7 0 R>>
+endobj
+67 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+71 0 obj
+<</R7
+7 0 R>>
+endobj
+72 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+76 0 obj
+<</R7
+7 0 R>>
+endobj
+77 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+81 0 obj
+<</R7
+7 0 R>>
+endobj
+82 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+86 0 obj
+<</R7
+7 0 R>>
+endobj
+87 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+91 0 obj
+<</R7
+7 0 R>>
+endobj
+92 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+96 0 obj
+<</R7
+7 0 R>>
+endobj
+97 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+101 0 obj
+<</R7
+7 0 R>>
+endobj
+102 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+106 0 obj
+<</R7
+7 0 R>>
+endobj
+107 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+111 0 obj
+<</R7
+7 0 R>>
+endobj
+112 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+116 0 obj
+<</R7
+7 0 R>>
+endobj
+117 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+121 0 obj
+<</R7
+7 0 R>>
+endobj
+122 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+126 0 obj
+<</R7
+7 0 R>>
+endobj
+127 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+131 0 obj
+<</R7
+7 0 R>>
+endobj
+132 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+136 0 obj
+<</R7
+7 0 R>>
+endobj
+137 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+141 0 obj
+<</R7
+7 0 R>>
+endobj
+142 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+146 0 obj
+<</R7
+7 0 R>>
+endobj
+147 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+151 0 obj
+<</R7
+7 0 R>>
+endobj
+152 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+156 0 obj
+<</R7
+7 0 R>>
+endobj
+157 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+161 0 obj
+<</R7
+7 0 R>>
+endobj
+162 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+166 0 obj
+<</R7
+7 0 R>>
+endobj
+167 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+171 0 obj
+<</R7
+7 0 R>>
+endobj
+172 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+176 0 obj
+<</R7
+7 0 R>>
+endobj
+177 0 obj
+<</R12
+12 0 R/R14
+14 0 R/R10
+10 0 R/R8
+8 0 R>>
+endobj
+12 0 obj
+<</BaseFont/LSAWID+Times-Roman/FontDescriptor 13 0 R/Type/Font
+/FirstChar 36/LastChar 121/Widths[ 500 0 0 0 0 0 0 0 0 333 250 278
+500 500 500 0 500 0 0 0 500 0 0 0 0 0 0 0
+0 722 0 0 722 611 0 0 0 0 0 0 0 889 0 0
+0 0 667 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 444 500 444 500 444 333 0 500 278 0 500 278 778 500 500
+500 0 333 389 278 500 0 722 500 500]
+/Encoding/WinAnsiEncoding/Subtype/Type1>>
+endobj
+14 0 obj
+<</BaseFont/YZPPBH+Courier-Bold/FontDescriptor 15 0 R/Type/Font
+/FirstChar 32/LastChar 125/Widths[
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600
+600 0 600 600 600 600 600 600 600 600 600 600 600 600 600 600
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600
+600 600 600 600 600 600 600 600 600 600 600 600 600 600]
+/Encoding 182 0 R/Subtype/Type1>>
+endobj
+182 0 obj
+<</Type/Encoding/BaseEncoding/WinAnsiEncoding/Differences[
+39/quoteright
+96/quoteleft]>>
+endobj
+10 0 obj
+<</BaseFont/QGTUCD+Helvetica-Bold/FontDescriptor 11 0 R/Type/Font
+/FirstChar 49/LastChar 52/Widths[ 556 556 556 556]
+/Encoding/WinAnsiEncoding/Subtype/Type1>>
+endobj
+8 0 obj
+<</BaseFont/FIPNJN+Times-Bold/FontDescriptor 9 0 R/Type/Font
+/FirstChar 47/LastChar 58/Widths[ 278
+500 500 500 500 500 0 0 500 500 500 333]
+/Encoding/WinAnsiEncoding/Subtype/Type1>>
+endobj
+13 0 obj
+<</Type/FontDescriptor/FontName/LSAWID+Times-Roman/FontBBox[-9 -218 863 727]/Flags 32
+/Ascent 727
+/CapHeight 674
+/Descent -218
+/ItalicAngle 0
+/StemV 129
+/MissingWidth 500
+/XHeight 460
+/CharSet(/A/D/E/M/R/a/b/c/d/dollar/e/eight/f/four/h/hyphen/i/k/l/m/n/o/one/p/period/r/s/slash/t/two/u/w/x/y/zero)/FontFile3 178 0 R>>
+endobj
+178 0 obj
+<</Filter[/ASCII85Decode
+/FlateDecode]
+/Subtype/Type1C/Length 4884>>stream
+Gar>HGuR_o^-47uH`MZKBe$)>iE!"m<=upPK%3VheqsP8aIk;%J7p'6%O!&7(cD\^&-r:Lk'9i*
+kLteqLXoX5(%#kcqqBo8p@d(gp\*Q_mTT(thRD>`Dlp+IP-ao^:&Fg9^Fq-QmMq,'@eiDb1<$f)
+UL]cA=l/&:kf#+L`B!Q'FpZ9Zq0hBRB*f=#bk=IhCudC]ji(lhnAi:-MgH7Lj"hC=`DY>L_IW53
+*(bHG?Jm=g;>^@*Eoj>$Ha>Ue1c-nok^QY8_o90LoW5jiba/C9<$op*BB?f=(rkp.8gT5oe"oM(
+N8245_hZ3d]uOS\UuJ/#>:!1(>V7N4HmS.*Ja7o?f</^,lZYoU;tG&4T10m39,8E_&Jufhc^1Ni
+r;RLhU6`NW-'O+&aiVfN02,6=(*2+S=IbZh,rmI">TL0uGjW)o6C(Ku9@Rio%i%[L9J*19;UJGP
+'hcMCmo&[T(mR@?;aJnKC+H]Og.qU#HCp(fG#Gq#5ADA7%.u15:[ohs-(m6I18_G.>Y7]GAM%J9
+c4S=cA'\Yob[o,Fj36ZpE*qe^J3Q!pm_W'c2U?kZfmNhqnc`DepjskWctB?(7\</BmsR.j.X_9X
+B;`rNB$ubGa,SMsnuu_8h>Dn+]d)PqZ-]*G'QV=S=mZ^)>[*_#/l:I/2b5KAG1Tq;Wh#m5GTI+%
+\>(S?jgK!$(8)YD+gqG%YT:r&Y_.u;m`(?1F8Y5WjJ$"kaSKWiLJP5ql'M0&<_$^AK&*i7";.U9
+-q^Ct.toICi<""!Wd6K1nK9f<WjR9U_/o"lm33_Y-pj\fpMN%Y!X[E2H?9YV,4K*j`&e4"arT5i
+pOU_T:aFFW(CM(@qJLUb2ll+'h!c='>NoZ^Gs6I!&X(*t/B@bBs3Z=*+^VP<-h<cu,NDR,?:gFo
+cG=@9+&6T9;';$-./k4BJj5g:H:u?3,+20Jjs$=pn#-+Jp:iDCo,fUER;;%5r7Xa^W^UmRVVa%q
+blDFL::J7HH-;K*%!W#H_:t6D3ckhj[:&2h]7(/S4TFkp/q+[&ZfTqCpEo"?,`/CKaV%O6TnueW
+n>gL!HRFPDh`gcMJV9T`G1cemiEi5PK%u4qqSA!)mJm&nRYt=,Ga6$R(*A6E2/em+:TD2T!(6Bh
+i9J6.QUebY5GR[&mmUU=G*B.baV"_J)jg;n!o,`cQCrGhrJq3YI<G82LS#8Rc3j$ZN35[(6=bQ1
+L5l)jZ6H][+a?O^gFr,mZ.CcQ+2tY.)!AXr?Gt$^J&IiP12]4JP&n`C"QeDAPYuA*RB>RnW!Qpd
+K>?*[V/_7*2QY'])H0:/3jhF+1[J`U$,S^Xm[BRs+^WC3*7V!'=pmF%AU#Y:[[YI@<.N^MV]'E'
+Z[2]+U/ntNA/DDA7t;\1aFIs1LNRg0D51Ir2csiGlOiK^/PZoj.mWVoismXC%\jDJZRT8E'#aU=
+J,F[q9s%Q*-Yuc6R@FPk]:-;9$9XK9XM"$*dGKN.&t>MrfqVpd,LEo74`lcUe*?tL<?1l2,2OgI
+)8<p?`@l7Rh"("K@mrg8&t"d;U8s$]-@:2j<VGEH;/p#kq[Yh\'MTVd.W!6r;F/`.=e%nFCfL`K
+3_J*_QXDNSG&hG[.LQnC0;94>Pd`@aBejgTPr::e\j#rcq:pPW_]hEQQSkd(:m^*.?h`eX]omMT
+69j8'^Hh\gq`D'Nm$qD#H[tL*/>%--3JLd/L".G*QC(:'H?"%I@W<jX4jY'@7e7"dXKpVb%XBut
+,Th"boHmp/GHCb[J5B0GOJC=g,=.cul^A)$#J:;VEkT.A)<IPN2Q7YnDb]8oN0bkPpH7?W4eSi;
+/]*Ri3ku\2Ju`JUH5$mH(*K#JXk(VcV:nTG%j)f3'ChO\IBm)ecB^>dciH\;_5=PY?]H+Em-54D
+O)mVf0;>KE]P"bBK*D>YB=3NOjC-H.0r_+eT[@198u+6(lJu_P:;@((V`]qMEXGWYSaD@F\k%tk
+N0MoZ4>AaJ9i4h'9G.G6_%!6$EX-Uj:eSKMY_q-,SdMiig\%[gGVT"CTK^i-Y!LUZm]>kf>0[uS
+4jc-_<LIT`^kSk))c&-jn4Q%<R'kYc\,_!M*rVq68NNO#J)VFFb$PtT:=6[;jX\kbZO4N2A&CkM
+h?VC2F-!=aIlQ,p#JnsZ,Xg^=$JX9=4KVTueJ0u>H#86UfjIm2l\T[g=Y[d!J->7=)Nr)8Kk^oT
+!dSbt-^1^'*,W6*7EBQ<X)9O,>s-3H5BMie,&=pO,H85L5b"g?PnY@.+WDC;<<72eF;XnHKO,Si
+d!p&?E8U9^J;YpHKoONEj>e1rn.#)2GP*lf<si2CSI5"T4%r2)[+bEtWS+(!dM/]E!OAu)60(EC
+:0VW_;li?d>0r0G21>@O,g-5pQ\8tJlA\<V"=j>T$co^*c5N1qkn2al$bn'?<@3V1R09J0=F-du
+)[Slc$a-aP:?04k@,ocnS,$YhMFqd=Y7Y:_35qPfZ3o7r4Af=G,+<?OdK`:V_?#_f*4ut=I-\ff
+]->];$AGa+O.R<(E:<^:i^_XX4$rZ^D!Q=<[oq2P'a>^7"s.<[MVI#j;I!C6.Plrg,s;Ch)H0#&
+'@dCcZcb7E@<+q>K?hmlSR%)_Ua!ThE+O452l7gb!3,N5PaUh'I"`K,:l.VJXfs7TPg"Ok(?Q\&
+cPa?7Foj>o8;)WZ<R1S)8%VdZ`PE?IVh`eW`MR"Z_>M5'l+'Xs#4M<oKAS<<qWk@aQf\k0jP+7j
+74h'Wg$3IEfQ(Rk6<mrFW[L&&[LI)*jSA[=R!n6fA)FMpX.?eibL#^mI?AkgY+(,J-gBd6m$ZJi
+chXp;!/5)DS'9++*,pOSX47['fV'2J]B+.kY(:JR#Y=ZjKbVuO%S9K9^G\0]kZp1F.R;2,M@^GB
+:?r+&<[leMYE3&kE7O:m:;bPP^47-dq;&-TLU_;lNITONnVR^E7Sm&]Nlho,2__@.?Y9Wu;44-8
+TbJ1CHY!Yl,</T%:DK""+RYTJ*F]9n";),hM*-"F2*>O2R-2\dBEu>S\]AI6l?,OL3Vk906__?4
+$Sgi"mCOI3gE.s:f'k$3lGm;"7BaQOr5?(-ZZ_uiPh_IFWT]^hT_o/8=1Eu\oK>55RDT85p7Z`<
+^ITp/T.1@ATo]Pp=HC9oG:mB?9M"U1<W'FTK-OIE("=jW^'=TS"Y9Fh8iQ&p-F^$^S1J1VERNZe
+XJJ4TeLYO\Y1GTUf]I'h)c#\R]e`]<+Bt)$A4WnK",7lqRbZhqGBMUnYF9FA5c@[aL[IET"8dX6
+`6.)#=C4h`?&\<]p^r#BFDoWJ"OD:fD\8*7J@=]"Oet@m8rUYu7lMSd"A_oZg:/LVGP;+]^')Y\
+M)NDY[oadIG!f9+Pp%>2DDri!Are]gbu><i@*VDN+L4IDc^aa!=bGN%Dr(NppbC?E#Q3)q$9)=.
+/TbM4P#P["E5U@55L@s<koN3)d(![5]14t%d^bgWTcPiTPQKVp3-6Pgc>I&5V:WHKKgm]tNG=Fd
+I0"=MR'>K]EeT.tF*Vc3M=a/aGFe[8IWdJlFaQJI\jCWa42\Fgl##4rjM/JfjMAQkrU2muSJ_Z.
+E0s]lXbl2=(mNNSS<^KQd/J.XWW3CTlaD*IWHWp\eHUf\)[8Dc%N"WrH$M/JCL23\>AI#Y?<``Z
+O6VJ0=C3j_I"omY/6+_B*,oR(7C*/VIOZiUo1j:b$PZV_ZD\\gO8qcN*(Y6W9.a_@12E;nY.'j]
+)4$MSZpKHRB=YND<iJ1B"0ric#5!#nqXj(;*kT3feR2es@!@`D2>;>a>q&-sL(^mtb6U8G!'17I
+>/],G6Y*GEe%g6t2!Z74Cc<#+%C`LG^67`6IYX@hFkHc6W&50!-7YPo6r[k@kTZgPABsXBMY12=
+bWKr&3A%eWH8pm/]H=SO;7KB%h5bKVCPripUrI1;[C:amOlHMJ(0)A9%e1)q(;%IrlY%5U)FEq(
+CBamE9Ruj%FA^nHk.*`VV5ai-Kt&&nNXmt=7ds<^4@DTc)9$DG6lMIf1)J$?A6Lh7kdUVj!^-MP
+a)=GeAOj`GM_7T4@Sd]#WC%lf*C_$h.2['+&hr^*A$<.tisPL"7]&]6MJJ0^ZKaP'r9QZDR5rsK
+XH&gB^<Vb1^?j-=&Q9XVB1BtDSsTiC^W.Whs4YWkbY'\Uc5HXW<r4-.I)O#_Ahb4#.+9pqpPK8B
+A0)qr!Aa,fhN=TEE[T6>BY8&(B_(.;7]'X%Lf8oqT?&3b=Z1d+'LOQ`,#/JM^HUnsn6qi,$F:iR
+)_)pfggWB=*jY<-`W:?<R%jlYeTFklQ=a?"'a("m>1HK4QUd)Rnqp(>-0hcMDjbrW?rLXA".b/<
+cVJoa0&:]?Kti,YVIauY?W3L2V("E\"N8*pRrJ/359.FrmKrm'EGB4[^AL?4_P7ao;.Y!13T.h?
+LAPm53.35j_r_%e)qKke<YEO%dP!_jlG5!R1SWA@T=XdZe0<`[ZkO>J?`#'3\E(YG,\I?',]<\>
+Y>b4Ua'A2lFZqO#Yn94krZtHdchMY[:YacH)p<+ghdm]IO4/XZbD/GpkVN!VfZ,KJCZBcXn%5ot
+X:b$;,ueQlFP@2,hVX&JfOsKuhh8Wk1aP.PI(t;&bP5H4CJRHIiVNij^Ah6hjPR,LN_Q)WSt"`C
+RnQ&+-K*sad;,A6-Z+j+*K1U=c".0GQ?gOGL"j?Q@d\Y&]pUM5@lBEj-bD8ri&+(/LbQtDNatfD
+KniJ[g>A9;,-=AdWk*<YOs.'@1A4E0'<!,$F$ED=dnQ1Ff*;6ZDV+X5&,-KS]1:7O1h[`WH?)L:
+*od&W`"cZ`Ik%;ZF\&qGnO"W144%\`EH(DZ!urLLo7)R4Oe\I\H[=CX(%a$Kd'4W3mG[caJ$>Tt
+mc3o3fuKGRrWb9)[''~>
+endstream
+endobj
+15 0 obj
+<</Type/FontDescriptor/FontName/YZPPBH+Courier-Bold/FontBBox[-21 -205 623 695]/Flags 35
+/Ascent 695
+/CapHeight 597
+/Descent -205
+/ItalicAngle 0
+/StemV 150
+/AvgWidth 600
+/MaxWidth 600
+/MissingWidth 600
+/XHeight 451
+/CharSet(/A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T/U/V/W/X/Y/Z/a/ampersand/asciicircum/asterisk/at/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/c/colon/comma/d/dollar/e/eight/equal/exclam/f/five/four/g/greater/h/hyphen/i/j/k/l/less/m/n/nine/numbersign/o/one/p/parenleft/parenright/percent/period/plus/q/question/quotedbl/quoteleft/quoteright/r/s/semicolon/seven/six/slash/space/t/three/two/u/underscore/v/w/x/y/z/zero)/FontFile3 179 0 R>>
+endobj
+179 0 obj
+<</Filter[/ASCII85Decode
+/FlateDecode]
+/Subtype/Type1C/Length 10449>>stream
+Gatm^$!7kmrq8b$A?&[7j&jYd!NfQ"XnGq6lWUD0mL(.<7"hduI7m\J!T=RmOq9q]@1,@:6,<^>
+[B=XdCTVHUfCnphmd2l4gRdpso`';O'#Gj>s*_WEHUO1DbZTD<qg75X)%PUhK]$f/cRp"]`/9.V
+B.O]dlsi8I`Jih20+MDsE_AfO:Y_PCjh=-a.i\.thJ`rAmKSEX=2$ZW`[F=V4M3`g8tI9_31T&7
+_fBa=8usEd1u@P`D4>`CR5So.cR3d?J,OMn]d^*7?7UWf6m5E6POL5^_%G\jaPa#l2nYI:]-ALf
+6!b]H.FFi/?@i"I"n,qCgE%1D*:C44'Hr?o(+4FAZ@%P]gtB$sbeW,uqhQHj-H(23(Is=qep4N)
+kjo*H&-5G!FtOI*/s#^1&bC24b.(IAmj+u0>a#l32L4c&Pb@]Kqg<uSm,&Wm\llBdChrgSM!^<d
+r28qN*\_*ub]d^eR4XgOSXVP+ebQCorPNuupt$lEI//bYM^H+tq5m^6:K]H<+N>'6Lt@Ii`("2Z
+nM7A+G_;ASCaLJ@>DUD><oOj')_m'!:.usW&CZH+`%kd_iCb^LAe9F0$=Y@@:V9EG,$#>_M,hJ6
+iZ2Jc0ooF(]Lo7OjqI':f80+<56r??!O7Ft::s.\9>!]P+;PV8M'^)]`)>T?@M^bV#U&o\DIPFg
+'4Zh7#S,fZ$m@_>2e">s:5gF-`/=ai]L;5p!C7;aiYfUk(eT#d_hd.$s7hnTS@q9r*cg+skB>'t
+$eLBMO*cr;nj4a^](Jbjd'Z5j*;7qPIDc*`D!VFJ7,c4$c]*>?o(1hd_bh3K%/q?D=,m332UK3u
+=ZY]k(\0[po(^MZ10-+&lZ&E7IIgpu98d.l&H"obMbkn9iO.3/mT&ZIaEsMfa?/.g`;?k7cf<W;
+5<NB(KImii^HCoFZP-];=>NN&aa6qDV#&2s-L[E$fdi[jH#BYFe1FV6TD%QWT;RH<c^FdcN/9?*
+AiuN-@+I$of+H61^jaB8QWP0n*9L6\Q`f&\N@/4d10:WAb2oTF'hG^['"LbOaJf@X'Ts3(7&)=^
+e`k;n$quQ,FIc)Uf8'IuB9GAR"<$TS<[O/T4Y+u3okH"MY*!Bu-U/BfnRYMZfMksal>Zjslp%FT
+<i")1""KnD]#9<:FrJUKn%u23G/4shPs*>Hl=W0e\%f^C!I$5uko$8uW'R:A.OR(W7"b!Oe0DL<
+P,W]25bXKVF_sRIPo/TYY-#4GB%?3@:X,nkCInGq1FF-cmGkA'ir+OD-#[-W8iU/F$/r@A<_G:q
+PjK."2*>h<q.S-kYj/nJ]>7MjP55D[Nl<cU((N^I%N<WD5)8\Yb<W`g0I]ZD>a*DU'7_>uThLe'
+,X;\Lo]`fkR>BlX*HLG(\e7j(fs<RkTOsB[O:*gK4,p=4Bi2dYBY=XSM#=d['9XR[7Mk>hc>C/c
+2=A;V16L]X38EO;)BPnR8cb'G:+&/H?[ZBdE1UPEFu\=g^$VSDZGUe]Ao."pJ$RO$1="k"*lF;b
+[7Xq('qXq0$&@BNrl[/rqsn>BT/kb-hUk$ck62qPXoK2[4dRL^\Xo#LPf;o+5a@LUj@r![kfLG[
+3%cVp04MI'ED[J\a2;o0US'nU,Gk1M>:&F!\?R3OPZ7dt3f+lCgGqdkn>>"N?=:4jkS;%,KKRTu
+8A5McJ)hh6#1A<TN4akTPNd"'DHsb`jefS0='kaio:$Q2(HT"G"Bd]<*tRlIWbJsCb./G]:q!J5
+e2pq^09WZERRP6ihK=4&UfKAU]nfteU:&WM$E>)Kb.t0#gccMZAWNmjn>_^2!IPp0\S0t@?M"4X
+<oWUN.eZ8EIaN_EdfDO[%>gF@AnP`/7@$f1fGCl^/^+ruJ((td<4cW[RYccn&a36RC*&fRT0mMc
+X\V,1CH*q[W\1c4.]PD@.QT^;.l1*8/I!=r'e9_klin.BrmhOjn2g%4:[e54e1?s;$L/o5oRaRT
+E>kZSTiDq0-,9XU[JH%1SYd7R;#fO+RTuse8+C5YasFW`EN('JQ(GjI$OX7.SfK<JS58OV"']m#
+#P?]Bj-%S:GWbgDNeI%X?]it:5Y7W@n-#J13$*AY'\gI^_@';?O/-]YYug%5Kd0dZ19qN0HDRgn
+@3q<g##Ld[3/-n#gH_OhRT,VU^)r#*Dm/o+5L67f<^V.*?%p(/C"+.,cL>H@G0Vaa.)B[.YgYRf
+`c-FpS;uIcJQRo+5d$HBjQ<'$lTd&p0jM[bk<&Lpac%<H_?8BE,*bo0R]=7u"B'q)6RbrHJllbJ
+YBp=eN&nT*Vfk*\4sf!H/OGf9pQ49_.oiLn[\'S6$>rciH#O76LX2\d!Ye9#NY3hS1?F>-hT;Z5
+4rhF$#7aB:L=V2Tmt+hE!"\Ei%i%T&KSO,T!.>m8BSU6eDTq\AoHnBMR9J!Tm@lFrc@acU<uajM
+*tqc\MYfY\pJjWK-N/r/Rb$G)]d?E?A'i:eZ_?mZ#ug.m+draBk\oAQ>nNYJ&sXSu9bthP5p-a'
+A':VsPFFi_BIn))X0e0OlJ&oJ!@L"nL7:,ALbj!3bbi-UOs!LE09GLqB'bRVQTt,X8jP'?kWjU"
+0&)[i(6($_q]HpV5`V%'q&2_eFC-)<=S@t8oboEd;/g:52I=.Mf*t?Cr,/J!.;:E5j8[DX_s&GF
+;<tN0Z;QN8!0jcG4LkNLW?"Om$iqc_ca/\D!s9n1%Gc^1\72.OA1C-q;6eF1*`qNH#64Wh8@GL9
+)0XL^>o1G&$k<k?#Ubi6fjFZ)\@Q+=&a6Pne+(C.,G8ePWbc6=6_[^#@1>/K!^@6dqSn9H7d"0S
+lYmoT$m)Uo`!0!nbIS.cG9d0(n/<;=HF[h;XMO"YTQ_5X\!-!"=OGIQpu,qXiW#Ib#H065UueS8
+GK8ZQZF_1U!/J@/35gfE!H6>>"JZr@$^e;I"'u$J0J0q\W?ke!=!fF#qo\VIrE'Ju^\NjXQ\1rt
+<;<&b,293#:m@c,F=M`ddb8Ph-.XJqr1LtFK,93SS#1-o<uB7$P^80X;$KXC2SWAGRX@SJ&MKFK
+l112.0ur.Q(.OaFMO3PYl;W%C"d23?%d9js;s#l+)s'XLJHO9(h'3qsqCtapPOKUHVDXf.NJf/D
+o5$Fi5)Q7RL,36(/'6`!I0tJ.%eu?Il6<<D8&-G93Y-=73Z8t'lVEm#JD6_A5p*+d!2*/fQ1n[t
+<hEHHoAButW5b4-=#sTT$tP6S\A/HdibdUrYU4PjNpYRGQ@d**$6FH(Al[TWe%T0Zr<I]NcB`p+
+P&_JTcjn+U1.pO+$A76`E4$'NHMK&>aa)7uqrH51.F5e!Q%9ce?7<",jEJGi+V[\cG&'/bce^N\
+SJE2')bN@QAP9+^c;^h*WIisrrgDM,0G#%3Pc0Jh3`+dG@5,\2@kA\E)8kfW=K#oo/`lY`1RX.Y
+4Z`Wim32Q\L/0_iQ^<9752eH"^NXWCe$51>'TGUkE-s*;%<)=cB[!@qN[dh=bb7)n%f4o2&9rmT
+J$VI3rKBQd2Aag/R*opn1tdj;E^EP$bgO$1]8#+G2)a8,:`I>QVhM>rfB0f*Weis=.F.N=iB+lq
+nia+;%<4ne:Or&0_:Wajo)G-0Rnl+kEHhA&Ot.l9IeZkcks^9Qq>S7K"Ubi&q31[6@?2s":EH\r
+2`_-VG)\D:FOG)G*0TLD#T@\j34E;21?L8/nfXR%,2KRE8b`MdNr'[nJDY>OY(b.e`XP+f^5KU3
+R!m9j1U0a(Yrs`5)lu+L:u1('JA]`B&d7::',0C>6IJ2N#`*SOQ..H<0^JS>&LT9Q;!9dnpU`X`
+\d0p@$^RR4-elk#_$<r#Okt_kl!%gYpBU7rnG>Za)rR<9_J1EcfNY:r3P`J]MT?ns_["KKc6G9@
+\bk<D)PG'=nhfWXP6o8XZar]4fVr5P/1F<YYL3(c5BXfOq[ZcqUQ5<SPn2POaY4cGi%m@BNLHSm
+aG0od-@]9H*f]etR\&dt8A`^^&uhge"Im]83FEW0)d3Re!Hl(N.MBbmp(g*XLP*-FA^#&L\7fS)
+LnL'jo6G<NZE`PVJH's;FJlU*[\RdCe=J@8jl*7q5&+iS<ji@I_tYTLESO&k3V.^jor0=d"A_"Q
+?Ua7GOl9gNjK8I)VZErN1HaA@E.kMi(NpTGQTUA*!&9;]Vc>.l8i4Ef:-$634=[3<*Yn]JnXMZ8
+;F>f:Km<kLdEht*C!,lZ"'scQh:m9cOBRlTT'kY)iH*^XN5mL@"Jp?u3gk.V=0nh07q67k-DJn^
+^>]ghDc='F6u3FkIfD3r=J[hl`-^M6=b_ft]V_$'2sU%k8sXMY'J/R4)c,7'7.o.@4fVtRU`WM/
+TIP)?4<)_;IMmM?/l]2"Da.*I&_m@.`*E^0*cQL"`=fBUm#p]I;/hCGI0qfAe;:59919s3Lse\r
+Z/TFoqCY%Xo/V<0dF_Q",IH,B%B"R;$om!m`_\Tbk.?^/CiCJ'm,W(+TL%&g@jV7p-(PV:'H^oN
+at+7PF%QP3*+sY"5.q[Cgr]LLb>f92h\o$#34t_L_GnOQd1mp%RG@3(Sn<p[pS-Up%ZrI5E*e7)
+"4Ct\3M`s)o0uuN;P-[+PI^EA;RS9SBh[3s&i8X+.`"<,^O@uId^8P.d0-)!mB&[ke,ED^J&N,b
+\tRBs<`*GI,gV4aDMC8X+W&'BAn<?jiY6aGK()^bCi'">Yd)kr(#%qVN+]qGcn)Zc/1Hf*81@*V
+W3e%VU9qDhAJq8D99<s-Fjpn>@q<.Qa"s;D*/Y5F^F,]o4MXBUq\,<fj;[,O^0]o`iU[7]&nhQ-
+`h<kfJ/qn5+o*MVEcZeX>R!aCcH<sQKQV$?(IN/KV&UQBert3JM4DFBZZh_AC4l\1YgtC[3ps],
+)2Q29FdYm,ojR/I3/*-HW//'9=a@cCe;XS[am.6E"RM;>2J3*b15)HA!i"l!4\`O^)o,pe,r+?6
+J9U$3JMghXp#bu(mI+@Pr!_2T,:2NAWDH.Y6bsi!-W*&i5^,1cYU7p<#!tSb.g>m&57j*9CLaJ\
+NM$S7)OkJVfM"EX.hcjU@51NqV2TqZL/%dD!L#p[<g5I$da5rVd$VZ@n.7WHU137R0&lg]+Huhr
+LV!0olE#U3msf!5?m2b-5/MpR1uogKJgMZ8M9#e4#W^AlXBWH)=\]7&Mi3S1K'@2bZog^HP9H;.
+(RlEFk(2p.pa]>CICf'abK[M9>$MClD5CL>,>Nq5rZAfIF3IE:RYdV+0;1hu9o+;9R;b4J_jB;5
+?R"p>]-?%eZ)748>c?F"r,X4ETcpVcS2t6?O,sb*n,<#'TduH.NMFT;O*?m9rR:TD7LuLnCEXX4
+9c*+kAZ;+$#.6Y(&5^r8b.9(%3P%`uY$4sAM!l7jFRq'Brd]P<A.!r-g[F5'VN(IV[s)EjSI&]5
+_mKuZS+6egcZde:+b'V8k2W?Y%[ERfm1aZ3o*++]:g/@kq-THAYea!".jW#VLI91Q7mf4R#n1)g
+6pjNn."C^.UOtOeAhk%aI?"5<9LdC]M3F&Lo([&W*..B]BiDW_.rWK-Yg!6.%Kj*']:doLKUa^a
+rZQqj9S;L?c;Z'Z:Ohp6`[/g[D-X_urT-gn?bQBJd+)dt;G;%"G?O=f:%)(_<TMWBp)Z6UmU1#4
+UI*2ug=MK(cW;#[JpL7bAPP%Z*QS4)$8#l/O(5V)7gZ=RmG:Y:FRMa(f9,bA+*d8,S[:>s.6ues
+4.Pd/GHA^>Z1K^1;<\U)8B4]pmaI1O@JWldWJLdX3Z7_Orq9W7[p'B6!nXC.kM/O:"=W^<,Q5dK
+8UD<?%d-3'hY$U34hg5Lrm@9BpO41fUYsMp\E*RD'bj\g/+EuCpAk]h$GJb\1h(EI!.XC&)a2k7
+K&f-i@k9GT3Z\dumPApuHjoTf].ldp7Uu)BWcSRmMuH:5Y)pVW<k_eN'0lBLbf,c(f5Eke-#?+d
+OPS"U.)V9TO]e)\9YtUnc_dqCX4PlZb63]+!0fom?$\f*PF/.iF\5a,G+0*TR>MJVb_":ukL/8*
+COPH&NusugD@:1j7aqP[?SsDiAndG#$,t=B/F&:=1g[e?.QU*J-jg3PaO-eAp,&c$`a0J/nSq\#
+3ZJpV>*/9i+GHD/V2ngs'C9i[d@EHHRm-lM?-!/Ao)k5"=/YI0b^i8t1i,8o7WoT7U\6q>OFu$E
+2pCk9B-u;3?6,TD5$\u7Xg8.I)nc+Jph(t(bs9b<;SkIo1-!R\mOn4.)W;TIj"VN+TZ`:TAnRoP
+b<T5Iq&YD:H_?!FS=F"5H51bDTtbP`0"0K3Ai]Db\`9@/AD>8P9MISk2l'=KY8=>$_XF!8rdhU>
+s(3oBNZVYI8KI,!'OE<?UR,mZMD\n_eo]DTG&h$RhpuJ]"G]f(l*JKM`JRBfh\X)Zri.G8T;biQ
+M&iA`&I%,.WNE]FWonpJ[Oi<h*"+hSGn6DM-V_W"0-71-!,cp6M++Su#)eNmH]Ek,+9b;nUrMi@
+ls01)@eRWm^J@P$2@IBC?%=TWk[jMk\%H'(WM^']fls/9A!0ukbL,HU!8QCujRIbRJP8rF.*C$#
+H^Y>%(1?C%o8uO-M]--F9!,Z?:t9*['A,3)FCW'li1Gb\(n#"0nGZr0"!T3n%^Uqp]\nI@c91NY
+rED]EON5,fFKiEfG$L"j;_1>gJ*PcbW_Y#RB('JL2X.GaXZBULj!M5+K1?1_68@r8/Jj`>%@;qr
+"He[PVL=i,-HSWo<0."'_1VB@kTC\bp+&hb_#eZqW9nqFLL(f;i6ROZW+IbXjA$g6UVm^G_``_0
+TRWu>kA%qZ&&b>61(]p##ICUCqd[%W@aciNk*,5Q=>bNkWGZE'g5b=pAV0LX-WV1uS?h$0*)*3&
+2bmJm!:l:YR5\C?FSf&e:K,=Tm8pXpNT^!'Aa5Kincd(/"lu=qL"?@W4V?,jVK@5KTVCK,@l#tl
+I?G/urp(#Wa<7MfT%<2,)L[WP?H/9j.#)6rPt7I0M'GOP.5dul%0iq+/&8)^_0sI"q>U"51'(qX
+5/G)dlO$?GpPB4$F'\8+rdj,+A_'I-"nV"QQpUO+G$"BZNclR3Dr0IF5<HY`7S^j086?J)b:3ag
+[8g57V:jRe$6e+0e'N9&QBIW;!)h/,Wq]aj;1Z-<jWII&[]`<fQFaYnQDhCn_A"aN1,:-9?t;'/
+"S@'HLLHLqJ%>G?EG&@pBUD"u]gYj*MQ%LFA)l$L,,kQjqU\&Z8ra>$4CbGPXjn`oVG_SVk,sEU
+4O6-_ET0<'PZjTO`U_R.<*E1'T[r3?YZ"*[N3AfD'mlg4CH4d>pg/?opT1=H^O.ii%/c;X+hg%V
+$c-Xo3Y0HC/aV-;'QP]!,.InRPrCRES@./Thc&a.hrr,J+5ONY^1m`3T"G@1X&c;-pujHE#agAf
+oT2Y<6*41#bH')o.WBYpQs^N.got4@!%m,[BU'bg-_/`^;'=;Wg5p0r.9$@'KpM:1>hSUdA#8:[
+/ZBpd,7nW)Ne=&d4E*4%**63Q.l;lg:;h:km3im,D@Mc*B7MDV-qh3QT:]1]0)2<$gGrclhl-&9
+KB'&.@GI-.k@d]:T'8C\W6;'Y?S;h8[&"!b>r?%"%^F-#QlnJ=s78l([5AK/X$-r0?r\rY.l:_q
+k+n(]JLD_^%tmk9<=-&JjT]dWTXZ.@UGl.U&!aR)l:/h.SYFVeag6]5pEiP;3YPEO)*][eHS$]K
+85aIp*$JI8-S(;,+Bfp)k=2G7'!Y:Y/!HE>?Fb)L!3tX$$anR`L3tf3BfMJp%R1MgYB$k.V7^"O
+Y.Pd@O;'.P,hApu2RQQdU+(aI^S;pZ3\"I;8d0Pi<re4hVE'ZIDo+Pi:Ic`W7R`ZA2QDJOe0XAe
+q8q^/:p;%[B?$f@U>tsj<e@_%Z7s9Ld:[5M!$tB2&F]Np"@mo^cIdAHf\UGV!%rigq`>S&i7`\@
+Lpc@B=O<@S4M3lQaH#iAJF\"tqkiT"pf_0!ThZtO3+OO'&#bu<U36\Eme:enj23htlo:`K4;gIq
+]LAjGM;/9=-9/O8d8"lkGdu$oHPN0j][j_&1MCb,20fV!9#@P]MsK"T<7q5'k8@mP!:'j.9K<Q+
+&($G^Jb=<<6AAR[e`dDuKdD=\Q,a>nJGSbghpOsmq^8J%eCI"pV$:L[)@MT4d9D(P",Hnua`?[V
+Yk^ic=`B4LUZ_Q.SrFA^1.)2iq1J(]q[nTdKkK9Jn'G'Rj:D"b!'3r<>F]P.l.%g[frD&g7s8%m
+T(REflgG+'Y)QQmk(;]+Dd*)MYBjRJ(&/?1/oPWEC+24H/lIf.g(34f"t/m3([)HlY!(UgHjij?
+*=LN,-9,\pRZNhRUo\k3=0@5XCc(08UT'gMZVo<\+SUho:8kRdPVe^4i&jKQIF.f`4C7Koq0HEu
+bAX8J\AsP=.d=U/4<l8Mg-n^:]0r@nAR8PHL7f$!j@>L`gOQ12Pa1@^;gVAb%n*:Xqje;Oil!L[
+nf_7M+8(nI[N.iqD_LU0AJW'WkUWdDA)KI\T6Ut;&2e7^`9jur=+USQ7r*aoG,ueOFak8K%EI8=
+rMP2G/%?L@G&8a`L-m\DrHQBnhq]IAf'R?=F67`=FWpbsZFPI(->9<\hu6WVr*%BfS85ejm(uj!
+,0&4]Us4tNaY<!aJ6%08=q?NR4rH0'VsK9_6#Y=s*))ILQo4@a*KN\8Rcb.@+=f,:J>?#=OlN6n
+Nu.7H)>!A/?QT1:6fFI!eiVeR\<ZX2R$5?.q(sZ'mf:,`O<DsMPau2<Kt(L9qP3(iq3b._)<B2m
+I_HtP!4?Z>qkY6e>HcjrhZ%>iUS\A?r.1EIL"T!5_tf`n9iXk]%.KLeJr;d%<TT)ocm"Mc,ef^K
+Q=ijhNp=?IWE/0$YZG?2]R&R:oB^HD/u7U)d[M3,YJ]ONd19;M/")7Vk:2#qA:$dH,h+]?/)(12
+\;:"gHU44(NiA&@"eJi!($Q/2Kgf!eV8[D97kH&=>u\trF64WUF"3U-rkWFgi:tejOZb&?GYQB7
+gDj)2bT=FTQJnKF5<ms%q>TeK4;%_JDRfm/EW1@@p>G4G2u&d9+50/K,X&O8b8lP*0td>1NGHA"
+@,\Y5&!B,AH<eOm:'REA*riH%>IW56/"DJu/(^X5VRoU`S?7#Xp@TW?o8Sti?j+%C-=]DHJbl=8
+_LNYr-SOiXV@/]JXJYrRpXjNZ#5ABBP9,R`NNn5*esEHmHL0/%Q/dJLEhqhi>AIto^7[0k>[#>%
+VBW^YX+T6D^*@\A=.<-X>S`<O:nc1Yb0J2UbKW[1n;uh61g,)29btfl*2tX`Z2OZfROs(,khVBK
+qgo;IT/^i;g=d<R%<*TX%63IhVsH@f[l6L_Tu6od?o%<i]m/AE`G]$dGN\R5f06h4F*3UaNVh,C
+YeVBDBQ'!2WNES-WDs3u.#+lUeEVR@18gC0<GIVd+[H'[L*e;`$6\k42+gLPkVS_P!E>S/%Jfgj
+IR=>,FUcIT_ZACT6R26)1?].>g_1C%MfK/G2'+6BUc8f3J1N'8e[Z*BH8*N=A?i-o8'=B"WOU<B
+Vt%h]dM.66:bF]F)k8M0q%a/:d:`/\N'VRp#Pui3iPae\Gr[;HZrL2Y=cA6*3^Ht]6^b(o<-d'5
+f>K0#3Huc'L89D\5V672p;2W[jOsSW^L_hLBZiJIVgYil%QS`0>B*KThcMGk^-DB#YmSoU;,gTO
+<imgS!*3K.)Y#,U6b."\q#u](4*5LTAe(-g>GKB&1mZZ51-'.nYl>(u&]$#o#C;6F61()frEe.?
+T!i\s>5/'jUk@_mEVit'%tB3i)B"ZMI"j`cUj)s;7[:1$;gT4UR50bp#ScG@$CPHZe>%(&N6Eis
+bZ=ej1m"/gQ(G&MaAJt&5Qt&-)-*)bl-.N!NEQ3j3/t=r4?d9nip8t+JJUR=RM#!(in!KHai(6_
+X/rB[W!d/`iC`;TrX8K14KSSEA*C'S@H)-sC(i(lSD9Zt@5sfrGC.R#Tq0ubohLaNkCgptCG[n_
+%g2+nEKT^]O;Kh.:Um5sA#Bg(b76AHB?qS[$1:[;rO"`N\[Cn'#>>fHT[#?G<Bce-G68Z?h*`P7
+6t]mb,n]!%mL@X\6ng'!g=s\S-;gg/"r1F3:fhAX*NBb-L-q!;dGRe#LP.qL$HS2fR9glrHn014
+(T/j/mP,c,3M53BFr(Y!lc)V.]P6H0GjB3#P?Mp@`Rd.VSu,JKF->-Q<amj8M^:eYfYiD[DuC=]
+BZtSj4B`poDt:\!oC@OgN\3I:p*HA\rpn.PWg'fBN3&PV1gtE&:r^-*>nBjOG=Zg2od]a,K!T`A
+oX/'*FnJkPC&t>W:K(ob!^ZX;e@1u4hY][5cpb[f$q9Ve+\f`r.buPJoS#2]i9Vh(QWK!NWX>Zb
+.`p75.tg!%rS,n.Cb,`j:MY?#X?7k3Ppi"Qk'kM>8)IUUVp4>J[j;gPjN2pbCdNMkF@fY/VJnqd
+Kir8DUF[/gq/GQ8@6\L^%t?S:=b?F``QTVI~>
+endstream
+endobj
+11 0 obj
+<</Type/FontDescriptor/FontName/QGTUCD+Helvetica-Bold/FontBBox[0 -23 522 724]/Flags 65568
+/Ascent 724
+/CapHeight 724
+/Descent -23
+/ItalicAngle 0
+/StemV 78
+/MissingWidth 500
+/CharSet(/four/one/three/two)/FontFile3 180 0 R>>
+endobj
+180 0 obj
+<</Filter[/ASCII85Decode
+/FlateDecode]
+/Subtype/Type1C/Length 736>>stream
+Gaqcp>t@n&(rtO?O0d:r]%gJ@](m7TIPf`T;H(5!LD`dBU..]85#,agNn\Mo\-lqP@X(?Y@G+(e
+Zq)SuEoKMV(Q(.?70S*)(D0Uhe6U#ab3MK/5t!XB&&7<%4?S)tkqn3)(fR%LVhCi[$95V,Ek$dk
+82WbL1rQ7kOsILSdG'cOejc(ECDC0b5[Kje\cOW6(u'VK$o9dtf+X(?7jKgP`!sbJqAYonp\c<h
+O2lm*l+[nu'bZZH`V!u0''*/B=GS:cEK=kXZ4t0MS;p)P3"QQ-iR6G:J1R52]ojqcj09;9k\7tQ
+Vpja(9Da5r*#q]2@tA:pqf(fsrs1q^kAn&?+_4%XZkHT)?;6B#W#f5T1e\.b;GL8X49Ldt[4k1l
+X]sh92c$k!7e_*;d;jqV0pE*F+DG5OAZ1>^W_$fr_Fdn_q;Uf>cOXF[p0^Vjc@O71Kf7Amm;94E
+9"C2"@#(``qf1lJo4Q#cDqBe=SQ'C&]]ZBb19KV.MH*G"JL<BADh_VLkr->BQIdf!Dlca!fpOp#
+O#-N^MP'3!F*ccK=F<2IV_r:VmbVp#*ef7/+()k`8R1RdY-iY+\[(_o726YDhc!b"TpS&TO$tgV
+MN=6W?&!1cC@9gRc23F0'nok!P`C!@idoeip.p"=!QW");Q_"p[2pTAeAK_FX^4.J_@gtl#1kp=
+4U7LBp9W*Vlh^0_JLooV.mI-D_.\M5m9lIGH)S@#QQbu?A=<.B~>
+endstream
+endobj
+9 0 obj
+<</Type/FontDescriptor/FontName/FIPNJN+Times-Bold/FontBBox[-24 -19 476 691]/Flags 65568
+/Ascent 691
+/CapHeight 691
+/Descent -19
+/ItalicAngle 0
+/StemV 71
+/MissingWidth 500
+/CharSet(/colon/eight/four/nine/one/seven/slash/three/two/zero)/FontFile3 181 0 R>>
+endobj
+181 0 obj
+<</Filter[/ASCII85Decode
+/FlateDecode]
+/Subtype/Type1C/Length 1399>>stream
+Gar?-HV@Xd'Z][=o_&Ir"3Qmo7sj9@'EMn[*<hjI^_d7m+lMEETU/R?$X02G_s-;or.Ia`T\H,3
+Gtc"rJ=-m*AWW$k,\&0Z_ab+kW9Bu'Is,`$6Xq8oro$'hkBtT9T9F=+8U,Om,Y<:ul3s1/mXRm4
+fa_Ne&<[Rsi55[5)fKn2$,_Rh6(nf%$]s"^37QCs!5nf_ZO:+2,6T9+HeX[#1:K.*ZuoDM;,hK[
+3[Q3I5=MDLX4cdHIktmFB@1FQCo#g"iUeJ'JMUJ.fQ;>F?E^D<[JDe&SV=2oBK47[gIkOmY(8a7
+e*G4i;[]WsO(K&i8l_D94I`6)<&\%6!gB>#aQAo?C^urXBlqUSs!J)(n;:;I&tV\MS"re+#X?1u
+#TtB\+MeW$#q6H[KFm#.@h>5LVi=e$,KM&!-]_OS(BbAe+hl,9->[j,Jt7Q`<u.R*nF=7cKKiAK
+HroL@90,g/+9=eP5leU$%-C!C?!3`T:tQbCP%\,!$]Y9;0TR=pb+\/NLr#$dFfUfoq'T'I2]jum
+Em0F)@bWXdjNo6*R%^#@fBg%-9'2uq#<t8\i?"Hn$3>P=L>t(W'K1j*mHs6,m27uIo$2T<*pISq
+PA`0"Ui($NFOM#^gEBJg[%B^$1k/T6N<(K#$PWmT&1ZV-5g*7XA,<6E6m*Dg;",GerQSE1m\0s7
+a86ocU:@R1>:7m5>'6]!HCUG6I<k_pq@lZW51C(LoU1dU<S@d!8mY8pX2:!$8R)#/m30NQo;gaP
+J.j-UJ-qI@hrO1KoW>+O0+`PEVC!\&XtJ9JD\mh?S8*95BZ[poj'Y;iE&q'LfOF0=XI!X5%-J(U
+k0+THd4Ob3O93%FK#ju5=,`L,/WTOURR(,_^+qKdEB3f&hWGK.[,USlSKlh(%g9Pf*WUA>^jBHb
+OQ6pY$%35SR3Kf2LBDNgG5U<$.2Kd)3*[`^KEqju!s/g25Ckg%34LTriUH"RN8tp`8^(3Z<Jd2u
+,Lk(tj+Bcg6Oeam[[b3AGCDa?$G730%R/MI(f5i)9>N^2NBIP_9S(IBg"9glF`=:BN`aU/$-5'?
+"n<*nDmQK"ao+^Oc[N/4]^`iOp;S6^R8:sNRj`-^nFq;K`4n$RYEU]7-$ml$S6MG`81co3XfmsX
+A"!GhJ>3/4V[q<Z(Zf?I2AZ0;As^!9n$E2n%/q:m7j/Z/TG1(A1;MUF8%r=/F7$tW";2XHa+Fr0
+fO(Jj@G'mp$BW`3BAO_o*Q>;*cf8sh%25tgFE_o#l8j@aPjQ^*7-@a?5m?nr8(U3_*4PXbc^E'j
+U'tQrh9].fqng6G8;/H_,p=.j9KB#M.!=+dbth]\3lfL0al/h(3QG-a3,@^?VPi8(FICpne]q7L
+iJ=%nncIBhC.^#]G$+)u&H;_K%/]G~>
+endstream
+endobj
+183 0 obj
+<</Type/Metadata
+/Subtype/XML/Length 1400>>stream
+<?xpacket begin='﻿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<?adobe-xap-filters esc="CRLF"?>
+<x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='XMP toolkit 2.9.1-13, framework 1.6'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+<rdf:Description rdf:about='737b95f6-5376-11ee-0000-445833b59e01' xmlns:pdf='http://ns.adobe.com/pdf/1.3/' pdf:Producer='GPL Ghostscript 8.70'/>
+<rdf:Description rdf:about='737b95f6-5376-11ee-0000-445833b59e01' xmlns:xmp='http://ns.adobe.com/xap/1.0/'><xmp:ModifyDate>2013-09-11T20:17:49-07:00</xmp:ModifyDate>
+<xmp:CreateDate>2013-09-11T20:17:49-07:00</xmp:CreateDate>
+<xmp:CreatorTool>GNU enscript 1.6.4</xmp:CreatorTool></rdf:Description>
+<rdf:Description rdf:about='737b95f6-5376-11ee-0000-445833b59e01' xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/' xapMM:DocumentID='737b95f6-5376-11ee-0000-445833b59e01'/>
+<rdf:Description rdf:about='737b95f6-5376-11ee-0000-445833b59e01' xmlns:dc='http://purl.org/dc/elements/1.1/' dc:format='application/pdf'><dc:title><rdf:Alt><rdf:li xml:lang='x-default'>Enscript Output</rdf:li></rdf:Alt></dc:title><dc:creator><rdf:Seq><rdf:li>Wesley Mackey</rdf:li></rdf:Seq></dc:creator></rdf:Description>
+</rdf:RDF>
+</x:xmpmeta>
+                                                                        
+                                                                        
+<?xpacket end='w'?>
+endstream
+endobj
+2 0 obj
+<</Producer(GPL Ghostscript 8.70)
+/CreationDate(D:20130911201749-07'00')
+/ModDate(D:20130911201749-07'00')
+/Title(Enscript Output)
+/Author(Wesley Mackey)
+/Creator(GNU enscript 1.6.4)>>endobj
+xref
+0 184
+0000000000 65535 f 
+0000074255 00000 n 
+0000099748 00000 n 
+0000073956 00000 n 
+0000068847 00000 n 
+0000000009 00000 n 
+0000001034 00000 n 
+0000074321 00000 n 
+0000078667 00000 n 
+0000096498 00000 n 
+0000078492 00000 n 
+0000095421 00000 n 
+0000077463 00000 n 
+0000078864 00000 n 
+0000077862 00000 n 
+0000084185 00000 n 
+0000074362 00000 n 
+0000074392 00000 n 
+0000068998 00000 n 
+0000001053 00000 n 
+0000003922 00000 n 
+0000074455 00000 n 
+0000074485 00000 n 
+0000069151 00000 n 
+0000003943 00000 n 
+0000006166 00000 n 
+0000074548 00000 n 
+0000074578 00000 n 
+0000069304 00000 n 
+0000006187 00000 n 
+0000007808 00000 n 
+0000074641 00000 n 
+0000074671 00000 n 
+0000069457 00000 n 
+0000007829 00000 n 
+0000009034 00000 n 
+0000074734 00000 n 
+0000074764 00000 n 
+0000069610 00000 n 
+0000009055 00000 n 
+0000012025 00000 n 
+0000074827 00000 n 
+0000074857 00000 n 
+0000069763 00000 n 
+0000012046 00000 n 
+0000013111 00000 n 
+0000074920 00000 n 
+0000074950 00000 n 
+0000069916 00000 n 
+0000013132 00000 n 
+0000016052 00000 n 
+0000075013 00000 n 
+0000075043 00000 n 
+0000070069 00000 n 
+0000016073 00000 n 
+0000016757 00000 n 
+0000075106 00000 n 
+0000075136 00000 n 
+0000070222 00000 n 
+0000016777 00000 n 
+0000018464 00000 n 
+0000075199 00000 n 
+0000075229 00000 n 
+0000070375 00000 n 
+0000018485 00000 n 
+0000020031 00000 n 
+0000075292 00000 n 
+0000075322 00000 n 
+0000070528 00000 n 
+0000020052 00000 n 
+0000020897 00000 n 
+0000075385 00000 n 
+0000075415 00000 n 
+0000070681 00000 n 
+0000020917 00000 n 
+0000023032 00000 n 
+0000075478 00000 n 
+0000075508 00000 n 
+0000070834 00000 n 
+0000023053 00000 n 
+0000025231 00000 n 
+0000075571 00000 n 
+0000075601 00000 n 
+0000070987 00000 n 
+0000025252 00000 n 
+0000027073 00000 n 
+0000075664 00000 n 
+0000075694 00000 n 
+0000071140 00000 n 
+0000027094 00000 n 
+0000030081 00000 n 
+0000075757 00000 n 
+0000075787 00000 n 
+0000071293 00000 n 
+0000030102 00000 n 
+0000032380 00000 n 
+0000075850 00000 n 
+0000075880 00000 n 
+0000071446 00000 n 
+0000032401 00000 n 
+0000034417 00000 n 
+0000075943 00000 n 
+0000075974 00000 n 
+0000071601 00000 n 
+0000034439 00000 n 
+0000038103 00000 n 
+0000076038 00000 n 
+0000076069 00000 n 
+0000071758 00000 n 
+0000038125 00000 n 
+0000041123 00000 n 
+0000076133 00000 n 
+0000076164 00000 n 
+0000071915 00000 n 
+0000041145 00000 n 
+0000041728 00000 n 
+0000076228 00000 n 
+0000076259 00000 n 
+0000072072 00000 n 
+0000041749 00000 n 
+0000043815 00000 n 
+0000076323 00000 n 
+0000076354 00000 n 
+0000072229 00000 n 
+0000043837 00000 n 
+0000046784 00000 n 
+0000076418 00000 n 
+0000076449 00000 n 
+0000072386 00000 n 
+0000046806 00000 n 
+0000049305 00000 n 
+0000076513 00000 n 
+0000076544 00000 n 
+0000072543 00000 n 
+0000049327 00000 n 
+0000051074 00000 n 
+0000076608 00000 n 
+0000076639 00000 n 
+0000072700 00000 n 
+0000051096 00000 n 
+0000053399 00000 n 
+0000076703 00000 n 
+0000076734 00000 n 
+0000072857 00000 n 
+0000053421 00000 n 
+0000056552 00000 n 
+0000076798 00000 n 
+0000076829 00000 n 
+0000073014 00000 n 
+0000056574 00000 n 
+0000059524 00000 n 
+0000076893 00000 n 
+0000076924 00000 n 
+0000073171 00000 n 
+0000059546 00000 n 
+0000060131 00000 n 
+0000076988 00000 n 
+0000077019 00000 n 
+0000073328 00000 n 
+0000060152 00000 n 
+0000062738 00000 n 
+0000077083 00000 n 
+0000077114 00000 n 
+0000073485 00000 n 
+0000062760 00000 n 
+0000064565 00000 n 
+0000077178 00000 n 
+0000077209 00000 n 
+0000073642 00000 n 
+0000064587 00000 n 
+0000068218 00000 n 
+0000077273 00000 n 
+0000077304 00000 n 
+0000073799 00000 n 
+0000068240 00000 n 
+0000068826 00000 n 
+0000077368 00000 n 
+0000077399 00000 n 
+0000079198 00000 n 
+0000084868 00000 n 
+0000095660 00000 n 
+0000096768 00000 n 
+0000078386 00000 n 
+0000098270 00000 n 
+trailer
+<< /Size 184 /Root 1 0 R /Info 2 0 R
+/ID [<AE7D583554EEDF91EDC6313377162B13><AE7D583554EEDF91EDC6313377162B13>]
+>>
+startxref
+99947
+%%EOF

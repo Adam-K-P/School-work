@@ -1,0 +1,2746 @@
+%PDF-1.2
+5 0 obj
+<</Length 6 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+1 i
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:07)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 256.812 736.5 Tm
+(ambiguous-else.y)Tj
+-64.9371 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-123.875 -35.5 Td
+[(1:)-600(// $Id: ambiguous-else.y,v 1.1 2011-10-28 18:07:07-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(// Example of solving the problem of the dangling else with an)]TJ
+T*[(4:)-600(// ambiguous grammar and precedence declarations.)]TJ
+(5:)'
+T*[(6:)-600(%verbose)]TJ
+(7:)'
+T*[(8:)-600(%token IF WHILE)]TJ
+T*[(9:)-600(%right ELSE)]TJ
+-6 -11 Td
+[(10:)-600(%start program)]TJ
+(11:)'
+T*[(12:)-600(%%)]TJ
+(13:)'
+T*[(14:)-600(program    : program statement)]TJ
+T*[(15:)-600(           |)]TJ
+T*[(16:)-600(           ;)]TJ
+(17:)'
+T*[(18:)-600(statement  : ifhead statement ELSE statement)]TJ
+T*[(19:)-600(           | ifhead statement %prec ELSE)]TJ
+T*[(20:)-600(           | whilehead statement)]TJ
+T*[(21:)-600(           | otherstmt)]TJ
+T*[(22:)-600(           ;)]TJ
+(23:)'
+T*[(24:)-600(ifhead     : IF '\(' expr '\)')]TJ
+T*[(25:)-600(           ;)]TJ
+(26:)'
+T*[(27:)-600(whilehead  : WHILE '\(' expr '\)')]TJ
+T*[(28:)-600(           ;)]TJ
+(29:)'
+T*[(30:)-600(otherstmt  : expr ';')]TJ
+T*[(31:)-600(           ;)]TJ
+(32:)'
+T*[(33:)-600(expr       : 'x')]TJ
+T*[(34:)-600(           ;)]TJ
+(35:)'
+T*[(36:)-600(%%)]TJ
+(37:)'
+ET
+Q
+Q
+endstream
+endobj
+6 0 obj
+1632
+endobj
+14 0 obj
+<</Length 15 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:07)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 242.036 736.5 Tm
+(ambiguous-else.logfile)Tj
+-50.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-123.875 -35.5 Td
+[(1:)-600(bison -v ambiguous-else.y)]TJ
+11 TL
+T*[(2:)-600(::::::::::::::)]TJ
+T*[(3:)-600(ambiguous-else.stdout)]TJ
+T*[(4:)-600(::::::::::::::)]TJ
+T*[(5:)-600(::::::::::::::)]TJ
+T*[(6:)-600(ambiguous-else.stderr)]TJ
+T*[(7:)-600(::::::::::::::)]TJ
+T*[(8:)-600(::::::::::::::)]TJ
+T*[(9:)-600(ambiguous-else.output)]TJ
+-6 -11 Td
+[(10:)-600(::::::::::::::)]TJ
+T*[(11:)-600(Grammar)]TJ
+(12:)'
+T*[(13:)-600(    0 $accept: program $end)]TJ
+(14:)'
+T*[(15:)-600(    1 program: program statement)]TJ
+T*[(16:)-600(    2        | /* empty */)]TJ
+(17:)'
+T*[(18:)-600(    3 statement: ifhead statement ELSE statement)]TJ
+T*[(19:)-600(    4          | ifhead statement)]TJ
+T*[(20:)-600(    5          | whilehead statement)]TJ
+T*[(21:)-600(    6          | otherstmt)]TJ
+(22:)'
+T*[(23:)-600(    7 ifhead: IF '\(' expr '\)')]TJ
+(24:)'
+T*[(25:)-600(    8 whilehead: WHILE '\(' expr '\)')]TJ
+(26:)'
+T*[(27:)-600(    9 otherstmt: expr ';')]TJ
+(28:)'
+T*[(29:)-600(   10 expr: 'x')]TJ
+(30:)'
+(31:)'
+T*[(32:)-600(Terminals, with rules where they appear)]TJ
+(33:)'
+T*[(34:)-600($end \(0\) 0)]TJ
+T*[(35:)-600('\(' \(40\) 7 8)]TJ
+T*[(36:)-600('\)' \(41\) 7 8)]TJ
+T*[(37:)-600(';' \(59\) 9)]TJ
+T*[(38:)-600('x' \(120\) 10)]TJ
+T*[(39:)-600(error \(256\))]TJ
+T*[(40:)-600(IF \(258\) 7)]TJ
+T*[(41:)-600(WHILE \(259\) 8)]TJ
+T*[(42:)-600(ELSE \(260\) 3)]TJ
+(43:)'
+(44:)'
+T*[(45:)-600(Nonterminals, with rules where they appear)]TJ
+(46:)'
+T*[(47:)-600($accept \(10\))]TJ
+T*[(48:)-600(    on left: 0)]TJ
+T*[(49:)-600(program \(11\))]TJ
+T*[(50:)-600(    on left: 1 2, on right: 0 1)]TJ
+T*[(51:)-600(statement \(12\))]TJ
+T*[(52:)-600(    on left: 3 4 5 6, on right: 1 3 4 5)]TJ
+T*[(53:)-600(ifhead \(13\))]TJ
+T*[(54:)-600(    on left: 7, on right: 3 4)]TJ
+T*[(55:)-600(whilehead \(14\))]TJ
+T*[(56:)-600(    on left: 8, on right: 5)]TJ
+T*[(57:)-600(otherstmt \(15\))]TJ
+T*[(58:)-600(    on left: 9, on right: 6)]TJ
+T*[(59:)-600(expr \(16\))]TJ
+T*[(60:)-600(    on left: 10, on right: 7 8 9)]TJ
+(61:)'
+(62:)'
+T*[(63:)-600(state 0)]TJ
+(64:)'
+ET
+Q
+Q
+endstream
+endobj
+15 0 obj
+2526
+endobj
+18 0 obj
+<</Length 19 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:07)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 242.036 736.5 Tm
+(ambiguous-else.logfile)Tj
+-50.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-129.875 -35.5 Td
+[(65:)-600(    0 $accept: . program $end)]TJ
+11 TL
+(66:)'
+T*[(67:)-600(    $default  reduce using rule 2 \(program\))]TJ
+(68:)'
+T*[(69:)-600(    program  go to state 1)]TJ
+(70:)'
+(71:)'
+T*[(72:)-600(state 1)]TJ
+(73:)'
+T*[(74:)-600(    0 $accept: program . $end)]TJ
+T*[(75:)-600(    1 program: program . statement)]TJ
+(76:)'
+T*[(77:)-600(    $end   shift, and go to state 2)]TJ
+T*[(78:)-600(    IF     shift, and go to state 3)]TJ
+T*[(79:)-600(    WHILE  shift, and go to state 4)]TJ
+T*[(80:)-600(    'x'    shift, and go to state 5)]TJ
+(81:)'
+T*[(82:)-600(    statement  go to state 6)]TJ
+T*[(83:)-600(    ifhead     go to state 7)]TJ
+T*[(84:)-600(    whilehead  go to state 8)]TJ
+T*[(85:)-600(    otherstmt  go to state 9)]TJ
+T*[(86:)-600(    expr       go to state 10)]TJ
+(87:)'
+(88:)'
+T*[(89:)-600(state 2)]TJ
+(90:)'
+T*[(91:)-600(    0 $accept: program $end .)]TJ
+(92:)'
+T*[(93:)-600(    $default  accept)]TJ
+(94:)'
+(95:)'
+T*[(96:)-600(state 3)]TJ
+(97:)'
+T*[(98:)-600(    7 ifhead: IF . '\(' expr '\)')]TJ
+(99:)'
+-6 -11 Td
+[(100:)-600(    '\('  shift, and go to state 11)]TJ
+(101:)'
+(102:)'
+T*[(103:)-600(state 4)]TJ
+(104:)'
+T*[(105:)-600(    8 whilehead: WHILE . '\(' expr '\)')]TJ
+(106:)'
+T*[(107:)-600(    '\('  shift, and go to state 12)]TJ
+(108:)'
+(109:)'
+T*[(110:)-600(state 5)]TJ
+(111:)'
+T*[(112:)-600(   10 expr: 'x' .)]TJ
+(113:)'
+T*[(114:)-600(    $default  reduce using rule 10 \(expr\))]TJ
+(115:)'
+(116:)'
+T*[(117:)-600(state 6)]TJ
+(118:)'
+T*[(119:)-600(    1 program: program statement .)]TJ
+(120:)'
+T*[(121:)-600(    $default  reduce using rule 1 \(program\))]TJ
+(122:)'
+(123:)'
+T*[(124:)-600(state 7)]TJ
+(125:)'
+T*[(126:)-600(    3 statement: ifhead . statement ELSE statement)]TJ
+T*[(127:)-600(    4          | ifhead . statement)]TJ
+(128:)'
+ET
+Q
+Q
+endstream
+endobj
+19 0 obj
+2283
+endobj
+22 0 obj
+<</Length 23 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:07)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 242.036 736.5 Tm
+(ambiguous-else.logfile)Tj
+-50.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+[(129:)-600(    IF     shift, and go to state 3)]TJ
+11 TL
+T*[(130:)-600(    WHILE  shift, and go to state 4)]TJ
+T*[(131:)-600(    'x'    shift, and go to state 5)]TJ
+(132:)'
+T*[(133:)-600(    statement  go to state 13)]TJ
+T*[(134:)-600(    ifhead     go to state 7)]TJ
+T*[(135:)-600(    whilehead  go to state 8)]TJ
+T*[(136:)-600(    otherstmt  go to state 9)]TJ
+T*[(137:)-600(    expr       go to state 10)]TJ
+(138:)'
+(139:)'
+T*[(140:)-600(state 8)]TJ
+(141:)'
+T*[(142:)-600(    5 statement: whilehead . statement)]TJ
+(143:)'
+T*[(144:)-600(    IF     shift, and go to state 3)]TJ
+T*[(145:)-600(    WHILE  shift, and go to state 4)]TJ
+T*[(146:)-600(    'x'    shift, and go to state 5)]TJ
+(147:)'
+T*[(148:)-600(    statement  go to state 14)]TJ
+T*[(149:)-600(    ifhead     go to state 7)]TJ
+T*[(150:)-600(    whilehead  go to state 8)]TJ
+T*[(151:)-600(    otherstmt  go to state 9)]TJ
+T*[(152:)-600(    expr       go to state 10)]TJ
+(153:)'
+(154:)'
+T*[(155:)-600(state 9)]TJ
+(156:)'
+T*[(157:)-600(    6 statement: otherstmt .)]TJ
+(158:)'
+T*[(159:)-600(    $default  reduce using rule 6 \(statement\))]TJ
+(160:)'
+(161:)'
+T*[(162:)-600(state 10)]TJ
+(163:)'
+T*[(164:)-600(    9 otherstmt: expr . ';')]TJ
+(165:)'
+T*[(166:)-600(    ';'  shift, and go to state 15)]TJ
+(167:)'
+(168:)'
+T*[(169:)-600(state 11)]TJ
+(170:)'
+T*[(171:)-600(    7 ifhead: IF '\(' . expr '\)')]TJ
+(172:)'
+T*[(173:)-600(    'x'  shift, and go to state 5)]TJ
+(174:)'
+T*[(175:)-600(    expr  go to state 16)]TJ
+(176:)'
+(177:)'
+T*[(178:)-600(state 12)]TJ
+(179:)'
+T*[(180:)-600(    8 whilehead: WHILE '\(' . expr '\)')]TJ
+(181:)'
+T*[(182:)-600(    'x'  shift, and go to state 5)]TJ
+(183:)'
+T*[(184:)-600(    expr  go to state 17)]TJ
+(185:)'
+(186:)'
+T*[(187:)-600(state 13)]TJ
+(188:)'
+T*[(189:)-600(    3 statement: ifhead statement . ELSE statement)]TJ
+T*[(190:)-600(    4          | ifhead statement .)]TJ
+(191:)'
+T*[(192:)-600(    ELSE  shift, and go to state 18)]TJ
+ET
+Q
+Q
+endstream
+endobj
+23 0 obj
+2455
+endobj
+26 0 obj
+<</Length 27 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:07)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(4)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 242.036 736.5 Tm
+(ambiguous-else.logfile)Tj
+-50.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+(193:)Tj
+11 TL
+T*[(194:)-600(    $default  reduce using rule 4 \(statement\))]TJ
+(195:)'
+(196:)'
+T*[(197:)-600(state 14)]TJ
+(198:)'
+T*[(199:)-600(    5 statement: whilehead statement .)]TJ
+(200:)'
+T*[(201:)-600(    $default  reduce using rule 5 \(statement\))]TJ
+(202:)'
+(203:)'
+T*[(204:)-600(state 15)]TJ
+(205:)'
+T*[(206:)-600(    9 otherstmt: expr ';' .)]TJ
+(207:)'
+T*[(208:)-600(    $default  reduce using rule 9 \(otherstmt\))]TJ
+(209:)'
+(210:)'
+T*[(211:)-600(state 16)]TJ
+(212:)'
+T*[(213:)-600(    7 ifhead: IF '\(' expr . '\)')]TJ
+(214:)'
+T*[(215:)-600(    '\)'  shift, and go to state 19)]TJ
+(216:)'
+(217:)'
+T*[(218:)-600(state 17)]TJ
+(219:)'
+T*[(220:)-600(    8 whilehead: WHILE '\(' expr . '\)')]TJ
+(221:)'
+T*[(222:)-600(    '\)'  shift, and go to state 20)]TJ
+(223:)'
+(224:)'
+T*[(225:)-600(state 18)]TJ
+(226:)'
+T*[(227:)-600(    3 statement: ifhead statement ELSE . statement)]TJ
+(228:)'
+T*[(229:)-600(    IF     shift, and go to state 3)]TJ
+T*[(230:)-600(    WHILE  shift, and go to state 4)]TJ
+T*[(231:)-600(    'x'    shift, and go to state 5)]TJ
+(232:)'
+T*[(233:)-600(    statement  go to state 21)]TJ
+T*[(234:)-600(    ifhead     go to state 7)]TJ
+T*[(235:)-600(    whilehead  go to state 8)]TJ
+T*[(236:)-600(    otherstmt  go to state 9)]TJ
+T*[(237:)-600(    expr       go to state 10)]TJ
+(238:)'
+(239:)'
+T*[(240:)-600(state 19)]TJ
+(241:)'
+T*[(242:)-600(    7 ifhead: IF '\(' expr '\)' .)]TJ
+(243:)'
+T*[(244:)-600(    $default  reduce using rule 7 \(ifhead\))]TJ
+(245:)'
+(246:)'
+T*[(247:)-600(state 20)]TJ
+(248:)'
+T*[(249:)-600(    8 whilehead: WHILE '\(' expr '\)' .)]TJ
+(250:)'
+T*[(251:)-600(    $default  reduce using rule 8 \(whilehead\))]TJ
+(252:)'
+(253:)'
+T*[(254:)-600(state 21)]TJ
+(255:)'
+T*[(256:)-600(    3 statement: ifhead statement ELSE statement .)]TJ
+ET
+Q
+Q
+endstream
+endobj
+27 0 obj
+2305
+endobj
+30 0 obj
+<</Length 31 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:07)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(5)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 242.036 736.5 Tm
+(ambiguous-else.logfile)Tj
+-50.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+(257:)Tj
+11 TL
+T*[(258:)-600(    $default  reduce using rule 3 \(statement\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+31 0 obj
+604
+endobj
+34 0 obj
+<</Length 35 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 249.812 736.5 Tm
+(unambiguous-else.y)Tj
+-57.9371 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-123.875 -35.5 Td
+[(1:)-600(// $Id: unambiguous-else.y,v 1.1 2011-10-28 18:07:07-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(// Example of solving the problem of the dangling else with an)]TJ
+T*[(4:)-600(// ambiguous grammar and precedence declarations.)]TJ
+(5:)'
+T*[(6:)-600(%verbose)]TJ
+(7:)'
+T*[(8:)-600(%token IF WHILE)]TJ
+T*[(9:)-600(%right ELSE)]TJ
+-6 -11 Td
+[(10:)-600(%start program)]TJ
+(11:)'
+T*[(12:)-600(%%)]TJ
+(13:)'
+T*[(14:)-600(program    : program statement)]TJ
+T*[(15:)-600(           |)]TJ
+T*[(16:)-600(           ;)]TJ
+(17:)'
+T*[(18:)-600(statement  : closedstmt)]TJ
+T*[(19:)-600(           | openstmt)]TJ
+T*[(20:)-600(           ;)]TJ
+(21:)'
+T*[(22:)-600(closedstmt : ifhead closedstmt ELSE closedstmt)]TJ
+T*[(23:)-600(           | whilehead closedstmt)]TJ
+T*[(24:)-600(           | otherstmt)]TJ
+T*[(25:)-600(           ;)]TJ
+(26:)'
+T*[(27:)-600(openstmt   : ifhead closedstmt ELSE openstmt)]TJ
+T*[(28:)-600(           | ifhead statement)]TJ
+T*[(29:)-600(           | whilehead openstmt)]TJ
+(30:)'
+T*[(31:)-600(ifhead     : IF '\(' expr '\)')]TJ
+T*[(32:)-600(           ;)]TJ
+(33:)'
+T*[(34:)-600(whilehead  : WHILE '\(' expr '\)')]TJ
+T*[(35:)-600(           ;)]TJ
+(36:)'
+T*[(37:)-600(otherstmt  : expr ';')]TJ
+T*[(38:)-600(           ;)]TJ
+(39:)'
+T*[(40:)-600(expr       : 'x')]TJ
+T*[(41:)-600(           ;)]TJ
+(42:)'
+T*[(43:)-600(%%)]TJ
+(44:)'
+ET
+Q
+Q
+endstream
+endobj
+35 0 obj
+1859
+endobj
+38 0 obj
+<</Length 39 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 235.036 736.5 Tm
+(unambiguous-else.logfile)Tj
+-43.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-123.875 -35.5 Td
+[(1:)-600(bison -v unambiguous-else.y)]TJ
+11 TL
+T*[(2:)-600(::::::::::::::)]TJ
+T*[(3:)-600(unambiguous-else.stdout)]TJ
+T*[(4:)-600(::::::::::::::)]TJ
+T*[(5:)-600(::::::::::::::)]TJ
+T*[(6:)-600(unambiguous-else.stderr)]TJ
+T*[(7:)-600(::::::::::::::)]TJ
+T*[(8:)-600(::::::::::::::)]TJ
+T*[(9:)-600(unambiguous-else.output)]TJ
+-6 -11 Td
+[(10:)-600(::::::::::::::)]TJ
+T*[(11:)-600(Grammar)]TJ
+(12:)'
+T*[(13:)-600(    0 $accept: program $end)]TJ
+(14:)'
+T*[(15:)-600(    1 program: program statement)]TJ
+T*[(16:)-600(    2        | /* empty */)]TJ
+(17:)'
+T*[(18:)-600(    3 statement: closedstmt)]TJ
+T*[(19:)-600(    4          | openstmt)]TJ
+(20:)'
+T*[(21:)-600(    5 closedstmt: ifhead closedstmt ELSE closedstmt)]TJ
+T*[(22:)-600(    6           | whilehead closedstmt)]TJ
+T*[(23:)-600(    7           | otherstmt)]TJ
+(24:)'
+T*[(25:)-600(    8 openstmt: ifhead closedstmt ELSE openstmt)]TJ
+T*[(26:)-600(    9         | ifhead statement)]TJ
+T*[(27:)-600(   10         | whilehead openstmt)]TJ
+(28:)'
+T*[(29:)-600(   11 ifhead: IF '\(' expr '\)')]TJ
+(30:)'
+T*[(31:)-600(   12 whilehead: WHILE '\(' expr '\)')]TJ
+(32:)'
+T*[(33:)-600(   13 otherstmt: expr ';')]TJ
+(34:)'
+T*[(35:)-600(   14 expr: 'x')]TJ
+(36:)'
+(37:)'
+T*[(38:)-600(Terminals, with rules where they appear)]TJ
+(39:)'
+T*[(40:)-600($end \(0\) 0)]TJ
+T*[(41:)-600('\(' \(40\) 11 12)]TJ
+T*[(42:)-600('\)' \(41\) 11 12)]TJ
+T*[(43:)-600(';' \(59\) 13)]TJ
+T*[(44:)-600('x' \(120\) 14)]TJ
+T*[(45:)-600(error \(256\))]TJ
+T*[(46:)-600(IF \(258\) 11)]TJ
+T*[(47:)-600(WHILE \(259\) 12)]TJ
+T*[(48:)-600(ELSE \(260\) 5 8)]TJ
+(49:)'
+(50:)'
+T*[(51:)-600(Nonterminals, with rules where they appear)]TJ
+(52:)'
+T*[(53:)-600($accept \(10\))]TJ
+T*[(54:)-600(    on left: 0)]TJ
+T*[(55:)-600(program \(11\))]TJ
+T*[(56:)-600(    on left: 1 2, on right: 0 1)]TJ
+T*[(57:)-600(statement \(12\))]TJ
+T*[(58:)-600(    on left: 3 4, on right: 1 9)]TJ
+T*[(59:)-600(closedstmt \(13\))]TJ
+T*[(60:)-600(    on left: 5 6 7, on right: 3 5 6 8)]TJ
+T*[(61:)-600(openstmt \(14\))]TJ
+T*[(62:)-600(    on left: 8 9 10, on right: 4 8 10)]TJ
+T*[(63:)-600(ifhead \(15\))]TJ
+T*[(64:)-600(    on left: 11, on right: 5 8 9)]TJ
+ET
+Q
+Q
+endstream
+endobj
+39 0 obj
+2659
+endobj
+42 0 obj
+<</Length 43 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 235.036 736.5 Tm
+(unambiguous-else.logfile)Tj
+-43.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-129.875 -35.5 Td
+[(65:)-600(whilehead \(16\))]TJ
+11 TL
+T*[(66:)-600(    on left: 12, on right: 6 10)]TJ
+T*[(67:)-600(otherstmt \(17\))]TJ
+T*[(68:)-600(    on left: 13, on right: 7)]TJ
+T*[(69:)-600(expr \(18\))]TJ
+T*[(70:)-600(    on left: 14, on right: 11 12 13)]TJ
+(71:)'
+(72:)'
+T*[(73:)-600(state 0)]TJ
+(74:)'
+T*[(75:)-600(    0 $accept: . program $end)]TJ
+(76:)'
+T*[(77:)-600(    $default  reduce using rule 2 \(program\))]TJ
+(78:)'
+T*[(79:)-600(    program  go to state 1)]TJ
+(80:)'
+(81:)'
+T*[(82:)-600(state 1)]TJ
+(83:)'
+T*[(84:)-600(    0 $accept: program . $end)]TJ
+T*[(85:)-600(    1 program: program . statement)]TJ
+(86:)'
+T*[(87:)-600(    $end   shift, and go to state 2)]TJ
+T*[(88:)-600(    IF     shift, and go to state 3)]TJ
+T*[(89:)-600(    WHILE  shift, and go to state 4)]TJ
+T*[(90:)-600(    'x'    shift, and go to state 5)]TJ
+(91:)'
+T*[(92:)-600(    statement   go to state 6)]TJ
+T*[(93:)-600(    closedstmt  go to state 7)]TJ
+T*[(94:)-600(    openstmt    go to state 8)]TJ
+T*[(95:)-600(    ifhead      go to state 9)]TJ
+T*[(96:)-600(    whilehead   go to state 10)]TJ
+T*[(97:)-600(    otherstmt   go to state 11)]TJ
+T*[(98:)-600(    expr        go to state 12)]TJ
+(99:)'
+-6 -11 Td
+(100:)Tj
+T*[(101:)-600(state 2)]TJ
+(102:)'
+T*[(103:)-600(    0 $accept: program $end .)]TJ
+(104:)'
+T*[(105:)-600(    $default  accept)]TJ
+(106:)'
+(107:)'
+T*[(108:)-600(state 3)]TJ
+(109:)'
+T*[(110:)-600(   11 ifhead: IF . '\(' expr '\)')]TJ
+(111:)'
+T*[(112:)-600(    '\('  shift, and go to state 13)]TJ
+(113:)'
+(114:)'
+T*[(115:)-600(state 4)]TJ
+(116:)'
+T*[(117:)-600(   12 whilehead: WHILE . '\(' expr '\)')]TJ
+(118:)'
+T*[(119:)-600(    '\('  shift, and go to state 14)]TJ
+(120:)'
+(121:)'
+T*[(122:)-600(state 5)]TJ
+(123:)'
+T*[(124:)-600(   14 expr: 'x' .)]TJ
+(125:)'
+T*[(126:)-600(    $default  reduce using rule 14 \(expr\))]TJ
+(127:)'
+(128:)'
+ET
+Q
+Q
+endstream
+endobj
+43 0 obj
+2352
+endobj
+46 0 obj
+<</Length 47 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 235.036 736.5 Tm
+(unambiguous-else.logfile)Tj
+-43.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+[(129:)-600(state 6)]TJ
+11 TL
+(130:)'
+T*[(131:)-600(    1 program: program statement .)]TJ
+(132:)'
+T*[(133:)-600(    $default  reduce using rule 1 \(program\))]TJ
+(134:)'
+(135:)'
+T*[(136:)-600(state 7)]TJ
+(137:)'
+T*[(138:)-600(    3 statement: closedstmt .)]TJ
+(139:)'
+T*[(140:)-600(    $default  reduce using rule 3 \(statement\))]TJ
+(141:)'
+(142:)'
+T*[(143:)-600(state 8)]TJ
+(144:)'
+T*[(145:)-600(    4 statement: openstmt .)]TJ
+(146:)'
+T*[(147:)-600(    $default  reduce using rule 4 \(statement\))]TJ
+(148:)'
+(149:)'
+T*[(150:)-600(state 9)]TJ
+(151:)'
+T*[(152:)-600(    5 closedstmt: ifhead . closedstmt ELSE closedstmt)]TJ
+T*[(153:)-600(    8 openstmt: ifhead . closedstmt ELSE openstmt)]TJ
+T*[(154:)-600(    9         | ifhead . statement)]TJ
+(155:)'
+T*[(156:)-600(    IF     shift, and go to state 3)]TJ
+T*[(157:)-600(    WHILE  shift, and go to state 4)]TJ
+T*[(158:)-600(    'x'    shift, and go to state 5)]TJ
+(159:)'
+T*[(160:)-600(    statement   go to state 15)]TJ
+T*[(161:)-600(    closedstmt  go to state 16)]TJ
+T*[(162:)-600(    openstmt    go to state 8)]TJ
+T*[(163:)-600(    ifhead      go to state 9)]TJ
+T*[(164:)-600(    whilehead   go to state 10)]TJ
+T*[(165:)-600(    otherstmt   go to state 11)]TJ
+T*[(166:)-600(    expr        go to state 12)]TJ
+(167:)'
+(168:)'
+T*[(169:)-600(state 10)]TJ
+(170:)'
+T*[(171:)-600(    6 closedstmt: whilehead . closedstmt)]TJ
+T*[(172:)-600(   10 openstmt: whilehead . openstmt)]TJ
+(173:)'
+T*[(174:)-600(    IF     shift, and go to state 3)]TJ
+T*[(175:)-600(    WHILE  shift, and go to state 4)]TJ
+T*[(176:)-600(    'x'    shift, and go to state 5)]TJ
+(177:)'
+T*[(178:)-600(    closedstmt  go to state 17)]TJ
+T*[(179:)-600(    openstmt    go to state 18)]TJ
+T*[(180:)-600(    ifhead      go to state 9)]TJ
+T*[(181:)-600(    whilehead   go to state 10)]TJ
+T*[(182:)-600(    otherstmt   go to state 11)]TJ
+T*[(183:)-600(    expr        go to state 12)]TJ
+(184:)'
+(185:)'
+T*[(186:)-600(state 11)]TJ
+(187:)'
+T*[(188:)-600(    7 closedstmt: otherstmt .)]TJ
+(189:)'
+T*[(190:)-600(    $default  reduce using rule 7 \(closedstmt\))]TJ
+(191:)'
+(192:)'
+ET
+Q
+Q
+endstream
+endobj
+47 0 obj
+2618
+endobj
+50 0 obj
+<</Length 51 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(4)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 235.036 736.5 Tm
+(unambiguous-else.logfile)Tj
+-43.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+[(193:)-600(state 12)]TJ
+11 TL
+(194:)'
+T*[(195:)-600(   13 otherstmt: expr . ';')]TJ
+(196:)'
+T*[(197:)-600(    ';'  shift, and go to state 19)]TJ
+(198:)'
+(199:)'
+T*[(200:)-600(state 13)]TJ
+(201:)'
+T*[(202:)-600(   11 ifhead: IF '\(' . expr '\)')]TJ
+(203:)'
+T*[(204:)-600(    'x'  shift, and go to state 5)]TJ
+(205:)'
+T*[(206:)-600(    expr  go to state 20)]TJ
+(207:)'
+(208:)'
+T*[(209:)-600(state 14)]TJ
+(210:)'
+T*[(211:)-600(   12 whilehead: WHILE '\(' . expr '\)')]TJ
+(212:)'
+T*[(213:)-600(    'x'  shift, and go to state 5)]TJ
+(214:)'
+T*[(215:)-600(    expr  go to state 21)]TJ
+(216:)'
+(217:)'
+T*[(218:)-600(state 15)]TJ
+(219:)'
+T*[(220:)-600(    9 openstmt: ifhead statement .)]TJ
+(221:)'
+T*[(222:)-600(    $default  reduce using rule 9 \(openstmt\))]TJ
+(223:)'
+(224:)'
+T*[(225:)-600(state 16)]TJ
+(226:)'
+T*[(227:)-600(    3 statement: closedstmt .)]TJ
+T*[(228:)-600(    5 closedstmt: ifhead closedstmt . ELSE closedstmt)]TJ
+T*[(229:)-600(    8 openstmt: ifhead closedstmt . ELSE openstmt)]TJ
+(230:)'
+T*[(231:)-600(    ELSE  shift, and go to state 22)]TJ
+(232:)'
+T*[(233:)-600(    $default  reduce using rule 3 \(statement\))]TJ
+(234:)'
+(235:)'
+T*[(236:)-600(state 17)]TJ
+(237:)'
+T*[(238:)-600(    6 closedstmt: whilehead closedstmt .)]TJ
+(239:)'
+T*[(240:)-600(    $default  reduce using rule 6 \(closedstmt\))]TJ
+(241:)'
+(242:)'
+T*[(243:)-600(state 18)]TJ
+(244:)'
+T*[(245:)-600(   10 openstmt: whilehead openstmt .)]TJ
+(246:)'
+T*[(247:)-600(    $default  reduce using rule 10 \(openstmt\))]TJ
+(248:)'
+(249:)'
+T*[(250:)-600(state 19)]TJ
+(251:)'
+T*[(252:)-600(   13 otherstmt: expr ';' .)]TJ
+(253:)'
+T*[(254:)-600(    $default  reduce using rule 13 \(otherstmt\))]TJ
+(255:)'
+(256:)'
+ET
+Q
+Q
+endstream
+endobj
+51 0 obj
+2210
+endobj
+54 0 obj
+<</Length 55 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(5)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 235.036 736.5 Tm
+(unambiguous-else.logfile)Tj
+-43.1605 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+[(257:)-600(state 20)]TJ
+11 TL
+(258:)'
+T*[(259:)-600(   11 ifhead: IF '\(' expr . '\)')]TJ
+(260:)'
+T*[(261:)-600(    '\)'  shift, and go to state 23)]TJ
+(262:)'
+(263:)'
+T*[(264:)-600(state 21)]TJ
+(265:)'
+T*[(266:)-600(   12 whilehead: WHILE '\(' expr . '\)')]TJ
+(267:)'
+T*[(268:)-600(    '\)'  shift, and go to state 24)]TJ
+(269:)'
+(270:)'
+T*[(271:)-600(state 22)]TJ
+(272:)'
+T*[(273:)-600(    5 closedstmt: ifhead closedstmt ELSE . closedstmt)]TJ
+T*[(274:)-600(    8 openstmt: ifhead closedstmt ELSE . openstmt)]TJ
+(275:)'
+T*[(276:)-600(    IF     shift, and go to state 3)]TJ
+T*[(277:)-600(    WHILE  shift, and go to state 4)]TJ
+T*[(278:)-600(    'x'    shift, and go to state 5)]TJ
+(279:)'
+T*[(280:)-600(    closedstmt  go to state 25)]TJ
+T*[(281:)-600(    openstmt    go to state 26)]TJ
+T*[(282:)-600(    ifhead      go to state 9)]TJ
+T*[(283:)-600(    whilehead   go to state 10)]TJ
+T*[(284:)-600(    otherstmt   go to state 11)]TJ
+T*[(285:)-600(    expr        go to state 12)]TJ
+(286:)'
+(287:)'
+T*[(288:)-600(state 23)]TJ
+(289:)'
+T*[(290:)-600(   11 ifhead: IF '\(' expr '\)' .)]TJ
+(291:)'
+T*[(292:)-600(    $default  reduce using rule 11 \(ifhead\))]TJ
+(293:)'
+(294:)'
+T*[(295:)-600(state 24)]TJ
+(296:)'
+T*[(297:)-600(   12 whilehead: WHILE '\(' expr '\)' .)]TJ
+(298:)'
+T*[(299:)-600(    $default  reduce using rule 12 \(whilehead\))]TJ
+(300:)'
+(301:)'
+T*[(302:)-600(state 25)]TJ
+(303:)'
+T*[(304:)-600(    5 closedstmt: ifhead closedstmt ELSE closedstmt .)]TJ
+(305:)'
+T*[(306:)-600(    $default  reduce using rule 5 \(closedstmt\))]TJ
+(307:)'
+(308:)'
+T*[(309:)-600(state 26)]TJ
+(310:)'
+T*[(311:)-600(    8 openstmt: ifhead closedstmt ELSE openstmt .)]TJ
+(312:)'
+T*[(313:)-600(    $default  reduce using rule 8 \(openstmt\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+55 0 obj
+2260
+endobj
+58 0 obj
+<</Length 59 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 260.956 736.5 Tm
+(reduce-reduce.y)Tj
+-69.0812 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-123.875 -35.5 Td
+[(1:)-600(// $Id: reduce-reduce.y,v 1.3 2011-10-28 18:41:59-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(// Example of a reduce/reduce conflict.)]TJ
+(4:)'
+T*[(5:)-600(%verbose)]TJ
+(6:)'
+T*[(7:)-600(%token CHAR INT IDENT)]TJ
+T*[(8:)-600(%start program)]TJ
+(9:)'
+-6 -11 Td
+[(10:)-600(%%)]TJ
+(11:)'
+T*[(12:)-600(program     : program statement)]TJ
+T*[(13:)-600(            |)]TJ
+T*[(14:)-600(            ;)]TJ
+(15:)'
+T*[(16:)-600(statement   : declaration ';')]TJ
+T*[(17:)-600(            | expression ';')]TJ
+T*[(18:)-600(            ;)]TJ
+(19:)'
+T*[(20:)-600(declaration : basetype '[' ']' IDENT)]TJ
+T*[(21:)-600(            | basetype IDENT)]TJ
+T*[(22:)-600(            ;)]TJ
+(23:)'
+T*[(24:)-600(basetype    : CHAR)]TJ
+T*[(25:)-600(            | INT)]TJ
+T*[(26:)-600(            | IDENT)]TJ
+T*[(27:)-600(            ;)]TJ
+(28:)'
+T*[(29:)-600(expression  : expression '[' expression ']')]TJ
+T*[(30:)-600(            | IDENT)]TJ
+T*[(31:)-600(            ;)]TJ
+(32:)'
+T*[(33:)-600(%%)]TJ
+(34:)'
+ET
+Q
+Q
+endstream
+endobj
+59 0 obj
+1500
+endobj
+62 0 obj
+<</Length 63 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 246.18 736.5 Tm
+(reduce-reduce.logfile)Tj
+-54.3051 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-123.875 -35.5 Td
+[(1:)-600(bison -v reduce-reduce.y)]TJ
+11 TL
+T*[(2:)-600(::::::::::::::)]TJ
+T*[(3:)-600(reduce-reduce.stdout)]TJ
+T*[(4:)-600(::::::::::::::)]TJ
+T*[(5:)-600(::::::::::::::)]TJ
+T*[(6:)-600(reduce-reduce.stderr)]TJ
+T*[(7:)-600(::::::::::::::)]TJ
+T*[(8:)-600(reduce-reduce.y: conflicts: 1 reduce/reduce)]TJ
+T*[(9:)-600(::::::::::::::)]TJ
+-6 -11 Td
+[(10:)-600(reduce-reduce.output)]TJ
+T*[(11:)-600(::::::::::::::)]TJ
+T*[(12:)-600(State 5 conflicts: 1 reduce/reduce)]TJ
+(13:)'
+(14:)'
+T*[(15:)-600(Grammar)]TJ
+(16:)'
+T*[(17:)-600(    0 $accept: program $end)]TJ
+(18:)'
+T*[(19:)-600(    1 program: program statement)]TJ
+T*[(20:)-600(    2        | /* empty */)]TJ
+(21:)'
+T*[(22:)-600(    3 statement: declaration ';')]TJ
+T*[(23:)-600(    4          | expression ';')]TJ
+(24:)'
+T*[(25:)-600(    5 declaration: basetype '[' ']' IDENT)]TJ
+T*[(26:)-600(    6            | basetype IDENT)]TJ
+(27:)'
+T*[(28:)-600(    7 basetype: CHAR)]TJ
+T*[(29:)-600(    8         | INT)]TJ
+T*[(30:)-600(    9         | IDENT)]TJ
+(31:)'
+T*[(32:)-600(   10 expression: expression '[' expression ']')]TJ
+T*[(33:)-600(   11           | IDENT)]TJ
+(34:)'
+(35:)'
+T*[(36:)-600(Terminals, with rules where they appear)]TJ
+(37:)'
+T*[(38:)-600($end \(0\) 0)]TJ
+T*[(39:)-600(';' \(59\) 3 4)]TJ
+T*[(40:)-600('[' \(91\) 5 10)]TJ
+T*[(41:)-600(']' \(93\) 5 10)]TJ
+T*[(42:)-600(error \(256\))]TJ
+T*[(43:)-600(CHAR \(258\) 7)]TJ
+T*[(44:)-600(INT \(259\) 8)]TJ
+T*[(45:)-600(IDENT \(260\) 5 6 9 11)]TJ
+(46:)'
+(47:)'
+T*[(48:)-600(Nonterminals, with rules where they appear)]TJ
+(49:)'
+T*[(50:)-600($accept \(9\))]TJ
+T*[(51:)-600(    on left: 0)]TJ
+T*[(52:)-600(program \(10\))]TJ
+T*[(53:)-600(    on left: 1 2, on right: 0 1)]TJ
+T*[(54:)-600(statement \(11\))]TJ
+T*[(55:)-600(    on left: 3 4, on right: 1)]TJ
+T*[(56:)-600(declaration \(12\))]TJ
+T*[(57:)-600(    on left: 5 6, on right: 3)]TJ
+T*[(58:)-600(basetype \(13\))]TJ
+T*[(59:)-600(    on left: 7 8 9, on right: 5 6)]TJ
+T*[(60:)-600(expression \(14\))]TJ
+T*[(61:)-600(    on left: 10 11, on right: 4 10)]TJ
+(62:)'
+(63:)'
+T*[(64:)-600(state 0)]TJ
+ET
+Q
+Q
+endstream
+endobj
+63 0 obj
+2573
+endobj
+66 0 obj
+<</Length 67 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 246.18 736.5 Tm
+(reduce-reduce.logfile)Tj
+-54.3051 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-129.875 -35.5 Td
+(65:)Tj
+11 TL
+T*[(66:)-600(    0 $accept: . program $end)]TJ
+(67:)'
+T*[(68:)-600(    $default  reduce using rule 2 \(program\))]TJ
+(69:)'
+T*[(70:)-600(    program  go to state 1)]TJ
+(71:)'
+(72:)'
+T*[(73:)-600(state 1)]TJ
+(74:)'
+T*[(75:)-600(    0 $accept: program . $end)]TJ
+T*[(76:)-600(    1 program: program . statement)]TJ
+(77:)'
+T*[(78:)-600(    $end   shift, and go to state 2)]TJ
+T*[(79:)-600(    CHAR   shift, and go to state 3)]TJ
+T*[(80:)-600(    INT    shift, and go to state 4)]TJ
+T*[(81:)-600(    IDENT  shift, and go to state 5)]TJ
+(82:)'
+T*[(83:)-600(    statement    go to state 6)]TJ
+T*[(84:)-600(    declaration  go to state 7)]TJ
+T*[(85:)-600(    basetype     go to state 8)]TJ
+T*[(86:)-600(    expression   go to state 9)]TJ
+(87:)'
+(88:)'
+T*[(89:)-600(state 2)]TJ
+(90:)'
+T*[(91:)-600(    0 $accept: program $end .)]TJ
+(92:)'
+T*[(93:)-600(    $default  accept)]TJ
+(94:)'
+(95:)'
+T*[(96:)-600(state 3)]TJ
+(97:)'
+T*[(98:)-600(    7 basetype: CHAR .)]TJ
+(99:)'
+-6 -11 Td
+[(100:)-600(    $default  reduce using rule 7 \(basetype\))]TJ
+(101:)'
+(102:)'
+T*[(103:)-600(state 4)]TJ
+(104:)'
+T*[(105:)-600(    8 basetype: INT .)]TJ
+(106:)'
+T*[(107:)-600(    $default  reduce using rule 8 \(basetype\))]TJ
+(108:)'
+(109:)'
+T*[(110:)-600(state 5)]TJ
+(111:)'
+T*[(112:)-600(    9 basetype: IDENT .)]TJ
+T*[(113:)-600(   11 expression: IDENT .)]TJ
+(114:)'
+T*[(115:)-600(    ';'       reduce using rule 11 \(expression\))]TJ
+T*[(116:)-600(    '['       reduce using rule 9 \(basetype\))]TJ
+T*[(117:)-600(    '['       [reduce using rule 11 \(expression\)])]TJ
+T*[(118:)-600(    $default  reduce using rule 9 \(basetype\))]TJ
+(119:)'
+(120:)'
+T*[(121:)-600(state 6)]TJ
+(122:)'
+T*[(123:)-600(    1 program: program statement .)]TJ
+(124:)'
+T*[(125:)-600(    $default  reduce using rule 1 \(program\))]TJ
+(126:)'
+(127:)'
+T*[(128:)-600(state 7)]TJ
+ET
+Q
+Q
+endstream
+endobj
+67 0 obj
+2362
+endobj
+70 0 obj
+<</Length 71 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 246.18 736.5 Tm
+(reduce-reduce.logfile)Tj
+-54.3051 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+(129:)Tj
+11 TL
+T*[(130:)-600(    3 statement: declaration . ';')]TJ
+(131:)'
+T*[(132:)-600(    ';'  shift, and go to state 10)]TJ
+(133:)'
+(134:)'
+T*[(135:)-600(state 8)]TJ
+(136:)'
+T*[(137:)-600(    5 declaration: basetype . '[' ']' IDENT)]TJ
+T*[(138:)-600(    6            | basetype . IDENT)]TJ
+(139:)'
+T*[(140:)-600(    IDENT  shift, and go to state 11)]TJ
+T*[(141:)-600(    '['    shift, and go to state 12)]TJ
+(142:)'
+(143:)'
+T*[(144:)-600(state 9)]TJ
+(145:)'
+T*[(146:)-600(    4 statement: expression . ';')]TJ
+T*[(147:)-600(   10 expression: expression . '[' expression ']')]TJ
+(148:)'
+T*[(149:)-600(    ';'  shift, and go to state 13)]TJ
+T*[(150:)-600(    '['  shift, and go to state 14)]TJ
+(151:)'
+(152:)'
+T*[(153:)-600(state 10)]TJ
+(154:)'
+T*[(155:)-600(    3 statement: declaration ';' .)]TJ
+(156:)'
+T*[(157:)-600(    $default  reduce using rule 3 \(statement\))]TJ
+(158:)'
+(159:)'
+T*[(160:)-600(state 11)]TJ
+(161:)'
+T*[(162:)-600(    6 declaration: basetype IDENT .)]TJ
+(163:)'
+T*[(164:)-600(    $default  reduce using rule 6 \(declaration\))]TJ
+(165:)'
+(166:)'
+T*[(167:)-600(state 12)]TJ
+(168:)'
+T*[(169:)-600(    5 declaration: basetype '[' . ']' IDENT)]TJ
+(170:)'
+T*[(171:)-600(    ']'  shift, and go to state 15)]TJ
+(172:)'
+(173:)'
+T*[(174:)-600(state 13)]TJ
+(175:)'
+T*[(176:)-600(    4 statement: expression ';' .)]TJ
+(177:)'
+T*[(178:)-600(    $default  reduce using rule 4 \(statement\))]TJ
+(179:)'
+(180:)'
+T*[(181:)-600(state 14)]TJ
+(182:)'
+T*[(183:)-600(   10 expression: expression '[' . expression ']')]TJ
+(184:)'
+T*[(185:)-600(    IDENT  shift, and go to state 16)]TJ
+(186:)'
+T*[(187:)-600(    expression  go to state 17)]TJ
+(188:)'
+(189:)'
+T*[(190:)-600(state 15)]TJ
+(191:)'
+T*[(192:)-600(    5 declaration: basetype '[' ']' . IDENT)]TJ
+ET
+Q
+Q
+endstream
+endobj
+71 0 obj
+2280
+endobj
+74 0 obj
+<</Length 75 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(4)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 246.18 736.5 Tm
+(reduce-reduce.logfile)Tj
+-54.3051 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+(193:)Tj
+11 TL
+T*[(194:)-600(    IDENT  shift, and go to state 18)]TJ
+(195:)'
+(196:)'
+T*[(197:)-600(state 16)]TJ
+(198:)'
+T*[(199:)-600(   11 expression: IDENT .)]TJ
+(200:)'
+T*[(201:)-600(    $default  reduce using rule 11 \(expression\))]TJ
+(202:)'
+(203:)'
+T*[(204:)-600(state 17)]TJ
+(205:)'
+T*[(206:)-600(   10 expression: expression . '[' expression ']')]TJ
+T*[(207:)-600(   10           | expression '[' expression . ']')]TJ
+(208:)'
+T*[(209:)-600(    '['  shift, and go to state 14)]TJ
+T*[(210:)-600(    ']'  shift, and go to state 19)]TJ
+(211:)'
+(212:)'
+T*[(213:)-600(state 18)]TJ
+(214:)'
+T*[(215:)-600(    5 declaration: basetype '[' ']' IDENT .)]TJ
+(216:)'
+T*[(217:)-600(    $default  reduce using rule 5 \(declaration\))]TJ
+(218:)'
+(219:)'
+T*[(220:)-600(state 19)]TJ
+(221:)'
+T*[(222:)-600(   10 expression: expression '[' expression ']' .)]TJ
+(223:)'
+T*[(224:)-600(    $default  reduce using rule 10 \(expression\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+75 0 obj
+1447
+endobj
+78 0 obj
+<</Length 79 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(18:47:17)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 278.896 736.5 Tm
+(notlalr1.y)Tj
+-87.0215 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-123.875 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(%start S)]TJ
+T*[(3:)-600(%token a b c d)]TJ
+(4:)'
+T*[(5:)-600(%%)]TJ
+(6:)'
+T*[(7:)-600(S : A a ;)]TJ
+T*[(8:)-600(S : b A c ;)]TJ
+T*[(9:)-600(S : B c ;)]TJ
+-6 -11 Td
+[(10:)-600(S : b B a ;)]TJ
+T*[(11:)-600(A : d ;)]TJ
+T*[(12:)-600(B : d ;)]TJ
+(13:)'
+T*[(14:)-600(%%)]TJ
+(15:)'
+ET
+Q
+Q
+endstream
+endobj
+79 0 obj
+812
+endobj
+82 0 obj
+<</Length 83 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 264.12 736.5 Tm
+(notlalr1.logfile)Tj
+-72.2453 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-123.875 -35.5 Td
+[(1:)-600(bison -v notlalr1.y)]TJ
+11 TL
+T*[(2:)-600(::::::::::::::)]TJ
+T*[(3:)-600(notlalr1.stdout)]TJ
+T*[(4:)-600(::::::::::::::)]TJ
+T*[(5:)-600(::::::::::::::)]TJ
+T*[(6:)-600(notlalr1.stderr)]TJ
+T*[(7:)-600(::::::::::::::)]TJ
+T*[(8:)-600(notlalr1.y: conflicts: 2 reduce/reduce)]TJ
+T*[(9:)-600(notlalr1.y:12.5: warning: rule never reduced because of conflicts: B: d)]TJ
+-6 -11 Td
+[(10:)-600(::::::::::::::)]TJ
+T*[(11:)-600(notlalr1.output)]TJ
+T*[(12:)-600(::::::::::::::)]TJ
+T*[(13:)-600(Rules never reduced)]TJ
+(14:)'
+T*[(15:)-600(    6 B: d)]TJ
+(16:)'
+(17:)'
+T*[(18:)-600(State 2 conflicts: 2 reduce/reduce)]TJ
+(19:)'
+(20:)'
+T*[(21:)-600(Grammar)]TJ
+(22:)'
+T*[(23:)-600(    0 $accept: S $end)]TJ
+(24:)'
+T*[(25:)-600(    1 S: A a)]TJ
+T*[(26:)-600(    2  | b A c)]TJ
+T*[(27:)-600(    3  | B c)]TJ
+T*[(28:)-600(    4  | b B a)]TJ
+(29:)'
+T*[(30:)-600(    5 A: d)]TJ
+(31:)'
+T*[(32:)-600(    6 B: d)]TJ
+(33:)'
+(34:)'
+T*[(35:)-600(Terminals, with rules where they appear)]TJ
+(36:)'
+T*[(37:)-600($end \(0\) 0)]TJ
+T*[(38:)-600(error \(256\))]TJ
+T*[(39:)-600(a \(258\) 1 4)]TJ
+T*[(40:)-600(b \(259\) 2 4)]TJ
+T*[(41:)-600(c \(260\) 2 3)]TJ
+T*[(42:)-600(d \(261\) 5 6)]TJ
+(43:)'
+(44:)'
+T*[(45:)-600(Nonterminals, with rules where they appear)]TJ
+(46:)'
+T*[(47:)-600($accept \(7\))]TJ
+T*[(48:)-600(    on left: 0)]TJ
+T*[(49:)-600(S \(8\))]TJ
+T*[(50:)-600(    on left: 1 2 3 4, on right: 0)]TJ
+T*[(51:)-600(A \(9\))]TJ
+T*[(52:)-600(    on left: 5, on right: 1 2)]TJ
+T*[(53:)-600(B \(10\))]TJ
+T*[(54:)-600(    on left: 6, on right: 3 4)]TJ
+(55:)'
+(56:)'
+T*[(57:)-600(state 0)]TJ
+(58:)'
+T*[(59:)-600(    0 $accept: . S $end)]TJ
+(60:)'
+T*[(61:)-600(    b  shift, and go to state 1)]TJ
+T*[(62:)-600(    d  shift, and go to state 2)]TJ
+(63:)'
+T*[(64:)-600(    S  go to state 3)]TJ
+ET
+Q
+Q
+endstream
+endobj
+83 0 obj
+2281
+endobj
+86 0 obj
+<</Length 87 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 264.12 736.5 Tm
+(notlalr1.logfile)Tj
+-72.2453 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-129.875 -35.5 Td
+[(65:)-600(    A  go to state 4)]TJ
+11 TL
+T*[(66:)-600(    B  go to state 5)]TJ
+(67:)'
+(68:)'
+T*[(69:)-600(state 1)]TJ
+(70:)'
+T*[(71:)-600(    2 S: b . A c)]TJ
+T*[(72:)-600(    4  | b . B a)]TJ
+(73:)'
+T*[(74:)-600(    d  shift, and go to state 2)]TJ
+(75:)'
+T*[(76:)-600(    A  go to state 6)]TJ
+T*[(77:)-600(    B  go to state 7)]TJ
+(78:)'
+(79:)'
+T*[(80:)-600(state 2)]TJ
+(81:)'
+T*[(82:)-600(    5 A: d .)]TJ
+T*[(83:)-600(    6 B: d .)]TJ
+(84:)'
+T*[(85:)-600(    a         reduce using rule 5 \(A\))]TJ
+T*[(86:)-600(    a         [reduce using rule 6 \(B\)])]TJ
+T*[(87:)-600(    c         reduce using rule 5 \(A\))]TJ
+T*[(88:)-600(    c         [reduce using rule 6 \(B\)])]TJ
+T*[(89:)-600(    $default  reduce using rule 5 \(A\))]TJ
+(90:)'
+(91:)'
+T*[(92:)-600(state 3)]TJ
+(93:)'
+T*[(94:)-600(    0 $accept: S . $end)]TJ
+(95:)'
+T*[(96:)-600(    $end  shift, and go to state 8)]TJ
+(97:)'
+(98:)'
+T*[(99:)-600(state 4)]TJ
+-6 -11 Td
+(100:)Tj
+T*[(101:)-600(    1 S: A . a)]TJ
+(102:)'
+T*[(103:)-600(    a  shift, and go to state 9)]TJ
+(104:)'
+(105:)'
+T*[(106:)-600(state 5)]TJ
+(107:)'
+T*[(108:)-600(    3 S: B . c)]TJ
+(109:)'
+T*[(110:)-600(    c  shift, and go to state 10)]TJ
+(111:)'
+(112:)'
+T*[(113:)-600(state 6)]TJ
+(114:)'
+T*[(115:)-600(    2 S: b A . c)]TJ
+(116:)'
+T*[(117:)-600(    c  shift, and go to state 11)]TJ
+(118:)'
+(119:)'
+T*[(120:)-600(state 7)]TJ
+(121:)'
+T*[(122:)-600(    4 S: b B . a)]TJ
+(123:)'
+T*[(124:)-600(    a  shift, and go to state 12)]TJ
+(125:)'
+(126:)'
+T*[(127:)-600(state 8)]TJ
+(128:)'
+ET
+Q
+Q
+endstream
+endobj
+87 0 obj
+2026
+endobj
+90 0 obj
+<</Length 91 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/28/11)Tj
+-0.659766 -12.8004 Td
+(19:15:08)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 264.12 736.5 Tm
+(notlalr1.logfile)Tj
+-72.2453 18 Td
+($cmps104a-wm/Examples/e06.conflicts/)Tj
+/R10 10 Tf
+-135.875 -35.5 Td
+[(129:)-600(    0 $accept: S $end .)]TJ
+11 TL
+(130:)'
+T*[(131:)-600(    $default  accept)]TJ
+(132:)'
+(133:)'
+T*[(134:)-600(state 9)]TJ
+(135:)'
+T*[(136:)-600(    1 S: A a .)]TJ
+(137:)'
+T*[(138:)-600(    $default  reduce using rule 1 \(S\))]TJ
+(139:)'
+(140:)'
+T*[(141:)-600(state 10)]TJ
+(142:)'
+T*[(143:)-600(    3 S: B c .)]TJ
+(144:)'
+T*[(145:)-600(    $default  reduce using rule 3 \(S\))]TJ
+(146:)'
+(147:)'
+T*[(148:)-600(state 11)]TJ
+(149:)'
+T*[(150:)-600(    2 S: b A c .)]TJ
+(151:)'
+T*[(152:)-600(    $default  reduce using rule 2 \(S\))]TJ
+(153:)'
+(154:)'
+T*[(155:)-600(state 12)]TJ
+(156:)'
+T*[(157:)-600(    4 S: b B a .)]TJ
+(158:)'
+T*[(159:)-600(    $default  reduce using rule 4 \(S\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+91 0 obj
+1212
+endobj
+4 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 12 0 R
+>>
+/Contents 5 0 R
+>>
+endobj
+13 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 16 0 R
+>>
+/Contents 14 0 R
+>>
+endobj
+17 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 20 0 R
+>>
+/Contents 18 0 R
+>>
+endobj
+21 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 24 0 R
+>>
+/Contents 22 0 R
+>>
+endobj
+25 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 28 0 R
+>>
+/Contents 26 0 R
+>>
+endobj
+29 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 32 0 R
+>>
+/Contents 30 0 R
+>>
+endobj
+33 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 36 0 R
+>>
+/Contents 34 0 R
+>>
+endobj
+37 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 40 0 R
+>>
+/Contents 38 0 R
+>>
+endobj
+41 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 44 0 R
+>>
+/Contents 42 0 R
+>>
+endobj
+45 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 48 0 R
+>>
+/Contents 46 0 R
+>>
+endobj
+49 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 52 0 R
+>>
+/Contents 50 0 R
+>>
+endobj
+53 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 56 0 R
+>>
+/Contents 54 0 R
+>>
+endobj
+57 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 60 0 R
+>>
+/Contents 58 0 R
+>>
+endobj
+61 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 64 0 R
+>>
+/Contents 62 0 R
+>>
+endobj
+65 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 68 0 R
+>>
+/Contents 66 0 R
+>>
+endobj
+69 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 72 0 R
+>>
+/Contents 70 0 R
+>>
+endobj
+73 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 76 0 R
+>>
+/Contents 74 0 R
+>>
+endobj
+77 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 80 0 R
+>>
+/Contents 78 0 R
+>>
+endobj
+81 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 84 0 R
+>>
+/Contents 82 0 R
+>>
+endobj
+85 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 88 0 R
+>>
+/Contents 86 0 R
+>>
+endobj
+89 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 92 0 R
+>>
+/Contents 90 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [
+4 0 R
+13 0 R
+17 0 R
+21 0 R
+25 0 R
+29 0 R
+33 0 R
+37 0 R
+41 0 R
+45 0 R
+49 0 R
+53 0 R
+57 0 R
+61 0 R
+65 0 R
+69 0 R
+73 0 R
+77 0 R
+81 0 R
+85 0 R
+89 0 R
+] /Count 21
+>>
+endobj
+1 0 obj
+<</Type /Catalog /Pages 3 0 R
+>>
+endobj
+12 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R11
+11 0 R>>
+endobj
+16 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+20 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+24 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+28 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+32 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+36 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+40 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+44 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+48 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+52 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+56 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+60 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+64 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+68 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+72 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+76 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+80 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+84 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+88 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+92 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+8 0 obj
+<</BaseFont/Times-Roman/Type/Font
+/Subtype/Type1>>
+endobj
+10 0 obj
+<</BaseFont/Courier/Type/Font
+/Subtype/Type1>>
+endobj
+7 0 obj
+<</BaseFont/Helvetica-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+9 0 obj
+<</BaseFont/Times-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+11 0 obj
+<</BaseFont/Courier-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+2 0 obj
+<</Producer(ESP Ghostscript 815.02)
+/CreationDate(D:20111028191517)
+/ModDate(D:20111028191517)>>endobj
+xref
+0 93
+0000000000 65535 f 
+0000046826 00000 n 
+0000048455 00000 n 
+0000046626 00000 n 
+0000043793 00000 n 
+0000000009 00000 n 
+0000001691 00000 n 
+0000048253 00000 n 
+0000048124 00000 n 
+0000048322 00000 n 
+0000048190 00000 n 
+0000048387 00000 n 
+0000046874 00000 n 
+0000043926 00000 n 
+0000001711 00000 n 
+0000004289 00000 n 
+0000046944 00000 n 
+0000044061 00000 n 
+0000004310 00000 n 
+0000006645 00000 n 
+0000047003 00000 n 
+0000044196 00000 n 
+0000006666 00000 n 
+0000009173 00000 n 
+0000047062 00000 n 
+0000044331 00000 n 
+0000009194 00000 n 
+0000011551 00000 n 
+0000047121 00000 n 
+0000044466 00000 n 
+0000011572 00000 n 
+0000012228 00000 n 
+0000047180 00000 n 
+0000044601 00000 n 
+0000012248 00000 n 
+0000014159 00000 n 
+0000047239 00000 n 
+0000044736 00000 n 
+0000014180 00000 n 
+0000016891 00000 n 
+0000047298 00000 n 
+0000044871 00000 n 
+0000016912 00000 n 
+0000019316 00000 n 
+0000047357 00000 n 
+0000045006 00000 n 
+0000019337 00000 n 
+0000022007 00000 n 
+0000047416 00000 n 
+0000045141 00000 n 
+0000022028 00000 n 
+0000024290 00000 n 
+0000047475 00000 n 
+0000045276 00000 n 
+0000024311 00000 n 
+0000026623 00000 n 
+0000047534 00000 n 
+0000045411 00000 n 
+0000026644 00000 n 
+0000028196 00000 n 
+0000047593 00000 n 
+0000045546 00000 n 
+0000028217 00000 n 
+0000030842 00000 n 
+0000047652 00000 n 
+0000045681 00000 n 
+0000030863 00000 n 
+0000033277 00000 n 
+0000047711 00000 n 
+0000045816 00000 n 
+0000033298 00000 n 
+0000035630 00000 n 
+0000047770 00000 n 
+0000045951 00000 n 
+0000035651 00000 n 
+0000037150 00000 n 
+0000047829 00000 n 
+0000046086 00000 n 
+0000037171 00000 n 
+0000038035 00000 n 
+0000047888 00000 n 
+0000046221 00000 n 
+0000038055 00000 n 
+0000040388 00000 n 
+0000047947 00000 n 
+0000046356 00000 n 
+0000040409 00000 n 
+0000042487 00000 n 
+0000048006 00000 n 
+0000046491 00000 n 
+0000042508 00000 n 
+0000043772 00000 n 
+0000048065 00000 n 
+trailer
+<< /Size 93 /Root 1 0 R /Info 2 0 R
+/ID [<E62F9FE501012DFA58D2EDEDD13928FC><E62F9FE501012DFA58D2EDEDD13928FC>]
+>>
+startxref
+48566
+%%EOF

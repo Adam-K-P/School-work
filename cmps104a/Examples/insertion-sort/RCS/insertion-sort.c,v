@@ -1,0 +1,255 @@
+head	1.10;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.10
+date	2015.05.29.02.45.20;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2015.05.29.02.44.56;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2015.05.29.02.44.05;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2015.05.29.02.42.55;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2015.05.29.02.42.17;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2015.05.29.02.41.42;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2015.05.29.02.40.09;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2015.05.29.02.36.10;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2015.05.29.02.35.58;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2015.05.29.02.35.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.10
+log
+@-
+@
+text
+@// $Id: insertion-sort.c,v 1.9 2015-05-28 19:44:56-07 - - $
+
+#include <stdio.h>
+#include <string.h>
+
+void sort (void* a, size_t n, size_t w, int (*cmp) (void*, void*)) {
+   char e[w];
+   for (size_t s = 1; s < n; ++s) {
+      size_t h = s;
+      memcpy (e, a + h * w, w);
+      while (h > 0) {
+         int c = cmp (a + (h - 1) * w, e);
+         if (c < 0) break;
+         memcpy (a + h * w, a + (h - 1) * w, w);
+         h = h - 1;
+      }
+      memcpy (a + h * w, e, w);
+   }
+}
+
+void print (int* a, size_t n) {
+   for (size_t i = 0; i < n; ++i) printf (" %d", a[i]);
+   printf ("\n");
+}
+
+int cmp (void* p1, void* p2) {
+   int q1 = *(int*) p1;
+   int q2 = *(int*) p2;
+   return (q1 > q2) - (q1 < q2);
+}
+
+int main() {
+   int a[] = {13, 91, 41, 22, 67, 48, 11, 16, 55, 30};
+   size_t w = sizeof *a;
+   size_t n = sizeof a / w;
+   print (a, n);
+   sort (a, n, w, cmp);
+   print (a, n);
+}
+
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.c,v 1.8 2015-05-28 19:44:05-07 - - $
+d33 1
+a33 1
+   int a[] = {13, 11, 41, 22, 67, 48, 11, 16, 55, 30};
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.c,v 1.7 2015-05-28 19:42:55-07 - - $
+d33 1
+a33 1
+   int a[] = {3, 1, 4, 2, 7, 8, 11, 16, 5, 0};
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.c,v 1.6 2015-05-28 19:42:17-07 - - $
+d14 1
+a14 1
+         memcpy (a + h * 2, a + (h - 1) * w, w);
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.c,v 1.5 2015-05-28 19:41:42-07 - - $
+d34 2
+a35 1
+   size_t n = sizeof a / sizeof *a;
+d37 1
+a37 1
+   sort (a, n, sizeof int, cmp);
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.c,v 1.4 2015-05-28 19:40:09-07 - - $
+d12 2
+a13 2
+         int c = cmp (
+         if (a[h - 1] < e) break;
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.c,v 1.3 2015-05-28 19:36:10-07 - - $
+d10 1
+a10 1
+      memset (e, a + h * w, w);
+d14 1
+a14 1
+         memset (a + h * 2, a + (h - 1) * w, w);
+d17 1
+a17 1
+      memset (a + h * w, e, w);
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.c,v 1.2 2015-05-28 19:35:58-07 - - $
+d4 1
+d6 2
+a7 1
+void sort (Item* a, size_t n, size_t w, int (*cmp) (void*, void*)) {
+d10 1
+a10 1
+      Item e = a[h];
+d12 1
+d14 1
+a14 1
+         a[h] = a[h - 1];
+d17 1
+a17 1
+      a[h] = e;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.c,v 1.1 2015-05-28 19:35:48-07 - - $
+d30 1
+a30 1
+   int a[] {3, 1, 4, 2, 7, 8, 11, 16, 5, 0};
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: insertion-sort.cpp,v 1.3 2015-05-28 19:30:54-07 - - $
+d3 1
+a3 1
+#include <cstdio>
+@

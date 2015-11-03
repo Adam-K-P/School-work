@@ -22,9 +22,9 @@ q
 10 0 0 10 0 0 cm BT
 /R8 12 Tf
 1 0 0 1 52.6641 752 Tm
-(03/25/15)Tj
+(09/25/15)Tj
 -0.659766 -12.8 Td
-(19:03:01)Tj
+(18:06:34)Tj
 ET
 Q
 4980 7320 720 360 re
@@ -98,9 +98,9 @@ q
 10 0 0 10 0 0 cm BT
 /R8 12 Tf
 1 0 0 1 52.6641 752 Tm
-(03/25/15)Tj
+(09/25/15)Tj
 -0.659766 -12.8 Td
-(19:03:01)Tj
+(18:06:34)Tj
 ET
 Q
 4980 7320 720 360 re
@@ -197,9 +197,9 @@ q
 10 0 0 10 0 0 cm BT
 /R8 12 Tf
 1 0 0 1 52.6641 752 Tm
-(03/25/15)Tj
+(09/25/15)Tj
 -0.659766 -12.8 Td
-(19:03:01)Tj
+(18:06:34)Tj
 ET
 Q
 4980 7320 720 360 re
@@ -280,9 +280,9 @@ q
 10 0 0 10 0 0 cm BT
 /R8 12 Tf
 1 0 0 1 52.6641 752 Tm
-(03/25/15)Tj
+(09/25/15)Tj
 -0.659766 -12.8 Td
-(19:03:01)Tj
+(18:06:34)Tj
 ET
 Q
 4980 7320 720 360 re
@@ -374,9 +374,9 @@ q
 10 0 0 10 0 0 cm BT
 /R8 12 Tf
 1 0 0 1 52.6641 752 Tm
-(03/25/15)Tj
+(09/25/15)Tj
 -0.659766 -12.8 Td
-(19:03:05)Tj
+(18:06:49)Tj
 ET
 Q
 4980 7320 720 360 re
@@ -402,54 +402,62 @@ q
 10 0 0 10 0 0 cm BT
 /R14 11 Tf
 1 0 0 1 70.4 718 Tm
-[(1:)-600(intern \("HEADER.html"\) returned 0x4c2f158->"HEADER.html")]TJ
+[(1:)-600(intern \("HEADER.html"\) returned 0x4c30158->"HEADER.html")]TJ
 12 TL
-T*[(2:)-600(intern \("Makefile"\) returned 0x4c2f228->"Makefile")]TJ
-T*[(3:)-600(intern \("RCS"\) returned 0x4c2f2e8->"RCS")]TJ
-T*[(4:)-600(intern \("main.cpp"\) returned 0x4c2f3b8->"main.cpp")]TJ
-T*[(5:)-600(intern \("main.o"\) returned 0x4c2f478->"main.o")]TJ
-T*[(6:)-600(intern \("stringset.cpp"\) returned 0x4c2f548->"stringset.cpp")]TJ
-T*[(7:)-600(intern \("stringset.h"\) returned 0x4c2f618->"stringset.h")]TJ
-T*[(8:)-600(intern \("stringset.o"\) returned 0x4c2f6e8->"stringset.o")]TJ
-T*[(9:)-600(intern \("teststring"\) returned 0x4c2f7b8->"teststring")]TJ
+T*[(2:)-600(intern \("Makefile"\) returned 0x4c30228->"Makefile")]TJ
+T*[(3:)-600(intern \("RCS"\) returned 0x4c302e8->"RCS")]TJ
+T*[(4:)-600(intern \("main.cpp"\) returned 0x4c303b8->"main.cpp")]TJ
+T*[(5:)-600(intern \("main.o"\) returned 0x4c30478->"main.o")]TJ
+T*[(6:)-600(intern \("stringset.cpp"\) returned 0x4c30548->"stringset.cpp")]TJ
+T*[(7:)-600(intern \("stringset.h"\) returned 0x4c30618->"stringset.h")]TJ
+T*[(8:)-600(intern \("stringset.o"\) returned 0x4c306e8->"stringset.o")]TJ
+T*[(9:)-600(intern \("test.err"\) returned 0x4c307b8->"test.err")]TJ
 -6.6 -12 Td
-[(10:)-600(intern \("HEADER.html"\) returned 0x4c2f158->"HEADER.html")]TJ
-T*[(11:)-600(intern \("Makefile"\) returned 0x4c2f228->"Makefile")]TJ
-T*[(12:)-600(intern \("RCS"\) returned 0x4c2f2e8->"RCS")]TJ
-T*[(13:)-600(intern \("main.cpp"\) returned 0x4c2f3b8->"main.cpp")]TJ
-T*[(14:)-600(intern \("main.o"\) returned 0x4c2f478->"main.o")]TJ
-T*[(15:)-600(intern \("stringset.cpp"\) returned 0x4c2f548->"stringset.cpp")]TJ
-T*[(16:)-600(intern \("stringset.h"\) returned 0x4c2f618->"stringset.h")]TJ
-T*[(17:)-600(intern \("stringset.o"\) returned 0x4c2f6e8->"stringset.o")]TJ
-T*[(18:)-600(intern \("teststring"\) returned 0x4c2f7b8->"teststring")]TJ
-T*[(19:)-600(intern \("HEADER.html"\) returned 0x4c2f158->"HEADER.html")]TJ
-T*[(20:)-600(intern \("Makefile"\) returned 0x4c2f228->"Makefile")]TJ
-T*[(21:)-600(intern \("RCS"\) returned 0x4c2f2e8->"RCS")]TJ
-T*[(22:)-600(intern \("main.cpp"\) returned 0x4c2f3b8->"main.cpp")]TJ
-T*[(23:)-600(intern \("main.o"\) returned 0x4c2f478->"main.o")]TJ
-T*[(24:)-600(intern \("stringset.cpp"\) returned 0x4c2f548->"stringset.cpp")]TJ
-T*[(25:)-600(intern \("stringset.h"\) returned 0x4c2f618->"stringset.h")]TJ
-T*[(26:)-600(intern \("stringset.o"\) returned 0x4c2f6e8->"stringset.o")]TJ
-T*[(27:)-600(intern \("teststring"\) returned 0x4c2f7b8->"teststring")]TJ
-T*[(28:)-600(stringset[   1]:   12311697016174216101 0x4c2f548->"stringset.cpp")]TJ
-T*[(29:)-600(stringset[   2]:    2099682443743551108 0x4c2f478->"main.o")]TJ
-T*[(30:)-600(stringset[   4]:   14383043818818809721 0x4c2f7b8->"teststring")]TJ
-T*[(31:)-600(stringset[   6]:   17041606903804112922 0x4c2f3b8->"main.cpp")]TJ
-T*[(32:)-600(                     994128771139992428 0x4c2f2e8->"RCS")]TJ
-T*[(33:)-600(                   13646535705723827550 0x4c2f158->"HEADER.html")]TJ
-T*[(34:)-600(stringset[   7]:    8902767590177878864 0x4c2f228->"Makefile")]TJ
-T*[(35:)-600(stringset[  10]:   12900681736301144686 0x4c2f6e8->"stringset.o")]TJ
-T*[(36:)-600(                    1356443961750385397 0x4c2f618->"stringset.h")]TJ
-T*[(37:)-600(load_factor = 0.818)]TJ
-T*[(38:)-600(bucket_count = 11)]TJ
-T*[(39:)-600(max_bucket_size = 3)]TJ
+[(10:)-600(intern \("test.out"\) returned 0x4c30888->"test.out")]TJ
+T*[(11:)-600(intern \("teststring"\) returned 0x4c30958->"teststring")]TJ
+T*[(12:)-600(intern \("HEADER.html"\) returned 0x4c30158->"HEADER.html")]TJ
+T*[(13:)-600(intern \("Makefile"\) returned 0x4c30228->"Makefile")]TJ
+T*[(14:)-600(intern \("RCS"\) returned 0x4c302e8->"RCS")]TJ
+T*[(15:)-600(intern \("main.cpp"\) returned 0x4c303b8->"main.cpp")]TJ
+T*[(16:)-600(intern \("main.o"\) returned 0x4c30478->"main.o")]TJ
+T*[(17:)-600(intern \("stringset.cpp"\) returned 0x4c30548->"stringset.cpp")]TJ
+T*[(18:)-600(intern \("stringset.h"\) returned 0x4c30618->"stringset.h")]TJ
+T*[(19:)-600(intern \("stringset.o"\) returned 0x4c306e8->"stringset.o")]TJ
+T*[(20:)-600(intern \("test.err"\) returned 0x4c307b8->"test.err")]TJ
+T*[(21:)-600(intern \("test.out"\) returned 0x4c30888->"test.out")]TJ
+T*[(22:)-600(intern \("teststring"\) returned 0x4c30958->"teststring")]TJ
+T*[(23:)-600(intern \("HEADER.html"\) returned 0x4c30158->"HEADER.html")]TJ
+T*[(24:)-600(intern \("Makefile"\) returned 0x4c30228->"Makefile")]TJ
+T*[(25:)-600(intern \("RCS"\) returned 0x4c302e8->"RCS")]TJ
+T*[(26:)-600(intern \("main.cpp"\) returned 0x4c303b8->"main.cpp")]TJ
+T*[(27:)-600(intern \("main.o"\) returned 0x4c30478->"main.o")]TJ
+T*[(28:)-600(intern \("stringset.cpp"\) returned 0x4c30548->"stringset.cpp")]TJ
+T*[(29:)-600(intern \("stringset.h"\) returned 0x4c30618->"stringset.h")]TJ
+T*[(30:)-600(intern \("stringset.o"\) returned 0x4c306e8->"stringset.o")]TJ
+T*[(31:)-600(intern \("test.err"\) returned 0x4c307b8->"test.err")]TJ
+T*[(32:)-600(intern \("test.out"\) returned 0x4c30888->"test.out")]TJ
+T*[(33:)-600(intern \("teststring"\) returned 0x4c30958->"teststring")]TJ
+T*[(34:)-600(stringset[   0]:   14383043818818809721 0x4c30958->"teststring")]TJ
+T*[(35:)-600(                   13646535705723827550 0x4c30158->"HEADER.html")]TJ
+T*[(36:)-600(stringset[   1]:    2099682443743551108 0x4c30478->"main.o")]TJ
+T*[(37:)-600(stringset[   4]:     994128771139992428 0x4c302e8->"RCS")]TJ
+T*[(38:)-600(stringset[   6]:   12311697016174216101 0x4c30548->"stringset.cpp")]TJ
+T*[(39:)-600(stringset[  10]:    8902767590177878864 0x4c30228->"Makefile")]TJ
+T*[(40:)-600(stringset[  11]:   12900681736301144686 0x4c306e8->"stringset.o")]TJ
+T*[(41:)-600(stringset[  12]:   11225442421023521097 0x4c30888->"test.out")]TJ
+T*[(42:)-600(stringset[  16]:   17041606903804112922 0x4c303b8->"main.cpp")]TJ
+T*[(43:)-600(stringset[  17]:    9633715851746635993 0x4c307b8->"test.err")]TJ
+T*[(44:)-600(stringset[  20]:    1356443961750385397 0x4c30618->"stringset.h")]TJ
+T*[(45:)-600(load_factor = 0.478)]TJ
+T*[(46:)-600(bucket_count = 23)]TJ
+T*[(47:)-600(max_bucket_size = 2)]TJ
 ET
 Q
 Q
 endstream
 endobj
 35 0 obj
-3332
+3910
 endobj
 39 0 obj
 <</Length 40 0 R>>
@@ -474,9 +482,9 @@ q
 10 0 0 10 0 0 cm BT
 /R8 12 Tf
 1 0 0 1 52.6641 752 Tm
-(03/25/15)Tj
+(09/25/15)Tj
 -0.659766 -12.8 Td
-(19:03:05)Tj
+(18:06:49)Tj
 ET
 Q
 4980 7320 720 360 re
@@ -502,37 +510,41 @@ q
 10 0 0 10 0 0 cm BT
 /R14 11 Tf
 1 0 0 1 70.4 718 Tm
-[(1:)-600(==8809== Memcheck, a memory error detector)]TJ
+[(1:)-600(==27911== Memcheck, a memory error detector)]TJ
 12 TL
-T*[(2:)-600(==8809== Copyright \(C\) 2002-2013, and GNU GPL'd, by Julian Seward et al.)]TJ
-T*[(3:)-600(==8809== Using Valgrind-3.9.0 and LibVEX; rerun with -h for copyright in)]TJ
+T*[(2:)-600(==27911== Copyright \(C\) 2002-2013, and GNU GPL'd, by Julian Seward et al)]TJ
 -27.4 -12 Td
-(fo)Tj
+(.)Tj
 27.4 -12 Td
-[(4:)-600(==8809== Command: teststring HEADER.html Makefile RCS main.cpp main.o st)]TJ
+[(3:)-600(==27911== Using Valgrind-3.9.0 and LibVEX; rerun with -h for copyright i)]TJ
 -27.4 -12 Td
-(ringset.cpp stringset.h stringset.o teststring HEADER.html Makefile RCS main.cp)Tj
-(p main.o stringset.cpp stringset.h stringset.o teststring HEADER.html Makefile )'
-(RCS main.cpp main.o stringset.cpp stringset.h stringset.o teststring)'
+(nfo)Tj
 27.4 -12 Td
-[(5:)-600(==8809== )]TJ
-T*[(6:)-600(==8809== )]TJ
-T*[(7:)-600(==8809== HEAP SUMMARY:)]TJ
-T*[(8:)-600(==8809==     in use at exit: 0 bytes in 0 blocks)]TJ
-T*[(9:)-600(==8809==   total heap usage: 37 allocs, 37 frees, 1,222 bytes allocated)]TJ
+[(4:)-600(==27911== Command: teststring HEADER.html Makefile RCS main.cpp main.o s)]TJ
+-27.4 -12 Td
+(tringset.cpp stringset.h stringset.o test.err test.out teststring HEADER.html M)Tj
+(akefile RCS main.cpp main.o stringset.cpp stringset.h stringset.o test.err test)'
+(.out teststring HEADER.html Makefile RCS main.cpp main.o stringset.cpp stringse)'
+(t.h stringset.o test.err test.out teststring)'
+27.4 -12 Td
+[(5:)-600(==27911== )]TJ
+T*[(6:)-600(==27911== )]TJ
+T*[(7:)-600(==27911== HEAP SUMMARY:)]TJ
+T*[(8:)-600(==27911==     in use at exit: 0 bytes in 0 blocks)]TJ
+T*[(9:)-600(==27911==   total heap usage: 46 allocs, 46 frees, 1,652 bytes allocated)]TJ
 -6.6 -12 Td
-[(10:)-600(==8809== )]TJ
-T*[(11:)-600(==8809== All heap blocks were freed -- no leaks are possible)]TJ
-T*[(12:)-600(==8809== )]TJ
-T*[(13:)-600(==8809== For counts of detected and suppressed errors, rerun with: -v)]TJ
-T*[(14:)-600(==8809== ERROR SUMMARY: 0 errors from 0 contexts \(suppressed: 6 from 6\))]TJ
+[(10:)-600(==27911== )]TJ
+T*[(11:)-600(==27911== All heap blocks were freed -- no leaks are possible)]TJ
+T*[(12:)-600(==27911== )]TJ
+T*[(13:)-600(==27911== For counts of detected and suppressed errors, rerun with: -v)]TJ
+T*[(14:)-600(==27911== ERROR SUMMARY: 0 errors from 0 contexts \(suppressed: 6 from 6\))]TJ
 ET
 Q
 Q
 endstream
 endobj
 40 0 obj
-1742
+1842
 endobj
 4 0 obj
 <</Type/Page/MediaBox [0 0 612 792]
@@ -711,9 +723,9 @@ endobj
 /Encoding/WinAnsiEncoding/Subtype/Type1>>
 endobj
 8 0 obj
-<</BaseFont/SRCMSB+Times-Bold/FontDescriptor 9 0 R/Type/Font
+<</BaseFont/WOHQEH+Times-Bold/FontDescriptor 9 0 R/Type/Font
 /FirstChar 47/LastChar 58/Widths[ 278
-500 500 500 500 0 500 0 0 0 500 333]
+500 500 500 500 500 500 500 0 500 500 333]
 /Encoding/WinAnsiEncoding/Subtype/Type1>>
 endobj
 13 0 obj
@@ -787,7 +799,7 @@ XpgI>2^,V\=lZL:Nn5E,^6YC1;:UH!d"Tlp)a65N^>XR,e>5PpdIr1i2`39m'r9<23&Sbt>kHs2
 endstream
 endobj
 15 0 obj
-<</Type/FontDescriptor/FontName/SINMLZ+Courier-Bold/FontBBox[-21 -205 623 695]/Flags 35
+<</Type/FontDescriptor/FontName/SINMLZ+Courier-Bold/FontBBox[-21 -205 623 695]/Flags 7
 /Ascent 695
 /CapHeight 597
 /Descent -205
@@ -953,35 +965,41 @@ LR3Pm!';'=Rf~>
 endstream
 endobj
 9 0 obj
-<</Type/FontDescriptor/FontName/SRCMSB+Times-Bold/FontBBox[-24 -19 476 691]/Flags 65568
+<</Type/FontDescriptor/FontName/WOHQEH+Times-Bold/FontBBox[-24 -19 476 691]/Flags 65568
 /Ascent 691
 /CapHeight 691
 /Descent -19
 /ItalicAngle 0
 /StemV 71
 /MissingWidth 500
-/CharSet(/colon/five/nine/one/slash/three/two/zero)/FontFile3 46 0 R>>
+/CharSet(/colon/eight/five/four/nine/one/six/slash/three/two/zero)/FontFile3 46 0 R>>
 endobj
 46 0 obj
 <</Filter[/ASCII85Decode
 /FlateDecode]
-/Subtype/Type1C/Length 1209>>stream
-Gar>BD+n/F'Rh^3[kFMo6+q"N[+AhRU#=YiN!1qLd00\1N",ShTpPIF^Rta6*(V(((iP.FF"fPH
-On.JBAurpe!`PKn">q&Q1&FdW[KL*i(h66_DKi"`rF,W_T9JG#cT0<CSjT3i"@Q*dE]*=D49[CJ
-m$;mc-Z#]6N!(;&ipd?Ck\b)].\Df?-#s<S-ViL$8V=@K0`2IjCdShmnf870>],$=Dmajnc/,Ih
->cfpa5=TQJ)VGo+^C"2fH$HBRc&R?mcL,^732a6A28uH[G.s6LgAPoYLG`9eS0bnXcYVdufp?qF
-mrl=S=cFks2<]/YJlp]+aZE\;4D^;+@<SrA/gFTG<cAhgbOL&_+bY()oS+`;)%.&1L/Lke;P8fm
-,:FRL7nKs":gsk.d0c.-9iC^!3YH%YTbIe.!`;=8K$U4()*KP]r)G-CO\QLCqWFTq3@Y:=a8ghq
-7\Za'bG;5M`RJ5M<C!.l@a!),%Oco('lou[)Y--D19-<=D%(^W@.E">!U#r#?@ls@CS4OW?O#6+
-e`A<4$8G$cF!j7^AnEiB[LtD0pc<">Nf'(.6h]rhacV]qZ_sZrS0iK,XK+YcJ<:FR:Tn@IH\CIQ
-9R!T4%(V(GCU1GZ."r#$.9M-0M9lQ0`^;g^D]QtE=Obdg1d(<qN=4@Z:$'(ODMkC$^;jte=Y)_K
-Ws$brTeA%D>pYh/f_9r>]_eL_GY,6F]"RP)@[gNE(3S7[4;C*/pPH-EI2^<sFpZNV.djAF!@G)n
-T)+E(0,Ig8bA=V7LUpR\K/;:EcXXreOE7.q52F.7^?Y6JSUX"<=`BmR&Bq[Jr8)S^:J_1T!=d_?
-#;/"iW4R\qj/itsETaBVaUd"OmoFn+V(&D";&p23i4:TJ$;*k#/V./8Ob"'l#o$;-#+[.@p<2Aa
-LG&<M2dIq6U^Z^+DVjDrO.U2fm6C&!h*J9QUXQYie[>cR8GX>Js7;NE6n5"p`pE.27reI?!?`K%
-hm:f@jF\@mP#+@FCg^cLp=^UtY21Cr_!q7sOG^-,Wn3&pig+M?J;VR0^,N+H0BO'7/+.@c#f-^$
-gcp12kigr5hiS!D=*W=^%s\$-Q0J#J]OU4_Y#@!:;W9mo51G6ai,1an6Ojf/:^B+ZOg?mpcaPJX
-7kQDHE=34j\=V?oED:TID9GS78;rH`W)J!DJiNfg!BRjsf]7!R/dHPl^(m>k!%OnK;Z~>
+/Subtype/Type1C/Length 1602>>stream
+Gar>CHV@@N'Yg!_gT)$Ce13%YHT-3a_:dgX<e_gk0fD=LW"XF^o\()WJefb.X3;CV9gkDBDUOKA
+Q;.Pl.dDaLM2t&0@XLjZFCE=(e1F<UQ[I*Fen!GUqrc/ucK"X\kB@D-"9oD_8Hraq/=^3rWm.X>
+J)g@H,Tdo>:D#Tl]R=UqGRC_BYW*Ik77\?L)C^[TK8p77rsmP5&gEK\m;:>*m+(2EK@.f@<bAIo
+MiU[/c_Jm&[;8_5^CbW$k:ddTClDb$Eb:fs_HEF$XA6hpRn^l'_-Ch93nQd4T%!S[<Y_(6;Kdo=
+CpMf4Q)mRoa!Rh:Rd%[F42YSXWc51F2G9a/c*1p8ASaE*2cWuZ+!:h5BSK]S3-3[;3HMV"#U5M#
+5_K_)@NrW"PDF0E:.,YW$)sR&&L\LH`#opl[ZF8d;?Qba3miKA-!qGi?C,:Ud6kdiZ)*D6_OLSN
+&cYIWn9+0%0mOSg#)NltM'Al?>Jto@dL(kRV:cU4d9IS+rJ"fJ%a6_bK075G#4\'X%)6,pTZf"0
+?e@;A5MtZmoGZ<mW0C+1JbYPSB?tkOENDJl7r<WDa,!!M!@e]Z,_4nZ9T%"=?e%*dfC/._hnJOZ
+U>).eEg<gG$.;l)W-6Pu5,_2MhHb1.h50od&jHfGq/i9#(kbEl?Od:[6!8?"[RDDZa&=Ys55=sI
+YoDner71^,Qrp]'b$\34oi3>C$Je-rY9*/DJ5.8[lWZ_tAYT\p;1U702!;2U@j-lKC>-eUnrmlP
+cOW5GK-#h?!@h@JkVDU8HE[*IImEY6^>`^<7Uq$==X/3*p!r]%B\?+`ol0oa#T]8@gu3#5/lCj0
+/72Tmc.O,7PueAi+UR!/$=_:skdMU3<jpO8(E]McO085b*#XWYSFM$7.V2=Rp03YA&.0Ufis>eu
+7,t7#2-fh[YD,N$?^rC`S<#&WUpM#_'BE7(?fEJjC_WTel5GI,>Vlb.'QA"t/Dt?T_J]SqacF%]
+JiN`<"(%uLA7BqURYII7^@gQq;]FgC[_XMZ7^"3g=Q-VG+"^Npla@c]6aWPggplXTE<NX&mNoO?
+f;J?tkuDaujuqE&g4(H?nE)PM&(q,$:dTbi0C^\omRjZbYSmblcbtA?bA"WYWR)muTheu#pCs-D
+%o];>45:UjEJT&<!+Lu:\/+fn2d3QX9K[cf--'0%^SOt6j/]kI7a]c"5ON<#gj="d61gJLHYh](
+YV$4$!Peu#.BskE_M.6@^g/;1j`HiS>AY<=<'Wr<=pd#]Nnt$*0C,dH_[>)!BA]7>Gs,VI_'L(S
+-RUNq?Qg@W.4;E.AC;TKc@"9:G7e,T#C:\#/p6>)kAG:*'I_rpblF0c<f.[@+.!\DbV0Hc>\ru&
+)"K?%m/_;IhK4o$O<=h%(4"^EYb'hIHUE;>^$lA[N/!$B5`Ai.6)2:qnG$3Z5k]@X*:-Y+_[5ou
+_GO>P]J.RrEpq^g[r^kYf8^;r:3R2!#3b3EkM!](ltfQ@ZL)"X(*WS#d^jfe"<P/u).FbWKR'5&
+ni2'sg7Is>B7#]3);t@3Q#JN5O5oePHIe]/kj9+4]t):I.M#nMJ^kga2]gToT2-p?[T+5>&H;a&
+.ooL~>
 endstream
 endobj
 48 0 obj
@@ -991,12 +1009,12 @@ endobj
 <?adobe-xap-filters esc="CRLF"?>
 <x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='XMP toolkit 2.9.1-13, framework 1.6'>
 <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
-<rdf:Description rdf:about='ca2addc9-0b78-11f0-0000-f295482b011c' xmlns:pdf='http://ns.adobe.com/pdf/1.3/' pdf:Producer='GPL Ghostscript 8.70'/>
-<rdf:Description rdf:about='ca2addc9-0b78-11f0-0000-f295482b011c' xmlns:xmp='http://ns.adobe.com/xap/1.0/'><xmp:ModifyDate>2015-03-25T19:03:05-07:00</xmp:ModifyDate>
-<xmp:CreateDate>2015-03-25T19:03:05-07:00</xmp:CreateDate>
+<rdf:Description rdf:about='69ee92a8-9c07-11f0-0000-61f5d043eee1' xmlns:pdf='http://ns.adobe.com/pdf/1.3/' pdf:Producer='GPL Ghostscript 8.70'/>
+<rdf:Description rdf:about='69ee92a8-9c07-11f0-0000-61f5d043eee1' xmlns:xmp='http://ns.adobe.com/xap/1.0/'><xmp:ModifyDate>2015-09-25T18:06:49-07:00</xmp:ModifyDate>
+<xmp:CreateDate>2015-09-25T18:06:49-07:00</xmp:CreateDate>
 <xmp:CreatorTool>GNU enscript 1.6.4</xmp:CreatorTool></rdf:Description>
-<rdf:Description rdf:about='ca2addc9-0b78-11f0-0000-f295482b011c' xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/' xapMM:DocumentID='ca2addc9-0b78-11f0-0000-f295482b011c'/>
-<rdf:Description rdf:about='ca2addc9-0b78-11f0-0000-f295482b011c' xmlns:dc='http://purl.org/dc/elements/1.1/' dc:format='application/pdf'><dc:title><rdf:Alt><rdf:li xml:lang='x-default'>Listing.ps</rdf:li></rdf:Alt></dc:title><dc:creator><rdf:Seq><rdf:li>Wesley Mackey</rdf:li></rdf:Seq></dc:creator></rdf:Description>
+<rdf:Description rdf:about='69ee92a8-9c07-11f0-0000-61f5d043eee1' xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/' xapMM:DocumentID='69ee92a8-9c07-11f0-0000-61f5d043eee1'/>
+<rdf:Description rdf:about='69ee92a8-9c07-11f0-0000-61f5d043eee1' xmlns:dc='http://purl.org/dc/elements/1.1/' dc:format='application/pdf'><dc:title><rdf:Alt><rdf:li xml:lang='x-default'>Listing.ps</rdf:li></rdf:Alt></dc:title><dc:creator><rdf:Seq><rdf:li>Wesley Mackey</rdf:li></rdf:Seq></dc:creator></rdf:Description>
 </rdf:RDF>
 </x:xmpmeta>
                                                                         
@@ -1006,66 +1024,66 @@ endstream
 endobj
 2 0 obj
 <</Producer(GPL Ghostscript 8.70)
-/CreationDate(D:20150325190305-07'00')
-/ModDate(D:20150325190305-07'00')
+/CreationDate(D:20150925180649-07'00')
+/ModDate(D:20150925180649-07'00')
 /Title(Listing.ps)
 /Author(Wesley Mackey)
 /Creator(GNU enscript 1.6.4)>>endobj
 xref
 0 49
 0000000000 65535 f 
-0000013087 00000 n 
-0000033467 00000 n 
-0000012993 00000 n 
-0000012077 00000 n 
+0000013765 00000 n 
+0000034558 00000 n 
+0000013671 00000 n 
+0000012755 00000 n 
 0000000009 00000 n 
 0000001033 00000 n 
-0000013152 00000 n 
-0000014896 00000 n 
-0000030427 00000 n 
-0000014727 00000 n 
-0000029703 00000 n 
-0000013751 00000 n 
-0000015089 00000 n 
-0000014132 00000 n 
-0000019478 00000 n 
-0000013193 00000 n 
-0000013223 00000 n 
-0000012228 00000 n 
+0000013830 00000 n 
+0000015574 00000 n 
+0000031110 00000 n 
+0000015405 00000 n 
+0000030386 00000 n 
+0000014429 00000 n 
+0000015773 00000 n 
+0000014810 00000 n 
+0000020162 00000 n 
+0000013871 00000 n 
+0000013901 00000 n 
+0000012906 00000 n 
 0000001052 00000 n 
 0000003555 00000 n 
-0000013286 00000 n 
-0000013316 00000 n 
-0000012381 00000 n 
+0000013964 00000 n 
+0000013994 00000 n 
+0000013059 00000 n 
 0000003576 00000 n 
 0000005008 00000 n 
-0000013379 00000 n 
-0000013409 00000 n 
-0000012534 00000 n 
+0000014057 00000 n 
+0000014087 00000 n 
+0000013212 00000 n 
 0000005029 00000 n 
 0000006836 00000 n 
-0000013472 00000 n 
-0000013502 00000 n 
-0000012687 00000 n 
+0000014150 00000 n 
+0000014180 00000 n 
+0000013365 00000 n 
 0000006857 00000 n 
-0000010241 00000 n 
-0000013565 00000 n 
-0000013595 00000 n 
-0000012840 00000 n 
-0000010262 00000 n 
-0000012056 00000 n 
-0000013658 00000 n 
-0000013688 00000 n 
-0000015402 00000 n 
-0000020112 00000 n 
-0000029932 00000 n 
-0000030684 00000 n 
-0000014635 00000 n 
-0000031995 00000 n 
+0000010819 00000 n 
+0000014243 00000 n 
+0000014273 00000 n 
+0000013518 00000 n 
+0000010840 00000 n 
+0000012734 00000 n 
+0000014336 00000 n 
+0000014366 00000 n 
+0000016086 00000 n 
+0000020795 00000 n 
+0000030615 00000 n 
+0000031382 00000 n 
+0000015313 00000 n 
+0000033086 00000 n 
 trailer
 << /Size 49 /Root 1 0 R /Info 2 0 R
-/ID [<23E173A69BD31C6ADE5D4E431A5E45E8><23E173A69BD31C6ADE5D4E431A5E45E8>]
+/ID [<855C8251F364BEE4B0B6D56D9C95F092><855C8251F364BEE4B0B6D56D9C95F092>]
 >>
 startxref
-33661
+34752
 %%EOF

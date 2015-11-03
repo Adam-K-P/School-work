@@ -1,0 +1,9 @@
+# $Id: test1.in,v 1.2 2013-09-05 20:24:24-07 - - $
+alpha=3+4*5-6
+crap out
+beta=alpha/3
+gamma=beta*10-alpha*33
+64e *98
+infinity=1e1000*1e1000
+nan=infinity/infinity
+foo*bar

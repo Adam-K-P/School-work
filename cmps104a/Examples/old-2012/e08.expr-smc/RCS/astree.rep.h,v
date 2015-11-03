@@ -1,0 +1,120 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.5
+date	2013.08.22.20.58.43;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2011.10.07.05.05.30;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2011.10.07.05.03.44;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2011.09.01.00.54.03;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.10.09.01.08.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@#ifndef __ASTREEREP_H__
+#define __ASTREEREP_H__
+
+#include "astree.h"
+
+struct astree_rep {
+   char *tag;           // tag field to verify class membership
+   int symbol;          // token code
+   int filenr;          // index into filename stack
+   int linenr;          // line number from source code
+   int offset;          // offset of token with current line
+   char *lexinfo;       // pointer to lexical information
+   astree first;        // first child node of this node
+   astree last;         // last child node of this node
+   astree next;         // next younger sibling of this node
+};
+
+RCSH("$Id: astree.rep.h,v 1.4 2011-10-06 22:05:30-07 - - $")
+#endif
+@
+
+
+1.4
+log
+@-
+@
+text
+@d18 1
+a18 2
+// LINTED(static unused)
+RCSH(ASTREEREP_H,"$Id: astree.rep.h,v 1.3 2011-10-06 22:03:44-07 - - $")
+@
+
+
+1.3
+log
+@-
+@
+text
+@a0 1
+
+d19 1
+a19 1
+RCSH(ASTREEREP_H,"$Id: astree.rep.h,v 1.2 2011-08-31 17:54:03-07 - - $")
+a20 1
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@a4 7
+//
+// Representation of the abstract syntax tree.  Usually this would
+// be private in the implementation file, but it is made public here
+// in order to ease access to the fields.  All fields should be
+// considered immutable except in the implementation file.
+//
+
+d20 1
+a20 1
+RCSH(ASTREEREP_H,"$Id: astree.rep.h,v 1.1 2009-10-08 18:08:23-07 - - $")
+@
+
+
+1.1
+log
+@-
+@
+text
+@d17 1
+d27 1
+a27 1
+RCSH(ASTREEREP_H,"$Id: astree.rep.h,v 1.1 2009-10-08 17:24:38-07 - - $")
+@

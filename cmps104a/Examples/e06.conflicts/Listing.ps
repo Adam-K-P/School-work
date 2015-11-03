@@ -1,0 +1,3322 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 38 24 574 768
+%%Title: Enscript Output
+%%For: Wesley Mackey,,,,
+%%Creator: GNU enscript 1.6.4
+%%CreationDate: Fri Oct 28 19:15:17 2011
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: Letter 612 792 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 4
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 4
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Courier
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier /F-gs-font MF
+/F-gs-font 10 10 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [612 792] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-enscript 1.6 4
+%%IncludeResource: font Times-Bold
+%%IncludeResource: font Times-Roman
+
+% Fonts.
+/Times-Bold /HeaderFont-Bold MF
+/HeaderDateF /HeaderFont-Bold findfont 12 scalefont def
+
+/Times-Roman /HeaderFont-Times MF
+/HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
+
+/HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
+
+/do_header {	% print enscript header
+  gsave
+    d_header_x d_header_y translate
+
+    % light bar
+    0 0 d_header_w d_header_h 2 div Box
+    .95 setgray fill
+
+    % dark gray boxes
+    /dbw d_header_h 2 mul def	% dark box width
+    /dbc .7 def			% dark box color
+
+    % left dark box.
+    0 0 dbw d_header_h Box
+    dbc setgray fill
+
+    0 setgray 
+    HeaderDateF setfont
+    moddatestr dup stringwidth pop dbw exch sub 2 div 
+    d_header_h 2 div 2 add moveto show
+    modtimestr dup stringwidth pop dbw exch sub 2 div 
+    d_header_h 5 div moveto show
+
+    % right dark box
+    d_header_w dbw sub 0 dbw d_header_h Box
+    dbc setgray fill
+
+    HeaderPageNumF setfont
+    1 setgray
+    pagenumstr dup
+    stringwidth pop dbw exch sub 2 div d_header_w dbw sub add
+    d_header_h .2 mul moveto show
+
+    % filename
+    0 setgray 
+    HeaderHDRF setfont
+    d_header_w fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    fname show
+
+    % user supplied header string.
+    user_header_p {
+      /h d_header_h 8 div 5 mul def
+
+      % Implement strict enscript compatibility.
+      user_header_center_str () eq user_header_right_str () eq and {
+        d_header_w user_header_left_str stringwidth pop sub 2 div 
+        h moveto user_header_left_str show
+      } {
+        dbw 5 add h moveto user_header_left_str show
+
+        d_header_w user_header_center_str stringwidth pop sub 2 div 
+        h moveto user_header_center_str show
+
+	d_header_w dbw sub 5 sub user_header_right_str stringwidth pop
+	sub h moveto user_header_right_str show
+      } ifelse
+    } if
+
+  grestore
+} def
+%%EndResource
+/d_page_w 536 def
+/d_page_h 744 def
+/d_header_x 0 def
+/d_header_y 708 def
+/d_header_w 536 def
+/d_header_h 36 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 536 def
+/d_footer_h 0 def
+/d_output_w 536 def
+/d_output_h 708 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (ambiguous-else.y) def
+/fdir () def
+/ftail (ambiguous-else.y) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:07) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(// $Id: ambiguous-else.y,v 1.1 2011-10-28 18:07:07-07 - - $) s
+30 684 M (2:) s
+30 673 M (3:) s
+48 673 M
+(// Example of solving the problem of the dangling else with an) s
+30 662 M (4:) s
+48 662 M
+(// ambiguous grammar and precedence declarations.) s
+30 651 M (5:) s
+30 640 M (6:) s
+48 640 M
+(%verbose) s
+30 629 M (7:) s
+30 618 M (8:) s
+48 618 M
+(%token IF WHILE) s
+30 607 M (9:) s
+48 607 M
+(%right ELSE) s
+24 596 M (10:) s
+48 596 M
+(%start program) s
+24 585 M (11:) s
+24 574 M (12:) s
+48 574 M
+(%%) s
+24 563 M (13:) s
+24 552 M (14:) s
+48 552 M
+(program    : program statement) s
+24 541 M (15:) s
+48 541 M
+(           |) s
+24 530 M (16:) s
+48 530 M
+(           ;) s
+24 519 M (17:) s
+24 508 M (18:) s
+48 508 M
+(statement  : ifhead statement ELSE statement) s
+24 497 M (19:) s
+48 497 M
+(           | ifhead statement %prec ELSE) s
+24 486 M (20:) s
+48 486 M
+(           | whilehead statement) s
+24 475 M (21:) s
+48 475 M
+(           | otherstmt) s
+24 464 M (22:) s
+48 464 M
+(           ;) s
+24 453 M (23:) s
+24 442 M (24:) s
+48 442 M
+(ifhead     : IF '\(' expr '\)') s
+24 431 M (25:) s
+48 431 M
+(           ;) s
+24 420 M (26:) s
+24 409 M (27:) s
+48 409 M
+(whilehead  : WHILE '\(' expr '\)') s
+24 398 M (28:) s
+48 398 M
+(           ;) s
+24 387 M (29:) s
+24 376 M (30:) s
+48 376 M
+(otherstmt  : expr ';') s
+24 365 M (31:) s
+48 365 M
+(           ;) s
+24 354 M (32:) s
+24 343 M (33:) s
+48 343 M
+(expr       : 'x') s
+24 332 M (34:) s
+48 332 M
+(           ;) s
+24 321 M (35:) s
+24 310 M (36:) s
+48 310 M
+(%%) s
+24 299 M (37:) s
+_R
+S
+%%Page: (1) 2
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (ambiguous-else.logfile) def
+/fdir () def
+/ftail (ambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:07) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(bison -v ambiguous-else.y) s
+30 684 M (2:) s
+48 684 M
+(::::::::::::::) s
+30 673 M (3:) s
+48 673 M
+(ambiguous-else.stdout) s
+30 662 M (4:) s
+48 662 M
+(::::::::::::::) s
+30 651 M (5:) s
+48 651 M
+(::::::::::::::) s
+30 640 M (6:) s
+48 640 M
+(ambiguous-else.stderr) s
+30 629 M (7:) s
+48 629 M
+(::::::::::::::) s
+30 618 M (8:) s
+48 618 M
+(::::::::::::::) s
+30 607 M (9:) s
+48 607 M
+(ambiguous-else.output) s
+24 596 M (10:) s
+48 596 M
+(::::::::::::::) s
+24 585 M (11:) s
+48 585 M
+(Grammar) s
+24 574 M (12:) s
+24 563 M (13:) s
+48 563 M
+(    0 $accept: program $end) s
+24 552 M (14:) s
+24 541 M (15:) s
+48 541 M
+(    1 program: program statement) s
+24 530 M (16:) s
+48 530 M
+(    2        | /* empty */) s
+24 519 M (17:) s
+24 508 M (18:) s
+48 508 M
+(    3 statement: ifhead statement ELSE statement) s
+24 497 M (19:) s
+48 497 M
+(    4          | ifhead statement) s
+24 486 M (20:) s
+48 486 M
+(    5          | whilehead statement) s
+24 475 M (21:) s
+48 475 M
+(    6          | otherstmt) s
+24 464 M (22:) s
+24 453 M (23:) s
+48 453 M
+(    7 ifhead: IF '\(' expr '\)') s
+24 442 M (24:) s
+24 431 M (25:) s
+48 431 M
+(    8 whilehead: WHILE '\(' expr '\)') s
+24 420 M (26:) s
+24 409 M (27:) s
+48 409 M
+(    9 otherstmt: expr ';') s
+24 398 M (28:) s
+24 387 M (29:) s
+48 387 M
+(   10 expr: 'x') s
+24 376 M (30:) s
+24 365 M (31:) s
+24 354 M (32:) s
+48 354 M
+(Terminals, with rules where they appear) s
+24 343 M (33:) s
+24 332 M (34:) s
+48 332 M
+($end \(0\) 0) s
+24 321 M (35:) s
+48 321 M
+('\(' \(40\) 7 8) s
+24 310 M (36:) s
+48 310 M
+('\)' \(41\) 7 8) s
+24 299 M (37:) s
+48 299 M
+(';' \(59\) 9) s
+24 288 M (38:) s
+48 288 M
+('x' \(120\) 10) s
+24 277 M (39:) s
+48 277 M
+(error \(256\)) s
+24 266 M (40:) s
+48 266 M
+(IF \(258\) 7) s
+24 255 M (41:) s
+48 255 M
+(WHILE \(259\) 8) s
+24 244 M (42:) s
+48 244 M
+(ELSE \(260\) 3) s
+24 233 M (43:) s
+24 222 M (44:) s
+24 211 M (45:) s
+48 211 M
+(Nonterminals, with rules where they appear) s
+24 200 M (46:) s
+24 189 M (47:) s
+48 189 M
+($accept \(10\)) s
+24 178 M (48:) s
+48 178 M
+(    on left: 0) s
+24 167 M (49:) s
+48 167 M
+(program \(11\)) s
+24 156 M (50:) s
+48 156 M
+(    on left: 1 2, on right: 0 1) s
+24 145 M (51:) s
+48 145 M
+(statement \(12\)) s
+24 134 M (52:) s
+48 134 M
+(    on left: 3 4 5 6, on right: 1 3 4 5) s
+24 123 M (53:) s
+48 123 M
+(ifhead \(13\)) s
+24 112 M (54:) s
+48 112 M
+(    on left: 7, on right: 3 4) s
+24 101 M (55:) s
+48 101 M
+(whilehead \(14\)) s
+24 90 M (56:) s
+48 90 M
+(    on left: 8, on right: 5) s
+24 79 M (57:) s
+48 79 M
+(otherstmt \(15\)) s
+24 68 M (58:) s
+48 68 M
+(    on left: 9, on right: 6) s
+24 57 M (59:) s
+48 57 M
+(expr \(16\)) s
+24 46 M (60:) s
+48 46 M
+(    on left: 10, on right: 7 8 9) s
+24 35 M (61:) s
+24 24 M (62:) s
+24 13 M (63:) s
+48 13 M
+(state 0) s
+24 2 M (64:) s
+_R
+S
+%%Page: (2) 3
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (ambiguous-else.logfile) def
+/fdir () def
+/ftail (ambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:07) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+24 695 M (65:) s
+48 695 M
+(    0 $accept: . program $end) s
+24 684 M (66:) s
+24 673 M (67:) s
+48 673 M
+(    $default  reduce using rule 2 \(program\)) s
+24 662 M (68:) s
+24 651 M (69:) s
+48 651 M
+(    program  go to state 1) s
+24 640 M (70:) s
+24 629 M (71:) s
+24 618 M (72:) s
+48 618 M
+(state 1) s
+24 607 M (73:) s
+24 596 M (74:) s
+48 596 M
+(    0 $accept: program . $end) s
+24 585 M (75:) s
+48 585 M
+(    1 program: program . statement) s
+24 574 M (76:) s
+24 563 M (77:) s
+48 563 M
+(    $end   shift, and go to state 2) s
+24 552 M (78:) s
+48 552 M
+(    IF     shift, and go to state 3) s
+24 541 M (79:) s
+48 541 M
+(    WHILE  shift, and go to state 4) s
+24 530 M (80:) s
+48 530 M
+(    'x'    shift, and go to state 5) s
+24 519 M (81:) s
+24 508 M (82:) s
+48 508 M
+(    statement  go to state 6) s
+24 497 M (83:) s
+48 497 M
+(    ifhead     go to state 7) s
+24 486 M (84:) s
+48 486 M
+(    whilehead  go to state 8) s
+24 475 M (85:) s
+48 475 M
+(    otherstmt  go to state 9) s
+24 464 M (86:) s
+48 464 M
+(    expr       go to state 10) s
+24 453 M (87:) s
+24 442 M (88:) s
+24 431 M (89:) s
+48 431 M
+(state 2) s
+24 420 M (90:) s
+24 409 M (91:) s
+48 409 M
+(    0 $accept: program $end .) s
+24 398 M (92:) s
+24 387 M (93:) s
+48 387 M
+(    $default  accept) s
+24 376 M (94:) s
+24 365 M (95:) s
+24 354 M (96:) s
+48 354 M
+(state 3) s
+24 343 M (97:) s
+24 332 M (98:) s
+48 332 M
+(    7 ifhead: IF . '\(' expr '\)') s
+24 321 M (99:) s
+18 310 M (100:) s
+48 310 M
+(    '\('  shift, and go to state 11) s
+18 299 M (101:) s
+18 288 M (102:) s
+18 277 M (103:) s
+48 277 M
+(state 4) s
+18 266 M (104:) s
+18 255 M (105:) s
+48 255 M
+(    8 whilehead: WHILE . '\(' expr '\)') s
+18 244 M (106:) s
+18 233 M (107:) s
+48 233 M
+(    '\('  shift, and go to state 12) s
+18 222 M (108:) s
+18 211 M (109:) s
+18 200 M (110:) s
+48 200 M
+(state 5) s
+18 189 M (111:) s
+18 178 M (112:) s
+48 178 M
+(   10 expr: 'x' .) s
+18 167 M (113:) s
+18 156 M (114:) s
+48 156 M
+(    $default  reduce using rule 10 \(expr\)) s
+18 145 M (115:) s
+18 134 M (116:) s
+18 123 M (117:) s
+48 123 M
+(state 6) s
+18 112 M (118:) s
+18 101 M (119:) s
+48 101 M
+(    1 program: program statement .) s
+18 90 M (120:) s
+18 79 M (121:) s
+48 79 M
+(    $default  reduce using rule 1 \(program\)) s
+18 68 M (122:) s
+18 57 M (123:) s
+18 46 M (124:) s
+48 46 M
+(state 7) s
+18 35 M (125:) s
+18 24 M (126:) s
+48 24 M
+(    3 statement: ifhead . statement ELSE statement) s
+18 13 M (127:) s
+48 13 M
+(    4          | ifhead . statement) s
+18 2 M (128:) s
+_R
+S
+%%Page: (3) 4
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (ambiguous-else.logfile) def
+/fdir () def
+/ftail (ambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:07) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (129:) s
+48 695 M
+(    IF     shift, and go to state 3) s
+18 684 M (130:) s
+48 684 M
+(    WHILE  shift, and go to state 4) s
+18 673 M (131:) s
+48 673 M
+(    'x'    shift, and go to state 5) s
+18 662 M (132:) s
+18 651 M (133:) s
+48 651 M
+(    statement  go to state 13) s
+18 640 M (134:) s
+48 640 M
+(    ifhead     go to state 7) s
+18 629 M (135:) s
+48 629 M
+(    whilehead  go to state 8) s
+18 618 M (136:) s
+48 618 M
+(    otherstmt  go to state 9) s
+18 607 M (137:) s
+48 607 M
+(    expr       go to state 10) s
+18 596 M (138:) s
+18 585 M (139:) s
+18 574 M (140:) s
+48 574 M
+(state 8) s
+18 563 M (141:) s
+18 552 M (142:) s
+48 552 M
+(    5 statement: whilehead . statement) s
+18 541 M (143:) s
+18 530 M (144:) s
+48 530 M
+(    IF     shift, and go to state 3) s
+18 519 M (145:) s
+48 519 M
+(    WHILE  shift, and go to state 4) s
+18 508 M (146:) s
+48 508 M
+(    'x'    shift, and go to state 5) s
+18 497 M (147:) s
+18 486 M (148:) s
+48 486 M
+(    statement  go to state 14) s
+18 475 M (149:) s
+48 475 M
+(    ifhead     go to state 7) s
+18 464 M (150:) s
+48 464 M
+(    whilehead  go to state 8) s
+18 453 M (151:) s
+48 453 M
+(    otherstmt  go to state 9) s
+18 442 M (152:) s
+48 442 M
+(    expr       go to state 10) s
+18 431 M (153:) s
+18 420 M (154:) s
+18 409 M (155:) s
+48 409 M
+(state 9) s
+18 398 M (156:) s
+18 387 M (157:) s
+48 387 M
+(    6 statement: otherstmt .) s
+18 376 M (158:) s
+18 365 M (159:) s
+48 365 M
+(    $default  reduce using rule 6 \(statement\)) s
+18 354 M (160:) s
+18 343 M (161:) s
+18 332 M (162:) s
+48 332 M
+(state 10) s
+18 321 M (163:) s
+18 310 M (164:) s
+48 310 M
+(    9 otherstmt: expr . ';') s
+18 299 M (165:) s
+18 288 M (166:) s
+48 288 M
+(    ';'  shift, and go to state 15) s
+18 277 M (167:) s
+18 266 M (168:) s
+18 255 M (169:) s
+48 255 M
+(state 11) s
+18 244 M (170:) s
+18 233 M (171:) s
+48 233 M
+(    7 ifhead: IF '\(' . expr '\)') s
+18 222 M (172:) s
+18 211 M (173:) s
+48 211 M
+(    'x'  shift, and go to state 5) s
+18 200 M (174:) s
+18 189 M (175:) s
+48 189 M
+(    expr  go to state 16) s
+18 178 M (176:) s
+18 167 M (177:) s
+18 156 M (178:) s
+48 156 M
+(state 12) s
+18 145 M (179:) s
+18 134 M (180:) s
+48 134 M
+(    8 whilehead: WHILE '\(' . expr '\)') s
+18 123 M (181:) s
+18 112 M (182:) s
+48 112 M
+(    'x'  shift, and go to state 5) s
+18 101 M (183:) s
+18 90 M (184:) s
+48 90 M
+(    expr  go to state 17) s
+18 79 M (185:) s
+18 68 M (186:) s
+18 57 M (187:) s
+48 57 M
+(state 13) s
+18 46 M (188:) s
+18 35 M (189:) s
+48 35 M
+(    3 statement: ifhead statement . ELSE statement) s
+18 24 M (190:) s
+48 24 M
+(    4          | ifhead statement .) s
+18 13 M (191:) s
+18 2 M (192:) s
+48 2 M
+(    ELSE  shift, and go to state 18) s
+_R
+S
+%%Page: (4) 5
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 4 def
+/fname (ambiguous-else.logfile) def
+/fdir () def
+/ftail (ambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (4) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:07) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (193:) s
+18 684 M (194:) s
+48 684 M
+(    $default  reduce using rule 4 \(statement\)) s
+18 673 M (195:) s
+18 662 M (196:) s
+18 651 M (197:) s
+48 651 M
+(state 14) s
+18 640 M (198:) s
+18 629 M (199:) s
+48 629 M
+(    5 statement: whilehead statement .) s
+18 618 M (200:) s
+18 607 M (201:) s
+48 607 M
+(    $default  reduce using rule 5 \(statement\)) s
+18 596 M (202:) s
+18 585 M (203:) s
+18 574 M (204:) s
+48 574 M
+(state 15) s
+18 563 M (205:) s
+18 552 M (206:) s
+48 552 M
+(    9 otherstmt: expr ';' .) s
+18 541 M (207:) s
+18 530 M (208:) s
+48 530 M
+(    $default  reduce using rule 9 \(otherstmt\)) s
+18 519 M (209:) s
+18 508 M (210:) s
+18 497 M (211:) s
+48 497 M
+(state 16) s
+18 486 M (212:) s
+18 475 M (213:) s
+48 475 M
+(    7 ifhead: IF '\(' expr . '\)') s
+18 464 M (214:) s
+18 453 M (215:) s
+48 453 M
+(    '\)'  shift, and go to state 19) s
+18 442 M (216:) s
+18 431 M (217:) s
+18 420 M (218:) s
+48 420 M
+(state 17) s
+18 409 M (219:) s
+18 398 M (220:) s
+48 398 M
+(    8 whilehead: WHILE '\(' expr . '\)') s
+18 387 M (221:) s
+18 376 M (222:) s
+48 376 M
+(    '\)'  shift, and go to state 20) s
+18 365 M (223:) s
+18 354 M (224:) s
+18 343 M (225:) s
+48 343 M
+(state 18) s
+18 332 M (226:) s
+18 321 M (227:) s
+48 321 M
+(    3 statement: ifhead statement ELSE . statement) s
+18 310 M (228:) s
+18 299 M (229:) s
+48 299 M
+(    IF     shift, and go to state 3) s
+18 288 M (230:) s
+48 288 M
+(    WHILE  shift, and go to state 4) s
+18 277 M (231:) s
+48 277 M
+(    'x'    shift, and go to state 5) s
+18 266 M (232:) s
+18 255 M (233:) s
+48 255 M
+(    statement  go to state 21) s
+18 244 M (234:) s
+48 244 M
+(    ifhead     go to state 7) s
+18 233 M (235:) s
+48 233 M
+(    whilehead  go to state 8) s
+18 222 M (236:) s
+48 222 M
+(    otherstmt  go to state 9) s
+18 211 M (237:) s
+48 211 M
+(    expr       go to state 10) s
+18 200 M (238:) s
+18 189 M (239:) s
+18 178 M (240:) s
+48 178 M
+(state 19) s
+18 167 M (241:) s
+18 156 M (242:) s
+48 156 M
+(    7 ifhead: IF '\(' expr '\)' .) s
+18 145 M (243:) s
+18 134 M (244:) s
+48 134 M
+(    $default  reduce using rule 7 \(ifhead\)) s
+18 123 M (245:) s
+18 112 M (246:) s
+18 101 M (247:) s
+48 101 M
+(state 20) s
+18 90 M (248:) s
+18 79 M (249:) s
+48 79 M
+(    8 whilehead: WHILE '\(' expr '\)' .) s
+18 68 M (250:) s
+18 57 M (251:) s
+48 57 M
+(    $default  reduce using rule 8 \(whilehead\)) s
+18 46 M (252:) s
+18 35 M (253:) s
+18 24 M (254:) s
+48 24 M
+(state 21) s
+18 13 M (255:) s
+18 2 M (256:) s
+48 2 M
+(    3 statement: ifhead statement ELSE statement .) s
+_R
+S
+%%Page: (5) 6
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 5 def
+/fname (ambiguous-else.logfile) def
+/fdir () def
+/ftail (ambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (5) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:07) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (257:) s
+18 684 M (258:) s
+48 684 M
+(    $default  reduce using rule 3 \(statement\)) s
+_R
+S
+%%Page: (1) 7
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (unambiguous-else.y) def
+/fdir () def
+/ftail (unambiguous-else.y) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(// $Id: unambiguous-else.y,v 1.1 2011-10-28 18:07:07-07 - - $) s
+30 684 M (2:) s
+30 673 M (3:) s
+48 673 M
+(// Example of solving the problem of the dangling else with an) s
+30 662 M (4:) s
+48 662 M
+(// ambiguous grammar and precedence declarations.) s
+30 651 M (5:) s
+30 640 M (6:) s
+48 640 M
+(%verbose) s
+30 629 M (7:) s
+30 618 M (8:) s
+48 618 M
+(%token IF WHILE) s
+30 607 M (9:) s
+48 607 M
+(%right ELSE) s
+24 596 M (10:) s
+48 596 M
+(%start program) s
+24 585 M (11:) s
+24 574 M (12:) s
+48 574 M
+(%%) s
+24 563 M (13:) s
+24 552 M (14:) s
+48 552 M
+(program    : program statement) s
+24 541 M (15:) s
+48 541 M
+(           |) s
+24 530 M (16:) s
+48 530 M
+(           ;) s
+24 519 M (17:) s
+24 508 M (18:) s
+48 508 M
+(statement  : closedstmt) s
+24 497 M (19:) s
+48 497 M
+(           | openstmt) s
+24 486 M (20:) s
+48 486 M
+(           ;) s
+24 475 M (21:) s
+24 464 M (22:) s
+48 464 M
+(closedstmt : ifhead closedstmt ELSE closedstmt) s
+24 453 M (23:) s
+48 453 M
+(           | whilehead closedstmt) s
+24 442 M (24:) s
+48 442 M
+(           | otherstmt) s
+24 431 M (25:) s
+48 431 M
+(           ;) s
+24 420 M (26:) s
+24 409 M (27:) s
+48 409 M
+(openstmt   : ifhead closedstmt ELSE openstmt) s
+24 398 M (28:) s
+48 398 M
+(           | ifhead statement) s
+24 387 M (29:) s
+48 387 M
+(           | whilehead openstmt) s
+24 376 M (30:) s
+24 365 M (31:) s
+48 365 M
+(ifhead     : IF '\(' expr '\)') s
+24 354 M (32:) s
+48 354 M
+(           ;) s
+24 343 M (33:) s
+24 332 M (34:) s
+48 332 M
+(whilehead  : WHILE '\(' expr '\)') s
+24 321 M (35:) s
+48 321 M
+(           ;) s
+24 310 M (36:) s
+24 299 M (37:) s
+48 299 M
+(otherstmt  : expr ';') s
+24 288 M (38:) s
+48 288 M
+(           ;) s
+24 277 M (39:) s
+24 266 M (40:) s
+48 266 M
+(expr       : 'x') s
+24 255 M (41:) s
+48 255 M
+(           ;) s
+24 244 M (42:) s
+24 233 M (43:) s
+48 233 M
+(%%) s
+24 222 M (44:) s
+_R
+S
+%%Page: (1) 8
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (unambiguous-else.logfile) def
+/fdir () def
+/ftail (unambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(bison -v unambiguous-else.y) s
+30 684 M (2:) s
+48 684 M
+(::::::::::::::) s
+30 673 M (3:) s
+48 673 M
+(unambiguous-else.stdout) s
+30 662 M (4:) s
+48 662 M
+(::::::::::::::) s
+30 651 M (5:) s
+48 651 M
+(::::::::::::::) s
+30 640 M (6:) s
+48 640 M
+(unambiguous-else.stderr) s
+30 629 M (7:) s
+48 629 M
+(::::::::::::::) s
+30 618 M (8:) s
+48 618 M
+(::::::::::::::) s
+30 607 M (9:) s
+48 607 M
+(unambiguous-else.output) s
+24 596 M (10:) s
+48 596 M
+(::::::::::::::) s
+24 585 M (11:) s
+48 585 M
+(Grammar) s
+24 574 M (12:) s
+24 563 M (13:) s
+48 563 M
+(    0 $accept: program $end) s
+24 552 M (14:) s
+24 541 M (15:) s
+48 541 M
+(    1 program: program statement) s
+24 530 M (16:) s
+48 530 M
+(    2        | /* empty */) s
+24 519 M (17:) s
+24 508 M (18:) s
+48 508 M
+(    3 statement: closedstmt) s
+24 497 M (19:) s
+48 497 M
+(    4          | openstmt) s
+24 486 M (20:) s
+24 475 M (21:) s
+48 475 M
+(    5 closedstmt: ifhead closedstmt ELSE closedstmt) s
+24 464 M (22:) s
+48 464 M
+(    6           | whilehead closedstmt) s
+24 453 M (23:) s
+48 453 M
+(    7           | otherstmt) s
+24 442 M (24:) s
+24 431 M (25:) s
+48 431 M
+(    8 openstmt: ifhead closedstmt ELSE openstmt) s
+24 420 M (26:) s
+48 420 M
+(    9         | ifhead statement) s
+24 409 M (27:) s
+48 409 M
+(   10         | whilehead openstmt) s
+24 398 M (28:) s
+24 387 M (29:) s
+48 387 M
+(   11 ifhead: IF '\(' expr '\)') s
+24 376 M (30:) s
+24 365 M (31:) s
+48 365 M
+(   12 whilehead: WHILE '\(' expr '\)') s
+24 354 M (32:) s
+24 343 M (33:) s
+48 343 M
+(   13 otherstmt: expr ';') s
+24 332 M (34:) s
+24 321 M (35:) s
+48 321 M
+(   14 expr: 'x') s
+24 310 M (36:) s
+24 299 M (37:) s
+24 288 M (38:) s
+48 288 M
+(Terminals, with rules where they appear) s
+24 277 M (39:) s
+24 266 M (40:) s
+48 266 M
+($end \(0\) 0) s
+24 255 M (41:) s
+48 255 M
+('\(' \(40\) 11 12) s
+24 244 M (42:) s
+48 244 M
+('\)' \(41\) 11 12) s
+24 233 M (43:) s
+48 233 M
+(';' \(59\) 13) s
+24 222 M (44:) s
+48 222 M
+('x' \(120\) 14) s
+24 211 M (45:) s
+48 211 M
+(error \(256\)) s
+24 200 M (46:) s
+48 200 M
+(IF \(258\) 11) s
+24 189 M (47:) s
+48 189 M
+(WHILE \(259\) 12) s
+24 178 M (48:) s
+48 178 M
+(ELSE \(260\) 5 8) s
+24 167 M (49:) s
+24 156 M (50:) s
+24 145 M (51:) s
+48 145 M
+(Nonterminals, with rules where they appear) s
+24 134 M (52:) s
+24 123 M (53:) s
+48 123 M
+($accept \(10\)) s
+24 112 M (54:) s
+48 112 M
+(    on left: 0) s
+24 101 M (55:) s
+48 101 M
+(program \(11\)) s
+24 90 M (56:) s
+48 90 M
+(    on left: 1 2, on right: 0 1) s
+24 79 M (57:) s
+48 79 M
+(statement \(12\)) s
+24 68 M (58:) s
+48 68 M
+(    on left: 3 4, on right: 1 9) s
+24 57 M (59:) s
+48 57 M
+(closedstmt \(13\)) s
+24 46 M (60:) s
+48 46 M
+(    on left: 5 6 7, on right: 3 5 6 8) s
+24 35 M (61:) s
+48 35 M
+(openstmt \(14\)) s
+24 24 M (62:) s
+48 24 M
+(    on left: 8 9 10, on right: 4 8 10) s
+24 13 M (63:) s
+48 13 M
+(ifhead \(15\)) s
+24 2 M (64:) s
+48 2 M
+(    on left: 11, on right: 5 8 9) s
+_R
+S
+%%Page: (2) 9
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (unambiguous-else.logfile) def
+/fdir () def
+/ftail (unambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+24 695 M (65:) s
+48 695 M
+(whilehead \(16\)) s
+24 684 M (66:) s
+48 684 M
+(    on left: 12, on right: 6 10) s
+24 673 M (67:) s
+48 673 M
+(otherstmt \(17\)) s
+24 662 M (68:) s
+48 662 M
+(    on left: 13, on right: 7) s
+24 651 M (69:) s
+48 651 M
+(expr \(18\)) s
+24 640 M (70:) s
+48 640 M
+(    on left: 14, on right: 11 12 13) s
+24 629 M (71:) s
+24 618 M (72:) s
+24 607 M (73:) s
+48 607 M
+(state 0) s
+24 596 M (74:) s
+24 585 M (75:) s
+48 585 M
+(    0 $accept: . program $end) s
+24 574 M (76:) s
+24 563 M (77:) s
+48 563 M
+(    $default  reduce using rule 2 \(program\)) s
+24 552 M (78:) s
+24 541 M (79:) s
+48 541 M
+(    program  go to state 1) s
+24 530 M (80:) s
+24 519 M (81:) s
+24 508 M (82:) s
+48 508 M
+(state 1) s
+24 497 M (83:) s
+24 486 M (84:) s
+48 486 M
+(    0 $accept: program . $end) s
+24 475 M (85:) s
+48 475 M
+(    1 program: program . statement) s
+24 464 M (86:) s
+24 453 M (87:) s
+48 453 M
+(    $end   shift, and go to state 2) s
+24 442 M (88:) s
+48 442 M
+(    IF     shift, and go to state 3) s
+24 431 M (89:) s
+48 431 M
+(    WHILE  shift, and go to state 4) s
+24 420 M (90:) s
+48 420 M
+(    'x'    shift, and go to state 5) s
+24 409 M (91:) s
+24 398 M (92:) s
+48 398 M
+(    statement   go to state 6) s
+24 387 M (93:) s
+48 387 M
+(    closedstmt  go to state 7) s
+24 376 M (94:) s
+48 376 M
+(    openstmt    go to state 8) s
+24 365 M (95:) s
+48 365 M
+(    ifhead      go to state 9) s
+24 354 M (96:) s
+48 354 M
+(    whilehead   go to state 10) s
+24 343 M (97:) s
+48 343 M
+(    otherstmt   go to state 11) s
+24 332 M (98:) s
+48 332 M
+(    expr        go to state 12) s
+24 321 M (99:) s
+18 310 M (100:) s
+18 299 M (101:) s
+48 299 M
+(state 2) s
+18 288 M (102:) s
+18 277 M (103:) s
+48 277 M
+(    0 $accept: program $end .) s
+18 266 M (104:) s
+18 255 M (105:) s
+48 255 M
+(    $default  accept) s
+18 244 M (106:) s
+18 233 M (107:) s
+18 222 M (108:) s
+48 222 M
+(state 3) s
+18 211 M (109:) s
+18 200 M (110:) s
+48 200 M
+(   11 ifhead: IF . '\(' expr '\)') s
+18 189 M (111:) s
+18 178 M (112:) s
+48 178 M
+(    '\('  shift, and go to state 13) s
+18 167 M (113:) s
+18 156 M (114:) s
+18 145 M (115:) s
+48 145 M
+(state 4) s
+18 134 M (116:) s
+18 123 M (117:) s
+48 123 M
+(   12 whilehead: WHILE . '\(' expr '\)') s
+18 112 M (118:) s
+18 101 M (119:) s
+48 101 M
+(    '\('  shift, and go to state 14) s
+18 90 M (120:) s
+18 79 M (121:) s
+18 68 M (122:) s
+48 68 M
+(state 5) s
+18 57 M (123:) s
+18 46 M (124:) s
+48 46 M
+(   14 expr: 'x' .) s
+18 35 M (125:) s
+18 24 M (126:) s
+48 24 M
+(    $default  reduce using rule 14 \(expr\)) s
+18 13 M (127:) s
+18 2 M (128:) s
+_R
+S
+%%Page: (3) 10
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (unambiguous-else.logfile) def
+/fdir () def
+/ftail (unambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (129:) s
+48 695 M
+(state 6) s
+18 684 M (130:) s
+18 673 M (131:) s
+48 673 M
+(    1 program: program statement .) s
+18 662 M (132:) s
+18 651 M (133:) s
+48 651 M
+(    $default  reduce using rule 1 \(program\)) s
+18 640 M (134:) s
+18 629 M (135:) s
+18 618 M (136:) s
+48 618 M
+(state 7) s
+18 607 M (137:) s
+18 596 M (138:) s
+48 596 M
+(    3 statement: closedstmt .) s
+18 585 M (139:) s
+18 574 M (140:) s
+48 574 M
+(    $default  reduce using rule 3 \(statement\)) s
+18 563 M (141:) s
+18 552 M (142:) s
+18 541 M (143:) s
+48 541 M
+(state 8) s
+18 530 M (144:) s
+18 519 M (145:) s
+48 519 M
+(    4 statement: openstmt .) s
+18 508 M (146:) s
+18 497 M (147:) s
+48 497 M
+(    $default  reduce using rule 4 \(statement\)) s
+18 486 M (148:) s
+18 475 M (149:) s
+18 464 M (150:) s
+48 464 M
+(state 9) s
+18 453 M (151:) s
+18 442 M (152:) s
+48 442 M
+(    5 closedstmt: ifhead . closedstmt ELSE closedstmt) s
+18 431 M (153:) s
+48 431 M
+(    8 openstmt: ifhead . closedstmt ELSE openstmt) s
+18 420 M (154:) s
+48 420 M
+(    9         | ifhead . statement) s
+18 409 M (155:) s
+18 398 M (156:) s
+48 398 M
+(    IF     shift, and go to state 3) s
+18 387 M (157:) s
+48 387 M
+(    WHILE  shift, and go to state 4) s
+18 376 M (158:) s
+48 376 M
+(    'x'    shift, and go to state 5) s
+18 365 M (159:) s
+18 354 M (160:) s
+48 354 M
+(    statement   go to state 15) s
+18 343 M (161:) s
+48 343 M
+(    closedstmt  go to state 16) s
+18 332 M (162:) s
+48 332 M
+(    openstmt    go to state 8) s
+18 321 M (163:) s
+48 321 M
+(    ifhead      go to state 9) s
+18 310 M (164:) s
+48 310 M
+(    whilehead   go to state 10) s
+18 299 M (165:) s
+48 299 M
+(    otherstmt   go to state 11) s
+18 288 M (166:) s
+48 288 M
+(    expr        go to state 12) s
+18 277 M (167:) s
+18 266 M (168:) s
+18 255 M (169:) s
+48 255 M
+(state 10) s
+18 244 M (170:) s
+18 233 M (171:) s
+48 233 M
+(    6 closedstmt: whilehead . closedstmt) s
+18 222 M (172:) s
+48 222 M
+(   10 openstmt: whilehead . openstmt) s
+18 211 M (173:) s
+18 200 M (174:) s
+48 200 M
+(    IF     shift, and go to state 3) s
+18 189 M (175:) s
+48 189 M
+(    WHILE  shift, and go to state 4) s
+18 178 M (176:) s
+48 178 M
+(    'x'    shift, and go to state 5) s
+18 167 M (177:) s
+18 156 M (178:) s
+48 156 M
+(    closedstmt  go to state 17) s
+18 145 M (179:) s
+48 145 M
+(    openstmt    go to state 18) s
+18 134 M (180:) s
+48 134 M
+(    ifhead      go to state 9) s
+18 123 M (181:) s
+48 123 M
+(    whilehead   go to state 10) s
+18 112 M (182:) s
+48 112 M
+(    otherstmt   go to state 11) s
+18 101 M (183:) s
+48 101 M
+(    expr        go to state 12) s
+18 90 M (184:) s
+18 79 M (185:) s
+18 68 M (186:) s
+48 68 M
+(state 11) s
+18 57 M (187:) s
+18 46 M (188:) s
+48 46 M
+(    7 closedstmt: otherstmt .) s
+18 35 M (189:) s
+18 24 M (190:) s
+48 24 M
+(    $default  reduce using rule 7 \(closedstmt\)) s
+18 13 M (191:) s
+18 2 M (192:) s
+_R
+S
+%%Page: (4) 11
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 4 def
+/fname (unambiguous-else.logfile) def
+/fdir () def
+/ftail (unambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (4) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (193:) s
+48 695 M
+(state 12) s
+18 684 M (194:) s
+18 673 M (195:) s
+48 673 M
+(   13 otherstmt: expr . ';') s
+18 662 M (196:) s
+18 651 M (197:) s
+48 651 M
+(    ';'  shift, and go to state 19) s
+18 640 M (198:) s
+18 629 M (199:) s
+18 618 M (200:) s
+48 618 M
+(state 13) s
+18 607 M (201:) s
+18 596 M (202:) s
+48 596 M
+(   11 ifhead: IF '\(' . expr '\)') s
+18 585 M (203:) s
+18 574 M (204:) s
+48 574 M
+(    'x'  shift, and go to state 5) s
+18 563 M (205:) s
+18 552 M (206:) s
+48 552 M
+(    expr  go to state 20) s
+18 541 M (207:) s
+18 530 M (208:) s
+18 519 M (209:) s
+48 519 M
+(state 14) s
+18 508 M (210:) s
+18 497 M (211:) s
+48 497 M
+(   12 whilehead: WHILE '\(' . expr '\)') s
+18 486 M (212:) s
+18 475 M (213:) s
+48 475 M
+(    'x'  shift, and go to state 5) s
+18 464 M (214:) s
+18 453 M (215:) s
+48 453 M
+(    expr  go to state 21) s
+18 442 M (216:) s
+18 431 M (217:) s
+18 420 M (218:) s
+48 420 M
+(state 15) s
+18 409 M (219:) s
+18 398 M (220:) s
+48 398 M
+(    9 openstmt: ifhead statement .) s
+18 387 M (221:) s
+18 376 M (222:) s
+48 376 M
+(    $default  reduce using rule 9 \(openstmt\)) s
+18 365 M (223:) s
+18 354 M (224:) s
+18 343 M (225:) s
+48 343 M
+(state 16) s
+18 332 M (226:) s
+18 321 M (227:) s
+48 321 M
+(    3 statement: closedstmt .) s
+18 310 M (228:) s
+48 310 M
+(    5 closedstmt: ifhead closedstmt . ELSE closedstmt) s
+18 299 M (229:) s
+48 299 M
+(    8 openstmt: ifhead closedstmt . ELSE openstmt) s
+18 288 M (230:) s
+18 277 M (231:) s
+48 277 M
+(    ELSE  shift, and go to state 22) s
+18 266 M (232:) s
+18 255 M (233:) s
+48 255 M
+(    $default  reduce using rule 3 \(statement\)) s
+18 244 M (234:) s
+18 233 M (235:) s
+18 222 M (236:) s
+48 222 M
+(state 17) s
+18 211 M (237:) s
+18 200 M (238:) s
+48 200 M
+(    6 closedstmt: whilehead closedstmt .) s
+18 189 M (239:) s
+18 178 M (240:) s
+48 178 M
+(    $default  reduce using rule 6 \(closedstmt\)) s
+18 167 M (241:) s
+18 156 M (242:) s
+18 145 M (243:) s
+48 145 M
+(state 18) s
+18 134 M (244:) s
+18 123 M (245:) s
+48 123 M
+(   10 openstmt: whilehead openstmt .) s
+18 112 M (246:) s
+18 101 M (247:) s
+48 101 M
+(    $default  reduce using rule 10 \(openstmt\)) s
+18 90 M (248:) s
+18 79 M (249:) s
+18 68 M (250:) s
+48 68 M
+(state 19) s
+18 57 M (251:) s
+18 46 M (252:) s
+48 46 M
+(   13 otherstmt: expr ';' .) s
+18 35 M (253:) s
+18 24 M (254:) s
+48 24 M
+(    $default  reduce using rule 13 \(otherstmt\)) s
+18 13 M (255:) s
+18 2 M (256:) s
+_R
+S
+%%Page: (5) 12
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 5 def
+/fname (unambiguous-else.logfile) def
+/fdir () def
+/ftail (unambiguous-else.logfile) def
+% User defined strings:
+/pagenumstr (5) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (257:) s
+48 695 M
+(state 20) s
+18 684 M (258:) s
+18 673 M (259:) s
+48 673 M
+(   11 ifhead: IF '\(' expr . '\)') s
+18 662 M (260:) s
+18 651 M (261:) s
+48 651 M
+(    '\)'  shift, and go to state 23) s
+18 640 M (262:) s
+18 629 M (263:) s
+18 618 M (264:) s
+48 618 M
+(state 21) s
+18 607 M (265:) s
+18 596 M (266:) s
+48 596 M
+(   12 whilehead: WHILE '\(' expr . '\)') s
+18 585 M (267:) s
+18 574 M (268:) s
+48 574 M
+(    '\)'  shift, and go to state 24) s
+18 563 M (269:) s
+18 552 M (270:) s
+18 541 M (271:) s
+48 541 M
+(state 22) s
+18 530 M (272:) s
+18 519 M (273:) s
+48 519 M
+(    5 closedstmt: ifhead closedstmt ELSE . closedstmt) s
+18 508 M (274:) s
+48 508 M
+(    8 openstmt: ifhead closedstmt ELSE . openstmt) s
+18 497 M (275:) s
+18 486 M (276:) s
+48 486 M
+(    IF     shift, and go to state 3) s
+18 475 M (277:) s
+48 475 M
+(    WHILE  shift, and go to state 4) s
+18 464 M (278:) s
+48 464 M
+(    'x'    shift, and go to state 5) s
+18 453 M (279:) s
+18 442 M (280:) s
+48 442 M
+(    closedstmt  go to state 25) s
+18 431 M (281:) s
+48 431 M
+(    openstmt    go to state 26) s
+18 420 M (282:) s
+48 420 M
+(    ifhead      go to state 9) s
+18 409 M (283:) s
+48 409 M
+(    whilehead   go to state 10) s
+18 398 M (284:) s
+48 398 M
+(    otherstmt   go to state 11) s
+18 387 M (285:) s
+48 387 M
+(    expr        go to state 12) s
+18 376 M (286:) s
+18 365 M (287:) s
+18 354 M (288:) s
+48 354 M
+(state 23) s
+18 343 M (289:) s
+18 332 M (290:) s
+48 332 M
+(   11 ifhead: IF '\(' expr '\)' .) s
+18 321 M (291:) s
+18 310 M (292:) s
+48 310 M
+(    $default  reduce using rule 11 \(ifhead\)) s
+18 299 M (293:) s
+18 288 M (294:) s
+18 277 M (295:) s
+48 277 M
+(state 24) s
+18 266 M (296:) s
+18 255 M (297:) s
+48 255 M
+(   12 whilehead: WHILE '\(' expr '\)' .) s
+18 244 M (298:) s
+18 233 M (299:) s
+48 233 M
+(    $default  reduce using rule 12 \(whilehead\)) s
+18 222 M (300:) s
+18 211 M (301:) s
+18 200 M (302:) s
+48 200 M
+(state 25) s
+18 189 M (303:) s
+18 178 M (304:) s
+48 178 M
+(    5 closedstmt: ifhead closedstmt ELSE closedstmt .) s
+18 167 M (305:) s
+18 156 M (306:) s
+48 156 M
+(    $default  reduce using rule 5 \(closedstmt\)) s
+18 145 M (307:) s
+18 134 M (308:) s
+18 123 M (309:) s
+48 123 M
+(state 26) s
+18 112 M (310:) s
+18 101 M (311:) s
+48 101 M
+(    8 openstmt: ifhead closedstmt ELSE openstmt .) s
+18 90 M (312:) s
+18 79 M (313:) s
+48 79 M
+(    $default  reduce using rule 8 \(openstmt\)) s
+_R
+S
+%%Page: (1) 13
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (reduce-reduce.y) def
+/fdir () def
+/ftail (reduce-reduce.y) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(// $Id: reduce-reduce.y,v 1.3 2011-10-28 18:41:59-07 - - $) s
+30 684 M (2:) s
+30 673 M (3:) s
+48 673 M
+(// Example of a reduce/reduce conflict.) s
+30 662 M (4:) s
+30 651 M (5:) s
+48 651 M
+(%verbose) s
+30 640 M (6:) s
+30 629 M (7:) s
+48 629 M
+(%token CHAR INT IDENT) s
+30 618 M (8:) s
+48 618 M
+(%start program) s
+30 607 M (9:) s
+24 596 M (10:) s
+48 596 M
+(%%) s
+24 585 M (11:) s
+24 574 M (12:) s
+48 574 M
+(program     : program statement) s
+24 563 M (13:) s
+48 563 M
+(            |) s
+24 552 M (14:) s
+48 552 M
+(            ;) s
+24 541 M (15:) s
+24 530 M (16:) s
+48 530 M
+(statement   : declaration ';') s
+24 519 M (17:) s
+48 519 M
+(            | expression ';') s
+24 508 M (18:) s
+48 508 M
+(            ;) s
+24 497 M (19:) s
+24 486 M (20:) s
+48 486 M
+(declaration : basetype '[' ']' IDENT) s
+24 475 M (21:) s
+48 475 M
+(            | basetype IDENT) s
+24 464 M (22:) s
+48 464 M
+(            ;) s
+24 453 M (23:) s
+24 442 M (24:) s
+48 442 M
+(basetype    : CHAR) s
+24 431 M (25:) s
+48 431 M
+(            | INT) s
+24 420 M (26:) s
+48 420 M
+(            | IDENT) s
+24 409 M (27:) s
+48 409 M
+(            ;) s
+24 398 M (28:) s
+24 387 M (29:) s
+48 387 M
+(expression  : expression '[' expression ']') s
+24 376 M (30:) s
+48 376 M
+(            | IDENT) s
+24 365 M (31:) s
+48 365 M
+(            ;) s
+24 354 M (32:) s
+24 343 M (33:) s
+48 343 M
+(%%) s
+24 332 M (34:) s
+_R
+S
+%%Page: (1) 14
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (reduce-reduce.logfile) def
+/fdir () def
+/ftail (reduce-reduce.logfile) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(bison -v reduce-reduce.y) s
+30 684 M (2:) s
+48 684 M
+(::::::::::::::) s
+30 673 M (3:) s
+48 673 M
+(reduce-reduce.stdout) s
+30 662 M (4:) s
+48 662 M
+(::::::::::::::) s
+30 651 M (5:) s
+48 651 M
+(::::::::::::::) s
+30 640 M (6:) s
+48 640 M
+(reduce-reduce.stderr) s
+30 629 M (7:) s
+48 629 M
+(::::::::::::::) s
+30 618 M (8:) s
+48 618 M
+(reduce-reduce.y: conflicts: 1 reduce/reduce) s
+30 607 M (9:) s
+48 607 M
+(::::::::::::::) s
+24 596 M (10:) s
+48 596 M
+(reduce-reduce.output) s
+24 585 M (11:) s
+48 585 M
+(::::::::::::::) s
+24 574 M (12:) s
+48 574 M
+(State 5 conflicts: 1 reduce/reduce) s
+24 563 M (13:) s
+24 552 M (14:) s
+24 541 M (15:) s
+48 541 M
+(Grammar) s
+24 530 M (16:) s
+24 519 M (17:) s
+48 519 M
+(    0 $accept: program $end) s
+24 508 M (18:) s
+24 497 M (19:) s
+48 497 M
+(    1 program: program statement) s
+24 486 M (20:) s
+48 486 M
+(    2        | /* empty */) s
+24 475 M (21:) s
+24 464 M (22:) s
+48 464 M
+(    3 statement: declaration ';') s
+24 453 M (23:) s
+48 453 M
+(    4          | expression ';') s
+24 442 M (24:) s
+24 431 M (25:) s
+48 431 M
+(    5 declaration: basetype '[' ']' IDENT) s
+24 420 M (26:) s
+48 420 M
+(    6            | basetype IDENT) s
+24 409 M (27:) s
+24 398 M (28:) s
+48 398 M
+(    7 basetype: CHAR) s
+24 387 M (29:) s
+48 387 M
+(    8         | INT) s
+24 376 M (30:) s
+48 376 M
+(    9         | IDENT) s
+24 365 M (31:) s
+24 354 M (32:) s
+48 354 M
+(   10 expression: expression '[' expression ']') s
+24 343 M (33:) s
+48 343 M
+(   11           | IDENT) s
+24 332 M (34:) s
+24 321 M (35:) s
+24 310 M (36:) s
+48 310 M
+(Terminals, with rules where they appear) s
+24 299 M (37:) s
+24 288 M (38:) s
+48 288 M
+($end \(0\) 0) s
+24 277 M (39:) s
+48 277 M
+(';' \(59\) 3 4) s
+24 266 M (40:) s
+48 266 M
+('[' \(91\) 5 10) s
+24 255 M (41:) s
+48 255 M
+(']' \(93\) 5 10) s
+24 244 M (42:) s
+48 244 M
+(error \(256\)) s
+24 233 M (43:) s
+48 233 M
+(CHAR \(258\) 7) s
+24 222 M (44:) s
+48 222 M
+(INT \(259\) 8) s
+24 211 M (45:) s
+48 211 M
+(IDENT \(260\) 5 6 9 11) s
+24 200 M (46:) s
+24 189 M (47:) s
+24 178 M (48:) s
+48 178 M
+(Nonterminals, with rules where they appear) s
+24 167 M (49:) s
+24 156 M (50:) s
+48 156 M
+($accept \(9\)) s
+24 145 M (51:) s
+48 145 M
+(    on left: 0) s
+24 134 M (52:) s
+48 134 M
+(program \(10\)) s
+24 123 M (53:) s
+48 123 M
+(    on left: 1 2, on right: 0 1) s
+24 112 M (54:) s
+48 112 M
+(statement \(11\)) s
+24 101 M (55:) s
+48 101 M
+(    on left: 3 4, on right: 1) s
+24 90 M (56:) s
+48 90 M
+(declaration \(12\)) s
+24 79 M (57:) s
+48 79 M
+(    on left: 5 6, on right: 3) s
+24 68 M (58:) s
+48 68 M
+(basetype \(13\)) s
+24 57 M (59:) s
+48 57 M
+(    on left: 7 8 9, on right: 5 6) s
+24 46 M (60:) s
+48 46 M
+(expression \(14\)) s
+24 35 M (61:) s
+48 35 M
+(    on left: 10 11, on right: 4 10) s
+24 24 M (62:) s
+24 13 M (63:) s
+24 2 M (64:) s
+48 2 M
+(state 0) s
+_R
+S
+%%Page: (2) 15
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (reduce-reduce.logfile) def
+/fdir () def
+/ftail (reduce-reduce.logfile) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+24 695 M (65:) s
+24 684 M (66:) s
+48 684 M
+(    0 $accept: . program $end) s
+24 673 M (67:) s
+24 662 M (68:) s
+48 662 M
+(    $default  reduce using rule 2 \(program\)) s
+24 651 M (69:) s
+24 640 M (70:) s
+48 640 M
+(    program  go to state 1) s
+24 629 M (71:) s
+24 618 M (72:) s
+24 607 M (73:) s
+48 607 M
+(state 1) s
+24 596 M (74:) s
+24 585 M (75:) s
+48 585 M
+(    0 $accept: program . $end) s
+24 574 M (76:) s
+48 574 M
+(    1 program: program . statement) s
+24 563 M (77:) s
+24 552 M (78:) s
+48 552 M
+(    $end   shift, and go to state 2) s
+24 541 M (79:) s
+48 541 M
+(    CHAR   shift, and go to state 3) s
+24 530 M (80:) s
+48 530 M
+(    INT    shift, and go to state 4) s
+24 519 M (81:) s
+48 519 M
+(    IDENT  shift, and go to state 5) s
+24 508 M (82:) s
+24 497 M (83:) s
+48 497 M
+(    statement    go to state 6) s
+24 486 M (84:) s
+48 486 M
+(    declaration  go to state 7) s
+24 475 M (85:) s
+48 475 M
+(    basetype     go to state 8) s
+24 464 M (86:) s
+48 464 M
+(    expression   go to state 9) s
+24 453 M (87:) s
+24 442 M (88:) s
+24 431 M (89:) s
+48 431 M
+(state 2) s
+24 420 M (90:) s
+24 409 M (91:) s
+48 409 M
+(    0 $accept: program $end .) s
+24 398 M (92:) s
+24 387 M (93:) s
+48 387 M
+(    $default  accept) s
+24 376 M (94:) s
+24 365 M (95:) s
+24 354 M (96:) s
+48 354 M
+(state 3) s
+24 343 M (97:) s
+24 332 M (98:) s
+48 332 M
+(    7 basetype: CHAR .) s
+24 321 M (99:) s
+18 310 M (100:) s
+48 310 M
+(    $default  reduce using rule 7 \(basetype\)) s
+18 299 M (101:) s
+18 288 M (102:) s
+18 277 M (103:) s
+48 277 M
+(state 4) s
+18 266 M (104:) s
+18 255 M (105:) s
+48 255 M
+(    8 basetype: INT .) s
+18 244 M (106:) s
+18 233 M (107:) s
+48 233 M
+(    $default  reduce using rule 8 \(basetype\)) s
+18 222 M (108:) s
+18 211 M (109:) s
+18 200 M (110:) s
+48 200 M
+(state 5) s
+18 189 M (111:) s
+18 178 M (112:) s
+48 178 M
+(    9 basetype: IDENT .) s
+18 167 M (113:) s
+48 167 M
+(   11 expression: IDENT .) s
+18 156 M (114:) s
+18 145 M (115:) s
+48 145 M
+(    ';'       reduce using rule 11 \(expression\)) s
+18 134 M (116:) s
+48 134 M
+(    '['       reduce using rule 9 \(basetype\)) s
+18 123 M (117:) s
+48 123 M
+(    '['       [reduce using rule 11 \(expression\)]) s
+18 112 M (118:) s
+48 112 M
+(    $default  reduce using rule 9 \(basetype\)) s
+18 101 M (119:) s
+18 90 M (120:) s
+18 79 M (121:) s
+48 79 M
+(state 6) s
+18 68 M (122:) s
+18 57 M (123:) s
+48 57 M
+(    1 program: program statement .) s
+18 46 M (124:) s
+18 35 M (125:) s
+48 35 M
+(    $default  reduce using rule 1 \(program\)) s
+18 24 M (126:) s
+18 13 M (127:) s
+18 2 M (128:) s
+48 2 M
+(state 7) s
+_R
+S
+%%Page: (3) 16
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (reduce-reduce.logfile) def
+/fdir () def
+/ftail (reduce-reduce.logfile) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (129:) s
+18 684 M (130:) s
+48 684 M
+(    3 statement: declaration . ';') s
+18 673 M (131:) s
+18 662 M (132:) s
+48 662 M
+(    ';'  shift, and go to state 10) s
+18 651 M (133:) s
+18 640 M (134:) s
+18 629 M (135:) s
+48 629 M
+(state 8) s
+18 618 M (136:) s
+18 607 M (137:) s
+48 607 M
+(    5 declaration: basetype . '[' ']' IDENT) s
+18 596 M (138:) s
+48 596 M
+(    6            | basetype . IDENT) s
+18 585 M (139:) s
+18 574 M (140:) s
+48 574 M
+(    IDENT  shift, and go to state 11) s
+18 563 M (141:) s
+48 563 M
+(    '['    shift, and go to state 12) s
+18 552 M (142:) s
+18 541 M (143:) s
+18 530 M (144:) s
+48 530 M
+(state 9) s
+18 519 M (145:) s
+18 508 M (146:) s
+48 508 M
+(    4 statement: expression . ';') s
+18 497 M (147:) s
+48 497 M
+(   10 expression: expression . '[' expression ']') s
+18 486 M (148:) s
+18 475 M (149:) s
+48 475 M
+(    ';'  shift, and go to state 13) s
+18 464 M (150:) s
+48 464 M
+(    '['  shift, and go to state 14) s
+18 453 M (151:) s
+18 442 M (152:) s
+18 431 M (153:) s
+48 431 M
+(state 10) s
+18 420 M (154:) s
+18 409 M (155:) s
+48 409 M
+(    3 statement: declaration ';' .) s
+18 398 M (156:) s
+18 387 M (157:) s
+48 387 M
+(    $default  reduce using rule 3 \(statement\)) s
+18 376 M (158:) s
+18 365 M (159:) s
+18 354 M (160:) s
+48 354 M
+(state 11) s
+18 343 M (161:) s
+18 332 M (162:) s
+48 332 M
+(    6 declaration: basetype IDENT .) s
+18 321 M (163:) s
+18 310 M (164:) s
+48 310 M
+(    $default  reduce using rule 6 \(declaration\)) s
+18 299 M (165:) s
+18 288 M (166:) s
+18 277 M (167:) s
+48 277 M
+(state 12) s
+18 266 M (168:) s
+18 255 M (169:) s
+48 255 M
+(    5 declaration: basetype '[' . ']' IDENT) s
+18 244 M (170:) s
+18 233 M (171:) s
+48 233 M
+(    ']'  shift, and go to state 15) s
+18 222 M (172:) s
+18 211 M (173:) s
+18 200 M (174:) s
+48 200 M
+(state 13) s
+18 189 M (175:) s
+18 178 M (176:) s
+48 178 M
+(    4 statement: expression ';' .) s
+18 167 M (177:) s
+18 156 M (178:) s
+48 156 M
+(    $default  reduce using rule 4 \(statement\)) s
+18 145 M (179:) s
+18 134 M (180:) s
+18 123 M (181:) s
+48 123 M
+(state 14) s
+18 112 M (182:) s
+18 101 M (183:) s
+48 101 M
+(   10 expression: expression '[' . expression ']') s
+18 90 M (184:) s
+18 79 M (185:) s
+48 79 M
+(    IDENT  shift, and go to state 16) s
+18 68 M (186:) s
+18 57 M (187:) s
+48 57 M
+(    expression  go to state 17) s
+18 46 M (188:) s
+18 35 M (189:) s
+18 24 M (190:) s
+48 24 M
+(state 15) s
+18 13 M (191:) s
+18 2 M (192:) s
+48 2 M
+(    5 declaration: basetype '[' ']' . IDENT) s
+_R
+S
+%%Page: (4) 17
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 4 def
+/fname (reduce-reduce.logfile) def
+/fdir () def
+/ftail (reduce-reduce.logfile) def
+% User defined strings:
+/pagenumstr (4) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (193:) s
+18 684 M (194:) s
+48 684 M
+(    IDENT  shift, and go to state 18) s
+18 673 M (195:) s
+18 662 M (196:) s
+18 651 M (197:) s
+48 651 M
+(state 16) s
+18 640 M (198:) s
+18 629 M (199:) s
+48 629 M
+(   11 expression: IDENT .) s
+18 618 M (200:) s
+18 607 M (201:) s
+48 607 M
+(    $default  reduce using rule 11 \(expression\)) s
+18 596 M (202:) s
+18 585 M (203:) s
+18 574 M (204:) s
+48 574 M
+(state 17) s
+18 563 M (205:) s
+18 552 M (206:) s
+48 552 M
+(   10 expression: expression . '[' expression ']') s
+18 541 M (207:) s
+48 541 M
+(   10           | expression '[' expression . ']') s
+18 530 M (208:) s
+18 519 M (209:) s
+48 519 M
+(    '['  shift, and go to state 14) s
+18 508 M (210:) s
+48 508 M
+(    ']'  shift, and go to state 19) s
+18 497 M (211:) s
+18 486 M (212:) s
+18 475 M (213:) s
+48 475 M
+(state 18) s
+18 464 M (214:) s
+18 453 M (215:) s
+48 453 M
+(    5 declaration: basetype '[' ']' IDENT .) s
+18 442 M (216:) s
+18 431 M (217:) s
+48 431 M
+(    $default  reduce using rule 5 \(declaration\)) s
+18 420 M (218:) s
+18 409 M (219:) s
+18 398 M (220:) s
+48 398 M
+(state 19) s
+18 387 M (221:) s
+18 376 M (222:) s
+48 376 M
+(   10 expression: expression '[' expression ']' .) s
+18 365 M (223:) s
+18 354 M (224:) s
+48 354 M
+(    $default  reduce using rule 10 \(expression\)) s
+_R
+S
+%%Page: (1) 18
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (notlalr1.y) def
+/fdir () def
+/ftail (notlalr1.y) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/28/11) def
+/modtimestr (18:47:17) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+30 684 M (2:) s
+48 684 M
+(%start S) s
+30 673 M (3:) s
+48 673 M
+(%token a b c d) s
+30 662 M (4:) s
+30 651 M (5:) s
+48 651 M
+(%%) s
+30 640 M (6:) s
+30 629 M (7:) s
+48 629 M
+(S : A a ;) s
+30 618 M (8:) s
+48 618 M
+(S : b A c ;) s
+30 607 M (9:) s
+48 607 M
+(S : B c ;) s
+24 596 M (10:) s
+48 596 M
+(S : b B a ;) s
+24 585 M (11:) s
+48 585 M
+(A : d ;) s
+24 574 M (12:) s
+48 574 M
+(B : d ;) s
+24 563 M (13:) s
+24 552 M (14:) s
+48 552 M
+(%%) s
+24 541 M (15:) s
+_R
+S
+%%Page: (1) 19
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (notlalr1.logfile) def
+/fdir () def
+/ftail (notlalr1.logfile) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(bison -v notlalr1.y) s
+30 684 M (2:) s
+48 684 M
+(::::::::::::::) s
+30 673 M (3:) s
+48 673 M
+(notlalr1.stdout) s
+30 662 M (4:) s
+48 662 M
+(::::::::::::::) s
+30 651 M (5:) s
+48 651 M
+(::::::::::::::) s
+30 640 M (6:) s
+48 640 M
+(notlalr1.stderr) s
+30 629 M (7:) s
+48 629 M
+(::::::::::::::) s
+30 618 M (8:) s
+48 618 M
+(notlalr1.y: conflicts: 2 reduce/reduce) s
+30 607 M (9:) s
+48 607 M
+(notlalr1.y:12.5: warning: rule never reduced because of conflicts: B: d) s
+24 596 M (10:) s
+48 596 M
+(::::::::::::::) s
+24 585 M (11:) s
+48 585 M
+(notlalr1.output) s
+24 574 M (12:) s
+48 574 M
+(::::::::::::::) s
+24 563 M (13:) s
+48 563 M
+(Rules never reduced) s
+24 552 M (14:) s
+24 541 M (15:) s
+48 541 M
+(    6 B: d) s
+24 530 M (16:) s
+24 519 M (17:) s
+24 508 M (18:) s
+48 508 M
+(State 2 conflicts: 2 reduce/reduce) s
+24 497 M (19:) s
+24 486 M (20:) s
+24 475 M (21:) s
+48 475 M
+(Grammar) s
+24 464 M (22:) s
+24 453 M (23:) s
+48 453 M
+(    0 $accept: S $end) s
+24 442 M (24:) s
+24 431 M (25:) s
+48 431 M
+(    1 S: A a) s
+24 420 M (26:) s
+48 420 M
+(    2  | b A c) s
+24 409 M (27:) s
+48 409 M
+(    3  | B c) s
+24 398 M (28:) s
+48 398 M
+(    4  | b B a) s
+24 387 M (29:) s
+24 376 M (30:) s
+48 376 M
+(    5 A: d) s
+24 365 M (31:) s
+24 354 M (32:) s
+48 354 M
+(    6 B: d) s
+24 343 M (33:) s
+24 332 M (34:) s
+24 321 M (35:) s
+48 321 M
+(Terminals, with rules where they appear) s
+24 310 M (36:) s
+24 299 M (37:) s
+48 299 M
+($end \(0\) 0) s
+24 288 M (38:) s
+48 288 M
+(error \(256\)) s
+24 277 M (39:) s
+48 277 M
+(a \(258\) 1 4) s
+24 266 M (40:) s
+48 266 M
+(b \(259\) 2 4) s
+24 255 M (41:) s
+48 255 M
+(c \(260\) 2 3) s
+24 244 M (42:) s
+48 244 M
+(d \(261\) 5 6) s
+24 233 M (43:) s
+24 222 M (44:) s
+24 211 M (45:) s
+48 211 M
+(Nonterminals, with rules where they appear) s
+24 200 M (46:) s
+24 189 M (47:) s
+48 189 M
+($accept \(7\)) s
+24 178 M (48:) s
+48 178 M
+(    on left: 0) s
+24 167 M (49:) s
+48 167 M
+(S \(8\)) s
+24 156 M (50:) s
+48 156 M
+(    on left: 1 2 3 4, on right: 0) s
+24 145 M (51:) s
+48 145 M
+(A \(9\)) s
+24 134 M (52:) s
+48 134 M
+(    on left: 5, on right: 1 2) s
+24 123 M (53:) s
+48 123 M
+(B \(10\)) s
+24 112 M (54:) s
+48 112 M
+(    on left: 6, on right: 3 4) s
+24 101 M (55:) s
+24 90 M (56:) s
+24 79 M (57:) s
+48 79 M
+(state 0) s
+24 68 M (58:) s
+24 57 M (59:) s
+48 57 M
+(    0 $accept: . S $end) s
+24 46 M (60:) s
+24 35 M (61:) s
+48 35 M
+(    b  shift, and go to state 1) s
+24 24 M (62:) s
+48 24 M
+(    d  shift, and go to state 2) s
+24 13 M (63:) s
+24 2 M (64:) s
+48 2 M
+(    S  go to state 3) s
+_R
+S
+%%Page: (2) 20
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (notlalr1.logfile) def
+/fdir () def
+/ftail (notlalr1.logfile) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+24 695 M (65:) s
+48 695 M
+(    A  go to state 4) s
+24 684 M (66:) s
+48 684 M
+(    B  go to state 5) s
+24 673 M (67:) s
+24 662 M (68:) s
+24 651 M (69:) s
+48 651 M
+(state 1) s
+24 640 M (70:) s
+24 629 M (71:) s
+48 629 M
+(    2 S: b . A c) s
+24 618 M (72:) s
+48 618 M
+(    4  | b . B a) s
+24 607 M (73:) s
+24 596 M (74:) s
+48 596 M
+(    d  shift, and go to state 2) s
+24 585 M (75:) s
+24 574 M (76:) s
+48 574 M
+(    A  go to state 6) s
+24 563 M (77:) s
+48 563 M
+(    B  go to state 7) s
+24 552 M (78:) s
+24 541 M (79:) s
+24 530 M (80:) s
+48 530 M
+(state 2) s
+24 519 M (81:) s
+24 508 M (82:) s
+48 508 M
+(    5 A: d .) s
+24 497 M (83:) s
+48 497 M
+(    6 B: d .) s
+24 486 M (84:) s
+24 475 M (85:) s
+48 475 M
+(    a         reduce using rule 5 \(A\)) s
+24 464 M (86:) s
+48 464 M
+(    a         [reduce using rule 6 \(B\)]) s
+24 453 M (87:) s
+48 453 M
+(    c         reduce using rule 5 \(A\)) s
+24 442 M (88:) s
+48 442 M
+(    c         [reduce using rule 6 \(B\)]) s
+24 431 M (89:) s
+48 431 M
+(    $default  reduce using rule 5 \(A\)) s
+24 420 M (90:) s
+24 409 M (91:) s
+24 398 M (92:) s
+48 398 M
+(state 3) s
+24 387 M (93:) s
+24 376 M (94:) s
+48 376 M
+(    0 $accept: S . $end) s
+24 365 M (95:) s
+24 354 M (96:) s
+48 354 M
+(    $end  shift, and go to state 8) s
+24 343 M (97:) s
+24 332 M (98:) s
+24 321 M (99:) s
+48 321 M
+(state 4) s
+18 310 M (100:) s
+18 299 M (101:) s
+48 299 M
+(    1 S: A . a) s
+18 288 M (102:) s
+18 277 M (103:) s
+48 277 M
+(    a  shift, and go to state 9) s
+18 266 M (104:) s
+18 255 M (105:) s
+18 244 M (106:) s
+48 244 M
+(state 5) s
+18 233 M (107:) s
+18 222 M (108:) s
+48 222 M
+(    3 S: B . c) s
+18 211 M (109:) s
+18 200 M (110:) s
+48 200 M
+(    c  shift, and go to state 10) s
+18 189 M (111:) s
+18 178 M (112:) s
+18 167 M (113:) s
+48 167 M
+(state 6) s
+18 156 M (114:) s
+18 145 M (115:) s
+48 145 M
+(    2 S: b A . c) s
+18 134 M (116:) s
+18 123 M (117:) s
+48 123 M
+(    c  shift, and go to state 11) s
+18 112 M (118:) s
+18 101 M (119:) s
+18 90 M (120:) s
+48 90 M
+(state 7) s
+18 79 M (121:) s
+18 68 M (122:) s
+48 68 M
+(    4 S: b B . a) s
+18 57 M (123:) s
+18 46 M (124:) s
+48 46 M
+(    a  shift, and go to state 12) s
+18 35 M (125:) s
+18 24 M (126:) s
+18 13 M (127:) s
+48 13 M
+(state 8) s
+18 2 M (128:) s
+_R
+S
+%%Page: (3) 21
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (notlalr1.logfile) def
+/fdir () def
+/ftail (notlalr1.logfile) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (10/28/11) def
+/modtimestr (19:15:08) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/e06.conflicts/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+18 695 M (129:) s
+48 695 M
+(    0 $accept: S $end .) s
+18 684 M (130:) s
+18 673 M (131:) s
+48 673 M
+(    $default  accept) s
+18 662 M (132:) s
+18 651 M (133:) s
+18 640 M (134:) s
+48 640 M
+(state 9) s
+18 629 M (135:) s
+18 618 M (136:) s
+48 618 M
+(    1 S: A a .) s
+18 607 M (137:) s
+18 596 M (138:) s
+48 596 M
+(    $default  reduce using rule 1 \(S\)) s
+18 585 M (139:) s
+18 574 M (140:) s
+18 563 M (141:) s
+48 563 M
+(state 10) s
+18 552 M (142:) s
+18 541 M (143:) s
+48 541 M
+(    3 S: B c .) s
+18 530 M (144:) s
+18 519 M (145:) s
+48 519 M
+(    $default  reduce using rule 3 \(S\)) s
+18 508 M (146:) s
+18 497 M (147:) s
+18 486 M (148:) s
+48 486 M
+(state 11) s
+18 475 M (149:) s
+18 464 M (150:) s
+48 464 M
+(    2 S: b A c .) s
+18 453 M (151:) s
+18 442 M (152:) s
+48 442 M
+(    $default  reduce using rule 2 \(S\)) s
+18 431 M (153:) s
+18 420 M (154:) s
+18 409 M (155:) s
+48 409 M
+(state 12) s
+18 398 M (156:) s
+18 387 M (157:) s
+48 387 M
+(    4 S: b B a .) s
+18 376 M (158:) s
+18 365 M (159:) s
+48 365 M
+(    $default  reduce using rule 4 \(S\)) s
+_R
+S
+%%Trailer
+%%Pages: 21
+%%DocumentNeededResources: font Times-Roman Courier-Bold Courier 
+%%+ font Times-Bold 
+%%EOF

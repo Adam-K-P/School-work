@@ -1,0 +1,1009 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 38 24 574 768
+%%Title: Enscript Output
+%%For: Wesley Mackey,,,,
+%%Creator: GNU enscript 1.6.4
+%%CreationDate: Fri Nov 30 19:05:18 2012
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: Letter 612 792 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 4
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 4
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Courier
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier /F-gs-font MF
+/F-gs-font 10 10 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [612 792] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-enscript 1.6 4
+%%IncludeResource: font Times-Bold
+%%IncludeResource: font Times-Roman
+
+% Fonts.
+/Times-Bold /HeaderFont-Bold MF
+/HeaderDateF /HeaderFont-Bold findfont 12 scalefont def
+
+/Times-Roman /HeaderFont-Times MF
+/HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
+
+/HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
+
+/do_header {	% print enscript header
+  gsave
+    d_header_x d_header_y translate
+
+    % light bar
+    0 0 d_header_w d_header_h 2 div Box
+    .95 setgray fill
+
+    % dark gray boxes
+    /dbw d_header_h 2 mul def	% dark box width
+    /dbc .7 def			% dark box color
+
+    % left dark box.
+    0 0 dbw d_header_h Box
+    dbc setgray fill
+
+    0 setgray 
+    HeaderDateF setfont
+    moddatestr dup stringwidth pop dbw exch sub 2 div 
+    d_header_h 2 div 2 add moveto show
+    modtimestr dup stringwidth pop dbw exch sub 2 div 
+    d_header_h 5 div moveto show
+
+    % right dark box
+    d_header_w dbw sub 0 dbw d_header_h Box
+    dbc setgray fill
+
+    HeaderPageNumF setfont
+    1 setgray
+    pagenumstr dup
+    stringwidth pop dbw exch sub 2 div d_header_w dbw sub add
+    d_header_h .2 mul moveto show
+
+    % filename
+    0 setgray 
+    HeaderHDRF setfont
+    d_header_w fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    fname show
+
+    % user supplied header string.
+    user_header_p {
+      /h d_header_h 8 div 5 mul def
+
+      % Implement strict enscript compatibility.
+      user_header_center_str () eq user_header_right_str () eq and {
+        d_header_w user_header_left_str stringwidth pop sub 2 div 
+        h moveto user_header_left_str show
+      } {
+        dbw 5 add h moveto user_header_left_str show
+
+        d_header_w user_header_center_str stringwidth pop sub 2 div 
+        h moveto user_header_center_str show
+
+	d_header_w dbw sub 5 sub user_header_right_str stringwidth pop
+	sub h moveto user_header_right_str show
+      } ifelse
+    } if
+
+  grestore
+} def
+%%EndResource
+/d_page_w 536 def
+/d_page_h 744 def
+/d_header_x 0 def
+/d_header_y 708 def
+/d_header_w 536 def
+/d_header_h 36 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 536 def
+/d_footer_h 0 def
+/d_output_w 536 def
+/d_output_h 708 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (interp.listing) def
+/fdir () def
+/ftail (interp.listing) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/30/12) def
+/modtimestr (19:03:55) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/interpreters/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(-rw-------. 1 257 Nov 23  2010 interp.c) s
+30 684 M (2:) s
+48 684 M
+(-rwx------. 1  32 Apr  1  2010 interp.env) s
+30 673 M (3:) s
+48 673 M
+(-rw-------. 1  90 Nov 23  2010 interp.out) s
+30 662 M (4:) s
+48 662 M
+(-rwx------. 1  50 Nov 23  2010 interp.run) s
+30 651 M (5:) s
+48 651 M
+(-rwx------. 1  85 Nov 23  2010 interp.sh) s
+30 640 M (6:) s
+30 629 M (7:) s
+48 629 M
+(================================================================) s
+30 618 M (8:) s
+48 618 M
+(File: interp.c) s
+30 607 M (9:) s
+48 607 M
+(----------------------------------------------------------------) s
+24 596 M (10:) s
+48 596 M
+(     1  // $Id: interp.c,v 341.3 2010-11-23 18:40:08-08 - - $) s
+24 585 M (11:) s
+48 585 M
+(     2  ) s
+24 574 M (12:) s
+48 574 M
+(     3  #include <stdio.h>) s
+24 563 M (13:) s
+48 563 M
+(     4  #include <stdlib.h>) s
+24 552 M (14:) s
+48 552 M
+(     5  ) s
+24 541 M (15:) s
+48 541 M
+(     6  int main \(int argc, char **argv\) {) s
+24 530 M (16:) s
+48 530 M
+(     7     for \(int argi = 0; argi < argc; ++argi\) {) s
+24 519 M (17:) s
+48 519 M
+(     8        printf \("argv[%d]=%s\\n", argi, argv[argi]\) ;) s
+24 508 M (18:) s
+48 508 M
+(     9     }) s
+24 497 M (19:) s
+48 497 M
+(    10     return EXIT_SUCCESS;) s
+24 486 M (20:) s
+48 486 M
+(    11  }) s
+24 475 M (21:) s
+48 475 M
+(================================================================) s
+24 464 M (22:) s
+24 453 M (23:) s
+24 442 M (24:) s
+48 442 M
+(================================================================) s
+24 431 M (25:) s
+48 431 M
+(File: interp.sh) s
+24 420 M (26:) s
+48 420 M
+(----------------------------------------------------------------) s
+24 409 M (27:) s
+48 409 M
+(     1  #!/bin/sh) s
+24 398 M (28:) s
+48 398 M
+(     2  # $Id: interp.sh,v 1.1 2010-11-23 18:40:59-08 - - $) s
+24 387 M (29:) s
+48 387 M
+(     3  interp.run foo bar baz) s
+24 376 M (30:) s
+48 376 M
+(================================================================) s
+24 365 M (31:) s
+24 354 M (32:) s
+24 343 M (33:) s
+48 343 M
+(================================================================) s
+24 332 M (34:) s
+48 332 M
+(File: interp.env) s
+24 321 M (35:) s
+48 321 M
+(----------------------------------------------------------------) s
+24 310 M (36:) s
+48 310 M
+(     1  #!/usr/bin/env interp -foo -bar) s
+24 299 M (37:) s
+48 299 M
+(================================================================) s
+24 288 M (38:) s
+24 277 M (39:) s
+24 266 M (40:) s
+48 266 M
+(================================================================) s
+24 255 M (41:) s
+48 255 M
+(File: interp.out) s
+24 244 M (42:) s
+48 244 M
+(----------------------------------------------------------------) s
+24 233 M (43:) s
+48 233 M
+(     1  argv[0]=interp) s
+24 222 M (44:) s
+48 222 M
+(     2  argv[1]=-foo -bar) s
+24 211 M (45:) s
+48 211 M
+(     3  argv[2]=./interp.run) s
+24 200 M (46:) s
+48 200 M
+(     4  argv[3]=foo) s
+24 189 M (47:) s
+48 189 M
+(     5  argv[4]=bar) s
+24 178 M (48:) s
+48 178 M
+(     6  argv[5]=baz) s
+24 167 M (49:) s
+48 167 M
+(================================================================) s
+24 156 M (50:) s
+24 145 M (51:) s
+24 134 M (52:) s
+48 134 M
+(================================================================) s
+24 123 M (53:) s
+48 123 M
+(File: interp.run) s
+24 112 M (54:) s
+48 112 M
+(----------------------------------------------------------------) s
+24 101 M (55:) s
+48 101 M
+(     1  #!interp -foo -bar) s
+24 90 M (56:) s
+48 90 M
+(     2  some line 2) s
+24 79 M (57:) s
+48 79 M
+(     3  last line in file.) s
+24 68 M (58:) s
+48 68 M
+(================================================================) s
+24 57 M (59:) s
+_R
+S
+%%Page: (1) 2
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (goto-sm.c) def
+/fdir () def
+/ftail (goto-sm.c) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/30/12) def
+/modtimestr (19:05:05) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/interpreters/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+30 695 M (1:) s
+48 695 M
+(/* $Id: goto-sm.c,v 341.2 2012-11-16 20:49:45-08 - - $ */) s
+30 684 M (2:) s
+48 684 M
+(/*) s
+30 673 M (3:) s
+48 673 M
+(* tos of stack is cached in a register.) s
+30 662 M (4:) s
+48 662 M
+(* *sp is actually second from top of stack.) s
+30 651 M (5:) s
+48 651 M
+(*) s
+30 640 M (6:) s
+48 640 M
+(* gcc specific coding:) s
+30 629 M (7:) s
+48 629 M
+(* In order to make the core interpreter loop as fast as possible,) s
+30 618 M (8:) s
+48 618 M
+(* any tricks are good tricks, regardless of their so-called software) s
+30 607 M (9:) s
+48 607 M
+(* engineering quality.  The program is simple and regular, so the) s
+24 596 M (10:) s
+48 596 M
+(* tricks hopefully will not lead to excessive obfuscation.) s
+24 585 M (11:) s
+48 585 M
+(*) s
+24 574 M (12:) s
+48 574 M
+(* -- Using goto *SW[*ip++] instead of a switch statement causes gcc) s
+24 563 M (13:) s
+48 563 M
+(*    to omit the bounds check it must normally do with a switch.) s
+24 552 M (14:) s
+48 552 M
+(*) s
+24 541 M (15:) s
+48 541 M
+(*/) s
+24 530 M (16:) s
+24 519 M (17:) s
+48 519 M
+(#include <inttypes.h>) s
+24 508 M (18:) s
+24 497 M (19:) s
+48 497 M
+(typedef uint8_t   ubyte;) s
+24 486 M (20:) s
+48 486 M
+(typedef int8_t    sbyte;) s
+24 475 M (21:) s
+48 475 M
+(typedef uint32_t  uword;) s
+24 464 M (22:) s
+48 464 M
+(typedef int32_t   sword;) s
+24 453 M (23:) s
+48 453 M
+(typedef void     *ugoto;) s
+24 442 M (24:) s
+24 431 M (25:) s
+48 431 M
+(enum Opcode{) s
+24 420 M (26:) s
+48 420 M
+(   LDC0, LDCP, LDCN, LDC2, LDC4,) s
+24 409 M (27:) s
+48 409 M
+(   LDL , LDL2, STL , STL2, SKL , SKL2,) s
+24 398 M (28:) s
+48 398 M
+(   ADD , SUB , MUL , DIV , REM ,) s
+24 387 M (29:) s
+48 387 M
+(   AND , OR  , XOR , SLL , SRL , SRA ,) s
+24 376 M (30:) s
+48 376 M
+(   NEG , POS , COM ,) s
+24 365 M (31:) s
+48 365 M
+(   EQ  , NE  , LT  , LE  , GT  , GE  ,) s
+24 354 M (32:) s
+48 354 M
+(   JMP ,) s
+24 343 M (33:) s
+48 343 M
+(   JZ  , JNZ ,) s
+24 332 M (34:) s
+48 332 M
+(   JEQ , JNE , JLT , JLE , JGT , JGE ,) s
+24 321 M (35:) s
+48 321 M
+(};) s
+24 310 M (36:) s
+24 299 M (37:) s
+48 299 M
+(void interp\(\){) s
+24 288 M (38:) s
+48 288 M
+(   static ugoto SWITCH[] = {) s
+24 277 M (39:) s
+48 277 M
+(      &&_LDC0, &&_LDCP, &&_LDCN, &&_LDC2, &&_LDC4,) s
+24 266 M (40:) s
+48 266 M
+(      &&_LDL , &&_LDL2, &&_STL , &&_STL2, &&_SKL , &&_SKL2,) s
+24 255 M (41:) s
+48 255 M
+(      &&_ADD , &&_SUB , &&_MUL , &&_DIV , &&_REM ,) s
+24 244 M (42:) s
+48 244 M
+(      &&_AND , &&_OR  , &&_XOR , &&_SLL , &&_SRL , &&_SRA ,) s
+24 233 M (43:) s
+48 233 M
+(      &&_NEG , &&_POS , &&_COM ,) s
+24 222 M (44:) s
+48 222 M
+(      &&_EQ  , &&_NE  , &&_LT  , &&_LE  , &&_GT  , &&_GE  ,) s
+24 211 M (45:) s
+48 211 M
+(      &&_JMP , &&_JZ  , &&_JNZ ,) s
+24 200 M (46:) s
+48 200 M
+(   };) s
+24 189 M (47:) s
+48 189 M
+(   register ubyte *ip;) s
+24 178 M (48:) s
+48 178 M
+(   register sword *sp;) s
+24 167 M (49:) s
+48 167 M
+(   register sword *fp;) s
+24 156 M (50:) s
+48 156 M
+(   register sword tos; /* cache for *sp */) s
+24 145 M (51:) s
+48 145 M
+(   register ugoto *SW = SWITCH;) s
+24 134 M (52:) s
+24 123 M (53:) s
+48 123 M
+(   #define _IP0     register sword w = \(sbyte\)\(ip[0]\);) s
+24 112 M (54:) s
+48 112 M
+(   #define _IP\(N\)   w = w<<8 | ip[N];) s
+24 101 M (55:) s
+48 101 M
+(   #define UIP1     \( *ip++ \)) s
+24 90 M (56:) s
+48 90 M
+(   #define SIP2     \({ _IP0; _IP\(1\); ip+=2; w; }\)) s
+24 79 M (57:) s
+48 79 M
+(   #define SIP4     \({ _IP0; _IP\(1\); _IP\(2\); _IP\(3\); ip+=4; w; }\)) s
+24 68 M (58:) s
+48 68 M
+(   #define FETCH    { goto Fetch; }) s
+24 57 M (59:) s
+_R
+S
+%%Page: (2) 3
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (goto-sm.c) def
+/fdir () def
+/ftail (goto-sm.c) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (11/30/12) def
+/modtimestr (19:05:05) def
+/user_header_p true def
+/user_header_left_str ($cmps104a-wm/Examples/interpreters/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+24 695 M (60:) s
+24 684 M (61:) s
+48 684 M
+(   Fetch: goto *SW[UIP1];) s
+24 673 M (62:) s
+24 662 M (63:) s
+48 662 M
+(   _LDC0: *sp++ = tos; tos = 0;                   FETCH;) s
+24 651 M (64:) s
+48 651 M
+(   _LDCP: *sp++ = tos; tos = UIP1;                FETCH;) s
+24 640 M (65:) s
+48 640 M
+(   _LDCN: *sp++ = tos; tos = UIP1 - 256;          FETCH;) s
+24 629 M (66:) s
+48 629 M
+(   _LDC2: *sp++ = tos; tos = SIP2;                FETCH;) s
+24 618 M (67:) s
+48 618 M
+(   _LDC4: *sp++ = tos; tos = SIP4;                FETCH;) s
+24 607 M (68:) s
+24 596 M (69:) s
+48 596 M
+(   _LDL : *sp++ = tos; tos = fp[UIP1];            FETCH;) s
+24 585 M (70:) s
+48 585 M
+(   _LDL2: *sp++ = tos; tos = fp[SIP2];            FETCH;) s
+24 574 M (71:) s
+48 574 M
+(   _STL : fp[UIP1] = tos; tos = *--sp;            FETCH;) s
+24 563 M (72:) s
+48 563 M
+(   _STL2: fp[SIP2] = tos; tos = *--sp;            FETCH;) s
+24 552 M (73:) s
+48 552 M
+(   _SKL : fp[UIP1] = tos;                         FETCH;) s
+24 541 M (74:) s
+48 541 M
+(   _SKL2: fp[SIP2] = tos;                         FETCH;) s
+24 530 M (75:) s
+24 519 M (76:) s
+48 519 M
+(   _ADD : tos = *--sp + tos;                      FETCH;) s
+24 508 M (77:) s
+48 508 M
+(   _SUB : tos = *--sp - tos;                      FETCH;) s
+24 497 M (78:) s
+48 497 M
+(   _MUL : tos = *--sp * tos;                      FETCH;) s
+24 486 M (79:) s
+48 486 M
+(   _DIV : tos = *--sp / tos;                      FETCH;) s
+24 475 M (80:) s
+48 475 M
+(   _REM : tos = *--sp % tos;                      FETCH;) s
+24 464 M (81:) s
+24 453 M (82:) s
+48 453 M
+(   _AND : tos = *--sp & tos;                      FETCH;) s
+24 442 M (83:) s
+48 442 M
+(   _OR  : tos = *--sp | tos;                      FETCH;) s
+24 431 M (84:) s
+48 431 M
+(   _XOR : tos = *--sp ^ tos;                      FETCH;) s
+24 420 M (85:) s
+48 420 M
+(   _SLL : tos = *--sp << tos;                     FETCH;) s
+24 409 M (86:) s
+48 409 M
+(   _SRL : tos = \(uword\)\(*--sp\) >> tos;            FETCH;) s
+24 398 M (87:) s
+48 398 M
+(   _SRA : tos = *--sp >> tos;                     FETCH;) s
+24 387 M (88:) s
+24 376 M (89:) s
+48 376 M
+(   _NEG : tos = - tos;                            FETCH;) s
+24 365 M (90:) s
+48 365 M
+(   _POS : tos = + tos;                            FETCH;) s
+24 354 M (91:) s
+48 354 M
+(   _COM : tos = ~ tos;                            FETCH;) s
+24 343 M (92:) s
+24 332 M (93:) s
+48 332 M
+(   _EQ  : tos = *--sp == tos;                     FETCH;) s
+24 321 M (94:) s
+48 321 M
+(   _NE  : tos = *--sp != tos;                     FETCH;) s
+24 310 M (95:) s
+48 310 M
+(   _LT  : tos = *--sp <  tos;                     FETCH;) s
+24 299 M (96:) s
+48 299 M
+(   _LE  : tos = *--sp <= tos;                     FETCH;) s
+24 288 M (97:) s
+48 288 M
+(   _GT  : tos = *--sp >  tos;                     FETCH;) s
+24 277 M (98:) s
+48 277 M
+(   _GE  : tos = *--sp >= tos;                     FETCH;) s
+24 266 M (99:) s
+18 255 M (100:) s
+48 255 M
+(   _JMP :                ip += SIP2;              FETCH;) s
+18 244 M (101:) s
+48 244 M
+(   _JZ  : if\( tos == 0 \) ip += SIP2; tos = *--sp; FETCH;) s
+18 233 M (102:) s
+48 233 M
+(   _JNZ : if\( tos != 0 \) ip += SIP2; tos = *--sp; FETCH;) s
+18 222 M (103:) s
+18 211 M (104:) s
+48 211 M
+(}) s
+_R
+S
+%%Trailer
+%%Pages: 3
+%%DocumentNeededResources: font Times-Roman Courier-Bold Courier 
+%%+ font Times-Bold 
+%%EOF

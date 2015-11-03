@@ -1,0 +1,42 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2009.10.21.03.35.19;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2009.10.21.03.34.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@# $Id$
+a=3+4*5-6
+crap out
+b=a/3
+c=b*10-a*33
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+@

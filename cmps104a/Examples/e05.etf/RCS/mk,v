@@ -1,0 +1,578 @@
+head	1.31;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.31
+date	2013.09.24.00.15.24;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2008.11.05.02.43.32;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2008.11.05.02.42.12;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2008.11.05.02.41.44;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2008.11.05.02.40.32;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2008.11.05.02.40.05;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2008.11.05.02.39.41;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2008.11.05.02.39.22;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2008.11.05.02.39.10;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2008.11.05.02.38.24;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2008.11.05.02.38.15;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2008.11.05.02.38.05;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2008.11.05.02.37.56;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2008.11.05.02.37.22;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2008.11.05.02.37.16;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2008.11.05.02.36.41;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2008.11.05.02.36.22;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2008.11.05.02.36.00;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2008.11.05.02.35.53;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2008.11.05.02.35.42;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2008.11.05.02.35.26;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2008.11.05.02.34.32;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2008.11.05.02.33.06;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2008.11.05.02.30.44;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2008.11.05.02.29.59;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2008.11.05.02.29.10;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2008.11.05.02.28.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2008.11.05.02.28.31;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2008.11.05.02.09.59;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2008.11.05.02.08.55;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2008.11.05.01.43.57;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.31
+log
+@-
+@
+text
+@#!/bin/sh -x
+# $Id: mk,v 1.30 2008-11-04 18:43:32-08 - - $
+cid + $0 etf.yy
+bison -ktv etf.yy
+g++ -g -O0 -Wall -Wextra -std=gnu++0x etf.tab.cc -o etf
+run () {
+   echo INPUT: "$2" >$1
+   echo "" >>$1
+   echo "$2" | etf >>$1 2>&1
+}
+run test1.log "a*b+c*d"
+run test2.log "a*(b+c)"
+mkpspdf Listing.ps etf.yy etf.output test*.log $0
+@
+
+
+1.30
+log
+@-
+@
+text
+@d2 4
+a5 4
+# $Id: mk,v 1.29 2008-11-04 18:42:12-08 - - $
+cid + $0 etf.y
+bison -ktv etf.y
+cc etf.tab.c -o etf
+d13 1
+a13 1
+mkpspdf Listing.ps etf.y etf.output test*.log $0
+@
+
+
+1.29
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.10 2008-11-04 18:34:32-08 - - $
+d13 1
+@
+
+
+1.28
+log
+@-
+@
+text
+@d9 1
+a12 4
+   ##cmd='echo "'"$2"'" | etf'
+   ##echo "Running: $cmd >$1
+   ##echo "" >$1
+   ##sh -c "$2" >$1 2>&1
+@
+
+
+1.27
+log
+@-
+@
+text
+@d8 1
+a8 1
+   echo "" >$1
+@
+
+
+1.26
+log
+@-
+@
+text
+@d11 1
+@
+
+
+1.25
+log
+@-
+@
+text
+@d7 1
+a7 1
+   echo "INPUT: $2" >$1
+@
+
+
+1.24
+log
+@-
+@
+text
+@d8 1
+a8 1
+   echo "" $1 >$1
+@
+
+
+1.23
+log
+@-
+@
+text
+@d8 1
+a8 1
+   echo "" $1
+@
+
+
+1.22
+log
+@-
+@
+text
+@d7 2
+a8 1
+echo foo
+d10 1
+a10 1
+run
+@
+
+
+1.21
+log
+@-
+@
+text
+@d7 1
+d9 1
+@
+
+
+1.20
+log
+@-
+@
+text
+@d6 1
+a6 2
+run(){
+echo foo
+@
+
+
+1.19
+log
+@-
+@
+text
+@d6 1
+a6 1
+name(){
+@
+
+
+1.18
+log
+@-
+@
+text
+@d6 3
+a8 1
+foo(){ }
+@
+
+
+1.17
+log
+@-
+@
+text
+@d6 1
+a6 2
+foo(){
+}
+@
+
+
+1.16
+log
+@-
+@
+text
+@d6 2
+a7 1
+doit () {
+a11 1
+}
+@
+
+
+1.15
+log
+@-
+@
+text
+@d6 1
+a6 1
+run () {
+@
+
+
+1.14
+log
+@-
+@
+text
+@d6 3
+a8 3
+run() {
+   #cmd='echo "'"$2"'" | etf'
+   #echo "Running: $cmd >$1
+d10 1
+a10 1
+   #sh -c "$2" >$1 2>&1
+@
+
+
+1.13
+log
+@-
+@
+text
+@d6 1
+a6 1
+#run() {
+d11 1
+a11 1
+#}
+@
+
+
+1.12
+log
+@-
+@
+text
+@d6 1
+a6 1
+run() {
+d11 1
+a11 1
+}
+@
+
+
+1.11
+log
+@-
+@
+text
+@d6 5
+a10 5
+run () { 
+   cmd='echo "'"$2"'" | etf'
+   echo "Running: $cmd >$1
+   echo "" >$1
+   sh -c "$2" >$1 2>&1
+@
+
+
+1.10
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d6 1
+a6 1
+run () {
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 2
+a2 1
+#!/bin/sh
+d7 1
+a7 1
+   cmd="echo "$2" | etf"
+@
+
+
+1.8
+log
+@-
+@
+text
+@d5 6
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 4
+a4 20
+#!/usr/bin/perl
+# $Id: mk,v 1.3 2008-11-04 18:09:59-08 - - $
+sub cmd {
+   print "@@_\n";
+   print `@@_\n`;
+   die "Exit status = $?\n" if $?;
+}
+cmd "cid + $0 etf.y";
+cmd "bison -ktv etf.y";
+cmd "cc etf.tab.c -o etf";
+@@tests = qw (
+   a*b+c*d
+   (a+b)*(c+d)
+);
+for $testi (0..$#tests) {
+   $file = sprintf "test%02d.lis", $testi;
+   $cmd = "echo '$tests[$testi]' | etf >$file 2>&1";
+   cmd "echo Running: '$cmd'; echo '' >>$file";
+   cmd $cmd;
+}
+@
+
+
+1.6
+log
+@-
+@
+text
+@d17 1
+a17 1
+   $cmd = "echo $tests[$testi] | etf >$file 2>&1";
+@
+
+
+1.5
+log
+@-
+@
+text
+@d18 1
+a18 1
+   cmd "echo Running: '$cmd'; echo '' >$file";
+@
+
+
+1.4
+log
+@-
+@
+text
+@d11 4
+a14 1
+@@tests = ("a*b+c*d", "(a+b)*(c+d)");
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 17
+a17 5
+#!/bin/sh -x
+# $Id: mk,v 1.2 2008-11-04 18:08:55-08 - - $
+cid + $0 etf.y
+bison -ktv etf.y
+cc etf.tab.c -o etf
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.1 2008-11-04 17:43:57-08 - - $
+d5 1
+a5 1
+cc etf.tab.c
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d4 1
+a4 1
+bison -dktv etf.y
+@

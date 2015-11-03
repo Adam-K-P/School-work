@@ -1,0 +1,133 @@
+Scanning input: "a*b+c*d"
+Starting parse
+Entering state 0
+Reading a token: Next token is token IDENT (node1: IDENT 'a' nil nil)
+Shifting token IDENT (node1: IDENT 'a' nil nil)
+Entering state 1
+Reducing stack by rule 7 (line 53):
+   $1 = token IDENT (node1: IDENT 'a' nil nil)
+AST: node1: IDENT 'a' nil nil
+-> $$ = nterm factor ()
+Stack now 0
+Entering state 6
+Reducing stack by rule 5 (line 49):
+   $1 = nterm factor ()
+AST: node1: IDENT 'a' nil nil
+-> $$ = nterm term ()
+Stack now 0
+Entering state 5
+Reading a token: Next token is token MUL (node2: MUL '*' nil nil)
+Shifting token MUL (node2: MUL '*' nil nil)
+Entering state 10
+Reading a token: Next token is token IDENT (node3: IDENT 'b' nil nil)
+Shifting token IDENT (node3: IDENT 'b' nil nil)
+Entering state 1
+Reducing stack by rule 7 (line 53):
+   $1 = token IDENT (node3: IDENT 'b' nil nil)
+AST: node3: IDENT 'b' nil nil
+-> $$ = nterm factor ()
+Stack now 0 5 10
+Entering state 13
+Reducing stack by rule 4 (line 48):
+   $1 = nterm term ()
+   $2 = token MUL (node2: MUL '*' nil nil)
+   $3 = nterm factor ()
+AST: node2: MUL '*' node1 node3
+AST:    node1: IDENT 'a' nil nil
+AST:    node3: IDENT 'b' nil nil
+-> $$ = nterm term ()
+Stack now 0
+Entering state 5
+Reading a token: Next token is token ADD (node4: ADD '+' nil nil)
+Reducing stack by rule 3 (line 45):
+   $1 = nterm term ()
+AST: node2: MUL '*' node1 node3
+AST:    node1: IDENT 'a' nil nil
+AST:    node3: IDENT 'b' nil nil
+-> $$ = nterm expr ()
+Stack now 0
+Entering state 4
+Next token is token ADD (node4: ADD '+' nil nil)
+Shifting token ADD (node4: ADD '+' nil nil)
+Entering state 9
+Reading a token: Next token is token IDENT (node5: IDENT 'c' nil nil)
+Shifting token IDENT (node5: IDENT 'c' nil nil)
+Entering state 1
+Reducing stack by rule 7 (line 53):
+   $1 = token IDENT (node5: IDENT 'c' nil nil)
+AST: node5: IDENT 'c' nil nil
+-> $$ = nterm factor ()
+Stack now 0 4 9
+Entering state 6
+Reducing stack by rule 5 (line 49):
+   $1 = nterm factor ()
+AST: node5: IDENT 'c' nil nil
+-> $$ = nterm term ()
+Stack now 0 4 9
+Entering state 12
+Reading a token: Next token is token MUL (node6: MUL '*' nil nil)
+Shifting token MUL (node6: MUL '*' nil nil)
+Entering state 10
+Reading a token: Next token is token IDENT (node7: IDENT 'd' nil nil)
+Shifting token IDENT (node7: IDENT 'd' nil nil)
+Entering state 1
+Reducing stack by rule 7 (line 53):
+   $1 = token IDENT (node7: IDENT 'd' nil nil)
+AST: node7: IDENT 'd' nil nil
+-> $$ = nterm factor ()
+Stack now 0 4 9 12 10
+Entering state 13
+Reducing stack by rule 4 (line 48):
+   $1 = nterm term ()
+   $2 = token MUL (node6: MUL '*' nil nil)
+   $3 = nterm factor ()
+AST: node6: MUL '*' node5 node7
+AST:    node5: IDENT 'c' nil nil
+AST:    node7: IDENT 'd' nil nil
+-> $$ = nterm term ()
+Stack now 0 4 9
+Entering state 12
+Reading a token: Now at end of input.
+Reducing stack by rule 2 (line 44):
+   $1 = nterm expr ()
+   $2 = token ADD (node4: ADD '+' nil nil)
+   $3 = nterm term ()
+AST: node4: ADD '+' node2 node6
+AST:    node2: MUL '*' node1 node3
+AST:       node1: IDENT 'a' nil nil
+AST:       node3: IDENT 'b' nil nil
+AST:    node6: MUL '*' node5 node7
+AST:       node5: IDENT 'c' nil nil
+AST:       node7: IDENT 'd' nil nil
+-> $$ = nterm expr ()
+Stack now 0
+Entering state 4
+Now at end of input.
+Reducing stack by rule 1 (line 41):
+   $1 = nterm expr ()
+AST: node4: ADD '+' node2 node6
+AST:    node2: MUL '*' node1 node3
+AST:       node1: IDENT 'a' nil nil
+AST:       node3: IDENT 'b' nil nil
+AST:    node6: MUL '*' node5 node7
+AST:       node5: IDENT 'c' nil nil
+AST:       node7: IDENT 'd' nil nil
+-> $$ = nterm start ()
+Stack now 0
+Entering state 3
+Now at end of input.
+Shifting token $end (node8: $end '\x00' nil nil)
+Entering state 8
+Stack now 0 3 8
+Cleanup: popping token $end (node8: $end '\x00' nil nil)
+Cleanup: popping nterm start ()
+Finished parse: status 0
+Scanned input: "a*b+c*d"
+Root of AST:
+AST: node4: ADD '+' node2 node6
+AST:    node2: MUL '*' node1 node3
+AST:       node1: IDENT 'a' nil nil
+AST:       node3: IDENT 'b' nil nil
+AST:    node6: MUL '*' node5 node7
+AST:       node5: IDENT 'c' nil nil
+AST:       node7: IDENT 'd' nil nil

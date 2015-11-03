@@ -1,0 +1,223 @@
+head	1.7;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.7
+date	2014.10.24.23.32.04;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2013.09.06.03.24.24;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2013.09.06.02.31.11;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2013.09.06.02.30.49;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2013.09.06.02.29.48;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.09.06.02.21.46;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.09.06.01.40.21;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@-
+@
+text
+@/* $Id: main.cc,v 1.6 2013-09-05 20:24:24-07 - - $ */
+
+
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "extern.h"
+
+map<string,double> symtab; 
+const double NAN = 0.0 / 0.0;
+
+double sym_get (const string& symbol) { 
+   auto entry = symtab.find (symbol);
+   if (entry != symtab.end()) return entry->second;
+   error ("variable is uninitialized", symbol);
+   return NAN;
+}
+
+double sym_put (const string& symbol, double value) {
+   symtab[symbol] = value;
+   return value;
+}
+
+void sym_dump() {
+   for (auto iter = symtab.cbegin(); iter != symtab.cend(); ++iter) {
+      printf ("symtab[%s] = %.10g\n",
+              iter->first.c_str(), iter->second);
+   }
+}
+
+void scan_options (int argc, char** argv) {
+   yy_flex_debug = yydebug = 0;
+   for(;;) {
+      int option = getopt (argc, argv, "ly");
+      switch (option) {
+         case EOF: return;
+         case 'l': yy_flex_debug = 1; break;
+         case 'y': yydebug       = 1; break;
+      }
+   }
+}
+
+void error (const string& message, const string& data) {
+   yyerror (message + " (" + data + ")");
+}
+
+void yyerror (const string& message) {
+   printf (" ... [[%s]]\n", message.c_str());
+}
+
+int main (int argc, char** argv) {
+   scan_options (argc, argv);
+   int parse_rc = yyparse ();
+   sym_dump();
+   return parse_rc;
+}
+
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $Id: main.cc,v 1.5 2013-09-05 19:31:11-07 - - $ */
+d13 1
+a13 1
+double sym_get (const string &symbol) { 
+d20 1
+a20 1
+double sym_put (const string &symbol, double value) {
+d44 1
+a44 1
+void error (const string &message, const string &data) {
+d48 1
+a48 1
+void yyerror (const string &message) {
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $Id: main.cc,v 1.4 2013-09-05 19:30:49-07 - - $ */
+d15 3
+a17 1
+   return entry == symtab.end() ? NAN : entry->second;
+a32 1
+   int option;
+d35 1
+a35 2
+      option = getopt (argc, argv, "ly");
+      if (option == EOF) break;
+d37 1
+d42 4
+a45 2
+   printf ("options: lex=%d, yacc=%d.\n",
+           yy_flex_debug, yydebug);
+d49 1
+a49 1
+   printf ("[[%s]]\n", message.c_str());
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $Id: main.cc,v 1.3 2013-09-05 19:29:48-07 - - $ */
+d46 1
+a46 2
+   extern int yynerrs;
+   printf ("%s (#%d)\n", message, yynerrs);
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $Id: main.cc,v 1.2 2013-09-05 19:21:46-07 - - $ */
+d26 1
+a26 1
+              iter->first, iter->second.c_str());
+d45 1
+a45 1
+void yyerror (const char* message) {
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $Id: main.cc,v 1.1 2013-09-05 18:40:21-07 - - $ */
+d10 2
+a11 1
+map<string,yystype> symtab; 
+d20 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $Id: cmain.c,v 1.2 2006-10-16 12:17:39-07 - - $ */
+d23 2
+a24 1
+      printf ("symtab[%s] = %.10g\n", iter->first, iter->second);
+@

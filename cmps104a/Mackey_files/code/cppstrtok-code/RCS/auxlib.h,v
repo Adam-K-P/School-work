@@ -1,9 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks;
 comment	@ * @;
 
+
+1.2
+date	2015.10.02.01.15.04;	author -;	state -;
+branches;
+next	1.1;
 
 1.1
 date	2013.09.21.02.38.26;	author -;	state -;
@@ -15,12 +20,14 @@ desc
 @@
 
 
-1.1
+1.2
 log
 @-
 @
 text
-@#ifndef __AUXLIB_H__
+@// $Id$
+
+#ifndef __AUXLIB_H__
 #define __AUXLIB_H__
 
 #include <stdarg.h>
@@ -43,7 +50,7 @@ void set_execname (char* argv0);
 
 const char* get_execname (void);
    //
-   // Returns a read-only value previously stored by set_progname.
+   // Returns a read-only value previously set by set_progname.
    //
 
 void eprint_status (const char* command, int status);
@@ -60,7 +67,7 @@ int get_exitstatus (void);
 
 void set_exitstatus (int);
    //
-   // Sets the exit status.  Remebers only the largest value passed in.
+   // Sets the exit status.  Remebers only the largest value.
    //
 
 
@@ -133,6 +140,23 @@ void __debugprintf (char flag, const char* file, int line,
         if (is_debugflag (FLAG)) { DEBUGF (FLAG, "\n"); STMTS }
 #endif
 
+#endif
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 2
+d26 1
+a26 1
+   // Returns a read-only value previously stored by set_progname.
+d43 1
+a43 1
+   // Sets the exit status.  Remebers only the largest value passed in.
+a115 10
 //
 // Definition of RCSID macro to include RCS info in objs and execbin.
 //
@@ -143,5 +167,4 @@ void __debugprintf (char flag, const char* file, int line,
 #define RCSC(X) RCSH(X \
 "\0$Compiled: " __FILE__ " " __DATE__ " " __TIME__ " $")
 RCSH("$Id: auxlib.h,v 1.2 2013-09-19 19:55:32-07 - - $") 
-#endif
 @

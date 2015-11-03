@@ -1,0 +1,47 @@
+head	354.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+354.2
+date	2005.07.01.16.31.37;	author -;	state -;
+branches;
+next	354.1;
+
+354.1
+date	2005.06.30.23.51.13;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+354.2
+log
+@-
+@
+text
+@#!/bin/sh -x
+# $Id: mk,v 354.1 2005-06-30 16:51:13-07 - - $
+cid $0 hashbang.l
+flex -ohashbang.c hashbang.l
+cc -g -o hashbang hashbang.c
+@
+
+
+354.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 354.1 2005-06-30 16:49:33-07 - - $
+d5 1
+a5 1
+cc -o hashbang hashbang.c
+@

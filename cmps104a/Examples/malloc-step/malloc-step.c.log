@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting malloc-step.c
+malloc-step.c:
+     $Id: malloc-step.c,v 1.5 2015-05-08 14:33:22-07 - - $
+gcc -g -O0 -Wall -Wextra -rdynamic -std=gnu11 malloc-step.c -o malloc-step -lglut -lGLU -lGL -lX11 -lrt -lm
+rm -f malloc-step.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished malloc-step.c

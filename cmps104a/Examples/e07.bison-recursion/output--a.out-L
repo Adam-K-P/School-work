@@ -1,0 +1,54 @@
+Starting parse
+Entering state 0
+Reading a token: Next token is token '<' ()
+Shifting token '<', Entering state 2
+Reducing stack by rule 4 (line 19), '<' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token 'L' ()
+Shifting token 'L', Entering state 10
+Reducing stack by rule 3 (line 18), left 'L' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token 'L' ()
+Shifting token 'L', Entering state 10
+Reducing stack by rule 3 (line 18), left 'L' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token 'L' ()
+Shifting token 'L', Entering state 10
+Reducing stack by rule 3 (line 18), left 'L' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token 'L' ()
+Shifting token 'L', Entering state 10
+Reducing stack by rule 3 (line 18), left 'L' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token 'L' ()
+Shifting token 'L', Entering state 10
+Reducing stack by rule 3 (line 18), left 'L' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token 'L' ()
+Shifting token 'L', Entering state 10
+Reducing stack by rule 3 (line 18), left 'L' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token 'L' ()
+Shifting token 'L', Entering state 10
+Reducing stack by rule 3 (line 18), left 'L' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token 'L' ()
+Shifting token 'L', Entering state 10
+Reducing stack by rule 3 (line 18), left 'L' -> left
+Stack now 0
+Entering state 4
+Reading a token: Next token is token '>' ()
+Shifting token '>', Entering state 9
+Reducing stack by rule 1 (line 14), left '>' -> program
+Stack now 0
+Entering state 3
+Reading a token: Now at end of input.
+Parsing ``<LLLLLLLL>''

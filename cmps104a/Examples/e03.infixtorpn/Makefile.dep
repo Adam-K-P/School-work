@@ -1,0 +1,4 @@
+# Makefile.dep created Fri Oct 10 14:48:42 PDT 2014
+main.o: main.cc extern.h
+parser.o: parser.cc extern.h
+scanner.o: scanner.cc extern.h parser.h

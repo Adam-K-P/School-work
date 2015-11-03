@@ -1,0 +1,63 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.2
+date	2006.10.16.19.17.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2006.10.16.19.09.22;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@/* $Id$ */
+
+#ifndef _CSYMBOLS_H_
+#define _CSYMBOLS_H_
+
+/*
+* symbol table abstract data type.
+* key:   Symbol is a letter range 'a' .. 'z'.
+*        upper case is equivalent to lower case.
+* value: double-precision floating-point number.
+*/
+
+#include <sys/types.h>
+
+typedef u_char symbol_t;
+typedef double value_t;
+
+void sym_init (void);
+void sym_dump (void);
+value_t sym_get (symbol_t ident);
+value_t sym_put (symbol_t ident, value_t value);
+
+#endif
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+/* $RCSfile: csymbols.h,v $$Revision: 61016.114640 $ */
+@

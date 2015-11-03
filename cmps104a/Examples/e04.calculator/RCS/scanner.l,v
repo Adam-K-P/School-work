@@ -1,0 +1,165 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.5
+date	2014.10.24.23.37.47;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2014.10.24.23.28.32;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2013.09.06.03.24.24;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.09.06.02.21.46;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.09.06.01.40.21;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@
+%{
+// $Id: scanner.l,v 1.4 2014-10-24 16:28:32-07 - - $
+
+#include <ctype.h>
+#include <stdlib.h>
+
+#include "extern.h"
+
+%}
+
+%option 8bit
+%option debug
+%option ecs
+%option nodefault
+%option noinput
+%option nounput
+%option noyywrap
+%option warn
+
+DIGIT     [0-9]
+FRACTION  ({DIGIT}+\.?{DIGIT}*|\.{DIGIT}+)
+EXPONENT  ([Ee][+-]?{DIGIT}+)
+NUMBER    {FRACTION}({EXPONENT})?
+ERRORNUM  {FRACTION}[Ee][+-]?
+LETTER    [a-zA-Z_]
+IDENT     {LETTER}({LETTER}|{DIGIT})*
+
+%% 
+
+{IDENT}     { ECHO; yylval.sym = yytext; return IDENT; }
+{NUMBER}    { ECHO; yylval.val = atof (yytext); return NUMBER; }
+"("         { ECHO; return '('; }
+")"         { ECHO; return ')'; }
+"+"         { ECHO; return '+'; }
+"-"         { ECHO; return '-'; }
+"/"         { ECHO; return '/'; }
+"*"         { ECHO; return '*'; }
+"="         { ECHO; return '='; }
+\n          { ECHO; return '\n'; }
+[\t ]+      { ECHO; }
+"#".*       { ECHO; }
+{ERRORNUM}  { ECHO; error ("invalid numeric value", yytext); }
+.           { ECHO; error ("invalid input character", yytext); }
+
+%%
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d3 1
+a3 1
+// $Id: scanner.l,v 1.3 2013-09-05 20:24:24-07 - - $
+a12 1
+%option backup
+d16 1
+a18 2
+%option perf-report
+%option verbose
+@
+
+
+1.3
+log
+@-
+@
+text
+@d3 1
+a3 1
+// $Id: scanner.l,v 1.2 2013-09-05 19:21:46-07 - - $
+d17 1
+a17 1
+%option noyywrap
+d21 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d3 1
+a3 1
+// $Id: scanner.l,v 1.1 2013-09-05 18:40:21-07 - - $
+a9 4
+void lexerror (const string &message) {
+   yyerror (message + " (" + yytext + ")");
+}
+
+d44 2
+a45 2
+{ERRORNUM}  { ECHO; lexerror ("invalid numeric value"); }
+.           { ECHO; lexerror ("invalid input character"); }
+@
+
+
+1.1
+log
+@-
+@
+text
+@d3 1
+a3 1
+// $Id: yscanner.l,v 1.4 2009-10-20 20:35:19-07 - - $
+d10 4
+d31 2
+a32 1
+LETTER    [a-zA-Z]
+d36 2
+a37 2
+{LETTER}    { ECHO; yylval.symbol = yytext; return IDENT; }
+{NUMBER}    { ECHO; yylval.value = atof (yytext); return NUMBER; }
+d48 2
+a49 2
+{ERRORNUM}  { ECHO; yyerror ("exponent missing value"); }
+.           { ECHO; yyerror ("invalid input character"); }
+@

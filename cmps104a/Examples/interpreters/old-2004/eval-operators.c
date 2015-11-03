@@ -1,0 +1,37 @@
+#ifndef INT
+#define INT int
+#endif
+
+typedef unsigned INT UINT;
+
+enum { ADD, SUB, MUL, DIV, REM, 
+       AND, IOR, XOR, SLL, SRL, SRA,
+       NEG, COM,
+       EQ, NE, LT, LE, GT, GE };
+
+INT eval( int op, INT L, INT R ){
+   INT A;
+   switch( op ){
+      case ADD: A = L +  R;        break;
+      case SUB: A = L -  R;        break;
+      case MUL: A = L *  R;        break;
+      case DIV: A = L /  R;        break;
+      case REM: A = L %  R;        break;
+      case AND: A = L &  R;        break;
+      case IOR: A = L |  R;        break;
+      case XOR: A = L ^  R;        break;
+      case SLL: A = L << R;        break;
+      case SRL: A = (UINT)L >> R;  break;
+      case SRA: A = L >> R;        break;
+      case NEG: A =   -  R;        break;
+      case COM: A =   ~  R;        break;
+      case EQ : A = L == R;        break;
+      case NE : A = L != R;        break;
+      case LT : A = L <  R;        break;
+      case LE : A = L <= R;        break;
+      case GT : A = L >  R;        break;
+      case GE : A = L >= R;        break;
+   };
+   return A; /* prevent optimizer from elim dead code */
+}
+
