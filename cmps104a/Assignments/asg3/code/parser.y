@@ -36,8 +36,8 @@
 %left   '*' '/'
 %right  '^'
 %right  POS NEG
-%left   '<' '>'
-%left   '!' ','
+%left   '<' '>'  /* need to change */
+%left   '!' ','  /* both of these  */
 
 %start  program
 
@@ -49,12 +49,11 @@ program : stmtseq               { $$ = $1 = nullptr; }
 stmtseq : stmtseq expr ';'      { destroy ($3); $$ = $1->adopt ($2); }
         | stmtseq error ';'     { destroy ($3); $$ = $1; }
         | stmtseq ';'           { destroy ($2); $$ = $1; }
-        |                       { $$ = parser::root; }
+        | stmtseq DIRECTIVE     { printf ("reached DIRECTIVE\n"); $$ = $1; }
+        |                       { printf ("ugh\n"); $$ = parser::root; }
         ;
 
-expr    : expr '=' expr         { printf ("reaching bison\n"); 
-                                  $$ = $2->adopt ($1, $3); }
-
+expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | expr '+' expr         { $$ = $2->adopt ($1, $3); }
         | expr '-' expr         { $$ = $2->adopt ($1, $3); }
         | expr '*' expr         { $$ = $2->adopt ($1, $3); }
@@ -65,8 +64,9 @@ expr    : expr '=' expr         { printf ("reaching bison\n");
         | '+' expr %prec POS    { $$ = $1->adopt_sym ($2, POS); }
         | '-' expr %prec NEG    { $$ = $1->adopt_sym ($2, NEG); }
         | '(' expr ')'          { destroy ($1, $3); $$ = $2; }
-        | TOK_IDENT             { $$ = $1; }
-        | NUMBER                { $$ = $1; }
+        | TOK_KW_VOID expr      { printf ("reached TOK_VOID\n"); $$ = $1; }
+        | TOK_IDENT             { printf ("reached TOK_IDENT\n"); $$ = $1; }
+        | NUMBER                { printf ("reached NUMBER\n"); $$ = $1; }
         ;
 
 %%
