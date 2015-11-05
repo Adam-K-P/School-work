@@ -43,8 +43,10 @@
 
 %%
 
-program : function              { printf ("func decl\n"); $$ = $1; }
-        | stmtseq               { $$ = $1 = nullptr; }
+program : stmtseq program             { $$ = $1 = nullptr; }
+        | function program            { $$ = $1; }
+        | stmtseq                     { $$ = $1; }
+        | function                    { $$ = $1; }
         ;
 
 function: identdec '(' identseq ')' block { printf ("full fcn\n");  $$ = $1;}
@@ -56,17 +58,28 @@ identseq: identseq ',' identseq  { printf ("reaching identseq\n"); $$ = $1; }
         ;
 
 block   : '{' stmtseq '}'       { destroy ($1, $3); $$ = $2; }
-        | ';'                   { $$ = $1; }
+        | ';'                   { destroy ($1); }
         ;
 
-stmtseq : stmtseq expr ';'      { destroy ($3); $$ = $1->adopt ($2); }
+stmtseq : 
+        
+        /*expr ';' stmtseq      { destroy ($3); $$ = $1->adopt ($2); }
+        | error ';' stmtseq     { destroy ($3); $$ = $1; }
+        | DIRECTIVE stmtseq     { printf ("reached DIRECTIVE\n");
+                                  $$ = $1; }
+        | vardecl stmtseq       { printf ("reached vardecl\n");
+                                  $$ = $1->adopt ($2); } */
+
+          stmtseq expr ';'      { destroy ($3); $$ = $1->adopt ($2); }
         | stmtseq error ';'     { destroy ($3); $$ = $1; }
         | stmtseq ';'           { destroy ($2); $$ = $1; }
-        | stmtseq DIRECTIVE     { printf ("reached DIRECTIVE\n"); $$ = $1; }
-        | stmtseq vardecl       { printf ("reached vardecl\n"); 
-                                 $$ = $1->adopt ($2); }
-        | stmtseq function      { printf ("function found\n"); $$ = $1; }
-        |                       { printf ("ugh\n"); $$ = parser::root; }
+        | stmtseq DIRECTIVE     { printf ("reached DIRECTIVE\n"); 
+                                  $$ = $1; }
+        | vardecl stmtseq       { printf ("reached vardecl\n"); 
+                                  $$ = $1->adopt ($2); }
+        | stmtseq ifelse ';'    { $$ = $1; } 
+        | block                 { $$ = $1; }
+        |                       { $$ = parser::root; } 
         ;
 
 vardecl : identdec '=' expr ';' { printf ("reached vardecl\n"); $$ = $1; }
@@ -80,6 +93,7 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | expr '^' expr         { $$ = $2->adopt ($1, $3); }
         | expr '<' expr         { $$ = $2->adopt ($1, $3); }
         | expr '>' expr         { $$ = $2->adopt ($1, $3); }
+        | expr '=' '=' expr     { $$ = $2->adopt ($1, $3); }
         | '+' expr %prec POS    { $$ = $1->adopt_sym ($2, POS); }
         | '-' expr %prec NEG    { $$ = $1->adopt_sym ($2, NEG); }
         | '(' expr ')'          { destroy ($1, $3); $$ = $2; }
@@ -91,22 +105,24 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | CHAR_LIT              { printf ("reached CHAR_LIT\n");   $$ = $1; }
         ;
 
+ifelse  : TOK_KW_IF '(' expr ')' stmtseq { $$ = $1; printf ("reached if\n"); }
+        | TOK_KW_IF '(' expr ')' stmtseq TOK_KW_ELSE stmtseq 
+               { $$ = $1; printf ("reached ifelse\n"); }
+
 exprseq : exprseq ',' exprseq
         | expr
         ;
 
-call    : TOK_IDENT '(' ')'         { printf ("calling empty fcn\n"); }
-        | TOK_IDENT '(' exprseq ')' { printf ("calling fcn\n"); }
+call    : TOK_IDENT '(' ')'         { printf ("calling empty fcn\n"); $$ = $1; }
+        | TOK_IDENT '(' exprseq ')' { printf ("calling fcn\n"); $$ = $1; }
         ;
 
-basetype: TOK_KW_VOID      { printf ("reached TOK_VOID\n"); $$ = $1; }
-        | TOK_KW_BOOL      { printf ("reached TOK_BOOL\n"); $$ = $1; }
-        | TOK_KW_CHAR      { printf ("reached TOK_CHAR\n"); $$ = $1; }
-        | TOK_KW_INT       { printf ("reached TOK_INT\n");  $$ = $1; }
+basetype: TOK_KW_VOID      { printf ("reached TOK_VOID\n");   $$ = $1; }
+        | TOK_KW_BOOL      { printf ("reached TOK_BOOL\n");   $$ = $1; }
+        | TOK_KW_CHAR      { printf ("reached TOK_CHAR\n");   $$ = $1; }
+        | TOK_KW_INT       { printf ("reached TOK_INT\n");    $$ = $1; }
         | TOK_KW_STRING    { printf ("reached TOK_STRING\n"); $$ = $1; }
         | TOK_KW_STRUCT    { printf ("reached TOK_STRUCT\n"); $$ = $1; }
-        | TOK_KW_IF        { printf ("reached TOK_IF\n");     $$ = $1; }
-        | TOK_KW_ELSE      { printf ("reached TOK_ELSE\n");   $$ = $1; }
         | TOK_KW_WHILE     { printf ("reached TOK_WHILE\n");  $$ = $1; }
         | TOK_KW_RETURN    { printf ("reached TOK_RETURN\n"); $$ = $1; }
         | TOK_KW_FALSE     { printf ("reached TOK_FALSE\n");  $$ = $1; }

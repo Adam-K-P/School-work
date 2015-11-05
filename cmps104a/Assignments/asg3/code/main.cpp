@@ -171,7 +171,8 @@ int main (int argc, char** argv) {
    string base_out_name = check_suffix(argc, argv);
    generate_set(infile_name, base_out_name);
    string outfile_name = base_out_name + ".tok";
-   //scan_file(infile_name, outfile_name);
+   scan_file(infile_name, outfile_name);
+   pclose(yyin);
    open_yyin(infile_name);
    int parse_rc = yyparse();
    yylex_destroy();
