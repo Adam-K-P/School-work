@@ -114,9 +114,24 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | call                  { printf ("making fcn call\n"); $$ = $1; }
         | identdec              { printf ("reached identdec\n"); $$ = $1; }
         | TOK_IDENT             { printf ("reached TOK_IDENT\n");  $$ = $1; }
-        | NUMBER                { printf ("reached NUMBER\n");     $$ = $1; }
-        | STRING_LIT            { printf ("reached STRING_LIT\n"); $$ = $1; }
-        | CHAR_LIT              { printf ("reached CHAR_LIT\n");   $$ = $1; }
+        | constant              { printf ("reached constant\n"); $$ = $1; }
+        | allocatr              { $$ = $1; }
+        ;
+
+constant: NUMBER                { $$ = $1; }
+        | STRING_LIT            { $$ = $1; }
+        | CHAR_LIT              { $$ = $1; }
+        | TOK_KW_TRUE           { $$ = $1; }
+        | TOK_KW_FALSE          { $$ = $1; }
+        | TOK_KW_NULL           { $$ = $1; }
+        ;
+
+allocatr: TOK_KW_NEW TOK_IDENT '(' ')' { destroy ($3, $4); 
+                                         $$ = $1->adopt ($2); }
+        | TOK_KW_NEW TOK_KW_STRING '(' expr ')' 
+            { destroy ($3, $5); $$ = $1->adopt ($2, $4); }
+        | TOK_KW_NEW basetype '[' expr ']'
+            { destroy ($3, $5); $$ = $1->adopt ($2, $4); }
         ;
 
 ifelse  : TOK_KW_IF '(' expr ')' stmtseq { $$ = $1; printf ("reached if\n"); }
