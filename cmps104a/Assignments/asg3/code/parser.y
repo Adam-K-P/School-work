@@ -113,7 +113,7 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | '(' expr ')'          { destroy ($1, $3); $$ = $2; }
         | call                  { printf ("making fcn call\n"); $$ = $1; }
         | identdec              { printf ("reached identdec\n"); $$ = $1; }
-        | TOK_IDENT             { printf ("reached TOK_IDENT\n");  $$ = $1; }
+        | variable              { printf ("reached variable\n"); $$ = $1; }
         | constant              { printf ("reached constant\n"); $$ = $1; }
         | allocatr              { $$ = $1; }
         ;
@@ -124,6 +124,11 @@ constant: NUMBER                { $$ = $1; }
         | TOK_KW_TRUE           { $$ = $1; }
         | TOK_KW_FALSE          { $$ = $1; }
         | TOK_KW_NULL           { $$ = $1; }
+        ;
+
+variable: TOK_IDENT             { $$ = $1; }
+        | expr '[' expr ']'     { destroy ($2, $4); $$ = $1; }
+        | expr '.' TOK_IDENT    { destroy ($2); $$ = $1; }
         ;
 
 allocatr: TOK_KW_NEW TOK_IDENT '(' ')' { destroy ($3, $4); 
