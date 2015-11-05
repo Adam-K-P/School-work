@@ -43,10 +43,25 @@
 
 %%
 
-program : stmtseq program             { $$ = $1 = nullptr; }
-        | function program            { $$ = $1; }
+program : program stmtseq             { $$ = $1->adopt ($2); }
+        | program function            { $$ = $1->adopt ($2); }
+        | program structd             { $$ = $1->adopt ($2); }
+        | program DIRECTIVE           { $$ = $2; }
+        | structd                     { $$ = $1; }
         | stmtseq                     { $$ = $1; }
         | function                    { $$ = $1; }
+        | DIRECTIVE                   { $$ = $1; }
+        |                             { $$ = parser::root; }
+        ;
+
+structd : TOK_KW_STRUCT TOK_IDENT '{' fields '}'
+        | TOK_KW_STRUCT TOK_IDENT '{' '}'
+        ;
+
+fields  : fields basetype '[' ']' TOK_IDENT ';'
+        | fields basetype TOK_IDENT ';'
+        | basetype '[' ']' TOK_IDENT ';'
+        | basetype TOK_IDENT ';'
         ;
 
 function: identdec '(' identseq ')' block { printf ("full fcn\n");  $$ = $1;}
@@ -61,25 +76,24 @@ block   : '{' stmtseq '}'       { destroy ($1, $3); $$ = $2; }
         | ';'                   { destroy ($1); }
         ;
 
-stmtseq : 
+stmtseq : stmtseq statmnt       { $$ = $1->adopt($2); }
+        | statmnt               { $$ = $1;            }
         
-        /*expr ';' stmtseq      { destroy ($3); $$ = $1->adopt ($2); }
-        | error ';' stmtseq     { destroy ($3); $$ = $1; }
-        | DIRECTIVE stmtseq     { printf ("reached DIRECTIVE\n");
-                                  $$ = $1; }
-        | vardecl stmtseq       { printf ("reached vardecl\n");
-                                  $$ = $1->adopt ($2); } */
-
-          stmtseq expr ';'      { destroy ($3); $$ = $1->adopt ($2); }
-        | stmtseq error ';'     { destroy ($3); $$ = $1; }
-        | stmtseq ';'           { destroy ($2); $$ = $1; }
-        | stmtseq DIRECTIVE     { printf ("reached DIRECTIVE\n"); 
-                                  $$ = $1; }
-        | vardecl stmtseq       { printf ("reached vardecl\n"); 
-                                  $$ = $1->adopt ($2); }
-        | stmtseq ifelse ';'    { $$ = $1; } 
+statmnt : ifelse                { $$ = $1; }
+        | vardecl               { $$ = $1; }
+        | expr ';'              { destroy ($2); $$ = $1; }
+        | error ';'             { destroy ($2); $$ = $1; }
         | block                 { $$ = $1; }
-        |                       { $$ = parser::root; } 
+        | return                { $$ = $1; }
+        | while                 { $$ = $1; }
+        ;
+
+while   : TOK_KW_WHILE '(' expr ')' statmnt { $$ = $1->adopt ($3, $5);
+                                              destroy ($2, $4); }
+        ;
+
+return  : TOK_KW_RETURN expr    { $$ = $1->adopt($2); }
+        | TOK_KW_RETURN         { $$ = $1;            }
         ;
 
 vardecl : identdec '=' expr ';' { printf ("reached vardecl\n"); $$ = $1; }
@@ -93,7 +107,7 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | expr '^' expr         { $$ = $2->adopt ($1, $3); }
         | expr '<' expr         { $$ = $2->adopt ($1, $3); }
         | expr '>' expr         { $$ = $2->adopt ($1, $3); }
-        | expr '=' '=' expr     { $$ = $2->adopt ($1, $3); }
+        | expr '=' '=' expr     { $$ = $2->adopt ($1, $4); }
         | '+' expr %prec POS    { $$ = $1->adopt_sym ($2, POS); }
         | '-' expr %prec NEG    { $$ = $1->adopt_sym ($2, NEG); }
         | '(' expr ')'          { destroy ($1, $3); $$ = $2; }
@@ -108,6 +122,7 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
 ifelse  : TOK_KW_IF '(' expr ')' stmtseq { $$ = $1; printf ("reached if\n"); }
         | TOK_KW_IF '(' expr ')' stmtseq TOK_KW_ELSE stmtseq 
                { $$ = $1; printf ("reached ifelse\n"); }
+        ;
 
 exprseq : exprseq ',' exprseq
         | expr

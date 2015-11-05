@@ -180,6 +180,6 @@ int main (int argc, char** argv) {
       errprintf("parse failed (%d)\n", parse_rc);
       delete parser::root;
    }
-   pclose(yyin);
+   //pclose(yyin);
    return EXIT_SUCCESS;
 }
