@@ -1,0 +1,2852 @@
+Terminals unused in grammar
+
+   ROOT
+   RESERVED
+   TOK_KW_ORD
+   TOK_KW_CHR
+
+
+State 0 conflicts: 24 shift/reduce
+State 2 conflicts: 1 shift/reduce
+State 13 conflicts: 16 shift/reduce
+State 40 conflicts: 1 shift/reduce
+State 46 conflicts: 2 shift/reduce
+State 53 conflicts: 1 shift/reduce
+State 54 conflicts: 2 shift/reduce
+State 55 conflicts: 2 shift/reduce
+State 92 conflicts: 2 shift/reduce
+State 93 conflicts: 2 shift/reduce
+State 94 conflicts: 2 shift/reduce
+State 95 conflicts: 2 shift/reduce
+State 96 conflicts: 2 shift/reduce
+State 97 conflicts: 2 shift/reduce
+State 99 conflicts: 2 shift/reduce
+State 101 conflicts: 2 shift/reduce
+State 120 conflicts: 2 shift/reduce
+State 121 conflicts: 2 shift/reduce
+State 122 conflicts: 2 shift/reduce
+State 123 conflicts: 2 shift/reduce
+State 134 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: structd
+    2        | statmnt
+    3        | function
+    4        | DIRECTIVE
+    5        | program statmnt
+    6        | program function
+    7        | program structd
+    8        | program DIRECTIVE
+    9        | %empty
+
+   10 structd: TOK_KW_STRUCT TOK_IDENT '{' '}'
+   11        | TOK_KW_STRUCT TOK_IDENT '{' fields '}'
+
+   12 fields: fields basetype '[' ']' TOK_IDENT ';'
+   13       | fields basetype TOK_IDENT ';'
+   14       | basetype '[' ']' TOK_IDENT ';'
+   15       | basetype TOK_IDENT ';'
+
+   16 function: identdec '(' ')' block
+   17         | identdec '(' identseq ')' block
+
+   18 identseq: identdec
+   19         | identseq ',' identseq
+
+   20 block: '{' stmtseq '}'
+   21      | ';'
+
+   22 stmtseq: statmnt
+   23        | stmtseq statmnt
+
+   24 statmnt: ifelse
+   25        | vardecl
+   26        | expr ';'
+   27        | error ';'
+   28        | block
+   29        | return
+   30        | while
+
+   31 while: TOK_KW_WHILE '(' expr ')' statmnt
+
+   32 return: TOK_KW_RETURN
+   33       | TOK_KW_RETURN expr
+
+   34 vardecl: identdec '=' expr ';'
+
+   35 expr: expr '=' expr
+   36     | expr '+' expr
+   37     | expr '-' expr
+   38     | expr '*' expr
+   39     | expr '/' expr
+   40     | expr '^' expr
+   41     | expr '<' expr
+   42     | expr '>' expr
+   43     | expr '=' '=' expr
+   44     | expr '!' '=' expr
+   45     | expr '<' '=' expr
+   46     | expr '>' '=' expr
+   47     | '+' expr
+   48     | '-' expr
+   49     | '(' expr ')'
+   50     | call
+   51     | identdec
+   52     | variable
+   53     | constant
+   54     | allocatr
+
+   55 constant: NUMBER
+   56         | STRING_LIT
+   57         | CHAR_LIT
+   58         | TOK_KW_TRUE
+   59         | TOK_KW_FALSE
+   60         | TOK_KW_NULL
+
+   61 variable: TOK_IDENT
+   62         | expr '[' expr ']'
+   63         | expr '.' TOK_IDENT
+
+   64 allocatr: TOK_KW_NEW TOK_IDENT '(' ')'
+   65         | TOK_KW_NEW TOK_KW_STRING '(' expr ')'
+   66         | TOK_KW_NEW basetype '[' expr ']'
+
+   67 ifelse: TOK_KW_IF '(' expr ')' statmnt
+   68       | TOK_KW_IF '(' expr ')' statmnt TOK_KW_ELSE statmnt
+
+   69 exprseq: exprseq ',' exprseq
+   70        | expr
+
+   71 call: TOK_IDENT '(' ')'
+   72     | TOK_IDENT '(' exprseq ')'
+
+   73 basetype: TOK_KW_VOID
+   74         | TOK_KW_BOOL
+   75         | TOK_KW_CHAR
+   76         | TOK_KW_INT
+   77         | TOK_KW_STRING
+
+   78 identdec: basetype '[' ']' TOK_IDENT
+   79         | basetype TOK_IDENT
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'!' (33) 44
+'(' (40) 16 17 31 49 64 65 67 68 71 72
+')' (41) 16 17 31 49 64 65 67 68 71 72
+'*' (42) 38
+'+' (43) 36 47
+',' (44) 19 69
+'-' (45) 37 48
+'.' (46) 63
+'/' (47) 39
+';' (59) 12 13 14 15 21 26 27 34
+'<' (60) 41 45
+'=' (61) 34 35 43 44 45 46
+'>' (62) 42 46
+'[' (91) 12 14 62 66 78
+']' (93) 12 14 62 66 78
+'^' (94) 40
+'{' (123) 10 11 20
+'}' (125) 10 11 20
+error (256) 27
+ROOT (258)
+TOK_IDENT (259) 10 11 12 13 14 15 61 63 64 71 72 78 79
+NUMBER (260) 55
+DIRECTIVE (261) 4 8
+RESERVED (262)
+TOK_KW_VOID (263) 73
+TOK_KW_BOOL (264) 74
+TOK_KW_CHAR (265) 75
+TOK_KW_INT (266) 76
+TOK_KW_STRING (267) 65 77
+TOK_KW_STRUCT (268) 10 11
+TOK_KW_IF (269) 67 68
+TOK_KW_ELSE (270) 68
+TOK_KW_WHILE (271) 31
+TOK_KW_RETURN (272) 32 33
+TOK_KW_FALSE (273) 59
+TOK_KW_TRUE (274) 58
+TOK_KW_NULL (275) 60
+TOK_KW_ORD (276)
+TOK_KW_CHR (277)
+TOK_KW_NEW (278) 64 65 66
+STRING_LIT (279) 56
+CHAR_LIT (280) 57
+POS (281)
+NEG (282)
+
+
+Nonterminals, with rules where they appear
+
+$accept (46)
+    on left: 0
+program (47)
+    on left: 1 2 3 4 5 6 7 8 9, on right: 0 5 6 7 8
+structd (48)
+    on left: 10 11, on right: 1 7
+fields (49)
+    on left: 12 13 14 15, on right: 11 12 13
+function (50)
+    on left: 16 17, on right: 3 6
+identseq (51)
+    on left: 18 19, on right: 17 19
+block (52)
+    on left: 20 21, on right: 16 17 28
+stmtseq (53)
+    on left: 22 23, on right: 20 23
+statmnt (54)
+    on left: 24 25 26 27 28 29 30, on right: 2 5 22 23 31 67 68
+while (55)
+    on left: 31, on right: 30
+return (56)
+    on left: 32 33, on right: 29
+vardecl (57)
+    on left: 34, on right: 25
+expr (58)
+    on left: 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52
+    53 54, on right: 26 31 33 34 35 36 37 38 39 40 41 42 43 44 45 46
+    47 48 49 62 63 65 66 67 68 70
+constant (59)
+    on left: 55 56 57 58 59 60, on right: 53
+variable (60)
+    on left: 61 62 63, on right: 52
+allocatr (61)
+    on left: 64 65 66, on right: 54
+ifelse (62)
+    on left: 67 68, on right: 24
+exprseq (63)
+    on left: 69 70, on right: 69 72
+call (64)
+    on left: 71 72, on right: 50
+basetype (65)
+    on left: 73 74 75 76 77, on right: 12 13 14 15 66 78 79
+identdec (66)
+    on left: 78 79, on right: 16 17 18 34 51
+
+
+State 0
+
+    0 $accept: . program $end
+
+    error          shift, and go to state 1
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    DIRECTIVE      shift, and go to state 4
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_STRUCT  shift, and go to state 10
+    TOK_KW_IF      shift, and go to state 11
+    TOK_KW_WHILE   shift, and go to state 12
+    TOK_KW_RETURN  shift, and go to state 13
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '{'            shift, and go to state 20
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    ';'            shift, and go to state 23
+    '('            shift, and go to state 24
+
+    $end           reduce using rule 9 (program)
+    error          [reduce using rule 9 (program)]
+    TOK_IDENT      [reduce using rule 9 (program)]
+    NUMBER         [reduce using rule 9 (program)]
+    DIRECTIVE      [reduce using rule 9 (program)]
+    TOK_KW_VOID    [reduce using rule 9 (program)]
+    TOK_KW_BOOL    [reduce using rule 9 (program)]
+    TOK_KW_CHAR    [reduce using rule 9 (program)]
+    TOK_KW_INT     [reduce using rule 9 (program)]
+    TOK_KW_STRING  [reduce using rule 9 (program)]
+    TOK_KW_STRUCT  [reduce using rule 9 (program)]
+    TOK_KW_IF      [reduce using rule 9 (program)]
+    TOK_KW_WHILE   [reduce using rule 9 (program)]
+    TOK_KW_RETURN  [reduce using rule 9 (program)]
+    TOK_KW_FALSE   [reduce using rule 9 (program)]
+    TOK_KW_TRUE    [reduce using rule 9 (program)]
+    TOK_KW_NULL    [reduce using rule 9 (program)]
+    TOK_KW_NEW     [reduce using rule 9 (program)]
+    STRING_LIT     [reduce using rule 9 (program)]
+    CHAR_LIT       [reduce using rule 9 (program)]
+    '{'            [reduce using rule 9 (program)]
+    '+'            [reduce using rule 9 (program)]
+    '-'            [reduce using rule 9 (program)]
+    ';'            [reduce using rule 9 (program)]
+    '('            [reduce using rule 9 (program)]
+
+    program   go to state 25
+    structd   go to state 26
+    function  go to state 27
+    block     go to state 28
+    statmnt   go to state 29
+    while     go to state 30
+    return    go to state 31
+    vardecl   go to state 32
+    expr      go to state 33
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    ifelse    go to state 37
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 40
+
+
+State 1
+
+   27 statmnt: error . ';'
+
+    ';'  shift, and go to state 41
+
+
+State 2
+
+   61 variable: TOK_IDENT .
+   71 call: TOK_IDENT . '(' ')'
+   72     | TOK_IDENT . '(' exprseq ')'
+
+    '('  shift, and go to state 42
+
+    '('       [reduce using rule 61 (variable)]
+    $default  reduce using rule 61 (variable)
+
+
+State 3
+
+   55 constant: NUMBER .
+
+    $default  reduce using rule 55 (constant)
+
+
+State 4
+
+    4 program: DIRECTIVE .
+
+    $default  reduce using rule 4 (program)
+
+
+State 5
+
+   73 basetype: TOK_KW_VOID .
+
+    $default  reduce using rule 73 (basetype)
+
+
+State 6
+
+   74 basetype: TOK_KW_BOOL .
+
+    $default  reduce using rule 74 (basetype)
+
+
+State 7
+
+   75 basetype: TOK_KW_CHAR .
+
+    $default  reduce using rule 75 (basetype)
+
+
+State 8
+
+   76 basetype: TOK_KW_INT .
+
+    $default  reduce using rule 76 (basetype)
+
+
+State 9
+
+   77 basetype: TOK_KW_STRING .
+
+    $default  reduce using rule 77 (basetype)
+
+
+State 10
+
+   10 structd: TOK_KW_STRUCT . TOK_IDENT '{' '}'
+   11        | TOK_KW_STRUCT . TOK_IDENT '{' fields '}'
+
+    TOK_IDENT  shift, and go to state 43
+
+
+State 11
+
+   67 ifelse: TOK_KW_IF . '(' expr ')' statmnt
+   68       | TOK_KW_IF . '(' expr ')' statmnt TOK_KW_ELSE statmnt
+
+    '('  shift, and go to state 44
+
+
+State 12
+
+   31 while: TOK_KW_WHILE . '(' expr ')' statmnt
+
+    '('  shift, and go to state 45
+
+
+State 13
+
+   32 return: TOK_KW_RETURN .
+   33       | TOK_KW_RETURN . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    TOK_IDENT      [reduce using rule 32 (return)]
+    NUMBER         [reduce using rule 32 (return)]
+    TOK_KW_VOID    [reduce using rule 32 (return)]
+    TOK_KW_BOOL    [reduce using rule 32 (return)]
+    TOK_KW_CHAR    [reduce using rule 32 (return)]
+    TOK_KW_INT     [reduce using rule 32 (return)]
+    TOK_KW_STRING  [reduce using rule 32 (return)]
+    TOK_KW_FALSE   [reduce using rule 32 (return)]
+    TOK_KW_TRUE    [reduce using rule 32 (return)]
+    TOK_KW_NULL    [reduce using rule 32 (return)]
+    TOK_KW_NEW     [reduce using rule 32 (return)]
+    STRING_LIT     [reduce using rule 32 (return)]
+    CHAR_LIT       [reduce using rule 32 (return)]
+    '+'            [reduce using rule 32 (return)]
+    '-'            [reduce using rule 32 (return)]
+    '('            [reduce using rule 32 (return)]
+    $default       reduce using rule 32 (return)
+
+    expr      go to state 46
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 14
+
+   59 constant: TOK_KW_FALSE .
+
+    $default  reduce using rule 59 (constant)
+
+
+State 15
+
+   58 constant: TOK_KW_TRUE .
+
+    $default  reduce using rule 58 (constant)
+
+
+State 16
+
+   60 constant: TOK_KW_NULL .
+
+    $default  reduce using rule 60 (constant)
+
+
+State 17
+
+   64 allocatr: TOK_KW_NEW . TOK_IDENT '(' ')'
+   65         | TOK_KW_NEW . TOK_KW_STRING '(' expr ')'
+   66         | TOK_KW_NEW . basetype '[' expr ']'
+
+    TOK_IDENT      shift, and go to state 48
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 49
+
+    basetype  go to state 50
+
+
+State 18
+
+   56 constant: STRING_LIT .
+
+    $default  reduce using rule 56 (constant)
+
+
+State 19
+
+   57 constant: CHAR_LIT .
+
+    $default  reduce using rule 57 (constant)
+
+
+State 20
+
+   20 block: '{' . stmtseq '}'
+
+    error          shift, and go to state 1
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_IF      shift, and go to state 11
+    TOK_KW_WHILE   shift, and go to state 12
+    TOK_KW_RETURN  shift, and go to state 13
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '{'            shift, and go to state 20
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    ';'            shift, and go to state 23
+    '('            shift, and go to state 24
+
+    block     go to state 28
+    stmtseq   go to state 51
+    statmnt   go to state 52
+    while     go to state 30
+    return    go to state 31
+    vardecl   go to state 32
+    expr      go to state 33
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    ifelse    go to state 37
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 53
+
+
+State 21
+
+   47 expr: '+' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 54
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 22
+
+   48 expr: '-' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 55
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 23
+
+   21 block: ';' .
+
+    $default  reduce using rule 21 (block)
+
+
+State 24
+
+   49 expr: '(' . expr ')'
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 56
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 25
+
+    0 $accept: program . $end
+    5 program: program . statmnt
+    6        | program . function
+    7        | program . structd
+    8        | program . DIRECTIVE
+
+    $end           shift, and go to state 57
+    error          shift, and go to state 1
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    DIRECTIVE      shift, and go to state 58
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_STRUCT  shift, and go to state 10
+    TOK_KW_IF      shift, and go to state 11
+    TOK_KW_WHILE   shift, and go to state 12
+    TOK_KW_RETURN  shift, and go to state 13
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '{'            shift, and go to state 20
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    ';'            shift, and go to state 23
+    '('            shift, and go to state 24
+
+    structd   go to state 59
+    function  go to state 60
+    block     go to state 28
+    statmnt   go to state 61
+    while     go to state 30
+    return    go to state 31
+    vardecl   go to state 32
+    expr      go to state 33
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    ifelse    go to state 37
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 40
+
+
+State 26
+
+    1 program: structd .
+
+    $default  reduce using rule 1 (program)
+
+
+State 27
+
+    3 program: function .
+
+    $default  reduce using rule 3 (program)
+
+
+State 28
+
+   28 statmnt: block .
+
+    $default  reduce using rule 28 (statmnt)
+
+
+State 29
+
+    2 program: statmnt .
+
+    $default  reduce using rule 2 (program)
+
+
+State 30
+
+   30 statmnt: while .
+
+    $default  reduce using rule 30 (statmnt)
+
+
+State 31
+
+   29 statmnt: return .
+
+    $default  reduce using rule 29 (statmnt)
+
+
+State 32
+
+   25 statmnt: vardecl .
+
+    $default  reduce using rule 25 (statmnt)
+
+
+State 33
+
+   26 statmnt: expr . ';'
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    ';'  shift, and go to state 72
+    '.'  shift, and go to state 73
+
+
+State 34
+
+   53 expr: constant .
+
+    $default  reduce using rule 53 (expr)
+
+
+State 35
+
+   52 expr: variable .
+
+    $default  reduce using rule 52 (expr)
+
+
+State 36
+
+   54 expr: allocatr .
+
+    $default  reduce using rule 54 (expr)
+
+
+State 37
+
+   24 statmnt: ifelse .
+
+    $default  reduce using rule 24 (statmnt)
+
+
+State 38
+
+   50 expr: call .
+
+    $default  reduce using rule 50 (expr)
+
+
+State 39
+
+   78 identdec: basetype . '[' ']' TOK_IDENT
+   79         | basetype . TOK_IDENT
+
+    TOK_IDENT  shift, and go to state 74
+    '['        shift, and go to state 75
+
+
+State 40
+
+   16 function: identdec . '(' ')' block
+   17         | identdec . '(' identseq ')' block
+   34 vardecl: identdec . '=' expr ';'
+   51 expr: identdec .
+
+    '='  shift, and go to state 76
+    '('  shift, and go to state 77
+
+    '='       [reduce using rule 51 (expr)]
+    $default  reduce using rule 51 (expr)
+
+
+State 41
+
+   27 statmnt: error ';' .
+
+    $default  reduce using rule 27 (statmnt)
+
+
+State 42
+
+   71 call: TOK_IDENT '(' . ')'
+   72     | TOK_IDENT '(' . exprseq ')'
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+    ')'            shift, and go to state 78
+
+    expr      go to state 79
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    exprseq   go to state 80
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 43
+
+   10 structd: TOK_KW_STRUCT TOK_IDENT . '{' '}'
+   11        | TOK_KW_STRUCT TOK_IDENT . '{' fields '}'
+
+    '{'  shift, and go to state 81
+
+
+State 44
+
+   67 ifelse: TOK_KW_IF '(' . expr ')' statmnt
+   68       | TOK_KW_IF '(' . expr ')' statmnt TOK_KW_ELSE statmnt
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 82
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 45
+
+   31 while: TOK_KW_WHILE '(' . expr ')' statmnt
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 83
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 46
+
+   33 return: TOK_KW_RETURN expr .
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '+'       [reduce using rule 33 (return)]
+    '-'       [reduce using rule 33 (return)]
+    $default  reduce using rule 33 (return)
+
+
+State 47
+
+   51 expr: identdec .
+
+    $default  reduce using rule 51 (expr)
+
+
+State 48
+
+   64 allocatr: TOK_KW_NEW TOK_IDENT . '(' ')'
+
+    '('  shift, and go to state 84
+
+
+State 49
+
+   65 allocatr: TOK_KW_NEW TOK_KW_STRING . '(' expr ')'
+   77 basetype: TOK_KW_STRING .
+
+    '('  shift, and go to state 85
+
+    $default  reduce using rule 77 (basetype)
+
+
+State 50
+
+   66 allocatr: TOK_KW_NEW basetype . '[' expr ']'
+
+    '['  shift, and go to state 86
+
+
+State 51
+
+   20 block: '{' stmtseq . '}'
+   23 stmtseq: stmtseq . statmnt
+
+    error          shift, and go to state 1
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_IF      shift, and go to state 11
+    TOK_KW_WHILE   shift, and go to state 12
+    TOK_KW_RETURN  shift, and go to state 13
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '}'            shift, and go to state 87
+    '{'            shift, and go to state 20
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    ';'            shift, and go to state 23
+    '('            shift, and go to state 24
+
+    block     go to state 28
+    statmnt   go to state 88
+    while     go to state 30
+    return    go to state 31
+    vardecl   go to state 32
+    expr      go to state 33
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    ifelse    go to state 37
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 53
+
+
+State 52
+
+   22 stmtseq: statmnt .
+
+    $default  reduce using rule 22 (stmtseq)
+
+
+State 53
+
+   34 vardecl: identdec . '=' expr ';'
+   51 expr: identdec .
+
+    '='  shift, and go to state 76
+
+    '='       [reduce using rule 51 (expr)]
+    $default  reduce using rule 51 (expr)
+
+
+State 54
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   47     | '+' expr .
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 47 (expr)]
+    '.'       [reduce using rule 47 (expr)]
+    $default  reduce using rule 47 (expr)
+
+
+State 55
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   48     | '-' expr .
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 48 (expr)]
+    '.'       [reduce using rule 48 (expr)]
+    $default  reduce using rule 48 (expr)
+
+
+State 56
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   49     | '(' expr . ')'
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    ')'  shift, and go to state 89
+    '.'  shift, and go to state 73
+
+
+State 57
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+State 58
+
+    8 program: program DIRECTIVE .
+
+    $default  reduce using rule 8 (program)
+
+
+State 59
+
+    7 program: program structd .
+
+    $default  reduce using rule 7 (program)
+
+
+State 60
+
+    6 program: program function .
+
+    $default  reduce using rule 6 (program)
+
+
+State 61
+
+    5 program: program statmnt .
+
+    $default  reduce using rule 5 (program)
+
+
+State 62
+
+   62 variable: expr '[' . expr ']'
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 90
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 63
+
+   35 expr: expr '=' . expr
+   43     | expr '=' . '=' expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '='            shift, and go to state 91
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 92
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 64
+
+   36 expr: expr '+' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 93
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 65
+
+   37 expr: expr '-' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 94
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 66
+
+   38 expr: expr '*' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 95
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 67
+
+   39 expr: expr '/' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 96
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 68
+
+   40 expr: expr '^' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 97
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 69
+
+   41 expr: expr '<' . expr
+   45     | expr '<' . '=' expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '='            shift, and go to state 98
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 99
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 70
+
+   42 expr: expr '>' . expr
+   46     | expr '>' . '=' expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '='            shift, and go to state 100
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 101
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 71
+
+   44 expr: expr '!' . '=' expr
+
+    '='  shift, and go to state 102
+
+
+State 72
+
+   26 statmnt: expr ';' .
+
+    $default  reduce using rule 26 (statmnt)
+
+
+State 73
+
+   63 variable: expr '.' . TOK_IDENT
+
+    TOK_IDENT  shift, and go to state 103
+
+
+State 74
+
+   79 identdec: basetype TOK_IDENT .
+
+    $default  reduce using rule 79 (identdec)
+
+
+State 75
+
+   78 identdec: basetype '[' . ']' TOK_IDENT
+
+    ']'  shift, and go to state 104
+
+
+State 76
+
+   34 vardecl: identdec '=' . expr ';'
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 105
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 77
+
+   16 function: identdec '(' . ')' block
+   17         | identdec '(' . identseq ')' block
+
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    ')'            shift, and go to state 106
+
+    identseq  go to state 107
+    basetype  go to state 39
+    identdec  go to state 108
+
+
+State 78
+
+   71 call: TOK_IDENT '(' ')' .
+
+    $default  reduce using rule 71 (call)
+
+
+State 79
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+   70 exprseq: expr .
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    $default  reduce using rule 70 (exprseq)
+
+
+State 80
+
+   69 exprseq: exprseq . ',' exprseq
+   72 call: TOK_IDENT '(' exprseq . ')'
+
+    ','  shift, and go to state 109
+    ')'  shift, and go to state 110
+
+
+State 81
+
+   10 structd: TOK_KW_STRUCT TOK_IDENT '{' . '}'
+   11        | TOK_KW_STRUCT TOK_IDENT '{' . fields '}'
+
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    '}'            shift, and go to state 111
+
+    fields    go to state 112
+    basetype  go to state 113
+
+
+State 82
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+   67 ifelse: TOK_KW_IF '(' expr . ')' statmnt
+   68       | TOK_KW_IF '(' expr . ')' statmnt TOK_KW_ELSE statmnt
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    ')'  shift, and go to state 114
+    '.'  shift, and go to state 73
+
+
+State 83
+
+   31 while: TOK_KW_WHILE '(' expr . ')' statmnt
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    ')'  shift, and go to state 115
+    '.'  shift, and go to state 73
+
+
+State 84
+
+   64 allocatr: TOK_KW_NEW TOK_IDENT '(' . ')'
+
+    ')'  shift, and go to state 116
+
+
+State 85
+
+   65 allocatr: TOK_KW_NEW TOK_KW_STRING '(' . expr ')'
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 117
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 86
+
+   66 allocatr: TOK_KW_NEW basetype '[' . expr ']'
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 118
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 87
+
+   20 block: '{' stmtseq '}' .
+
+    $default  reduce using rule 20 (block)
+
+
+State 88
+
+   23 stmtseq: stmtseq statmnt .
+
+    $default  reduce using rule 23 (stmtseq)
+
+
+State 89
+
+   49 expr: '(' expr ')' .
+
+    $default  reduce using rule 49 (expr)
+
+
+State 90
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   62         | expr '[' expr . ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    ']'  shift, and go to state 119
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+
+State 91
+
+   43 expr: expr '=' '=' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 120
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 92
+
+   35 expr: expr . '=' expr
+   35     | expr '=' expr .
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 35 (expr)]
+    '.'       [reduce using rule 35 (expr)]
+    $default  reduce using rule 35 (expr)
+
+
+State 93
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   36     | expr '+' expr .
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 36 (expr)]
+    '.'       [reduce using rule 36 (expr)]
+    $default  reduce using rule 36 (expr)
+
+
+State 94
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   37     | expr '-' expr .
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 37 (expr)]
+    '.'       [reduce using rule 37 (expr)]
+    $default  reduce using rule 37 (expr)
+
+
+State 95
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   38     | expr '*' expr .
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 38 (expr)]
+    '.'       [reduce using rule 38 (expr)]
+    $default  reduce using rule 38 (expr)
+
+
+State 96
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   39     | expr '/' expr .
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 39 (expr)]
+    '.'       [reduce using rule 39 (expr)]
+    $default  reduce using rule 39 (expr)
+
+
+State 97
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   40     | expr '^' expr .
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 40 (expr)]
+    '.'       [reduce using rule 40 (expr)]
+    $default  reduce using rule 40 (expr)
+
+
+State 98
+
+   45 expr: expr '<' '=' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 121
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 99
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   41     | expr '<' expr .
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 41 (expr)]
+    '.'       [reduce using rule 41 (expr)]
+    $default  reduce using rule 41 (expr)
+
+
+State 100
+
+   46 expr: expr '>' '=' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 122
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 101
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   42     | expr '>' expr .
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 42 (expr)]
+    '.'       [reduce using rule 42 (expr)]
+    $default  reduce using rule 42 (expr)
+
+
+State 102
+
+   44 expr: expr '!' '=' . expr
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 123
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 103
+
+   63 variable: expr '.' TOK_IDENT .
+
+    $default  reduce using rule 63 (variable)
+
+
+State 104
+
+   78 identdec: basetype '[' ']' . TOK_IDENT
+
+    TOK_IDENT  shift, and go to state 124
+
+
+State 105
+
+   34 vardecl: identdec '=' expr . ';'
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    ';'  shift, and go to state 125
+    '.'  shift, and go to state 73
+
+
+State 106
+
+   16 function: identdec '(' ')' . block
+
+    '{'  shift, and go to state 20
+    ';'  shift, and go to state 23
+
+    block  go to state 126
+
+
+State 107
+
+   17 function: identdec '(' identseq . ')' block
+   19 identseq: identseq . ',' identseq
+
+    ','  shift, and go to state 127
+    ')'  shift, and go to state 128
+
+
+State 108
+
+   18 identseq: identdec .
+
+    $default  reduce using rule 18 (identseq)
+
+
+State 109
+
+   69 exprseq: exprseq ',' . exprseq
+
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    '('            shift, and go to state 24
+
+    expr      go to state 79
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    exprseq   go to state 129
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 47
+
+
+State 110
+
+   72 call: TOK_IDENT '(' exprseq ')' .
+
+    $default  reduce using rule 72 (call)
+
+
+State 111
+
+   10 structd: TOK_KW_STRUCT TOK_IDENT '{' '}' .
+
+    $default  reduce using rule 10 (structd)
+
+
+State 112
+
+   11 structd: TOK_KW_STRUCT TOK_IDENT '{' fields . '}'
+   12 fields: fields . basetype '[' ']' TOK_IDENT ';'
+   13       | fields . basetype TOK_IDENT ';'
+
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    '}'            shift, and go to state 130
+
+    basetype  go to state 131
+
+
+State 113
+
+   14 fields: basetype . '[' ']' TOK_IDENT ';'
+   15       | basetype . TOK_IDENT ';'
+
+    TOK_IDENT  shift, and go to state 132
+    '['        shift, and go to state 133
+
+
+State 114
+
+   67 ifelse: TOK_KW_IF '(' expr ')' . statmnt
+   68       | TOK_KW_IF '(' expr ')' . statmnt TOK_KW_ELSE statmnt
+
+    error          shift, and go to state 1
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_IF      shift, and go to state 11
+    TOK_KW_WHILE   shift, and go to state 12
+    TOK_KW_RETURN  shift, and go to state 13
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '{'            shift, and go to state 20
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    ';'            shift, and go to state 23
+    '('            shift, and go to state 24
+
+    block     go to state 28
+    statmnt   go to state 134
+    while     go to state 30
+    return    go to state 31
+    vardecl   go to state 32
+    expr      go to state 33
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    ifelse    go to state 37
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 53
+
+
+State 115
+
+   31 while: TOK_KW_WHILE '(' expr ')' . statmnt
+
+    error          shift, and go to state 1
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_IF      shift, and go to state 11
+    TOK_KW_WHILE   shift, and go to state 12
+    TOK_KW_RETURN  shift, and go to state 13
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '{'            shift, and go to state 20
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    ';'            shift, and go to state 23
+    '('            shift, and go to state 24
+
+    block     go to state 28
+    statmnt   go to state 135
+    while     go to state 30
+    return    go to state 31
+    vardecl   go to state 32
+    expr      go to state 33
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    ifelse    go to state 37
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 53
+
+
+State 116
+
+   64 allocatr: TOK_KW_NEW TOK_IDENT '(' ')' .
+
+    $default  reduce using rule 64 (allocatr)
+
+
+State 117
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+   65 allocatr: TOK_KW_NEW TOK_KW_STRING '(' expr . ')'
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    ')'  shift, and go to state 136
+    '.'  shift, and go to state 73
+
+
+State 118
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+   66 allocatr: TOK_KW_NEW basetype '[' expr . ']'
+
+    '['  shift, and go to state 62
+    ']'  shift, and go to state 137
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+
+State 119
+
+   62 variable: expr '[' expr ']' .
+
+    $default  reduce using rule 62 (variable)
+
+
+State 120
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   43     | expr '=' '=' expr .
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 43 (expr)]
+    '.'       [reduce using rule 43 (expr)]
+    $default  reduce using rule 43 (expr)
+
+
+State 121
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   45     | expr '<' '=' expr .
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 45 (expr)]
+    '.'       [reduce using rule 45 (expr)]
+    $default  reduce using rule 45 (expr)
+
+
+State 122
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   46     | expr '>' '=' expr .
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 46 (expr)]
+    '.'       [reduce using rule 46 (expr)]
+    $default  reduce using rule 46 (expr)
+
+
+State 123
+
+   35 expr: expr . '=' expr
+   36     | expr . '+' expr
+   37     | expr . '-' expr
+   38     | expr . '*' expr
+   39     | expr . '/' expr
+   40     | expr . '^' expr
+   41     | expr . '<' expr
+   42     | expr . '>' expr
+   43     | expr . '=' '=' expr
+   44     | expr . '!' '=' expr
+   44     | expr '!' '=' expr .
+   45     | expr . '<' '=' expr
+   46     | expr . '>' '=' expr
+   62 variable: expr . '[' expr ']'
+   63         | expr . '.' TOK_IDENT
+
+    '['  shift, and go to state 62
+    '='  shift, and go to state 63
+    '+'  shift, and go to state 64
+    '-'  shift, and go to state 65
+    '*'  shift, and go to state 66
+    '/'  shift, and go to state 67
+    '^'  shift, and go to state 68
+    '<'  shift, and go to state 69
+    '>'  shift, and go to state 70
+    '!'  shift, and go to state 71
+    '.'  shift, and go to state 73
+
+    '['       [reduce using rule 44 (expr)]
+    '.'       [reduce using rule 44 (expr)]
+    $default  reduce using rule 44 (expr)
+
+
+State 124
+
+   78 identdec: basetype '[' ']' TOK_IDENT .
+
+    $default  reduce using rule 78 (identdec)
+
+
+State 125
+
+   34 vardecl: identdec '=' expr ';' .
+
+    $default  reduce using rule 34 (vardecl)
+
+
+State 126
+
+   16 function: identdec '(' ')' block .
+
+    $default  reduce using rule 16 (function)
+
+
+State 127
+
+   19 identseq: identseq ',' . identseq
+
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+
+    identseq  go to state 138
+    basetype  go to state 39
+    identdec  go to state 108
+
+
+State 128
+
+   17 function: identdec '(' identseq ')' . block
+
+    '{'  shift, and go to state 20
+    ';'  shift, and go to state 23
+
+    block  go to state 139
+
+
+State 129
+
+   69 exprseq: exprseq . ',' exprseq
+   69        | exprseq ',' exprseq .
+
+    $default  reduce using rule 69 (exprseq)
+
+
+State 130
+
+   11 structd: TOK_KW_STRUCT TOK_IDENT '{' fields '}' .
+
+    $default  reduce using rule 11 (structd)
+
+
+State 131
+
+   12 fields: fields basetype . '[' ']' TOK_IDENT ';'
+   13       | fields basetype . TOK_IDENT ';'
+
+    TOK_IDENT  shift, and go to state 140
+    '['        shift, and go to state 141
+
+
+State 132
+
+   15 fields: basetype TOK_IDENT . ';'
+
+    ';'  shift, and go to state 142
+
+
+State 133
+
+   14 fields: basetype '[' . ']' TOK_IDENT ';'
+
+    ']'  shift, and go to state 143
+
+
+State 134
+
+   67 ifelse: TOK_KW_IF '(' expr ')' statmnt .
+   68       | TOK_KW_IF '(' expr ')' statmnt . TOK_KW_ELSE statmnt
+
+    TOK_KW_ELSE  shift, and go to state 144
+
+    TOK_KW_ELSE  [reduce using rule 67 (ifelse)]
+    $default     reduce using rule 67 (ifelse)
+
+
+State 135
+
+   31 while: TOK_KW_WHILE '(' expr ')' statmnt .
+
+    $default  reduce using rule 31 (while)
+
+
+State 136
+
+   65 allocatr: TOK_KW_NEW TOK_KW_STRING '(' expr ')' .
+
+    $default  reduce using rule 65 (allocatr)
+
+
+State 137
+
+   66 allocatr: TOK_KW_NEW basetype '[' expr ']' .
+
+    $default  reduce using rule 66 (allocatr)
+
+
+State 138
+
+   19 identseq: identseq . ',' identseq
+   19         | identseq ',' identseq .
+
+    $default  reduce using rule 19 (identseq)
+
+
+State 139
+
+   17 function: identdec '(' identseq ')' block .
+
+    $default  reduce using rule 17 (function)
+
+
+State 140
+
+   13 fields: fields basetype TOK_IDENT . ';'
+
+    ';'  shift, and go to state 145
+
+
+State 141
+
+   12 fields: fields basetype '[' . ']' TOK_IDENT ';'
+
+    ']'  shift, and go to state 146
+
+
+State 142
+
+   15 fields: basetype TOK_IDENT ';' .
+
+    $default  reduce using rule 15 (fields)
+
+
+State 143
+
+   14 fields: basetype '[' ']' . TOK_IDENT ';'
+
+    TOK_IDENT  shift, and go to state 147
+
+
+State 144
+
+   68 ifelse: TOK_KW_IF '(' expr ')' statmnt TOK_KW_ELSE . statmnt
+
+    error          shift, and go to state 1
+    TOK_IDENT      shift, and go to state 2
+    NUMBER         shift, and go to state 3
+    TOK_KW_VOID    shift, and go to state 5
+    TOK_KW_BOOL    shift, and go to state 6
+    TOK_KW_CHAR    shift, and go to state 7
+    TOK_KW_INT     shift, and go to state 8
+    TOK_KW_STRING  shift, and go to state 9
+    TOK_KW_IF      shift, and go to state 11
+    TOK_KW_WHILE   shift, and go to state 12
+    TOK_KW_RETURN  shift, and go to state 13
+    TOK_KW_FALSE   shift, and go to state 14
+    TOK_KW_TRUE    shift, and go to state 15
+    TOK_KW_NULL    shift, and go to state 16
+    TOK_KW_NEW     shift, and go to state 17
+    STRING_LIT     shift, and go to state 18
+    CHAR_LIT       shift, and go to state 19
+    '{'            shift, and go to state 20
+    '+'            shift, and go to state 21
+    '-'            shift, and go to state 22
+    ';'            shift, and go to state 23
+    '('            shift, and go to state 24
+
+    block     go to state 28
+    statmnt   go to state 148
+    while     go to state 30
+    return    go to state 31
+    vardecl   go to state 32
+    expr      go to state 33
+    constant  go to state 34
+    variable  go to state 35
+    allocatr  go to state 36
+    ifelse    go to state 37
+    call      go to state 38
+    basetype  go to state 39
+    identdec  go to state 53
+
+
+State 145
+
+   13 fields: fields basetype TOK_IDENT ';' .
+
+    $default  reduce using rule 13 (fields)
+
+
+State 146
+
+   12 fields: fields basetype '[' ']' . TOK_IDENT ';'
+
+    TOK_IDENT  shift, and go to state 149
+
+
+State 147
+
+   14 fields: basetype '[' ']' TOK_IDENT . ';'
+
+    ';'  shift, and go to state 150
+
+
+State 148
+
+   68 ifelse: TOK_KW_IF '(' expr ')' statmnt TOK_KW_ELSE statmnt .
+
+    $default  reduce using rule 68 (ifelse)
+
+
+State 149
+
+   12 fields: fields basetype '[' ']' TOK_IDENT . ';'
+
+    ';'  shift, and go to state 151
+
+
+State 150
+
+   14 fields: basetype '[' ']' TOK_IDENT ';' .
+
+    $default  reduce using rule 14 (fields)
+
+
+State 151
+
+   12 fields: fields basetype '[' ']' TOK_IDENT ';' .
+
+    $default  reduce using rule 12 (fields)
