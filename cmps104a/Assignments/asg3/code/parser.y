@@ -54,8 +54,9 @@ program : structd                     { $$ = $1; }
         |                             { $$ = parser::root; }
         ;
 
-structd : TOK_KW_STRUCT TOK_IDENT '{' '}'
-        | TOK_KW_STRUCT TOK_IDENT '{' fields '}'
+structd : TOK_KW_STRUCT TOK_IDENT '{' '}'  
+        | TOK_KW_STRUCT TOK_IDENT '{' fields '}' 
+            { printf ("reaching struct\n"); }
         ;
 
 fields  : fields basetype '[' ']' TOK_IDENT ';'
@@ -115,6 +116,8 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | expr '>' '=' expr     { $$ = $2->adopt ($1, $4); }
         | '+' expr %prec POS    { $$ = $1->adopt_sym ($2, POS); }
         | '-' expr %prec NEG    { $$ = $1->adopt_sym ($2, NEG); }
+        | TOK_KW_CHR expr       { $$ = $1->adopt ($2); }
+        | TOK_KW_ORD expr       { $$ = $1->adopt ($2); }
         | '(' expr ')'          { destroy ($1, $3); $$ = $2; }
         | call                  { printf ("making fcn call\n"); $$ = $1; }
         | identdec              { printf ("reached identdec\n"); $$ = $1; }
@@ -150,7 +153,7 @@ ifelse  : TOK_KW_IF '(' expr ')' statmnt { $$ = $1; printf ("reached if\n"); }
                { $$ = $1; printf ("reached ifelse\n"); }
         ;
 
-exprseq : exprseq ',' exprseq
+exprseq : expr ',' exprseq
         | expr
         ;
 
@@ -168,7 +171,8 @@ basetype: TOK_KW_VOID      { printf ("reached TOK_VOID\n");   $$ = $1; }
 
 identdec: basetype '[' ']' TOK_IDENT   { printf ("reached array dec\n");
                                          $$ = $1; }
-        | basetype TOK_IDENT           { printf ("reached identdec: %s\n", yytext); 
+        | basetype TOK_IDENT           { printf ("reached identdec: %s\n", 
+                                                  yytext); 
                                          $$ = $1; }
         ;
 
