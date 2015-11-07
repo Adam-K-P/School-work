@@ -35,6 +35,7 @@
 
 %start  program
 
+
 %%
 
 program : stmtseq               { $$ = $1 = nullptr; }

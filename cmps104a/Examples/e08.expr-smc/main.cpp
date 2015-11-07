@@ -45,6 +45,7 @@ void cpp_pclose() {
    if (pclose_rc != 0) exec::set_status (EXIT_FAILURE);
 }
 
+
 void scan_opts (int argc, char** argv) {
    opterr = 0;
    yy_flex_debug = 0;
