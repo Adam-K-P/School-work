@@ -41,6 +41,7 @@
 
 %start  program
 
+
 %%
 
 program : structd                     { $$ = $1; }
@@ -131,7 +132,7 @@ constant: NUMBER                { $$ = $1; }
         | CHAR_LIT              { $$ = $1; }
         | TOK_KW_TRUE           { $$ = $1; }
         | TOK_KW_FALSE          { $$ = $1; }
-        | TOK_KW_NULL           { $$ = $1; }
+        | TOK_KW_NULL           { $$ = $1; printf ("reached null\n"); }
         ;
 
 variable: TOK_IDENT             { $$ = $1; }
@@ -153,8 +154,8 @@ ifelse  : TOK_KW_IF '(' expr ')' statmnt { $$ = $1; printf ("reached if\n"); }
                { $$ = $1; printf ("reached ifelse\n"); }
         ;
 
-exprseq : expr ',' exprseq
-        | expr
+exprseq : expr ',' exprseq { $$ = $2->adopt ($1, $3); }
+        | expr             { $$ = $1; }
         ;
 
 call    : TOK_IDENT '(' ')'         { printf ("calling empty fcn\n"); 
