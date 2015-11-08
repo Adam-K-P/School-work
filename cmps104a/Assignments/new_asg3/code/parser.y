@@ -51,9 +51,10 @@ start   : program               { $$ = parser::root = $1;
                                 }
         ;
 
-program : program statmnt       { $$ = $$->adopt ($2); }
-        | program fnction       { $$ = $$->adopt ($2); }
-        | program structd       { $$ = $$->adopt ($2); }
+program : program structd       { $$ = $$->adopt ($2); }
+        | program statmnt       { $$ = $$->adopt ($2); }
+        | program fnction       { $$ = $$->adopt ($2); 
+                                  astree::print (stdout, parser::root); }
         | program DIRECTIVE     { destroy ($2); }
         |                       { $$ = parser::root; }
         ;
@@ -64,7 +65,7 @@ structd : TOK_KW_STRUCT TOK_IDENT '{' fieldsq '}'
                                 }
         | TOK_KW_STRUCT TOK_IDENT '{' '}'
                                 { destroy ($3, $4);
-                                  $$ = $1-> adopt ($2); 
+                                  $$ = $1->adopt ($2); 
                                 }
         ;
 
@@ -84,7 +85,10 @@ fnction : identdc '(' identsq ')' block
                                 { destroy ($2, $4); 
                                   $$ = $1->adopt ($3, $5); 
                                 }
-        | identdc '(' ')' block { destroy ($2, $3); $$ = $1->adopt ($4); }
+        | identdc '(' ')' block { destroy ($2, $3); 
+                                  $$ = $1->adopt ($4); 
+                                }
+        ;
 
 block   : '{' stmtseq '}'       { destroy ($1, $3); $$ = $2;  }
         | '{' '}'               { destroy ($1, $2); $$ = nullptr; }
@@ -207,7 +211,8 @@ isqhelp : ',' identsq           { destroy ($1); $$ = $2; }
         ;
 
 vardecl : identdc '=' expr ';'  { destroy ($4); 
-                                  $$ = $2->adopt ($1, $3); }
+                                  $$ = $2->adopt ($1, $3); 
+                                }
         ;
 
 identdc : basetype '[' ']' TOK_IDENT   
