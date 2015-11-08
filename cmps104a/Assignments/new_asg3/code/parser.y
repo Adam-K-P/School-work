@@ -38,14 +38,18 @@
 %right  POS NEG
 %left   '<' '>'
 
-%start  program
+%start  start
 
 %%
 
-program : program statmnt       { $$ = $1->adopt ($2); }
-        | program fnction       { $$ = $1->adopt ($2); }
-        | program DIRECTIVE     { destroy ($2); $$ = $1;   }
-        |                       { $$ = parser::root; }
+start   : program               { $$ = parser::root = $1; 
+                                  astree::print (stdout, parser::root); }
+
+program : program statmnt       { $$ = $$->adopt ($2); parser::root->dump_tree (stdout); }
+        | program fnction       { $$ = $$->adopt ($2); 
+                                  printf ("function being matched\n"); }
+        | program DIRECTIVE     { destroy ($2); }
+        |                       { $$ = parser::root; parser::root->dump_tree (stdout); }
         ;
 
 fnction : identdc '(' identsq ')' block     
@@ -56,15 +60,31 @@ block   : '{' stmtseq '}'       { destroy ($1, $3); $$ = $2;  }
         | ';'                   { destroy ($1); $$ = nullptr; } 
         ;
 
-stmtseq : stmtseq statmnt       { $$ = $$->adopt ($1, $2); }
-        | statmnt               { $$ = $1;                 }
+stmtseq : stmtseq statmnt       { $$ = $$->adopt ($2); }
+        | statmnt               { $$ = $$->adopt ($1); }
         ;
 
 statmnt : expr ';'              { destroy ($2); $$ = $1; }
         | error ';'             { destroy ($2); $$ = $1; }
+        | vardecl               { $$ = $1; }
+        | ifelse                { $$ = $1; }
         ;
 
-expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
+ifelse  : TOK_KW_IF '(' expr ')' block 
+                                { destroy ($2, $4);
+                                  $$ = $1->adopt ($3, $5); 
+                                }
+        | TOK_KW_IF '(' expr ')' block TOK_KW_ELSE block 
+                                { destroy ($2, $4); 
+                                  $$ = $1->adopt ($1->adopt ($3, $5), $6->adopt ($7)); 
+                                }
+        | TOK_KW_IF '(' expr ')' statmnt
+                                { destroy ($2, $4);
+                                  $$ = $1->adopt ($3, $5); 
+                                }
+
+expr    : expr '=' '=' expr     { $$ = $2->adopt ($1, $3); }
+        | expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | expr '+' expr         { $$ = $2->adopt ($1, $3); }
         | expr '-' expr         { $$ = $2->adopt ($1, $3); }
         | expr '*' expr         { $$ = $2->adopt ($1, $3); }
@@ -77,9 +97,19 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | '(' expr ')'          { destroy ($1, $3); $$ = $2; }
         | '[' expr ']'          { destroy ($1, $3); $$ = $2; }
         | '{' expr '}'          { destroy ($1, $3); $$ = $2; }
+        | call                  { $$ = $1; }
         | TOK_IDENT             { $$ = $1; }
         | NUMBER                { $$ = $1; }
         ;
+
+call    : TOK_IDENT '(' exprseq ')'
+
+exprseq : exprhlp               { $$ = $1; }
+        | expr exprhlp          { $$ = $$->adopt ($1, $2); }
+        | expr                  { $$ = $1; }
+        ;
+
+exprhlp : ',' exprseq           { destroy ($1); $$ = $2; }
 
 identsq : isqhelp               { $$ = $1; }
         | identdc isqhelp       { $$ = $1->adopt ($2); }
@@ -87,6 +117,9 @@ identsq : isqhelp               { $$ = $1; }
         ;
 
 isqhelp : ',' identsq           { destroy ($1); $$ = $2; }
+
+vardecl : identdc '=' expr ';'  { destroy ($4); 
+                                  $$ = $2->adopt ($1, $3); }
 
 identdc : basetype '[' ']' TOK_IDENT   { printf ("reached array dec\n");
                                          $$ = $1; }

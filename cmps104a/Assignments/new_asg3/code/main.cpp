@@ -175,7 +175,6 @@ int main (int argc, char** argv) {
    pclose(yyin);
    open_yyin(infile_name);
    int parse_rc = yyparse();
-   parser::root->dump_tree(stdout);
    yylex_destroy();
    if (parse_rc) {
       errprintf("parse failed (%d)\n", parse_rc);
