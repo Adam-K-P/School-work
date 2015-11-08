@@ -39,10 +39,13 @@
 %left   '<' '>'  /* need to change */
 %left   '!' ','  /* both of these  */
 
-%start  program
+%start  start
 
 
 %%
+
+start   : program                     { astree::print (stdout, parser::root);  
+                                        $$ = $1;}
 
 program : structd                     { $$ = $1; }
         | statmnt                     { $$ = $1; }
@@ -66,12 +69,12 @@ fields  : fields basetype '[' ']' TOK_IDENT ';'
         | basetype TOK_IDENT ';'
         ;
 
-function: identdec '(' ')' block          { printf ("empty fcn\n"); $$ = $1;}
-        | identdec '(' identseq ')' block { printf ("full fcn\n");  $$ = $1;}
+function: identdec '(' ')' block          { $$ = $1;}
+        | identdec '(' identseq ')' block { $$ = $1;}
         ;
 
-identseq: identdec               { printf ("identseq test\n"); $$ = $1; }
-        | identseq ',' identseq  { printf ("reaching identseq\n"); $$ = $1; }
+identseq: identdec               { $$ = $1; }
+        | identseq ',' identseq  { $$ = $1; }
         ;
 
 block   : '{' stmtseq '}'       { destroy ($1, $3); $$ = $2; }
@@ -91,16 +94,16 @@ statmnt : ifelse                { $$ = $1; }
         | while                 { $$ = $1; }
         ;
 
-while   : TOK_KW_WHILE '(' expr ')' statmnt { printf ("reached WHILE\n");
-                                              $$ = $1->adopt ($3, $5);
-                                              destroy ($2, $4); }
+while   : TOK_KW_WHILE '(' expr ')' statmnt { $$ = $1->adopt ($3, $5);
+                                              destroy ($2, $4); 
+                                            }
         ;
 
 return  : TOK_KW_RETURN         { $$ = $1;            }
         | TOK_KW_RETURN expr    { $$ = $1->adopt($2); }
         ;
 
-vardecl : identdec '=' expr ';' { printf ("reached vardecl\n"); $$ = $1; }
+vardecl : identdec '=' expr ';' { $$ = $1; }
         ;
 
 expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
@@ -120,10 +123,10 @@ expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }
         | TOK_KW_CHR expr       { $$ = $1->adopt ($2); }
         | TOK_KW_ORD expr       { $$ = $1->adopt ($2); }
         | '(' expr ')'          { destroy ($1, $3); $$ = $2; }
-        | call                  { printf ("making fcn call\n"); $$ = $1; }
-        | identdec              { printf ("reached identdec\n"); $$ = $1; }
-        | variable              { printf ("reached variable\n"); $$ = $1; }
-        | constant              { printf ("reached constant\n"); $$ = $1; }
+        | call                  { $$ = $1; }
+        | identdec              { $$ = $1; }
+        | variable              { $$ = $1; }
+        | constant              { $$ = $1; }
         | allocatr              { $$ = $1; }
         ;
 
@@ -132,7 +135,7 @@ constant: NUMBER                { $$ = $1; }
         | CHAR_LIT              { $$ = $1; }
         | TOK_KW_TRUE           { $$ = $1; }
         | TOK_KW_FALSE          { $$ = $1; }
-        | TOK_KW_NULL           { $$ = $1; printf ("reached null\n"); }
+        | TOK_KW_NULL           { $$ = $1; }
         ;
 
 variable: TOK_IDENT             { $$ = $1; }
@@ -140,41 +143,42 @@ variable: TOK_IDENT             { $$ = $1; }
         | expr '.' TOK_IDENT    { destroy ($2); $$ = $1; }
         ;
 
-allocatr: TOK_KW_NEW TOK_IDENT '(' ')' { destroy ($3, $4); 
-                                         $$ = $1->adopt ($2); }
+allocatr: TOK_KW_NEW TOK_IDENT '(' ')' 
+                                { destroy ($3, $4); 
+                                  $$ = $1->adopt ($2); 
+                                }
         | TOK_KW_NEW TOK_KW_STRING '(' expr ')' 
-            { destroy ($3, $5); $$ = $1->adopt ($2, $4); }
+                                { destroy ($3, $5); 
+                                  $$ = $1->adopt ($2, $4); 
+                                }
         | TOK_KW_NEW basetype '[' expr ']'
             { printf ("calling array allocator\n"); 
               destroy ($3, $5); $$ = $1->adopt ($2, $4); }
         ;
 
-ifelse  : TOK_KW_IF '(' expr ')' statmnt { $$ = $1; printf ("reached if\n"); }
+ifelse  : TOK_KW_IF '(' expr ')' statmnt 
+                                { $$ = $1; }
         | TOK_KW_IF '(' expr ')' statmnt TOK_KW_ELSE statmnt 
-               { $$ = $1; printf ("reached ifelse\n"); }
+                                { $$ = $1; }
         ;
 
 exprseq : expr ',' exprseq { $$ = $2->adopt ($1, $3); }
         | expr             { $$ = $1; }
         ;
 
-call    : TOK_IDENT '(' ')'         { printf ("calling empty fcn\n"); 
-                                      $$ = $1; }
-        | TOK_IDENT '(' exprseq ')' { printf ("calling fcn\n"); $$ = $1; }
+call    : TOK_IDENT '(' ')'         { $$ = $1; }
+        | TOK_IDENT '(' exprseq ')' { $$ = $1; }
         ;
 
-basetype: TOK_KW_VOID      { printf ("reached TOK_VOID\n");   $$ = $1; }
-        | TOK_KW_BOOL      { printf ("reached TOK_BOOL\n");   $$ = $1; }
-        | TOK_KW_CHAR      { printf ("reached TOK_CHAR\n");   $$ = $1; }
-        | TOK_KW_INT       { printf ("reached TOK_INT\n");    $$ = $1; }
-        | TOK_KW_STRING    { printf ("reached TOK_STRING\n"); $$ = $1; }
+basetype: TOK_KW_VOID      { $$ = $1; }
+        | TOK_KW_BOOL      { $$ = $1; }
+        | TOK_KW_CHAR      { $$ = $1; }
+        | TOK_KW_INT       { $$ = $1; }
+        | TOK_KW_STRING    { $$ = $1; }
         ;
 
-identdec: basetype '[' ']' TOK_IDENT   { printf ("reached array dec\n");
-                                         $$ = $1; }
-        | basetype TOK_IDENT           { printf ("reached identdec: %s\n", 
-                                                  yytext); 
-                                         $$ = $1; }
+identdec: basetype '[' ']' TOK_IDENT   { $$ = $1; }
+        | basetype TOK_IDENT           { $$ = $1; }
         ;
 
 %%

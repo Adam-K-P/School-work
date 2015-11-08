@@ -40,6 +40,10 @@ TOK_IDENT       ({LETTER}({LETTER}|{DIGIT})*)
 DIRECTIVE       ("# "{NUMBER}" "\".*\")
 STRING_LIT      (\"(\\.|[^"])*\")
 CHAR_LIT        ('(\\.|[^'])*')
+BOOL_EQ         ("==")
+BOOL_LESS_EQ    ("<=")
+BOOL_GRT_EQ     (">=")
+BOOL_NOT_EQ     ("!=")
 
 %%
 
@@ -68,6 +72,10 @@ CHAR_LIT        ('(\\.|[^'])*')
 
 {NUMBER}        { RETURN (NUMBER); }
 {TOK_IDENT}     { RETURN (TOK_IDENT); }
+{BOOL_EQ}       { RETURN (BOOL_EQ); }
+{BOOL_LESS_EQ}  { RETURN (BOOL_LESS_EQ); }
+{BOOL_GRT_EQ}   { RETURN (BOOL_GRT_EQ); }
+{BOOL_NOT_EQ}   { RETURN (BOOL_NOT_EQ); }
 "="             { RETURN ('='); }
 "+"             { RETURN ('+'); }
 "-"             { RETURN ('-'); }

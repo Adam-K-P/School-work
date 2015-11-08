@@ -71,6 +71,9 @@ void emit (astree* tree) {
       case NUMBER: emit_push (tree, "pushnum");                    break;
       case DIRECTIVE : emit_push (tree, "pushdir");                break;
       case TOK_IDENT : emit_push (tree, "pushvar");                break;
+      case BOOL_EQ   : emit_push (tree, "pushbeq");                break;
+      case BOOL_LESS_EQ : emit_push (tree, "pushleq");             break;
+      case BOOL_NOT_EQ  : emit_push (tree, "pushbne");             break;
       case RESERVED  : emit_push (tree, "pushres");                break;
       default    : assert (false);                                 break;
    }
