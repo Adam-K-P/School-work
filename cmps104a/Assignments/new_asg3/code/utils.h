@@ -37,6 +37,7 @@ struct lexer {
 struct parser {
    static astree* root;
    static const char* get_tname (int symbol);
+   static void syntax_error (const char*);
 };
 
 #define YYSTYPE astree*

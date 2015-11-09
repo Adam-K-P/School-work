@@ -100,7 +100,9 @@ stmtseq : stmtseq statmnt       { $$ = $$->adopt ($2); }
         ;
 
 statmnt : expr ';'              { destroy ($2); $$ = $1; }
-        | error ';'             { destroy ($2); $$ = $1; }
+        | error ';'             { destroy ($2); $$ = $1; 
+                                  parser::syntax_error ("statmnt");
+                                }
         | vardecl               { $$ = $1; }
         | ifelse                { $$ = $1; }
         | while                 { $$ = $1; }
@@ -233,3 +235,7 @@ const char* parser::get_tname (int symbol) {
    return yytname [YYTRANSLATE (symbol)];
 }
 
+void parser::syntax_error (const char* symbol) {
+   fprintf (stderr, "syntax error at %s\n", symbol);
+   exit (EXIT_FAILURE);
+}

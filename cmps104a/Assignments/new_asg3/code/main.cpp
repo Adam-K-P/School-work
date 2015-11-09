@@ -24,6 +24,8 @@ using namespace std;
 
 #define YYEOF 0
 
+bool flags = false;
+string cpp_flags = "";
 const string CPP = "/usr/bin/cpp";
 const size_t LINESIZE = 1024;
 bool yy_debug = false;
@@ -72,12 +74,11 @@ static void perform_op (int argc, char **argv) {
             break;
 
          case 'y':
-            printf("read in y\n");
+            yydebug = 1;
             break;
 
-         case '@': case 'D':
-            printf("read in %s\n", optarg);
-            break;
+         case '@': break;
+         case 'D': cpp_flags = optarg; flags = true; break;
 
          case '?':
             if (optopt == '@' || optopt == 'D')
@@ -114,7 +115,8 @@ static string check_suffix (int argc, char** argv) {
 }
 
 static void insert_set (char* infile_name) {
-   string command = CPP + " " + infile_name;
+   string command = CPP + " " + (flags ? ("-D" + cpp_flags + " ") : "") 
+                              + infile_name;
    FILE* pipe = popen(command.c_str(), "r");
    if (pipe == NULL) {
       cerr << "Could not perform: " << command << endl;
@@ -175,12 +177,12 @@ int main (int argc, char** argv) {
    pclose(yyin);
    open_yyin(infile_name);
    int parse_rc = yyparse();
-   astree::print (stdout, parser::root);
    yylex_destroy();
    if (parse_rc) {
       errprintf("parse failed (%d)\n", parse_rc);
       delete parser::root;
    }
+   astree::print (stdout, parser::root);
    //pclose(yyin);
    return EXIT_SUCCESS;
 }
