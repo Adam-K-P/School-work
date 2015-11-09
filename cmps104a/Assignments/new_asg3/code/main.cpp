@@ -24,6 +24,7 @@ using namespace std;
 
 #define YYEOF 0
 
+FILE* astfile;
 bool flags = false;
 string cpp_flags = "";
 const string CPP = "/usr/bin/cpp";
@@ -173,12 +174,13 @@ int main (int argc, char** argv) {
    string base_out_name = check_suffix(argc, argv);
    generate_set(infile_name, base_out_name);
    string outfile_name = base_out_name + ".tok";
+   string astfile_name = base_out_name + ".ast";
+   astfile = fopen (astfile_name.c_str(), "w");
    scan_file(infile_name, outfile_name);
    pclose(yyin);
    open_yyin(infile_name);
    int parse_rc = yyparse();
-   yylex_destroy();
    if (parse_rc) fprintf (stderr, "parse failed (%d)\n", parse_rc);
-   
+   yylex_destroy();
    return EXIT_SUCCESS;
 }

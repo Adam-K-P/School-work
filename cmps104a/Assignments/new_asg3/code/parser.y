@@ -35,13 +35,14 @@
         TOK_ARRAY TOK_CALL TOK_NEWARRAY TOK_NEWSTRING TOK_BLOCK
         
 
+%right TOK_KW_IF TOK_KW_ELSE
 %right  '='
+%left BOOL_EQ BOOL_LESS_EQ BOOL_GRT_EQ BOOL_NOT_EQ
 %left   '+' '-'
 %left   '*' '/'
 %right  '^'
 %right  POS NEG
 %left   '<' '>' 
-%left BOOL_EQ BOOL_LESS_EQ BOOL_GRT_EQ BOOL_NOT_EQ
 %right '!' TOK_KW_NEW TOK_KW_ORD TOK_KW_CHR
 %left '[' '.'
 %nonassoc '('
@@ -50,8 +51,8 @@
 
 %%
 
-start   : program               { $$ = parser::root = $1; 
-                                  astree::print (stdout, parser::root); 
+start   : program               { parser::root = $1; 
+                                  astree::print (astfile, parser::root); 
                                 }
         ;
 
@@ -59,6 +60,7 @@ program : program structd       { $$ = $$->adopt ($2); }
         | program statmnt       { $$ = $$->adopt ($2); }
         | program fnction       { $$ = $$->adopt ($2); }
         | program DIRECTIVE     { destroy ($2); }
+        | program error '}'     { destroy ($3); }
         | program error ';'     { destroy ($3); }
         |                       { $$ = parser::root; }
         ;
@@ -98,8 +100,14 @@ fnction : identdc '(' identsq ')' block
                                 }
         ;
 
-block   : '{' stmtseq '}'       { destroy ($1, $3); $$ = $2;  }
-        | '{' '}'               { destroy ($1, $2); $$ = nullptr; }
+block   : '{' stmtseq '}'       { destroy ($3); 
+                                  $1->change_sym (TOK_BLOCK);
+                                  $$ = $1->adopt ($2);
+                                }
+        | '{' '}'               { destroy ($2); 
+                                  $1->change_sym (TOK_BLOCK);
+                                  $$ = $1;
+                                }
         | ';'                   { destroy ($1); $$ = nullptr; } 
         ;
 
@@ -128,7 +136,7 @@ ifelse  : TOK_KW_IF '(' expr ')' statmnt TOK_KW_ELSE statmnt
                                   $1->adopt ($6);
                                   $$ = $1;
                                 }
-        | TOK_KW_IF '(' expr ')' statmnt
+        | TOK_KW_IF '(' expr ')' statmnt %prec TOK_KW_IF
                                 { destroy ($2, $4);
                                   $$ = $1->adopt ($3, $5); 
                                 }
@@ -160,7 +168,9 @@ expr    : expr BOOL_EQ expr     { $$ = $2->adopt ($1, $3); }
         | alloc                 { $$ = $1; }
         ;
 
-return  : TOK_KW_RETURN ';'     { destroy ($2); $$ = $1; }
+return  : TOK_KW_RETURN ';'     { destroy ($2); 
+                                  $$->adopt_sym ($1, TOK_RETURNVOID); 
+                                }
         | TOK_KW_RETURN expr ';' 
                                 { destroy ($3); $$ = $1->adopt ($2); }
         ;
@@ -190,9 +200,10 @@ const   : NUMBER                { $$ = $1; }
         ;
 
 call    : TOK_IDENT '(' ')'     { destroy ($2, $3);
-                                  $$ = $1; }
+                                  $$ = $1->change_sym (TOK_CALL); }
         | TOK_IDENT '(' exprseq ')'
                                 { destroy ($2, $4);
+                                  $1->change_sym (TOK_CALL);
                                   $$ = $1->adopt ($3);
                                 }
         ;

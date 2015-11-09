@@ -16,6 +16,7 @@ using namespace std;
 
 extern int yy_flex_debug;
 extern int yydebug;
+extern FILE* astfile;
 
 int yyparse();
 void yyerror (const char* message);
@@ -37,7 +38,6 @@ struct lexer {
 struct parser {
    static astree* root;
    static const char* get_tname (int symbol);
-   static void syntax_error (const char*);
 };
 
 #define YYSTYPE astree*
