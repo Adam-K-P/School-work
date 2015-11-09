@@ -10,6 +10,8 @@
 #include "utils.h"
 #include "yylex.h"
 
+using namespace std;
+
 bool lexer::interactive = true;
 location lexer::lloc = {0, 1, 0};
 size_t lexer::last_yyleng = 0;
@@ -48,8 +50,9 @@ void lexer::badchar (unsigned char bad) {
    char buffer[16];
    snprintf (buffer, sizeof buffer,
              isgraph (bad) ? "%c" : "\\%03o", bad);
-   errllocprintf (lexer::lloc, "invalid source character (%s)\n",
-                  buffer);
+   fprintf (stderr, "invalid source character (%s)\n", buffer);
+   /*errllocprintf (lexer::lloc, "invalid source character (%s)\n",
+                  buffer);*/
 }
 
 void lexer::badtoken (char* lexeme) {
@@ -75,6 +78,7 @@ void lexer::include() {
 
 void yyerror (const char* message) {
    assert (not lexer::filenames.empty());
-   errllocprintf (lexer::lloc, "%s\n", message);
+   fprintf (stderr, "%s\n", message);
+   //errllocprintf (lexer::lloc, "%s\n", message);
 }
 

@@ -89,7 +89,7 @@ static void perform_op (int argc, char **argv) {
             abort();
 
          default:
-            cerr << "oops, default in switch" << endl;
+            cerr << "error parsing options" << endl;
             abort();
       }
    }
@@ -178,11 +178,7 @@ int main (int argc, char** argv) {
    open_yyin(infile_name);
    int parse_rc = yyparse();
    yylex_destroy();
-   if (parse_rc) {
-      errprintf("parse failed (%d)\n", parse_rc);
-      delete parser::root;
-   }
-   astree::print (stdout, parser::root);
-   //pclose(yyin);
+   if (parse_rc) fprintf (stderr, "parse failed (%d)\n", parse_rc);
+   
    return EXIT_SUCCESS;
 }
