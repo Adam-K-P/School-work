@@ -32,7 +32,8 @@
         STRING_LIT  CHAR_LIT '}' '{' '[' ']' BOOL_EQ       BOOL_LESS_EQ
         BOOL_GRT_EQ BOOL_NOT_EQ FIELD        TYPEID        DECLID
         TOK_FUNCTION TOK_RETURNVOID TOK_PROTOTYPE TOK_VARDECL
-        TOK_ARRAY TOK_CALL TOK_NEWARRAY TOK_NEWSTRING TOK_BLOCK
+        TOK_ARRAY TOK_CALL TOK_NEWARRAY TOK_NEWSTRING TOK_BLOCK 
+        TOK_PARAM
         
 
 %right TOK_KW_IF TOK_KW_ELSE
@@ -51,17 +52,21 @@
 
 %%
 
-start   : program               { parser::root = $1; 
+start   : program               { $$ = parser::root = $1; 
                                   astree::print (astfile, parser::root); 
                                 }
         ;
 
-program : program structd       { $$ = $$->adopt ($2); }
-        | program statmnt       { $$ = $$->adopt ($2); }
-        | program fnction       { $$ = $$->adopt ($2); }
-        | program DIRECTIVE     { destroy ($2); }
-        | program error '}'     { destroy ($3); }
-        | program error ';'     { destroy ($3); }
+program : program structd       { $$ = $$->adopt ($2); (void) $1; }
+        | program statmnt       { $$ = $$->adopt ($2); (void) $1; }
+        | program fnction       { $$ = $$->adopt ($2); (void) $1; }
+        | program DIRECTIVE     { destroy ($2); (void) $1; $$ = $$; }
+        | program error '}'     { destroy ($3); (void) $1; (void) $2; 
+                                  $$ = $$; 
+                                }
+        | program error ';'     { destroy ($3); (void) $1; (void) $2; 
+                                  $$ = $$; 
+                                }
         |                       { $$ = parser::root; }
         ;
 
@@ -77,7 +82,7 @@ structd : TOK_KW_STRUCT TOK_IDENT '{' fieldsq '}'
                                 }
         ;
 
-fieldsq : fieldsq fieldec       { $$ = $$->adopt ($2); }
+fieldsq : fieldsq fieldec       { $$ = $$->adopt ($2); (void) $1; }
         | fieldec               { $$ = $1; }
         ;
 
@@ -88,21 +93,28 @@ fieldec : basetype TOK_IDENT ';'
         | basetype '[' ']' TOK_IDENT ';'
                                 { $$ = $1->adopt_sym ($4, FIELD); 
                                   destroy ($2, $3); 
+                                  destroy ($5);
                                 }
         ;
 
 fnction : identdc '(' identsq ')' block     
-                                { destroy ($2, $4); 
-                                  $$ = $1->adopt ($3, $5); 
+                                { destroy ($4);
+                                  $$ = new astree (TOK_FUNCTION, lexer::lloc,
+                                                   "");
+                                  $2->change_sym (TOK_PARAM);
+                                  $2->adopt ($3);
+                                  $$->adopt ($1, $2);
+                                  $$->adopt ($5);
                                 }
         | identdc '(' ')' block { destroy ($2, $3); 
-                                  $$ = $1->adopt ($4); 
+                                  $$ = new astree (TOK_FUNCTION, lexer::lloc, 
+                                                   "");
+                                  $$->adopt ($1, $4);
                                 }
         ;
 
-block   : '{' stmtseq '}'       { destroy ($3); 
-                                  $1->change_sym (TOK_BLOCK);
-                                  $$ = $1->adopt ($2);
+block   : '{' stmtseq '}'       { destroy ($1, $3); 
+                                  $$ = $2;
                                 }
         | '{' '}'               { destroy ($2); 
                                   $1->change_sym (TOK_BLOCK);
@@ -111,8 +123,11 @@ block   : '{' stmtseq '}'       { destroy ($3);
         | ';'                   { destroy ($1); $$ = nullptr; } 
         ;
 
-stmtseq : stmtseq statmnt       { $$ = $$->adopt ($2); }
-        | statmnt               { $$ = $1;             }
+stmtseq : stmtseq statmnt       { $$ = $$->adopt ($2); (void) $1; }
+        | statmnt               { $$ = new astree (TOK_BLOCK, 
+                                                   lexer::lloc, "{"); 
+                                  $$->adopt ($1);
+                                }
         ;
 
 statmnt : expr ';'              { destroy ($2); $$ = $1; }
@@ -199,12 +214,14 @@ const   : NUMBER                { $$ = $1; }
         | TOK_KW_NULL           { $$ = $1; }
         ;
 
-call    : TOK_IDENT '(' ')'     { destroy ($2, $3);
-                                  $$ = $1->change_sym (TOK_CALL); }
+call    : TOK_IDENT '(' ')'     { destroy ($3);
+                                  $$ = $2->change_sym (TOK_CALL); 
+                                  $$->adopt ($1);
+                                }
         | TOK_IDENT '(' exprseq ')'
-                                { destroy ($2, $4);
-                                  $1->change_sym (TOK_CALL);
-                                  $$ = $1->adopt ($3);
+                                { destroy ($4);
+                                  $$ = $2->change_sym (TOK_CALL);
+                                  $$->adopt ($1, $3);
                                 }
         ;
 
@@ -218,7 +235,7 @@ variabl : TOK_IDENT             { $$ = $1; }
         ;
 
 exprseq : exprhlp               { $$ = $1; }
-        | expr exprhlp          { $$ = $$->adopt ($2); }
+        | expr exprhlp          { $$ = $$->adopt ($2); (void) $1; }
         | expr                  { $$ = $1; }
         ;
 
@@ -234,15 +251,19 @@ isqhelp : ',' identsq           { destroy ($1); $$ = $2; }
         ;
 
 vardecl : identdc '=' expr ';'  { destroy ($4); 
+                                  $2->change_sym (TOK_VARDECL);
                                   $$ = $2->adopt ($1, $3); 
                                 }
         ;
 
 identdc : basetype '[' ']' TOK_IDENT   
                                 { destroy ($2, $3);
-                                  $$ = $1->adopt_sym ($4, DECLID); 
+                                  $4->change_sym (DECLID);
+                                  $$ = $1->adopt ($4);
                                 }
-        | basetype TOK_IDENT    { $$ = $1->adopt_sym ($2, DECLID); }
+        | basetype TOK_IDENT    { $2->change_sym (DECLID);
+                                  $$ = $1->adopt ($2);
+                                }
         ;
 
 basetype: TOK_KW_VOID           { $$ = $1; }

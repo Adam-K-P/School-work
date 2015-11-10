@@ -1,0 +1,59 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2015.10.22.23.48.27;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2015.10.22.23.43.10;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@<P>
+<A HREF=huffman_1952_minimum-redundancy-codes.pdf>
+Minimum redundancy codes (PDF)</A>
+<P>
+<A HREF=huffman_1952_minimum-redundancy-codes.ps>
+Minimum redundancy codes (Postscript)</A>
+<P>
+<A HREF=http://en.wikipedia.org/wiki/David_A._Huffman>
+David A. Huffman</A>
+<P>
+<A HREF=http://en.wikipedia.org/wiki/Huffman_coding>
+Huffman coding</A>
+<P>
+<A HREF=http://www.catb.org/jargon/html/H/huff.html>
+The Jargon file "huff"</A>
+<P>
+<A HREF=http://www.catb.org/jargon/html/P/puff.html>
+The Jargon file "puvv"</A>
+<P>
+$Id: README.html,v 1.1 2015-10-22 16:43:10-07 - - $
+@
+
+
+1.1
+log
+@-
+@
+text
+@d14 7
+a20 1
+$Id: README.html,v 1.1 2015-10-22 16:39:49-07 - - $
+@
