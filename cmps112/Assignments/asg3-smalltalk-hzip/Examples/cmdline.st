@@ -1,4 +1,4 @@
-#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/smalltalk/bin/gst -f
+#!/usr/bin/gst -f
 "$Id: cmdline.st,v 1.8 2011-05-05 20:45:21-07 - - $"
 ""
 "Parse command line arguments"

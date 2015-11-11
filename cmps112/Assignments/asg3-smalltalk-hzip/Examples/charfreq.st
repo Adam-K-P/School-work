@@ -57,7 +57,6 @@ Object subclass: ZeroArray [
    ]
 
 ]
-
 
 freqtable := ZeroArray new: 256.
 

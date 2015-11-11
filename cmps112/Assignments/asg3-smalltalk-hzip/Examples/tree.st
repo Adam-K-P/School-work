@@ -25,8 +25,8 @@ Object subclass: Leaf [
    ]
 
    <= other [
-      ^ (count < other count)
-      | ((count = other count) & (char <= other char))
+      ^ (count < other count) | ((count = other count) 
+                              & (char <= other char))
    ]
 
    printBase: aStream [
@@ -73,7 +73,6 @@ Leaf subclass: Tree [
 
 ]
 
-
 a := Leaf new: $a count: 10.
 b := Leaf new: $b count: 20.
 c := Leaf new: $c count: 15.
