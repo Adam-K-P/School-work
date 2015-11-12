@@ -48,6 +48,8 @@ Object subclass: Leaf [
 
 Leaf subclass: Tree [
    |left right|
+   left [^ left]
+   right [^ right]
 
    Tree class >> new: aChar count: aCount [
       self shouldNotImplement
@@ -105,19 +107,26 @@ insertLeaves := [
 createTree := [
    [(sortcol size) = 1] whileFalse: [
       |thisTree thatTree newTree|
-      thisTree := sortcol removeLast.
-      thatTree := sortcol removeLast.
+      thisTree := sortcol removeFirst.
+      thatTree := sortcol removeFirst.
       newTree := Tree new: (thisTree char)
                     count: ((thisTree count) + (thatTree count))
                      left: thisTree right: thatTree.
       sortcol add: newTree.
-   ].
-   sortcol inspect
+   ]
 ].
 
-argc := Smalltalk getArgc
-(argc = 0 | argc = 1 | argc > 2)
-   ifTrue: ['Usage: hzip [-d -t -c -u] filename' displayNl].
+encodeTree := [
+   encodeTable := Array new: 256.
+   (sortcol removeFirst) inorder: [:char :string |
+      encodeTable at: char put: string.
+   ] prefix: ''.
+   encodeTable inspect.
+].
+
+argc := Smalltalk getArgc.
+argc = 2
+   ifFalse: ['Usage: hzip [-d -t -c -u] filename' displayNl].
 
 (1 to: argc)
 do: [:argi |
@@ -129,7 +138,9 @@ do: [:argi |
             infile := FileStream open: option mode: FileStream read.
             readFile value: infile.
             insertLeaves value.
-            createTree value
+            createTree value.
+            encodeTree value.
+            infile close.
          ] on: SystemExceptions.FileError do: [:signal |
             |errno|
             errno := File errno.
