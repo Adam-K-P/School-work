@@ -116,17 +116,31 @@ createTree := [
    ]
 ].
 
+encodeTable := Array new: 256.
 encodeTree := [
-   encodeTable := Array new: 256.
    (sortcol removeFirst) inorder: [:char :string |
       encodeTable at: char put: string.
    ] prefix: ''.
    encodeTable inspect.
 ].
 
+displayEncoded := [
+   "encodeTable inspect."
+   (1 to: 256) do: [:index |
+      ((encodeTable at: index) isNil) ifFalse: [
+         index display.
+         '   ' display.
+         (freqtable at: index) display.
+         '   ' display.
+         (encodeTable at: index) displayNl.
+      ]
+   ]
+].
+
 argc := Smalltalk getArgc.
 argc = 2
    ifFalse: ['Usage: hzip [-d -t -c -u] filename' displayNl].
+              
 
 (1 to: argc)
 do: [:argi |
@@ -150,13 +164,15 @@ do: [:argi |
          ]
       ].
 
+   "options being called too early"
    '-d' = option
       ifTrue: ['Debugging-mode' displayNl].
    '-t' = option
-      ifTrue: ['Decoding tree' displayNl].
+      ifTrue: [displayEncoded value].
    '-c' = option
       ifTrue: ['Compressing file' displayNl].
    '-u' = option
       ifTrue: ['Uncompressing file' displayNl]
 ].
+
 
