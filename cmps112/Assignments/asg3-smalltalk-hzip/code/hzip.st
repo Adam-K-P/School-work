@@ -6,6 +6,8 @@ nl := Character nl.
 
 sortcol := SortedCollection new.
 
+encodeTable := Array new: 256.
+
 "options: "
 d := Boolean new.
 t := Boolean new.
@@ -56,6 +58,13 @@ Object subclass: Leaf [
       visitor value: char value: string.
    ]
 
+   postorder [
+      char = 256 ifTrue: [ '1' display ] ifFalse: [ '0' display. ].
+      (0 to: 7) do: [:index | 
+         (char bitAt: (7 - index)) display ].
+      ' ' display. 
+   ]
+
 ]
 
 Leaf subclass: Tree [
@@ -86,6 +95,13 @@ Leaf subclass: Tree [
    inorder: visitor prefix: string [
       left inorder: visitor prefix: string, '0'.
       right inorder: visitor prefix: string, '1'.
+   ]
+
+   postorder [
+      left postorder.
+      right postorder.
+      '1' display.
+      ' ' display.
    ]
 
 ]
@@ -122,9 +138,8 @@ createTree := [
    ]
 ].
 
-encodeTable := Array new: 256.
 encodeTree := [
-   (sortcol removeFirst) inorder: [:char :string |
+   (sortcol first) inorder: [:char :string |
       encodeTable at: char put: string.
    ] prefix: ''.
 ].
@@ -150,8 +165,14 @@ constructTree := [ :infile |
    encodeTree value
 ].
 
+compressFile := [
+   (sortcol first) postorder.
+   '' displayNl.
+].
+
 performOptions := [ :infile |
-   t = true ifTrue: [ displayEncoded value ]
+   t = true ifTrue: [ displayEncoded value ].
+   c = true ifTrue: [ compressFile value ].
 ].
 
 argc := Smalltalk getArgc.

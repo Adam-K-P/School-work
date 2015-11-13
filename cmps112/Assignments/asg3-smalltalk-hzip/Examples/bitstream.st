@@ -1,4 +1,4 @@
-#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/smalltalk/bin/gst -f
+#!/usr/bin/gst -f
 "$Id: bitstream.st,v 1.4 2012-03-07 14:23:13-08 - - $"
 execname := '$RCSfile: bitstream.st,v $' =~ '.*: (.*),v.*' at: 1.
 
