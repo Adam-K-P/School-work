@@ -6,6 +6,18 @@ nl := Character nl.
 
 sortcol := SortedCollection new.
 
+"options: "
+d := Boolean new.
+t := Boolean new.
+c := Boolean new.
+u := Boolean new.
+
+freqtable := Array new: 256.
+freqtable at: 256 put: 1.
+(1 to: 255) do: [:index |
+   freqtable at: index put: 0
+].
+
 Object subclass: Leaf [
    |char count|
    char [ ^ char ]
@@ -78,12 +90,6 @@ Leaf subclass: Tree [
 
 ]
 
-freqtable := Array new: 256.
-freqtable at: 256 put: 1.
-(1 to: 255) do: [:index |
-   freqtable at: index put: 0
-].
-
 readFile := [:infile |
    |char|
    char := infile next.
@@ -121,14 +127,14 @@ encodeTree := [
    (sortcol removeFirst) inorder: [:char :string |
       encodeTable at: char put: string.
    ] prefix: ''.
-   encodeTable inspect.
 ].
 
 displayEncoded := [
-   "encodeTable inspect."
    (1 to: 256) do: [:index |
       ((encodeTable at: index) isNil) ifFalse: [
-         index display.
+         (index < 40) | (index > 126)
+             ifTrue: [ index display ] 
+            ifFalse: [ (Character value: index) display ].
          '   ' display.
          (freqtable at: index) display.
          '   ' display.
@@ -137,42 +143,46 @@ displayEncoded := [
    ]
 ].
 
-argc := Smalltalk getArgc.
-argc = 2
-   ifFalse: ['Usage: hzip [-d -t -c -u] filename' displayNl].
-              
+constructTree := [ :infile |
+   readFile value: infile.
+   insertLeaves value.
+   createTree value.
+   encodeTree value
+].
 
+performOptions := [ :infile |
+   t = true ifTrue: [ displayEncoded value ]
+].
+
+argc := Smalltalk getArgc.
+argc = 2 ifFalse: 
+   ['Usage: hzip [-d -t -c -u] filename' displayNl.
+    ObjectMemory quit: 1
+   ].
+              
 (1 to: argc)
 do: [:argi |
    option := (Smalltalk getArgv: argi).
 
-   argi = argc
-      ifTrue: [
-         [  |infile|
-            infile := FileStream open: option mode: FileStream read.
-            readFile value: infile.
-            insertLeaves value.
-            createTree value.
-            encodeTree value.
-            infile close.
-         ] on: SystemExceptions.FileError do: [:signal |
-            |errno|
-            errno := File errno.
-            stdout flush.
-            stderr << 'Error opening file: ' << option << nl.
-            stderr flush
-         ]
-      ].
+   argi = argc ifTrue: [
+      [  |infile|
+         infile := FileStream open: option mode: FileStream read.
+         constructTree value: infile.
+         performOptions value: infile.
+         infile close.
+      ] on: SystemExceptions.FileError do: [:signal |
+         |errno|
+         errno := File errno.
+         stdout flush.
+         stderr << 'Error opening file: ' << option << nl.
+         stderr flush
+      ]
+   ].
 
-   "options being called too early"
-   '-d' = option
-      ifTrue: ['Debugging-mode' displayNl].
-   '-t' = option
-      ifTrue: [displayEncoded value].
-   '-c' = option
-      ifTrue: ['Compressing file' displayNl].
-   '-u' = option
-      ifTrue: ['Uncompressing file' displayNl]
+   '-d' = option ifTrue: [ d := true ].
+   '-t' = option ifTrue: [ t := true ].
+   '-c' = option ifTrue: [ c := true ].
+   '-u' = option ifTrue: [ u := true ].
 ].
 
 
