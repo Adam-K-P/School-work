@@ -1,4 +1,4 @@
-#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/smalltalk/bin/gst -f
+#!/usr/bin/gst -f
 "$Id: writebits.st,v 1.5 2014-10-10 16:32:49-07 - - $"
 execname := '$RCSfile: writebits.st,v $' =~ '.*: (.*),v.*' at: 1.
 
@@ -16,7 +16,7 @@ FileStream extend [
    ]
    flushByte [
       bitNumber = 8 ifFalse: [
-         self nextPutByte: bitBuffer asCharacter.
+         self nextPut: bitBuffer asCharacter.
          self clearByte.
       ]
    ]

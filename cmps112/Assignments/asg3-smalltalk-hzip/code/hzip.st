@@ -20,6 +20,26 @@ freqtable at: 256 put: 1.
    freqtable at: index put: 0
 ].
 
+FileStream extend [
+   |bitNumber bitBuffer|
+   clearByte [
+      bitNumber := 8.
+      bitBuffer := 0.
+   ]
+   flushByte [
+      bitNumber = 8 ifFalse: [
+         self nextPutByte: bitBuffer.
+         self clearByte.
+      ]
+   ]
+   writeBit: bit [
+      bitBuffer isNil ifTrue: [self clearByte].
+      bitNumber = 0 ifTrue: [self flushByte].
+      bitBuffer := bitBuffer bitAt: bitNumber put: bit.
+      bitNumber := bitNumber - 1.
+   ]
+]
+
 Object subclass: Leaf [
    |char count|
    char [ ^ char ]
@@ -58,11 +78,12 @@ Object subclass: Leaf [
       visitor value: char value: string.
    ]
 
-   postorder [
-      char = 256 ifTrue: [ '1' display ] ifFalse: [ '0' display. ].
+   postorder: outfile [
+      outfile writeBit: 0.
+      char = 256 ifTrue: [ outfile writeBit: 1 ] 
+                ifFalse: [ outfile writeBit: 0 ].
       (0 to: 7) do: [:index | 
-         (char bitAt: (7 - index)) display ].
-      ' ' display. 
+         outfile writeBit: (char bitAt: (7 - index)) ].
    ]
 
 ]
@@ -97,11 +118,10 @@ Leaf subclass: Tree [
       right inorder: visitor prefix: string, '1'.
    ]
 
-   postorder [
-      left postorder.
-      right postorder.
-      '1' display.
-      ' ' display.
+   postorder: outfile [
+      left postorder: outfile.
+      right postorder: outfile.
+      outfile writeBit: 1. 
    ]
 
 ]
@@ -158,6 +178,16 @@ displayEncoded := [
    ]
 ].
 
+writeEncoded := [ :infile|
+   |char encodedString|
+   char := infile next.
+   [char notNil] whileTrue: [
+      encodedString := encodeTable at: (char asciiValue).
+      encodedString displayNl.
+      char := infile next
+   ]
+].
+
 constructTree := [ :infile |
    readFile value: infile.
    insertLeaves value.
@@ -165,19 +195,21 @@ constructTree := [ :infile |
    encodeTree value
 ].
 
-compressFile := [
-   ((sortcol first) postorder).
+compressFile := [ :infile |
+   (sortcol first) postorder: stdout.
    '' displayNl.
+   writeEncoded value: infile.
+   "infile flushByte."
 ].
 
 performOptions := [ :infile |
    t = true ifTrue: [ displayEncoded value ].
-   c = true ifTrue: [ compressFile value ].
+   c = true ifTrue: [ compressFile value: infile ].
 ].
 
 argc := Smalltalk getArgc.
-argc = 2 ifFalse: 
-   ['Usage: hzip [-d -t -c -u] filename' displayNl.
+(argc = 2) | (argc = 3) ifFalse: 
+   ['Usage: hzip -dtcu infile [outfile]' displayNl.
     ObjectMemory quit: 1
    ].
               
@@ -185,10 +217,12 @@ argc = 2 ifFalse:
 do: [:argi |
    option := (Smalltalk getArgv: argi).
 
-   argi = argc ifTrue: [
+   (argi = 2) & (argi = argc) ifTrue: [
       [  |infile|
          infile := FileStream open: option mode: FileStream read.
          constructTree value: infile.
+         infile close.
+         infile := FileStream open: option mode: FileStream read.
          performOptions value: infile.
          infile close.
       ] on: SystemExceptions.FileError do: [:signal |

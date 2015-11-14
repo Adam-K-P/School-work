@@ -1,4 +1,4 @@
-#!/afs/cats.ucsc.edu/courses/cmps112-wm/usr/smalltalk/bin/gst -f
+#!/usr/bin/gst -f
 "$Id: outbits.st,v 1.4 2014-11-11 15:44:09-08 - - $"
 execname := '$RCSfile: outbits.st,v $' =~ '.*: (.*),v.*' at: 1.
 
@@ -40,7 +40,6 @@ Object subclass: OutBits [
    ]
 ]
 
-
 " Output of bitstream hello world."
 bitArray := #(
    1 0 1 0   1 0 1 1
