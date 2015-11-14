@@ -179,12 +179,18 @@ displayEncoded := [
 ].
 
 writeEncoded := [ :infile|
-   |char encodedString|
+   |char encodedString count|
    char := infile next.
+   count := 0.
    [char notNil] whileTrue: [
       encodedString := encodeTable at: (char asciiValue).
-      encodedString displayNl.
-      char := infile next
+      (1 to: (encodedString size)) do: [ :index |
+         (encodedString at: index) = $1 
+            ifTrue: [ stdout writeBit: 1 ]
+           ifFalse: [ stdout writeBit: 0 ].
+      ].
+      char := infile next.
+      count := count + 1.
    ]
 ].
 
@@ -202,9 +208,44 @@ compressFile := [ :infile |
    "infile flushByte."
 ].
 
-performOptions := [ :infile |
-   t = true ifTrue: [ displayEncoded value ].
-   c = true ifTrue: [ compressFile value: infile ].
+reconstructTree := [ :infile |
+   |byte|
+   byte := infile nextByte.
+   (infile position) displayNl.
+   "[byte isNil] whileFalse: ["
+].
+
+decompressFile := [ :infile |
+   |byte|
+   byte := infile nextByte.
+   [byte isNil] whileFalse: [
+      (0 to: 7) do: [ :index |
+         (byte bitAt: index) display.
+      ].
+      byte := infile nextByte.
+   ].
+   "reconstructTree value: infile."
+].
+
+prepareTree := [ :infile |
+   constructTree value: infile.
+   infile close.
+].
+
+performOptions := [ :infilename|
+   |infile|
+   infile := FileStream open: option mode: FileStream read.
+   t = true ifTrue: [ prepareTree value: infile. 
+                      displayEncoded value 
+                    ].
+   c = true ifTrue: [ prepareTree value: infile. 
+                      infile := FileStream open: infilename 
+                                           mode: FileStream read.
+                      compressFile value: infile.
+                      infile close
+                    ].
+   u = true ifTrue: [ decompressFile value: infile ].
+   infile close.
 ].
 
 argc := Smalltalk getArgc.
@@ -218,14 +259,8 @@ do: [:argi |
    option := (Smalltalk getArgv: argi).
 
    (argi = 2) & (argi = argc) ifTrue: [
-      [  |infile|
-         infile := FileStream open: option mode: FileStream read.
-         constructTree value: infile.
-         infile close.
-         infile := FileStream open: option mode: FileStream read.
-         performOptions value: infile.
-         infile close.
-      ] on: SystemExceptions.FileError do: [:signal |
+      [  performOptions value: option.  ] 
+      on: SystemExceptions.FileError do: [:signal |
          |errno|
          errno := File errno.
          stdout flush.
