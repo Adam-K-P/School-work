@@ -65,17 +65,6 @@ Object subclass: Leaf [
       ' ' display. 
    ]
 
-   "postorder: string [
-      |newString|
-      newString := String new.
-      char = 256 
-         ifTrue: [ newString, '1' ] 
-         ifFalse: [ newString, '0' ].
-      (0 to: 7) do: [ :index | newString, (char bitAt: (7 - index)) ].
-      newString display.
-      ^ newString
-   ]"
-
 ]
 
 Leaf subclass: Tree [
@@ -114,13 +103,6 @@ Leaf subclass: Tree [
       '1' display.
       ' ' display.
    ]
-
-   "postorder: string [
-      string, (left postorder: string).
-      string, (right postorder: string).
-      string, '1'.
-      ^ string.
-   ]"
 
 ]
 
@@ -184,7 +166,7 @@ constructTree := [ :infile |
 ].
 
 compressFile := [
-   ((sortcol first) postorder: '') displayNl.
+   ((sortcol first) postorder).
    '' displayNl.
 ].
 
