@@ -6,6 +6,8 @@ nl := Character nl.
 
 sortcol := SortedCollection new.
 
+stack := LinkedList new.
+
 encodeTable := Array new: 256.
 
 "options: "
@@ -38,6 +40,7 @@ FileStream extend [
       bitBuffer := bitBuffer bitAt: bitNumber put: bit.
       bitNumber := bitNumber - 1.
    ]
+
 ]
 
 Object subclass: Leaf [
@@ -82,8 +85,8 @@ Object subclass: Leaf [
       outfile writeBit: 0.
       char = 256 ifTrue: [ outfile writeBit: 1 ] 
                 ifFalse: [ outfile writeBit: 0 ].
-      (0 to: 7) do: [:index | 
-         outfile writeBit: (char bitAt: (7 - index)) ].
+      (1 to: 8) do: [:index | 
+         outfile writeBit: (char bitAt: index) ].
    ]
 
 ]
@@ -208,23 +211,38 @@ compressFile := [ :infile |
    "infile flushByte."
 ].
 
+"helper function for reconstructTree"
+"performed whenever a zero bit is encountered"
+"doZeroBit := [ :theByte :byte :count |"
+   
+
+
 reconstructTree := [ :infile |
-   |byte|
-   byte := infile nextByte.
-   (infile position) displayNl.
-   "[byte isNil] whileFalse: ["
+   |count theByte| 
+   count := 8.
+   theByte := infile nextByte.
+   "Line below could potentially cause errors later"
+   (theByte isNil) ifTrue: [ ^ self ]. "Just print nothing"
+   [true] whileTrue: [
+      |byte bit|
+      byte := infile nextByte.
+      bit := theByte bitAt: 8. 
+      "[bit = 1] whileTrue: [" "for multiple 1's in a row"
+         "doOneBit here when it's done"
+         "bit := theByte bitAt: count."
+      (byte isNil) ifTrue: [
+            stderr << 'File format error: improper format' << nl.
+            ObjectMemory quit: 1.
+      ].
+      "final conditions"
+      count = 1 ifTrue: [ count := 8 ]
+               ifFalse: [ count := count - 1 ].
+   ]
 ].
 
 decompressFile := [ :infile |
-   |byte|
-   byte := infile nextByte.
-   [byte isNil] whileFalse: [
-      (0 to: 7) do: [ :index |
-         (byte bitAt: index) display.
-      ].
-      byte := infile nextByte.
-   ].
-   "reconstructTree value: infile."
+   reconstructTree value: infile.
+   (infile position) displayNl.
 ].
 
 prepareTree := [ :infile |
