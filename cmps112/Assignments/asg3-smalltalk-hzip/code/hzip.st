@@ -50,6 +50,8 @@ FileStream extend [
       self flushByte.
    ]
 
+   "getBit"
+   "gets one bit from a file"
    getBit [
       |tempBitNum|
       (bitBuffer isNil) | (bitNumber = 0) 
@@ -60,6 +62,8 @@ FileStream extend [
       ^ (bitBuffer bitAt: tempBitNum)
    ]
 
+   "getByte"
+   "gets one byte from a file"
    getByte [
       |aByte tByte|
       tByte := 0.
@@ -177,6 +181,8 @@ Leaf subclass: Tree [
       right inorder: visitor prefix: string, '1'.
    ]
 
+   "postorder"
+   "postorder traversal"
    postorder: outfile [
       left postorder: outfile.
       right postorder: outfile.
@@ -185,6 +191,8 @@ Leaf subclass: Tree [
 
 ]
 
+"readFile"
+"reads the file"
 readFile := [:infile |
    |char|
    char := infile next.
@@ -195,6 +203,8 @@ readFile := [:infile |
    ]
 ].
 
+"insertLeaves"
+"inserts leaves"
 insertLeaves := [
    (1 to: 256) do: [:index |
       (freqtable at: index) = 0 ifFalse: [
@@ -205,6 +215,8 @@ insertLeaves := [
    ]
 ].
 
+"createTree"
+"creates the tree for compression"
 createTree := [
    [(sortcol size) = 1] whileFalse: [
       |thisTree thatTree newTree|
@@ -217,12 +229,16 @@ createTree := [
    ]
 ].
 
+"encodeTree"
+"encodes the tree"
 encodeTree := [
    (sortcol first) inorder: [:char :string |
       encodeTable at: char put: string.
    ] prefix: ''.
 ].
 
+"displayEncoded"
+"prints the encoded table"
 displayEncoded := [ :outfile|
    (1 to: 256) do: [:index |
       ((encodeTable at: index) isNil) ifFalse: [
@@ -237,6 +253,8 @@ displayEncoded := [ :outfile|
    ]
 ].
 
+"writeEncoded"
+"writes out the encoded file"
 writeEncoded := [ :infile :outfile|
    |char encodedString eof |
    char := infile next.
@@ -258,6 +276,8 @@ writeEncoded := [ :infile :outfile|
    outfile padOut.
 ].
 
+"constructTree"
+"constructs the tree for compression"
 constructTree := [ :infile |
    readFile value: infile.
    insertLeaves value.
@@ -265,12 +285,16 @@ constructTree := [ :infile |
    encodeTree value
 ].
 
+"compressFile"
+"compresses the file"
 compressFile := [ :infile :outfile|
    (sortcol first) postorder: outfile.
    outfile writeBit: 1. "final pop bit"
    writeEncoded value: infile value: outfile.
 ].
 
+"reconstructTree"
+"reconstructs tree for decompression"
 reconstructTree := [ :infile |
    |byte bit eof subZero subOne nTree cond|
    cond := true.
@@ -303,10 +327,16 @@ reconstructTree := [ :infile |
    ].
 ].
 
+"decompress"
+"decompresses the file"
 decompress := [ :infile :outfile|
    |theTree aTree next|
    theTree := stack removeLast.
    aTree := theTree.
+   (aTree isMemberOf: Leaf) ifTrue: [
+      outfile << (Character value: (aTree char)). 
+      ObjectMemory quit: 0  
+   ].
    bit := infile getBit.
    [bit isNil] whileFalse: [
       bit = 0 
