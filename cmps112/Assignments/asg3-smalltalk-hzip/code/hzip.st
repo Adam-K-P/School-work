@@ -23,7 +23,7 @@ freqtable at: 256 put: 1.
 ].
 
 FileStream extend [
-   |bitNumber bitBuffer|
+   |bitNumber bitBuffer |
    clearByte [
       bitNumber := 8.
       bitBuffer := 0.
@@ -41,15 +41,56 @@ FileStream extend [
       bitNumber := bitNumber - 1.
    ]
 
+   getBit [
+      |tempBitNum|
+      (bitBuffer isNil) | (bitNumber = 0) 
+         ifTrue: [bitBuffer := self nextByte. bitNumber := 8].
+      bitBuffer isNil ifTrue: [ ^nil ].
+      tempBitNum := bitNumber.
+      bitNumber := bitNumber - 1.
+      ^ (bitBuffer bitAt: tempBitNum)
+   ]
+
+   getByte [
+      |aByte tByte|
+      tByte := 0.
+      (bitBuffer isNil) | (bitNumber = 0)
+          ifTrue: [bitBuffer := self nextByte. bitNumber := 8].
+      bitNumber = 8 ifTrue: [bitNumber := 0. ^ bitBuffer].
+      aByte := self nextByte.
+      aByte isNil ifTrue: [ ^nil ].
+      (1 to: (8 - bitNumber)) do: [ :index| 
+         tByte := tByte bitAt: index 
+                          put: (aByte bitAt: (bitNumber + index)).
+      ].
+      (1 to: bitNumber) do: [ :index|
+         tByte := tByte bitAt: (8 - bitNumber + index) 
+                 put: (bitBuffer bitAt: index).
+      ].
+      bitBuffer := aByte.
+      ^ tByte
+   ]
+
 ]
 
-Object subclass: Leaf [
+Link subclass: Leaf [
    |char count|
    char [ ^ char ]
    count [ ^ count ]
 
    Leaf class >> new [
       self shouldNotImplement
+   ]
+
+   Leaf class >> new: aChar [
+      |result| 
+      result := super new.
+      result setChar: aChar.
+      ^ result
+   ]
+
+   setChar: aChar [
+      char := aChar.
    ]
 
    Leaf class >> new: aChar count: aCount [
@@ -98,6 +139,13 @@ Leaf subclass: Tree [
 
    Tree class >> new: aChar count: aCount [
       self shouldNotImplement
+   ]
+
+   Tree class >> new: aChar left: aLeft right: aRight [
+      |result|
+      result := super new: aChar.
+      result setLeft: aLeft andRight: aRight.
+      ^ result
    ]
 
    Tree class >> new: aChar count: aCount left: aLeft right: aRight [
@@ -182,7 +230,7 @@ displayEncoded := [
 ].
 
 writeEncoded := [ :infile|
-   |char encodedString count|
+   |char encodedString count eof|
    char := infile next.
    count := 0.
    [char notNil] whileTrue: [
@@ -193,8 +241,15 @@ writeEncoded := [ :infile|
            ifFalse: [ stdout writeBit: 0 ].
       ].
       char := infile next.
-      count := count + 1.
-   ]
+      count := count + 1
+   ].
+   eof := encodeTable at: 256.
+   (1 to: (eof size)) do: [ :index |
+      (eof at: index) = $1
+         ifTrue: [ stdout writeBit: 1 ]
+        ifFalse: [ stdout writeBit: 0 ]
+   ].
+   "(1 to: (count rem: 8)) do: [ writeBit: 0 ]."
 ].
 
 constructTree := [ :infile |
@@ -208,41 +263,60 @@ compressFile := [ :infile |
    (sortcol first) postorder: stdout.
    '' displayNl.
    writeEncoded value: infile.
-   "infile flushByte."
+   "pad with 0 bits and EOF later"
 ].
 
-"helper function for reconstructTree"
-"performed whenever a zero bit is encountered"
-"doZeroBit := [ :theByte :byte :count |"
-   
-
-
 reconstructTree := [ :infile |
-   |count theByte| 
-   count := 8.
-   theByte := infile nextByte.
-   "Line below could potentially cause errors later"
-   (theByte isNil) ifTrue: [ ^ self ]. "Just print nothing"
-   [true] whileTrue: [
-      |byte bit|
-      byte := infile nextByte.
-      bit := theByte bitAt: 8. 
-      "[bit = 1] whileTrue: [" "for multiple 1's in a row"
-         "doOneBit here when it's done"
-         "bit := theByte bitAt: count."
-      (byte isNil) ifTrue: [
-            stderr << 'File format error: improper format' << nl.
-            ObjectMemory quit: 1.
+   |byte bit eof subZero subOne nTree cond|
+   cond := true.
+   [cond] whileTrue: [
+      eof := true.
+      bit := infile getBit.
+      bit = 0 ifTrue: [
+         byte := infile getByte.
+         (1 to: 8) do: [ :index|
+            (byte bitAt: index) = 1 ifTrue: [ eof := false ].
+         ].
+         eof = true ifTrue: [
+            bit := infile getBit.
+            bit = 1 ifTrue: [ (1 to: 8) do: 
+               [ :index| byte := byte bitAt: index put: 1 ].
+            ].
+         ].
+         stack addLast: (Leaf new: byte).
       ].
-      "final conditions"
-      count = 1 ifTrue: [ count := 8 ]
-               ifFalse: [ count := count - 1 ].
-   ]
+      bit = 1 ifTrue: [
+         subOne := stack removeLast.
+         (stack isEmpty) 
+            ifTrue: [ cond := false. stack addLast: subOne ]
+           ifFalse: [ subZero := stack removeLast.
+                      nTree := Tree new: (subZero char) 
+                                   left: subZero right: subOne.
+                      stack addLast: nTree.
+                    ].
+      ].
+   ].
+].
+
+decompress := [ :infile |
+   |theTree aTree next|
+   theTree := stack removeLast.
+   aTree := theTree.
+   bit := infile getBit.
+   [bit isNil] whileFalse: [
+      bit = 0 
+         ifTrue: [ next := aTree left ]
+        ifFalse: [ next := aTree right ].
+      (next isMemberOf: Leaf) 
+         ifTrue: [ (Character value: (next char)) display. aTree := theTree ]
+        ifFalse: [ aTree := next ].
+      bit := infile getBit.
+   ].
 ].
 
 decompressFile := [ :infile |
    reconstructTree value: infile.
-   (infile position) displayNl.
+   decompress value: infile.
 ].
 
 prepareTree := [ :infile |
@@ -250,9 +324,18 @@ prepareTree := [ :infile |
    infile close.
 ].
 
-performOptions := [ :infilename|
+performOptions := [ :infilename :outfilename|
    |infile|
-   infile := FileStream open: option mode: FileStream read.
+   [ infile := FileStream open: option mode: FileStream read]
+   on: SystemExceptions.FileError do: [:signal |
+      |errno|
+      errno := File errno.
+      stdout flush.
+      stderr << 'Error opening file: ' << infilename << nl.
+      stderr flush.
+      ObjectMemory quit: 1.
+   ].
+
    t = true ifTrue: [ prepareTree value: infile. 
                       displayEncoded value 
                     ].
@@ -263,6 +346,7 @@ performOptions := [ :infilename|
                       infile close
                     ].
    u = true ifTrue: [ decompressFile value: infile ].
+
    infile close.
 ].
 
@@ -274,17 +358,13 @@ argc := Smalltalk getArgc.
               
 (1 to: argc)
 do: [:argi |
+   |infilename|
    option := (Smalltalk getArgv: argi).
 
-   (argi = 2) & (argi = argc) ifTrue: [
-      [  performOptions value: option.  ] 
-      on: SystemExceptions.FileError do: [:signal |
-         |errno|
-         errno := File errno.
-         stdout flush.
-         stderr << 'Error opening file: ' << option << nl.
-         stderr flush
-      ]
+   argi = 2 ifTrue: [
+      argi = argc ifTrue: [ performOptions value: option value: stdout ]
+                 ifFalse: [ performOptions value: option 
+                               value: (Smalltalk getArgv: 3) ].
    ].
 
    '-d' = option ifTrue: [ d := true ].
