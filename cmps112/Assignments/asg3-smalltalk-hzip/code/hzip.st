@@ -1,4 +1,5 @@
-#!/usr/bin/gst -f
+#!/usr/bin/gst -f 
+"CHANGE BACK THE PATH"
 "Adam Pinarbasi"
 "akpinarb"
 
@@ -24,21 +25,29 @@ freqtable at: 256 put: 1.
 
 FileStream extend [
    |bitNumber bitBuffer |
+
    clearByte [
       bitNumber := 8.
       bitBuffer := 0.
    ]
+
    flushByte [
       bitNumber = 8 ifFalse: [
          self nextPutByte: bitBuffer.
          self clearByte.
       ]
    ]
+
    writeBit: bit [
       bitBuffer isNil ifTrue: [self clearByte].
       bitNumber = 0 ifTrue: [self flushByte].
       bitBuffer := bitBuffer bitAt: bitNumber put: bit.
       bitNumber := bitNumber - 1.
+   ]
+
+   padOut [
+      [bitNumber = 0] whileFalse: [ self writeBit: 0 ].
+      self flushByte.
    ]
 
    getBit [
@@ -124,10 +133,9 @@ Link subclass: Leaf [
 
    postorder: outfile [
       outfile writeBit: 0.
-      char = 256 ifTrue: [ outfile writeBit: 1 ] 
-                ifFalse: [ outfile writeBit: 0 ].
       (1 to: 8) do: [:index | 
-         outfile writeBit: (char bitAt: index) ].
+         outfile writeBit: (char bitAt: (9 - index)) ].
+      char = 256 ifTrue: [ outfile writeBit: 1 ].
    ]
 
 ]
@@ -230,9 +238,8 @@ displayEncoded := [ :outfile|
 ].
 
 writeEncoded := [ :infile :outfile|
-   |char encodedString count eof|
+   |char encodedString eof |
    char := infile next.
-   count := 0.
    [char notNil] whileTrue: [
       encodedString := encodeTable at: (char asciiValue).
       (1 to: (encodedString size)) do: [ :index |
@@ -241,7 +248,6 @@ writeEncoded := [ :infile :outfile|
            ifFalse: [ outfile writeBit: 0 ].
       ].
       char := infile next.
-      count := count + 1
    ].
    eof := encodeTable at: 256.
    (1 to: (eof size)) do: [ :index |
@@ -249,7 +255,7 @@ writeEncoded := [ :infile :outfile|
          ifTrue: [ outfile writeBit: 1 ]
         ifFalse: [ outfile writeBit: 0 ]
    ].
-   "(1 to: (count rem: 8)) do: [ writeBit: 0 ]."
+   outfile padOut.
 ].
 
 constructTree := [ :infile |
@@ -261,8 +267,8 @@ constructTree := [ :infile |
 
 compressFile := [ :infile :outfile|
    (sortcol first) postorder: outfile.
+   outfile writeBit: 1. "final pop bit"
    writeEncoded value: infile value: outfile.
-   "pad with 0 bits and EOF later"
 ].
 
 reconstructTree := [ :infile |
@@ -283,11 +289,11 @@ reconstructTree := [ :infile |
             ].
          ].
          stack addLast: (Leaf new: byte).
-      ].
-      bit = 1 ifTrue: [
+      ]
+      ifFalse: [
          subOne := stack removeLast.
          (stack isEmpty) 
-            ifTrue: [ cond := false. stack addLast: subOne ]
+            ifTrue: [ cond := false. stack addLast: subOne. ]
            ifFalse: [ subZero := stack removeLast.
                       nTree := Tree new: (subZero char) 
                                    left: subZero right: subOne.
@@ -307,29 +313,31 @@ decompress := [ :infile :outfile|
          ifTrue: [ next := aTree left ]
         ifFalse: [ next := aTree right ].
       (next isMemberOf: Leaf) 
-         ifTrue: [ ((next char) < 40) | ((next char) > 126)
-            ifTrue: [ outfile << (Character value: (next char)) ]
-           ifFalse: [ outfile << (next char) ].
-            aTree := theTree
-         ]
+         ifTrue: [ outfile << (Character value: (next char)).
+                   aTree := theTree ]
          ifFalse: [ aTree := next ].
       bit := infile getBit.
    ].
 ].
 
+"decompressFile"
+"decompresses file"
 decompressFile := [ :infile :outfile|
    reconstructTree value: infile.
    decompress value: infile value: outfile.
 ].
 
+"prepareTree"
+"tree is constructed here"
 prepareTree := [ :infile |
    constructTree value: infile.
    infile close.
 ].
 
-performOptions := [ :infilename :outfilename|
-   |infile outfile|
-   outfile := FileStream open: outfilename mode: FileStream write.
+"performOptions"
+"Options performed here"
+performOptions := [ :infilename :outfile|
+   |infile|
    [ infile := FileStream open: infilename mode: FileStream read]
    on: SystemExceptions.FileError do: [:signal |
       |errno|
@@ -366,8 +374,10 @@ do: [:argi |
 
    argi = 2 ifTrue: [
       argi = argc ifTrue: [ performOptions value: option value: stdout ]
-                 ifFalse: [ performOptions value: option 
-                               value: (Smalltalk getArgv: 3) ].
+                 ifFalse: [ outfile := FileStream 
+                               open: (Smalltalk getArgv: 3)  
+                               mode: FileStream write.
+                            performOptions value: option value: outfile.].
    ].
 
    '-d' = option ifTrue: [ d := true ].
