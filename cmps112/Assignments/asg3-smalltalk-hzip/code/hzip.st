@@ -215,21 +215,21 @@ encodeTree := [
    ] prefix: ''.
 ].
 
-displayEncoded := [
+displayEncoded := [ :outfile|
    (1 to: 256) do: [:index |
       ((encodeTable at: index) isNil) ifFalse: [
          (index < 40) | (index > 126)
-             ifTrue: [ index display ] 
-            ifFalse: [ (Character value: index) display ].
-         '   ' display.
-         (freqtable at: index) display.
-         '   ' display.
-         (encodeTable at: index) displayNl.
+             ifTrue: [ outfile << index ] 
+            ifFalse: [ outfile << (Character value: index) ].
+         outfile << '   '.
+         outfile << (freqtable at: index).
+         outfile << '   '.
+         outfile << (encodeTable at: index) << nl.
       ]
    ]
 ].
 
-writeEncoded := [ :infile|
+writeEncoded := [ :infile :outfile|
    |char encodedString count eof|
    char := infile next.
    count := 0.
@@ -237,8 +237,8 @@ writeEncoded := [ :infile|
       encodedString := encodeTable at: (char asciiValue).
       (1 to: (encodedString size)) do: [ :index |
          (encodedString at: index) = $1 
-            ifTrue: [ stdout writeBit: 1 ]
-           ifFalse: [ stdout writeBit: 0 ].
+            ifTrue: [ outfile writeBit: 1 ]
+           ifFalse: [ outfile writeBit: 0 ].
       ].
       char := infile next.
       count := count + 1
@@ -246,8 +246,8 @@ writeEncoded := [ :infile|
    eof := encodeTable at: 256.
    (1 to: (eof size)) do: [ :index |
       (eof at: index) = $1
-         ifTrue: [ stdout writeBit: 1 ]
-        ifFalse: [ stdout writeBit: 0 ]
+         ifTrue: [ outfile writeBit: 1 ]
+        ifFalse: [ outfile writeBit: 0 ]
    ].
    "(1 to: (count rem: 8)) do: [ writeBit: 0 ]."
 ].
@@ -259,10 +259,9 @@ constructTree := [ :infile |
    encodeTree value
 ].
 
-compressFile := [ :infile |
-   (sortcol first) postorder: stdout.
-   '' displayNl.
-   writeEncoded value: infile.
+compressFile := [ :infile :outfile|
+   (sortcol first) postorder: outfile.
+   writeEncoded value: infile value: outfile.
    "pad with 0 bits and EOF later"
 ].
 
@@ -298,7 +297,7 @@ reconstructTree := [ :infile |
    ].
 ].
 
-decompress := [ :infile |
+decompress := [ :infile :outfile|
    |theTree aTree next|
    theTree := stack removeLast.
    aTree := theTree.
@@ -308,15 +307,19 @@ decompress := [ :infile |
          ifTrue: [ next := aTree left ]
         ifFalse: [ next := aTree right ].
       (next isMemberOf: Leaf) 
-         ifTrue: [ (Character value: (next char)) display. aTree := theTree ]
-        ifFalse: [ aTree := next ].
+         ifTrue: [ ((next char) < 40) | ((next char) > 126)
+            ifTrue: [ outfile << (Character value: (next char)) ]
+           ifFalse: [ outfile << (next char) ].
+            aTree := theTree
+         ]
+         ifFalse: [ aTree := next ].
       bit := infile getBit.
    ].
 ].
 
-decompressFile := [ :infile |
+decompressFile := [ :infile :outfile|
    reconstructTree value: infile.
-   decompress value: infile.
+   decompress value: infile value: outfile.
 ].
 
 prepareTree := [ :infile |
@@ -325,8 +328,9 @@ prepareTree := [ :infile |
 ].
 
 performOptions := [ :infilename :outfilename|
-   |infile|
-   [ infile := FileStream open: option mode: FileStream read]
+   |infile outfile|
+   outfile := FileStream open: outfilename mode: FileStream write.
+   [ infile := FileStream open: infilename mode: FileStream read]
    on: SystemExceptions.FileError do: [:signal |
       |errno|
       errno := File errno.
@@ -337,15 +341,15 @@ performOptions := [ :infilename :outfilename|
    ].
 
    t = true ifTrue: [ prepareTree value: infile. 
-                      displayEncoded value 
+                      displayEncoded value: outfile
                     ].
    c = true ifTrue: [ prepareTree value: infile. 
                       infile := FileStream open: infilename 
                                            mode: FileStream read.
-                      compressFile value: infile.
+                      compressFile value: infile value: outfile.
                       infile close
                     ].
-   u = true ifTrue: [ decompressFile value: infile ].
+   u = true ifTrue: [ decompressFile value: infile value: outfile].
 
    infile close.
 ].
@@ -358,7 +362,6 @@ argc := Smalltalk getArgc.
               
 (1 to: argc)
 do: [:argi |
-   |infilename|
    option := (Smalltalk getArgv: argi).
 
    argi = 2 ifTrue: [
