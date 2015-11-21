@@ -7,12 +7,27 @@
 ALLCSRC	Makefile	/^ALLCSRC   = ${CPPSRC} ${CGENS}$/;"	m
 ALLGENS	Makefile	/^ALLGENS   = ${LEXHDR} ${PARSEHDR} ${CGENS}$/;"	m
 ALLSRC	Makefile	/^ALLSRC    = README ${FLEXSRC} ${BISONSRC} ${MODSRC} ${MISCSRC} Makefile$/;"	m
-BEGIN	yylex.cpp	169;"	d	file:
+ATTR_array	symbol_table.h	/^       ATTR_string, ATTR_struct, ATTR_array, ATTR_function,$/;"	e	enum:__anon1
+ATTR_bitset_size	symbol_table.h	/^       ATTR_bitset_size,$/;"	e	enum:__anon1
+ATTR_bool	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_char	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_const	symbol_table.h	/^       ATTR_lval, ATTR_const, ATTR_vreg, ATTR_vaddr,$/;"	e	enum:__anon1
+ATTR_field	symbol_table.h	/^       ATTR_variable, ATTR_field, ATTR_typeid, ATTR_param,$/;"	e	enum:__anon1
+ATTR_function	symbol_table.h	/^       ATTR_string, ATTR_struct, ATTR_array, ATTR_function,$/;"	e	enum:__anon1
+ATTR_int	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_lval	symbol_table.h	/^       ATTR_lval, ATTR_const, ATTR_vreg, ATTR_vaddr,$/;"	e	enum:__anon1
+ATTR_null	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_param	symbol_table.h	/^       ATTR_variable, ATTR_field, ATTR_typeid, ATTR_param,$/;"	e	enum:__anon1
+ATTR_string	symbol_table.h	/^       ATTR_string, ATTR_struct, ATTR_array, ATTR_function,$/;"	e	enum:__anon1
+ATTR_struct	symbol_table.h	/^       ATTR_string, ATTR_struct, ATTR_array, ATTR_function,$/;"	e	enum:__anon1
+ATTR_typeid	symbol_table.h	/^       ATTR_variable, ATTR_field, ATTR_typeid, ATTR_param,$/;"	e	enum:__anon1
+ATTR_vaddr	symbol_table.h	/^       ATTR_lval, ATTR_const, ATTR_vreg, ATTR_vaddr,$/;"	e	enum:__anon1
+ATTR_variable	symbol_table.h	/^       ATTR_variable, ATTR_field, ATTR_typeid, ATTR_param,$/;"	e	enum:__anon1
+ATTR_void	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_vreg	symbol_table.h	/^       ATTR_lval, ATTR_const, ATTR_vreg, ATTR_vaddr,$/;"	e	enum:__anon1
 BISON	Makefile	/^BISON     = bison --defines=${PARSEHDR} --output=${PARSECPP}$/;"	m
 BISONSRC	Makefile	/^BISONSRC  = parser.y$/;"	m
 CGENS	Makefile	/^CGENS     = ${LEXCPP} ${PARSECPP}$/;"	m
-CHAR_LIT	yyparse.cpp	/^    CHAR_LIT = 280,$/;"	e	enum:yytokentype	file:
-CHAR_LIT	yyparse.h	/^    CHAR_LIT = 280,$/;"	e	enum:yytokentype
 CPP	Makefile	/^CPP       = g++ -g -O0 -Wall -Wextra -std=gnu++11$/;"	m
 CPP	main.cpp	/^const string CPP = "\/usr\/bin\/cpp";$/;"	v
 CPPSRC	Makefile	/^CPPSRC    = ${MODULES:=.cpp} main.cpp$/;"	m
@@ -21,42 +36,12 @@ DEBUGF	auxlib.h	108;"	d
 DEBUGSTMT	auxlib.h	103;"	d
 DEBUGSTMT	auxlib.h	110;"	d
 DEPSFILE	Makefile	/^DEPSFILE  = Makefile.deps$/;"	m
-DIRECTIVE	yyparse.cpp	/^    DIRECTIVE = 261,$/;"	e	enum:yytokentype	file:
-DIRECTIVE	yyparse.h	/^    DIRECTIVE = 261,$/;"	e	enum:yytokentype
-ECHO	yylex.cpp	796;"	d	file:
-EOB_ACT_CONTINUE_SCAN	yylex.cpp	218;"	d	file:
-EOB_ACT_END_OF_FILE	yylex.cpp	219;"	d	file:
-EOB_ACT_LAST_MATCH	yylex.cpp	220;"	d	file:
 EXECBIN	Makefile	/^EXECBIN   = oc$/;"	m
 EXECTEST	Makefile	/^EXECTEST  = ${EXECBIN} -ly$/;"	m
-EXIT_SUCCESS	yyparse.cpp	288;"	d	file:
-EXIT_SUCCESS	yyparse.cpp	316;"	d	file:
 FLEX	Makefile	/^FLEX      = flex --header-file=${LEXHDR} --outfile=${LEXCPP}$/;"	m
-FLEXINT_H	yylex.cpp	55;"	d	file:
-FLEXINT_H	yylex.h	52;"	d
 FLEXSRC	Makefile	/^FLEXSRC   = lexer.l$/;"	m
-FLEX_BETA	yylex.cpp	23;"	d	file:
-FLEX_BETA	yylex.h	20;"	d
-FLEX_DEBUG	yylex.cpp	421;"	d	file:
-FLEX_DEBUG	yylex.h	275;"	d
-FLEX_SCANNER	yylex.cpp	18;"	d	file:
-FLEX_SCANNER	yylex.h	15;"	d
 GRIND	Makefile	/^GRIND     = valgrind --leak-check=full --show-reachable=yes$/;"	m
 HDRSRC	Makefile	/^HDRSRC    = ${MODULES:=.h}$/;"	m
-INITIAL	yylex.cpp	675;"	d	file:
-INITIAL	yylex.h	287;"	d
-INT16_MAX	yylex.cpp	97;"	d	file:
-INT16_MAX	yylex.h	94;"	d
-INT16_MIN	yylex.cpp	88;"	d	file:
-INT16_MIN	yylex.h	85;"	d
-INT32_MAX	yylex.cpp	100;"	d	file:
-INT32_MAX	yylex.h	97;"	d
-INT32_MIN	yylex.cpp	91;"	d	file:
-INT32_MIN	yylex.h	88;"	d
-INT8_MAX	yylex.cpp	94;"	d	file:
-INT8_MAX	yylex.h	91;"	d
-INT8_MIN	yylex.cpp	85;"	d	file:
-INT8_MIN	yylex.h	82;"	d
 LEXCPP	Makefile	/^LEXCPP    = yylex.cpp$/;"	m
 LEXHDR	Makefile	/^LEXHDR    = yylex.h$/;"	m
 LEXOUT	Makefile	/^LEXOUT    = yylex.output$/;"	m
@@ -65,253 +50,28 @@ LISTSRC	Makefile	/^LISTSRC   = ${ALLSRC} ${DEPSFILE} ${PARSEHDR}$/;"	m
 MISCSRC	Makefile	/^MISCSRC   = ${filter-out ${MODSRC}, ${HDRSRC} ${CPPSRC}}$/;"	m
 MKDEPS	Makefile	/^MKDEPS    = g++ -MM -std=gnu++11$/;"	m
 MODSRC	Makefile	/^MODSRC    = ${foreach MOD, ${MODULES}, ${MOD}.h ${MOD}.cpp}$/;"	m
-MODULES	Makefile	/^MODULES   = astree utils stringset emitter syslib$/;"	m
+MODULES	Makefile	/^MODULES   = astree utils stringset emitter syslib symbol_table$/;"	m
 NEEDINCL	Makefile	/^NEEDINCL  = ${filter ${NOINCLUDE}, ${MAKECMDGOALS}}$/;"	m
-NEG	yyparse.cpp	/^    NEG = 282$/;"	e	enum:yytokentype	file:
-NEG	yyparse.h	/^    NEG = 282$/;"	e	enum:yytokentype
 NOINCLUDE	Makefile	/^NOINCLUDE = ci clean spotless$/;"	m
-NUMBER	yyparse.cpp	/^    NUMBER = 260,$/;"	e	enum:yytokentype	file:
-NUMBER	yyparse.h	/^    NUMBER = 260,$/;"	e	enum:yytokentype
 OBJECTS	Makefile	/^OBJECTS   = ${ALLCSRC:.cpp=.o}$/;"	m
 PARSECPP	Makefile	/^PARSECPP  = yyparse.cpp$/;"	m
 PARSEHDR	Makefile	/^PARSEHDR  = yyparse.h$/;"	m
 PARSEOUT	Makefile	/^PARSEOUT  = yyparse.output$/;"	m
-POS	yyparse.cpp	/^    POS = 281,$/;"	e	enum:yytokentype	file:
-POS	yyparse.h	/^    POS = 281,$/;"	e	enum:yytokentype
 RCS2	auxlib.h	119;"	d
 RCS3	auxlib.h	118;"	d
 RCSC	auxlib.h	121;"	d
 RCSH	auxlib.h	120;"	d
-REJECT	yylex.cpp	646;"	d	file:
 REPORTS	Makefile	/^REPORTS   = ${LEXOUT} ${PARSEOUT}$/;"	m
-RESERVED	yyparse.cpp	/^    RESERVED = 262,$/;"	e	enum:yytokentype	file:
-RESERVED	yyparse.h	/^    RESERVED = 262,$/;"	e	enum:yytokentype
-RETDIR	yylex.cpp	667;"	d	file:
-RETURN	yylex.cpp	662;"	d	file:
-ROOT	yyparse.cpp	/^    ROOT = 258,$/;"	e	enum:yytokentype	file:
-ROOT	yyparse.h	/^    ROOT = 258,$/;"	e	enum:yytokentype
-STRING_LIT	yyparse.cpp	/^    STRING_LIT = 279,$/;"	e	enum:yytokentype	file:
-STRING_LIT	yyparse.h	/^    STRING_LIT = 279,$/;"	e	enum:yytokentype
 STUBPRINTF	auxlib.h	77;"	d
 TESTINS	Makefile	/^TESTINS   = ${wildcard test*.in}$/;"	m
-TOK_IDENT	yyparse.cpp	/^    TOK_IDENT = 259,$/;"	e	enum:yytokentype	file:
-TOK_IDENT	yyparse.h	/^    TOK_IDENT = 259,$/;"	e	enum:yytokentype
-TOK_KW_BOOL	yyparse.cpp	/^    TOK_KW_BOOL = 264,$/;"	e	enum:yytokentype	file:
-TOK_KW_BOOL	yyparse.h	/^    TOK_KW_BOOL = 264,$/;"	e	enum:yytokentype
-TOK_KW_CHAR	yyparse.cpp	/^    TOK_KW_CHAR = 265,$/;"	e	enum:yytokentype	file:
-TOK_KW_CHAR	yyparse.h	/^    TOK_KW_CHAR = 265,$/;"	e	enum:yytokentype
-TOK_KW_CHR	yyparse.cpp	/^    TOK_KW_CHR = 277,$/;"	e	enum:yytokentype	file:
-TOK_KW_CHR	yyparse.h	/^    TOK_KW_CHR = 277,$/;"	e	enum:yytokentype
-TOK_KW_ELSE	yyparse.cpp	/^    TOK_KW_ELSE = 270,$/;"	e	enum:yytokentype	file:
-TOK_KW_ELSE	yyparse.h	/^    TOK_KW_ELSE = 270,$/;"	e	enum:yytokentype
-TOK_KW_FALSE	yyparse.cpp	/^    TOK_KW_FALSE = 273,$/;"	e	enum:yytokentype	file:
-TOK_KW_FALSE	yyparse.h	/^    TOK_KW_FALSE = 273,$/;"	e	enum:yytokentype
-TOK_KW_IF	yyparse.cpp	/^    TOK_KW_IF = 269,$/;"	e	enum:yytokentype	file:
-TOK_KW_IF	yyparse.h	/^    TOK_KW_IF = 269,$/;"	e	enum:yytokentype
-TOK_KW_INT	yyparse.cpp	/^    TOK_KW_INT = 266,$/;"	e	enum:yytokentype	file:
-TOK_KW_INT	yyparse.h	/^    TOK_KW_INT = 266,$/;"	e	enum:yytokentype
-TOK_KW_NEW	yyparse.cpp	/^    TOK_KW_NEW = 278,$/;"	e	enum:yytokentype	file:
-TOK_KW_NEW	yyparse.h	/^    TOK_KW_NEW = 278,$/;"	e	enum:yytokentype
-TOK_KW_NULL	yyparse.cpp	/^    TOK_KW_NULL = 275,$/;"	e	enum:yytokentype	file:
-TOK_KW_NULL	yyparse.h	/^    TOK_KW_NULL = 275,$/;"	e	enum:yytokentype
-TOK_KW_ORD	yyparse.cpp	/^    TOK_KW_ORD = 276,$/;"	e	enum:yytokentype	file:
-TOK_KW_ORD	yyparse.h	/^    TOK_KW_ORD = 276,$/;"	e	enum:yytokentype
-TOK_KW_RETURN	yyparse.cpp	/^    TOK_KW_RETURN = 272,$/;"	e	enum:yytokentype	file:
-TOK_KW_RETURN	yyparse.h	/^    TOK_KW_RETURN = 272,$/;"	e	enum:yytokentype
-TOK_KW_STRING	yyparse.cpp	/^    TOK_KW_STRING = 267,$/;"	e	enum:yytokentype	file:
-TOK_KW_STRING	yyparse.h	/^    TOK_KW_STRING = 267,$/;"	e	enum:yytokentype
-TOK_KW_STRUCT	yyparse.cpp	/^    TOK_KW_STRUCT = 268,$/;"	e	enum:yytokentype	file:
-TOK_KW_STRUCT	yyparse.h	/^    TOK_KW_STRUCT = 268,$/;"	e	enum:yytokentype
-TOK_KW_TRUE	yyparse.cpp	/^    TOK_KW_TRUE = 274,$/;"	e	enum:yytokentype	file:
-TOK_KW_TRUE	yyparse.h	/^    TOK_KW_TRUE = 274,$/;"	e	enum:yytokentype
-TOK_KW_VOID	yyparse.cpp	/^    TOK_KW_VOID = 263,$/;"	e	enum:yytokentype	file:
-TOK_KW_VOID	yyparse.h	/^    TOK_KW_VOID = 263,$/;"	e	enum:yytokentype
-TOK_KW_WHILE	yyparse.cpp	/^    TOK_KW_WHILE = 271,$/;"	e	enum:yytokentype	file:
-TOK_KW_WHILE	yyparse.h	/^    TOK_KW_WHILE = 271,$/;"	e	enum:yytokentype
-UINT16_MAX	yylex.cpp	106;"	d	file:
-UINT16_MAX	yylex.h	103;"	d
-UINT32_MAX	yylex.cpp	109;"	d	file:
-UINT32_MAX	yylex.h	106;"	d
-UINT8_MAX	yylex.cpp	103;"	d	file:
-UINT8_MAX	yylex.h	100;"	d
-YYABORT	yyparse.cpp	600;"	d	file:
-YYACCEPT	yyparse.cpp	599;"	d	file:
-YYBACKUP	yyparse.cpp	606;"	d	file:
-YYBISON	yyparse.cpp	44;"	d	file:
-YYBISON_VERSION	yyparse.cpp	47;"	d	file:
-YYCASE_	yyparse.cpp	1210;"	d	file:
-YYCASE_	yyparse.cpp	1220;"	d	file:
-YYCOPY	yyparse.cpp	380;"	d	file:
-YYCOPY	yyparse.cpp	383;"	d	file:
-YYCOPY_NEEDED	yyparse.cpp	355;"	d	file:
-YYDEBUG	yyparse.cpp	101;"	d	file:
-YYDEBUG	yyparse.h	37;"	d
-YYDPRINTF	yyparse.cpp	1015;"	d	file:
-YYDPRINTF	yyparse.cpp	637;"	d	file:
-YYEMPTY	yyparse.cpp	596;"	d	file:
-YYEOF	main.cpp	25;"	d	file:
-YYEOF	yyparse.cpp	597;"	d	file:
-YYERRCODE	yyparse.cpp	625;"	d	file:
-YYERROR	yyparse.cpp	601;"	d	file:
-YYERROR_VERBOSE	yyparse.cpp	89;"	d	file:
-YYERROR_VERBOSE	yyparse.cpp	90;"	d	file:
-YYERROR_VERBOSE	yyparse.cpp	92;"	d	file:
-YYFINAL	yyparse.cpp	396;"	d	file:
-YYFPRINTF	yyparse.cpp	634;"	d	file:
-YYFREE	yyparse.cpp	326;"	d	file:
-YYINITDEPTH	yyparse.cpp	1024;"	d	file:
-YYLAST	yyparse.cpp	398;"	d	file:
-YYMALLOC	yyparse.cpp	320;"	d	file:
-YYMAXDEPTH	yyparse.cpp	1035;"	d	file:
-YYMAXUTOK	yyparse.cpp	412;"	d	file:
-YYNNTS	yyparse.cpp	403;"	d	file:
-YYNRULES	yyparse.cpp	405;"	d	file:
-YYNSTATES	yyparse.cpp	407;"	d	file:
-YYNTOKENS	yyparse.cpp	401;"	d	file:
-YYPACT_NINF	yyparse.cpp	491;"	d	file:
-YYPOPSTACK	yyparse.cpp	1598;"	d	file:
-YYPULL	yyparse.cpp	59;"	d	file:
-YYPURE	yyparse.cpp	53;"	d	file:
-YYPUSH	yyparse.cpp	56;"	d	file:
-YYRECOVERING	yyparse.cpp	604;"	d	file:
-YYSIZE_MAXIMUM	yyparse.cpp	199;"	d	file:
-YYSIZE_T	yyparse.cpp	188;"	d	file:
-YYSIZE_T	yyparse.cpp	190;"	d	file:
-YYSIZE_T	yyparse.cpp	193;"	d	file:
-YYSIZE_T	yyparse.cpp	195;"	d	file:
-YYSKELETON_NAME	yyparse.cpp	50;"	d	file:
-YYSTACK_ALLOC	yyparse.cpp	274;"	d	file:
-YYSTACK_ALLOC	yyparse.cpp	278;"	d	file:
-YYSTACK_ALLOC	yyparse.cpp	283;"	d	file:
-YYSTACK_ALLOC	yyparse.cpp	306;"	d	file:
-YYSTACK_ALLOC_MAXIMUM	yyparse.cpp	303;"	d	file:
-YYSTACK_ALLOC_MAXIMUM	yyparse.cpp	309;"	d	file:
-YYSTACK_BYTES	yyparse.cpp	351;"	d	file:
-YYSTACK_FREE	yyparse.cpp	297;"	d	file:
-YYSTACK_FREE	yyparse.cpp	307;"	d	file:
-YYSTACK_GAP_MAXIMUM	yyparse.cpp	347;"	d	file:
-YYSTACK_RELOCATE	yyparse.cpp	362;"	d	file:
-YYSTATE	yylex.cpp	176;"	d	file:
-YYSTYPE	utils.h	42;"	d
-YYSTYPE	yyparse.cpp	/^typedef int YYSTYPE;$/;"	t	file:
-YYSTYPE	yyparse.h	/^typedef int YYSTYPE;$/;"	t
-YYSTYPE_IS_DECLARED	yyparse.cpp	144;"	d	file:
-YYSTYPE_IS_DECLARED	yyparse.h	80;"	d
-YYSTYPE_IS_TRIVIAL	yyparse.cpp	143;"	d	file:
-YYSTYPE_IS_TRIVIAL	yyparse.h	79;"	d
-YYTABLES_NAME	yylex.cpp	2350;"	d	file:
-YYTABLE_NINF	yyparse.cpp	496;"	d	file:
-YYTERROR	yyparse.cpp	624;"	d	file:
-YYTOKENTYPE	yyparse.cpp	109;"	d	file:
-YYTOKENTYPE	yyparse.h	45;"	d
-YYTRANSLATE	yyparse.cpp	414;"	d	file:
-YYUNDEFTOK	yyparse.cpp	411;"	d	file:
-YYUSE	yyparse.cpp	242;"	d	file:
-YYUSE	yyparse.cpp	244;"	d	file:
-YY_	yyparse.cpp	205;"	d	file:
-YY_	yyparse.cpp	209;"	d	file:
-YY_ATTRIBUTE	yyparse.cpp	217;"	d	file:
-YY_ATTRIBUTE	yyparse.cpp	219;"	d	file:
-YY_ATTRIBUTE_PURE	yyparse.cpp	224;"	d	file:
-YY_ATTRIBUTE_UNUSED	yyparse.cpp	228;"	d	file:
-YY_AT_BOL	yylex.cpp	413;"	d	file:
-YY_BREAK	yylex.cpp	900;"	d	file:
-YY_BUFFER_EOF_PENDING	yylex.cpp	310;"	d	file:
-YY_BUFFER_NEW	yylex.cpp	298;"	d	file:
-YY_BUFFER_NORMAL	yylex.cpp	299;"	d	file:
-YY_BUFFER_STATE	yylex.cpp	/^typedef struct yy_buffer_state *YY_BUFFER_STATE;$/;"	t	typeref:struct:yy_buffer_state	file:
-YY_BUFFER_STATE	yylex.h	/^typedef struct yy_buffer_state *YY_BUFFER_STATE;$/;"	t	typeref:struct:yy_buffer_state
-YY_BUF_SIZE	yylex.cpp	193;"	d	file:
-YY_BUF_SIZE	yylex.cpp	195;"	d	file:
-YY_BUF_SIZE	yylex.h	157;"	d
-YY_BUF_SIZE	yylex.h	159;"	d
-YY_CHAR	yylex.cpp	/^typedef unsigned char YY_CHAR;$/;"	t	file:
-YY_CURRENT_BUFFER	yylex.cpp	335;"	d	file:
-YY_CURRENT_BUFFER_LVALUE	yylex.cpp	342;"	d	file:
-YY_DECL	yylex.cpp	885;"	d	file:
-YY_DECL	yylex.h	412;"	d
-YY_DECL	yylex.h	439;"	d
-YY_DECL_IS_OURS	yylex.cpp	880;"	d	file:
-YY_DECL_IS_OURS	yylex.h	407;"	d
-YY_DECL_IS_OURS	yylex.h	438;"	d
-YY_DO_BEFORE_ACTION	yylex.cpp	448;"	d	file:
-YY_DO_BEFORE_ACTION	yylex.h	435;"	d
-YY_END_OF_BUFFER	yylex.cpp	459;"	d	file:
-YY_END_OF_BUFFER_CHAR	yylex.cpp	184;"	d	file:
-YY_EXIT_FAILURE	yylex.cpp	2122;"	d	file:
-YY_EXTRA_TYPE	yylex.cpp	690;"	d	file:
-YY_EXTRA_TYPE	yylex.h	304;"	d
-YY_FATAL_ERROR	yylex.cpp	857;"	d	file:
-YY_FLEX_MAJOR_VERSION	yylex.cpp	19;"	d	file:
-YY_FLEX_MAJOR_VERSION	yylex.h	16;"	d
-YY_FLEX_MINOR_VERSION	yylex.cpp	20;"	d	file:
-YY_FLEX_MINOR_VERSION	yylex.h	17;"	d
-YY_FLEX_SUBMINOR_VERSION	yylex.cpp	21;"	d	file:
-YY_FLEX_SUBMINOR_VERSION	yylex.h	18;"	d
-YY_FLUSH_BUFFER	yylex.cpp	379;"	d	file:
-YY_FLUSH_BUFFER	yylex.h	431;"	d
-YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN	yyparse.cpp	249;"	d	file:
-YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN	yyparse.cpp	259;"	d	file:
-YY_IGNORE_MAYBE_UNINITIALIZED_END	yyparse.cpp	253;"	d	file:
-YY_IGNORE_MAYBE_UNINITIALIZED_END	yyparse.cpp	260;"	d	file:
-YY_INITIAL_VALUE	yyparse.cpp	256;"	d	file:
-YY_INITIAL_VALUE	yyparse.cpp	263;"	d	file:
-YY_INPUT	yylex.cpp	806;"	d	file:
-YY_INT_ALIGNED	yylex.cpp	5;"	d	file:
-YY_INT_ALIGNED	yylex.h	9;"	d
-YY_LESS_LINENO	yylex.cpp	222;"	d	file:
-YY_LOCATION_PRINT	yyparse.cpp	645;"	d	file:
-YY_MORE_ADJ	yylex.cpp	648;"	d	file:
-YY_NEW_FILE	yylex.cpp	182;"	d	file:
-YY_NEW_FILE	yylex.h	430;"	d
-YY_NO_INPUT	yylex.cpp	672;"	d	file:
-YY_NULL	yylex.cpp	145;"	d	file:
-YY_NULLPTR	yyparse.cpp	81;"	d	file:
-YY_NULLPTR	yyparse.cpp	83;"	d	file:
-YY_NUM_RULES	yylex.cpp	458;"	d	file:
-YY_READ_BUF_SIZE	yylex.cpp	784;"	d	file:
-YY_READ_BUF_SIZE	yylex.cpp	786;"	d	file:
-YY_READ_BUF_SIZE	yylex.h	387;"	d
-YY_READ_BUF_SIZE	yylex.h	389;"	d
-YY_REDUCE_PRINT	yyparse.cpp	1005;"	d	file:
-YY_REDUCE_PRINT	yyparse.cpp	1018;"	d	file:
-YY_RESTORE_YY_MORE_OFFSET	yylex.cpp	649;"	d	file:
-YY_RULE_SETUP	yylex.cpp	904;"	d	file:
-YY_SC_TO_UI	yylex.cpp	155;"	d	file:
-YY_SKIP_YYWRAP	yylex.cpp	419;"	d	file:
-YY_SKIP_YYWRAP	yylex.h	273;"	d
-YY_STACK_PRINT	yyparse.cpp	1017;"	d	file:
-YY_STACK_PRINT	yyparse.cpp	974;"	d	file:
-YY_START	yylex.cpp	175;"	d	file:
-YY_START_STACK_INCR	yylex.cpp	851;"	d	file:
-YY_START_STACK_INCR	yylex.h	395;"	d
-YY_STATE_BUF_SIZE	yylex.cpp	201;"	d	file:
-YY_STATE_EOF	yylex.cpp	179;"	d	file:
-YY_STRUCT_YY_BUFFER_STATE	yylex.cpp	246;"	d	file:
-YY_STRUCT_YY_BUFFER_STATE	yylex.h	184;"	d
-YY_SYMBOL_PRINT	yyparse.cpp	1016;"	d	file:
-YY_SYMBOL_PRINT	yyparse.cpp	649;"	d	file:
-YY_TYPEDEF_YY_BUFFER_STATE	yylex.cpp	204;"	d	file:
-YY_TYPEDEF_YY_BUFFER_STATE	yylex.h	164;"	d
-YY_TYPEDEF_YY_SIZE_T	yylex.cpp	241;"	d	file:
-YY_TYPEDEF_YY_SIZE_T	yylex.h	179;"	d
-YY_USER_ACTION	yylex.cpp	660;"	d	file:
-YY_USER_ACTION	yylex.cpp	895;"	d	file:
-YY_USE_CONST	yylex.cpp	124;"	d	file:
-YY_USE_CONST	yylex.cpp	131;"	d	file:
-YY_USE_CONST	yylex.h	121;"	d
-YY_USE_CONST	yylex.h	128;"	d
-YY_YY_YYPARSE_H_INCLUDED	yyparse.cpp	98;"	d	file:
-YY_YY_YYPARSE_H_INCLUDED	yyparse.h	34;"	d
-_Noreturn	yyparse.cpp	234;"	d	file:
-_Noreturn	yyparse.cpp	236;"	d	file:
+YYEOF	main.cpp	26;"	d	file:
+YYSTYPE	utils.h	43;"	d
 __ASTREE_H__	astree.h	4;"	d
 __AUXLIB_H__	auxlib.h	2;"	d
 __EMIT_H__	emitter.h	4;"	d
 __OCLIB_C__	oc-programs/oclib.c	10;"	d	file:
-__STDC_LIMIT_MACROS	yylex.cpp	65;"	d	file:
-__STDC_LIMIT_MACROS	yylex.h	62;"	d
 __STRINGSET__	stringset.h	8;"	d
+__SYMBOL_TABLE_H	symbol_table.h	5;"	d
 __SYSLIB_H__	syslib.h	4;"	d
 __UTILS_H__	utils.h	4;"	d
 ____assert_fail	oc-programs/oclib.c	/^void ____assert_fail (char* expr, char* file, int line) {$/;"	f
@@ -327,19 +87,29 @@ __putc	oc-programs/oclib.c	/^void __putc (char byte)  { printf ("%c", byte); } $
 __puti	oc-programs/oclib.c	/^void __puti (int val)    { printf ("%d", val); }$/;"	f
 __puts	oc-programs/oclib.c	/^void __puts (char* str)  { printf ("%s", str); }$/;"	f
 __stubprintf	auxlib.cpp	/^void __stubprintf (const char* file, int line, const char* func,$/;"	f
+add_attributes	symbol_table.cpp	/^void add_attributes (astree *node) {$/;"	f
 adopt	astree.cpp	/^astree* astree::adopt (astree* child1, astree* child2) {$/;"	f	class:astree
 adopt_sym	astree.cpp	/^astree* astree::adopt_sym (astree* child, int symbol_) {$/;"	f	class:astree
 advance	utils.cpp	/^void lexer::advance() {$/;"	f	class:lexer
 alldebugflags	auxlib.cpp	/^static bool alldebugflags = false;$/;"	v	file:
-alloca	yyparse.cpp	281;"	d	file:
+alloc	parser.y	/^alloc   : TOK_KW_NEW TOK_IDENT '(' ')'$/;"	l
 astree	astree.cpp	/^astree::astree (int symbol_, const location& lloc_, const char* info) {$/;"	f	class:astree
 astree	astree.h	/^struct astree {$/;"	s
+attributes	astree.h	/^   attr_bitset attributes;$/;"	m	struct:astree
+attributes	symbol_table.h	/^   attr_bitset attributes;$/;"	m	struct:symbol
 badchar	utils.cpp	/^void lexer::badchar (unsigned char bad) {$/;"	f	class:lexer
 badtoken	utils.cpp	/^void lexer::badtoken (char* lexeme) {$/;"	f	class:lexer
-basetype	parser.y	/^basetype: TOK_KW_VOID      { printf ("reached TOK_VOID\\n");   $$ = $1; }$/;"	l
+basetype	parser.y	/^basetype: TOK_KW_VOID           { $$ = $1; }$/;"	l
+block	parser.y	/^block   : '{' stmtseq '}'       { destroy ($1, $3); $/;"	l
+blocknr	astree.h	/^   size_t blocknr;$/;"	m	struct:astree
+blocknr	symbol_table.h	/^   size_t blocknr;$/;"	m	struct:symbol
+call	parser.y	/^call    : TOK_IDENT '(' ')'     { destroy ($3);$/;"	l
+change_sym	astree.cpp	/^astree* astree::change_sym (int symbol_) {$/;"	f	class:astree
 check_suffix	main.cpp	/^static string check_suffix (int argc, char** argv) {$/;"	f	file:
 children	astree.h	/^   vector<astree*> children; \/\/ children of this n-way node$/;"	m	struct:astree
 chomp	main.cpp	/^static void chomp (char* string, char delim) {$/;"	f	file:
+const	parser.y	/^const   : NUMBER                { $$ = $1; }$/;"	l
+cpp_flags	main.cpp	/^string cpp_flags = "";$/;"	v
 cpplines	main.cpp	/^static void cpplines (FILE* pipe, char* infile_name) {$/;"	f	file:
 debugflags	auxlib.cpp	/^static const char* debugflags = "";$/;"	v	file:
 destroy	astree.cpp	/^void destroy (astree* tree1, astree* tree2) {$/;"	f
@@ -367,54 +137,39 @@ execname	syslib.h	/^   static string execname;$/;"	m	struct:exec
 exit_status	syslib.cpp	/^int exec::exit_status = EXIT_SUCCESS;$/;"	m	class:exec	file:
 exit_status	syslib.h	/^   static int exit_status;$/;"	m	struct:exec
 exitstatus	auxlib.cpp	/^static int exitstatus = EXIT_SUCCESS;$/;"	v	file:
-expr	parser.y	/^expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }$/;"	l
+expr	parser.y	/^expr    : expr BOOL_EQ expr     { $$ = $2->adopt ($1, $3); }$/;"	l
+exprhlp	parser.y	/^exprhlp : ',' exprseq           { destroy ($1); $$ = $2; }$/;"	l
+exprseq	parser.y	/^exprseq : exprhlp               { $$ = $1; }$/;"	l
+fieldec	parser.y	/^fieldec : basetype TOK_IDENT ';'$/;"	l
+fields	symbol_table.h	/^   symbol_table* fields;$/;"	m	struct:symbol
+fieldsq	parser.y	/^fieldsq : fieldsq fieldec       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
 filename	utils.cpp	/^const string* lexer::filename (int filenr) {$/;"	f	class:lexer
 filenames	utils.cpp	/^vector<string> lexer::filenames;$/;"	m	class:lexer	file:
 filenames	utils.h	/^   static vector<string> filenames;$/;"	m	struct:lexer
 filenr	astree.h	/^   size_t filenr;$/;"	m	struct:location
-flex_int16_t	yylex.cpp	/^typedef int16_t flex_int16_t;$/;"	t	file:
-flex_int16_t	yylex.cpp	/^typedef short int flex_int16_t;$/;"	t	file:
-flex_int16_t	yylex.h	/^typedef int16_t flex_int16_t;$/;"	t
-flex_int16_t	yylex.h	/^typedef short int flex_int16_t;$/;"	t
-flex_int32_t	yylex.cpp	/^typedef int flex_int32_t;$/;"	t	file:
-flex_int32_t	yylex.cpp	/^typedef int32_t flex_int32_t;$/;"	t	file:
-flex_int32_t	yylex.h	/^typedef int flex_int32_t;$/;"	t
-flex_int32_t	yylex.h	/^typedef int32_t flex_int32_t;$/;"	t
-flex_int8_t	yylex.cpp	/^typedef int8_t flex_int8_t;$/;"	t	file:
-flex_int8_t	yylex.cpp	/^typedef signed char flex_int8_t;$/;"	t	file:
-flex_int8_t	yylex.h	/^typedef int8_t flex_int8_t;$/;"	t
-flex_int8_t	yylex.h	/^typedef signed char flex_int8_t;$/;"	t
-flex_uint16_t	yylex.cpp	/^typedef uint16_t flex_uint16_t;$/;"	t	file:
-flex_uint16_t	yylex.cpp	/^typedef unsigned short int flex_uint16_t;$/;"	t	file:
-flex_uint16_t	yylex.h	/^typedef uint16_t flex_uint16_t;$/;"	t
-flex_uint16_t	yylex.h	/^typedef unsigned short int flex_uint16_t;$/;"	t
-flex_uint32_t	yylex.cpp	/^typedef uint32_t flex_uint32_t;$/;"	t	file:
-flex_uint32_t	yylex.cpp	/^typedef unsigned int flex_uint32_t;$/;"	t	file:
-flex_uint32_t	yylex.h	/^typedef uint32_t flex_uint32_t;$/;"	t
-flex_uint32_t	yylex.h	/^typedef unsigned int flex_uint32_t;$/;"	t
-flex_uint8_t	yylex.cpp	/^typedef uint8_t flex_uint8_t;$/;"	t	file:
-flex_uint8_t	yylex.cpp	/^typedef unsigned char flex_uint8_t; $/;"	t	file:
-flex_uint8_t	yylex.h	/^typedef uint8_t flex_uint8_t;$/;"	t
-flex_uint8_t	yylex.h	/^typedef unsigned char flex_uint8_t; $/;"	t
-fnction	parser.y	/^fnction : $/;"	l
+filenr	symbol_table.h	/^   size_t filenr, linenr, offset;$/;"	m	struct:symbol
+flags	main.cpp	/^bool flags = false;$/;"	v
+fnction	parser.y	/^fnction : identdc '(' identsq ')' block     $/;"	l
 generate_set	main.cpp	/^static void generate_set (char* infile_name, string& base_out_name) {$/;"	f	file:
 get_execname	auxlib.cpp	/^const char* get_execname (void) {$/;"	f
 get_exitstatus	auxlib.cpp	/^int get_exitstatus (void) {$/;"	f
-get_tname	yyparse.cpp	/^const char* parser::get_tname (int symbol) {$/;"	f	class:parser
-identdec	parser.y	/^identdec: basetype '[' ']' TOK_IDENT   { printf ("reached array dec\\n");$/;"	l
+identdc	parser.y	/^identdc : basetype '[' ']' TOK_IDENT   $/;"	l
+identsq	parser.y	/^identsq : isqhelp               { $$ = $1; }$/;"	l
+ifelse	parser.y	/^ifelse  : TOK_KW_IF '(' expr ')' statmnt TOK_KW_ELSE statmnt$/;"	l
 include	utils.cpp	/^void lexer::include() {$/;"	f	class:lexer
 insert_set	main.cpp	/^static void insert_set (char* infile_name) {$/;"	f	file:
-interactive	utils.cpp	/^bool lexer::interactive = true;$/;"	m	class:lexer	file:
 interactive	utils.h	/^   static bool interactive;$/;"	m	struct:lexer
 intern_stringset	stringset.cpp	/^const string* intern_stringset (const char* insert) {$/;"	f
 is_debugflag	auxlib.cpp	/^bool is_debugflag (char flag) {$/;"	f
 isfalse	oc-programs/oclib.c	/^int isfalse (int byte)   { return 0 & byte; } $/;"	f
 isnl	oc-programs/oclib.c	/^int isnl (int byte)      { return byte == '\\n'; }$/;"	f
+isqhelp	parser.y	/^isqhelp : ',' identsq           { destroy ($1); $$ = $2; }$/;"	l
 last_yyleng	utils.cpp	/^size_t lexer::last_yyleng = 0;$/;"	m	class:lexer	file:
 last_yyleng	utils.h	/^   static size_t last_yyleng;$/;"	m	struct:lexer
 lexer	utils.h	/^struct lexer {$/;"	s
 lexinfo	astree.h	/^   const string* lexinfo;    \/\/ pointer to lexical information$/;"	m	struct:astree
 linenr	astree.h	/^   size_t linenr;$/;"	m	struct:location
+linenr	symbol_table.h	/^   size_t filenr, linenr, offset;$/;"	m	struct:symbol
 lloc	astree.h	/^   location lloc;            \/\/ source location$/;"	m	struct:astree
 lloc	utils.cpp	/^location lexer::lloc = {0, 1, 0};$/;"	m	class:lexer	file:
 lloc	utils.h	/^   static location lloc;$/;"	m	struct:lexer
@@ -425,7 +180,9 @@ newfilename	utils.cpp	/^void lexer::newfilename (char* filename) {$/;"	f	class:l
 newline	utils.cpp	/^void lexer::newline() {$/;"	f	class:lexer
 oc_argv	oc-programs/oclib.c	/^char** oc_argv;$/;"	v
 offset	astree.h	/^   size_t offset;$/;"	m	struct:location
+offset	symbol_table.h	/^   size_t filenr, linenr, offset;$/;"	m	struct:symbol
 open_yyin	main.cpp	/^static void open_yyin (char* infile_name) {$/;"	f	file:
+parameters	symbol_table.h	/^   vector<symbol*>* parameters;$/;"	m	struct:symbol
 parser	utils.h	/^struct parser {$/;"	s
 perform_flex	main.cpp	/^static void perform_flex (const char* outfile_name) {$/;"	f	file:
 perform_op	main.cpp	/^static void perform_op (int argc, char **argv) {$/;"	f	file:
@@ -434,183 +191,31 @@ postorder_emit_oper	emitter.cpp	/^void postorder_emit_oper (astree* tree, const 
 postorder_emit_semi	emitter.cpp	/^void postorder_emit_semi (astree* tree) {$/;"	f
 postorder_emit_stmts	emitter.cpp	/^void postorder_emit_stmts (astree* tree) {$/;"	f
 print	astree.cpp	/^void astree::print (FILE* outfile, astree* tree, int depth) {$/;"	f	class:astree
-program	parser.y	/^program : program statmnt       { $$ = $$->adopt ($1, $2); }$/;"	l
+program	parser.y	/^program : program structd       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
+return	parser.y	/^return  : TOK_KW_RETURN ';'     { destroy ($2); $/;"	l
 root	utils.cpp	/^astree* parser::root = nullptr;$/;"	m	class:parser	file:
 root	utils.h	/^   static astree* root;$/;"	m	struct:parser
 scan	oc-programs/oclib.c	/^char* scan (int (*skipover) (int), int (*stopat) (int)) {$/;"	f
 scan_file	main.cpp	/^static void scan_file (char* infile_name, string& outfile_name) {$/;"	f	file:
+set_attributes	symbol_table.cpp	/^void set_attributes (astree* node) {$/;"	f
 set_debugflags	auxlib.cpp	/^void set_debugflags (const char* flags) {$/;"	f
 set_execname	auxlib.cpp	/^void set_execname (char* argv0) {$/;"	f
 set_exitstatus	auxlib.cpp	/^void set_exitstatus (int newexitstatus) {$/;"	f
 set_status	syslib.cpp	/^void exec::set_status (int status) {$/;"	f	class:exec
-short	yyparse.cpp	159;"	d	file:
+start	parser.y	/^start   : program               { $$ = parser::root = $1; }$/;"	l
 statmnt	parser.y	/^statmnt : expr ';'              { destroy ($2); $$ = $1; }$/;"	l
+stmtseq	parser.y	/^stmtseq : stmtseq statmnt       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
+structd	parser.y	/^structd : TOK_KW_STRUCT TOK_IDENT '{' fieldsq '}'$/;"	l
 symbol	astree.h	/^   int symbol;               \/\/ token code$/;"	m	struct:astree
+symbol	symbol_table.h	/^struct symbol {$/;"	s
 syserrprintf	auxlib.cpp	/^void syserrprintf (const char* object) {$/;"	f
 syserrprintf	syslib.cpp	/^void syserrprintf (const char* object) {$/;"	f
-unput	yylex.cpp	238;"	d	file:
+table	astree.h	/^   symbol_table* table;$/;"	m	struct:astree
+vardecl	parser.y	/^vardecl : identdc '=' expr ';'  { destroy ($4); $/;"	l
+variabl	parser.y	/^variabl : TOK_IDENT             { $$ = $1; }$/;"	l
 veprintf	auxlib.cpp	/^void veprintf (const char* format, va_list args) {$/;"	f
+while	parser.y	/^while   : TOK_KW_WHILE '(' expr ')' statmnt$/;"	l
 xcalloc	oc-programs/oclib.c	/^void* xcalloc (int nelem, int size) {$/;"	f
-yyHEADER_H	yylex.h	2;"	d
-yyIN_HEADER	yylex.h	3;"	d
-yyIN_HEADER	yylex.h	446;"	d
-yy_accept	yylex.cpp	/^static yyconst flex_int16_t yy_accept[126] =$/;"	v	file:
-yy_at_bol	yylex.cpp	/^	int yy_at_bol;$/;"	m	struct:yy_buffer_state	file:
-yy_at_bol	yylex.h	/^	int yy_at_bol;$/;"	m	struct:yy_buffer_state
-yy_base	yylex.cpp	/^static yyconst flex_int16_t yy_base[133] =$/;"	v	file:
-yy_bs_column	yylex.cpp	/^    int yy_bs_column; \/**< The column count. *\/$/;"	m	struct:yy_buffer_state	file:
-yy_bs_column	yylex.h	/^    int yy_bs_column; \/**< The column count. *\/$/;"	m	struct:yy_buffer_state
-yy_bs_lineno	yylex.cpp	/^    int yy_bs_lineno; \/**< The line count. *\/$/;"	m	struct:yy_buffer_state	file:
-yy_bs_lineno	yylex.h	/^    int yy_bs_lineno; \/**< The line count. *\/$/;"	m	struct:yy_buffer_state
-yy_buf_pos	yylex.cpp	/^	char *yy_buf_pos;		\/* current position in input buffer *\/$/;"	m	struct:yy_buffer_state	file:
-yy_buf_pos	yylex.h	/^	char *yy_buf_pos;		\/* current position in input buffer *\/$/;"	m	struct:yy_buffer_state
-yy_buf_size	yylex.cpp	/^	yy_size_t yy_buf_size;$/;"	m	struct:yy_buffer_state	file:
-yy_buf_size	yylex.h	/^	yy_size_t yy_buf_size;$/;"	m	struct:yy_buffer_state
-yy_buffer_stack	yylex.cpp	/^static YY_BUFFER_STATE * yy_buffer_stack = 0; \/**< Stack as an array. *\/$/;"	v	file:
-yy_buffer_stack_max	yylex.cpp	/^static size_t yy_buffer_stack_max = 0; \/**< capacity of stack. *\/$/;"	v	file:
-yy_buffer_stack_top	yylex.cpp	/^static size_t yy_buffer_stack_top = 0; \/**< index of top of stack. *\/$/;"	v	file:
-yy_buffer_state	yylex.cpp	/^struct yy_buffer_state$/;"	s	file:
-yy_buffer_state	yylex.h	/^struct yy_buffer_state$/;"	s
-yy_buffer_status	yylex.cpp	/^	int yy_buffer_status;$/;"	m	struct:yy_buffer_state	file:
-yy_buffer_status	yylex.h	/^	int yy_buffer_status;$/;"	m	struct:yy_buffer_state
-yy_c_buf_p	yylex.cpp	/^static char *yy_c_buf_p = (char *) 0;$/;"	v	file:
-yy_ch_buf	yylex.cpp	/^	char *yy_ch_buf;		\/* input buffer *\/$/;"	m	struct:yy_buffer_state	file:
-yy_ch_buf	yylex.h	/^	char *yy_ch_buf;		\/* input buffer *\/$/;"	m	struct:yy_buffer_state
-yy_chk	yylex.cpp	/^static yyconst flex_int16_t yy_chk[252] =$/;"	v	file:
-yy_create_buffer	yylex.cpp	/^    YY_BUFFER_STATE yy_create_buffer  (FILE * file, int  size )$/;"	f
 yy_debug	main.cpp	/^bool yy_debug = false;$/;"	v
-yy_def	yylex.cpp	/^static yyconst flex_int16_t yy_def[133] =$/;"	v	file:
-yy_delete_buffer	yylex.cpp	/^    void yy_delete_buffer (YY_BUFFER_STATE  b )$/;"	f
-yy_did_buffer_switch_on_eof	yylex.cpp	/^static int yy_did_buffer_switch_on_eof;$/;"	v	file:
-yy_ec	yylex.cpp	/^static yyconst flex_int32_t yy_ec[256] =$/;"	v	file:
-yy_fatal_error	yylex.cpp	/^static void yy_fatal_error (yyconst char* msg )$/;"	f	file:
-yy_fill_buffer	yylex.cpp	/^	int yy_fill_buffer;$/;"	m	struct:yy_buffer_state	file:
-yy_fill_buffer	yylex.h	/^	int yy_fill_buffer;$/;"	m	struct:yy_buffer_state
-yy_flex_debug	yylex.cpp	/^int yy_flex_debug = 1;$/;"	v
-yy_flex_strlen	yylex.cpp	/^static int yy_flex_strlen (yyconst char * s )$/;"	f	file:
-yy_flex_strncpy	yylex.cpp	/^static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )$/;"	f	file:
-yy_flush_buffer	yylex.cpp	/^    void yy_flush_buffer (YY_BUFFER_STATE  b )$/;"	f
-yy_get_next_buffer	yylex.cpp	/^static int yy_get_next_buffer (void)$/;"	f	file:
-yy_get_previous_state	yylex.cpp	/^    static yy_state_type yy_get_previous_state (void)$/;"	f	file:
-yy_hold_char	yylex.cpp	/^static char yy_hold_char;$/;"	v	file:
-yy_init	yylex.cpp	/^static int yy_init = 0;		\/* whether we need to initialize *\/$/;"	v	file:
-yy_init_buffer	yylex.cpp	/^    static void yy_init_buffer  (YY_BUFFER_STATE  b, FILE * file )$/;"	f	file:
-yy_init_globals	yylex.cpp	/^static int yy_init_globals (void)$/;"	f	file:
-yy_input_file	yylex.cpp	/^	FILE *yy_input_file;$/;"	m	struct:yy_buffer_state	file:
-yy_input_file	yylex.h	/^	FILE *yy_input_file;$/;"	m	struct:yy_buffer_state
-yy_is_interactive	yylex.cpp	/^	int yy_is_interactive;$/;"	m	struct:yy_buffer_state	file:
-yy_is_interactive	yylex.h	/^	int yy_is_interactive;$/;"	m	struct:yy_buffer_state
-yy_is_our_buffer	yylex.cpp	/^	int yy_is_our_buffer;$/;"	m	struct:yy_buffer_state	file:
-yy_is_our_buffer	yylex.h	/^	int yy_is_our_buffer;$/;"	m	struct:yy_buffer_state
-yy_last_accepting_cpos	yylex.cpp	/^static char *yy_last_accepting_cpos;$/;"	v	file:
-yy_last_accepting_state	yylex.cpp	/^static yy_state_type yy_last_accepting_state;$/;"	v	file:
-yy_load_buffer_state	yylex.cpp	/^static void yy_load_buffer_state  (void)$/;"	f	file:
-yy_meta	yylex.cpp	/^static yyconst flex_int32_t yy_meta[48] =$/;"	v	file:
-yy_n_chars	yylex.cpp	/^	int yy_n_chars;$/;"	m	struct:yy_buffer_state	file:
-yy_n_chars	yylex.cpp	/^static int yy_n_chars;		\/* number of characters read into yy_ch_buf *\/$/;"	v	file:
-yy_n_chars	yylex.h	/^	int yy_n_chars;$/;"	m	struct:yy_buffer_state
-yy_new_buffer	yylex.cpp	391;"	d	file:
-yy_new_buffer	yylex.h	433;"	d
-yy_nxt	yylex.cpp	/^	flex_int32_t yy_nxt;$/;"	m	struct:yy_trans_info	file:
-yy_nxt	yylex.cpp	/^static yyconst flex_int16_t yy_nxt[252] =$/;"	v	file:
-yy_reduce_print	yyparse.cpp	/^yy_reduce_print (yytype_int16 *yyssp, YYSTYPE *yyvsp, int yyrule)$/;"	f	file:
-yy_rule_linenum	yylex.cpp	/^static yyconst flex_int16_t yy_rule_linenum[45] =$/;"	v	file:
-yy_scan_buffer	yylex.cpp	/^YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )$/;"	f
-yy_scan_bytes	yylex.cpp	/^YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, int  _yybytes_len )$/;"	f
-yy_scan_string	yylex.cpp	/^YY_BUFFER_STATE yy_scan_string (yyconst char * yystr )$/;"	f
-yy_set_bol	yylex.cpp	403;"	d	file:
-yy_set_bol	yylex.h	432;"	d
-yy_set_interactive	yylex.cpp	393;"	d	file:
-yy_set_interactive	yylex.h	434;"	d
-yy_size_t	yylex.cpp	/^typedef size_t yy_size_t;$/;"	t	file:
-yy_size_t	yylex.h	/^typedef size_t yy_size_t;$/;"	t
-yy_stack_print	yyparse.cpp	/^yy_stack_print (yytype_int16 *yybottom, yytype_int16 *yytop)$/;"	f	file:
-yy_start	yylex.cpp	/^static int yy_start = 0;	\/* start state number *\/$/;"	v	file:
-yy_state_type	yylex.cpp	/^typedef int yy_state_type;$/;"	t	file:
-yy_switch_to_buffer	yylex.cpp	/^    void yy_switch_to_buffer  (YY_BUFFER_STATE  new_buffer )$/;"	f
-yy_symbol_print	yyparse.cpp	/^yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)$/;"	f	file:
-yy_symbol_value_print	yyparse.cpp	/^yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)$/;"	f	file:
-yy_trans_info	yylex.cpp	/^struct yy_trans_info$/;"	s	file:
-yy_try_NUL_trans	yylex.cpp	/^    static yy_state_type yy_try_NUL_trans  (yy_state_type yy_current_state )$/;"	f	file:
-yy_verify	yylex.cpp	/^	flex_int32_t yy_verify;$/;"	m	struct:yy_trans_info	file:
-yyalloc	yylex.cpp	/^void *yyalloc (yy_size_t  size )$/;"	f
-yyalloc	yyparse.cpp	/^union yyalloc$/;"	u	file:
-yychar	yyparse.cpp	/^int yychar;$/;"	v
-yycheck	yyparse.cpp	/^static const yytype_int8 yycheck[] =$/;"	v	file:
-yyclearin	yyparse.cpp	595;"	d	file:
-yyconst	yylex.cpp	137;"	d	file:
-yyconst	yylex.cpp	139;"	d	file:
-yyconst	yylex.h	134;"	d
-yyconst	yylex.h	136;"	d
-yydebug	yyparse.cpp	/^int yydebug;$/;"	v
-yydefact	yyparse.cpp	/^static const yytype_uint8 yydefact[] =$/;"	v	file:
-yydefgoto	yyparse.cpp	/^static const yytype_int8 yydefgoto[] =$/;"	v	file:
-yydestruct	yyparse.cpp	/^yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep)$/;"	f	file:
-yyensure_buffer_stack	yylex.cpp	/^static void yyensure_buffer_stack (void)$/;"	f	file:
-yyerrok	yyparse.cpp	594;"	d	file:
 yyerror	utils.cpp	/^void yyerror (const char* message) {$/;"	f
-yyfree	yylex.cpp	/^void yyfree (void * ptr )$/;"	f
-yyget_debug	yylex.cpp	/^int yyget_debug  (void)$/;"	f
-yyget_in	yylex.cpp	/^FILE *yyget_in  (void)$/;"	f
-yyget_leng	yylex.cpp	/^int yyget_leng  (void)$/;"	f
-yyget_lineno	yylex.cpp	/^int yyget_lineno  (void)$/;"	f
-yyget_out	yylex.cpp	/^FILE *yyget_out  (void)$/;"	f
-yyget_text	yylex.cpp	/^char *yyget_text  (void)$/;"	f
-yyin	yylex.cpp	/^FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;$/;"	v
-yyinput	yylex.cpp	/^    static int yyinput (void)$/;"	f	file:
-yyleng	yylex.cpp	/^int yyleng;$/;"	v
-yyless	yylex.cpp	2137;"	d	file:
-yyless	yylex.cpp	2138;"	d	file:
-yyless	yylex.cpp	225;"	d	file:
-yylex_destroy	yylex.cpp	/^int yylex_destroy  (void)$/;"	f
-yylineno	yylex.cpp	/^int yylineno = 1;$/;"	v
-yylval	yyparse.cpp	/^YYSTYPE yylval;$/;"	v
-yymore	yylex.cpp	647;"	d	file:
-yynerrs	yyparse.cpp	/^int yynerrs;$/;"	v
-yyout	yylex.cpp	/^FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;$/;"	v
-yypact	yyparse.cpp	/^static const yytype_int8 yypact[] =$/;"	v	file:
-yypact_value_is_default	yyparse.cpp	493;"	d	file:
-yyparse	yyparse.cpp	/^yyparse (void)$/;"	f
-yypgoto	yyparse.cpp	/^static const yytype_int8 yypgoto[] =$/;"	v	file:
-yypop_buffer_state	yylex.cpp	/^void yypop_buffer_state (void)$/;"	f
-yypush_buffer_state	yylex.cpp	/^void yypush_buffer_state (YY_BUFFER_STATE new_buffer )$/;"	f
-yyr1	yyparse.cpp	/^static const yytype_uint8 yyr1[] =$/;"	v	file:
-yyr2	yyparse.cpp	/^static const yytype_uint8 yyr2[] =$/;"	v	file:
-yyrealloc	yylex.cpp	/^void *yyrealloc  (void * ptr, yy_size_t  size )$/;"	f
-yyrestart	yylex.cpp	/^    void yyrestart  (FILE * input_file )$/;"	f
-yyrline	yyparse.cpp	/^static const yytype_uint8 yyrline[] =$/;"	v	file:
-yyset_debug	yylex.cpp	/^void yyset_debug (int  bdebug )$/;"	f
-yyset_in	yylex.cpp	/^void yyset_in (FILE *  in_str )$/;"	f
-yyset_lineno	yylex.cpp	/^void yyset_lineno (int  line_number )$/;"	f
-yyset_out	yylex.cpp	/^void yyset_out (FILE *  out_str )$/;"	f
-yyss_alloc	yyparse.cpp	/^  yytype_int16 yyss_alloc;$/;"	m	union:yyalloc	file:
-yystos	yyparse.cpp	/^static const yytype_uint8 yystos[] =$/;"	v	file:
-yystpcpy	yyparse.cpp	/^yystpcpy (char *yydest, const char *yysrc)$/;"	f	file:
-yystpcpy	yyparse.cpp	1059;"	d	file:
-yystrlen	yyparse.cpp	/^yystrlen (const char *yystr)$/;"	f	file:
-yystrlen	yyparse.cpp	1043;"	d	file:
-yysyntax_error	yyparse.cpp	/^yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,$/;"	f	file:
-yytable	yyparse.cpp	/^static const yytype_uint8 yytable[] =$/;"	v	file:
-yytable_value_is_error	yyparse.cpp	498;"	d	file:
-yyterminate	yylex.cpp	846;"	d	file:
-yytext	yylex.cpp	/^char *yytext;$/;"	v
-yytext_ptr	yylex.cpp	434;"	d	file:
-yytext_ptr	yylex.h	280;"	d
-yytname	yyparse.cpp	/^static const char *const yytname[] =$/;"	v	file:
-yytnamerr	yyparse.cpp	/^yytnamerr (char *yyres, const char *yystr)$/;"	f	file:
-yytokentype	yyparse.cpp	/^  enum yytokentype$/;"	g	file:
-yytokentype	yyparse.h	/^  enum yytokentype$/;"	g
-yytoknum	yyparse.cpp	/^static const yytype_uint16 yytoknum[] =$/;"	v	file:
-yytranslate	yyparse.cpp	/^static const yytype_uint8 yytranslate[] =$/;"	v	file:
-yytype_int16	yyparse.cpp	/^typedef YYTYPE_INT16 yytype_int16;$/;"	t	file:
-yytype_int16	yyparse.cpp	/^typedef short int yytype_int16;$/;"	t	file:
-yytype_int8	yyparse.cpp	/^typedef YYTYPE_INT8 yytype_int8;$/;"	t	file:
-yytype_int8	yyparse.cpp	/^typedef signed char yytype_int8;$/;"	t	file:
-yytype_uint16	yyparse.cpp	/^typedef YYTYPE_UINT16 yytype_uint16;$/;"	t	file:
-yytype_uint16	yyparse.cpp	/^typedef unsigned short int yytype_uint16;$/;"	t	file:
-yytype_uint8	yyparse.cpp	/^typedef YYTYPE_UINT8 yytype_uint8;$/;"	t	file:
-yytype_uint8	yyparse.cpp	/^typedef unsigned char yytype_uint8;$/;"	t	file:
-yyvs_alloc	yyparse.cpp	/^  YYSTYPE yyvs_alloc;$/;"	m	union:yyalloc	file:
-yywrap	yylex.cpp	418;"	d	file:
-yywrap	yylex.h	272;"	d
 ~astree	astree.cpp	/^astree::~astree() {$/;"	f	class:astree

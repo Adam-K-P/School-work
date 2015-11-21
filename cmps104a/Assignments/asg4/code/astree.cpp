@@ -9,6 +9,7 @@
 
 #include "astree.h"
 #include "stringset.h"
+#include "symbol_table.h"
 #include "utils.h"
 #include "yylex.h"
 
@@ -80,7 +81,7 @@ void astree::print (FILE* outfile, astree* tree, int depth) {
    fprintf (outfile, "%s \"%s\" (%zd.%zd.%zd) {%lu} %s\n",
             tname, tree->lexinfo->c_str(),
             tree->lloc.filenr, tree->lloc.linenr, tree->lloc.offset,
-            tree->blocknr, tree->attributes.to_string().c_str());
+            tree->blocknr, get_attributes(tree)); 
    for (astree* child: tree->children) 
       astree::print (outfile, child, depth + 1);
 }

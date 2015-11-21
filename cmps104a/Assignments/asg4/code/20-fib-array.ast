@@ -1,0 +1,127 @@
+ROOT "<<ROOT>>" (0.0.0) {0} 
+|  FUNCTION "" (17.2.56) {0} function 
+|  |  VOID "void" (17.2.1) {0} void 
+|  |  |  DECLID "__assert_fail" (17.2.6) {0} void 
+|  |  PARAM "(" (17.2.20) {0} param 
+|  |  |  STRING "string" (17.2.21) {0} string 
+|  |  |  |  DECLID "expr" (17.2.28) {0} string 
+|  |  |  |  STRING "string" (17.2.34) {0} string 
+|  |  |  |  |  DECLID "file" (17.2.41) {0} string 
+|  |  |  |  |  INT "int" (17.2.47) {0} int 
+|  |  |  |  |  |  DECLID "line" (17.2.51) {0} int 
+|  FUNCTION "" (17.3.19) {0} function 
+|  |  VOID "void" (17.3.1) {0} void 
+|  |  |  DECLID "putb" (17.3.6) {0} void 
+|  |  PARAM "(" (17.3.11) {0} param 
+|  |  |  BOOL "bool" (17.3.12) {0} bool 
+|  |  |  |  DECLID "b" (17.3.17) {0} bool 
+|  FUNCTION "" (17.4.19) {0} function 
+|  |  VOID "void" (17.4.1) {0} void 
+|  |  |  DECLID "putc" (17.4.6) {0} void 
+|  |  PARAM "(" (17.4.11) {0} param 
+|  |  |  CHAR "char" (17.4.12) {0} char 
+|  |  |  |  DECLID "c" (17.4.17) {0} char 
+|  FUNCTION "" (17.5.18) {0} function 
+|  |  VOID "void" (17.5.1) {0} void 
+|  |  |  DECLID "puti" (17.5.6) {0} void 
+|  |  PARAM "(" (17.5.11) {0} param 
+|  |  |  INT "int" (17.5.12) {0} int 
+|  |  |  |  DECLID "i" (17.5.16) {0} int 
+|  FUNCTION "" (17.6.21) {0} function 
+|  |  VOID "void" (17.6.1) {0} void 
+|  |  |  DECLID "puts" (17.6.6) {0} void 
+|  |  PARAM "(" (17.6.11) {0} param 
+|  |  |  STRING "string" (17.6.12) {0} string 
+|  |  |  |  DECLID "s" (17.6.19) {0} string 
+|  FUNCTION "" (17.7.13) {0} function 
+|  |  VOID "void" (17.7.1) {0} void 
+|  |  |  DECLID "endl" (17.7.6) {0} void 
+|  FUNCTION "" (17.8.12) {0} function 
+|  |  INT "int" (17.8.1) {0} int 
+|  |  |  DECLID "getc" (17.8.5) {0} int 
+|  FUNCTION "" (17.9.15) {0} function 
+|  |  STRING "string" (17.9.1) {0} string 
+|  |  |  DECLID "getw" (17.9.8) {0} string 
+|  FUNCTION "" (17.10.16) {0} function 
+|  |  STRING "string" (17.10.1) {0} string 
+|  |  |  DECLID "getln" (17.10.8) {0} string 
+|  FUNCTION "" (17.11.20) {0} function 
+|  |  STRING "string" (17.11.1) {0} string 
+|  |  |  DECLID "getargv" (17.11.10) {0} string 
+|  FUNCTION "" (17.12.23) {0} function 
+|  |  VOID "void" (17.12.1) {0} void 
+|  |  |  DECLID "exit" (17.12.6) {0} void 
+|  |  PARAM "(" (17.12.11) {0} param 
+|  |  |  INT "int" (17.12.12) {0} int 
+|  |  |  |  DECLID "status" (17.12.16) {0} int 
+|  VARDECL "=" (18.9.17) {0} 
+|  |  INT "int" (18.9.1) {0} int 
+|  |  |  DECLID "fibonacci" (18.9.7) {0} int 
+|  |  NEW "new" (18.9.19) {0} 
+|  |  |  INT "int" (18.9.23) {0} int 
+|  |  |  NUMBER "30" (18.9.27) {0} 
+|  '=' "=" (18.11.14) {0} 
+|  |  ARRAY "fibonacci" (18.11.1) {0} array 
+|  |  |  NUMBER "0" (18.11.11) {0} 
+|  |  NUMBER "0" (18.11.16) {0} 
+|  '=' "=" (18.12.14) {0} 
+|  |  ARRAY "fibonacci" (18.12.1) {0} array 
+|  |  |  NUMBER "1" (18.12.11) {0} 
+|  |  NUMBER "1" (18.12.16) {0} 
+|  VARDECL "=" (18.14.11) {0} 
+|  |  INT "int" (18.14.1) {0} int 
+|  |  |  DECLID "index" (18.14.5) {0} int 
+|  |  NUMBER "2" (18.14.13) {0} 
+|  WHILE "while" (18.15.1) {0} 
+|  |  '<' "<" (18.15.14) {0} 
+|  |  |  IDENT "index" (18.15.8) {0} 
+|  |  |  NUMBER "30" (18.15.16) {0} 
+|  |  BLOCK "{" (18.16.66) {0} 
+|  |  |  '=' "=" (18.16.21) {0} 
+|  |  |  |  ARRAY "fibonacci" (18.16.4) {0} array 
+|  |  |  |  |  IDENT "index" (18.16.14) {0} 
+|  |  |  |  '+' "+" (18.16.44) {0} 
+|  |  |  |  |  ARRAY "fibonacci" (18.16.23) {0} array 
+|  |  |  |  |  |  '-' "-" (18.16.39) {0} 
+|  |  |  |  |  |  |  IDENT "index" (18.16.33) {0} 
+|  |  |  |  |  |  |  NUMBER "1" (18.16.41) {0} 
+|  |  |  |  |  ARRAY "fibonacci" (18.16.46) {0} array 
+|  |  |  |  |  |  '-' "-" (18.16.62) {0} 
+|  |  |  |  |  |  |  IDENT "index" (18.16.56) {0} 
+|  |  |  |  |  |  |  NUMBER "2" (18.16.64) {0} 
+|  |  |  '=' "=" (18.17.10) {0} 
+|  |  |  |  IDENT "index" (18.17.4) {0} 
+|  |  |  |  '+' "+" (18.17.18) {0} 
+|  |  |  |  |  IDENT "index" (18.17.12) {0} 
+|  |  |  |  |  NUMBER "1" (18.17.20) {0} 
+|  '=' "=" (18.20.7) {0} 
+|  |  IDENT "index" (18.20.1) {0} 
+|  |  NUMBER "0" (18.20.9) {0} 
+|  CALL "(" (18.21.6) {0} 
+|  |  IDENT "puts" (18.21.1) {0} 
+|  |  STRING_LIT ""Numeri di figlio Bonacci\n"" (18.21.7) {0} 
+|  WHILE "while" (18.22.1) {0} 
+|  |  '<' "<" (18.22.14) {0} 
+|  |  |  IDENT "index" (18.22.8) {0} 
+|  |  |  NUMBER "30" (18.22.16) {0} 
+|  |  BLOCK "{" (18.23.23) {0} 
+|  |  |  CALL "(" (18.23.9) {0} 
+|  |  |  |  IDENT "puts" (18.23.4) {0} 
+|  |  |  |  STRING_LIT ""fibonacci["" (18.23.10) {0} 
+|  |  |  CALL "(" (18.24.9) {0} 
+|  |  |  |  IDENT "puti" (18.24.4) {0} 
+|  |  |  |  IDENT "index" (18.24.10) {0} 
+|  |  |  CALL "(" (18.25.9) {0} 
+|  |  |  |  IDENT "puts" (18.25.4) {0} 
+|  |  |  |  STRING_LIT "" = "" (18.25.10) {0} 
+|  |  |  CALL "(" (18.26.9) {0} 
+|  |  |  |  IDENT "puti" (18.26.4) {0} 
+|  |  |  |  ARRAY "fibonacci" (18.26.10) {0} array 
+|  |  |  |  |  IDENT "index" (18.26.20) {0} 
+|  |  |  CALL "(" (18.27.9) {0} 
+|  |  |  |  IDENT "endl" (18.27.4) {0} 
+|  |  |  '=' "=" (18.28.10) {0} 
+|  |  |  |  IDENT "index" (18.28.4) {0} 
+|  |  |  |  '+' "+" (18.28.18) {0} 
+|  |  |  |  |  IDENT "index" (18.28.12) {0} 
+|  |  |  |  |  NUMBER "1" (18.28.20) {0} 
