@@ -4,7 +4,7 @@
 .SIZE 12 14
 .TITLE CMPS-104A Fall\~2015 Project\~3 \
 "LALR(1) Parser using \f[CB]bison\f[P]"
-.RCS "$Id: asg3-parser.mm,v 1.8 2015-10-06 14:27:07-07 - - $"
+.RCS "$Id: asg3-parser.mm,v 1.9 2015-11-03 13:11:30-08 - - $"
 .PWD
 .URL
 .GETST* META_NOTATION Figure_META_NOTATION
@@ -326,8 +326,7 @@ substitute
 .LI
 In a variable or function declaration,
 substitute
-.V= TOK_DECLID .
-.SUBST_LIST TOK_DECLID
+.SUBST_LIST TOK_DECLID .
 A
 .V= TOK_DECLID
 and a

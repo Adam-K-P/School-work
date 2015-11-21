@@ -1,0 +1,191 @@
+CMPS-112 · Comparative Programming Languages · Winter 2008 · page 11of 3
+$Id: cmps112-2008q1-exam1.mm,v 8.75 2008-05-02 13:16:18-07 - - $
+
+.PS
+examboxes(3,30)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Do your scratch work elsewhere and
+enter only your final answer into the spaces provided.
+
+.EQ
+delim $$
+.EN
+
+ 1. For each programming language in the following table, enter the name
+    of one programmer associated with that language.  Choose from the
+    following list of names:  Aho, Backus, Byron, Dahl, Dijkstra,
+    Gosling, Hopper, Ichbiah, Iverson, Kernighan, Knuth, Lovelace,
+    Matsumoto, McCarthy, Milner, Nygaard, Ritchie, Stroustrup, Thompson,
+    van Rossum, Wall, Weinberger, Wirth, Zuze.  If there is more than
+    one programmer, choose any one who is applicable.  [2pt]
+
+    +-------------------------------+-------------------------------+
+    |Ada                            |C++                            |
+    +-------------------------------+-------------------------------+
+    |Cobol                          |Fortran                        |
+    +-------------------------------+-------------------------------+
+    |Java                           |Lisp                           |
+    +-------------------------------+-------------------------------+
+    |Pascal                         |Perl                           |
+    +-------------------------------+-------------------------------+
+
+ 2. Polymorphism:  [4pt]
+
+     (a) Name two kinds of ad hoc polymorphism and give an example of
+         each:
+
+     (b) Name two kinds of universal polymorphism and give an example of
+         each:
+
+ 3. Write a function in Perl which takes a filename as an argument and
+    returns a pointer to a hash as a result.  The keys of the hash are
+    the words found in the file The value associated with each key is a
+    pointer to an array containing the line numbers where the word
+    appears.  The variable $. is the current line number.  Use \w+
+    (lower w) as the pattern to recognize a word.  You can't just split
+    on white space, since punctuation must also be removed.  You may
+    split on \W+ (upper W), but be aware that in that case an empty
+    string might lead the array.  [4pt]
+
+    sub makexref ($) {
+       my ($filename) = @_;
+
+ 4. Using proper C++ style, write a complete program that will print the
+    numbers 1 to 100 to the standard output, one number per line.  [2pt]
+
+ 5. Write a Perl program which will iterate over its input using the
+    general readline operator <>, and for each line read:  print the
+    line to the standard output on a line by itself, then have the shell
+    execute the command, with the shell's output going to the standard
+    output.  The program continues until end of file on input, at which
+    point it prints the message SUCCESS.  But if any shell command
+    fails, your program stops immediately and prints the message
+    FAILURE.  [2pt]
+
+ 6. Write a program in Perl which will kill all processes that match the
+    pattern given by $ARGV[0].  The Perl statement @procs = `ps
+    -eopid,comm`;  will create an array each of whose elements contains
+    one set of process information.  Each element begins will white
+    space, is followed by a process id (number), followed by more white
+    space, followed by the program name.  For each program that is
+    matched by $ARGV[0] (a pattern), kill the process.  The shell
+    command kill -9 $pid will kill the process whose number is given by
+    the variable $pid.  Let the shell worry about all errors.  [2pt]
+
+ 7. Given an example which shows the difference between lexical and
+    dynamic scope.  [2pt]
+
+ 8. What is a static (access) link?  What is a dynamic (control) link?
+    [2pt]
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write `Z' if you don't want to risk a wrong
+answer.  Wrong answers are worth negative points.  [11pt]
+
++--------------------------+------+------+------------+
+|number of                 |      |× 1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× ½ = |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |× 0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   11 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ 1. Backus-Naur form is a notation used to define the __ of a language.
+    (A) lexical structure
+    (B) scope of variables
+    (C) semantics
+    (D) syntax
+
+ 2. A static variable in C or C++ is bound to a particular virtual
+    address at:
+    (A) compilation (translation) time.
+    (B) link (ld) time.
+    (C) load (exec) time.
+    (D) after main begins execution.
+
+ 3. Given the declarations shown here, C will determine if they are the
+    same or different by using __ equivalence.
+       typedef int (*t1) (int);
+       typedef int (*t2) (int);
+    (A) anonymous
+    (B) name
+    (C) structural
+    (D) value
+
+ 4. In C++, what kind of cast could be used to convert a double into an
+    int?
+    (A) const_cast
+    (B) dynamic_cast
+    (C) reinterpret_cast
+    (D) static_cast
+
+ 5. If two functions of the same name in the same class are declared,
+    but with different signatures (prototypes), this is referred to as:
+    (A) overhanging
+    (B) overlapping
+    (C) overloading
+    (D) overriding
+
+ 6. In Ocaml, the following interaction shows that the type of the
+    function f is known without explicit declaration.
+       # let f x = x + 1;;
+       val f : int -> int = <fun>
+    This is known as:
+    (A) dynamic typing
+    (B) type checking
+    (C) type equivalence
+    (D) type inference
+
+ 7. In C++, which member of class foo will be used in the following
+    statement, assuming x is of type foo?
+       foo t = x;
+    (A) foo ();
+    (B) foo (const foo&);
+    (C) foo &operator= (const foo &);
+    (D) ~foo ();
+
+ 8. Which is a C++ keyword that could cause a pointer to become
+    dangling?
+    (A) delete
+    (B) friend
+    (C) new
+    (D) virtual
+
+ 9. Given the declaration int **p;, what expression will cause a
+    compilation time error message?
+    (A) &(&p)
+    (B) &(*p)
+    (C) *(&p)
+    (D) *(*p)
+
+10. If we have a hash where each value is a pointer to an array, to
+    append a new value to an array, we could say:
+    (A) push %{$hash->{$key}}, $new;
+    (B) push %{@hash<-{$key}}, $new;
+    (C) push @@hash->[$key], $new;
+    (D) push @{$hash{$key}}, $new;
+
+11.
+linethick=2
+G:S"\f[CB]\s[+12]\v'3p'goto\v'-3p'\s[-12]\f[R]"
+C: circle rad .3 outline "red" at G
+line outline "red" from C.nw to C.se
+.PE
+
+    (A) DEK215
+    (B) DMR215
+    (C) EWD215
+    (D) GMH215
+
+____________________
+
+   Total:  31 *
+

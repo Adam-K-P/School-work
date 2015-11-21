@@ -27,6 +27,7 @@ struct astree {
    astree (int symbol, const location&, const char* lexinfo);
    ~astree();
    astree* adopt (astree* child1, astree* child2 = nullptr);
+   astree* change_sym (int symbol);
    astree* adopt_sym (astree* child, int symbol);
    void dump_node (FILE*, int);
    void dump_tree (FILE*, int depth = 0, int token = 0);

@@ -343,8 +343,10 @@ decompress := [ :infile :outfile|
          ifTrue: [ next := aTree left ]
         ifFalse: [ next := aTree right ].
       (next isMemberOf: Leaf) 
-         ifTrue: [ outfile << (Character value: (next char)).
-                   aTree := theTree ]
+         ifTrue: [ (next char) = 255 ifFalse: [
+                     outfile << (Character value: (next char)).
+                     aTree := theTree ]
+                 ]
          ifFalse: [ aTree := next ].
       bit := infile getBit.
    ].
@@ -407,7 +409,8 @@ do: [:argi |
                  ifFalse: [ outfile := FileStream 
                                open: (Smalltalk getArgv: 3)  
                                mode: FileStream write.
-                            performOptions value: option value: outfile.].
+                            performOptions value: option 
+                                           value: outfile.].
    ].
 
    '-d' = option ifTrue: [ d := true ].

@@ -1,5 +1,5 @@
 CMPS-104A · Fall 2015 · Project 3 · LALR(1) Parser using bison  1 of 1
-$Id: asg3-parser.mm,v 1.7 2015-04-16 17:58:32-07 - - $
+$Id: asg3-parser.mm,v 1.8 2015-10-06 14:27:07-07 - - $
 PWD: /afs/cats.ucsc.edu/courses/cmps104a-wm/Assignments
 URL: http://www2.ucsc.edu/courses/cmps104a-wm/:/Assignments/
 
@@ -152,10 +152,10 @@ This makes the symbol table and type checker easier to implement.
 
  (a) In a field declaration, substitute TOK_FIELD.
 
- (b) In a variable or function declaration, substitute TOK_DECLID.
-     TOK_DECLID A TOK_DECLID and a TOK_IDENT are exactly the same,
-     except that the first appears in a declaration and the second in
-     a variable or function reference.
+ (b) In a variable or function declaration, substitute TOK_DECLID.  A
+     TOK_DECLID and a TOK_IDENT are exactly the same, except that the
+     first appears in a declaration and the second in a variable or
+     function reference.
 
  (c) In a structure type declaration, or a use of a structure type in
      a variable declaration or function return type, substitute TOK_

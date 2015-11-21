@@ -47,7 +47,7 @@ REPORTS	Makefile	/^REPORTS   = ${LEXOUT} ${PARSEOUT}$/;"	m
 STUBPRINTF	auxlib.h	77;"	d
 TESTINS	Makefile	/^TESTINS   = ${wildcard test*.in}$/;"	m
 YYEOF	main.cpp	25;"	d	file:
-YYSTYPE	utils.h	42;"	d
+YYSTYPE	utils.h	43;"	d
 __ASTREE_H__	astree.h	4;"	d
 __AUXLIB_H__	auxlib.h	2;"	d
 __EMIT_H__	emitter.h	4;"	d
@@ -72,13 +72,20 @@ adopt	astree.cpp	/^astree* astree::adopt (astree* child1, astree* child2) {$/;"	
 adopt_sym	astree.cpp	/^astree* astree::adopt_sym (astree* child, int symbol_) {$/;"	f	class:astree
 advance	utils.cpp	/^void lexer::advance() {$/;"	f	class:lexer
 alldebugflags	auxlib.cpp	/^static bool alldebugflags = false;$/;"	v	file:
+alloc	parser.y	/^alloc   : TOK_KW_NEW TOK_IDENT '(' ')'$/;"	l
 astree	astree.cpp	/^astree::astree (int symbol_, const location& lloc_, const char* info) {$/;"	f	class:astree
 astree	astree.h	/^struct astree {$/;"	s
 badchar	utils.cpp	/^void lexer::badchar (unsigned char bad) {$/;"	f	class:lexer
 badtoken	utils.cpp	/^void lexer::badtoken (char* lexeme) {$/;"	f	class:lexer
+basetype	parser.y	/^basetype: TOK_KW_VOID           { $$ = $1; }$/;"	l
+block	parser.y	/^block   : '{' stmtseq '}'       { destroy ($1, $3); $/;"	l
+call	parser.y	/^call    : TOK_IDENT '(' ')'     { destroy ($3);$/;"	l
+change_sym	astree.cpp	/^astree* astree::change_sym (int symbol_) {$/;"	f	class:astree
 check_suffix	main.cpp	/^static string check_suffix (int argc, char** argv) {$/;"	f	file:
 children	astree.h	/^   vector<astree*> children; \/\/ children of this n-way node$/;"	m	struct:astree
 chomp	main.cpp	/^static void chomp (char* string, char delim) {$/;"	f	file:
+const	parser.y	/^const   : NUMBER                { $$ = $1; }$/;"	l
+cpp_flags	main.cpp	/^string cpp_flags = "";$/;"	v
 cpplines	main.cpp	/^static void cpplines (FILE* pipe, char* infile_name) {$/;"	f	file:
 debugflags	auxlib.cpp	/^static const char* debugflags = "";$/;"	v	file:
 destroy	astree.cpp	/^void destroy (astree* tree1, astree* tree2) {$/;"	f
@@ -106,22 +113,31 @@ execname	syslib.h	/^   static string execname;$/;"	m	struct:exec
 exit_status	syslib.cpp	/^int exec::exit_status = EXIT_SUCCESS;$/;"	m	class:exec	file:
 exit_status	syslib.h	/^   static int exit_status;$/;"	m	struct:exec
 exitstatus	auxlib.cpp	/^static int exitstatus = EXIT_SUCCESS;$/;"	v	file:
-expr	parser.y	/^expr    : expr '=' expr         { $$ = $2->adopt ($1, $3); }$/;"	l
+expr	parser.y	/^expr    : expr BOOL_EQ expr     { $$ = $2->adopt ($1, $3); }$/;"	l
+exprhlp	parser.y	/^exprhlp : ',' exprseq           { destroy ($1); $$ = $2; }$/;"	l
+exprseq	parser.y	/^exprseq : exprhlp               { $$ = $1; }$/;"	l
+fieldec	parser.y	/^fieldec : basetype TOK_IDENT ';'$/;"	l
+fieldsq	parser.y	/^fieldsq : fieldsq fieldec       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
 filename	utils.cpp	/^const string* lexer::filename (int filenr) {$/;"	f	class:lexer
 filenames	utils.cpp	/^vector<string> lexer::filenames;$/;"	m	class:lexer	file:
 filenames	utils.h	/^   static vector<string> filenames;$/;"	m	struct:lexer
 filenr	astree.h	/^   size_t filenr;$/;"	m	struct:location
+flags	main.cpp	/^bool flags = false;$/;"	v
+fnction	parser.y	/^fnction : identdc '(' identsq ')' block     $/;"	l
 generate_set	main.cpp	/^static void generate_set (char* infile_name, string& base_out_name) {$/;"	f	file:
 get_execname	auxlib.cpp	/^const char* get_execname (void) {$/;"	f
 get_exitstatus	auxlib.cpp	/^int get_exitstatus (void) {$/;"	f
+identdc	parser.y	/^identdc : basetype '[' ']' TOK_IDENT   $/;"	l
+identsq	parser.y	/^identsq : isqhelp               { $$ = $1; }$/;"	l
+ifelse	parser.y	/^ifelse  : TOK_KW_IF '(' expr ')' statmnt TOK_KW_ELSE statmnt$/;"	l
 include	utils.cpp	/^void lexer::include() {$/;"	f	class:lexer
 insert_set	main.cpp	/^static void insert_set (char* infile_name) {$/;"	f	file:
-interactive	utils.cpp	/^bool lexer::interactive = true;$/;"	m	class:lexer	file:
 interactive	utils.h	/^   static bool interactive;$/;"	m	struct:lexer
 intern_stringset	stringset.cpp	/^const string* intern_stringset (const char* insert) {$/;"	f
 is_debugflag	auxlib.cpp	/^bool is_debugflag (char flag) {$/;"	f
 isfalse	oc-programs/oclib.c	/^int isfalse (int byte)   { return 0 & byte; } $/;"	f
 isnl	oc-programs/oclib.c	/^int isnl (int byte)      { return byte == '\\n'; }$/;"	f
+isqhelp	parser.y	/^isqhelp : ',' identsq           { destroy ($1); $$ = $2; }$/;"	l
 last_yyleng	utils.cpp	/^size_t lexer::last_yyleng = 0;$/;"	m	class:lexer	file:
 last_yyleng	utils.h	/^   static size_t last_yyleng;$/;"	m	struct:lexer
 lexer	utils.h	/^struct lexer {$/;"	s
@@ -146,7 +162,8 @@ postorder_emit_oper	emitter.cpp	/^void postorder_emit_oper (astree* tree, const 
 postorder_emit_semi	emitter.cpp	/^void postorder_emit_semi (astree* tree) {$/;"	f
 postorder_emit_stmts	emitter.cpp	/^void postorder_emit_stmts (astree* tree) {$/;"	f
 print	astree.cpp	/^void astree::print (FILE* outfile, astree* tree, int depth) {$/;"	f	class:astree
-program	parser.y	/^program : stmtseq               { $$ = $1 = nullptr; }$/;"	l
+program	parser.y	/^program : program structd       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
+return	parser.y	/^return  : TOK_KW_RETURN ';'     { destroy ($2); $/;"	l
 root	utils.cpp	/^astree* parser::root = nullptr;$/;"	m	class:parser	file:
 root	utils.h	/^   static astree* root;$/;"	m	struct:parser
 scan	oc-programs/oclib.c	/^char* scan (int (*skipover) (int), int (*stopat) (int)) {$/;"	f
@@ -155,11 +172,17 @@ set_debugflags	auxlib.cpp	/^void set_debugflags (const char* flags) {$/;"	f
 set_execname	auxlib.cpp	/^void set_execname (char* argv0) {$/;"	f
 set_exitstatus	auxlib.cpp	/^void set_exitstatus (int newexitstatus) {$/;"	f
 set_status	syslib.cpp	/^void exec::set_status (int status) {$/;"	f	class:exec
-stmtseq	parser.y	/^stmtseq : stmtseq expr ';'      { destroy ($3); $$ = $1->adopt ($2); }$/;"	l
+start	parser.y	/^start   : program               { $$ = parser::root = $1; $/;"	l
+statmnt	parser.y	/^statmnt : expr ';'              { destroy ($2); $$ = $1; }$/;"	l
+stmtseq	parser.y	/^stmtseq : stmtseq statmnt       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
+structd	parser.y	/^structd : TOK_KW_STRUCT TOK_IDENT '{' fieldsq '}'$/;"	l
 symbol	astree.h	/^   int symbol;               \/\/ token code$/;"	m	struct:astree
 syserrprintf	auxlib.cpp	/^void syserrprintf (const char* object) {$/;"	f
 syserrprintf	syslib.cpp	/^void syserrprintf (const char* object) {$/;"	f
+vardecl	parser.y	/^vardecl : identdc '=' expr ';'  { destroy ($4); $/;"	l
+variabl	parser.y	/^variabl : TOK_IDENT             { $$ = $1; }$/;"	l
 veprintf	auxlib.cpp	/^void veprintf (const char* format, va_list args) {$/;"	f
+while	parser.y	/^while   : TOK_KW_WHILE '(' expr ')' statmnt$/;"	l
 xcalloc	oc-programs/oclib.c	/^void* xcalloc (int nelem, int size) {$/;"	f
 yy_debug	main.cpp	/^bool yy_debug = false;$/;"	v
 yyerror	utils.cpp	/^void yyerror (const char* message) {$/;"	f

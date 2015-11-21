@@ -1,9 +1,14 @@
-head	1.73;
+head	1.74;
 access;
 symbols;
 locks;
 comment	@.\" @;
 
+
+1.74
+date	2015.11.06.23.06.11;	author -;	state -;
+branches;
+next	1.73;
 
 1.73
 date	2015.05.13.21.32.08;	author -;	state -;
@@ -375,7 +380,7 @@ desc
 @@
 
 
-1.73
+1.74
 log
 @-
 @
@@ -389,8 +394,8 @@ text
 .GETST* SYM_EXAMPLE Figure_SYM_EXAMPLE
 .GETST* SYM_TABLE Figure_SYM_TABLE
 .GETST* ATTRS_C_SETS Figure_ATTRS_C_SETS
-.TITLE CMPS-104A Fall\~2014 Project\~4 "Symbols and Type Checking"
-.RCS "$Id: asg4-symbols-types.mm,v 1.72 2015-05-05 16:59:06-07 - - $"
+.TITLE CMPS-104A Fall\~2015 Project\~4 "Symbols and Type Checking"
+.RCS "$Id: asg4-symbols-types.mm,v 1.73 2015-05-13 14:32:08-07 - - $"
 .PWD
 .URL
 .nr Margin_Pi \n[Pi]/2
@@ -1277,6 +1282,18 @@ Print an empty line in front of each global definition and
 between the parameter list and local variables.
 .LE
 .FINISH
+@
+
+
+1.73
+log
+@-
+@
+text
+@d10 2
+a11 2
+.TITLE CMPS-104A Fall\~2014 Project\~4 "Symbols and Type Checking"
+.RCS "$Id: asg4-symbols-types.mm,v 1.72 2015-05-05 16:59:06-07 - - $"
 @
 
 

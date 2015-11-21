@@ -24,6 +24,9 @@ using namespace std;
 
 #define YYEOF 0
 
+FILE* astfile;
+bool flags = false;
+string cpp_flags = "";
 const string CPP = "/usr/bin/cpp";
 const size_t LINESIZE = 1024;
 bool yy_debug = false;
@@ -72,12 +75,11 @@ static void perform_op (int argc, char **argv) {
             break;
 
          case 'y':
-            printf("read in y\n");
+            yydebug = 1;
             break;
 
-         case '@': case 'D':
-            printf("read in %s\n", optarg);
-            break;
+         case '@': break;
+         case 'D': cpp_flags = optarg; flags = true; break;
 
          case '?':
             if (optopt == '@' || optopt == 'D')
@@ -88,7 +90,7 @@ static void perform_op (int argc, char **argv) {
             abort();
 
          default:
-            cerr << "oops, default in switch" << endl;
+            cerr << "error parsing options" << endl;
             abort();
       }
    }
@@ -114,7 +116,8 @@ static string check_suffix (int argc, char** argv) {
 }
 
 static void insert_set (char* infile_name) {
-   string command = CPP + " " + infile_name;
+   string command = CPP + " " + (flags ? ("-D" + cpp_flags + " ") : "") 
+                              + infile_name;
    FILE* pipe = popen(command.c_str(), "r");
    if (pipe == NULL) {
       cerr << "Could not perform: " << command << endl;
@@ -171,16 +174,13 @@ int main (int argc, char** argv) {
    string base_out_name = check_suffix(argc, argv);
    generate_set(infile_name, base_out_name);
    string outfile_name = base_out_name + ".tok";
+   string astfile_name = base_out_name + ".ast";
+   astfile = fopen (astfile_name.c_str(), "w");
    scan_file(infile_name, outfile_name);
    pclose(yyin);
    open_yyin(infile_name);
    int parse_rc = yyparse();
-   parser::root->dump_tree(stdout);
+   if (parse_rc) fprintf (stderr, "parse failed (%d)\n", parse_rc);
    yylex_destroy();
-   if (parse_rc) {
-      errprintf("parse failed (%d)\n", parse_rc);
-      delete parser::root;
-   }
-   //pclose(yyin);
    return EXIT_SUCCESS;
 }
