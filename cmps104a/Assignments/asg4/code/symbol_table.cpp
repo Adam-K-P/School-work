@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <cstdlib>
 
 #include "astree.h"
 #include "utils.h"
@@ -14,6 +15,9 @@
 using namespace std;
 
 vector<symbol_table*> symbol_stack;
+symbol_table type_table;
+symbol_table field_table;
+
 size_t blocknr = 0;
 
 const char* get_attributes (astree* node) {
@@ -41,7 +45,15 @@ const char* get_attributes (astree* node) {
    return out.c_str();
 }
 
+void set_params (astree* node) {
+   for (size_t i = 0; i < node->children.size(); ++i) 
+      set_params (node->children.at(i));
+   if (node->symbol == DECLID) 
+      node->attributes[ATTR_param] = true;
+}
+
 void add_attributes (astree *node) {
+
    switch (node->symbol) {
 
       case TOK_KW_VOID:
@@ -76,10 +88,8 @@ void add_attributes (astree *node) {
 
       case TOK_KW_STRUCT:
          node->attributes[ATTR_struct] = true;
-         if (node->children.size() > 0) {
+         if (node->children.size() > 0) 
             node->children.at(0)->attributes[ATTR_struct] = true;
-            node->children.at(0)->attributes[ATTR_typeid] = true;
-         }
          break;
 
       case FIELD:
@@ -100,6 +110,7 @@ void add_attributes (astree *node) {
 
       case TOK_PARAM:
          node->attributes[ATTR_param] = true;
+         set_params (node);
          break;
 
       case NUMBER:
@@ -116,7 +127,42 @@ void add_attributes (astree *node) {
          node->attributes[ATTR_string] = true;
          node->attributes[ATTR_const]  = true;
          break;
+
+      case TYPEID: //remove in variable of new
+         node->attributes[ATTR_typeid] = true;
+         break;
+
+      case TOK_IDENT: //remove in call
+         /* retrieve symbol from table */
+         break;
    }
+}
+
+void emplace_type (string str_type, int attr) {
+   symbol this_symbol;
+   attr_bitset attributes;
+   attributes[attr] = true;
+   this_symbol.attributes = attributes;
+   type_table.emplace (&str_type, &this_symbol);
+}
+
+void fill_type_table () {
+
+   string str_void = "void";
+   emplace_type (str_void, ATTR_void);
+   
+   string str_int = "int";
+   emplace_type (str_int, ATTR_int);
+
+   string str_char = "char";
+   emplace_type (str_char, ATTR_char);
+
+   string str_string = "string";
+   emplace_type (str_string, ATTR_string);
+
+   string str_bool = "bool";
+   emplace_type (str_bool, ATTR_bool);
+
 }
 
 void set_attributes (astree* node) {
@@ -124,5 +170,10 @@ void set_attributes (astree* node) {
    for (auto i = children.begin(); i != children.end(); ++i) 
       set_attributes (*i);
    add_attributes (node);
+}
+
+void maintain_symbol_table (astree* node) {
+   set_attributes (node);
+   fill_type_table();
 }
    

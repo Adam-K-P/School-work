@@ -1,0 +1,125 @@
+In file included from /usr/include/c++/4.8/bits/hashtable.h:35:0,
+                 from /usr/include/c++/4.8/unordered_map:47,
+                 from symbol_table.cpp:7:
+/usr/include/c++/4.8/bits/hashtable_policy.h: In instantiation of ‘std::__detail::_Hash_node<_Value, false>::_Hash_node(_Args&& ...) [with _Args = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >&, symbol*}; _Value = std::pair<std::basic_string<char>* const, symbol*>]’:
+/usr/include/c++/4.8/ext/new_allocator.h:120:4:   required from ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::__detail::_Hash_node<std::pair<std::basic_string<char>* const, symbol*>, false>; _Args = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >&, symbol*}; _Tp = std::__detail::_Hash_node<std::pair<std::basic_string<char>* const, symbol*>, false>]’
+/usr/include/c++/4.8/bits/hashtable.h:727:6:   required from ‘std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::__node_type* std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::_M_allocate_node(_Args&& ...) [with _Args = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >&, symbol*}; _Key = std::basic_string<char>*; _Value = std::pair<std::basic_string<char>* const, symbol*>; _Alloc = std::allocator<std::pair<std::basic_string<char>* const, symbol*> >; _ExtractKey = std::__detail::_Select1st; _Equal = std::equal_to<std::basic_string<char>*>; _H1 = std::hash<std::basic_string<char>*>; _H2 = std::__detail::_Mod_range_hashing; _Hash = std::__detail::_Default_ranged_hash; _RehashPolicy = std::__detail::_Prime_rehash_policy; _Traits = std::__detail::_Hashtable_traits<false, false, true>; std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::__node_type = std::__detail::_Hash_node<std::pair<std::basic_string<char>* const, symbol*>, false>]’
+/usr/include/c++/4.8/bits/hashtable.h:1260:71:   required from ‘std::pair<typename std::__detail::_Hashtable_base<_Key, _Value, _ExtractKey, _Equal, _H1, _H2, _Hash, _Traits>::iterator, bool> std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::_M_emplace(std::true_type, _Args&& ...) [with _Args = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >&, symbol*}; _Key = std::basic_string<char>*; _Value = std::pair<std::basic_string<char>* const, symbol*>; _Alloc = std::allocator<std::pair<std::basic_string<char>* const, symbol*> >; _ExtractKey = std::__detail::_Select1st; _Equal = std::equal_to<std::basic_string<char>*>; _H1 = std::hash<std::basic_string<char>*>; _H2 = std::__detail::_Mod_range_hashing; _Hash = std::__detail::_Default_ranged_hash; _RehashPolicy = std::__detail::_Prime_rehash_policy; _Traits = std::__detail::_Hashtable_traits<false, false, true>; typename std::__detail::_Hashtable_base<_Key, _Value, _ExtractKey, _Equal, _H1, _H2, _Hash, _Traits>::iterator = std::__detail::_Node_iterator<std::pair<std::basic_string<char>* const, symbol*>, false, false>; std::true_type = std::integral_constant<bool, true>]’
+/usr/include/c++/4.8/bits/hashtable.h:665:69:   required from ‘std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::__ireturn_type std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::emplace(_Args&& ...) [with _Args = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >&, symbol*}; _Key = std::basic_string<char>*; _Value = std::pair<std::basic_string<char>* const, symbol*>; _Alloc = std::allocator<std::pair<std::basic_string<char>* const, symbol*> >; _ExtractKey = std::__detail::_Select1st; _Equal = std::equal_to<std::basic_string<char>*>; _H1 = std::hash<std::basic_string<char>*>; _H2 = std::__detail::_Mod_range_hashing; _Hash = std::__detail::_Default_ranged_hash; _RehashPolicy = std::__detail::_Prime_rehash_policy; _Traits = std::__detail::_Hashtable_traits<false, false, true>; std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::__ireturn_type = std::pair<std::__detail::_Node_iterator<std::pair<std::basic_string<char>* const, symbol*>, false, false>, bool>]’
+/usr/include/c++/4.8/bits/unordered_map.h:311:54:   required from ‘std::pair<typename std::_Hashtable<_Key, std::pair<const _Key, _Tp>, _Alloc, std::__detail::_Select1st, _Pred, _Hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<std::__not_<std::__and_<std::__is_fast_hash<_Hash>, std::is_default_constructible<_Hash>, std::is_copy_assignable<_Hash>, std::__detail::__is_noexcept_hash<_Key, _Hash> > >::value, false, true> >::iterator, bool> std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::emplace(_Args&& ...) [with _Args = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >&, symbol*}; _Key = std::basic_string<char>*; _Tp = symbol*; _Hash = std::hash<std::basic_string<char>*>; _Pred = std::equal_to<std::basic_string<char>*>; _Alloc = std::allocator<std::pair<std::basic_string<char>* const, symbol*> >; typename std::_Hashtable<_Key, std::pair<const _Key, _Tp>, _Alloc, std::__detail::_Select1st, _Pred, _Hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<std::__not_<std::__and_<std::__is_fast_hash<_Hash>, std::is_default_constructible<_Hash>, std::is_copy_assignable<_Hash>, std::__detail::__is_noexcept_hash<_Key, _Hash> > >::value, false, true> >::iterator = std::__detail::_Node_iterator<std::pair<std::basic_string<char>* const, symbol*>, false, false>]’
+symbol_table.cpp:147:46:   required from here
+/usr/include/c++/4.8/bits/hashtable_policy.h:195:39: error: no matching function for call to ‘std::pair<std::basic_string<char>* const, symbol*>::pair(std::basic_string<char>&, symbol*)’
+  : _M_v(std::forward<_Args>(__args)...) { }
+                                       ^
+/usr/include/c++/4.8/bits/hashtable_policy.h:195:39: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from /usr/include/c++/4.8/bitset:47,
+                 from symbol_table.cpp:4:
+/usr/include/c++/4.8/bits/stl_pair.h:206:9: note: template<class ... _Args1, long unsigned int ..._Indexes1, class ... _Args2, long unsigned int ..._Indexes2> std::pair<_T1, _T2>::pair(std::tuple<_Args1 ...>&, std::tuple<_Args2 ...>&, std::_Index_tuple<_Indexes1 ...>, std::_Index_tuple<_Indexes2 ...>)
+         pair(tuple<_Args1...>&, tuple<_Args2...>&,
+         ^
+/usr/include/c++/4.8/bits/stl_pair.h:206:9: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/hashtable.h:35:0,
+                 from /usr/include/c++/4.8/unordered_map:47,
+                 from symbol_table.cpp:7:
+/usr/include/c++/4.8/bits/hashtable_policy.h:195:39: note:   ‘std::basic_string<char>’ is not derived from ‘std::tuple<_Elements ...>’
+  : _M_v(std::forward<_Args>(__args)...) { }
+                                       ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from /usr/include/c++/4.8/bitset:47,
+                 from symbol_table.cpp:4:
+/usr/include/c++/4.8/bits/stl_pair.h:155:9: note: template<class ... _Args1, class ... _Args2> std::pair<_T1, _T2>::pair(std::piecewise_construct_t, std::tuple<_Args1 ...>, std::tuple<_Args2 ...>)
+         pair(piecewise_construct_t, tuple<_Args1...>, tuple<_Args2...>);
+         ^
+/usr/include/c++/4.8/bits/stl_pair.h:155:9: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/hashtable.h:35:0,
+                 from /usr/include/c++/4.8/unordered_map:47,
+                 from symbol_table.cpp:7:
+/usr/include/c++/4.8/bits/hashtable_policy.h:195:39: note:   cannot convert ‘std::forward<std::basic_string<char>&>((* & __args#0))’ (type ‘std::basic_string<char>’) to type ‘std::piecewise_construct_t’
+  : _M_v(std::forward<_Args>(__args)...) { }
+                                       ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from /usr/include/c++/4.8/bitset:47,
+                 from symbol_table.cpp:4:
+/usr/include/c++/4.8/bits/stl_pair.h:150:12: note: template<class _U1, class _U2, class> constexpr std::pair<_T1, _T2>::pair(std::pair<_U1, _U2>&&)
+  constexpr pair(pair<_U1, _U2>&& __p)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:150:12: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/hashtable.h:35:0,
+                 from /usr/include/c++/4.8/unordered_map:47,
+                 from symbol_table.cpp:7:
+/usr/include/c++/4.8/bits/hashtable_policy.h:195:39: note:   ‘std::basic_string<char>’ is not derived from ‘std::pair<_T1, _T2>’
+  : _M_v(std::forward<_Args>(__args)...) { }
+                                       ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from /usr/include/c++/4.8/bitset:47,
+                 from symbol_table.cpp:4:
+/usr/include/c++/4.8/bits/stl_pair.h:144:12: note: template<class _U1, class _U2, class> constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&)
+  constexpr pair(_U1&& __x, _U2&& __y)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:144:12: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/stl_pair.h:141:38: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+       template<class _U1, class _U2, class = typename
+                                      ^
+/usr/include/c++/4.8/bits/stl_pair.h:138:12: note: template<class _U2, class> constexpr std::pair<_T1, _T2>::pair(const _T1&, _U2&&)
+  constexpr pair(const _T1& __x, _U2&& __y)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:138:12: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/hashtable.h:35:0,
+                 from /usr/include/c++/4.8/unordered_map:47,
+                 from symbol_table.cpp:7:
+/usr/include/c++/4.8/bits/hashtable_policy.h:195:39: note:   cannot convert ‘std::forward<std::basic_string<char>&>((* & __args#0))’ (type ‘std::basic_string<char>’) to type ‘std::basic_string<char>* const&’
+  : _M_v(std::forward<_Args>(__args)...) { }
+                                       ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from /usr/include/c++/4.8/bitset:47,
+                 from symbol_table.cpp:4:
+/usr/include/c++/4.8/bits/stl_pair.h:133:12: note: template<class _U1, class> constexpr std::pair<_T1, _T2>::pair(_U1&&, const _T2&)
+  constexpr pair(_U1&& __x, const _T2& __y)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:133:12: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/stl_pair.h:131:27: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+       template<class _U1, class = typename
+                           ^
+/usr/include/c++/4.8/bits/stl_pair.h:128:17: note: constexpr std::pair<_T1, _T2>::pair(std::pair<_T1, _T2>&&) [with _T1 = std::basic_string<char>* const; _T2 = symbol*]
+       constexpr pair(pair&&) = default;
+                 ^
+/usr/include/c++/4.8/bits/stl_pair.h:128:17: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.8/bits/stl_pair.h:127:17: note: constexpr std::pair<_T1, _T2>::pair(const std::pair<_T1, _T2>&) [with _T1 = std::basic_string<char>* const; _T2 = symbol*]
+       constexpr pair(const pair&) = default;
+                 ^
+/usr/include/c++/4.8/bits/stl_pair.h:127:17: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.8/bits/stl_pair.h:124:12: note: template<class _U1, class _U2, class> constexpr std::pair<_T1, _T2>::pair(const std::pair<_U1, _U2>&)
+  constexpr pair(const pair<_U1, _U2>& __p)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:124:12: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/hashtable.h:35:0,
+                 from /usr/include/c++/4.8/unordered_map:47,
+                 from symbol_table.cpp:7:
+/usr/include/c++/4.8/bits/hashtable_policy.h:195:39: note:   ‘std::basic_string<char>’ is not derived from ‘const std::pair<_T1, _T2>’
+  : _M_v(std::forward<_Args>(__args)...) { }
+                                       ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from /usr/include/c++/4.8/bitset:47,
+                 from symbol_table.cpp:4:
+/usr/include/c++/4.8/bits/stl_pair.h:112:26: note: constexpr std::pair<_T1, _T2>::pair(const _T1&, const _T2&) [with _T1 = std::basic_string<char>* const; _T2 = symbol*]
+       _GLIBCXX_CONSTEXPR pair(const _T1& __a, const _T2& __b)
+                          ^
+/usr/include/c++/4.8/bits/stl_pair.h:112:26: note:   no known conversion for argument 1 from ‘std::basic_string<char>’ to ‘std::basic_string<char>* const&’
+/usr/include/c++/4.8/bits/stl_pair.h:108:26: note: constexpr std::pair<_T1, _T2>::pair() [with _T1 = std::basic_string<char>* const; _T2 = symbol*]
+       _GLIBCXX_CONSTEXPR pair()
+                          ^
+/usr/include/c++/4.8/bits/stl_pair.h:108:26: note:   candidate expects 0 arguments, 2 provided
+make: *** [symbol_table.o] Error 1
