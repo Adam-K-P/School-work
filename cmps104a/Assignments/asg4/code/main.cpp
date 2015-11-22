@@ -181,7 +181,7 @@ int main (int argc, char** argv) {
    pclose(yyin);
    open_yyin(infile_name);
    int parse_rc = yyparse();
-   set_attributes (parser::root);
+   maintain_symbol_tables (parser::root);
    astree::print (astfile, parser::root);
    if (parse_rc) fprintf (stderr, "parse failed (%d)\n", parse_rc);
    yylex_destroy();

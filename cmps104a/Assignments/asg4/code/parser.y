@@ -190,7 +190,8 @@ return  : TOK_KW_RETURN ';'     { destroy ($2);
 
 alloc   : TOK_KW_NEW TOK_IDENT '(' ')'
                                 { destroy ($3, $4);
-                                  $$ = $1->adopt_sym ($2, TYPEID); 
+                                  $2->change_sym (TYPEID);
+                                  $$ = $1->adopt($2);
                                 }
         | TOK_KW_NEW TOK_KW_STRING '(' expr ')'
                                 { destroy ($3, $5);

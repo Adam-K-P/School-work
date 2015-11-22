@@ -34,9 +34,7 @@ struct symbol {
    vector<symbol*>* parameters;
 };
 
-void create_tables (astree*);
+void maintain_symbol_tables (astree*);
 const char* get_attributes (astree*);
-void set_attributes (astree*);
-void add_attributes (astree*);
 
 #endif
