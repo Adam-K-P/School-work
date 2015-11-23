@@ -52,7 +52,7 @@ void set_params (astree* node) {
       node->attributes[ATTR_param] = true;
 }
 
-void insert_function (astree* node) {
+void insert_var_fn (astree* node) {
    if (symbol_stack.back() == nullptr) {
       symbol_stack.pop_back();
       symbol_table* var_fn_table = new symbol_table ();
@@ -60,7 +60,7 @@ void insert_function (astree* node) {
    }
    symbol* this_symbol = new symbol ();
    this_symbol->attributes = node->attributes;
-   this_symbol->blocknr = 0;
+   this_symbol->blocknr = node->blocknr;
    this_symbol->filenr = node->lloc.filenr;
    this_symbol->linenr = node->lloc.linenr;
    this_symbol->offset = node->lloc.offset;
@@ -71,6 +71,7 @@ void insert_function (astree* node) {
 }
 
 void traversal (astree *node) {
+   node->blocknr = blocknr;
 
    switch (node->symbol) {
 
@@ -116,9 +117,16 @@ void traversal (astree *node) {
 
       case TOK_FUNCTION:
          node->attributes[ATTR_function] = true;
+
          node->children.at(0)->children.at(0)
              ->attributes[ATTR_function] = true;
-         insert_function (node->children.at(0)->children.at(0));
+
+         node->children.at(0)->children.at(0)
+             ->attributes[ATTR_variable] = false;
+
+         node->children.at(0)->children.at(0)
+             ->attributes[ATTR_lval] = false;
+
          break;
 
       case TOK_KW_NULL:
@@ -153,18 +161,32 @@ void traversal (astree *node) {
          node->attributes[ATTR_typeid] = true;
          break;
 
-      case DECLID: //make sure not function
+      case DECLID: 
+         node->attributes[ATTR_variable] = true;
+         node->attributes[ATTR_lval]     = true;
+         break;
 
       case TOK_IDENT: //remove in call
          break;
 
-      case TOK_KW_IF:
+      case TOK_KW_IF: //needs type-checking
+         ++blocknr;
+         for (auto it = node->children.begin(); 
+                   it != node->children.end(); ++it) 
+            perform_traversal (*it);
+         --blocknr;
          break;
 
       case TOK_KW_ELSE:
+         --(node->blocknr);
          break;
 
-      case TOK_KW_WHILE:
+      case TOK_KW_WHILE: //needs type-checking
+         ++blocknr;
+         for (auto it = node->children.begin();
+                   it != node->children.end(); ++it)
+            perform_traversal (*it);
+         --blocknr;
          break;
 
       case TOK_KW_RETURN:
@@ -190,15 +212,19 @@ void traversal (astree *node) {
          break;
 
       case BOOL_EQ:
+         node->attributes[ATTR_bool] = true;
          break;
 
       case BOOL_LESS_EQ:
+         node->attributes[ATTR_bool] = true;
          break;
 
       case BOOL_GRT_EQ:
+         node->attributes[ATTR_bool] = true;
          break;
 
       case BOOL_NOT_EQ:
+         node->attributes[ATTR_bool] = true;
          break;
 
       case TOK_RETURNVOID:
@@ -220,6 +246,21 @@ void traversal (astree *node) {
          break;
 
       case TOK_BLOCK:
+         ++blocknr;
+         perform_traversal (node);
+         --blocknr;
+         break;
+   }
+}
+
+
+
+void second_traversal (astree* node) {
+
+   switch (node->symbol) {
+
+      case DECLID:
+         insert_var_fn (node);
          break;
    }
 }
@@ -264,10 +305,18 @@ void perform_traversal (astree* node) {
    traversal (node);
 }
 
+void perform_scnd_trav (astree* node) {
+   vector<astree*> children = node->children;
+   for (auto i = children.begin(); i != children.end(); ++i)
+      perform_scnd_trav (*i);
+   second_traversal (node);
+}
+
 void maintain_symbol_tables (astree* node) {
    symbol_stack.push_back(nullptr);
    fill_type_table();
    perform_traversal (node);
+   perform_scnd_trav (node);
 
    symbol_table* fcn_var_table = symbol_stack.back();
    for (auto it = fcn_var_table->begin(); it != fcn_var_table->end(); ++it) {
