@@ -109,6 +109,7 @@ void traversal (astree *node) {
          node->attributes[ATTR_struct] = true;
          if (node->children.size() > 0) 
             node->children.at(0)->attributes[ATTR_struct] = true;
+         emplace_new_type (node);
          break;
 
       case FIELD:
@@ -247,13 +248,13 @@ void traversal (astree *node) {
 
       case TOK_BLOCK:
          ++blocknr;
-         perform_traversal (node);
+         for (auto it = node->children.begin(); 
+                   it != node->children.end(); ++it)
+            perform_traversal (*it);
          --blocknr;
          break;
    }
 }
-
-
 
 void second_traversal (astree* node) {
 
@@ -263,6 +264,43 @@ void second_traversal (astree* node) {
          insert_var_fn (node);
          break;
    }
+}
+
+symbol* node_symbol (astree* node) {
+   symbol* this_node = new symbol();
+   this_node->attributes = node->attributes;
+   this_node->filenr     = node->lloc.filenr;
+   this_node->linenr     = node->lloc.linenr;
+   this_node->offset     = node->lloc.offset;
+   this_node->blocknr    = node->blocknr;
+   return this_node;
+}
+
+void add_type (astree* node) {
+   symbol* this_symbol = node_symbol (node);
+   string* this_str = new string();
+   *this_str = *(node->lexinfo);
+   type_table.emplace (this_str, this_symbol);
+}
+
+void add_field (astree* node, symbol_table* field_table) {
+   symbol* this_symbol = node_symbol (node);
+   string* this_str = new string();
+   *this_str = *(node->lexinfo);
+   field_table->emplace (this_str, this_symbol);
+}
+
+void add_fields (astree* node, symbol_table* field_table) {
+   for (auto it = node->children.begin(); it != node->children.end(); 
+           ++it) 
+      add_fields (*it, field_table);
+   if (node->symbol == TYPEID) add_type (node);
+   if (node->symbol == FIELD) add_field (node, field_table);
+}
+
+void emplace_new_type (astree* node) {
+   symbol_table* field_table = new symbol_table();
+   add_fields (node, field_table);
 }
 
 //emplaces a type to type_table
@@ -318,9 +356,11 @@ void maintain_symbol_tables (astree* node) {
    perform_traversal (node);
    perform_scnd_trav (node);
 
-   symbol_table* fcn_var_table = symbol_stack.back();
+   for (auto it = type_table.begin(); it != type_table.end(); ++it) 
+      cout << *((*it).first) << endl;
+   /*symbol_table* fcn_var_table = symbol_stack.back(); 
    for (auto it = fcn_var_table->begin(); it != fcn_var_table->end(); ++it) {
       cout << *((*it).first) << endl;
-   }
+   }*/
 }
    
