@@ -176,12 +176,14 @@ int main (int argc, char** argv) {
    generate_set(infile_name, base_out_name);
    string outfile_name = base_out_name + ".tok";
    string astfile_name = base_out_name + ".ast";
+   string symfile_name = base_out_name + ".sym";
    astfile = fopen (astfile_name.c_str(), "w");
+   FILE* symfile = fopen (symfile_name.c_str(), "w");
    scan_file(infile_name, outfile_name);
    pclose(yyin);
    open_yyin(infile_name);
    int parse_rc = yyparse();
-   maintain_symbol_tables (parser::root);
+   maintain_symbol_tables (parser::root, symfile);
    astree::print (astfile, parser::root);
    if (parse_rc) fprintf (stderr, "parse failed (%d)\n", parse_rc);
    yylex_destroy();

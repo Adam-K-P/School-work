@@ -32,11 +32,12 @@ struct symbol {
    size_t filenr, linenr, offset;
    size_t blocknr;
    vector<symbol*>* parameters;
+   const char* struct_name;
 };
 
 void emplace_new_type (astree*);
 void perform_traversal (astree*);
-void maintain_symbol_tables (astree*);
-const char* get_attributes (astree*);
+void maintain_symbol_tables (astree*, FILE*);
+const char* get_attributes (attr_bitset);
 
 #endif

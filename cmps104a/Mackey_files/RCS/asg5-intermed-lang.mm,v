@@ -1,9 +1,14 @@
-head	1.147;
+head	1.148;
 access;
 symbols;
 locks;
 comment	@.\" @;
 
+
+1.148
+date	2015.11.19.23.30.14;	author -;	state -;
+branches;
+next	1.147;
 
 1.147
 date	2015.05.21.02.58.25;	author -;	state -;
@@ -745,7 +750,7 @@ desc
 @@
 
 
-1.147
+1.148
 log
 @-
 @
@@ -754,9 +759,9 @@ text
 .if t .Newcentury-fonts
 .INITR* \n[.F]
 .SIZE 12 14
-.TITLE CMPS-104A Fall\~2012 Project\~5 \
+.TITLE CMPS-104A Fall\~2015 Project\~5 \
 "Code Emission\(:) \f[CB]oc\f[P] and \f[CB]oil\f[P]"
-.RCS "$Id: asg5-intermed-lang.mm,v 1.146 2014-12-05 16:11:07-08 - - $"
+.RCS "$Id: asg5-intermed-lang.mm,v 1.147 2015-05-20 19:58:25-07 - - $"
 .PWD
 .URL
 .GETST* OIL_GRAMMAR Figure_OIL_GRAMMAR
@@ -1789,6 +1794,20 @@ delim off
 .FG "Sample generated \f[CB]fac.oil" "" 0 SAMPLE_FAC_OIL
 .DE
 .FINISH
+@
+
+
+1.147
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-104A Fall\~2012 Project\~5 \
+d7 1
+a7 1
+.RCS "$Id: asg5-intermed-lang.mm,v 1.146 2014-12-05 16:11:07-08 - - $"
 @
 
 

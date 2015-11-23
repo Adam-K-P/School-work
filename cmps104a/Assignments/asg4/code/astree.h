@@ -26,6 +26,7 @@ struct astree {
    attr_bitset attributes;
    symbol_table* table;
    size_t blocknr;
+   const char* struct_name;
 
    // Functions.
    astree (int symbol, const location&, const char* lexinfo);

@@ -20,9 +20,8 @@ symbol_table type_table;
 
 size_t blocknr = 0;
 
-const char* get_attributes (astree* node) {
+const char* get_attributes (attr_bitset attributes) {
    string out = "";
-   attr_bitset attributes = node->attributes;
 
    if (attributes[ATTR_void])     out += "void ";
    if (attributes[ATTR_int])      out += "int ";
@@ -36,8 +35,8 @@ const char* get_attributes (astree* node) {
    if (attributes[ATTR_function]) out += "function ";
    if (attributes[ATTR_variable]) out += "variable ";
    if (attributes[ATTR_field])    out += "field ";
-   if (attributes[ATTR_param])    out += "param ";
    if (attributes[ATTR_lval])     out += "lval ";
+   if (attributes[ATTR_param])    out += "param ";
    if (attributes[ATTR_const])    out += "const ";
    if (attributes[ATTR_vreg])     out += "vreg ";
    if (attributes[ATTR_vaddr])    out += "vaddr ";
@@ -59,6 +58,9 @@ void insert_var_fn (astree* node) {
       symbol_stack.push_back (var_fn_table);
    }
    symbol* this_symbol = new symbol ();
+
+   this_symbol->struct_name = node->struct_name;
+
    this_symbol->attributes = node->attributes;
    this_symbol->blocknr = node->blocknr;
    this_symbol->filenr = node->lloc.filenr;
@@ -119,19 +121,34 @@ void traversal (astree *node) {
       case TOK_FUNCTION:
          node->attributes[ATTR_function] = true;
 
-         node->children.at(0)->children.at(0)
-             ->attributes[ATTR_function] = true;
+         ++blocknr;
+         for (auto it = node->children.begin(); 
+                   it != node->children.end(); ++it) 
+            perform_traversal (*it);
+         --blocknr;
 
-         node->children.at(0)->children.at(0)
-             ->attributes[ATTR_variable] = false;
+         if (node->children.size() > 0) {
 
-         node->children.at(0)->children.at(0)
-             ->attributes[ATTR_lval] = false;
+            node->children.at(0)->children.at(0)
+                ->attributes[ATTR_function] = true;
+
+            node->children.at(0)->children.at(0)
+                ->blocknr = 0;
+
+            node->children.at(0)->blocknr = 0;
+
+            node->children.at(0)->children.at(0)
+                ->attributes[ATTR_variable] = false;
+
+            node->children.at(0)->children.at(0)
+                ->attributes[ATTR_lval] = false;
+         }
 
          break;
 
       case TOK_KW_NULL:
-         node->attributes[ATTR_null] = true;
+         node->attributes[ATTR_null]  = true;
+         node->attributes[ATTR_const] = true;
          break;
 
       case TOK_ARRAY:
@@ -160,6 +177,11 @@ void traversal (astree *node) {
 
       case TYPEID: //remove in variable of new
          node->attributes[ATTR_typeid] = true;
+         if (node->children.size() > 0) {
+            node->children.at(0)->attributes[ATTR_struct] = true;
+            node->children.at(0)->struct_name = 
+               (node->lexinfo)->c_str();
+         }
          break;
 
       case DECLID: 
@@ -179,7 +201,11 @@ void traversal (astree *node) {
          break;
 
       case TOK_KW_ELSE:
-         --(node->blocknr);
+         ++blocknr;
+         for (auto it = node->children.begin(); 
+                   it != node->children.end(); ++it) 
+            perform_traversal (*it);
+         --blocknr;
          break;
 
       case TOK_KW_WHILE: //needs type-checking
@@ -247,21 +273,33 @@ void traversal (astree *node) {
          break;
 
       case TOK_BLOCK:
-         ++blocknr;
+         /*++blocknr;
          for (auto it = node->children.begin(); 
                    it != node->children.end(); ++it)
             perform_traversal (*it);
-         --blocknr;
+         --blocknr;*/
          break;
    }
 }
 
-void second_traversal (astree* node) {
+void second_traversal (astree* node, FILE* outfile) {
 
    switch (node->symbol) {
 
       case DECLID:
          insert_var_fn (node);
+         for (size_t i = 0; i < node->blocknr; ++i)
+            fprintf(outfile, "   ");
+         fprintf(outfile, "%s (%lu.%lu.%lu) {%lu} %s",
+               (*(node->lexinfo)).c_str(),
+               node->lloc.filenr,
+               node->lloc.linenr,
+               node->lloc.offset,
+               node->blocknr,
+               get_attributes (node->attributes));
+         if (node->struct_name != nullptr)
+            fprintf(outfile, "\"%s\"", node->struct_name);
+         fprintf(outfile, "\n");
          break;
    }
 }
@@ -343,24 +381,20 @@ void perform_traversal (astree* node) {
    traversal (node);
 }
 
-void perform_scnd_trav (astree* node) {
+void perform_scnd_trav (astree* node, FILE* outfile) {
+   second_traversal (node, outfile);
    vector<astree*> children = node->children;
    for (auto i = children.begin(); i != children.end(); ++i)
-      perform_scnd_trav (*i);
-   second_traversal (node);
+      perform_scnd_trav (*i, outfile);
 }
 
-void maintain_symbol_tables (astree* node) {
+void maintain_symbol_tables (astree* node, FILE* outfile) {
    symbol_stack.push_back(nullptr);
    fill_type_table();
    perform_traversal (node);
-   perform_scnd_trav (node);
+   perform_scnd_trav (node, outfile);
 
-   for (auto it = type_table.begin(); it != type_table.end(); ++it) 
-      cout << *((*it).first) << endl;
-   /*symbol_table* fcn_var_table = symbol_stack.back(); 
-   for (auto it = fcn_var_table->begin(); it != fcn_var_table->end(); ++it) {
-      cout << *((*it).first) << endl;
-   }*/
+   /*for (auto it = type_table.begin(); it != type_table.end(); ++it) 
+      cout << *((*it).first) << endl;*/
 }
-   
+
