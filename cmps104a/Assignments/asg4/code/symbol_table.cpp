@@ -326,7 +326,7 @@ void second_traversal (astree* node, FILE* outfile) {
             return;
          }
          symbol* this_symbol = (*it_symbol).second;
-         node->this_symbol = this_symbol;
+         node->attributes = this_symbol->attributes;
          break;
    }
 }

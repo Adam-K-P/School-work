@@ -79,10 +79,11 @@ void astree::print (FILE* outfile, astree* tree, int depth) {
       tname += 4;
       if (strstr (tname, "KW_") == tname) tname += 3; 
    }
-   fprintf (outfile, "%s \"%s\" (%zd.%zd.%zd) {%lu} %s\n",
+   fprintf (outfile, "%s \"%s\" (%zd.%zd.%zd) {%lu} ",
             tname, tree->lexinfo->c_str(),
             tree->lloc.filenr, tree->lloc.linenr, tree->lloc.offset,
-            tree->blocknr, get_attributes(tree->attributes)); 
+            tree->blocknr);
+   fprintf(outfile, "%s\n", get_attributes(tree->attributes));
    for (astree* child: tree->children) 
       astree::print (outfile, child, depth + 1);
 }
