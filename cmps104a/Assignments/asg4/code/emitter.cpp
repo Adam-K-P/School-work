@@ -56,26 +56,26 @@ void emit_assign (astree* tree) {
 
 void emit (astree* tree) {
    switch (tree->symbol) {
-      case ROOT  : postorder_emit_stmts (tree);                    break;
-      case ';'   : postorder_emit_semi (tree);                     break;
-      case '='   : emit_assign (tree);                             break;
-      case '+'   : postorder_emit_oper (tree, "add");              break;
-      case '-'   : postorder_emit_oper (tree, "sub");              break;
-      case '*'   : postorder_emit_oper (tree, "mul");              break;
-      case '/'   : postorder_emit_oper (tree, "div");              break;
-      case '^'   : postorder_emit_oper (tree, "pow");              break;
-      case '<'   : postorder_emit_oper (tree, "les");              break;
-      case '>'   : postorder_emit_oper (tree, "grt");              break;
-      case POS   : postorder_emit_oper (tree, "pos");              break;
-      case NEG   : postorder_emit_oper (tree, "neg");              break;
-      case NUMBER: emit_push (tree, "pushnum");                    break;
-      case DIRECTIVE : emit_push (tree, "pushdir");                break;
-      case TOK_IDENT : emit_push (tree, "pushvar");                break;
-      case BOOL_EQ   : emit_push (tree, "pushbeq");                break;
-      case BOOL_LESS_EQ : emit_push (tree, "pushleq");             break;
-      case BOOL_NOT_EQ  : emit_push (tree, "pushbne");             break;
-      case RESERVED  : emit_push (tree, "pushres");                break;
-      default    : assert (false);                                 break;
+      case ROOT  : postorder_emit_stmts (tree);        break;
+      case ';'   : postorder_emit_semi (tree);         break;
+      case '='   : emit_assign (tree);                 break;
+      case '+'   : postorder_emit_oper (tree, "add");  break;
+      case '-'   : postorder_emit_oper (tree, "sub");  break;
+      case '*'   : postorder_emit_oper (tree, "mul");  break;
+      case '/'   : postorder_emit_oper (tree, "div");  break;
+      case '^'   : postorder_emit_oper (tree, "pow");  break;
+      case '<'   : postorder_emit_oper (tree, "les");  break;
+      case '>'   : postorder_emit_oper (tree, "grt");  break;
+      case POS   : postorder_emit_oper (tree, "pos");  break;
+      case NEG   : postorder_emit_oper (tree, "neg");  break;
+      case NUMBER: emit_push (tree, "pushnum");        break;
+      case DIRECTIVE : emit_push (tree, "pushdir");    break;
+      case TOK_IDENT : emit_push (tree, "pushvar");    break;
+      case BOOL_EQ   : emit_push (tree, "pushbeq");    break;
+      case BOOL_LESS_EQ : emit_push (tree, "pushleq"); break;
+      case BOOL_NOT_EQ  : emit_push (tree, "pushbne"); break;
+      case RESERVED  : emit_push (tree, "pushres");    break;
+      default    : assert (false);                     break;
    }
 }
 

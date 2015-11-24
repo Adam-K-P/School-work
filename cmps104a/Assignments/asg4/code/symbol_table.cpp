@@ -90,6 +90,30 @@ void insert_var_fn (astree* node) {
    this_table->emplace (node->lexinfo, this_symbol);
 }
 
+void new_scope (astree* node) {
+   ++blocknr;
+   symbol_table* this_table = new symbol_table();
+   this_table = symbol_stack.back();
+   symbol_stack.push_back (this_table);
+   for (auto it = node->children.begin(); 
+             it != node->children.end(); ++it) 
+      perform_traversal (*it);
+   symbol_stack.pop_back ();
+   --blocknr;
+}
+
+void bad_type_error (astree* node) {
+   cerr << "improper type at: " << *(node->lexinfo) << endl;
+}
+
+void arith_types (astree* node) {
+   astree* oper1 = node->children.at(0);
+   astree* oper2 = node->children.at(1);
+   if (not (oper1->attributes[ATTR_int] and
+            oper2->attributes[ATTR_int]))
+      bad_type_error (node);
+}
+
 void traversal (astree *node) {
    node->blocknr = blocknr;
 
@@ -139,11 +163,7 @@ void traversal (astree *node) {
       case TOK_FUNCTION:
          node->attributes[ATTR_function] = true;
 
-         ++blocknr;
-         for (auto it = node->children.begin(); 
-                   it != node->children.end(); ++it) 
-            perform_traversal (*it);
-         --blocknr;
+         new_scope (node);
 
          if (node->children.size() > 0) {
 
@@ -213,27 +233,15 @@ void traversal (astree *node) {
          node->attributes[ATTR_array]    = true;
 
       case TOK_KW_IF: 
-         ++blocknr;
-         for (auto it = node->children.begin(); 
-                   it != node->children.end(); ++it) 
-            perform_traversal (*it);
-         --blocknr;
+         new_scope (node);
          break;
 
       case TOK_KW_ELSE:
-         ++blocknr;
-         for (auto it = node->children.begin(); 
-                   it != node->children.end(); ++it) 
-            perform_traversal (*it);
-         --blocknr;
+         new_scope (node);
          break;
 
       case TOK_KW_WHILE: 
-         ++blocknr;
-         for (auto it = node->children.begin();
-                   it != node->children.end(); ++it)
-            perform_traversal (*it);
-         --blocknr;
+         new_scope (node);
          break;
 
       case TOK_KW_RETURN:
@@ -260,24 +268,25 @@ void traversal (astree *node) {
 
       case BOOL_EQ:
          node->attributes[ATTR_bool] = true;
+         node->attributes[ATTR_vreg] = true;
          break;
 
       case BOOL_LESS_EQ:
          node->attributes[ATTR_bool] = true;
+         node->attributes[ATTR_vreg] = true;
          break;
 
       case BOOL_GRT_EQ:
          node->attributes[ATTR_bool] = true;
+         node->attributes[ATTR_vreg] = true;
          break;
 
       case BOOL_NOT_EQ:
          node->attributes[ATTR_bool] = true;
+         node->attributes[ATTR_vreg] = true;
          break;
 
       case TOK_RETURNVOID:
-         break;
-
-      case TOK_PROTOTYPE:
          break;
 
       case TOK_VARDECL:
@@ -293,6 +302,20 @@ void traversal (astree *node) {
          break;
 
       case TOK_BLOCK:
+         break;
+
+      case '!': case '<': case '>':
+         node->attributes[ATTR_bool] = true;
+         node->attributes[ATTR_vreg] = true;
+         break;
+
+      case '+': case '-': case '/': case '*':
+         node->attributes[ATTR_int]  = true;
+         node->attributes[ATTR_vreg] = true;
+         break;
+
+      case '=':
+         node->attributes = (node->children.at(0))->attributes;
          break;
 
       default: break;
@@ -343,6 +366,7 @@ void second_traversal (astree* node, FILE* outfile) {
          symbol* this_symbol = (*it_symbol).second;
          node->attributes = this_symbol->attributes;
          break;
+
    }
 }
 
@@ -377,10 +401,10 @@ void perform_traversal (astree* node) {
 }
 
 void perform_scnd_trav (astree* node, FILE* outfile) {
-   second_traversal (node, outfile);
    vector<astree*> children = node->children;
    for (auto i = children.begin(); i != children.end(); ++i)
       perform_scnd_trav (*i, outfile);
+   second_traversal (node, outfile);
 }
 
 void maintain_symbol_tables (astree* node, FILE* outfile) {

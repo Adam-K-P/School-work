@@ -96,16 +96,16 @@ fieldec : basetype TOK_IDENT ';'
 
 fnction : identdc '(' identsq ')' block     
                                 { destroy ($4);
-                                  $$ = new astree (TOK_FUNCTION, lexer::lloc,
-                                                   "");
+                                  $$ = new astree (TOK_FUNCTION, 
+                                                   lexer::lloc, "");
                                   $2->change_sym (TOK_PARAM);
                                   $2->adopt ($3);
                                   $$->adopt ($1, $2);
                                   $$->adopt ($5);
                                 }
         | identdc '(' ')' block { destroy ($2, $3); 
-                                  $$ = new astree (TOK_FUNCTION, lexer::lloc, 
-                                                   "");
+                                  $$ = new astree (TOK_FUNCTION, 
+                                                   lexer::lloc, "");
                                   $$->adopt ($1, $4);
                                 }
         ;
@@ -181,7 +181,8 @@ expr    : expr BOOL_EQ expr     { $$ = $2->adopt ($1, $3); }
         ;
 
 return  : TOK_KW_RETURN ';'     { destroy ($2); 
-                                  $$->adopt_sym ($1, TOK_RETURNVOID); 
+                                  $1->change_sym(TOK_RETURNVOID);
+                                  $$ = $1;
                                 }
         | TOK_KW_RETURN expr ';' 
                                 { destroy ($3); $$ = $1->adopt ($2); }
