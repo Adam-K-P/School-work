@@ -40,5 +40,6 @@ void perform_traversal (astree*);
 void maintain_symbol_tables (astree*, FILE*);
 const char* get_attributes (attr_bitset);
 const char* retrieve_attributes (astree*);
+void print_coords (astree*, FILE*);
 
 #endif

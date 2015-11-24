@@ -31,6 +31,23 @@ symbol* node_symbol (astree* node) {
    return this_node;
 }
 
+
+void print_coords (astree* node, FILE* outfile) {
+   if (symbol_stack.back() == nullptr) {
+      fprintf (outfile, "\n");
+      return;
+   }
+   auto it_symbol = (symbol_stack.back())->find (node->lexinfo);
+   if (it_symbol == (symbol_stack.back())->end()) {
+      fprintf (outfile, "\n");
+      return;
+   }
+   symbol* this_symbol = (*it_symbol).second;
+   fprintf (outfile, "(%lu.%lu.%lu)\n", this_symbol->filenr,
+                                      this_symbol->linenr,
+                                      this_symbol->offset);
+}
+
 const char* get_attributes (attr_bitset attributes) {
    string out = "";
 
@@ -116,6 +133,7 @@ void traversal (astree *node) {
 
       case FIELD:
          node->attributes[ATTR_field] = true;
+         node->children.at(0)->attributes[ATTR_field] = true;
          break;
 
       case TOK_FUNCTION:
@@ -302,27 +320,24 @@ void second_traversal (astree* node, FILE* outfile) {
          break;
 
       case TOK_KW_STRUCT:
-         fprintf(outfile, "%s (%lu.%lu.%lu) {%lu} %s\n",
+         fprintf(outfile, "%s (%lu.%lu.%lu) {%lu} %s \"%s\"\n",
                  (node->children.at(0)->lexinfo)->c_str(),
                  node->lloc.filenr,
                  node->lloc.linenr,
                  node->lloc.offset,
                  node->blocknr,
-                 get_attributes (node->attributes));
+                 get_attributes (node->attributes),
+                 (node->children.at(0)->lexinfo)->c_str());
          emplace_new_type (node);
          break;
 
       case TOK_IDENT:
          if (symbol_stack.back() == nullptr) {
-            cerr << "symbol: " << *(node->lexinfo) << " not found" 
-                 << endl;
             return;
          }
          symbol_table* this_table = symbol_stack.back();
          auto it_symbol = this_table->find (node->lexinfo);
          if (it_symbol == this_table->end()) {
-            cerr << "symbol: " << *(node->lexinfo) << " not found" 
-                 << endl;
             return;
          }
          symbol* this_symbol = (*it_symbol).second;
@@ -354,39 +369,6 @@ void emplace_new_type (astree* node) {
    add_fields (node, field_table);
 }
 
-//emplaces a type to type_table
-/*void emplace_type (const string* str_type, int attr) {
-   symbol* this_symbol = new symbol ();
-   attr_bitset attributes;
-   attributes[attr] = true;
-   this_symbol->attributes = attributes;
-   type_table.emplace (str_type, this_symbol);
-}
-
-void fill_type_table () {
-
-   const string* str_void = new string ();
-   *str_void = "void";
-   emplace_type (str_void, ATTR_void);
-   
-   const string* str_int = new string ();
-   *str_int = "int";
-   emplace_type (str_int, ATTR_int);
-
-   const string* str_char = new string ();
-   *str_char = "char";
-   emplace_type (str_char, ATTR_char);
-
-   const string* str_string = new string ();
-   *str_string = "string";
-   emplace_type (str_string, ATTR_string);
-
-   const string* str_bool = new string ();
-   *str_bool = "bool";
-   emplace_type (str_bool, ATTR_bool);
-
-}*/
-
 void perform_traversal (astree* node) {
    vector<astree*> children = node->children;
    for (auto i = children.begin(); i != children.end(); ++i) 
@@ -403,7 +385,6 @@ void perform_scnd_trav (astree* node, FILE* outfile) {
 
 void maintain_symbol_tables (astree* node, FILE* outfile) {
    symbol_stack.push_back(nullptr);
-   //fill_type_table();
    perform_traversal (node);
    perform_scnd_trav (node, outfile);
 }

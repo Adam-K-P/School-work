@@ -83,7 +83,9 @@ void astree::print (FILE* outfile, astree* tree, int depth) {
             tname, tree->lexinfo->c_str(),
             tree->lloc.filenr, tree->lloc.linenr, tree->lloc.offset,
             tree->blocknr);
-   fprintf(outfile, "%s\n", get_attributes(tree->attributes));
+   fprintf(outfile, "%s", get_attributes(tree->attributes));
+   if (tree->symbol == TOK_IDENT) print_coords (tree, outfile);
+   else fprintf (outfile, "\n");
    for (astree* child: tree->children) 
       astree::print (outfile, child, depth + 1);
 }
