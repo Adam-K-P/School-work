@@ -25,6 +25,7 @@ struct astree {
    vector<astree*> children; // children of this n-way node
    attr_bitset attributes;
    symbol_table* table;
+   struct symbol* this_symbol;
    size_t blocknr;
    const char* struct_name;
 

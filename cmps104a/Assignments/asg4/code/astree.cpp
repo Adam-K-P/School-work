@@ -19,6 +19,7 @@ astree::astree (int symbol_, const location& lloc_, const char* info) {
    lexinfo =  intern_stringset(info);
    attributes = 0;
    table = nullptr;
+   struct_name = nullptr;
    blocknr = 0;
 }
 

@@ -23,7 +23,7 @@ using attr_bitset = bitset<ATTR_bitset_size>;
 struct symbol;
 struct astree;
 
-using symbol_table = unordered_map<string*, symbol*>;
+using symbol_table = unordered_map<const string*, symbol*>;
 using symbol_entry = symbol_table::value_type;
 
 struct symbol {
@@ -39,5 +39,6 @@ void emplace_new_type (astree*);
 void perform_traversal (astree*);
 void maintain_symbol_tables (astree*, FILE*);
 const char* get_attributes (attr_bitset);
+const char* retrieve_attributes (astree*);
 
 #endif

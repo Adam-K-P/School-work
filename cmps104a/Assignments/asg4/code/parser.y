@@ -32,7 +32,7 @@
         BOOL_GRT_EQ BOOL_NOT_EQ FIELD        TYPEID        DECLID
         TOK_FUNCTION TOK_RETURNVOID TOK_PROTOTYPE TOK_VARDECL
         TOK_ARRAY TOK_CALL TOK_NEWARRAY TOK_NEWSTRING TOK_BLOCK 
-        TOK_PARAM
+        TOK_PARAM ARRAY_DECL
         
 
 %right TOK_KW_IF TOK_KW_ELSE
@@ -256,7 +256,7 @@ vardecl : identdc '=' expr ';'  { destroy ($4);
 
 identdc : basetype '[' ']' TOK_IDENT   
                                 { destroy ($2, $3);
-                                  $4->change_sym (DECLID);
+                                  $4->change_sym (ARRAY_DECL);
                                   $$ = $1->adopt ($4);
                                 }
         | basetype TOK_IDENT    { $2->change_sym (DECLID);
