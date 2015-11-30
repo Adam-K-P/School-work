@@ -119,7 +119,10 @@ sub get_macro_val {
             ($macro, $val) = split ('}', $inner_macro, 2);
             if (defined ($macros {$macro}))  
                { $full_macro = $full_macro . $macros {$macro} . $val; }
-            else { print STDERR "macro: ", $macro, " not found\n"; }
+            else { 
+               print STDERR "macro: ", $macro, " not found\n"; 
+               exit 1;
+            }
          }
          else { $full_macro = $full_macro . $inner_macro; }
       }
@@ -128,7 +131,7 @@ sub get_macro_val {
    else { return $macro_val; }
 }
 
-my %targets = (); #stores targets and their prerequisites
+my %targets = (); #holds targets and their prerequisites
 while (defined (my $line = <$file>)) { #first pass
    chomp $line;
    if ($line =~ /#.*/) { next; }
@@ -153,9 +156,25 @@ while (defined (my $line = <$file>)) { #first pass
    }
 }
 
-seek $file, 0, 0;
-while (defined (my $line = <$file>)) { #second pass
-   chomp $line;
+#execute_target
+#will execute the commands for a target
+sub execute_target {
+   my $target = shift;
+}
+
+while (@target_list) {
+   my $target = trim (shift @target_list);
+   if (not (defined ($targets {$target}))) {
+      print STDERR "target: ", $target, " not found\n";
+      next;
+   }
+   else {
+      printf "target: %s\n", $target;
+      seek $file, 0, 0;
+      while (defined (my $line = <$file>)) { 
+         chomp $line; 
+      }
+   }
 }
    
 
