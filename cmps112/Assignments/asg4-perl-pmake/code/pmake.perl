@@ -85,11 +85,6 @@ my %strsignal = (
 
 sub trim { my $s = shift; $s =~ s/^\s+|\s+$//g; return $s; }
 
-if ((scalar (@ARGV)) > 2) { 
-   print STDERR "usage: pmake [-d] [-n] [-f makefile] [target]\n";
-   exit 1;
-}
-
 if ($opts{'d'}) { exit $status; }
 
 my $file;
@@ -98,11 +93,19 @@ if ($opts{'f'}) {
 }
 else { open $file, "<Makefile" or warn "Makefile: $1\n" and next; }
 
-my $target;
-if (not $opts{'f'} and defined ($ARGV[0])) { $target = $ARGV[0]; }
-if (    $opts{'f'} and defined ($ARGV[1])) { $target = $ARGV[1]; }
+my @target_list;
+for my $target (@ARGV) {
+   if (not $opts{'f'}) { push @target_list, $target; }
+   else { if ($target ne $ARGV[0]) { push @target_list, $target; }}
+}
+
+#my $target;
+#if (not $opts{'f'} and defined ($ARGV[0])) { $target = $ARGV[0]; }
+#if (    $opts{'f'} and defined ($ARGV[1])) { $target = $ARGV[1]; }
 
 my %macros = ();
+#get_macro_val
+#returns string of appropriate macros hash value
 sub get_macro_val {
    my $macro_val = shift;
    if ($macro_val =~ /\${.*}/) {
@@ -125,6 +128,7 @@ sub get_macro_val {
    else { return $macro_val; }
 }
 
+my %targets = (); #stores targets and their prerequisites
 while (defined (my $line = <$file>)) { #first pass
    chomp $line;
    if ($line =~ /#.*/) { next; }
@@ -134,17 +138,24 @@ while (defined (my $line = <$file>)) { #first pass
       ($macro_key, $macro_val) = split ('=', $line);
       $macros {trim ($macro_key)} = get_macro_val ($macro_val); 
    }
-   if (not defined ($ARGV[1]) and not defined ($target) 
-                              and $line =~ /.*:.*/) {
-      my $throw_away;
-      ($target, $throw_away) = split (':', $line);
+   if ($line =~/\t/) { next; } #ignore in first pass
+   if ($line =~ /.*:.*/) {
+      if (not (@target_list)) {
+         my $throw_away;
+         my $target;
+         ($target, $throw_away) = split (':', $line);
+         push @target_list, $target;
+      }
+      my @prereqs;
+      my $target;
+      ($target, @prereqs) = split (':', $line);
+      $targets {trim ($target)} = @prereqs;
    }
 }
 
 seek $file, 0, 0;
 while (defined (my $line = <$file>)) { #second pass
    chomp $line;
-   if ($line =~ $target) { printf "target: %s\n", $target; }
 }
    
 
