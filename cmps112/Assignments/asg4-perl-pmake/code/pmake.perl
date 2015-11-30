@@ -83,6 +83,8 @@ my %strsignal = (
    64 => "Real-time signal 30",
 );
 
+sub trim { my $s = shift; $s =~ s/^\s+|\s+$//g; return $s; }
+
 if ((scalar (@ARGV)) > 2) { 
    print STDERR "usage: pmake [-d] [-n] [-f makefile] [target]\n";
    exit 1;
@@ -101,14 +103,36 @@ if (not $opts{'f'} and defined ($ARGV[0])) { $target = $ARGV[0]; }
 if (    $opts{'f'} and defined ($ARGV[1])) { $target = $ARGV[1]; }
 
 my %macros = ();
+sub get_macro_val {
+   my $macro_val = shift;
+   if ($macro_val =~ /\${.*}/) {
+      my @inner_macros;
+      my $full_macro = '';
+      @inner_macros = split (/\${/, $macro_val);
+      for my $inner_macro (@inner_macros) {
+         if ($inner_macro =~ '}') {
+            my $macro;
+            my $val;
+            ($macro, $val) = split ('}', $inner_macro, 2);
+            if (defined ($macros {$macro}))  
+               { $full_macro = $full_macro . $macros {$macro} . $val; }
+            else { print STDERR "macro: ", $macro, " not found\n"; }
+         }
+         else { $full_macro = $full_macro . $inner_macro; }
+      }
+      return $full_macro;
+   }
+   else { return $macro_val; }
+}
+
 while (defined (my $line = <$file>)) { #first pass
    chomp $line;
    if ($line =~ /#.*/) { next; }
    if ($line =~ /.*=.*/) { 
       my $macro_key;
       my $macro_val;
-      ($macro_key, $macro_val) = split('=', $line);
-      $macros {$macro_key} = $macro_val; 
+      ($macro_key, $macro_val) = split ('=', $line);
+      $macros {trim ($macro_key)} = get_macro_val ($macro_val); 
    }
    if (not defined ($ARGV[1]) and not defined ($target) 
                               and $line =~ /.*:.*/) {
