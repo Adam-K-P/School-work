@@ -143,11 +143,25 @@ sub push_target {
 }
 
 my %targets = (); #holds targets and their prerequisites
+#wildcard
+#performs wildcard executions
+#fuckkkkkkk meeeeeeeeeeeee
+sub wildcard {
+   my $target = shift;
+   my $prereqs = shift;
+   opendir (DIR, '.') or die $!;
+   unless ($target =~ '%' and $prereqs =~ '%') { return 0; }
+   while (my $file = readdir (DIR)) {
+   }
+   return 1;
+}
+
 sub hash_target {
    my $target = shift;
    my $prereqs = shift;
    my $the_macro;
    $target = trim ($target);
+   if (wildcard ($target, $prereqs)) { return; }
    if ($target =~ /\${.*}/) {
       my $t1;
       my $t2;
@@ -157,7 +171,8 @@ sub hash_target {
    $targets {$target} = $prereqs;
 }
 
-while (defined (my $line = <$file>)) { #first pass
+#first pass over file
+while (defined (my $line = <$file>)) { 
    chomp $line;
    if ($line =~ /#.*/) { next; }
    if ($line =~ /.*=.*/) { 
@@ -178,7 +193,6 @@ while (defined (my $line = <$file>)) { #first pass
       my $target;
       ($target, $prereqs) = split (':', $line, 2);
       hash_target ($target, $prereqs);
-      #$targets {trim ($target)} = $prereqs;
    }
 }
 
@@ -220,13 +234,15 @@ sub get_prereq {
       my $the_macro;
       ($pre1, $the_macro) = split (/\${/, $prereq, 2);
       ($the_macro, $pre2) = split ('}', $the_macro, 2);
-      execute_target ($the_macro);
-      return (get_prereq ($pre1) . get_prereq ($pre2));
+      if (defined ($targets {$the_macro})) { 
+         execute_target ($the_macro);
+         return (get_prereq ($pre1) . get_prereq ($pre2));
+      }
+      else { $the_macro = $macros {$the_macro}; }
+      return (get_prereq ($pre1) . $the_macro . get_prereq ($pre2));
    }
 
-   else { 
-      return $prereq; 
-   }
+   else { return $prereq; }
 }
 
 my %target_times = ();

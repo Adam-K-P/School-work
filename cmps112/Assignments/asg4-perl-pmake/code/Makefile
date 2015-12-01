@@ -17,7 +17,6 @@ ${JARFILE} : ${CLASSES}
 	- rm Manifest
 
 %.class : %.java
-	cid + $<
 	javac $<
 
 clean :
