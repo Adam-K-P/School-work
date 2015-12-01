@@ -127,7 +127,36 @@ sub get_macro_val {
    else { return $macro_val; }
 }
 
+#pushes a target onto @target_list
+sub push_target {
+   my $target = shift;
+   my $the_macro;
+   if ($target =~ /\${.*}/) {
+      my $t1;
+      my $t2;
+      ($t1, $the_macro) = split (/\${/, $target, 2);
+      ($the_macro, $t2) = split ('}', $the_macro, 2);
+   }
+   else { $the_macro = $target; }
+   printf "the_macro: %s\n", $the_macro;
+   push @target_list, $the_macro;
+}
+
 my %targets = (); #holds targets and their prerequisites
+sub hash_target {
+   my $target = shift;
+   my $prereqs = shift;
+   my $the_macro;
+   $target = trim ($target);
+   if ($target =~ /\${.*}/) {
+      my $t1;
+      my $t2;
+      ($t1, $target) = split (/\${/, $target, 2);
+      ($target, $t2) = split ('}', $target, 2);
+   }
+   $targets {$target} = $prereqs;
+}
+
 while (defined (my $line = <$file>)) { #first pass
    chomp $line;
    if ($line =~ /#.*/) { next; }
@@ -148,12 +177,13 @@ while (defined (my $line = <$file>)) { #first pass
       my $prereqs;
       my $target;
       ($target, $prereqs) = split (':', $line, 2);
-      $targets {trim ($target)} = $prereqs;
+      hash_target ($target, $prereqs);
+      #$targets {trim ($target)} = $prereqs;
    }
 }
 
 #get_prereq
-#retrieves prereq, can handle macros
+#checks for special macros
 sub get_prereq {
    my $prereq = shift;
    my $target = shift;
@@ -186,27 +216,28 @@ sub get_prereq {
       return (get_prereq ($pre1) . $first_tar . get_prereq ($pre2));
    }
 
-   elsif ($prereq =~ /\${.*}/) {
+   elsif ($prereq =~ /\${.*}/) { #execute_target here?
       my $the_macro;
       ($pre1, $the_macro) = split (/\${/, $prereq, 2);
       ($the_macro, $pre2) = split ('}', $the_macro, 2);
-      $the_macro = $macros {$the_macro};
-      return (get_prereq ($pre1) . $the_macro . get_prereq ($pre2));
+      execute_target ($the_macro);
+      return (get_prereq ($pre1) . get_prereq ($pre2));
    }
 
-   else { return $prereq; }
+   else { 
+      return $prereq; 
+   }
 }
 
 my %target_times = ();
-#execute_target
-#will execute the commands for a target
-sub execute_target {
-   my @times;
+#need_commands
+#returns true if commands need to be executed
+#false otherwise
+#determines this using stat and checking file times
+sub need_commands {
+   my @prereq_list = shift;
    my $target = shift;
-   my $prereqs = $targets {$target};
-   $prereqs = get_prereq ($prereqs, $target);
-   my @prereq_list = split (' ', $prereqs);
-   my $most_rec = 0; #most recent file changed in prereqs
+   my $most_rec = 0;
    for my $prereq (@prereq_list) {
       my @stat = stat $prereq;
       if (not @stat) {
@@ -215,9 +246,34 @@ sub execute_target {
       }
       elsif ($stat[9] > $most_rec) { $most_rec = $stat[9]; }
    }
-   printf "%s\n", $most_rec;
    if (not defined ($target_times {$target})) {
       $target_times {$target} = $most_rec;
+      return 1;
+   }
+   elsif ($target_times {$target} >= $most_rec) { return 0; } 
+}
+
+#execute_commands
+#performs commands associated with a target
+#file pointer already at target
+sub execute_commands {
+   printf "hello, world\n";
+}
+
+#execute_target
+#will execute the commands for a target
+sub execute_target {
+   my $target = shift;
+   my $prereqs;
+   if (not defined ($targets {$target})) {
+      print STDERR "target: ", $target, " not found\n";
+      return;
+   }
+   $prereqs = $targets {$target};
+   $prereqs = get_prereq ($prereqs, $target);
+   my @prereq_list = split (' ', $prereqs);
+   if (not @prereq_list or need_commands (@prereq_list, $target)) {
+      execute_commands();
    }
 }
 
@@ -231,7 +287,7 @@ while (@target_list) {
       seek $file, 0, 0;
       while (defined (my $line = <$file>)) { 
          chomp $line; 
-         if ($line =~ /$target *:/) { 
+         if ($line =~ /$target *:/) { #incorrect?
             execute_target ($target); 
             last; 
          }
