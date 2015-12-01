@@ -145,10 +145,10 @@ while (defined (my $line = <$file>)) { #first pass
          ($target, $throw_away) = split (':', $line);
          push @target_list, $target;
       }
-      my @prereqs;
+      my $prereqs;
       my $target;
-      ($target, @prereqs) = split (':', $line);
-      @targets {trim ($target)} = @prereqs;
+      ($target, $prereqs) = split (':', $line, 2);
+      $targets {trim ($target)} = $prereqs;
    }
 }
 
@@ -198,29 +198,26 @@ sub get_prereq {
 }
 
 my %target_times = ();
-
 #execute_target
 #will execute the commands for a target
 sub execute_target {
    my @times;
    my $target = shift;
-   my @prereqs = $targets {$target};
-   for my $prereq (@prereqs) { #have to split by spaces
-      $prereq = get_prereq ($prereq, $target);
-      printf "prereq:%s\n", $prereq;
-      my @prereq_list = split (' ', $prereq);
-      my $most_rec; #most recent file changed in prereqs
-      for my $pre (@prereq_list) {
-         my @stat = stat $pre;
-         if (not @stat) { 
-            print STDERR "File: ", $pre, " not found\n";
-            exit 1;
-         }
-         else {
-            $most_rec = $stat[9];
-            printf "most_rec: %s\n", $most_rec;
-         }
+   my $prereqs = $targets {$target};
+   $prereqs = get_prereq ($prereqs, $target);
+   my @prereq_list = split (' ', $prereqs);
+   my $most_rec = 0; #most recent file changed in prereqs
+   for my $prereq (@prereq_list) {
+      my @stat = stat $prereq;
+      if (not @stat) {
+         print STDERR "File: ", $prereq, " not found\n";
+         exit 1;
       }
+      elsif ($stat[9] > $most_rec) { $most_rec = $stat[9]; }
+   }
+   printf "%s\n", $most_rec;
+   if (not defined ($target_times {$target})) {
+      $target_times {$target} = $most_rec;
    }
 }
 
