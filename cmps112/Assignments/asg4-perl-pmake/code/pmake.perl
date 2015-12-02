@@ -145,13 +145,25 @@ sub push_target {
 my %targets = (); #holds targets and their prerequisites
 #wildcard
 #performs wildcard executions
-#fuckkkkkkk meeeeeeeeeeeee
 sub wildcard {
    my $target = shift;
    my $prereqs = shift;
-   opendir (DIR, '.') or die $!;
    unless ($target =~ '%' and $prereqs =~ '%') { return 0; }
+   opendir (DIR, '.') or die $!;
+   my @wild_t_list;
+   my @wild_p_list;
+   my $throw_away;
+   ($throw_away, $target) = split ('%', $target, 2);
+   ($throw_away, $prereqs) = split ('%', $prereqs, 2);
    while (my $file = readdir (DIR)) {
+      if ($file =~ $prereqs) {
+         my $ret_pre = $file;
+         my $ret_tar;
+         ($ret_tar, $throw_away) = split ($prereqs, $file, 2);
+         $ret_tar = $ret_tar . $target;
+         $targets {$ret_tar} = $ret_pre;
+         execute_target ($ret_tar);
+      }
    }
    return 1;
 }
@@ -235,7 +247,7 @@ sub get_prereq {
       ($pre1, $the_macro) = split (/\${/, $prereq, 2);
       ($the_macro, $pre2) = split ('}', $the_macro, 2);
       if (defined ($targets {$the_macro})) { 
-         execute_target ($the_macro);
+         execute_target ($the_macro); #not at proper place
          return (get_prereq ($pre1) . get_prereq ($pre2));
       }
       else { $the_macro = $macros {$the_macro}; }
@@ -273,7 +285,19 @@ sub need_commands {
 #performs commands associated with a target
 #file pointer already at target
 sub execute_commands {
-   printf "hello, world\n";
+   my $target = shift;
+   my $prereqs = shift;
+   while (defined (my $line = <$file>)) {
+      chomp $line;
+      printf "line: %s\n", $line;
+      if ($line =~ '\t') {
+         my $throw_away;
+         ($throw_away, $line) = split ('\t', $line, 2);
+         $line = get_prereq ($line, $target);
+         system $line;
+      }
+      else { return; } #arriving here twice
+   }
 }
 
 #execute_target
@@ -289,7 +313,7 @@ sub execute_target {
    $prereqs = get_prereq ($prereqs, $target);
    my @prereq_list = split (' ', $prereqs);
    if (not @prereq_list or need_commands (@prereq_list, $target)) {
-      execute_commands();
+      execute_commands ($target, $prereqs);
    }
 }
 
