@@ -1,0 +1,63 @@
++ pwd
++ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin/:/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score
++ export PATH
++ pwd
++ cd /home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test0
++ pwd
+/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test0
++ ./Check
+./Check: 3: ./Check: pmake: not found
++ cd /home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test1
++ pwd
+/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test1
++ ./Check
++ rm hello
++ pmake
++ pmake bad
++ cd /home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test2
++ pwd
+/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test2
++ ./Check
++ rm hello
+rm: cannot remove ‘hello’: No such file or directory
++ pmake spotless
++ pmake ci
++ pmake
++ cd /home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test3
++ pwd
+/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test3
++ ./Check
++ rm hello
+rm: cannot remove ‘hello’: No such file or directory
++ pmake spotless
++ pmake ci
++ pmake
++ cd /home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test4
++ pwd
+/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test4
++ ./Check
++ rm hello
+rm: cannot remove ‘hello’: No such file or directory
++ pmake spotless
++ pmake ci
++ pmake
++ cd /home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test5
++ pwd
+/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test5
++ ./Check
++ rm hello
+rm: cannot remove ‘hello’: No such file or directory
++ pmake spotless
++ pmake ci
++ pmake all
++ cd /home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test6
++ pwd
+/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test6
++ ./Check
++ pmake
++ cd /home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test7
++ pwd
+/home/adam/School-work/cmps112/Assignments/asg4-perl-pmake/code/.score/test7
++ ./Check
++ pmake -f Makefile1
++ pmake -f Makefile2

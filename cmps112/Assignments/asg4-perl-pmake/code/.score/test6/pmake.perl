@@ -189,12 +189,10 @@ sub get_prereq {
    my $perf_tar = shift; #whether to execute targets
    my $pre1;
    my $pre2;
-   printf "prereq: %s\n", $prereq;
 
    if ($prereq =~ /\$\$/) {
-      printf "here\n";
       ($pre1, $pre2) = split (/\$\$/, $prereq, 2);
-      return (get_prereq ($pre1, $target, $perf_tar) . $$ 
+      return (get_prereq ($pre1, $target, $perf_tar) . '$' 
               . get_prereq ($pre2, $target, $perf_tar));
    }
 
