@@ -14,6 +14,11 @@ $SIG{__DIE__}  = sub {warn @_; $status = 1; exit};
 my %opts;
 getopts "dnf", \%opts;
 
+my %macros = (); #hash of macros with corresponding files
+my @target_list; #targets to be executed
+my $file; #file read from
+my %target_times = (); #time a target was last updated
+
 # Linux x86_64 GNU/Linux
 my %strsignal = (
     0 => "Unknown signal 0",
@@ -83,23 +88,12 @@ my %strsignal = (
    64 => "Real-time signal 30",
 );
 
+# --------------------------------------------------------------------
+# Subroutines
+# --------------------------------------------------------------------
+
 sub trim { my $s = shift; $s =~ s/^\s+|\s+$//g; return $s; }
 
-if ($opts{'d'}) { exit $status; }
-
-my $file;
-if ($opts{'f'}) { 
-   open $file, "<$ARGV[0]" or warn "$ARGV[0]: $1\n" and next; 
-}
-else { open $file, "<Makefile" or warn "Makefile: $1\n" and next; }
-
-my @target_list;
-for my $target (@ARGV) {
-   if (not $opts{'f'}) { push @target_list, $target; }
-   else { if ($target ne $ARGV[0]) { push @target_list, $target; }}
-}
-
-my %macros = (); #hash of macros with corresponding files
 #get_macro_val
 #returns string of appropriate macros hash value
 sub get_macro_val {
@@ -155,19 +149,23 @@ sub wildcard {
    my $throw_away;
    ($throw_away, $target) = split ('%', $target, 2);
    ($throw_away, $prereqs) = split ('%', $prereqs, 2);
-   while (my $file = readdir (DIR)) {
-      if ($file =~ $prereqs) {
-         my $ret_pre = $file;
+   while (my $a_file = readdir (DIR)) {
+      if ($a_file =~ $prereqs) {
+         my $ret_pre = $a_file;
          my $ret_tar;
-         ($ret_tar, $throw_away) = split ($prereqs, $file, 2);
+         ($ret_tar, $throw_away) = split ($prereqs, $a_file, 2);
          $ret_tar = $ret_tar . $target;
          $targets {$ret_tar} = $ret_pre;
+         my $curpos = tell $file; #need to reset file pointer
          execute_target ($ret_tar);
+         seek $file, $curpos, 0;
       }
    }
    return 1;
 }
 
+#hash_target
+#puts a target in the %targets hash
 sub hash_target {
    my $target = shift;
    my $prereqs = shift;
@@ -183,30 +181,6 @@ sub hash_target {
    $targets {$target} = $prereqs;
 }
 
-#first pass over file
-while (defined (my $line = <$file>)) { 
-   chomp $line;
-   if ($line =~ /#.*/) { next; }
-   if ($line =~ /.*=.*/) { 
-      my $macro_key;
-      my $macro_val;
-      ($macro_key, $macro_val) = split ('=', $line);
-      $macros {trim ($macro_key)} = get_macro_val ($macro_val); 
-   }
-   if ($line =~/\t/) { next; } #ignore in first pass
-   if ($line =~ /.*:.*/) {
-      if (not (@target_list)) {
-         my $throw_away;
-         my $target;
-         ($target, $throw_away) = split (':', $line);
-         push @target_list, $target;
-      }
-      my $prereqs;
-      my $target;
-      ($target, $prereqs) = split (':', $line, 2);
-      hash_target ($target, $prereqs);
-   }
-}
 
 #get_prereq
 #checks for special macros
@@ -247,17 +221,18 @@ sub get_prereq {
       ($pre1, $the_macro) = split (/\${/, $prereq, 2);
       ($the_macro, $pre2) = split ('}', $the_macro, 2);
       if (defined ($targets {$the_macro})) { 
+         my $curpos = tell $file;
+         point_target ($the_macro);
          execute_target ($the_macro); #not at proper place
+         seek $file, $curpos, 0;
          return (get_prereq ($pre1) . get_prereq ($pre2));
       }
       else { $the_macro = $macros {$the_macro}; }
-      return (get_prereq ($pre1) . $the_macro . get_prereq ($pre2));
+      return (get_prereq ($pre1) . trim $the_macro . get_prereq ($pre2));
    }
-
    else { return $prereq; }
 }
 
-my %target_times = ();
 #need_commands
 #returns true if commands need to be executed
 #false otherwise
@@ -279,6 +254,16 @@ sub need_commands {
       return 1;
    }
    elsif ($target_times {$target} >= $most_rec) { return 0; } 
+}
+
+sub point_target {
+   my $target = shift;
+   while (defined (my $line = <$file>)) {
+      chomp $line;
+      if ($line =~ /$target.*:/) { return; }
+   }
+   print STDERR "Target: ", $target, " not found\n";
+   exit 1;
 }
 
 #execute_commands
@@ -309,11 +294,54 @@ sub execute_target {
       print STDERR "target: ", $target, " not found\n";
       return;
    }
+   printf "target: %s\n", $target;
    $prereqs = $targets {$target};
    $prereqs = get_prereq ($prereqs, $target);
+   printf "prereqs: %s\n", $prereqs;
    my @prereq_list = split (' ', $prereqs);
    if (not @prereq_list or need_commands (@prereq_list, $target)) {
       execute_commands ($target, $prereqs);
+   }
+}
+
+# --------------------------------------------------------------------
+# Script
+# --------------------------------------------------------------------
+
+if ($opts{'d'}) { exit $status; }
+
+if ($opts{'f'}) { 
+   open $file, "<$ARGV[0]" or warn "$ARGV[0]: $1\n" and next; 
+}
+else { open $file, "<Makefile" or warn "Makefile: $1\n" and next; }
+
+for my $target (@ARGV) {
+   if (not $opts{'f'}) { push @target_list, $target; }
+   else { if ($target ne $ARGV[0]) { push @target_list, $target; }}
+}
+
+#first pass over file
+while (defined (my $line = <$file>)) { 
+   chomp $line;
+   if ($line =~ /#.*/) { next; }
+   if ($line =~ /.*=.*/) { 
+      my $macro_key;
+      my $macro_val;
+      ($macro_key, $macro_val) = split ('=', $line);
+      $macros {trim ($macro_key)} = get_macro_val ($macro_val); 
+   }
+   if ($line =~/\t/) { next; } #ignore in first pass
+   if ($line =~ /.*:.*/) {
+      if (not (@target_list)) {
+         my $throw_away;
+         my $target;
+         ($target, $throw_away) = split (':', $line);
+         push @target_list, $target;
+      }
+      my $prereqs;
+      my $target;
+      ($target, $prereqs) = split (':', $line, 2);
+      hash_target ($target, $prereqs);
    }
 }
 
