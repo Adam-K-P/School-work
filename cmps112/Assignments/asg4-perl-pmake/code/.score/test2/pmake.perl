@@ -189,6 +189,7 @@ sub get_prereq {
    my $perf_tar = shift; #whether to execute targets
    my $pre1;
    my $pre2;
+   printf "prereq: %s\n", $prereq;
 
    if ($prereq =~ /\$\$/) {
       printf "here\n";
