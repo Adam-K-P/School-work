@@ -65,7 +65,7 @@ clean :
 	rm oc
 
 del :
-	rm *str *tok *ast *sym
+	rm *str *tok *ast *sym *oil
 
 spotless : clean
 	- rm ${EXECBIN} List.*.ps List.*.pdf
