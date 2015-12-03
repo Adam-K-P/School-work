@@ -1,0 +1,6 @@
+bool __is_safe (
+        int _1_newcol)
+{
+void __queens (
+        int _1_newcol)
+{

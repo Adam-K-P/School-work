@@ -336,12 +336,14 @@ sub execute_commands {
          my $throw_away;
          ($throw_away, $line) = split (/\t-/, $line, 2);
          $line = get_prereq ($line, $target, 0);
+         printf "%s\n", $line;
          system $line;
       }
       elsif ($line =~ '\t') {
          my $throw_away;
          ($throw_away, $line) = split ('\t', $line, 2);
          $line = get_prereq ($line, $target, 0);
+         printf "%s\n", $line;
          system $line;
       }
       else { return; } #arriving here twice

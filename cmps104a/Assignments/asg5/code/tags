@@ -1,0 +1,241 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLCSRC	Makefile	/^ALLCSRC   = ${CPPSRC} ${CGENS}$/;"	m
+ALLGENS	Makefile	/^ALLGENS   = ${LEXHDR} ${PARSEHDR} ${CGENS}$/;"	m
+ALLSRC	Makefile	/^ALLSRC    = README ${FLEXSRC} ${BISONSRC} ${MODSRC} ${MISCSRC} Makefile$/;"	m
+ATTR_array	symbol_table.h	/^       ATTR_string, ATTR_struct, ATTR_array, ATTR_function,$/;"	e	enum:__anon1
+ATTR_bitset_size	symbol_table.h	/^       ATTR_bitset_size,$/;"	e	enum:__anon1
+ATTR_bool	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_char	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_const	symbol_table.h	/^       ATTR_lval, ATTR_const, ATTR_vreg, ATTR_vaddr,$/;"	e	enum:__anon1
+ATTR_field	symbol_table.h	/^       ATTR_variable, ATTR_field, ATTR_typeid, ATTR_param,$/;"	e	enum:__anon1
+ATTR_function	symbol_table.h	/^       ATTR_string, ATTR_struct, ATTR_array, ATTR_function,$/;"	e	enum:__anon1
+ATTR_int	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_lval	symbol_table.h	/^       ATTR_lval, ATTR_const, ATTR_vreg, ATTR_vaddr,$/;"	e	enum:__anon1
+ATTR_null	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_param	symbol_table.h	/^       ATTR_variable, ATTR_field, ATTR_typeid, ATTR_param,$/;"	e	enum:__anon1
+ATTR_string	symbol_table.h	/^       ATTR_string, ATTR_struct, ATTR_array, ATTR_function,$/;"	e	enum:__anon1
+ATTR_struct	symbol_table.h	/^       ATTR_string, ATTR_struct, ATTR_array, ATTR_function,$/;"	e	enum:__anon1
+ATTR_typeid	symbol_table.h	/^       ATTR_variable, ATTR_field, ATTR_typeid, ATTR_param,$/;"	e	enum:__anon1
+ATTR_vaddr	symbol_table.h	/^       ATTR_lval, ATTR_const, ATTR_vreg, ATTR_vaddr,$/;"	e	enum:__anon1
+ATTR_variable	symbol_table.h	/^       ATTR_variable, ATTR_field, ATTR_typeid, ATTR_param,$/;"	e	enum:__anon1
+ATTR_void	symbol_table.h	/^enum { ATTR_void, ATTR_bool, ATTR_char, ATTR_int, ATTR_null,$/;"	e	enum:__anon1
+ATTR_vreg	symbol_table.h	/^       ATTR_lval, ATTR_const, ATTR_vreg, ATTR_vaddr,$/;"	e	enum:__anon1
+BISON	Makefile	/^BISON     = bison --defines=${PARSEHDR} --output=${PARSECPP}$/;"	m
+BISONSRC	Makefile	/^BISONSRC  = parser.y$/;"	m
+CGENS	Makefile	/^CGENS     = ${LEXCPP} ${PARSECPP}$/;"	m
+CPP	Makefile	/^CPP       = g++ -g -O0 -Wall -Wextra -std=gnu++11$/;"	m
+CPP	main.cpp	/^const string CPP = "\/usr\/bin\/cpp";$/;"	v
+CPPSRC	Makefile	/^CPPSRC    = ${MODULES:=.cpp} main.cpp$/;"	m
+DEBUGF	auxlib.h	102;"	d
+DEBUGF	auxlib.h	108;"	d
+DEBUGSTMT	auxlib.h	103;"	d
+DEBUGSTMT	auxlib.h	110;"	d
+DEPSFILE	Makefile	/^DEPSFILE  = Makefile.deps$/;"	m
+EXECBIN	Makefile	/^EXECBIN   = oc$/;"	m
+EXECTEST	Makefile	/^EXECTEST  = ${EXECBIN} -ly$/;"	m
+FLEX	Makefile	/^FLEX      = flex --header-file=${LEXHDR} --outfile=${LEXCPP}$/;"	m
+FLEXSRC	Makefile	/^FLEXSRC   = lexer.l$/;"	m
+GRIND	Makefile	/^GRIND     = valgrind --leak-check=full --show-reachable=yes$/;"	m
+HDRSRC	Makefile	/^HDRSRC    = ${MODULES:=.h}$/;"	m
+LEXCPP	Makefile	/^LEXCPP    = yylex.cpp$/;"	m
+LEXHDR	Makefile	/^LEXHDR    = yylex.h$/;"	m
+LEXOUT	Makefile	/^LEXOUT    = yylex.output$/;"	m
+LINESIZE	main.cpp	/^const size_t LINESIZE = 1024;$/;"	v
+LISTSRC	Makefile	/^LISTSRC   = ${ALLSRC} ${DEPSFILE} ${PARSEHDR}$/;"	m
+MISCSRC	Makefile	/^MISCSRC   = ${filter-out ${MODSRC}, ${HDRSRC} ${CPPSRC}}$/;"	m
+MKDEPS	Makefile	/^MKDEPS    = g++ -MM -std=gnu++11$/;"	m
+MODSRC	Makefile	/^MODSRC    = ${foreach MOD, ${MODULES}, ${MOD}.h ${MOD}.cpp}$/;"	m
+MODULES	Makefile	/^MODULES   = astree utils stringset emitter syslib symbol_table$/;"	m
+NEEDINCL	Makefile	/^NEEDINCL  = ${filter ${NOINCLUDE}, ${MAKECMDGOALS}}$/;"	m
+NOINCLUDE	Makefile	/^NOINCLUDE = ci clean spotless$/;"	m
+OBJECTS	Makefile	/^OBJECTS   = ${ALLCSRC:.cpp=.o}$/;"	m
+PARSECPP	Makefile	/^PARSECPP  = yyparse.cpp$/;"	m
+PARSEHDR	Makefile	/^PARSEHDR  = yyparse.h$/;"	m
+PARSEOUT	Makefile	/^PARSEOUT  = yyparse.output$/;"	m
+RCS2	auxlib.h	119;"	d
+RCS3	auxlib.h	118;"	d
+RCSC	auxlib.h	121;"	d
+RCSH	auxlib.h	120;"	d
+REPORTS	Makefile	/^REPORTS   = ${LEXOUT} ${PARSEOUT}$/;"	m
+STUBPRINTF	auxlib.h	77;"	d
+TESTINS	Makefile	/^TESTINS   = ${wildcard test*.in}$/;"	m
+YYEOF	main.cpp	26;"	d	file:
+YYSTYPE	utils.h	43;"	d
+__ASTREE_H__	astree.h	4;"	d
+__AUXLIB_H__	auxlib.h	2;"	d
+__EMIT_H__	emitter.h	4;"	d
+__OCLIB_C__	oc-programs/oclib.c	10;"	d	file:
+__STRINGSET__	stringset.h	8;"	d
+__SYMBOL_TABLE_H	symbol_table.h	5;"	d
+__SYSLIB_H__	syslib.h	4;"	d
+__UTILS_H__	utils.h	4;"	d
+____assert_fail	oc-programs/oclib.c	/^void ____assert_fail (char* expr, char* file, int line) {$/;"	f
+__debugprintf	auxlib.cpp	/^void __debugprintf (char flag, const char* file, int line,$/;"	f
+__endl	oc-programs/oclib.c	/^void __endl (void)       { printf ("\\n"); fflush (NULL); }$/;"	f
+__exit	oc-programs/oclib.c	/^void __exit (int status) { exit (status); }$/;"	f
+__getargv	oc-programs/oclib.c	/^char** __getargv (void)  { return oc_argv; }$/;"	f
+__getc	oc-programs/oclib.c	/^int __getc (void)        { return getchar(); } $/;"	f
+__getln	oc-programs/oclib.c	/^char* __getln (void)     { return scan (isfalse, isnl); } $/;"	f
+__getw	oc-programs/oclib.c	/^char* __getw (void)      { return scan (isspace, isspace); }$/;"	f
+__putb	oc-programs/oclib.c	/^void __putb (char byte)  { printf ("%s", byte ? "true" : "false"); } $/;"	f
+__putc	oc-programs/oclib.c	/^void __putc (char byte)  { printf ("%c", byte); } $/;"	f
+__puti	oc-programs/oclib.c	/^void __puti (int val)    { printf ("%d", val); }$/;"	f
+__puts	oc-programs/oclib.c	/^void __puts (char* str)  { printf ("%s", str); }$/;"	f
+__stubprintf	auxlib.cpp	/^void __stubprintf (const char* file, int line, const char* func,$/;"	f
+add_field	symbol_table.cpp	/^void add_field (astree* node, symbol_table* field_table) {$/;"	f
+add_fields	symbol_table.cpp	/^void add_fields (astree* node, symbol_table* field_table) {$/;"	f
+add_type	symbol_table.cpp	/^void add_type (astree* node) {$/;"	f
+adopt	astree.cpp	/^astree* astree::adopt (astree* child1, astree* child2) {$/;"	f	class:astree
+adopt_sym	astree.cpp	/^astree* astree::adopt_sym (astree* child, int symbol_) {$/;"	f	class:astree
+advance	utils.cpp	/^void lexer::advance() {$/;"	f	class:lexer
+alldebugflags	auxlib.cpp	/^static bool alldebugflags = false;$/;"	v	file:
+alloc	parser.y	/^alloc   : TOK_KW_NEW TOK_IDENT '(' ')'$/;"	l
+arith_types	symbol_table.cpp	/^void arith_types (astree* node) {$/;"	f
+astree	astree.cpp	/^astree::astree (int symbol_, const location& lloc_, const char* info) {$/;"	f	class:astree
+astree	astree.h	/^struct astree {$/;"	s
+attributes	astree.h	/^   attr_bitset attributes;$/;"	m	struct:astree
+attributes	symbol_table.h	/^   attr_bitset attributes;$/;"	m	struct:symbol
+bad_type_error	symbol_table.cpp	/^void bad_type_error (astree* node) {$/;"	f
+badchar	utils.cpp	/^void lexer::badchar (unsigned char bad) {$/;"	f	class:lexer
+badtoken	utils.cpp	/^void lexer::badtoken (char* lexeme) {$/;"	f	class:lexer
+basetype	parser.y	/^basetype: TOK_KW_VOID           { $$ = $1; }$/;"	l
+block	parser.y	/^block   : '{' stmtseq '}'       { destroy ($1, $3); $/;"	l
+blocknr	astree.h	/^   size_t blocknr;$/;"	m	struct:astree
+blocknr	symbol_table.cpp	/^size_t blocknr = 0;$/;"	v
+blocknr	symbol_table.h	/^   size_t blocknr;$/;"	m	struct:symbol
+call	parser.y	/^call    : TOK_IDENT '(' ')'     { destroy ($3);$/;"	l
+change_sym	astree.cpp	/^astree* astree::change_sym (int symbol_) {$/;"	f	class:astree
+check_suffix	main.cpp	/^static string check_suffix (int argc, char** argv) {$/;"	f	file:
+children	astree.h	/^   vector<astree*> children; \/\/ children of this n-way node$/;"	m	struct:astree
+chomp	main.cpp	/^static void chomp (char* string, char delim) {$/;"	f	file:
+const	parser.y	/^const   : NUMBER                { $$ = $1; }$/;"	l
+cpp_flags	main.cpp	/^string cpp_flags = "";$/;"	v
+cpplines	main.cpp	/^static void cpplines (FILE* pipe, char* infile_name) {$/;"	f	file:
+debugflags	auxlib.cpp	/^static const char* debugflags = "";$/;"	v	file:
+destroy	astree.cpp	/^void destroy (astree* tree1, astree* tree2) {$/;"	f
+dump	astree.cpp	/^void astree::dump (FILE* outfile, astree* tree, int token) {$/;"	f	class:astree
+dump_node	astree.cpp	/^void astree::dump_node (FILE* outfile, int token) {$/;"	f	class:astree
+dump_stringset	stringset.cpp	/^void dump_stringset (ostream& out) {$/;"	f
+dump_tree	astree.cpp	/^void astree::dump_tree (FILE* outfile, int depth, int token) {$/;"	f	class:astree
+emit	emitter.cpp	/^void emit (astree* tree) {$/;"	f
+emit_assign	emitter.cpp	/^void emit_assign (astree* tree) {$/;"	f
+emit_insn	emitter.cpp	/^void emit_insn (const char* opcode, const char* operand, astree* tree) {$/;"	f
+emit_push	emitter.cpp	/^void emit_push (astree* tree, const char* opcode) {$/;"	f
+emit_sm_code	emitter.cpp	/^void emit_sm_code (astree* tree) {$/;"	f
+emplace_new_type	symbol_table.cpp	/^void emplace_new_type (astree* node) {$/;"	f
+eprint_signal	auxlib.cpp	/^static void eprint_signal (const char* kind, int signal) {$/;"	f	file:
+eprint_signal	syslib.cpp	/^static void eprint_signal (const char* kind, int signal) {$/;"	f	file:
+eprint_status	auxlib.cpp	/^void eprint_status (const char* command, int status) {$/;"	f
+eprint_status	syslib.cpp	/^void eprint_status (const char* command, int status) {$/;"	f
+eprintf	auxlib.cpp	/^void eprintf (const char* format, ...) {$/;"	f
+errllocprintf	astree.cpp	/^void errllocprintf (const location& lloc, const char* format,$/;"	f
+errprintf	auxlib.cpp	/^void errprintf (const char* format, ...) {$/;"	f
+errprintf	syslib.cpp	/^void errprintf (const char* format, ...) {$/;"	f
+exec	syslib.h	/^struct exec {$/;"	s
+execname	auxlib.cpp	/^static const char* execname = NULL;$/;"	v	file:
+execname	syslib.cpp	/^string exec::execname;$/;"	m	class:exec	file:
+execname	syslib.h	/^   static string execname;$/;"	m	struct:exec
+exit_status	syslib.cpp	/^int exec::exit_status = EXIT_SUCCESS;$/;"	m	class:exec	file:
+exit_status	syslib.h	/^   static int exit_status;$/;"	m	struct:exec
+exitstatus	auxlib.cpp	/^static int exitstatus = EXIT_SUCCESS;$/;"	v	file:
+expr	parser.y	/^expr    : expr BOOL_EQ expr     { $$ = $2->adopt ($1, $3); }$/;"	l
+exprhlp	parser.y	/^exprhlp : ',' exprseq           { destroy ($1); $$ = $2; }$/;"	l
+exprseq	parser.y	/^exprseq : exprhlp               { $$ = $1; }$/;"	l
+fieldec	parser.y	/^fieldec : basetype TOK_IDENT ';'$/;"	l
+fields	symbol_table.h	/^   symbol_table* fields;$/;"	m	struct:symbol
+fieldsq	parser.y	/^fieldsq : fieldsq fieldec       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
+filename	utils.cpp	/^const string* lexer::filename (int filenr) {$/;"	f	class:lexer
+filenames	utils.cpp	/^vector<string> lexer::filenames;$/;"	m	class:lexer	file:
+filenames	utils.h	/^   static vector<string> filenames;$/;"	m	struct:lexer
+filenr	astree.h	/^   size_t filenr;$/;"	m	struct:location
+filenr	symbol_table.h	/^   size_t filenr, linenr, offset;$/;"	m	struct:symbol
+flags	main.cpp	/^bool flags = false;$/;"	v
+fnction	parser.y	/^fnction : identdc '(' identsq ')' block     $/;"	l
+generate_set	main.cpp	/^static void generate_set (char* infile_name, string& base_out_name) {$/;"	f	file:
+get_attributes	symbol_table.cpp	/^const char* get_attributes (attr_bitset attributes) {$/;"	f
+get_execname	auxlib.cpp	/^const char* get_execname (void) {$/;"	f
+get_exitstatus	auxlib.cpp	/^int get_exitstatus (void) {$/;"	f
+identdc	parser.y	/^identdc : basetype '[' ']' TOK_IDENT   $/;"	l
+identsq	parser.y	/^identsq : isqhelp               { $$ = $1; }$/;"	l
+ifelse	parser.y	/^ifelse  : TOK_KW_IF '(' expr ')' statmnt TOK_KW_ELSE statmnt$/;"	l
+include	utils.cpp	/^void lexer::include() {$/;"	f	class:lexer
+insert_set	main.cpp	/^static void insert_set (char* infile_name) {$/;"	f	file:
+insert_var_fn	symbol_table.cpp	/^void insert_var_fn (astree* node) {$/;"	f
+interactive	utils.h	/^   static bool interactive;$/;"	m	struct:lexer
+intern_stringset	stringset.cpp	/^const string* intern_stringset (const char* insert) {$/;"	f
+is_debugflag	auxlib.cpp	/^bool is_debugflag (char flag) {$/;"	f
+isfalse	oc-programs/oclib.c	/^int isfalse (int byte)   { return 0 & byte; } $/;"	f
+isnl	oc-programs/oclib.c	/^int isnl (int byte)      { return byte == '\\n'; }$/;"	f
+isqhelp	parser.y	/^isqhelp : ',' identsq           { destroy ($1); $$ = $2; }$/;"	l
+last_yyleng	utils.cpp	/^size_t lexer::last_yyleng = 0;$/;"	m	class:lexer	file:
+last_yyleng	utils.h	/^   static size_t last_yyleng;$/;"	m	struct:lexer
+lexer	utils.h	/^struct lexer {$/;"	s
+lexinfo	astree.h	/^   const string* lexinfo;    \/\/ pointer to lexical information$/;"	m	struct:astree
+linenr	astree.h	/^   size_t linenr;$/;"	m	struct:location
+linenr	symbol_table.h	/^   size_t filenr, linenr, offset;$/;"	m	struct:symbol
+lloc	astree.h	/^   location lloc;            \/\/ source location$/;"	m	struct:astree
+lloc	utils.cpp	/^location lexer::lloc = {0, 1, 0};$/;"	m	class:lexer	file:
+lloc	utils.h	/^   static location lloc;$/;"	m	struct:lexer
+location	astree.h	/^struct location {$/;"	s
+main	main.cpp	/^int main (int argc, char** argv) {$/;"	f
+main	oc-programs/oclib.c	/^int main (int argc, char** argv) {$/;"	f
+maintain_symbol_tables	symbol_table.cpp	/^void maintain_symbol_tables (astree* node, FILE* outfile) {$/;"	f
+new_scope	symbol_table.cpp	/^void new_scope (astree* node) {$/;"	f
+newfilename	utils.cpp	/^void lexer::newfilename (char* filename) {$/;"	f	class:lexer
+newline	utils.cpp	/^void lexer::newline() {$/;"	f	class:lexer
+node_symbol	symbol_table.cpp	/^symbol* node_symbol (astree* node) {$/;"	f
+oc_argv	oc-programs/oclib.c	/^char** oc_argv;$/;"	v
+offset	astree.h	/^   size_t offset;$/;"	m	struct:location
+offset	symbol_table.h	/^   size_t filenr, linenr, offset;$/;"	m	struct:symbol
+open_yyin	main.cpp	/^static void open_yyin (char* infile_name) {$/;"	f	file:
+parameters	symbol_table.h	/^   vector<symbol*>* parameters;$/;"	m	struct:symbol
+parser	utils.h	/^struct parser {$/;"	s
+perform_flex	main.cpp	/^static void perform_flex (const char* outfile_name) {$/;"	f	file:
+perform_op	main.cpp	/^static void perform_op (int argc, char **argv) {$/;"	f	file:
+perform_scnd_trav	symbol_table.cpp	/^void perform_scnd_trav (astree* node, FILE* outfile) {$/;"	f
+perform_traversal	symbol_table.cpp	/^void perform_traversal (astree* node) {$/;"	f
+postorder	emitter.cpp	/^void postorder (astree* tree) {$/;"	f
+postorder_emit_oper	emitter.cpp	/^void postorder_emit_oper (astree* tree, const char* opcode) {$/;"	f
+postorder_emit_semi	emitter.cpp	/^void postorder_emit_semi (astree* tree) {$/;"	f
+postorder_emit_stmts	emitter.cpp	/^void postorder_emit_stmts (astree* tree) {$/;"	f
+print	astree.cpp	/^void astree::print (FILE* outfile, astree* tree, int depth) {$/;"	f	class:astree
+print_coords	symbol_table.cpp	/^void print_coords (astree* node, FILE* outfile) {$/;"	f
+program	parser.y	/^program : program structd       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
+return	parser.y	/^return  : TOK_KW_RETURN ';'     { destroy ($2); $/;"	l
+root	utils.cpp	/^astree* parser::root = nullptr;$/;"	m	class:parser	file:
+root	utils.h	/^   static astree* root;$/;"	m	struct:parser
+scan	oc-programs/oclib.c	/^char* scan (int (*skipover) (int), int (*stopat) (int)) {$/;"	f
+scan_file	main.cpp	/^static void scan_file (char* infile_name, string& outfile_name) {$/;"	f	file:
+second_traversal	symbol_table.cpp	/^void second_traversal (astree* node, FILE* outfile) {$/;"	f
+set_debugflags	auxlib.cpp	/^void set_debugflags (const char* flags) {$/;"	f
+set_execname	auxlib.cpp	/^void set_execname (char* argv0) {$/;"	f
+set_exitstatus	auxlib.cpp	/^void set_exitstatus (int newexitstatus) {$/;"	f
+set_params	symbol_table.cpp	/^void set_params (astree* node) {$/;"	f
+set_status	syslib.cpp	/^void exec::set_status (int status) {$/;"	f	class:exec
+start	parser.y	/^start   : program               { $$ = parser::root = $1; }$/;"	l
+statmnt	parser.y	/^statmnt : expr ';'              { destroy ($2); $$ = $1; }$/;"	l
+stmtseq	parser.y	/^stmtseq : stmtseq statmnt       { $$ = $$->adopt ($2); (void) $1; }$/;"	l
+struct_name	astree.h	/^   const char* struct_name;$/;"	m	struct:astree
+struct_name	symbol_table.h	/^   const char* struct_name;$/;"	m	struct:symbol
+structd	parser.y	/^structd : TOK_KW_STRUCT TOK_IDENT '{' fieldsq '}'$/;"	l
+symbol	astree.h	/^   int symbol;               \/\/ token code$/;"	m	struct:astree
+symbol	symbol_table.h	/^struct symbol {$/;"	s
+syserrprintf	auxlib.cpp	/^void syserrprintf (const char* object) {$/;"	f
+syserrprintf	syslib.cpp	/^void syserrprintf (const char* object) {$/;"	f
+table	astree.h	/^   symbol_table* table;$/;"	m	struct:astree
+this_symbol	astree.h	/^   struct symbol* this_symbol;$/;"	m	struct:astree	typeref:struct:astree::symbol
+traversal	symbol_table.cpp	/^void traversal (astree *node) {$/;"	f
+type_table	symbol_table.cpp	/^symbol_table type_table;$/;"	v
+vardecl	parser.y	/^vardecl : identdc '=' expr ';'  { destroy ($4); $/;"	l
+variabl	parser.y	/^variabl : TOK_IDENT             { $$ = $1; }$/;"	l
+veprintf	auxlib.cpp	/^void veprintf (const char* format, va_list args) {$/;"	f
+while	parser.y	/^while   : TOK_KW_WHILE '(' expr ')' statmnt$/;"	l
+xcalloc	oc-programs/oclib.c	/^void* xcalloc (int nelem, int size) {$/;"	f
+yy_debug	main.cpp	/^bool yy_debug = false;$/;"	v
+yyerror	utils.cpp	/^void yyerror (const char* message) {$/;"	f
+~astree	astree.cpp	/^astree::~astree() {$/;"	f	class:astree

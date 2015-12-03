@@ -171,7 +171,7 @@ sub hash_target {
    my $prereqs = shift;
    my $the_macro;
    $target = trim ($target);
-   if (wildcard ($target, $prereqs)) { return; }
+   if (wildcard ($target, $prereqs)) { return; } #change this behavior
    if ($target =~ /\${.*}/) {
       my $t1;
       my $t2;
@@ -336,13 +336,15 @@ sub execute_commands {
          my $throw_away;
          ($throw_away, $line) = split (/\t-/, $line, 2);
          $line = get_prereq ($line, $target, 0);
-         system $line;
+         printf "%s\n", $line;
+         system $line unless $opts {'n'};
       }
       elsif ($line =~ '\t') {
          my $throw_away;
          ($throw_away, $line) = split ('\t', $line, 2);
          $line = get_prereq ($line, $target, 0);
-         system $line;
+         printf "%s\n", $line;
+         system $line unless $opts {'n'};
       }
       else { return; } #arriving here twice
    }
