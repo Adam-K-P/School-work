@@ -132,7 +132,6 @@ sub push_target {
       ($the_macro, $t2) = split ('}', $the_macro, 2);
    }
    else { $the_macro = $target; }
-   printf "the_macro: %s\n", $the_macro;
    push @target_list, $the_macro;
 }
 
@@ -191,7 +190,6 @@ sub get_prereq {
    my $pre1;
    my $pre2;
 
-   printf "prereq: %s\n", $prereq;
    if ($prereq =~ /\$\$/) {
       ($pre1, $pre2) = split (/\$\$/, $prereq, 2);
       return (get_prereq ($pre1, $target, $perf_tar) . '$' 
@@ -239,7 +237,6 @@ sub get_prereq {
       my @macro_exps = split (' ', $macro_exp);
       for my $macro (@macro_exps) {
          if (defined ($targets {$macro}) and $perf_tar) {
-            printf "macro: %s\n", $macro;
             my $curpos = tell $file;
             seek $file, 0, 0;
             point_target ($macro);
@@ -268,6 +265,26 @@ sub get_prereq {
    else { return $prereq; }
 }
 
+sub check_prereqs {
+   my $prereqs = shift;
+   my $target = shift;
+   my $retval = 1;
+   
+   my @prereq_list = split (' ', $prereqs);
+   for my $prereq (@prereq_list) {
+      if (defined $targets {$prereq}) {
+         $retval = 0;
+         my $curpos = tell $file;
+         seek $file, 0, 0;
+         point_target ($prereq);
+         execute_target ($prereq);
+         seek $file, $curpos, 0;
+      }
+   }
+   return $retval;
+}
+
+
 #need_commands
 #returns true if commands need to be executed
 #false otherwise
@@ -276,19 +293,18 @@ sub need_commands {
    my $prereqs = shift;
    my @prereq_list = split (' ', $prereqs);
    #my @prereq_list = shift;
-   for my $prereq (@prereq_list) {
-      printf "prereq should: %s\n", $prereq;
-   }
    my $target = shift;
    my $most_rec = 0;
    for my $prereq (@prereq_list) {
       if (defined $targets {$prereq}) { execute_target ($prereq); }
-      my @stat = stat $prereq;
-      if (not @stat) {
-         print STDERR "File: ", $prereq, " not found\n";
-         exit 1;
+      else {
+         my @stat = stat $prereq;
+         if (not @stat) {
+            print STDERR "File: ", $prereq, " not found\n";
+            exit 1;
+         }
+         elsif ($stat[9] > $most_rec) { $most_rec = $stat[9]; }
       }
-      elsif ($stat[9] > $most_rec) { $most_rec = $stat[9]; }
    }
    if (not defined ($target_times {$target})) {
       $target_times {$target} = $most_rec;
@@ -300,7 +316,6 @@ sub need_commands {
 
 sub point_target {
    my $target = shift;
-   printf "target: %s\n", $target;
    while (defined (my $line = <$file>)) {
       chomp $line;
       if ($line =~ /$target.*:/) { return; }
@@ -317,12 +332,10 @@ sub execute_commands {
    my $prereqs = shift;
    while (defined (my $line = <$file>)) {
       chomp $line;
-      printf "line: %s\n", $line;
       if ($line =~ /\t-/) {
          my $throw_away;
          ($throw_away, $line) = split (/\t-/, $line, 2);
          $line = get_prereq ($line, $target, 0);
-         printf "line: %s\n", $line;
          system $line;
       }
       elsif ($line =~ '\t') {
@@ -344,16 +357,14 @@ sub execute_target {
       print STDERR "target: ", $target, " not found\n";
       return;
    }
-   printf "target: %s\n", $target;
    $prereqs = $targets {$target};
-   $prereqs = get_prereq ($prereqs, $target, 1) if trim $prereqs;
+   if (check_prereqs ($prereqs, $target)) {
+      $prereqs = get_prereq ($prereqs, $target, 1) if trim $prereqs;
+   }
    #my @prereq_list = split (' ', $prereqs);
    if (not $prereqs or need_commands ($prereqs, $target)) {
       execute_commands ($target, $prereqs);
    }
-      #if (not @prereq_list or need_commands (@prereq_list, $target)) {
-      #execute_commands ($target, $prereqs);
-      #}
 }
 
 # --------------------------------------------------------------------
