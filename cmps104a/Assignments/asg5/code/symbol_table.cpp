@@ -19,6 +19,12 @@ vector<symbol_table*> symbol_stack;
 
 size_t blocknr = 0;
 
+symbol_table* get_globals () {
+   if (symbol_stack.size())
+      return symbol_stack.at(0);
+   else return nullptr;
+}
+
 symbol* node_symbol (astree* node) {
    symbol* this_node = new symbol();
    this_node->attributes  = node->attributes;
