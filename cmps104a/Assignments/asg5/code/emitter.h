@@ -7,7 +7,7 @@
 
 extern FILE* oilfile;
 
-void emit_sm_code (astree*);
+void emit (astree*);
 
 #endif
 

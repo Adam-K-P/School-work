@@ -21,8 +21,11 @@ int a_num = 1;
 int c_num = 1;
 int p_num = 1;
 int s_num = 1;
+int b_num = 1;
 
 deque<string> string_cons;
+
+void emit_assign (astree* tree) {}
 
 void emit_stmts (astree* tree) {
    switch (tree->symbol) {
@@ -32,15 +35,26 @@ void emit_stmts (astree* tree) {
              emit_stmts (tree->children.at(i));
          break;
 
+      case TOK_KW_WHILE:
+         fprintf (oilfile, "while_%lu_%lu_%lu:;\n", tree->lloc.filenr,
+                                                    tree->lloc.linenr,
+                                                    tree->lloc.offset);
+         break;
+
       case TOK_KW_IF:
+         fprintf (oilfile, "if_%lu_%lu_%lu:;\n", tree->lloc.filenr,
+                                                 tree->lloc.linenr,
+                                                 tree->lloc.offset);
          break;
 
       case TOK_VARDECL:
+      case '=':
+         emit_assign (tree);
          break;
 
       /* each of these needs to handle the left side and right side */
 
-      case '=':
+      case '!':
          break;
 
       case '+':
@@ -59,6 +73,9 @@ void emit_stmts (astree* tree) {
          break;
 
       case '>':
+         break;
+
+      case TOK_CALL:
          break;
 
       case TOK_KW_RETURN:
@@ -118,7 +135,7 @@ void emit_global (astree* the_tree, symbol* this_symbol) {
    if (this_symbol->attributes[ATTR_int])
       fprintf (oilfile, "int");
    if (this_symbol->attributes[ATTR_string])
-      fprintf (oilfile, "string");
+      fprintf (oilfile, "char*");
    if (this_symbol->attributes[ATTR_struct])
       fprintf (oilfile, "struct");
    if (this_symbol->attributes[ATTR_array])
@@ -174,19 +191,15 @@ void emit_fcns (astree* tree) {
    for (size_t i = 0; i < tree->children.size(); ++i) 
       if (tree->children.at(i)->symbol == TOK_FUNCTION) 
          emit_func (tree->children.at(i));
+   fprintf (oilfile, "void __ocmain (void)\n{\n");
+   emit_stmts (tree);
 }
 
 /* Program emission */
 void emit (astree* tree) {
+   fprintf (oilfile, "#define __OCLIB_C__\n#include \"oclib.h\"\n");
    emit_structs (tree);
    emit_string_cons (tree);
    emit_globals (tree);
    emit_fcns (tree);
-   emit_stmts (tree);
 }
-
-void emit_sm_code (astree* tree) {
-   printf ("\n");
-   if (tree) emit (tree);
-}
-

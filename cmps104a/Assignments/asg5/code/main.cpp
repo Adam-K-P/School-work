@@ -190,7 +190,7 @@ int main (int argc, char** argv) {
    maintain_symbol_tables (parser::root, symfile);
    astree::print (astfile, parser::root);
    if (parse_rc) fprintf (stderr, "parse failed (%d)\n", parse_rc);
-   emit_sm_code (parser::root);
+   emit (parser::root);
    yylex_destroy();
    return EXIT_SUCCESS;
 }
